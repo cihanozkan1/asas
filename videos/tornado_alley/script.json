@@ -134,6 +134,21 @@
       "text": "Tornado Alley has no official borders, but it can stretch from central Texas, all the way up to the Canadian Prairies.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -104,
+              31,
+              -90,
+              47
+            ]
+          },
+          "fill": "#ff5a5f",
+          "at": "borders",
+          "fillOpacity": 0.3,
+          "soft": true
+        },
+        {
           "type": "route",
           "points": [
             [
@@ -478,23 +493,59 @@
           "type": "route",
           "points": [
             [
-              49,
-              -100
+              24,
+              -92
             ],
             [
-              26,
-              -100
+              29,
+              -95
+            ],
+            [
+              34,
+              -97
+            ],
+            [
+              38,
+              -97
             ]
           ],
-          "color": "#9ca3af",
-          "width": 5,
-          "at": "mountain",
-          "rhumb": true,
-          "dashed": true,
-          "dash": [
-            8,
-            14
-          ]
+          "color": "#ff5a2a",
+          "width": 16,
+          "at": "And",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.0
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              52,
+              -105
+            ],
+            [
+              46,
+              -102
+            ],
+            [
+              41,
+              -99
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 16,
+          "at": "And",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.0
+        },
+        {
+          "type": "icon",
+          "icon": "⛈️",
+          "lat": 39,
+          "lon": -98,
+          "size": 150,
+          "at": "again"
         },
         {
           "type": "stamp",

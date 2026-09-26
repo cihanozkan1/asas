@@ -429,6 +429,48 @@
           "type": "highlight",
           "target": {
             "box": [
+              -80,
+              -90,
+              -20,
+              -60
+            ]
+          },
+          "fill": "#7c3aed",
+          "at": "And",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -90,
+              -90,
+              -53,
+              -60
+            ]
+          },
+          "fill": "#ff5a5f",
+          "at": "And",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -74,
+              -90,
+              -25,
+              -60
+            ]
+          },
+          "fill": "#5ec8ff",
+          "at": "And",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
               -74,
               -90,
               -53,
@@ -486,7 +528,7 @@
             ]
           },
           "fill": "#ffffff",
-          "at": "nobody",
+          "at": "huge",
           "fillOpacity": 0.85,
           "neon": "#9ee7ff"
         },
@@ -528,6 +570,18 @@
       "era": "now",
       "text": "And since the Antarctic Treaty of 1959, the whole continent is set aside for science.",
       "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "ATA"
+            ]
+          },
+          "fill": "#9ee7ff",
+          "at": "Antarctic",
+          "fillOpacity": 0.35,
+          "neon": "#9ee7ff"
+        },
         {
           "type": "year",
           "value": "1959",

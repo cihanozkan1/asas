@@ -102,7 +102,7 @@ save('tornado_alley', meta(
             bars([('USA', 1200, '1,200', '#ff5a5f', 'us'), ('Canada', 62, '62', '#5ec8ff', 'ca')], 'Canada', screen=[0.5, 0.3], labelWidth=220)],
           src=[src('Canada averages 62 per year.', 'Tornado', 'followed by Canada, averaging 62 reported per year')]),
         S("Tornado Alley has no official borders, but it can stretch from central Texas, all the way up to the Canadian Prairies.", [
-            route([(31, -99), (38, -98), (45, -98), (52, -104)], 'stretch', color='#ff5a5f', width=9, drawDur=1.6, arrowHead=True), dot('Central Texas', 31, -99, 'Texas', dy=52), dot('Canadian Prairies', 52, -104, 'Prairies', dy=-52)],
+            hl(box(-104, 31, -90, 47), '#ff5a5f', 'borders', fillOpacity=0.3, soft=True), route([(31, -99), (38, -98), (45, -98), (52, -104)], 'stretch', color='#ff5a5f', width=9, drawDur=1.6, arrowHead=True), dot('Central Texas', 31, -99, 'Texas', dy=52), dot('Canadian Prairies', 52, -104, 'Prairies', dy=-52)],
           cam=at_(41, -99, 2.0),
           src=[src('It can reach from central Texas to the Canadian Prairies.', TA, 'Tornado Alley can also be defined as an area reaching from central Texas to the Canadian Prairies and from eastern Colorado to western Ohio')]),
         S("Most of them hit here, in the middle of the country. It's called Tornado Alley.", [
@@ -124,7 +124,8 @@ save('tornado_alley', meta(
           cam=at_(37, -98, 5), tr='flash',
           src=[src('This creates an ideal environment for tornadoes within supercells.', TA, 'This creates an ideal environment for tornadoes to form within developed thunderstorms and supercells.')]),
         S("And there's no big east-west mountain range to keep these air masses apart. So they meet again and again.", [
-            route([(49, -100), (26, -100)], 'mountain', rhumb=True, color='#9ca3af', width=5, dashed=True, dash=[8, 14]), stamp('NO BARRIER', 'apart', size=86)],
+            flow([(24, -92), (29, -95), (34, -97), (38, -97)], 'And', color='#ff5a2a', width=16, drawDur=1.0), flow([(52, -105), (46, -102), (41, -99)], 'And', color='#5ec8ff', width=16, drawDur=1.0),
+            icon('⛈️', 39, -98, 'again', size=150), stamp('NO BARRIER', 'apart', size=86)],
           cam=at_(38, -97, 2.3),
           src=[src('No major east-west mountain barriers allow frequent collisions of warm and cold air.', 'Tornado', 'This unique topography allows for frequent collisions of warm and cold air, the conditions that breed strong, long-lived storms throughout the year.')]),
     ],
@@ -240,15 +241,16 @@ save('antarctica_claims', meta(
           cam=at_(-90, 60, 1.4),
           src=[src('Norway claims Queen Maud Land (2,700,154 km² incl. Peter I Island); France 351,000 km² (table).', TC, '351,000')]),
         S("And three claims overlap. The UK, Chile and Argentina all want the same land.", [
+            hl(wedge(-80, -20), '#7c3aed', 'And', fillOpacity=0.3), hl(wedge(-90, -53), '#ff5a5f', 'And', fillOpacity=0.3), hl(wedge(-74, -25), '#5ec8ff', 'And', fillOpacity=0.3),
             hl(wedge(-74, -53), '#ff0080', 'overlap', fillOpacity=0.7, neon='#ffd60a'), vs(('gb', 'UK'), ('ar', 'Argentina'), 'want', screen=[0.5, 0.3])],
           cam=at_(-90, -60, 1.5), tr='flash',
           src=[src('Argentine, Chilean and British claims overlap.', TC, 'There are overlaps among the territories claimed by Argentina, Chile, and the United Kingdom.')]),
         S("But one huge area is claimed by nobody: Marie Byrd Land. It's the largest unclaimed territory on Earth.", [
-            hl(wedge(-150, -90), '#ffffff', 'nobody', fillOpacity=0.85, neon='#9ee7ff'), slam('MARIE BYRD LAND', -78, -120, 'Marie', size=54), cnt('1,610,000 km²', 'largest', size=110)],
+            hl(wedge(-150, -90), '#ffffff', 'huge', fillOpacity=0.85, neon='#9ee7ff'), slam('MARIE BYRD LAND', -78, -120, 'Marie', size=54), cnt('1,610,000 km²', 'largest', size=110)],
           cam=at_(-90, -120, 1.5),
           src=[src('Marie Byrd Land (1,610,000 km²) is the largest unclaimed territory on Earth.', 'Marie_Byrd_Land', 'Marie Byrd Land (MBL) is an unclaimed region of Antarctica. With an area of 1,610,000 km2 (620,000 sq mi), it is the largest unclaimed territory on Earth.')]),
         S("And since the Antarctic Treaty of 1959, the whole continent is set aside for science.", [
-            year(1959, '1959', light=True), char('penguin', 'science', say='Science only!'), icon('🔬', -80, 60, 'science', size=110)],
+            hl({'countries': ['ATA']}, '#9ee7ff', 'Antarctic', fillOpacity=0.35, neon='#9ee7ff'), year(1959, '1959', light=True), char('penguin', 'science', say='Science only!'), icon('🔬', -80, 60, 'science', size=110)],
           cam=at_(-90, 0, 1.3, bearing=10),
           src=[src('The 1959 Antarctic Treaty set Antarctica aside as a scientific preserve.', TC, 'set aside Antarctica as a scientific preserve, established freedom of scientific investigation')]),
     ],
