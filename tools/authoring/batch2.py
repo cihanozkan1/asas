@@ -25,7 +25,7 @@ save('northwest_angle', meta(
           cam=at_(48, -95, 7), style='vintage', era='history',
           src=[src('It stems from a 1783 mapping mistake.', 'Northwest_Angle', "The region's existence stems from a 1783 mapping mistake.")]),
         S("The negotiators of the Treaty of Paris, including Benjamin Franklin, used a map that got the Mississippi River and this lake wrong.", [
-            char('franklin', 'Benjamin', name='Benjamin Franklin'), icon('🗺️', 47.8, -92.0, 'map', size=150),
+            hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), char('franklin', 'Benjamin', name='Benjamin Franklin'), icon('🗺️', 47.8, -92.0, 'map', size=150),
             blob({'circle': {'lat': 49.05, 'lon': -94.85, 'km': 32}}, '#5ec8ff', '#1d4ed8', 'lake', fillOpacity=0.55, hold=2),
             route([(47.24, -95.21), (47.45, -94.9), (47.3, -94.2), (46.4, -94.3), (45.6, -94.2), (44.98, -93.27)], 'Mississippi', color='#5ec8ff', width=7, drawDur=1.2, hold=2),
             lab('Lake of the Woods', 49.45, -94.3, 'lake', style='serif', size=48)],
@@ -33,13 +33,14 @@ save('northwest_angle', meta(
           src=[src("Negotiators incl. Benjamin Franklin relied on John Mitchell's inaccurate map.", 'Northwest_Angle',
                    "Negotiators of the Canada-U.S. border, including Benjamin Franklin, relied on John Mitchell's colonial map, which contained critical inaccuracies.")]),
         S("The treaty said the border runs to the lake's northwesternmost point, and then west to the Mississippi.", [
+            hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50),
             route([(48.7, -93.5), (49.2, -94.5), (49.38, -95.15)], 'northwesternmost', color='#c1121f', width=7, drawDur=1.2, hold=1),
             ping(49.38, -95.15, 'point', color='#c1121f'), arrow((49.38, -95.3), (49.38, -97.5), 'west', color='#c1121f')],
           era='history',
           src=[src('The treaty set the boundary through the lake to its "northwesternmost point," then westward to the Mississippi.', 'Northwest_Angle',
                    'The Treaty of Paris consequently set the boundary to run through the lake to its "northwesternmost point," then westward to the Mississippi.')]),
         S("But the Mississippi actually starts far to the south, at Lake Itasca. The line could never reach it.", [
-            ping(47.24, -95.21, 'Itasca', color='#5ec8ff'), dot('Lake Itasca', 47.24, -95.21, 'Itasca', dy=48),
+            hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), ping(47.24, -95.21, 'Itasca', color='#5ec8ff'), dot('Lake Itasca', 47.24, -95.21, 'Itasca', dy=48),
             arrow((49.2, -97.3), (47.5, -95.5), 'south', color='#5ec8ff'), note('???', 48.3, -96.4, 'never', size=80)],
           cam=at_(48.0, -95.3, 6), era='history',
           src=[src("The Mississippi's actual source, Lake Itasca, lies south of Lake of the Woods.", 'Northwest_Angle',
@@ -51,7 +52,7 @@ save('northwest_angle', meta(
           src=[src('Later treaties (Jay Treaty, Treaty of Ghent, 1818 Convention, Webster–Ashburton) clarified the boundary.', 'Northwest_Angle',
                    'Subsequent treaties (Jay Treaty, Treaty of Ghent, Anglo-American Convention of 1818, and Webster-Ashburton Treaty) gradually clarified the boundary, cementing the Angle\'s unusual status.')]),
         S("Today, only 149 people live there, and about 79 percent of the area is water.", [
-            cnt('149', '149', size=200), pill('people (2020)', '149'), icon('🎣', 49.25, -94.85, 'water', size=110)],
+            hl(MN, '#1d4ed8', 0.05, fillOpacity=0.4), ping(*ANGLE, 0.05, color='#ffd60a'), cnt('149', '149', size=200), pill('people (2020)', '149'), icon('🎣', 49.25, -94.85, 'water', size=110)],
           cam=at_(*ANGLE, 40, bearing=-4), tr='flash',
           src=[src('149 residents in 2020; about 79% water.', 'Northwest_Angle', 'With just 149 residents as of the 2020 census ... though about 79% is water')]),
     ],
@@ -82,8 +83,9 @@ save('point_roberts', meta(
           cam=at_(49.0, -122.5, 12), era='history', tr='film',
           src=[src('The 1846 Oregon Treaty fixed the boundary at the 49th parallel.', 'Point_Roberts,_Washington', 'the 1846 Oregon Treaty, which established "the 49th parallel would define the boundary between their respective territories"')]),
         S("But this perfectly straight line cut right across the peninsula, leaving its tip on the American side.", [
-            hl({'circle': {'lat': 48.975, 'lon': -123.06, 'km': 2.2}}, '#1d4ed8', 'tip', fillOpacity=0.35, reveal={'lat': 48.975, 'lon': -123.06}),
-            note('USA', 48.965, -123.02, 'American', size=66)],
+            route([(49.0, -123.3), (49.0, -122.8)], 'line', rhumb=True, color='#ffd60a', width=7, drawDur=0.8),
+            lab('CANADA', 49.03, -123.07, 'perfectly', style='pill', bg='#d52b1e', size=46), lab('USA', 48.975, -123.06, 'tip', style='pill', bg='#1d4ed8', size=46),
+            hl({'circle': {'lat': 48.975, 'lon': -123.06, 'km': 2.2}}, '#1d4ed8', 'tip', fillOpacity=0.35, reveal={'lat': 48.975, 'lon': -123.06})],
           cam=at_(49.0, -123.05, 140),
           src=[src('The 49th parallel left the southern peninsula tip on the US side.', 'Point_Roberts,_Washington', 'leaving this southern peninsula on the American side')]),
         S("To reach the rest of the USA by land, you drive about 40 kilometers through Canada.", [
@@ -97,6 +99,7 @@ save('point_roberts', meta(
           src=[src('Students in grade 4 and above commute to Blaine, crossing the border four times.', 'Point_Roberts,_Washington',
                    'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
         S("Today, about 1,191 people live in this American island on land.", [
+            hl({'circle': {'lat': 48.975, 'lon': -123.06, 'km': 2.2}}, '#1d4ed8', 0.05, fillOpacity=0.35), lab('POINT ROBERTS', 48.99, -123.06, 0.05, style='map', size=54),
             cnt('1,191', '1,191', size=180), pill('people (2020)', '1,191'), ping(*PR, 'American', color='#ffd60a')],
           cam=at_(48.99, -123.05, 150, bearing=-4), tr='flash',
           src=[src('Population 1,191 (2020 census).', 'Point_Roberts,_Washington', 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
@@ -233,8 +236,8 @@ save('panama_canal', meta(
           src=[src('About 14,702 transits a year; over 815,000 by 2012.', 'Panama_Canal', 'The canal handles approximately 14,702 vessel transits yearly, with over 815,000 ships having passed through by 2012')]),
         S("The United States ran the canal for most of the century, but in 1999, Panama finally took control.", [
             year(1999, '1999', light=True), hl({'geojson': 'canal_zone.geojson'}, 'flag:us', 'United', until='Panama'), lab('CANAL ZONE', 9.35, -79.5, 'United', style='pill', bg='#1d4ed8', size=44, until='Panama', fixed=True), hl('PAN', 'flag:pa', 'Panama')],
-          cam=at_(8.6, -80.0, 7, bearing=-3),
+          cam=at_(9.1, -79.7, 55, bearing=-3),
           src=[src('Panama took control in 1999 under the Torrijos–Carter Treaties.', 'Panama_Canal', 'the Panamanian government took control in 1999 following the Torrijos–Carter Treaties of 1977')]),
     ],
     keywords={'panama': '#ff5a5f', 'canal': '#5ec8ff', 'ships': '#5ec8ff', 'america': '#ffd60a'},
-    imagery=[{'bbox': [-80.3, 8.6, -79.2, 9.6], 'width': 3072}])
+    )

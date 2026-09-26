@@ -216,6 +216,47 @@
       "text": "The negotiators of the Treaty of Paris, including Benjamin Franklin, used a map that got the Mississippi River and this lake wrong.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "admin1": "Minnesota",
+            "country": "USA"
+          },
+          "fill": "#b08968",
+          "at": 0.05,
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Manitoba",
+              "Ontario"
+            ],
+            "country": "CAN"
+          },
+          "fill": "#c9a27e",
+          "at": 0.05,
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "label",
+          "text": "USA",
+          "lat": 46.6,
+          "lon": -96.8,
+          "at": 0.05,
+          "style": "serif",
+          "size": 58
+        },
+        {
+          "type": "label",
+          "text": "BRITISH",
+          "lat": 50.2,
+          "lon": -96.8,
+          "at": 0.05,
+          "style": "serif",
+          "size": 50
+        },
+        {
           "type": "character",
           "image": "franklin",
           "screen": [
@@ -312,6 +353,47 @@
       "text": "The treaty said the border runs to the lake's northwesternmost point, and then west to the Mississippi.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "admin1": "Minnesota",
+            "country": "USA"
+          },
+          "fill": "#b08968",
+          "at": 0.05,
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Manitoba",
+              "Ontario"
+            ],
+            "country": "CAN"
+          },
+          "fill": "#c9a27e",
+          "at": 0.05,
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "label",
+          "text": "USA",
+          "lat": 46.6,
+          "lon": -96.8,
+          "at": 0.05,
+          "style": "serif",
+          "size": 58
+        },
+        {
+          "type": "label",
+          "text": "BRITISH",
+          "lat": 50.2,
+          "lon": -96.8,
+          "at": 0.05,
+          "style": "serif",
+          "size": 50
+        },
+        {
           "type": "route",
           "points": [
             [
@@ -366,6 +448,47 @@
       "era": "history",
       "text": "But the Mississippi actually starts far to the south, at Lake Itasca. The line could never reach it.",
       "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Minnesota",
+            "country": "USA"
+          },
+          "fill": "#b08968",
+          "at": 0.05,
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Manitoba",
+              "Ontario"
+            ],
+            "country": "CAN"
+          },
+          "fill": "#c9a27e",
+          "at": 0.05,
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "label",
+          "text": "USA",
+          "lat": 46.6,
+          "lon": -96.8,
+          "at": 0.05,
+          "style": "serif",
+          "size": 58
+        },
+        {
+          "type": "label",
+          "text": "BRITISH",
+          "lat": 50.2,
+          "lon": -96.8,
+          "at": 0.05,
+          "style": "serif",
+          "size": 50
+        },
         {
           "type": "ping",
           "lat": 47.24,
@@ -482,6 +605,23 @@
       "era": "now",
       "text": "Today, only 149 people live there, and about 79 percent of the area is water.",
       "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Minnesota",
+            "country": "USA"
+          },
+          "fill": "#1d4ed8",
+          "at": 0.05,
+          "fillOpacity": 0.4
+        },
+        {
+          "type": "ping",
+          "lat": 49.34,
+          "lon": -95.07,
+          "color": "#ffd60a",
+          "at": 0.05
+        },
         {
           "type": "counter",
           "steps": [

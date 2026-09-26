@@ -132,6 +132,24 @@
       "text": "Experts think it could keep burning for another 250 years.",
       "show": [
         {
+          "type": "ping",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "color": "#ff5a2a",
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "CENTRALIA",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#b91c1c",
+          "size": 46,
+          "dy": 120
+        },
+        {
           "type": "counter",
           "steps": [
             {
@@ -166,6 +184,24 @@
       "era": "history",
       "text": "In 1980, about 1,000 people still lived here.",
       "show": [
+        {
+          "type": "ping",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "color": "#ff5a2a",
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "CENTRALIA",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#b91c1c",
+          "size": 46,
+          "dy": 120
+        },
         {
           "type": "year",
           "value": "1980",
@@ -217,6 +253,24 @@
       "text": "Then, in 1992, the state condemned every single building in town.",
       "show": [
         {
+          "type": "ping",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "color": "#ff5a2a",
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "CENTRALIA",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#b91c1c",
+          "size": 46,
+          "dy": 120
+        },
+        {
           "type": "year",
           "value": "1992",
           "at": "1992"
@@ -265,6 +319,24 @@
       "text": "In 2013, the last seven residents were allowed to stay, but only until the end of their lives.",
       "show": [
         {
+          "type": "ping",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "color": "#ff5a2a",
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "CENTRALIA",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#b91c1c",
+          "size": 46,
+          "dy": 120
+        },
+        {
           "type": "year",
           "value": "2013",
           "light": true,
@@ -279,14 +351,6 @@
             }
           ],
           "size": 200
-        },
-        {
-          "type": "icon",
-          "icon": "🏠",
-          "lat": 40.804,
-          "lon": -76.34,
-          "size": 110,
-          "at": "residents"
         }
       ],
       "camera": {
@@ -306,6 +370,24 @@
       "era": "now",
       "text": "By the 2020 census, only five people were left.",
       "show": [
+        {
+          "type": "ping",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "color": "#ff5a2a",
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "CENTRALIA",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#b91c1c",
+          "size": 46,
+          "dy": 120
+        },
         {
           "type": "bars",
           "items": [

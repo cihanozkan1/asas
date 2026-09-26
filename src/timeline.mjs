@@ -226,6 +226,27 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     el.end = Math.min(Math.max(el.end, end), narration.duration);
   }
 
+  // No dead air: inside a scene, whenever nothing is on screen for more than ~1.4 s, the next
+  // element of that scene comes in early instead of waiting for its word.
+  const visibleAt = (t) => elements.some((e) => !INSTANT.has(e.type) && e.type !== 'title' && e.start <= t && e.end >= t);
+  scenes.forEach((sc, si) => {
+    for (let guard = 0; guard < 12; guard++) {
+      let gapStart = null;
+      for (let t = sc.start + 0.2; t < sc.end; t += 0.1) {
+        if (visibleAt(t)) { gapStart = null; continue; }
+        if (gapStart == null) gapStart = t;
+        if (t - gapStart < 1.4) continue;
+        break;
+      }
+      if (gapStart == null) break;
+      const next = elements.filter((e) => e.scene === si && !INSTANT.has(e.type) && e.type !== 'title' && e.start > gapStart).sort((a, b) => a.start - b.start)[0];
+      if (!next) break;
+      const to = Math.max(sc.start + 0.25, gapStart);
+      next.start = to;
+      if (next.steps) next.steps = next.steps.map((st, k) => (k === 0 ? { ...st, t: Math.min(st.t, to + 0.05) } : st));
+    }
+  });
+
   const VW = cfg.video.width, VH = cfg.video.height;
   const central = (e) => e.screen && e.lat == null && e.type !== 'character' && Math.abs(e.screen[0] - 0.5) <= 0.3;
 

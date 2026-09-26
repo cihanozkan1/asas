@@ -127,6 +127,30 @@
           "at": "1659"
         },
         {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 42.464,
+              "lon": 1.975,
+              "km": 3
+            }
+          },
+          "fill": "#ffd60a",
+          "at": "Llívia",
+          "fillOpacity": 0.35,
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "label",
+          "text": "Llívia",
+          "lat": 42.464,
+          "lon": 1.975,
+          "at": "Llívia",
+          "style": "pill",
+          "bg": "#c1121f",
+          "size": 48
+        },
+        {
           "type": "label",
           "text": "TOWN ≠ VILLAGE",
           "lat": 42.49,

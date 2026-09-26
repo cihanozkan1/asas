@@ -46,9 +46,9 @@
         {
           "type": "highlight",
           "target": "GRL",
-          "fill": "#e0f2fe",
+          "fill": "#38bdf8",
           "at": "Greenland",
-          "fillOpacity": 0.8,
+          "fillOpacity": 0.55,
           "neon": "#9ee7ff"
         },
         {
@@ -56,8 +56,28 @@
           "target": "ISL",
           "fill": "#16a34a",
           "at": "Iceland",
-          "fillOpacity": 0.8,
+          "fillOpacity": 0.9,
           "neon": "#4ade80"
+        },
+        {
+          "type": "label",
+          "text": "GREENLAND",
+          "lat": 74,
+          "lon": -40,
+          "at": "Greenland",
+          "style": "pill",
+          "bg": "#0369a1",
+          "size": 50
+        },
+        {
+          "type": "label",
+          "text": "ICELAND",
+          "lat": 66.3,
+          "lon": -18,
+          "at": "Iceland",
+          "style": "pill",
+          "bg": "#15803d",
+          "size": 46
         },
         {
           "type": "question",
@@ -80,9 +100,9 @@
         {
           "type": "highlight",
           "target": "GRL",
-          "fill": "#e0f2fe",
+          "fill": "#38bdf8",
           "at": "largest",
-          "fillOpacity": 0.85,
+          "fillOpacity": 0.55,
           "neon": "#9ee7ff"
         },
         {
@@ -134,6 +154,22 @@
       "text": "So why call it green? It was a sales trick, by the Viking Erik the Red.",
       "show": [
         {
+          "type": "highlight",
+          "target": "GRL",
+          "fill": "#8b5e34",
+          "at": 0.05,
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "label",
+          "text": "Greenland",
+          "lat": 72,
+          "lon": -40,
+          "at": 0.05,
+          "style": "serif",
+          "size": 60
+        },
+        {
           "type": "character",
           "image": "viking_erik",
           "screen": [
@@ -163,6 +199,13 @@
       "era": "history",
       "text": "The sagas say he called it Greenland, because people would be attracted there if it had a nice name.",
       "show": [
+        {
+          "type": "highlight",
+          "target": "GRL",
+          "fill": "#8b5e34",
+          "at": 0.05,
+          "fillOpacity": 0.5
+        },
         {
           "type": "label",
           "text": "GREAT MARKETING",
@@ -231,9 +274,18 @@
         {
           "type": "highlight",
           "target": "ISL",
-          "fill": "#e0f2fe",
+          "fill": "#8b5e34",
           "at": "Iceland",
-          "fillOpacity": 0.7
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "label",
+          "text": "Iceland",
+          "lat": 66.9,
+          "lon": -18.5,
+          "at": "Iceland",
+          "style": "serif",
+          "size": 60
         },
         {
           "type": "icon",
@@ -269,6 +321,16 @@
       "era": "now",
       "text": "Today, lakes and glaciers cover only 14.3 percent of Iceland.",
       "show": [
+        {
+          "type": "label",
+          "text": "ICELAND",
+          "lat": 66.3,
+          "lon": -18,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#15803d",
+          "size": 46
+        },
         {
           "type": "bars",
           "items": [
@@ -314,6 +376,24 @@
       "era": "now",
       "text": "Because Iceland is warmed by the Gulf Stream, even though it's just south of the Arctic Circle.",
       "show": [
+        {
+          "type": "highlight",
+          "target": "ISL",
+          "fill": "#16a34a",
+          "at": 0.05,
+          "fillOpacity": 0.9,
+          "neon": "#4ade80"
+        },
+        {
+          "type": "label",
+          "text": "ICELAND",
+          "lat": 66.3,
+          "lon": -18,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#15803d",
+          "size": 46
+        },
         {
           "type": "route",
           "points": [

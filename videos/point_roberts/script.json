@@ -190,6 +190,44 @@
       "text": "But this perfectly straight line cut right across the peninsula, leaving its tip on the American side.",
       "show": [
         {
+          "type": "route",
+          "points": [
+            [
+              49.0,
+              -123.3
+            ],
+            [
+              49.0,
+              -122.8
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "line",
+          "rhumb": true,
+          "drawDur": 0.8
+        },
+        {
+          "type": "label",
+          "text": "CANADA",
+          "lat": 49.03,
+          "lon": -123.07,
+          "at": "perfectly",
+          "style": "pill",
+          "bg": "#d52b1e",
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "USA",
+          "lat": 48.975,
+          "lon": -123.06,
+          "at": "tip",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 46
+        },
+        {
           "type": "highlight",
           "target": {
             "circle": {
@@ -205,17 +243,6 @@
             "lat": 48.975,
             "lon": -123.06
           }
-        },
-        {
-          "type": "label",
-          "text": "USA",
-          "lat": 48.965,
-          "lon": -123.02,
-          "at": "American",
-          "style": "note",
-          "typewriter": true,
-          "size": 66,
-          "rotate": -7
         }
       ],
       "camera": {
@@ -391,6 +418,28 @@
       "era": "now",
       "text": "Today, about 1,191 people live in this American island on land.",
       "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 48.975,
+              "lon": -123.06,
+              "km": 2.2
+            }
+          },
+          "fill": "#1d4ed8",
+          "at": 0.05,
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "label",
+          "text": "POINT ROBERTS",
+          "lat": 48.99,
+          "lon": -123.06,
+          "at": 0.05,
+          "style": "map",
+          "size": 54
+        },
         {
           "type": "counter",
           "steps": [

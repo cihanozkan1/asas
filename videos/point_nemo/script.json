@@ -281,6 +281,24 @@
       "text": "So sometimes, the closest humans are astronauts on the International Space Station, flying overhead.",
       "show": [
         {
+          "type": "ping",
+          "lat": -48.877,
+          "lon": -123.393,
+          "color": "#ff3b3b",
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "POINT NEMO",
+          "lat": -48.877,
+          "lon": -123.393,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#c1121f",
+          "size": 46,
+          "dy": 110
+        },
+        {
           "type": "character",
           "image": "astronaut",
           "screen": [
@@ -322,6 +340,24 @@
       "era": "now",
       "text": "It's also a spacecraft cemetery. Old satellites and space stations are sent to crash here, far from everyone.",
       "show": [
+        {
+          "type": "ping",
+          "lat": -48.877,
+          "lon": -123.393,
+          "color": "#ff3b3b",
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "POINT NEMO",
+          "lat": -48.877,
+          "lon": -123.393,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#c1121f",
+          "size": 46,
+          "dy": 110
+        },
         {
           "type": "scatter",
           "target": {
@@ -366,6 +402,24 @@
       "era": "now",
       "text": "And one day, the International Space Station itself is planned to end up here, in 2031.",
       "show": [
+        {
+          "type": "ping",
+          "lat": -48.877,
+          "lon": -123.393,
+          "color": "#ff3b3b",
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "POINT NEMO",
+          "lat": -48.877,
+          "lon": -123.393,
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#c1121f",
+          "size": 46,
+          "dy": 110
+        },
         {
           "type": "year",
           "value": "2031",

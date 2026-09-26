@@ -422,6 +422,21 @@
               37
             ]
           },
+          "fill": "#b3202a",
+          "at": 0.05,
+          "fillOpacity": 0.75,
+          "until": "gave"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -103,
+              36.5,
+              -100,
+              37
+            ]
+          },
           "fill": "#f5d76e",
           "at": "gave",
           "fillOpacity": 0.85
@@ -437,6 +452,11 @@
           "at": "gave"
         }
       ],
+      "camera": {
+        "lat": 35.5,
+        "lon": -100.5,
+        "zoom": 6
+      },
       "sources": [
         {
           "claim": "Texas surrendered its lands north of 36°30′ under the 1850 Compromise.",
@@ -449,6 +469,21 @@
       "era": "history",
       "text": "And that leftover strip belonged to nobody. People called it No Man's Land.",
       "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -103,
+              36.5,
+              -100,
+              37
+            ]
+          },
+          "fill": "#f5d76e",
+          "at": 0.05,
+          "fillOpacity": 0.85,
+          "neon": "#ffd60a"
+        },
         {
           "type": "label",
           "text": "NO MAN'S LAND",

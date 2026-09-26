@@ -88,25 +88,25 @@
         },
         {
           "type": "label",
-          "text": "Big Diomede",
+          "text": "BIG DIOMEDE",
           "lat": 65.78,
           "lon": -169.05,
           "at": "Big",
-          "dot": true,
-          "dy": -52,
-          "size": 44,
-          "color": "#ff5a5f"
+          "style": "pill",
+          "bg": "#c1121f",
+          "size": 46,
+          "dy": -150
         },
         {
           "type": "label",
-          "text": "Little Diomede",
+          "text": "LITTLE DIOMEDE",
           "lat": 65.755,
           "lon": -168.93,
           "at": "Little",
-          "dot": true,
-          "dy": 52,
-          "size": 44,
-          "color": "#5ec8ff"
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 46,
+          "dy": 110
         },
         {
           "type": "flag",

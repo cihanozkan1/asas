@@ -3,7 +3,7 @@
   "style": "geo",
   "meta": {
     "title": "Japan Found 7,000 \"New\" Islands 🇯🇵🤯",
-    "description": "In 2023 Japan recounted its islands and the number jumped from 6,852 to 14,125 🇯🇵🏝️ No new islands appeared: better surveying and digital maps simply found more islands with a coastline of at least 100 meters 🗺️ Only about 260 of them are inhabited, and Honshu alone holds over 80% of the population 🗼 Japan is the third-largest island country in the world, behind Indonesia and Madagascar 🤯",
+    "description": "In 2023 Japan recounted its islands and the number jumped from 6,852 to 14,125 🇯🇵🏝️ No new islands appeared: better surveying and digital maps simply found more islands with a coastline of at least 100 meters 🗺️ Only about 260 of them are inhabited, and Honshu alone holds over 80% of the population 🗼 By area, Japan is the fourth-largest island country, after Indonesia, Madagascar and Papua New Guinea 🤯",
     "pinnedComment": [
       "Japan 'found' 7,000 islands overnight 🤯🇯🇵🏝️",
       "Which Japanese island would you visit? 👇",
@@ -375,7 +375,7 @@
     },
     {
       "era": "now",
-      "text": "That makes Japan the third largest island country on Earth, behind only Indonesia and Madagascar.",
+      "text": "By area, Japan is the fourth largest island country on Earth, behind Indonesia, Madagascar and Papua New Guinea.",
       "show": [
         {
           "type": "highlight",
@@ -393,6 +393,13 @@
         },
         {
           "type": "highlight",
+          "target": "PNG",
+          "fill": "flag:pg",
+          "at": "Papua",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
           "target": "JPN",
           "fill": "flag:jp",
           "at": "Japan",
@@ -402,8 +409,8 @@
           "type": "counter",
           "steps": [
             {
-              "at": "third",
-              "value": "#3"
+              "at": "fourth",
+              "value": "#4"
             }
           ],
           "size": 200
@@ -417,9 +424,9 @@
       },
       "sources": [
         {
-          "claim": "Japan is the third-largest island country, behind Indonesia and Madagascar.",
-          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
-          "quote": "Japan is the third-largest island country in the world, behind Indonesia and Madagascar"
+          "claim": "Island countries by area: Indonesia 1,904,569 km², Madagascar 587,041 km², Papua New Guinea 462,840 km², Japan 377,976 km².",
+          "url": "https://en.wikipedia.org/wiki/List_of_island_countries",
+          "quote": "Madagascar | One main island | 587,041 ... Papua New Guinea | Part of a larger island (New Guinea), and surrounding archipelago | 462,840 ... Japan | Four main islands and thousands of surrounding islands | 377,976"
         }
       ]
     },

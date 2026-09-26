@@ -235,6 +235,19 @@
       "text": "Because that's where the big cities are: Amsterdam, Rotterdam and The Hague.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Noord-Holland",
+              "Zuid-Holland"
+            ],
+            "country": "NLD"
+          },
+          "fill": "#f97316",
+          "at": 0.05,
+          "fillOpacity": 0.45
+        },
+        {
           "type": "ping",
           "lat": 52.37,
           "lon": 4.9,
@@ -312,6 +325,19 @@
       "era": "now",
       "text": "Rotterdam even has Europe's largest port. And with Utrecht, these cities form one giant metro area, the Randstad.",
       "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Noord-Holland",
+              "Zuid-Holland"
+            ],
+            "country": "NLD"
+          },
+          "fill": "#f97316",
+          "at": 0.05,
+          "fillOpacity": 0.45
+        },
         {
           "type": "icon",
           "icon": "🚢",

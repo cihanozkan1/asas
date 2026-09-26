@@ -261,6 +261,13 @@
       "text": "Fighting Boer settlers, he asked Britain for protection, and in 1868 Basutoland became a British protectorate.",
       "show": [
         {
+          "type": "highlight",
+          "target": "LSO",
+          "fill": "#8b5e34",
+          "at": 0.05,
+          "fillOpacity": 0.6
+        },
+        {
           "type": "arrow",
           "from": [
             -28.5,
@@ -313,6 +320,13 @@
           "type": "year",
           "value": "1910",
           "at": "1910"
+        },
+        {
+          "type": "highlight",
+          "target": "LSO",
+          "fill": "#8b5e34",
+          "at": 0.05,
+          "fillOpacity": 0.8
         },
         {
           "type": "highlight",
@@ -386,9 +400,10 @@
         }
       ],
       "camera": {
-        "lat": -29.4,
-        "lon": 28.2,
-        "zoom": 7,
+        "fit": [
+          "LSO"
+        ],
+        "pad": 0.75,
         "bearing": -3
       },
       "transition": "flash",

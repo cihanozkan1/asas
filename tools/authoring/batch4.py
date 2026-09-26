@@ -56,7 +56,7 @@ save('indonesia_capital', meta(
 JP4 = [('Hokkaido', 43.4, 142.8), ('Honshu', 37.2, 139.2), ('Shikoku', 33.7, 133.4), ('Kyushu', 32.6, 130.8)]
 save('japan_islands', meta(
     'Japan Found 7,000 "New" Islands 🇯🇵🤯',
-    "In 2023 Japan recounted its islands and the number jumped from 6,852 to 14,125 🇯🇵🏝️ No new islands appeared: better surveying and digital maps simply found more islands with a coastline of at least 100 meters 🗺️ Only about 260 of them are inhabited, and Honshu alone holds over 80% of the population 🗼 Japan is the third-largest island country in the world, behind Indonesia and Madagascar 🤯",
+    "In 2023 Japan recounted its islands and the number jumped from 6,852 to 14,125 🇯🇵🏝️ No new islands appeared: better surveying and digital maps simply found more islands with a coastline of at least 100 meters 🗺️ Only about 260 of them are inhabited, and Honshu alone holds over 80% of the population 🗼 By area, Japan is the fourth-largest island country, after Indonesia, Madagascar and Papua New Guinea 🤯",
     ["Japan 'found' 7,000 islands overnight 🤯🇯🇵🏝️", "Which Japanese island would you visit? 👇", "Which country should we count next? 🗺️"],
     ['japan', 'islands', '14125 islands', 'honshu', 'hokkaido', 'kyushu', 'shikoku', 'island country', 'geography', 'maps', 'learn', 'fun facts']),
     [
@@ -87,11 +87,11 @@ save('japan_islands', meta(
         S("And Honshu alone, home of Tokyo, holds over 80 percent of the population.", [
             cnt('80%+', '80', size=210), slam('HONSHU', 37.8, 139.5, 'Honshu', size=80), ping(35.68, 139.76, 'Tokyo', color='#ff3b3b'), dot('Tokyo', 35.68, 139.76, 'Tokyo', dy=50)],
           src=[src('Honshu has over 80% of the population and the capital Tokyo.', 'List_of_islands_of_Japan', 'Honshu – the largest island, with the capital Tokyo and over 80% of the population.')]),
-        S("That makes Japan the third largest island country on Earth, behind only Indonesia and Madagascar.", [
-            hl('IDN', 'flag:id', 'Indonesia', fillOpacity=0.8), hl('MDG', 'flag:mg', 'Madagascar', fillOpacity=0.8), hl('JPN', 'flag:jp', 'Japan', fillOpacity=0.85),
-            cnt_steps([('third', '#3')], size=200)],
+        S("By area, Japan is the fourth largest island country on Earth, behind Indonesia, Madagascar and Papua New Guinea.", [
+            hl('IDN', 'flag:id', 'Indonesia', fillOpacity=0.8), hl('MDG', 'flag:mg', 'Madagascar', fillOpacity=0.8), hl('PNG', 'flag:pg', 'Papua', fillOpacity=0.8), hl('JPN', 'flag:jp', 'Japan', fillOpacity=0.85),
+            cnt_steps([('fourth', '#4')], size=200)],
           cam=at_(30, 95, 0.75, bearing=-3),
-          src=[src('Japan is the third-largest island country, behind Indonesia and Madagascar.', 'List_of_islands_of_Japan', 'Japan is the third-largest island country in the world, behind Indonesia and Madagascar')]),
+          src=[src('Island countries by area: Indonesia 1,904,569 km², Madagascar 587,041 km², Papua New Guinea 462,840 km², Japan 377,976 km².', 'List_of_island_countries', 'Madagascar | One main island | 587,041 ... Papua New Guinea | Part of a larger island (New Guinea), and surrounding archipelago | 462,840 ... Japan | Four main islands and thousands of surrounding islands | 377,976')]),
         S("And the second most populous island country, beaten only by Indonesia again.", [
             cnt('#2', 'second', size=210), hl('IDN', 'flag:id', 'Indonesia', fillOpacity=0.85), hl('JPN', 'flag:jp', 'second', fillOpacity=0.85), icon('👥', 36, 139, 'populous', size=120)],
           cam=at_(30, 95, 0.75, bearing=3),
@@ -114,21 +114,22 @@ save('italy_microstates', meta(
           src=[src('San Marino and Vatican City are both enclaved by Italy.', 'Enclave_and_exclave', 'Three such sovereign states exist globally: Lesotho (enclaved by South Africa), San Marino, and Vatican City (both enclaved by Italy).')]),
         S("The first is San Marino. Only 61 square kilometers, with about 34,000 people.", [
             ping(*SMR, 'Marino', color='#5ec8ff'), hl('SMR', 'flag:sm', 'Marino', neon='#5ec8ff', hold=1),
-            slam('SAN MARINO', SMR[0] + 0.07, SMR[1], 'Marino', size=64), cnt_steps([('61', '61 km²'), ('34,000', '34,000')], size=170)],
-          cam=at_(43.93, 12.45, 90, bearing=-3),
+            slam('SAN MARINO', SMR[0] + 0.045, SMR[1], 'Marino', size=64), cnt_steps([('61', '61 km²'), ('34,000', '34,000')], size=170)],
+          cam=at_(43.94, 12.45, 200, bearing=-3),
           src=[src('San Marino covers just over 61 km².', 'San_Marino', 'with a land area of just over 61 square kilometres (24 sq mi)'),
                src('Population 34,042 (2025).', 'San_Marino', 'a population of 34,042 as of 2025')]),
         S("And it claims to have been founded way back in the year 301.", [
-            year(301, '301'), icon('🏰', SMR[0] - 0.02, SMR[1] + 0.02, 'founded', size=130)],
+            year(301, '301'), hl('SMR', '#8b5e34', 0.05, fillOpacity=0.6), icon('🏰', SMR[0], SMR[1], 'founded', size=130), lab('San Marino', SMR[0] - 0.035, SMR[1], 0.05, style='serif', size=54)],
+          cam=at_(43.94, 12.45, 200),
           era='history', tr='film',
           src=[src('San Marino claims to have been founded in AD 301.', 'San_Marino', 'San Marino claims to have been founded in AD 301')]),
         S("So how did it survive when Italy unified?", [q(43.5, 12.3, 'how')], cam=at_(43, 12.5, 6), style='dark', no_claim=True),
         S("San Marino had sheltered the unification hero Giuseppe Garibaldi. So Garibaldi let it stay independent.", [
-            char('garibaldi', 'Garibaldi', name='Garibaldi', say='Stay free!'), ping(*SMR, 'independent', color='#5ec8ff'), stamp('INDEPENDENT', 'independent', size=84)],
-          cam=at_(43.93, 12.45, 30), era='history',
+            hl('SMR', '#8b5e34', 0.05, fillOpacity=0.6), lab('San Marino', SMR[0] - 0.1, SMR[1], 0.05, style='serif', size=54), char('garibaldi', 'Garibaldi', name='Garibaldi', say='Stay free!'), ping(*SMR, 'independent', color='#5ec8ff'), stamp('INDEPENDENT', 'independent', size=84, screen=[0.5, 0.2])],
+          cam=at_(43.93, 12.45, 70), era='history',
           src=[src('San Marino sheltered Garibaldi, who let it remain independent.', 'San_Marino', 'San Marino served as a refuge for many people persecuted because of their support for unification, including Giuseppe Garibaldi and his wife Anita. Garibaldi allowed San Marino to remain independent.')]),
         S("In 1862, the two countries signed a Convention of Friendship.", [
-            year(1862, '1862'), flag('it', 44.3, 11.9, 'two', size=110), flag('sm', 44.3, 13.0, 'two', size=110), icon('🤝', 43.7, 12.45, 'Friendship', size=120)],
+            year(1862, '1862'), hl('SMR', '#8b5e34', 0.05, fillOpacity=0.6), flag('it', 44.3, 11.9, 'two', size=110), flag('sm', 44.3, 13.0, 'two', size=110), icon('🤝', 43.7, 12.45, 'Friendship', size=120)],
           era='history',
           src=[src('San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862.', 'San_Marino', 'San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862.')]),
         S("The second country is even smaller. Vatican City, just 0.49 square kilometers, the smallest country in the world.", [

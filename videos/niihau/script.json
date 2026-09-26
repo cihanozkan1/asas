@@ -75,7 +75,7 @@
         {
           "type": "label",
           "text": "NIʻIHAU",
-          "lat": 22.1,
+          "lat": 22.05,
           "lon": -160.1,
           "at": "Niʻihau",
           "style": "map",
@@ -96,7 +96,7 @@
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 140,
+        "zoom": 300,
         "bearing": -3
       },
       "sources": [
@@ -177,6 +177,11 @@
           "at": "gold"
         }
       ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 300
+      },
       "transition": "film",
       "sources": [
         {
@@ -195,7 +200,7 @@
           "icon": "🚷",
           "lat": 21.9,
           "lon": -160.15,
-          "size": 130,
+          "size": 170,
           "at": "outsiders"
         },
         {
@@ -208,7 +213,7 @@
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 140
+        "zoom": 360
       },
       "sources": [
         {
@@ -231,8 +236,27 @@
             }
           ],
           "size": 220
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 21.9,
+              "lon": -160.15,
+              "km": 6
+            }
+          },
+          "icon": "🏠",
+          "count": 8,
+          "size": 60,
+          "at": "people"
         }
       ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 360
+      },
       "sources": [
         {
           "claim": "Population 84 in 2020.",
@@ -259,14 +283,14 @@
           "icon": "🗣️",
           "lat": 21.85,
           "lon": -160.2,
-          "size": 110,
+          "size": 170,
           "at": "spoken"
         }
       ],
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 160
+        "zoom": 360
       },
       "transition": "flash",
       "sources": [
@@ -286,7 +310,7 @@
           "icon": "🐎",
           "lat": 21.9,
           "lon": -160.12,
-          "size": 130,
+          "size": 170,
           "at": "horses"
         },
         {
@@ -294,14 +318,14 @@
           "icon": "🚭",
           "lat": 21.85,
           "lon": -160.2,
-          "size": 110,
+          "size": 170,
           "at": "cigarettes"
         }
       ],
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 160
+        "zoom": 360
       },
       "sources": [
         {
@@ -325,7 +349,7 @@
           "icon": "🌧️",
           "lat": 22.0,
           "lon": -160.1,
-          "size": 120,
+          "size": 170,
           "at": "rain"
         },
         {
@@ -333,7 +357,7 @@
           "icon": "☀️",
           "lat": 21.8,
           "lon": -160.2,
-          "size": 120,
+          "size": 170,
           "at": "sun"
         },
         {
@@ -350,7 +374,7 @@
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 140,
+        "zoom": 360,
         "bearing": 3
       },
       "sources": [

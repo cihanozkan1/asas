@@ -68,7 +68,7 @@ save('market_island', meta(
           cam=at_(60.3009, 19.1318, 14500), era='history', tr='film', style='vintage',
           src=[src('In 1885 the lighthouse was built on the Swedish portion of the island.', 'Märket', 'However, the location selected was within the Swedish portion of the island.')]),
         S("So in 1985, the two countries did something clever. Instead of moving the lighthouse, they moved the border.", [
-            year(1985, '1985'), stamp('MOVE THE BORDER', 'moved', size=72), icon('🗼', *LH, 0.05, size=110), hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9), route(BOLD, 0.05, rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.1)],
+            year(1985, '1985'), stamp('MOVE THE BORDER', 'moved', size=72, screen=[0.5, 0.2]), icon('🗼', *LH, 0.05, size=110), hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9), route(BOLD, 0.05, rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.1)],
           cam=at_(60.3009, 19.1318, 14500), style='atlas', tr='flash',
           src=[src('The border was adjusted in 1985 so the lighthouse is on Finnish territory.', 'Märket', 'As a result, the border was adjusted in 1985 so that the lighthouse is now located on Finnish territory')]),
         S("The new border zigzags around the lighthouse, so it ends up in Finland.", [
@@ -215,11 +215,11 @@ save('oklahoma_panhandle', meta(
           cam=at_(33.5, -99.5, 3.6), era='history',
           src=[src('Texas sought to enter the Union in 1845 as a slave state.', PH, 'When Texas sought to enter the Union in 1845 as a slave state')]),
         S("So in the Compromise of 1850, Texas gave up everything north of 36 degrees 30 minutes.", [
-            year(1850, '1850'), hl(box(-103, 36.5, -100, 37), '#f5d76e', 'gave', fillOpacity=0.85), stamp('GIVEN UP', 'gave', size=90)],
-          era='history',
+            year(1850, '1850'), hl(box(-103, 36.5, -100, 37), '#b3202a', 0.05, fillOpacity=0.75, until='gave'), hl(box(-103, 36.5, -100, 37), '#f5d76e', 'gave', fillOpacity=0.85), stamp('GIVEN UP', 'gave', size=90)],
+          cam=at_(35.5, -100.5, 6), era='history',
           src=[src('Texas surrendered its lands north of 36°30′ under the 1850 Compromise.', PH, 'Texas surrendered its lands north of 36°30′')]),
         S("And that leftover strip belonged to nobody. People called it No Man's Land.", [
-            lab("NO MAN'S LAND", at='Man\'s', style='map', anim='slam', size=60, screen=[0.5, 0.32]), char('cowboy', 'nobody', say='Whose land is this?', screen=(0.74, 0.6))],
+            hl(box(-103, 36.5, -100, 37), '#f5d76e', 0.05, fillOpacity=0.85, neon='#ffd60a'), lab("NO MAN'S LAND", at='Man\'s', style='map', anim='slam', size=60, screen=[0.5, 0.32]), char('cowboy', 'nobody', say='Whose land is this?', screen=(0.74, 0.6))],
           cam=at_(36.7, -101.5, 9), era='history',
           src=[src('The strip had no state or territorial ownership and was called No Man\'s Land.', PH, "was left with no state or territorial ownership from 1850 until 1890. It was officially called the 'Public Land Strip' and was commonly referred to as 'No Man's Land.'")]),
         S("It stayed that way for 40 years, until 1890, when it finally became part of Oklahoma Territory.", [
@@ -244,11 +244,11 @@ save('longest_sail', meta(
             hook('THE LONGEST *STRAIGHT LINE* AT SEA', at=0.05, until='Earth', size=100), route(SAIL[:5], 'sail', color='#2de2e6', width=6, dashed=True, dash=[14, 12], drawDur=1.6), q(-10, 70, 'land')],
           cam=at_(-15, 60, 1.3), no_claim=True),
         S("In 2018, two scientists calculated the answer with a computer.", [
-            year(2018, '2018', light=True), icon('💻', -10, 70, 'computer', size=130), char('scientist', 'scientists')],
+            route(SAIL, 0.05, color='#2de2e6', width=4, dashed=True, dash=[10, 12], drawDur=0.6), year(2018, '2018', light=True), icon('💻', -10, 70, 'computer', size=130), char('scientist', 'scientists')],
           cam=at_(-10, 70, 1.3),
           src=[src('Verified by Rohan Chabukswar and Kushal Mukherjee (published 2018).', SMS, 'Rohan Chabukswar, a physicist at United Technologies Research Center Ireland, and Kushal Mukherjee, an engineer at IBM Research India')]),
         S("It was first found by a Reddit user years earlier. The computer confirmed it in just 10 minutes.", [
-            clock([('first', '12:00'), ('minutes', '12:10')], screen=(0.5, 0.3), size=200, label='10 min'), icon('💬', -5, 60, 'Reddit', size=110)],
+            route(SAIL, 0.05, color='#2de2e6', width=4, dashed=True, dash=[10, 12], drawDur=0.6), clock([('first', '12:00'), ('minutes', '12:10')], screen=(0.5, 0.3), size=200, label='10 min'), icon('💬', -5, 60, 'Reddit', size=110)],
           cam=at_(-10, 70, 1.3),
           src=[src('First mapped by a Reddit user; verified in 10 minutes.', SMS, 'first mapped five years ago by Reddit user Patrick Anderson'),
                src('The computation took 10 minutes.', SMS, 'in just 10 minutes')]),
@@ -263,7 +263,7 @@ save('longest_sail', meta(
           src=[src('The route passes between Antarctica and Tierra del Fuego.', SMS, 'around to northeastern Russia')]),
         S("It crosses the whole Pacific Ocean, and finally reaches Kamchatka, in the far east of Russia.", [
             ship(SAIL[6:], 'Pacific', 'sail3', emblem='#2de2e6', drawDur=3.0), ping(60, 164, 'Kamchatka', color='#ff5a5f'), hl('RUS', 'flag:ru', 'Russia', fillOpacity=0.6)],
-          cam={'follow': 'sail3', 'zoom': 1.2, 'zoomTo': 1.0},
+          cam=at_(15, -165, 1.0),
           src=[src('It ends in northeastern Russia.', SMS, 'around to northeastern Russia')]),
         S("The whole trip is about 32,000 kilometers. One single straight line.", [
             flow(SAIL, 'trip', color='#2de2e6', width=10, drawDur=2.0), cnt('32,090 km', '32,000', size=160)],
@@ -303,13 +303,13 @@ save('holland_netherlands', meta(
           cam=at_(52.2, 5.3, 24),
           src=[src('About 13% of the territory and 38% of the population.', NL, 'covering about 13% of its national territory and approximately 38% of the Dutch population')]),
         S("Because that's where the big cities are: Amsterdam, Rotterdam and The Hague.", [
-            *[ping(la, lo, w, color='#ffd60a') for la, lo, w in [(52.37, 4.9, 'Amsterdam'), (51.92, 4.48, 'Rotterdam'), (52.08, 4.31, 'Hague')]],
+            hl(HOLL, '#f97316', 0.05, fillOpacity=0.45), *[ping(la, lo, w, color='#ffd60a') for la, lo, w in [(52.37, 4.9, 'Amsterdam'), (51.92, 4.48, 'Rotterdam'), (52.08, 4.31, 'Hague')]],
             *[dot(n, la, lo, w, dy=-52, size=40) for n, la, lo, w in [('Amsterdam', 52.37, 4.9, 'Amsterdam'), ('Rotterdam', 51.92, 4.48, 'Rotterdam'), ('The Hague', 52.08, 4.31, 'Hague')]],
             char('dutch_farmer', 'cities')],
           cam=at_(52.15, 4.6, 45),
           src=[src('Holland contains Amsterdam, Rotterdam and The Hague.', NL, 'The main cities in Holland are Amsterdam, Rotterdam and The Hague.')]),
         S("Rotterdam even has Europe's largest port. And with Utrecht, these cities form one giant metro area, the Randstad.", [
-            icon('🚢', 51.95, 4.05, 'port', size=140), dot('Rotterdam', 51.92, 4.48, 'Rotterdam', dy=-52, size=40), hl({'admin1': 'Utrecht', 'country': 'NLD'}, '#ffd60a', 'Utrecht', fillOpacity=0.6), slam('RANDSTAD', 52.45, 4.3, 'Randstad', size=62)],
+            hl(HOLL, '#f97316', 0.05, fillOpacity=0.45), icon('🚢', 51.95, 4.05, 'port', size=140), dot('Rotterdam', 51.92, 4.48, 'Rotterdam', dy=-52, size=40), hl({'admin1': 'Utrecht', 'country': 'NLD'}, '#ffd60a', 'Utrecht', fillOpacity=0.6), slam('RANDSTAD', 52.45, 4.3, 'Randstad', size=62)],
           cam=at_(52.15, 4.75, 32), tr='flash',
           src=[src('The Port of Rotterdam is Europe\'s largest.', NL, "The Port of Rotterdam is Europe's largest and most important harbour and port."),
                src('With Utrecht they form the Randstad conurbation.', NL, 'These cities, combined with Utrecht and other smaller municipalities, effectively form a single metroplex—a conurbation called Randstad.')]),
@@ -345,21 +345,21 @@ save('centralia', meta(
             slam('CENTRALIA', 40.812, -76.341, 'Centralia', size=70), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 1.2}}, '🔥', 'burning', count=10, size=64, stagger=0.08), char('coal_miner', 'coal')],
           cam=at_(40.804, -76.341, 400, bearing=-3),
           src=[src('A coal mine fire has burned beneath the borough since 1962.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
-        S("Experts think it could keep burning for another 250 years.", [cnt('250 years', '250', size=180, color='#ff5a2a'), tilt('burning', deg=40, until=3.5)],
+        S("Experts think it could keep burning for another 250 years.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), cnt('250 years', '250', size=180, color='#ff5a2a'), tilt('burning', deg=40, until=3.5)],
           cam=at_(40.804, -76.341, 500),
           src=[src('It could burn for another 250 years.', CE, 'do so for another 250 years')]),
-        S("In 1980, about 1,000 people still lived here.", [year(1980, '1980'), cnt('~1,000', '1,000', size=170), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏠', 'lived', count=12, size=54, stagger=0.05)],
+        S("In 1980, about 1,000 people still lived here.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), year(1980, '1980'), cnt('~1,000', '1,000', size=170), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏠', 'lived', count=12, size=54, stagger=0.05)],
           cam=at_(40.804, -76.341, 450), era='history', tr='film', style='satellite',
           src=[src('1,012 residents by 1980.', CE, 'By 1980, it had 1,012 residents.')]),
-        S("Then, in 1992, the state condemned every single building in town.", [year(1992, '1992'), stamp('CONDEMNED', 'condemned', size=90), shake('condemned'),
+        S("Then, in 1992, the state condemned every single building in town.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), year(1992, '1992'), stamp('CONDEMNED', 'condemned', size=90), shake('condemned'),
             scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏚️', 'building', count=12, size=58, stagger=0.05)],
           era='history', style='satellite',
           src=[src('In 1992 the governor invoked eminent domain on all property, condemning all buildings.', CE, 'invoked eminent domain on all property in the borough, condemning all the buildings within')]),
-        S("In 2013, the last seven residents were allowed to stay, but only until the end of their lives.", [
-            year(2013, '2013', light=True), cnt('7', 'seven', size=200), icon('🏠', 40.804, -76.34, 'residents', size=110)],
+        S("In 2013, the last seven residents were allowed to stay, but only until the end of their lives.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), 
+            year(2013, '2013', light=True), cnt('7', 'seven', size=200)],
           cam=at_(40.804, -76.341, 450),
           src=[src('In 2013 the seven remaining residents were allowed to remain until their deaths.', CE, 'State and local officials reached an agreement with the then seven remaining residents on October 29, 2013, allowing them to remain in Centralia until their deaths')]),
-        S("By the 2020 census, only five people were left.", [
+        S("By the 2020 census, only five people were left.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), 
             bars([('1980', 1012, '1,012', '#9ca3af'), ('2020', 5, '5', '#ff5a2a')], 'census', screen=[0.5, 0.3], labelWidth=180)],
           cam=at_(40.804, -76.341, 450), tr='flash',
           src=[src('Five residents in the 2020 census.', CE, 'As of the census of 2020, there were five people residing in the borough.')]),

@@ -82,12 +82,14 @@ save('chile', meta(
         S("So why is Chile shaped like this?", [q(-30, -70, 'why'), hl(CHL, '#d62828', 0.05, fillOpacity=0.9)],
           cam=fit(CHL, pad=0.9), style='dark', no_claim=True),
         S("First, look east. The Andes, some of the highest mountains on Earth, form a giant wall along the whole country.", [
-            route([(-18, -69.2), (-24, -68.2), (-30, -69.8), (-36, -70.4), (-41, -71.8), (-47, -72.9), (-52, -72.9)], 'Andes', color='#c8a46e', width=16, drawDur=1.4),
+            hl(CHL, '#d62828', 0.05, fillOpacity=0.55), route([(-18, -69.2), (-24, -68.2), (-30, -69.8), (-36, -70.4), (-41, -71.8), (-47, -72.9), (-52, -72.9)], 'east', color='#c8a46e', width=16, drawDur=1.4),
             slam('ANDES', -27, -67.5, 'Andes', rotate=-80, size=90), icon('⛰️', -36, -64.5, 'wall', size=130)],
           cam=fit(CHL, pad=0.9),
           src=[src('Chile is a narrow strip between the Andes and the Pacific.', 'Chile', 'a narrow strip of land between the Andes Mountains and the Pacific Ocean')]),
         S("And to the west, there's nothing but the Pacific Ocean. So Chile is trapped in a narrow strip between the two.", [
-            slam('PACIFIC OCEAN', -32, -84, 'Pacific', rotate=-80, size=80), icon('🌊', -40, -82, 'Ocean', size=120)],
+            hl(CHL, '#d62828', 0.05, fillOpacity=0.55), flow([(-30, -95), (-30, -76)], 'west', color='#5ec8ff', width=14, drawDur=0.8), slam('PACIFIC OCEAN', -32, -84, 'Pacific', rotate=-80, size=80), icon('🌊', -40, -82, 'Ocean', size=120),
+            flow([(-30, -60), (-30, -69)], 'trapped', color='#c8a46e', width=14, drawDur=0.6)],
+          cam=fit(CHL, pad=0.9),
           src=[src('The Pacific Ocean lies to the west.', 'Chile', 'a narrow strip of land between the Andes Mountains and the Pacific Ocean')]),
         S("But Chile also grew north. From 1879 to 1884, in the War of the Pacific, it fought and defeated Bolivia and Peru.", [
             year(1879, 'War'), hl('BOL', '#f4a261', 'Bolivia'), hl('PER', '#e9c46a', 'Peru'),
@@ -146,20 +148,20 @@ save('lesotho', meta(
           src=[src('King Moshoeshoe I established the Basotho nation; Basutoland emerged under him in 1822.', 'Lesotho',
                    'Basutoland emerged as a single polity under King Moshoeshoe I in 1822')]),
         S("Fighting Boer settlers, he asked Britain for protection, and in 1868 Basutoland became a British protectorate.", [
-            arrow((-28.5, 26.0), (-29.2, 27.6), 'Boer', color='#c1121f'), year(1868, '1868'),
+            hl(LSO, '#8b5e34', 0.05, fillOpacity=0.6), arrow((-28.5, 26.0), (-29.2, 27.6), 'Boer', color='#c1121f'), year(1868, '1868'),
             flag('gb', -29.4, 28.3, 'Britain', pin=True, size=120), lab('Basutoland', -30.2, 28.3, 'Basutoland', style='serif', size=56)],
           era='history',
           src=[src('Moshoeshoe sought British protection; Basutoland became a British protectorate in 1868.', 'Basutoland',
                    'I am giving myself and my country up to Her Majesty\'s Government ... This appeal led to British protection in 1868')]),
         S("In 1910, the new Union of South Africa wanted Basutoland too, but Britain refused.", [
-            year(1910, '1910'), hl(ZAF, '#e76f51', 'Union', fillOpacity=0.7, pattern='hatch'),
+            year(1910, '1910'), hl(LSO, '#8b5e34', 0.05, fillOpacity=0.8), hl(ZAF, '#e76f51', 'Union', fillOpacity=0.7, pattern='hatch'),
             arrow((-27, 26), (-29.2, 27.8), 'wanted', color='#e76f51'), stamp('REFUSED', 'refused', size=96)],
           cam=fit(ZAF, pad=0.9), era='history',
           src=[src('South Africa sought to take over the High Commission Territories incl. Basutoland; Britain refused.', 'Basutoland',
                    'the South African government made numerous overtures to take over the High Commission Territories, which included Basutoland. However these demands were refused by Britain')]),
         S("So in 1966, it became independent as the Kingdom of Lesotho, a country inside a country.", [
             year(1966, '1966', light=True), hl(LSO, 'flag:ls', 'independent', fillOpacity=0.9), hl(ZAF, '#e5e7eb', 'inside', fillOpacity=0.25)],
-          cam=at_(-29.4, 28.2, 7, bearing=-3), tr='flash',
+          cam=fit(LSO, pad=0.75, bearing=-3), tr='flash',
           src=[src('Independence on 4 October 1966 as the Kingdom of Lesotho.', 'Lesotho', 'achieving independence on October 4, 1966')]),
     ],
     keywords={'lesotho': '#5ec8ff', 'south': '#4ade80', 'africa': '#4ade80', 'britain': '#ff5a5f', 'basutoland': '#ffd60a'})
@@ -186,7 +188,7 @@ save('wakhan', meta(
           src=[src('It separates Tajikistan from Pakistan and borders China.', 'Wakhan_Corridor', 'separates "the Badakhshan Mountainous Autonomous Region in Tajikistan from Khyber Pakhtunkhwa in Pakistan" and borders China')]),
         S("So why does it exist?", [q(37.0, 73.2, 'why'), hl(AFG, '#d62828', 0.05, fillOpacity=0.9)], cam=at_(36, 70, 3.5), style='dark', no_claim=True),
         S("In the 1800s, two empires were competing for Central Asia in what's called the Great Game: the Russian Empire in the north, and British India in the south.", [
-            hl({'countries': ['TJK', 'UZB', 'TKM', 'KGZ', 'KAZ']}, '#b3202a', 'Russian', fillOpacity=0.8, hold=2),
+            year('1800s', '1800s'), hl({'countries': ['TJK', 'UZB', 'TKM', 'KGZ', 'KAZ']}, '#b3202a', 'Russian', fillOpacity=0.8, hold=2),
             hl({'countries': ['PAK', 'IND']}, '#e9a1a1', 'British', fillOpacity=0.8, hold=2),
             lab('Russian Empire', 42, 66, 'Russian', style='serif', size=56), lab('British India', 27, 72, 'British', style='serif', size=56),
             arrow((44, 68), (38.5, 71), 'north', color='#b3202a'), arrow((27, 73), (34.5, 72), 'south', color='#c95a5a')],
@@ -249,7 +251,7 @@ save('gambia', meta(
           cam=fit(SEN, pad=0.9), era='history', tr='film',
           src=[src('The British acquired the river trade rights; Britain and France competed for the region.', 'The_Gambia', 'Portuguese merchants received exclusive trade rights along the Gambia River, which the British later acquired')]),
         S("In 1889, they agreed a border about 16 kilometers north and south of the river, using straight lines and arcs.", [
-            year(1889, '1889'), meas((13.45, -15.3), (13.6, -15.3), '16 km', 'north', countUp=False)],
+            year(1889, '1889'), hl(GMB, '#c1121f', 0.05, fillOpacity=0.7), meas((13.45, -15.3), (13.6, -15.3), '16 km', 'north', countUp=False)],
           cam=fit(GMB, pad=0.8), era='history',
           src=[src('The 1889 Anglo-French agreement set a border about 16 km north and south of the river with straight lines and arcs.', 'The_Gambia',
                    'The 1889 Anglo-French agreement formally established boundaries, with "straight lines and arcs" giving Britain control of areas roughly 16 kilometers north and south of the river')]),

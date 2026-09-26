@@ -200,6 +200,16 @@
       "text": "More than 15 million people live here, and about two thirds of them are on the European side.",
       "show": [
         {
+          "type": "label",
+          "text": "ISTANBUL",
+          "lat": 41.2,
+          "lon": 28.95,
+          "at": "More",
+          "style": "map",
+          "anim": "slam",
+          "size": 64
+        },
+        {
           "type": "counter",
           "steps": [
             {

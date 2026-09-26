@@ -98,7 +98,7 @@
         {
           "type": "label",
           "text": "SAN MARINO",
-          "lat": 44.01,
+          "lat": 43.985,
           "lon": 12.46,
           "at": "Marino",
           "style": "map",
@@ -121,9 +121,9 @@
         }
       ],
       "camera": {
-        "lat": 43.93,
+        "lat": 43.94,
         "lon": 12.45,
-        "zoom": 90,
+        "zoom": 200,
         "bearing": -3
       },
       "sources": [
@@ -149,14 +149,35 @@
           "at": "301"
         },
         {
+          "type": "highlight",
+          "target": "SMR",
+          "fill": "#8b5e34",
+          "at": 0.05,
+          "fillOpacity": 0.6
+        },
+        {
           "type": "icon",
           "icon": "🏰",
-          "lat": 43.919999999999995,
-          "lon": 12.48,
+          "lat": 43.94,
+          "lon": 12.46,
           "size": 130,
           "at": "founded"
+        },
+        {
+          "type": "label",
+          "text": "San Marino",
+          "lat": 43.905,
+          "lon": 12.46,
+          "at": 0.05,
+          "style": "serif",
+          "size": 54
         }
       ],
+      "camera": {
+        "lat": 43.94,
+        "lon": 12.45,
+        "zoom": 200
+      },
       "transition": "film",
       "sources": [
         {
@@ -190,6 +211,22 @@
       "text": "San Marino had sheltered the unification hero Giuseppe Garibaldi. So Garibaldi let it stay independent.",
       "show": [
         {
+          "type": "highlight",
+          "target": "SMR",
+          "fill": "#8b5e34",
+          "at": 0.05,
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "label",
+          "text": "San Marino",
+          "lat": 43.839999999999996,
+          "lon": 12.46,
+          "at": 0.05,
+          "style": "serif",
+          "size": 54
+        },
+        {
           "type": "character",
           "image": "garibaldi",
           "screen": [
@@ -213,7 +250,7 @@
           "size": 84,
           "screen": [
             0.5,
-            0.33
+            0.2
           ],
           "at": "independent"
         }
@@ -221,7 +258,7 @@
       "camera": {
         "lat": 43.93,
         "lon": 12.45,
-        "zoom": 30
+        "zoom": 70
       },
       "sources": [
         {
@@ -239,6 +276,13 @@
           "type": "year",
           "value": "1862",
           "at": "1862"
+        },
+        {
+          "type": "highlight",
+          "target": "SMR",
+          "fill": "#8b5e34",
+          "at": 0.05,
+          "fillOpacity": 0.6
         },
         {
           "type": "flag",

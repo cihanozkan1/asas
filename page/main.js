@@ -1989,7 +1989,7 @@ function frame(t) {
     const [w, s, e, n] = d.box;
     const cl = Math.cos((s + n) / 2);
     const wPx = (e - w) * view.k * (state.mode === 'globe' ? cl : 1), hPx = ((n - s) * view.k) / (state.mode === 'globe' ? 1 : cl);
-    return Math.max(detailMix, 0) * clamp01((Math.min(wPx / W, hPx / H) - 0.8) / 0.3);
+    return Math.max(detailMix, 0) * clamp01((Math.min(wPx / W, hPx / H) - 0.2) / 0.25);
   });
   if (!state.layoutOnly) state.raster.draw(view, { alpha: mix.sat, atmo: state.mode === 'globe' ? 1 : 0, detailMix: boxMix });
   $('space').style.display = state.mode === 'globe' ? 'block' : 'none';

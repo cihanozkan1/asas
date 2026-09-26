@@ -312,6 +312,13 @@
           "at": "1889"
         },
         {
+          "type": "highlight",
+          "target": "GMB",
+          "fill": "#c1121f",
+          "at": 0.05,
+          "fillOpacity": 0.7
+        },
+        {
           "type": "measure",
           "from": [
             13.45,

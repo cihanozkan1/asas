@@ -189,6 +189,11 @@
       "text": "In the 1800s, two empires were competing for Central Asia in what's called the Great Game: the Russian Empire in the north, and British India in the south.",
       "show": [
         {
+          "type": "year",
+          "value": "1800s",
+          "at": "1800s"
+        },
+        {
           "type": "highlight",
           "target": {
             "countries": [

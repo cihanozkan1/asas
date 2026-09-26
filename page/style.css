@@ -337,3 +337,4 @@ html, body {
 .kit-outline .label.pill { border-radius: 0; background: rgba(0,0,0,.6) !important; border: 3px solid #fff; }
 .kit-outline .year.light { font-family: 'Anton', sans-serif; font-weight: 400; color: transparent; -webkit-text-stroke: 4px #fff; }
 .kit-outline .bars, .kit-outline .vbars { background: rgba(0,0,0,.55); border: 3px solid #fff; border-radius: 0; }
+.counter, .stamp, .year { white-space: nowrap; }

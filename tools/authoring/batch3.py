@@ -72,7 +72,7 @@ save('istanbul', meta(
           cam=at_(41.075, 29.05, 120),
           src=[src('31 km long; minimum width 700 m near Kandilli.', 'Bosporus', 'measures "31 km (17 nmi) long" with a minimum width of "700 m (0.38 nmi)" at its narrowest point near Kandilli')]),
         S("More than 15 million people live here, and about two thirds of them are on the European side.", [
-            cnt('15M+', '15', size=190), pill('⅔ live in Europe', 'thirds', bg='#1d4ed8'),
+            slam('ISTANBUL', 41.2, 28.95, 'More', size=64), cnt('15M+', '15', size=190), pill('⅔ live in Europe', 'thirds', bg='#1d4ed8'),
             scatter({'circle': {'lat': 41.06, 'lon': 28.9, 'km': 12}}, '🏠', 'European', count=10, size=46)],
           cam=at_(41.05, 29.0, 40),
           src=[src('Over 15 million inhabitants; about two-thirds live in Europe.', 'Istanbul', 'Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants')]),
@@ -161,7 +161,7 @@ save('diomede', meta(
           src=[src('At their closest points the two islands are about 3.8 km apart.', 'Diomede_Islands', 'At their closest points, the two islands are approximately 2.4 miles (3.8 km) away from each other.')]),
         S("Here in the Bering Strait, Big Diomede belongs to Russia, and Little Diomede belongs to Alaska.", [
             ping(*BIG, 'Big', color='#ff5a5f'), ping(*LITTLE, 'Little', color='#5ec8ff'),
-            dot('Big Diomede', *BIG, 'Big', dy=-52, color='#ff5a5f'), dot('Little Diomede', *LITTLE, 'Little', dy=52, color='#5ec8ff'),
+            lab('BIG DIOMEDE', *BIG, 'Big', style='pill', bg='#c1121f', size=46, dy=-150), lab('LITTLE DIOMEDE', *LITTLE, 'Little', style='pill', bg='#1d4ed8', size=46, dy=110),
             flag('ru', BIG[0] + 0.03, BIG[1] - 0.08, 'Russia', size=100), flag('us', LITTLE[0] - 0.02, LITTLE[1] + 0.09, 'Alaska', size=100),
             meas(BIG, LITTLE, '3.8 km', 'Diomede')],
           cam=at_(65.77, -168.99, 300, bearing=-4),

@@ -143,6 +143,13 @@
       "text": "First, look east. The Andes, some of the highest mountains on Earth, form a giant wall along the whole country.",
       "show": [
         {
+          "type": "highlight",
+          "target": "CHL",
+          "fill": "#d62828",
+          "at": 0.05,
+          "fillOpacity": 0.55
+        },
+        {
           "type": "route",
           "points": [
             [
@@ -176,7 +183,7 @@
           ],
           "color": "#c8a46e",
           "width": 16,
-          "at": "Andes",
+          "at": "east",
           "drawDur": 1.4
         },
         {
@@ -218,6 +225,32 @@
       "text": "And to the west, there's nothing but the Pacific Ocean. So Chile is trapped in a narrow strip between the two.",
       "show": [
         {
+          "type": "highlight",
+          "target": "CHL",
+          "fill": "#d62828",
+          "at": 0.05,
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              -30,
+              -95
+            ],
+            [
+              -30,
+              -76
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 14,
+          "at": "west",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 0.8
+        },
+        {
           "type": "label",
           "text": "PACIFIC OCEAN",
           "lat": -32,
@@ -235,8 +268,33 @@
           "lon": -82,
           "size": 120,
           "at": "Ocean"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              -30,
+              -60
+            ],
+            [
+              -30,
+              -69
+            ]
+          ],
+          "color": "#c8a46e",
+          "width": 14,
+          "at": "trapped",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 0.6
         }
       ],
+      "camera": {
+        "fit": [
+          "CHL"
+        ],
+        "pad": 0.9
+      },
       "sources": [
         {
           "claim": "The Pacific Ocean lies to the west.",

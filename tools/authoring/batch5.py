@@ -33,9 +33,9 @@ save('walk_world', meta(
           cam=at_(0, 60, 1.0),
           src=[src("Earth's equatorial circumference is 40,075 km.", 'Earth', '40075.017 km [equatorial]')]),
         S("Through Africa, past Egypt, across Turkey and Russia, and all the way through Siberia.", [
-            ping(30.04, 31.24, 'Egypt', color='#5ec8ff'), ping(39.93, 32.86, 'Turkey', color='#5ec8ff'), ping(56.01, 92.87, 'Siberia', color='#5ec8ff'),
+            route(WALK, 'Through', color='#ffd60a', width=7, drawDur=3.0), ping(30.04, 31.24, 'Egypt', color='#5ec8ff'), ping(39.93, 32.86, 'Turkey', color='#5ec8ff'), ping(56.01, 92.87, 'Siberia', color='#5ec8ff'),
             hl('EGY', 'flag:eg', 'Egypt', fillOpacity=0.7), hl('TUR', 'flag:tr', 'Turkey', fillOpacity=0.7), hl('RUS', 'flag:ru', 'Russia', fillOpacity=0.5)],
-          cam=at_(40, 60, 1.4),
+          cam=at_(30, 50, 1.1),
           src=[src('The route passes through Egypt, Turkey and Russia.', 'https://explorersweb.com/the-longest-walk-in-the-world/', 'Cape Town, South Africa to Magadan, Russia')]),
         S("Google Maps says it would take 4,492 hours of walking.", [
             cnt('4,492 h', '4,492', size=190), char('backpacker', 'walking', name='You', say='My feet!')],
@@ -130,7 +130,8 @@ save('spain_borders', meta(
           cam=at_(42.46, 1.975, 1100),
           src=[src('Llívia is a Spanish exclave surrounded by France.', 'Llívia', 'It is a Spanish exclave surrounded by the French département of Pyrénées-Orientales.')]),
         S("In 1659, Spain gave France the villages of this area. But Llívia was a town, not a village, so it stayed Spanish.", [
-            year(1659, '1659'), note('TOWN ≠ VILLAGE', 42.49, 1.975, 'town', size=58), char('spanish_guard', 'Llívia', say='Still ours!', flip=True, screen=(0.72, 0.6))],
+            year(1659, '1659'), hl({'circle': {'lat': LLI[0], 'lon': LLI[1], 'km': 3}}, '#ffd60a', 'Llívia', fillOpacity=0.35, neon='#ffd60a'), lab('Llívia', LLI[0], LLI[1], 'Llívia', style='pill', bg='#c1121f', size=48),
+            note('TOWN ≠ VILLAGE', 42.49, 1.975, 'town', size=58), char('spanish_guard', 'Llívia', say='Still ours!', flip=True, screen=(0.72, 0.6))],
           cam=at_(42.46, 1.975, 1300), era='history', tr='film', style='satellite',
           src=[src('The 1659 Treaty of the Pyrenees transferred only villages; Llívia was a town.', 'Llívia', "Because of a technicality in the Treaty of the Pyrenees, signed in 1659, that transferred only 'villages' in the Pyrenees to France, Llívia, which was a 'town', remains under Spanish control.")]),
         S("Next, Pheasant Island. It's Spanish for six months, and French for the other six.", [
@@ -224,21 +225,21 @@ save('tibet_planes', meta(
           src=[src('It is often called the Roof of the World.', 'Tibetan_Plateau', "often referred to as 'the Roof of the World'")]),
         S("It's the largest and highest plateau on Earth, about 2,500 kilometers wide.", [
             blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 'largest', fillOpacity=0.25),
-            stamp('LARGEST & HIGHEST', 'largest', size=78), meas((33, 76), (32, 101), '2,500 km', 'wide')],
+            stamp('LARGEST & HIGHEST', 'largest', size=78, screen=[0.5, 0.45]), meas((33, 76), (32, 101), '2,500 km', 'wide')],
           cam=at_(32, 88, 2.6),
           src=[src('The world\'s largest and highest plateau; about 2,500 km east to west.', 'Tibetan_Plateau', "It is the world's largest and highest plateau above sea level, with an area of 2,500,000 square kilometres")]),
         S("Its average height is about 4,500 meters.", [
-            bars([('Plateau', 4500, '4,500 m', '#2de2e6'), ('Safe air', 3000, '3,000 m', '#4ade80')], 'height', orient='v', shape='mountain', height=360)],
+            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 0.05, fillOpacity=0.2), bars([('Plateau', 4500, '4,500 m', '#2de2e6'), ('Safe air', 3000, '3,000 m', '#4ade80')], 'height', orient='v', shape='mountain', height=360)],
           src=[src('The plateau averages over 4,500 m.', 'Tibetan_Plateau', 'With an average elevation exceeding 4,500 metres (14,800 ft)')]),
         S("If a plane loses cabin pressure, the oxygen masks last only about 12 to 22 minutes.", [
-            char('pilot', 'plane', say='Masks on!'), clock([('masks', '12:00'), ('minutes', '12:22')], screen=(0.72, 0.33), size=220, label='12–22 min')],
+            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 0.05, fillOpacity=0.2), char('pilot', 'plane', say='Masks on!'), clock([('masks', '12:00'), ('minutes', '12:22')], screen=(0.72, 0.33), size=220, label='12–22 min')],
           src=[src('Masks typically last 12 to 22 minutes.', MF, 'typically burn for somewhere between 12 and 22 minutes, depending on the aircraft')]),
         S("So pilots must quickly dive to 10,000 feet, where people can breathe on their own.", [
-            plane([(35, 80), (33, 88), (31, 96)], 'dive', rid='p2'), cnt('10,000 ft', '10,000', size=170), arrow((34, 86), (30, 86), 'dive', color='#ff5a5f')],
+            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 0.05, fillOpacity=0.2), plane([(35, 80), (33, 88), (31, 96)], 'dive', rid='p2'), cnt('10,000 ft', '10,000', size=170), arrow((34, 86), (30, 86), 'dive', color='#ff5a5f')],
           cam=at_(32, 88, 3.0),
           src=[src('Pilots dive to 10,000 feet where humans can breathe unaided.', MF, 'the aircraft dives to 10,000 feet — the altitude where humans can breathe unaided')]),
         S("But over Tibet, the ground itself is higher than that. There's nowhere to go down.", [
-            tilt('ground', deg=40, until=4), stamp('NO WAY DOWN', 'nowhere', size=84), shake('nowhere')],
+            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 0.05, fillOpacity=0.2), tilt('ground', deg=40, until=4), stamp('NO WAY DOWN', 'nowhere', size=84), shake('nowhere')],
           cam=at_(31, 86, 4.0),
           src=[src('The plateau floor sits around 14,800 ft, above the 10,000 ft safety level.', MF, "The plateau's valley floors sit at around 14,800 feet")]),
         S("Airports are rare and far apart, and strong winds turn the air into a washing machine.", [
@@ -324,20 +325,20 @@ save('shelterbelt', meta(
           cam=at_(40, -100, 5),
           src=[src('Windbreaks reduce wind velocity and evaporation.', SB, 'reduce wind velocity and lessen evaporation of moisture from the soil')]),
         S("By 1942, they had planted 220 million trees.", [
-            cnt('220,000,000', '220', size=130, color='#4ade80'), timeline([('By', '1934', 'Start'), ('1942', '1942', '220M trees')], screen=(0.5, 0.26), width=700)],
+            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 0.05, fillOpacity=0.45, soft=True, rim='#4ade80'), cnt('220,000,000', '220', size=130, color='#4ade80'), timeline([('By', '1934', 'Start'), ('1942', '1942', '220M trees')], screen=(0.5, 0.26), width=700)],
           cam=at_(40, -99, 2.8),
           src=[src('220 million trees by 1942.', SB, '220 million trees had been planted, covering 18,600 square miles')]),
         S("That's 30,233 separate shelterbelts, covering 18,600 square miles.", [
-            cnt_steps([('30,233', '30,233'), ('18,600', '18,600 mi²')], size=150), scatter(box(-101.5, 32, -98.5, 48.5), '🌲', 'shelterbelts', count=22, size=48, stagger=0.04)],
+            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 0.05, fillOpacity=0.45, soft=True, rim='#4ade80'), cnt_steps([('30,233', '30,233'), ('18,600', '18,600 mi²')], size=150), scatter(box(-101.5, 32, -98.5, 48.5), '🌲', 'shelterbelts', count=22, size=48, stagger=0.04)],
           src=[src('30,233 shelterbelts were planted.', SB, '30,233 shelterbelts had been planted'),
                src('Covering 18,600 square miles.', SB, 'covering 18,600 square miles (48,000 km2)')]),
         S("It stretched from the Canadian border in North Dakota, all the way to the Brazos River in Texas.", [
-            ping(48.9, -100, 'Canadian', color='#ffd60a'), ping(33.5, -99.5, 'Brazos', color='#ffd60a'), dot('Canada border', 48.9, -100, 'Canadian', dy=-56), dot('Brazos River', 33.5, -99.5, 'Brazos', dy=56),
+            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 0.05, fillOpacity=0.45, soft=True, rim='#4ade80'), ping(48.9, -100, 'Canadian', color='#ffd60a'), ping(33.5, -99.5, 'Brazos', color='#ffd60a'), dot('Canada border', 48.9, -100, 'Canadian', dy=-56), dot('Brazos River', 33.5, -99.5, 'Brazos', dy=56),
             route([(48.9, -100), (41, -99.8), (33.5, -99.5)], 'stretched', color='#4ade80', width=8, drawDur=1.4, arrowHead=True)],
           cam=at_(41, -99, 2.5),
           src=[src('From the Canadian border in North Dakota to the Brazos River in Texas.', SB, 'from the Canadian border in North Dakota to the Brazos River in Texas')]),
         S("Experts later called it the largest government effort ever focused on an environmental problem in the US.", [
-            stamp('BIGGEST EVER', 'largest', size=90), scatter(box(-101.5, 32, -98.5, 48.5), '🌳', 'Experts', count=14, size=56, stagger=0.04)],
+            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 0.05, fillOpacity=0.45, soft=True, rim='#4ade80'), stamp('BIGGEST EVER', 'largest', size=90), scatter(box(-101.5, 32, -98.5, 48.5), '🌳', 'Experts', count=14, size=56, stagger=0.04)],
           cam=at_(40, -99, 2.6, bearing=3), tr='flash',
           src=[src('Called the largest and most-focused government effort to address an environmental problem (as of 2007).', SB, 'the largest and most-focused effort of the [U.S.] government to address an environmental problem')]),
     ],
