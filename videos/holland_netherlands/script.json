@@ -62,9 +62,9 @@
         }
       ],
       "camera": {
-        "lat": 52.25,
+        "lat": 52.2,
         "lon": 5.3,
-        "zoom": 13
+        "zoom": 12
       },
       "noClaim": true
     },
@@ -91,9 +91,9 @@
         }
       ],
       "camera": {
-        "lat": 52.25,
+        "lat": 52.2,
         "lon": 5.3,
-        "zoom": 13
+        "zoom": 24
       },
       "sources": [
         {
@@ -149,9 +149,9 @@
         }
       ],
       "camera": {
-        "lat": 52.25,
+        "lat": 52.2,
         "lon": 5.3,
-        "zoom": 13
+        "zoom": 24
       },
       "transition": "flash",
       "sources": [
@@ -166,6 +166,26 @@
       "era": "now",
       "text": "They cover only about 13 percent of the land, but they're home to about 38 percent of the people.",
       "show": [
+        {
+          "type": "highlight",
+          "target": "NLD",
+          "fill": "#e5e7eb",
+          "at": "They",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Noord-Holland",
+              "Zuid-Holland"
+            ],
+            "country": "NLD"
+          },
+          "fill": "#f97316",
+          "at": "They",
+          "neon": "#ffd60a"
+        },
         {
           "type": "bars",
           "items": [
@@ -198,9 +218,9 @@
         }
       ],
       "camera": {
-        "lat": 52.25,
+        "lat": 52.2,
         "lon": 5.3,
-        "zoom": 13
+        "zoom": 24
       },
       "sources": [
         {
@@ -276,9 +296,9 @@
         }
       ],
       "camera": {
-        "lat": 52.2,
-        "lon": 4.7,
-        "zoom": 16
+        "lat": 52.15,
+        "lon": 4.6,
+        "zoom": 45
       },
       "sources": [
         {
@@ -295,10 +315,20 @@
         {
           "type": "icon",
           "icon": "🚢",
-          "lat": 51.9,
-          "lon": 4.1,
-          "size": 110,
+          "lat": 51.95,
+          "lon": 4.05,
+          "size": 140,
           "at": "port"
+        },
+        {
+          "type": "label",
+          "text": "Rotterdam",
+          "lat": 51.92,
+          "lon": 4.48,
+          "at": "Rotterdam",
+          "dot": true,
+          "dy": -52,
+          "size": 40
         },
         {
           "type": "highlight",
@@ -324,7 +354,7 @@
       "camera": {
         "lat": 52.15,
         "lon": 4.75,
-        "zoom": 13
+        "zoom": 32
       },
       "transition": "flash",
       "sources": [
@@ -348,7 +378,7 @@
           "type": "highlight",
           "target": "NLD",
           "fill": "#f97316",
-          "at": "whole",
+          "at": "name",
           "fillOpacity": 0.6
         },
         {
@@ -359,9 +389,9 @@
         }
       ],
       "camera": {
-        "lat": 52.25,
+        "lat": 52.2,
         "lon": 5.3,
-        "zoom": 13
+        "zoom": 24
       },
       "sources": [
         {
@@ -375,6 +405,13 @@
       "era": "now",
       "text": "So many people called the whole country Holland that in 2019, the government decided to stop using the name.",
       "show": [
+        {
+          "type": "highlight",
+          "target": "NLD",
+          "fill": "flag:nl",
+          "at": "So",
+          "fillOpacity": 0.8
+        },
         {
           "type": "year",
           "value": "2019",
@@ -393,9 +430,9 @@
         }
       ],
       "camera": {
-        "lat": 52.25,
+        "lat": 52.2,
         "lon": 5.3,
-        "zoom": 13,
+        "zoom": 24,
         "bearing": 3
       },
       "sources": [
@@ -411,36 +448,32 @@
       "text": "Even the official logo changed, from Holland to just NL.",
       "show": [
         {
-          "type": "vs",
-          "left": {
-            "flag": "nl",
-            "label": "HOLLAND"
-          },
-          "right": {
-            "flag": "nl",
-            "label": "NL"
-          },
-          "at": "logo",
-          "screen": [
-            0.5,
-            0.3
-          ]
+          "type": "highlight",
+          "target": "NLD",
+          "fill": "flag:nl",
+          "at": "Even",
+          "fillOpacity": 0.8
         },
         {
-          "type": "stamp",
-          "text": "NL",
-          "size": 110,
-          "screen": [
-            0.5,
-            0.33
+          "type": "counter",
+          "steps": [
+            {
+              "at": "Holland",
+              "value": "HOLLAND"
+            },
+            {
+              "at": "NL",
+              "value": "NL"
+            }
           ],
-          "at": "NL"
+          "size": 170,
+          "color": "#f97316"
         }
       ],
       "camera": {
-        "lat": 52.25,
+        "lat": 52.2,
         "lon": 5.3,
-        "zoom": 13
+        "zoom": 24
       },
       "sources": [
         {

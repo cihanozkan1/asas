@@ -286,41 +286,42 @@ save('holland_netherlands', meta(
     [
         S("Holland and the Netherlands. Most people think they're the same country. They're not.", [
             hook('HOLLAND ≠ *NETHERLANDS*', at=0.05, until='country'), vs(('nl', 'Holland?'), ('nl', 'Netherlands?'), 'same', screen=[0.5, 0.33])],
-          cam=at_(52.25, 5.3, 13), no_claim=True),
+          cam=at_(52.2, 5.3, 12), no_claim=True),
         S("The Netherlands is the whole country, with 12 provinces.", [
             hl('NLD', 'flag:nl', 'Netherlands', fillOpacity=0.85), cnt('12', '12', size=220)],
-          cam=at_(52.25, 5.3, 13),
+          cam=at_(52.2, 5.3, 24),
           src=[src('Holland: two of the country\'s twelve provinces.', NL, 'Holland comprises the provinces of North Holland and South Holland, representing two of the country\'s twelve provinces')]),
         S("Holland is only two of them: North Holland and South Holland.", [
             hl('NLD', '#e5e7eb', 'only', fillOpacity=0.7), hl(HOLL, '#f97316', 'two', neon='#ffd60a'),
             lab('North Holland', 52.6, 4.9, 'North', style='pill', bg='#f97316', size=40), lab('South Holland', 51.95, 4.5, 'South', style='pill', bg='#f97316', size=40)],
-          cam=at_(52.25, 5.3, 13), tr='flash',
+          cam=at_(52.2, 5.3, 24), tr='flash',
           src=[src('Holland = North Holland and South Holland.', NL, 'Holland comprises the provinces of North Holland and South Holland')]),
         S("They cover only about 13 percent of the land, but they're home to about 38 percent of the people.", [
+            hl('NLD', '#e5e7eb', 'They', fillOpacity=0.7), hl(HOLL, '#f97316', 'They', neon='#ffd60a'),
             bars([('Land', 13, '13%', '#f97316'), ('People', 38, '38%', '#ffd60a')], 'land', screen=[0.5, 0.3], labelWidth=200), tilt('home', deg=34, until=3.5)],
-          cam=at_(52.25, 5.3, 13),
+          cam=at_(52.2, 5.3, 24),
           src=[src('About 13% of the territory and 38% of the population.', NL, 'covering about 13% of its national territory and approximately 38% of the Dutch population')]),
         S("Because that's where the big cities are: Amsterdam, Rotterdam and The Hague.", [
             *[ping(la, lo, w, color='#ffd60a') for la, lo, w in [(52.37, 4.9, 'Amsterdam'), (51.92, 4.48, 'Rotterdam'), (52.08, 4.31, 'Hague')]],
             *[dot(n, la, lo, w, dy=-52, size=40) for n, la, lo, w in [('Amsterdam', 52.37, 4.9, 'Amsterdam'), ('Rotterdam', 51.92, 4.48, 'Rotterdam'), ('The Hague', 52.08, 4.31, 'Hague')]],
             char('dutch_farmer', 'cities')],
-          cam=at_(52.2, 4.7, 16),
+          cam=at_(52.15, 4.6, 45),
           src=[src('Holland contains Amsterdam, Rotterdam and The Hague.', NL, 'The main cities in Holland are Amsterdam, Rotterdam and The Hague.')]),
         S("Rotterdam even has Europe's largest port. And with Utrecht, these cities form one giant metro area, the Randstad.", [
-            icon('🚢', 51.9, 4.1, 'port', size=110), hl({'admin1': 'Utrecht', 'country': 'NLD'}, '#ffd60a', 'Utrecht', fillOpacity=0.6), slam('RANDSTAD', 52.45, 4.3, 'Randstad', size=62)],
-          cam=at_(52.15, 4.75, 13), tr='flash',
+            icon('🚢', 51.95, 4.05, 'port', size=140), dot('Rotterdam', 51.92, 4.48, 'Rotterdam', dy=-52, size=40), hl({'admin1': 'Utrecht', 'country': 'NLD'}, '#ffd60a', 'Utrecht', fillOpacity=0.6), slam('RANDSTAD', 52.45, 4.3, 'Randstad', size=62)],
+          cam=at_(52.15, 4.75, 32), tr='flash',
           src=[src('The Port of Rotterdam is Europe\'s largest.', NL, "The Port of Rotterdam is Europe's largest and most important harbour and port."),
                src('With Utrecht they form the Randstad conurbation.', NL, 'These cities, combined with Utrecht and other smaller municipalities, effectively form a single metroplex—a conurbation called Randstad.')]),
-        S("That's why, for centuries, the name Holland was used for the whole country.", [hl('NLD', '#f97316', 'whole', fillOpacity=0.6), q(52.2, 5.3, 'why')],
-          cam=at_(52.25, 5.3, 13),
+        S("That's why, for centuries, the name Holland was used for the whole country.", [hl('NLD', '#f97316', 'name', fillOpacity=0.6), q(52.2, 5.3, 'why')],
+          cam=at_(52.2, 5.3, 24),
           src=[src('Holland has frequently been used for the whole Netherlands.', NL, 'The name Holland has frequently been used to refer to the whole of the country of the Netherlands.')]),
         S("So many people called the whole country Holland that in 2019, the government decided to stop using the name.", [
-            year(2019, '2019', light=True), stamp('THE NETHERLANDS', 'stop', size=76)],
-          cam=at_(52.25, 5.3, 13, bearing=3),
+            hl('NLD', 'flag:nl', 'So', fillOpacity=0.8), year(2019, '2019', light=True), stamp('THE NETHERLANDS', 'stop', size=76)],
+          cam=at_(52.2, 5.3, 24, bearing=3),
           src=[src('Since 2019 the government officially favours "the Netherlands"; logo changed from Holland to NL.', NL, "In 2019, the Netherlands officially dropped its support of the term Holland for the whole country, which included a logo redesign that changed 'Holland' to 'NL'.")]),
         S("Even the official logo changed, from Holland to just NL.", [
-            vs(('nl', 'HOLLAND'), ('nl', 'NL'), 'logo', screen=[0.5, 0.3]), stamp('NL', 'NL', size=110)],
-          cam=at_(52.25, 5.3, 13),
+            hl('NLD', 'flag:nl', 'Even', fillOpacity=0.8), cnt_steps([('Holland', 'HOLLAND'), ('NL', 'NL')], size=170, color='#f97316')],
+          cam=at_(52.2, 5.3, 24),
           src=[src('The logo changed from Holland to NL.', NL, "which included a logo redesign that changed 'Holland' to 'NL'")]),
     ],
     keywords={'holland': '#f97316', 'netherlands': '#5ec8ff', 'amsterdam': '#ffd60a'},
@@ -347,10 +348,11 @@ save('centralia', meta(
           cam=at_(40.804, -76.341, 500),
           src=[src('It could burn for another 250 years.', CE, 'do so for another 250 years')]),
         S("In 1980, about 1,000 people still lived here.", [year(1980, '1980'), cnt('~1,000', '1,000', size=170), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏠', 'lived', count=12, size=54, stagger=0.05)],
-          cam=at_(40.804, -76.341, 450), era='history', tr='film',
+          cam=at_(40.804, -76.341, 450), era='history', tr='film', style='satellite',
           src=[src('1,012 residents by 1980.', CE, 'By 1980, it had 1,012 residents.')]),
-        S("Then, in 1992, the state condemned every single building in town.", [year(1992, '1992'), stamp('CONDEMNED', 'condemned', size=90), shake('condemned')],
-          era='history',
+        S("Then, in 1992, the state condemned every single building in town.", [year(1992, '1992'), stamp('CONDEMNED', 'condemned', size=90), shake('condemned'),
+            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏚️', 'building', count=12, size=58, stagger=0.05)],
+          era='history', style='satellite',
           src=[src('In 1992 the governor invoked eminent domain on all property, condemning all buildings.', CE, 'invoked eminent domain on all property in the borough, condemning all the buildings within')]),
         S("In 2013, the last seven residents were allowed to stay, but only until the end of their lives.", [
             year(2013, '2013', light=True), cnt('7', 'seven', size=200), icon('🏠', 40.804, -76.34, 'residents', size=110)],
@@ -358,7 +360,7 @@ save('centralia', meta(
           src=[src('In 2013 the seven remaining residents were allowed to remain until their deaths.', CE, 'State and local officials reached an agreement with the then seven remaining residents on October 29, 2013, allowing them to remain in Centralia until their deaths')]),
         S("By the 2020 census, only five people were left.", [
             bars([('1980', 1012, '1,012', '#9ca3af'), ('2020', 5, '5', '#ff5a2a')], 'census', screen=[0.5, 0.3], labelWidth=180)],
-          cam=at_(40.804, -76.341, 450), style='dark', tr='flash',
+          cam=at_(40.804, -76.341, 450), tr='flash',
           src=[src('Five residents in the 2020 census.', CE, 'As of the census of 2020, there were five people residing in the borough.')]),
         S("The cracked main road became the famous Graffiti Highway, until it was buried under dirt in 2020.", [
             route([(40.797, -76.349), (40.801, -76.345), (40.806, -76.340)], 'road', color='#ff5a2a', width=10, drawDur=1.2), lab('GRAFFITI HIGHWAY', 40.797, -76.349, 'Graffiti', style='note', size=48, dy=-60)],
@@ -366,7 +368,7 @@ save('centralia', meta(
           src=[src('In April 2020 the owners covered the graffiti highway with mounds of dirt.', CE, 'the property\'s current owners made the decision to cover over the graffiti on the highway section of old Route 61. Several hundred mounds of dirt were laid over the area')]),
         S("Today, Centralia is a ghost town, sitting on top of a fire that nobody can put out.", [
             scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 1.2}}, '🔥', 'fire', count=12, size=66, stagger=0.06), stamp('GHOST TOWN', 'ghost', size=90)],
-          cam=at_(40.804, -76.341, 350, bearing=3), style='dark',
+          cam=at_(40.804, -76.341, 350, bearing=3),
           src=[src('Only five residents remain while the fire still burns.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
     ],
     keywords={'fire': '#ff5a2a', 'burning': '#ff5a2a', 'centralia': '#ffd60a', 'five': '#ff5a2a'},

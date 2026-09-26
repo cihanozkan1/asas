@@ -202,6 +202,7 @@
         "lon": -76.341,
         "zoom": 450
       },
+      "style": "satellite",
       "transition": "film",
       "sources": [
         {
@@ -233,8 +234,24 @@
         {
           "type": "shake",
           "at": "condemned"
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 40.8043,
+              "lon": -76.3408,
+              "km": 0.8
+            }
+          },
+          "icon": "🏚️",
+          "count": 12,
+          "size": 58,
+          "at": "building",
+          "stagger": 0.05
         }
       ],
+      "style": "satellite",
       "sources": [
         {
           "claim": "In 1992 the governor invoked eminent domain on all property, condemning all buildings.",
@@ -319,7 +336,6 @@
         "lon": -76.341,
         "zoom": 450
       },
-      "style": "dark",
       "transition": "flash",
       "sources": [
         {
@@ -414,7 +430,6 @@
         "zoom": 350,
         "bearing": 3
       },
-      "style": "dark",
       "sources": [
         {
           "claim": "Only five residents remain while the fire still burns.",
