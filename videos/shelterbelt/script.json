@@ -129,6 +129,29 @@
       "text": "So in 1934, President Franklin D. Roosevelt launched the Great Plains Shelterbelt.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -104,
+              31.5,
+              -96,
+              49
+            ]
+          },
+          "fill": "#b45309",
+          "at": "Great",
+          "fillOpacity": 0.35,
+          "soft": true
+        },
+        {
+          "type": "label",
+          "text": "GREAT PLAINS",
+          "lat": 41,
+          "lon": -100,
+          "at": "Great",
+          "size": 50
+        },
+        {
           "type": "year",
           "value": "1934",
           "at": "1934"
@@ -176,7 +199,7 @@
           "icon": "🌳",
           "count": 18,
           "size": 56,
-          "at": "rows",
+          "at": "idea",
           "stagger": 0.05
         },
         {
@@ -271,9 +294,13 @@
             {
               "at": "30,233",
               "value": "30,233"
+            },
+            {
+              "at": "18,600",
+              "value": "18,600 mi²"
             }
           ],
-          "size": 170
+          "size": 150
         },
         {
           "type": "scatter",
@@ -406,7 +433,7 @@
           "icon": "🌳",
           "count": 14,
           "size": 56,
-          "at": "environmental",
+          "at": "Experts",
           "stagger": 0.04
         }
       ],

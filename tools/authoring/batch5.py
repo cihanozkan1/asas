@@ -316,11 +316,11 @@ save('shelterbelt', meta(
           cam=at_(38, -100, 3.2), era='history', tr='film',
           src=[src('The project was a response to the Dust Bowl dust storms.', SB, 'reduce wind velocity and lessen evaporation of moisture from the soil')]),
         S("So in 1934, President Franklin D. Roosevelt launched the Great Plains Shelterbelt.", [
-            year(1934, '1934'), char('fdr', 'Roosevelt', name='F. D. Roosevelt', say='Plant trees!')],
+            hl(box(-104, 31.5, -96, 49), '#b45309', 'Great', fillOpacity=0.35, soft=True), lab('GREAT PLAINS', 41, -100, 'Great', size=50), year(1934, '1934'), char('fdr', 'Roosevelt', name='F. D. Roosevelt', say='Plant trees!')],
           era='history',
           src=[src('Started in 1934 by President Franklin D. Roosevelt.', SB, '1934')]),
         S("The idea: rows of trees slow down the wind, and keep moisture in the soil.", [
-            tilt('rows', deg=40, until=4), scatter(box(-101, 34, -99, 47), '🌳', 'rows', count=18, size=56, stagger=0.05), flow([(40, -106), (40, -101.8)], 'wind', color='#e5e7eb', width=9)],
+            tilt('rows', deg=40, until=4), scatter(box(-101, 34, -99, 47), '🌳', 'idea', count=18, size=56, stagger=0.05), flow([(40, -106), (40, -101.8)], 'wind', color='#e5e7eb', width=9)],
           cam=at_(40, -100, 5),
           src=[src('Windbreaks reduce wind velocity and evaporation.', SB, 'reduce wind velocity and lessen evaporation of moisture from the soil')]),
         S("By 1942, they had planted 220 million trees.", [
@@ -328,7 +328,7 @@ save('shelterbelt', meta(
           cam=at_(40, -99, 2.8),
           src=[src('220 million trees by 1942.', SB, '220 million trees had been planted, covering 18,600 square miles')]),
         S("That's 30,233 separate shelterbelts, covering 18,600 square miles.", [
-            cnt('30,233', '30,233', size=170), scatter(box(-101.5, 32, -98.5, 48.5), '🌲', 'shelterbelts', count=22, size=48, stagger=0.04)],
+            cnt_steps([('30,233', '30,233'), ('18,600', '18,600 mi²')], size=150), scatter(box(-101.5, 32, -98.5, 48.5), '🌲', 'shelterbelts', count=22, size=48, stagger=0.04)],
           src=[src('30,233 shelterbelts were planted.', SB, '30,233 shelterbelts had been planted'),
                src('Covering 18,600 square miles.', SB, 'covering 18,600 square miles (48,000 km2)')]),
         S("It stretched from the Canadian border in North Dakota, all the way to the Brazos River in Texas.", [
@@ -337,7 +337,7 @@ save('shelterbelt', meta(
           cam=at_(41, -99, 2.5),
           src=[src('From the Canadian border in North Dakota to the Brazos River in Texas.', SB, 'from the Canadian border in North Dakota to the Brazos River in Texas')]),
         S("Experts later called it the largest government effort ever focused on an environmental problem in the US.", [
-            stamp('BIGGEST EVER', 'largest', size=90), scatter(box(-101.5, 32, -98.5, 48.5), '🌳', 'environmental', count=14, size=56, stagger=0.04)],
+            stamp('BIGGEST EVER', 'largest', size=90), scatter(box(-101.5, 32, -98.5, 48.5), '🌳', 'Experts', count=14, size=56, stagger=0.04)],
           cam=at_(40, -99, 2.6, bearing=3), tr='flash',
           src=[src('Called the largest and most-focused government effort to address an environmental problem (as of 2007).', SB, 'the largest and most-focused effort of the [U.S.] government to address an environmental problem')]),
     ],
