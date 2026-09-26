@@ -93,8 +93,8 @@
         {
           "type": "label",
           "text": "only 3!",
-          "lat": -24,
-          "lon": 33,
+          "lat": -33.5,
+          "lon": 27,
           "at": "three",
           "style": "note",
           "typewriter": true,

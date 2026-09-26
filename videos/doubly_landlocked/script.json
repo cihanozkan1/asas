@@ -503,8 +503,9 @@
           "lon": 8.93,
           "at": "sea",
           "dot": true,
-          "dy": 46,
-          "size": 44
+          "dy": 50,
+          "size": 44,
+          "dx": -90
         }
       ],
       "camera": {

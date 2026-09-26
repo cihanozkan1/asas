@@ -83,7 +83,7 @@ save('chile', meta(
           cam=fit(CHL, pad=0.9), style='dark', no_claim=True),
         S("First, look east. The Andes, some of the highest mountains on Earth, form a giant wall along the whole country.", [
             route([(-18, -69.2), (-24, -68.2), (-30, -69.8), (-36, -70.4), (-41, -71.8), (-47, -72.9), (-52, -72.9)], 'Andes', color='#c8a46e', width=16, drawDur=1.4),
-            slam('ANDES', -27, -67.5, 'Andes', rotate=-80, size=90), icon('⛰️', -33, -66, 'wall', size=130)],
+            slam('ANDES', -27, -67.5, 'Andes', rotate=-80, size=90), icon('⛰️', -36, -64.5, 'wall', size=130)],
           cam=fit(CHL, pad=0.9),
           src=[src('Chile is a narrow strip between the Andes and the Pacific.', 'Chile', 'a narrow strip of land between the Andes Mountains and the Pacific Ocean')]),
         S("And to the west, there's nothing but the Pacific Ocean. So Chile is trapped in a narrow strip between the two.", [
@@ -128,7 +128,7 @@ save('lesotho', meta(
           cam=fit(ZAF, pad=0.9, bearing=-3),
           src=[src('Lesotho is completely surrounded by South Africa.', 'Lesotho', "the largest of the world's three independent states completely surrounded by the territory of another country")]),
         S("It's one of only three countries on Earth completely surrounded by another country. The other two are San Marino and Vatican City, both inside Italy.", [
-            cnt('3', 'three', size=220), note('only 3!', -24, 33, 'three', size=66), pill('San Marino + Vatican City', 'San', bg='#1d4ed8')],
+            cnt('3', 'three', size=220), note('only 3!', -33.5, 27, 'three', size=66), pill('San Marino + Vatican City', 'San', bg='#1d4ed8')],
           src=[src('One of three such states, with Vatican City and San Marino.', 'Lesotho', "the largest of the world's three independent states completely surrounded by the territory of another country")]),
         S("And it's the only country on Earth that lies entirely above 1,000 meters. Even its lowest point is 1,400 meters high.", [
             cnt('1,000 m+', '1,000', size=150), scatter(LSO, '⛰️', 'above', count=8, size=62),

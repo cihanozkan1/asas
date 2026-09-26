@@ -141,7 +141,7 @@ save('doubly_landlocked', meta(
           src=[src('It became doubly landlocked in 1918 after Austria-Hungary dissolved.', 'Landlocked_country', 'The nation became doubly landlocked specifically in 1918 following Austria-Hungary\'s dissolution, which created an independent but landlocked Austria.')]),
         S("So from Liechtenstein, reaching the sea means crossing at least two countries.", [
             mover_icon([(47.14, 9.52), (46.8, 9.4), (46.2, 9.0), (45.46, 9.19), (44.41, 8.93)], 'reaching', '🚗', size=90, drawDur=2.4),
-            cnt_steps([('reaching', '1'), ('two', '2')], size=190), dot('Genoa', 44.41, 8.93, 'sea', dy=46)],
+            cnt_steps([('reaching', '1'), ('two', '2')], size=190), dot('Genoa', 44.41, 8.93, 'sea', dy=50, dx=-90)],
           cam=at_(45.9, 9.3, 7, bearing=-3), tr='flash',
           src=[src('Doubly landlocked means crossing at least two borders to reach a coastline.', 'Landlocked_country', 'requiring the crossing of at least two national borders to reach a coastline')]),
     ],
@@ -176,7 +176,7 @@ save('diomede', meta(
           src=[src('They are nicknamed "Tomorrow Island" and "Yesterday Island".', 'Diomede_Islands', 'This quirk earned them the nicknames "Tomorrow Island" and "Yesterday Island."')]),
         S("In winter, an ice bridge usually forms between them. But crossing it is prohibited.", [
             hl({'circle': {'lat': 65.77, 'lon': -168.99, 'km': 5}}, '#e0f2fe', 'ice', fillOpacity=0.55, reveal={'lat': 65.77, 'lon': -168.99}),
-            icon('🧊', 65.77, -168.99, 'ice', size=110), stamp('PROHIBITED', 'prohibited', size=90)],
+            icon('🧊', 65.77, -168.99, 'ice', size=110), stamp('PROHIBITED', 'prohibited', size=90, screen=[0.5, 0.22])],
           src=[src('An ice bridge usually forms in winter, but crossing is prohibited.', 'Diomede_Islands', 'An ice bridge usually spans the distance between the two islands in winter, though crossing between them is prohibited')]),
         S("Little Diomede is home to a small Inupiat community of about 77 people.", [
             cnt('77', '77', size=210), char('inuit_kid', 'community'), ping(*LITTLE, 'Little', color='#5ec8ff')],

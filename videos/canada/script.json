@@ -608,7 +608,6 @@
             0.6
           ],
           "at": "everyone",
-          "hold": 1,
           "image": "lumberjack"
         }
       ],
@@ -692,8 +691,8 @@
           "text": "CANADIAN SHIELD",
           "style": "pill",
           "bg": "#6b7280",
-          "lat": 55.5,
-          "lon": -85,
+          "lat": 58,
+          "lon": -95,
           "size": 50,
           "at": "Shield"
         },

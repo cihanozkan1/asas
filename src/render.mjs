@@ -31,7 +31,7 @@ export function startServer() {
   });
 }
 
-async function openPage(timeline, scale = 1) {
+export async function openPage(timeline, scale = 1) {
   const server = await startServer();
   const port = server.address().port;
   const browser = await puppeteer.launch({

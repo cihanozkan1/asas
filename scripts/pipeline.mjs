@@ -22,7 +22,7 @@ import { ensureDetail, autoDetailBoxes, byCoarseness, S2_CREDIT, BLUE_MARBLE_CRE
 import { ensureEarth, ensureNight } from '../tools/fetch-data.mjs';
 import { buildPage } from '../tools/build-page.mjs';
 
-const BOOLEAN = new Set(['check-only', 'mock-tts', 'guides']);
+const BOOLEAN = new Set(['check-only', 'mock-tts', 'guides', 'timeline-only']);
 
 function parseArgs(argv) {
   const a = { _: [] };
@@ -92,6 +92,7 @@ async function main() {
     if (!preset) throw new Error('Bilinmeyen stil: ' + style);
     const tl = await buildTimeline({ script, cfg, preset, narration, videoDir, assets, guides: !!args.guides });
     writeJson(path.join(outDir, `timeline.${style}.json`), tl);
+    if (args['timeline-only']) continue;
 
     if (args.stills) {
       const n = Number(args.stills) > 1 ? Number(args.stills) : 15;

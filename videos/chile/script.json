@@ -193,8 +193,8 @@
         {
           "type": "icon",
           "icon": "⛰️",
-          "lat": -33,
-          "lon": -66,
+          "lat": -36,
+          "lon": -64.5,
           "size": 130,
           "at": "wall"
         }

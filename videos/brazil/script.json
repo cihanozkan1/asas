@@ -610,8 +610,8 @@
           "type": "label",
           "text": "to India",
           "style": "note",
-          "lat": 22,
-          "lon": -18,
+          "lat": -8,
+          "lon": -28,
           "size": 50,
           "rotate": -8,
           "at": "India"

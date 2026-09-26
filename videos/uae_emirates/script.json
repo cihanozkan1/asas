@@ -168,143 +168,171 @@
       "show": [
         {
           "type": "label",
-          "text": "Abu Dhabi",
-          "lat": 23.6,
-          "lon": 54.3,
+          "text": "1. Abu Dhabi",
           "at": "Abu",
           "style": "pill",
-          "bg": "#111827",
-          "size": 54,
-          "dy": -70,
-          "until": "Dubai"
+          "bg": "#ef4444",
+          "size": 46,
+          "screen": [
+            0.27,
+            0.11
+          ],
+          "fixed": true
         },
         {
           "type": "label",
-          "text": "Dubai",
-          "lat": 25.07,
-          "lon": 55.25,
+          "text": "2. Dubai",
           "at": "Dubai",
           "style": "pill",
-          "bg": "#111827",
-          "size": 54,
-          "dy": -70,
-          "until": "Sharjah"
+          "bg": "#f59e0b",
+          "size": 46,
+          "screen": [
+            0.27,
+            0.162
+          ],
+          "fixed": true
         },
         {
           "type": "label",
-          "text": "Sharjah",
-          "lat": 25.3,
-          "lon": 55.55,
+          "text": "3. Sharjah",
           "at": "Sharjah",
           "style": "pill",
-          "bg": "#111827",
-          "size": 54,
-          "dy": -70,
-          "until": "Ajman"
+          "bg": "#10b981",
+          "size": 46,
+          "screen": [
+            0.27,
+            0.214
+          ],
+          "fixed": true
         },
         {
           "type": "label",
-          "text": "Ajman",
-          "lat": 25.4,
-          "lon": 55.5,
+          "text": "4. Ajman",
           "at": "Ajman",
           "style": "pill",
-          "bg": "#111827",
-          "size": 54,
-          "dy": -70,
-          "until": "Umm"
+          "bg": "#3b82f6",
+          "size": 46,
+          "screen": [
+            0.27,
+            0.266
+          ],
+          "fixed": true
         },
         {
           "type": "label",
-          "text": "Umm Al Quwain",
-          "lat": 25.52,
-          "lon": 55.65,
+          "text": "5. Umm Al Quwain",
           "at": "Umm",
           "style": "pill",
-          "bg": "#111827",
-          "size": 54,
-          "dy": -70,
-          "until": "Ras"
+          "bg": "#8b5cf6",
+          "size": 46,
+          "screen": [
+            0.27,
+            0.318
+          ],
+          "fixed": true
         },
         {
           "type": "label",
-          "text": "Ras Al Khaimah",
-          "lat": 25.75,
-          "lon": 56.0,
+          "text": "6. Ras Al Khaimah",
           "at": "Ras",
           "style": "pill",
-          "bg": "#111827",
-          "size": 54,
-          "dy": -70,
-          "until": "Fujairah"
+          "bg": "#ec4899",
+          "size": 46,
+          "screen": [
+            0.27,
+            0.37
+          ],
+          "fixed": true
         },
         {
           "type": "label",
-          "text": "Fujairah",
-          "lat": 25.25,
-          "lon": 56.3,
+          "text": "7. Fujairah",
           "at": "Fujairah",
           "style": "pill",
-          "bg": "#111827",
-          "size": 54,
-          "dy": -70,
-          "until": null
+          "bg": "#14b8a6",
+          "size": 46,
+          "screen": [
+            0.27,
+            0.422
+          ],
+          "fixed": true
         },
         {
-          "type": "ping",
-          "lat": 23.6,
-          "lon": 54.3,
-          "color": "#ffd60a",
+          "type": "highlight",
+          "target": {
+            "admin1": "Abu Dhabi",
+            "country": "ARE"
+          },
+          "fill": "#ef4444",
           "at": "Abu",
-          "until": "Dubai"
+          "fillOpacity": 0.95,
+          "neon": "#ffffff"
         },
         {
-          "type": "ping",
-          "lat": 25.07,
-          "lon": 55.25,
-          "color": "#ffd60a",
+          "type": "highlight",
+          "target": {
+            "admin1": "Dubay",
+            "country": "ARE"
+          },
+          "fill": "#f59e0b",
           "at": "Dubai",
-          "until": "Sharjah"
+          "fillOpacity": 0.95,
+          "neon": "#ffffff"
         },
         {
-          "type": "ping",
-          "lat": 25.3,
-          "lon": 55.55,
-          "color": "#ffd60a",
+          "type": "highlight",
+          "target": {
+            "admin1": "Sharjah",
+            "country": "ARE"
+          },
+          "fill": "#10b981",
           "at": "Sharjah",
-          "until": "Ajman"
+          "fillOpacity": 0.95,
+          "neon": "#ffffff"
         },
         {
-          "type": "ping",
-          "lat": 25.4,
-          "lon": 55.5,
-          "color": "#ffd60a",
+          "type": "highlight",
+          "target": {
+            "admin1": "Ajman",
+            "country": "ARE"
+          },
+          "fill": "#3b82f6",
           "at": "Ajman",
-          "until": "Umm"
+          "fillOpacity": 0.95,
+          "neon": "#ffffff"
         },
         {
-          "type": "ping",
-          "lat": 25.52,
-          "lon": 55.65,
-          "color": "#ffd60a",
+          "type": "highlight",
+          "target": {
+            "admin1": "Umm Al Qaywayn",
+            "country": "ARE"
+          },
+          "fill": "#8b5cf6",
           "at": "Umm",
-          "until": "Ras"
+          "fillOpacity": 0.95,
+          "neon": "#ffffff"
         },
         {
-          "type": "ping",
-          "lat": 25.75,
-          "lon": 56.0,
-          "color": "#ffd60a",
+          "type": "highlight",
+          "target": {
+            "admin1": "Ras Al Khaymah",
+            "country": "ARE"
+          },
+          "fill": "#ec4899",
           "at": "Ras",
-          "until": "Fujairah"
+          "fillOpacity": 0.95,
+          "neon": "#ffffff"
         },
         {
-          "type": "ping",
-          "lat": 25.25,
-          "lon": 56.3,
-          "color": "#ffd60a",
+          "type": "highlight",
+          "target": {
+            "admin1": "Fujayrah",
+            "country": "ARE"
+          },
+          "fill": "#14b8a6",
           "at": "Fujairah",
-          "until": null
+          "fillOpacity": 0.95,
+          "neon": "#ffffff"
         }
       ],
       "camera": {

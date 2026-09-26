@@ -135,7 +135,6 @@
           "at": 0.05,
           "style": "map",
           "size": 40,
-          "hold": 1,
           "color": "#334155"
         },
         {
@@ -146,7 +145,6 @@
           "at": 0.05,
           "style": "map",
           "size": 40,
-          "hold": 1,
           "color": "#334155"
         },
         {
@@ -157,7 +155,6 @@
           "at": 0.05,
           "style": "map",
           "size": 40,
-          "hold": 1,
           "color": "#334155"
         },
         {
@@ -168,7 +165,6 @@
           "at": 0.05,
           "style": "map",
           "size": 40,
-          "hold": 1,
           "color": "#334155"
         },
         {
@@ -224,7 +220,7 @@
           "style": "pill",
           "bg": "#111827",
           "size": 44,
-          "dy": -80
+          "dy": 80
         },
         {
           "type": "label",
@@ -241,12 +237,12 @@
           "type": "label",
           "text": "Beaver",
           "lat": 36.75,
-          "lon": -100.5,
+          "lon": -100.3,
           "at": "Beaver",
           "style": "pill",
           "bg": "#111827",
           "size": 44,
-          "dy": -80
+          "dy": 80
         },
         {
           "type": "ping",
@@ -456,18 +452,20 @@
         {
           "type": "label",
           "text": "NO MAN'S LAND",
-          "lat": 37.1,
-          "lon": -101.5,
           "at": "Man's",
           "style": "map",
           "anim": "slam",
-          "size": 58
+          "size": 60,
+          "screen": [
+            0.5,
+            0.32
+          ]
         },
         {
           "type": "character",
           "image": "cowboy",
           "screen": [
-            0.25,
+            0.74,
             0.6
           ],
           "at": "nobody",

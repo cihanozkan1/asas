@@ -10,7 +10,7 @@ save('chimborazo', meta(
     ['chimborazo', 'everest', 'ecuador', 'highest mountain', 'closest to space', 'equatorial bulge', 'earth', 'andes', 'geography', 'maps', 'learn']),
     [
         S("Everest is the highest mountain on Earth. But it's not the point closest to space.", [
-            hook('CLOSEST POINT TO *SPACE*?', at=0.05, until='Earth'), ping(*EV, 'Everest', color='#ffd60a'), dot('Everest', *EV, 'Everest', dy=-56), stamp('NOT #1?', 'closest', size=90)],
+            hook('CLOSEST POINT TO *SPACE*?', at=0.05, until='Earth'), ping(*EV, 'Everest', color='#ffd60a'), dot('Everest', *EV, 'Everest', dy=56), stamp('NOT #1?', 'closest', size=90)],
           cam=at_(25, 80, 1.6), no_claim=True),
         S("That title goes to Chimborazo, a volcano in Ecuador, only 6,263 meters high.", [
             ping(*CH, 'Chimborazo', color='#ff5a5f'), dot('Chimborazo', *CH, 'Chimborazo', dy=-56), hl('ECU', 'flag:ec', 'Ecuador', fillOpacity=0.85), cnt('6,263 m', '6,263', size=170)],
@@ -34,7 +34,7 @@ save('chimborazo', meta(
           cam=at_(-1.5, -78.8, 6),
           src=[src('Its summit is 6,384.4 km from Earth\'s center.', 'Chimborazo', 'it is 6,384.4 km (3,967.1 mi) from the Earth\'s center')]),
         S("That's about 2.1 kilometers farther out than the top of Everest.", [
-            ping(*CH, "That's", color='#ff5a5f'), dot('Chimborazo', *CH, "That's", dy=-56), cnt('+2.1 km', '2.1', size=170, color='#ff5a5f'),
+            ping(*CH, "That's", color='#ff5a5f'), dot('Chimborazo', *CH, "That's", dy=60), cnt('+2.1 km', '2.1', size=170, color='#ff5a5f'),
             stamp('CLOSEST TO SPACE', 'farther', size=78)],
           cam=at_(0, -78.8, 2.2),
           src=[src('About 2.1 km farther than Everest\'s summit.', 'Chimborazo', 'it is 6,384.4 km (3,967.1 mi) from the Earth\'s center, 2.1 km (1.3 mi) farther than')]),
@@ -68,7 +68,7 @@ save('market_island', meta(
           cam=at_(60.3009, 19.1318, 14500), era='history', tr='film', style='vintage',
           src=[src('In 1885 the lighthouse was built on the Swedish portion of the island.', 'Märket', 'However, the location selected was within the Swedish portion of the island.')]),
         S("So in 1985, the two countries did something clever. Instead of moving the lighthouse, they moved the border.", [
-            year(1985, '1985'), stamp('MOVE THE BORDER', 'moved', size=78), icon('🗼', *LH, 0.05, size=110), hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9), route(BOLD, 0.05, rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.1)],
+            year(1985, '1985'), stamp('MOVE THE BORDER', 'moved', size=72), icon('🗼', *LH, 0.05, size=110), hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9), route(BOLD, 0.05, rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.1)],
           cam=at_(60.3009, 19.1318, 14500), style='atlas', tr='flash',
           src=[src('The border was adjusted in 1985 so the lighthouse is on Finnish territory.', 'Märket', 'As a result, the border was adjusted in 1985 so that the lighthouse is now located on Finnish territory')]),
         S("The new border zigzags around the lighthouse, so it ends up in Finland.", [
@@ -157,8 +157,8 @@ save('uae_emirates', meta(
           cam=at_(24.4, 54.6, 19),
           src=[src('The UAE consists of seven emirates.', AE, 'The United Arab Emirates consists of seven emirates')]),
         S("Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah and Fujairah.", [
-            *[lab(lbl, la, lo, w, style='pill', bg='#111827', size=54, dy=-70, until=u) for lbl, la, lo, w, u in [('Abu Dhabi', 23.6, 54.3, 'Abu', 'Dubai'), ('Dubai', 25.07, 55.25, 'Dubai', 'Sharjah'), ('Sharjah', 25.3, 55.55, 'Sharjah', 'Ajman'), ('Ajman', 25.4, 55.5, 'Ajman', 'Umm'), ('Umm Al Quwain', 25.52, 55.65, 'Umm', 'Ras'), ('Ras Al Khaimah', 25.75, 56.0, 'Ras', 'Fujairah'), ('Fujairah', 25.25, 56.3, 'Fujairah', None)]],
-            *[ping(la, lo, w, color='#ffd60a', until=u) for lbl, la, lo, w, u in [('Abu Dhabi', 23.6, 54.3, 'Abu', 'Dubai'), ('Dubai', 25.07, 55.25, 'Dubai', 'Sharjah'), ('Sharjah', 25.3, 55.55, 'Sharjah', 'Ajman'), ('Ajman', 25.4, 55.5, 'Ajman', 'Umm'), ('Umm Al Quwain', 25.52, 55.65, 'Umm', 'Ras'), ('Ras Al Khaimah', 25.75, 56.0, 'Ras', 'Fujairah'), ('Fujairah', 25.25, 56.3, 'Fujairah', None)]]],
+            *[lab(f'{k + 1}. {lbl}', at=w, style='pill', bg=c, size=46, screen=[0.27, 0.11 + k * 0.052], fixed=True) for k, (lbl, w, c) in enumerate([('Abu Dhabi', 'Abu', '#ef4444'), ('Dubai', 'Dubai', '#f59e0b'), ('Sharjah', 'Sharjah', '#10b981'), ('Ajman', 'Ajman', '#3b82f6'), ('Umm Al Quwain', 'Umm', '#8b5cf6'), ('Ras Al Khaimah', 'Ras', '#ec4899'), ('Fujairah', 'Fujairah', '#14b8a6')])],
+            *[hl({'admin1': n, 'country': 'ARE'}, c, w, fillOpacity=0.95, neon='#ffffff') for (n, c), w in zip(EM, ['Abu', 'Dubai', 'Sharjah', 'Ajman', 'Umm', 'Ras', 'Fujairah'])]],
           cam=at_(24.6, 55.0, 22),
           src=[src('The seven emirates.', AE, 'Abu Dhabi, Ajman, Dubai, Fujairah, Ras Al Khaimah, Sharjah, and Umm Al Quwain')]),
         S("They joined together on 2 December 1971. Ras Al Khaimah joined a few months later, in 1972.", [
@@ -197,12 +197,12 @@ save('oklahoma_panhandle', meta(
         S("It's 166 miles long, and only 34 miles wide.", [
             hl(OKP, '#f97316', 0.05, fillOpacity=0.85, hold=1, neon='#ffd60a'),
             *[hl({'admin1': st, 'country': 'USA'}, c, 0.05, fillOpacity=0.8, hold=1) for st, c in [('Texas', '#f5c6c1'), ('Kansas', '#cfe8b8'), ('Colorado', '#d9d0f0'), ('New Mexico', '#bfe3dc')]],
-            *[lab(n, la, lo, 0.05, style='map', size=40, hold=1, color='#334155') for n, la, lo in [('TEXAS', 35.6, -101.8), ('KANSAS', 37.6, -100.3), ('COLORADO', 37.7, -103.3), ('NEW MEXICO', 36.2, -103.6)]],
+            *[lab(n, la, lo, 0.05, style='map', size=40, color='#334155') for n, la, lo in [('TEXAS', 35.6, -101.8), ('KANSAS', 37.6, -100.3), ('COLORADO', 37.7, -103.3), ('NEW MEXICO', 36.2, -103.6)]],
             meas((36.75, -103.0), (36.75, -100.0), '166 mi', 'long'), meas((36.5, -101.6), (37.0, -101.6), '34 mi', 'wide')],
           cam=at_(36.7, -101.5, 11),
           src=[src('The strip is 166 miles long and 34 miles wide.', PH, '166 miles (267 km) long and 34 miles (55 km) wide')]),
         S("It has three counties, Cimarron, Texas and Beaver, and Oklahoma's highest point, Black Mesa.", [
-            *[lab(n, 36.75, lo, n, style='pill', bg='#111827', size=44, dy=d) for n, lo, d in [('Cimarron', -102.5, -80), ('Texas', -101.5, 80), ('Beaver', -100.5, -80)]], *[ping(36.75, lo, n, color='#ffd60a') for n, lo in [('Cimarron', -102.5), ('Texas', -101.5), ('Beaver', -100.5)]], icon('⛰️', 36.93, -102.95, 'Mesa', size=110), lab('Black Mesa', 36.93, -102.95, 'Mesa', style='pill', bg='#7c2d12', size=46, dy=-90, fixed=True)],
+            *[lab(n, 36.75, lo, n, style='pill', bg='#111827', size=44, dy=d) for n, lo, d in [('Cimarron', -102.5, 80), ('Texas', -101.5, 80), ('Beaver', -100.3, 80)]], *[ping(36.75, lo, n, color='#ffd60a') for n, lo in [('Cimarron', -102.5), ('Texas', -101.5), ('Beaver', -100.5)]], icon('⛰️', 36.93, -102.95, 'Mesa', size=110), lab('Black Mesa', 36.93, -102.95, 'Mesa', style='pill', bg='#7c2d12', size=46, dy=-90, fixed=True)],
           cam=at_(36.7, -101.5, 11),
           src=[src('Its counties are Cimarron, Texas and Beaver.', PH, 'Its constituent counties are, from west to east, Cimarron, Texas and Beaver.'),
                src('Black Mesa, Oklahoma\'s highest point, is in Cimarron County.', PH, 'Black mesa, the highest point in Oklahoma at 4,973 feet (1,516 m), is located in Cimarron County.')]),
@@ -219,7 +219,7 @@ save('oklahoma_panhandle', meta(
           era='history',
           src=[src('Texas surrendered its lands north of 36°30′ under the 1850 Compromise.', PH, 'Texas surrendered its lands north of 36°30′')]),
         S("And that leftover strip belonged to nobody. People called it No Man's Land.", [
-            slam("NO MAN'S LAND", 37.1, -101.5, 'Man\'s', size=58), char('cowboy', 'nobody', say='Whose land is this?')],
+            lab("NO MAN'S LAND", at='Man\'s', style='map', anim='slam', size=60, screen=[0.5, 0.32]), char('cowboy', 'nobody', say='Whose land is this?', screen=(0.74, 0.6))],
           cam=at_(36.7, -101.5, 9), era='history',
           src=[src('The strip had no state or territorial ownership and was called No Man\'s Land.', PH, "was left with no state or territorial ownership from 1850 until 1890. It was officially called the 'Public Land Strip' and was commonly referred to as 'No Man's Land.'")]),
         S("It stayed that way for 40 years, until 1890, when it finally became part of Oklahoma Territory.", [

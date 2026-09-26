@@ -21,7 +21,7 @@ save('greenland_iceland', meta(
           cam=at_(64, -45, 3.0), era='history', tr='film',
           src=[src('Erik the Red named it Greenland to attract settlers.', 'Greenland', 'which he called Greenland, as he said people would be attracted there if it had a favourable name')]),
         S("The sagas say he called it Greenland, because people would be attracted there if it had a nice name.", [
-            note('GREAT MARKETING', 66, -42, 'nice', size=58), ship([(64.1, -21.9), (64, -30), (62, -42), (61, -45.5)], 'attracted', 'erik', emblem='#b91c1c')],
+            note('GREAT MARKETING', 70.5, -40, 'nice', size=58), ship([(64.1, -21.9), (64, -30), (62, -42), (61, -45.5)], 'attracted', 'erik', emblem='#b91c1c')],
           cam=at_(64, -35, 2.6), era='history',
           src=[src('Erik: people would be attracted if it had a favourable name.', 'Greenland', 'as he said people would be attracted there if it had a favourable name')]),
         S("And Iceland? Its name comes from Flóki, a Viking who climbed a mountain after a harsh winter, and saw an ice cap.", [
@@ -74,7 +74,7 @@ save('amazon_bridges', meta(
           cam=at_(-3.1, -60.5, 6),
           src=[src('There are few roads on either side that need connecting.', IFA, 'there are few roads on either side of the Amazon that need to be connected')]),
         S("So people cross by boat. A ferry does the job, for a tiny fraction of the cost of a bridge.", [
-            ship([(-3.14, -60.1), (-3.2, -59.95)], 'boat', 'ferry', emblem='#ffd60a', drawDur=2.0), icon('⛴️', -3.2, -60.0, 'ferry', size=100)],
+            ship([(-3.14, -60.1), (-3.2, -59.95)], 'boat', 'ferry', emblem='#ffd60a', drawDur=2.0), icon('⛴️', -3.08, -60.2, 'ferry', size=100)],
           cam=at_(-3.15, -60.0, 60, bearing=-3),
           src=[src('Boats and ferries are the preferred way to cross.', IFA, 'boats and ferries are the preferred method of crossing the Amazon'),
                src('A ferry does it at negligible cost compared with a major civil work.', LBV, 'at negligible cost compared to any major civil work')]),

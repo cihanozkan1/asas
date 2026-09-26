@@ -348,6 +348,8 @@ function fitCamera(features, mode, pad, override = {}) {
 async function init(tl) {
   state.tl = tl;
   const cfg = tl.config;
+  $('stage').className = `kit-${tl.kit?.kit || 'classic'}`;
+  $('stage').style.setProperty('--kit', tl.kit?.accent || '#ffd60a');
   state.mode = tl.preset.projection; // 'globe' | 'flat'
   state.baseK = W * cfg.layout.globeRadius;
 
@@ -1558,9 +1560,27 @@ function updateUi(t) {
     } else if (el.type === 'stat') {
       inner.querySelector('.v').textContent = countUp(el.value, clamp01(life.age / 0.9));
     }
+    // big cards shrink to fit the width instead of running off screen
+    if (['counter', 'stamp', 'year', 'title'].includes(el.type)) {
+      if (el._fs == null) el._fs = parseFloat(inner.style.fontSize) || 0;
+      if (el._fs) {
+        inner.style.fontSize = el._fs + 'px';
+        const maxW = W * (el.type === 'stamp' ? 0.78 : 0.86);
+        if (inner.offsetWidth > maxW) inner.style.fontSize = (el._fs * maxW) / inner.offsetWidth + 'px';
+      }
+    }
     const w = inner.offsetWidth, h = inner.offsetHeight;
+    // wide cards (charts, VS, timelines) are scaled down to fit between the safe margins
+    const sf = state.tl.config.safe;
+    const fit = ['bars', 'vs', 'timeline'].includes(el.type) ? Math.min(1, (W * (1 - sf.left - sf.right)) / Math.max(w, 1)) : 1;
     if (el.type === 'character') y -= h / 2 - 10; // anchor at the feet
-    if (el.screen) [x, y] = clampToSafe(x, y, w, h);
+    if (el.screen) [x, y] = clampToSafe(x, y, w * fit, h * fit);
+    else if (el.type === 'label' || el.type === 'flag') {
+      // map labels stay on screen and out of the like/comment/share column
+      const s = state.tl.config.safe;
+      x = Math.min(Math.max(x, W * s.left * 0.5 + w / 2), W - W * s.left * 0.5 - w / 2);
+      if (y + h / 2 > H * 0.45) x = Math.min(x, W * (1 - s.right) - w / 2);
+    }
     let scale = 1;
     let opacity = life.out;
     let rot = el.rotate || 0;
@@ -1735,6 +1755,7 @@ function updateUi(t) {
         rot = Math.sin(u * Math.PI) * -10;
       }
     }
+    scale *= fit;
     placed.push({ el, node, inner, x, y, w, h, scale, rot, opacity });
   }
   // Overlap offsets are solved once per element when it appears (init pre-pass) and then kept,
@@ -1767,7 +1788,8 @@ function updateUi(t) {
 // characters) and the caption band are fixed obstacles; map labels/flags/icons move.
 // Displacement is recomputed from the anchors every frame, so it follows the camera smoothly.
 const MOVABLE = new Set(['label', 'flag', 'icon', 'badge', 'question', 'measure', 'year', 'stamp']);
-const isMovable = (el) => MOVABLE.has(el.type) && (!el.screen || ['label', 'year', 'stamp'].includes(el.type)) && !el.fixed;
+// screen cards are already stacked by the timeline; only map-anchored things get nudged
+const isMovable = (el) => MOVABLE.has(el.type) && !el.screen && !el.fixed;
 function resolveOverlaps(items, canMove = isMovable) {
   const C = state.tl.config.captions;
   const boxes = items
@@ -1981,4 +2003,26 @@ function frame(t) {
   return true;
 }
 
-window.GG = { init, frame };
+// QA: rects of every UI element that is (mostly) visible right now, plus the caption box
+function probe() {
+  const out = [];
+  state.tl.elements.forEach((el, i) => {
+    if (!el._node || el.type === 'scatter') return;
+    const op = parseFloat(el._node.style.opacity || '1');
+    if (!(op > 0.5)) return;
+    const r = (el._inner || el._node).getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) return;
+    out.push({ i, type: el.type, text: String(el.text ?? el.value ?? el.label ?? el.steps?.[0]?.value ?? el.id ?? ''), scene: el.scene, start: el.start, end: el.end,
+      x: r.left, y: r.top, w: r.width, h: r.height, op });
+  });
+  const caps = [...$('captions').querySelectorAll('*')].filter((n) => n.children.length === 0 && parseFloat(getComputedStyle(n).opacity) > 0.5)
+    .map((n) => n.getBoundingClientRect()).filter((r) => r.width > 2);
+  let cap = null;
+  if (caps.length) {
+    const x0 = Math.min(...caps.map((r) => r.left)), y0 = Math.min(...caps.map((r) => r.top));
+    cap = { x: x0, y: y0, w: Math.max(...caps.map((r) => r.right)) - x0, h: Math.max(...caps.map((r) => r.bottom)) - y0 };
+  }
+  return { els: out, cap, scenes: state.tl.scenes.map((s) => [s.start, s.end]) };
+}
+
+window.GG = { init, frame, probe, fast: (on) => { state.layoutOnly = !!on; } };

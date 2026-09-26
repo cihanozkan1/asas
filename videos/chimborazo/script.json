@@ -57,7 +57,7 @@
           "lon": 86.925,
           "at": "Everest",
           "dot": true,
-          "dy": -56,
+          "dy": 56,
           "size": 44
         },
         {
@@ -336,7 +336,7 @@
           "lon": -78.817,
           "at": "That's",
           "dot": true,
-          "dy": -56,
+          "dy": 60,
           "size": 44
         },
         {

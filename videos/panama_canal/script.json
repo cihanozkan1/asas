@@ -120,8 +120,9 @@
           "lon": -122.6,
           "at": "San",
           "dot": true,
-          "dy": -46,
-          "size": 44
+          "dy": 0,
+          "size": 44,
+          "dx": 150
         }
       ],
       "camera": {

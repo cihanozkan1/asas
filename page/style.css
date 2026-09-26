@@ -297,3 +297,43 @@ html, body {
 /* bar labels size to the widest label so names never run under the bars */
 .bars { display: grid; grid-template-columns: max-content auto; column-gap: 20px; row-gap: 18px; }
 .bars .row { display: contents; }
+
+/* ---------- UI kits: each video gets one, so counters/stamps/labels/cards don't all look alike ---------- */
+#stage { --kit: #ffd60a; }
+/* block: solid colour tiles, caution-tape stamps */
+.kit-block .counter, .kit-block .stat .v { font-family: 'Anton', sans-serif; font-weight: 400; color: #111 !important; background: var(--kit);
+  -webkit-text-stroke: 0; text-shadow: none; padding: .04em .3em .08em; border-radius: 14px; box-shadow: 0 10px 0 rgba(0,0,0,.35), 0 18px 40px rgba(0,0,0,.45); }
+.kit-block .stamp { font-family: 'Anton', sans-serif; font-weight: 400; color: #111; background: #ffd60a; border: 10px solid #111; border-radius: 4px; letter-spacing: .05em; box-shadow: 0 12px 30px rgba(0,0,0,.5); }
+.kit-block .label.pill { border-radius: 8px; font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+.kit-block .year.light { font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: .03em; }
+.kit-block .bars, .kit-block .vbars { background: #111; border: 5px solid var(--kit); border-radius: 12px; }
+/* neon: glowing outlines */
+.kit-neon .counter, .kit-neon .stat .v { font-family: 'Bebas Neue', sans-serif; font-weight: 400; color: #fff !important; letter-spacing: .04em; -webkit-text-stroke: 0;
+  text-shadow: 0 0 8px var(--kit), 0 0 24px var(--kit), 0 0 56px var(--kit), 0 4px 10px rgba(0,0,0,.6); }
+.kit-neon .stamp { font-family: 'Bebas Neue', sans-serif; font-weight: 400; color: #fff; background: rgba(5,8,20,.55); border: 6px solid var(--kit); border-radius: 26px; letter-spacing: .08em;
+  box-shadow: 0 0 18px var(--kit), inset 0 0 18px var(--kit); text-shadow: 0 0 12px var(--kit); }
+.kit-neon .label.pill { background: rgba(5,8,20,.6) !important; border: 4px solid var(--kit); box-shadow: 0 0 16px var(--kit); }
+.kit-neon .year.light { font-family: 'Bebas Neue', sans-serif; font-weight: 400; letter-spacing: .06em; text-shadow: 0 0 14px var(--kit), 0 0 40px var(--kit); }
+.kit-neon .bars, .kit-neon .vbars { background: rgba(5,8,20,.72); border: 3px solid var(--kit); box-shadow: 0 0 22px var(--kit); }
+/* paper: white cards with a coloured edge */
+.kit-paper .counter, .kit-paper .stat .v { color: #111 !important; background: #fff; -webkit-text-stroke: 0; text-shadow: none; padding: .05em .35em; border-radius: 30px;
+  border-bottom: 14px solid var(--kit); box-shadow: 0 16px 34px rgba(0,0,0,.45); }
+.kit-paper .stamp { color: #fff; background: var(--kit); border: 8px solid #fff; border-radius: 40px; box-shadow: 0 12px 28px rgba(0,0,0,.45); }
+.kit-paper .label.pill { background: #fff !important; color: #111; }
+.kit-paper .bars, .kit-paper .vbars { background: rgba(255,255,255,.94); }
+.kit-paper .bars .lab, .kit-paper .vbars .lab, .kit-paper .vbars .val { color: #111; text-shadow: none; }
+.kit-paper .bars .val { color: #111; text-shadow: none; }
+/* news: dark lower-third tiles with an accent bar */
+.kit-news .counter, .kit-news .stat .v { font-family: 'Oswald', sans-serif; font-weight: 700; color: #fff !important; -webkit-text-stroke: 0; text-shadow: none;
+  background: linear-gradient(90deg, var(--kit) 0 22px, rgba(12,12,18,.9) 22px); padding: .02em .35em .04em .55em; border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,.5); }
+.kit-news .stamp { font-family: 'Oswald', sans-serif; font-weight: 700; color: #fff; background: #d90429; border: 0; border-radius: 4px; padding: 8px 34px; box-shadow: 0 10px 0 #111; }
+.kit-news .label.pill { border-radius: 4px; background: rgba(12,12,18,.9) !important; border-left: 12px solid var(--kit); }
+.kit-news .year.light { font-family: 'Oswald', sans-serif; font-weight: 700; }
+.kit-news .bars, .kit-news .vbars { border-radius: 6px; border-top: 10px solid var(--kit); }
+/* outline: hollow numbers, thin frames */
+.kit-outline .counter, .kit-outline .stat .v { font-family: 'Anton', sans-serif; font-weight: 400; color: rgba(0,0,0,.25) !important; -webkit-text-stroke: 5px #fff;
+  text-shadow: none; filter: drop-shadow(0 0 10px var(--kit)) drop-shadow(0 6px 10px rgba(0,0,0,.7)); letter-spacing: .03em; }
+.kit-outline .stamp { font-family: 'Anton', sans-serif; font-weight: 400; color: #fff; background: rgba(0,0,0,.5); border: 5px solid #fff; border-radius: 0; letter-spacing: .08em; outline: 4px solid var(--kit); outline-offset: 6px; }
+.kit-outline .label.pill { border-radius: 0; background: rgba(0,0,0,.6) !important; border: 3px solid #fff; }
+.kit-outline .year.light { font-family: 'Anton', sans-serif; font-weight: 400; color: transparent; -webkit-text-stroke: 4px #fff; }
+.kit-outline .bars, .kit-outline .vbars { background: rgba(0,0,0,.55); border: 3px solid #fff; border-radius: 0; }

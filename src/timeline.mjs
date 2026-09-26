@@ -1,4 +1,6 @@
 // Turns a script + narration timings into the frame-accurate timeline the page renders.
+import fs from 'node:fs';
+import path from 'node:path';
 import { resolveTargetSpec, flagExists, iconUrl } from './geo.mjs';
 import { normWord } from './util.mjs';
 
@@ -207,13 +209,12 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     }
   }
 
-  // Minimum screen time: nothing should flash by. Start up to 0.6 s earlier, then run into the
-  // next scene; top-of-screen cards stop before the next card takes their place.
-  const MIN_ON = cfg.video.minOnScreen ?? 2.4;
-  const SLOT = new Set(['counter', 'stat', 'year', 'stamp', 'title', 'bars', 'vs', 'timeline', 'clock']);
+  // Minimum screen time: nothing should flash by. Start up to 1 s earlier (never before its
+  // scene), then run on; map-anchored things stop shortly after their scene ends.
+  const MIN_ON = cfg.video.minOnScreen ?? 2.8;
   const INSTANT = new Set(['shake', 'punch', 'tilt', 'dim']);
   for (const el of elements) {
-    if (INSTANT.has(el.type) || el._until) continue;
+    if (INSTANT.has(el.type) || (el._until && !el.screen) || el.type === 'title') continue;
     let deficit = MIN_ON - (el.end - el.start);
     if (deficit <= 0) continue;
     const sc = scenes[el.scene];
@@ -221,36 +222,72 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     el.start -= pull;
     if (el.steps) el.start = Math.min(el.start, el.steps[0].t - 0.05);
     deficit -= pull;
-    // map-anchored things must not wander far into the next (unrelated) scene
-    let end = SLOT.has(el.type) ? el.end + deficit : Math.min(el.end + deficit, sc.end + 0.8);
-    if (SLOT.has(el.type)) {
-      const next = elements.filter((o) => o !== el && SLOT.has(o.type) && o.start > el.start + 0.1).map((o) => o.start);
-      if (next.length) end = Math.min(end, Math.max(el.end, Math.min(...next) - 0.1));
-    }
+    const end = el.screen ? el.end + deficit : Math.min(el.end + deficit, sc.end + 0.8);
     el.end = Math.min(Math.max(el.end, end), narration.duration);
   }
-  // Pulled-forward cards can land on top of an earlier one: the earlier card yields.
-  const TOP = new Set(['counter', 'stat', 'year']);
-  const tops = elements.filter((e) => TOP.has(e.type) && (!e.screen || Math.abs(e.screen[0] - 0.5) < 0.15)).sort((a, b) => a.start - b.start);
-  for (let i = 0; i < tops.length - 1; i++) {
-    const a = tops[i], b = tops[i + 1];
-    if (a.end > b.start - 0.1) a.end = Math.max(a.start + 0.8, b.start - 0.1);
+
+  const VW = cfg.video.width, VH = cfg.video.height;
+  const central = (e) => e.screen && e.lat == null && e.type !== 'character' && Math.abs(e.screen[0] - 0.5) <= 0.3;
+
+  // Hook title: readable for at least 2.6 s. It gives way to the first card after that;
+  // cards that would start earlier wait for it.
+  const HOOK_MIN = 2.6;
+  for (const h of elements.filter((e) => e.type === 'title' && e.hook)) {
+    const cards = elements.filter((o) => o !== h && central(o) && o.start > h.start && o.start < Math.max(h.end, h.start + HOOK_MIN)).sort((a, b) => a.start - b.start);
+    const firstLate = cards.find((o) => o.start >= h.start + HOOK_MIN);
+    h.end = Math.max(h.start + HOOK_MIN, firstLate ? Math.min(h.end, firstLate.start - 0.05) : h.end);
+    for (const o of cards) {
+      if (o.start >= h.end) continue;
+      const dur = o.end - o.start;
+      o.start = h.end + 0.05;
+      if (o.steps) o.steps = o.steps.map((st) => ({ ...st, t: Math.max(st.t, o.start + 0.05) }));
+      o.end = Math.max(o.end, o.start + Math.min(dur, MIN_ON));
+    }
   }
 
-  // A hook title card shares the top of the screen with counters/years: end it when the first one appears.
-  for (const h of elements.filter((e) => e.type === 'title' && e.hook)) {
-    const first = elements.filter((e) => ['counter', 'stat', 'year', 'bars', 'vs', 'timeline', 'clock'].includes(e.type) && e.start > h.start && e.start < h.end).sort((a, b) => a.start - b.start)[0];
-    if (first) {
-      // the hook stays readable for 2 s; cards that would cover it wait until it is gone
-      h.end = Math.max(h.start + 2.0, first.start - 0.05);
-      for (const o of elements) {
-        if (!['counter', 'stat', 'year', 'bars', 'vs', 'timeline', 'clock', 'stamp'].includes(o.type) || o.start >= h.end || o.start <= h.start) continue;
-        const shift = h.end + 0.05 - o.start;
-        o.start += shift;
-        if (o.steps) o.steps = o.steps.map((st) => ({ ...st, t: Math.max(st.t, o.start + 0.05) }));
-        o.end = Math.max(o.end, o.start + 1.5);
-      }
+  // Screen cards (years, counters, stamps, charts, pills...) that are on screen together are
+  // stacked down the middle instead of being drawn over each other. A card of the same kind
+  // replaces the previous one; if there is no room left above the captions, older cards give way.
+  const est = (e) => {
+    const sz = e.size;
+    const txt = (v) => String(v ?? '').length;
+    switch (e.type) {
+      case 'year': return [txt(e.value) * (sz || 210) * 0.55, (sz || 210) * 1.5];
+      case 'counter': return [Math.max(...e.steps.map((st) => txt(st.value))) * (sz || 170) * 0.62, (sz || 170) * 1.1];
+      case 'stat': return [txt(e.value) * (sz || 150) * 0.62, (sz || 150) * 1.1 + 60];
+      case 'stamp': return [txt(e.text) * (sz || 80) * 0.75 + 90, (sz || 80) * 2.7];
+      case 'title': return [e.width || 960, (sz || 72) * 1.1 * Math.ceil((txt(e.text) * (sz || 72) * 0.5) / (e.width || 960))];
+      case 'bars': return e.orient === 'v' ? [(e.items?.length || 2) * 270, (e.height || 420) + 150] : [900, (e.items?.length || 2) * 88 + 60];
+      case 'vs': return [720, 260];
+      case 'timeline': return [e.width || 900, 240];
+      case 'clock': return [Math.max(e.size || 200, 320), (e.size || 200) + 70];
+      case 'label': return [txt(e.text) * (sz || 44) * 0.62 + 50, (sz || 44) * 1.6];
+      default: return null;
     }
+  };
+  const LIMIT = VH * 0.64;
+  const placedCards = [];
+  for (const c of elements.filter(central).sort((a, b) => a.start - b.start)) {
+    const box = est(c);
+    if (!box) continue;
+    const [w, h] = box;
+    const x = c.screen[0] * VW;
+    let y = c.screen[1] * VH;
+    const live = placedCards.filter((p) => p.el.start < c.end - 0.05 && p.el.end > c.start + 0.05);
+    for (const p of live) {
+      if (p.el.type === c.type && ['counter', 'stat', 'year', 'stamp', 'title'].includes(c.type) && Math.abs(p.y0 - y) < 40) p.el.end = Math.min(p.el.end, Math.max(p.el.start + 0.8, c.start - 0.1));
+    }
+    const hits = (yy) => live.filter((p) => p.el.end > c.start + 0.05 && Math.abs(p.x - x) < (p.w + w) / 2 - 10 && Math.abs(p.y - yy) < (p.h + h) / 2 + 24);
+    let hs = hits(y);
+    for (let g = 0; hs.length && g < 6; g++) {
+      y = Math.max(...hs.map((p) => p.y + p.h / 2)) + 30 + h / 2;
+      hs = hits(y);
+    }
+    if (y + h / 2 > LIMIT) {
+      y = c.screen[1] * VH;
+      for (const p of hits(y)) p.el.end = Math.min(p.el.end, Math.max(p.el.start + 0.8, c.start - 0.1));
+    } else if (Math.abs(y - c.screen[1] * VH) > 1) c.screen = [c.screen[0], y / VH];
+    placedCards.push({ el: c, x, y, y0: c.screen[1] * VH, w, h });
   }
 
   // Same key in consecutive scenes = one continuous element (no re-animation).
@@ -269,7 +306,16 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
   const outTargets = {};
   for (const [k, spec] of Object.entries(targets)) outTargets[shortKey(k)] = spec;
 
+  // per-video UI kit (counter/stamp/label/card look), so the videos don't all share one design
+  let kit = { kit: 'classic', accent: '#ffd60a' };
+  try {
+    const kits = JSON.parse(fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'config', 'kits.json'), 'utf8'));
+    kit = { ...kit, ...(kits[path.basename(videoDir)] || {}) };
+  } catch {}
+  kit = { ...kit, ...(script.ui || {}) };
+
   return {
+    kit,
     W: cfg.video.width,
     H: cfg.video.height,
     fps: cfg.video.fps,

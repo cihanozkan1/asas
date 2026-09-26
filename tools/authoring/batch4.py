@@ -191,7 +191,7 @@ save('hormuz', meta(
         S("So why does this tiny strait matter so much?", [q(26.6, 56.4, 'why')], style='dark', no_claim=True),
         S("Because for countries like Qatar, Bahrain, Kuwait and Iraq, it's the only sea route to the open ocean.", [
             hl('QAT', 'flag:qa', 'Qatar', fillOpacity=0.85), hl('BHR', 'flag:bh', 'Bahrain', fillOpacity=0.85), hl('KWT', 'flag:kw', 'Kuwait', fillOpacity=0.85), hl('IRQ', 'flag:iq', 'Iraq', fillOpacity=0.85),
-            ship(GULF_OUT, 'only', 'tanker', emblem='#111827', drawDur=3.0), stamp('ONLY WAY OUT', 'open', size=80)],
+            ship(GULF_OUT, 'only', 'tanker', emblem='#111827', drawDur=3.0), stamp('ONLY WAY OUT', 'open', size=80, screen=[0.5, 0.2])],
           cam={'follow': 'tanker', 'zoom': 6, 'zoomTo': 3.2},
           src=[src('It is the only maritime route for the UAE, Qatar, Bahrain, Kuwait and Iraq.', 'Strait_of_Hormuz', 'is also the only maritime route for several Gulf countries including the UAE, Qatar, Bahrain, Kuwait, and Iraq')]),
         S("Tankers also carry about 20 percent of the world's liquefied natural gas through here.", [
@@ -247,7 +247,7 @@ save('kaliningrad', meta(
           cam=at_(54.3, 21.2, 14), era='history',
           src=[src('The Soviet Union captured the city on 9 April 1945.', 'Kaliningrad', 'it was then captured by the Soviet Union on 9 April 1945')]),
         S("After the war, East Prussia was split. The north went to the Soviet Union, the south went to Poland.", [
-            hl({'admin1s': ['Warmian-Masurian'], 'country': 'POL'}, '#8b5e34', 'After', fillOpacity=0.4, until='south'), hl(KO, '#8b5e34', 'After', fillOpacity=0.4, until='north'), lab('East Prussia', 54.2, 21.0, 'East', style='serif', size=56, until='north'),
+            hl({'admin1s': ['Warmian-Masurian'], 'country': 'POL'}, '#8b5e34', 'After', fillOpacity=0.4, until='south'), hl(KO, '#8b5e34', 'After', fillOpacity=0.4, until='north'), lab('East Prussia', 54.2, 21.0, 'After', style='serif', size=56, until='north'),
             hl(KO, '#c1121f', 'north', fillOpacity=0.85), lab('USSR', 54.85, 21.2, 'north', style='serif', size=58),
             hl({'admin1s': ['Warmian-Masurian'], 'country': 'POL'}, '#dc143c', 'south', fillOpacity=0.6), lab('Poland', 53.8, 20.9, 'Poland', style='serif', size=58)],
           cam=at_(54.1, 21.0, 13), era='history',

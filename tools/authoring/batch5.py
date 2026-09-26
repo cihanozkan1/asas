@@ -24,7 +24,7 @@ save('walk_world', meta(
           src=[src('It ends in Magadan, Russia.', BM, 'from Cape Town, South Africa to Magadan, Russia')]),
         S("The whole route is about 22,387 kilometers long, and it crosses 16 countries.", [
             route(WALK, 'route', color='#ffd60a', width=8, drawDur=3.4, mover={'kind': 'icon', 'icon': '🚶', 'size': 110}, id='walk', hold=1),
-            cnt('22,387 km', '22,387', size=170), cnt_steps([('16', '16 countries')], size=100, screen=[0.5, 0.23])],
+            cnt('22,387 km', '22,387', size=170), cnt_steps([('16', '16 countries')], size=100, screen=[0.5, 0.3])],
           cam=at_(20, 70, 0.95),
           src=[src('Distance 22,387 km through 16 countries.', BM, 'a distance of 22,387km (13,910 miles)'),
                src('16 countries.', BM, 'You would have to travel through 16 countries')]),
@@ -382,7 +382,7 @@ save('atlantic_tracks', meta(
         S("Back in 1952, a Pan Am flight from Tokyo to Honolulu used it to cut the trip from 18 hours to 11 and a half.", [
             year(1952, '1952'), dot('Tokyo', 35.6, 139.8, 'Tokyo', dy=-50), dot('Honolulu', 21.3, -157.9, 'Honolulu', dy=50), plane([(35.6, 139.8), (30, 170), (21.3, -157.9)], 'Tokyo', rid='pa'),
             bars([('Before', 18, '18 h', '#ff5a5f'), ('Jet stream', 11.5, '11.5 h', '#4ade80')], 'cut', screen=[0.5, 0.33], labelWidth=240)],
-          cam=at_(30, 170, 1.4), era='history', tr='film',
+          cam=at_(42, 170, 1.4), era='history', tr='film',
           src=[src('In 1952 Pan Am cut Tokyo–Honolulu from 18 to 11.5 hours using the jet stream.', JS, 'cut the trip time by over one-third, from 18 to 11.5 hours')]),
         S("In 2018 alone, about 500,000 flights used these moving highways.", [*[route([(47 + d, -53), (50 + d, -40), (52 + d, -30), (53 + d, -20), (52 + d, -10)], 'In', color='#2de2e6', width=5, drawDur=0.8, dashed=True, dash=[14, 10]) for d in (-2, 0, 2, 4)], *[plane([(47 + d, -53), (50 + d, -40), (52 + d, -30), (53 + d, -20), (52 + d, -10)], 'flights', drawDur=3.0) for d in (0, 4)], cnt('500,000', '500,000', size=180)],
           cam=at_(50, -32, 2.2),

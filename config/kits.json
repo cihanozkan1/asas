@@ -1,0 +1,202 @@
+{
+ "tibet_planes": {
+  "kit": "neon",
+  "accent": "#2de2e6"
+ },
+ "time_zones": {
+  "kit": "neon",
+  "accent": "#ff2a6d"
+ },
+ "atlantic_tracks": {
+  "kit": "neon",
+  "accent": "#2de2e6"
+ },
+ "longest_sail": {
+  "kit": "neon",
+  "accent": "#a78bfa"
+ },
+ "gulf_stream": {
+  "kit": "neon",
+  "accent": "#ff5a2a"
+ },
+ "new_year": {
+  "kit": "neon",
+  "accent": "#ff2a6d"
+ },
+ "usa_east_west": {
+  "kit": "neon",
+  "accent": "#ffd60a"
+ },
+ "spain_borders": {
+  "kit": "paper",
+  "accent": "#e63946"
+ },
+ "market_island": {
+  "kit": "paper",
+  "accent": "#1d4ed8"
+ },
+ "uae_emirates": {
+  "kit": "paper",
+  "accent": "#16a34a"
+ },
+ "oklahoma_panhandle": {
+  "kit": "paper",
+  "accent": "#f97316"
+ },
+ "holland_netherlands": {
+  "kit": "paper",
+  "accent": "#f97316"
+ },
+ "uk_gb_england": {
+  "kit": "paper",
+  "accent": "#1d4ed8"
+ },
+ "gambia": {
+  "kit": "paper",
+  "accent": "#e63946"
+ },
+ "point_roberts": {
+  "kit": "paper",
+  "accent": "#1d4ed8"
+ },
+ "shelterbelt": {
+  "kit": "paper",
+  "accent": "#16a34a"
+ },
+ "wallace_line": {
+  "kit": "paper",
+  "accent": "#7c3aed"
+ },
+ "alaska": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "lesotho": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "wakhan": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "hawaii": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "brazil": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "italy_microstates": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "bolivia_navy": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "kaliningrad": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "istanbul": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "northwest_angle": {
+  "kit": "classic",
+  "accent": "#ffd60a"
+ },
+ "suez_ever_given": {
+  "kit": "news",
+  "accent": "#e63946"
+ },
+ "hormuz": {
+  "kit": "news",
+  "accent": "#f97316"
+ },
+ "indonesia_capital": {
+  "kit": "news",
+  "accent": "#e63946"
+ },
+ "panama_canal": {
+  "kit": "news",
+  "accent": "#ffd60a"
+ },
+ "gibraltar_bridge": {
+  "kit": "news",
+  "accent": "#5ec8ff"
+ },
+ "darien_gap": {
+  "kit": "news",
+  "accent": "#4ade80"
+ },
+ "amazon_bridges": {
+  "kit": "news",
+  "accent": "#4ade80"
+ },
+ "centralia": {
+  "kit": "news",
+  "accent": "#ff5a2a"
+ },
+ "chile": {
+  "kit": "block",
+  "accent": "#4ade80"
+ },
+ "australia": {
+  "kit": "block",
+  "accent": "#f97316"
+ },
+ "canada": {
+  "kit": "block",
+  "accent": "#ff5a5f"
+ },
+ "japan_islands": {
+  "kit": "block",
+  "accent": "#ffd60a"
+ },
+ "walk_world": {
+  "kit": "block",
+  "accent": "#ffd60a"
+ },
+ "chimborazo": {
+  "kit": "block",
+  "accent": "#2de2e6"
+ },
+ "greenland_iceland": {
+  "kit": "block",
+  "accent": "#5ec8ff"
+ },
+ "recursive_island": {
+  "kit": "block",
+  "accent": "#4ade80"
+ },
+ "doubly_landlocked": {
+  "kit": "block",
+  "accent": "#a78bfa"
+ },
+ "egypt": {
+  "kit": "block",
+  "accent": "#ffd60a"
+ },
+ "tornado_alley": {
+  "kit": "outline",
+  "accent": "#ff5a5f"
+ },
+ "point_nemo": {
+  "kit": "outline",
+  "accent": "#5ec8ff"
+ },
+ "antarctica_claims": {
+  "kit": "outline",
+  "accent": "#9ee7ff"
+ },
+ "diomede": {
+  "kit": "outline",
+  "accent": "#ff5a5f"
+ },
+ "niihau": {
+  "kit": "outline",
+  "accent": "#4ade80"
+ }
+}

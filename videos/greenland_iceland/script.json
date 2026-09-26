@@ -166,8 +166,8 @@
         {
           "type": "label",
           "text": "GREAT MARKETING",
-          "lat": 66,
-          "lon": -42,
+          "lat": 70.5,
+          "lon": -40,
           "at": "nice",
           "style": "note",
           "typewriter": true,
