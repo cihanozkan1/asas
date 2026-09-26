@@ -34,8 +34,7 @@
           "type": "highlight",
           "target": "BOL",
           "fill": "flag:bo",
-          "at": "Bolivia",
-          "hold": 1
+          "at": "Bolivia"
         },
         {
           "type": "counter",
@@ -228,6 +227,16 @@
           "at": "1879"
         },
         {
+          "type": "highlight",
+          "target": {
+            "admin1": "Antofagasta",
+            "country": "CHL"
+          },
+          "fill": "flag:bo",
+          "at": "Bolivia",
+          "fillOpacity": 0.75
+        },
+        {
           "type": "icon",
           "icon": "⛏️",
           "lat": -23.0,
@@ -322,13 +331,7 @@
             "country": "CHL"
           },
           "fill": "#c1121f",
-          "at": "coastline",
-          "morph": [
-            {
-              "at": "lost",
-              "fill": "#c1121f"
-            }
-          ]
+          "at": "Bolivia"
         },
         {
           "type": "highlight",

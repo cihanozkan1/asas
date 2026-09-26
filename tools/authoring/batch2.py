@@ -161,7 +161,7 @@ save('bolivia_navy', meta(
     ['bolivia', 'bolivian navy', 'lake titicaca', 'landlocked', 'chile', 'peru', 'war of the pacific', 'day of the sea', 'south america', 'history', 'geography', 'maps', 'learn']),
     [
         S("Bolivia is completely landlocked, with no coast at all. And yet, it has a navy, with about 5,000 personnel.", [
-            hl(BOL, 'flag:bo', 'Bolivia', hold=1), cnt('5,000', '5,000', size=190), icon('⚓', -17, -62, 'navy', size=150), note('NO SEA?!', -12, -66, 'coast', size=66)],
+            hl(BOL, 'flag:bo', 'Bolivia'), cnt('5,000', '5,000', size=190), icon('⚓', -17, -62, 'navy', size=150), note('NO SEA?!', -12, -66, 'coast', size=66)],
           cam=fit(BOL, pad=0.9, bearing=-3),
           src=[src('Bolivia is landlocked but has a navy of about 5,000 personnel (2018).', 'Bolivian_Navy', 'As of 2018, the force comprised "approximately 5,000 personnel."')]),
         S("It patrols Lake Titicaca, the highest navigable lake in the world, and the rivers of the Amazon.", [
@@ -174,7 +174,7 @@ save('bolivia_navy', meta(
           cam=fit(BOL, ANTO, pad=0.9), era='history', tr='film',
           src=[src('Bolivia ceded its coastal Litoral Department to Chile.', 'War_of_the_Pacific', 'Bolivia ceded its coastal Litoral Department to Chile, making it landlocked')]),
         S("In 1879, Bolivia raised a tax on a Chilean mining company, breaking an earlier treaty, and it started the War of the Pacific.", [
-            year(1879, '1879'), icon('⛏️', -23.0, -69.5, 'mining', size=120), stamp('10¢ TAX', 'tax', size=90), shake('War')],
+            year(1879, '1879'), hl(ANTO, 'flag:bo', 'Bolivia', fillOpacity=0.75), icon('⛏️', -23.0, -69.5, 'mining', size=120), stamp('10¢ TAX', 'tax', size=90), shake('War')],
           era='history',
           src=[src("Bolivia's 10 cents per quintal tax on the Chilean company CSFA triggered the war (1879–1884).", 'War_of_the_Pacific',
                    'Bolivia imposed a controversial "10 cents per quintal tax" on the Chilean mining company CSFA, violating the 1874 boundary treaty ... 1 March 1879 – 4 April 1884')]),
@@ -184,7 +184,7 @@ save('bolivia_navy', meta(
           cam=at_(-20, -68, 2.6), era='history',
           src=[src('Chile fought an alliance of Bolivia and Peru and emerged victorious.', 'War_of_the_Pacific', 'between Chile against an alliance of Bolivia and Peru ... Chile emerged victorious')]),
         S("Bolivia lost its entire coastline, and Peru lost the Tarapacá region.", [
-            hl(ANTO, '#c1121f', 'coastline', morph=[{'at': 'lost', 'fill': '#c1121f'}]), hl({'admin1': 'Tarapacá', 'country': 'CHL'}, '#c1121f', 'Tarapacá'),
+            hl(ANTO, '#c1121f', 'Bolivia'), hl({'admin1': 'Tarapacá', 'country': 'CHL'}, '#c1121f', 'Tarapacá'),
             lab('Tarapacá', -20.2, -69.3, 'Tarapacá', style='serif', size=52), note('LANDLOCKED', -16, -63, 'coastline', size=64)],
           cam=fit(BOL, ANTO, pad=0.9), era='history',
           src=[src('Peru ceded Tarapacá; Bolivia lost its coast (confirmed by the 1904 treaty).', 'War_of_the_Pacific', '"Peru formally cedes the Tarapacá Department to Chile" ... In 1904, Chile and Bolivia signed the Treaty of Peace and Friendship')]),
