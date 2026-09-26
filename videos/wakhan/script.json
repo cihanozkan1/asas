@@ -382,12 +382,22 @@
           "target": {
             "countries": [
               "AFG",
-              "IRN",
-              "CHN"
+              "IRN"
             ]
           },
           "fill": "#6b7280",
-          "at": "Afghanistan",
+          "at": "convention",
+          "fillOpacity": 0.6,
+          "pattern": "hatch"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Xizang",
+            "country": "CHN"
+          },
+          "fill": "#6b7280",
+          "at": "convention",
           "fillOpacity": 0.6,
           "pattern": "hatch"
         },

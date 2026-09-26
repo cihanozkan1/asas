@@ -158,9 +158,8 @@ save('lesotho', meta(
           src=[src('South Africa sought to take over the High Commission Territories incl. Basutoland; Britain refused.', 'Basutoland',
                    'the South African government made numerous overtures to take over the High Commission Territories, which included Basutoland. However these demands were refused by Britain')]),
         S("So in 1966, it became independent as the Kingdom of Lesotho, a country inside a country.", [
-            year(1966, '1966', light=True), hl(LSO, 'flag:ls', 'Kingdom'), blob(LSO, '#1d4ed8', '#5ec8ff', 'inside', softness=6, fillOpacity=0.0),
-            char('moshoeshoe', 'Kingdom', name='Lesotho')],
-          cam=fit(ZAF, pad=0.9, bearing=-3), tr='flash',
+            year(1966, '1966', light=True), hl(LSO, 'flag:ls', 'independent', fillOpacity=0.9), hl(ZAF, '#e5e7eb', 'inside', fillOpacity=0.25)],
+          cam=at_(-29.4, 28.2, 7, bearing=-3), tr='flash',
           src=[src('Independence on 4 October 1966 as the Kingdom of Lesotho.', 'Lesotho', 'achieving independence on October 4, 1966')]),
     ],
     keywords={'lesotho': '#5ec8ff', 'south': '#4ade80', 'africa': '#4ade80', 'britain': '#ff5a5f', 'basutoland': '#ffd60a'})
@@ -204,7 +203,7 @@ save('wakhan', meta(
           src=[src('1873 agreement (Russia border), 1893 Durand Line (British India), 1895 Pamir Boundary Commission.', 'Wakhan_Corridor',
                    'An 1873 agreement made the Panj and Pamir Rivers the Afghanistan-Russia border, while the "Durand Line Agreement of 1893 ... along with the 1895 Pamir Boundary Commission protocols')]),
         S("The rivalry only ended in 1907, when Britain and Russia signed a convention dividing their influence in Afghanistan, Persia and Tibet.", [
-            year(1907, '1907'), hl({'countries': ['AFG', 'IRN', 'CHN']}, '#6b7280', 'Afghanistan', fillOpacity=0.6, pattern='hatch'),
+            year(1907, '1907'), hl({'countries': ['AFG', 'IRN']}, '#6b7280', 'convention', fillOpacity=0.6, pattern='hatch'), hl({'admin1': 'Xizang', 'country': 'CHN'}, '#6b7280', 'convention', fillOpacity=0.6, pattern='hatch'),
             lab('Persia', 32.5, 54, 'Persia', style='serif', size=54), lab('Tibet', 31.5, 88, 'Tibet', style='serif', size=54)],
           cam=at_(34, 72, 1.6), era='history',
           src=[src('The Anglo-Russian Convention of 1907 formally delineated control in Afghanistan, Persia and Tibet.', 'Great_Game',

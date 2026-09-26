@@ -374,34 +374,21 @@
           "type": "highlight",
           "target": "LSO",
           "fill": "flag:ls",
-          "at": "Kingdom"
+          "at": "independent",
+          "fillOpacity": 0.9
         },
         {
           "type": "highlight",
-          "target": "LSO",
-          "fill": "#1d4ed8",
+          "target": "ZAF",
+          "fill": "#e5e7eb",
           "at": "inside",
-          "soft": true,
-          "rim": "#5ec8ff",
-          "softness": 6,
-          "fillOpacity": 0.0
-        },
-        {
-          "type": "character",
-          "image": "moshoeshoe",
-          "screen": [
-            0.25,
-            0.6
-          ],
-          "at": "Kingdom",
-          "name": "Lesotho"
+          "fillOpacity": 0.25
         }
       ],
       "camera": {
-        "fit": [
-          "ZAF"
-        ],
-        "pad": 0.9,
+        "lat": -29.4,
+        "lon": 28.2,
+        "zoom": 7,
         "bearing": -3
       },
       "transition": "flash",
