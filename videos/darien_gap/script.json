@@ -1,0 +1,631 @@
+{
+  "id": "darien_gap",
+  "style": "geo",
+  "meta": {
+    "title": "The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱",
+    "description": "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 Swamps, mountains and rainforest, deadly wildlife, flash floods and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
+    "pinnedComment": [
+      "30,000 km of highway… and 106 km of jungle 🌴😱",
+      "Would you ever try to cross the Darién Gap? 👇",
+      "Which dangerous place should we cover next? 🗺️"
+    ],
+    "tags": [
+      "darien gap",
+      "pan-american highway",
+      "panama",
+      "colombia",
+      "jungle",
+      "rainforest",
+      "migration",
+      "dangerous places",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This road runs about 30,000 kilometers, from Alaska all the way to the tip of Argentina.",
+      "show": [
+        {
+          "type": "title",
+          "text": "THE ROAD WITH A *GAP*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "kilometers",
+          "at": 0.05
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              70.2,
+              -148.4
+            ],
+            [
+              61.2,
+              -149.9
+            ],
+            [
+              49.3,
+              -123.1
+            ],
+            [
+              34,
+              -118
+            ],
+            [
+              19.4,
+              -99.1
+            ],
+            [
+              9.9,
+              -84.1
+            ],
+            [
+              8.18,
+              -77.69
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 8,
+          "at": "road",
+          "drawDur": 2.2,
+          "hold": 1
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              8.09,
+              -76.73
+            ],
+            [
+              4.6,
+              -74.1
+            ],
+            [
+              -0.2,
+              -78.5
+            ],
+            [
+              -12,
+              -77
+            ],
+            [
+              -33.4,
+              -70.6
+            ],
+            [
+              -54.8,
+              -68.3
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 8,
+          "at": "Argentina",
+          "drawDur": 1.6,
+          "hold": 1
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "30,000",
+              "value": "30,000 km"
+            }
+          ],
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": 10,
+        "lon": -95,
+        "zoom": 0.8
+      },
+      "sources": [
+        {
+          "claim": "The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.",
+          "url": "https://en.wikipedia.org/wiki/Pan-American_Highway",
+          "quote": "from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's the Pan-American Highway, and it links 14 countries.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "14",
+              "value": "14"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "flag",
+          "code": "ca",
+          "lat": 58,
+          "lon": -110,
+          "size": 90,
+          "at": "links"
+        },
+        {
+          "type": "flag",
+          "code": "us",
+          "lat": 40,
+          "lon": -100,
+          "size": 90,
+          "at": "links"
+        },
+        {
+          "type": "flag",
+          "code": "mx",
+          "lat": 23,
+          "lon": -102,
+          "size": 90,
+          "at": "links"
+        },
+        {
+          "type": "flag",
+          "code": "pe",
+          "lat": -9,
+          "lon": -75,
+          "size": 90,
+          "at": "links"
+        },
+        {
+          "type": "flag",
+          "code": "cl",
+          "lat": -30,
+          "lon": -71,
+          "size": 90,
+          "at": "links"
+        },
+        {
+          "type": "flag",
+          "code": "ar",
+          "lat": -38,
+          "lon": -65,
+          "size": 90,
+          "at": "links"
+        }
+      ],
+      "camera": {
+        "lat": 10,
+        "lon": -95,
+        "zoom": 0.8
+      },
+      "sources": [
+        {
+          "claim": "The highway links 14 nations.",
+          "url": "https://en.wikipedia.org/wiki/Pan-American_Highway",
+          "quote": "The system links 14 nations"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But there is one place where the road simply stops.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 8.18,
+          "lon": -77.69,
+          "color": "#ff3b3b",
+          "at": "stops"
+        },
+        {
+          "type": "stamp",
+          "text": "ROAD ENDS",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "stops"
+        }
+      ],
+      "camera": {
+        "lat": 8.3,
+        "lon": -77.4,
+        "zoom": 9
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It ends in Yaviza, Panama, and only starts again in Turbo, Colombia, about 106 kilometers away.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Yaviza",
+          "lat": 8.18,
+          "lon": -77.69,
+          "at": "Yaviza",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "Turbo",
+          "lat": 8.09,
+          "lon": -76.73,
+          "at": "Turbo",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "flag",
+          "code": "pa",
+          "lat": 8.9,
+          "lon": -78.4,
+          "size": 100,
+          "at": "Panama"
+        },
+        {
+          "type": "flag",
+          "code": "co",
+          "lat": 7.4,
+          "lon": -76.2,
+          "size": 100,
+          "at": "Colombia"
+        },
+        {
+          "type": "measure",
+          "from": [
+            8.18,
+            -77.69
+          ],
+          "to": [
+            8.09,
+            -76.73
+          ],
+          "label": "106 km",
+          "at": "kilometers"
+        }
+      ],
+      "camera": {
+        "lat": 8.2,
+        "lon": -77.2,
+        "zoom": 18,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "The highway breaks at Yaviza, Panama and resumes at Turbo, Colombia, roughly 106 km away.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "The 'Gap' interrupts the Pan-American Highway, which breaks at Yaviza, Panama, and resumes at Turbo, Colombia, roughly 106 km (66 mi) away."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Drivers can't get through. Cars have to be shipped around it by boat.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              8.95,
+              -79.5
+            ],
+            [
+              9.6,
+              -78.5
+            ],
+            [
+              9.7,
+              -77.2
+            ],
+            [
+              8.7,
+              -76.9
+            ],
+            [
+              8.09,
+              -76.73
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "shipped",
+          "id": "car",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#ffd60a"
+          },
+          "drawDur": 2.0
+        },
+        {
+          "type": "icon",
+          "icon": "🚗",
+          "lat": 9.1,
+          "lon": -79.3,
+          "size": 100,
+          "at": "Cars"
+        }
+      ],
+      "camera": {
+        "lat": 8.8,
+        "lon": -78.2,
+        "zoom": 8
+      },
+      "sources": [
+        {
+          "claim": "Vehicles must be shipped by cargo vessel to get around the gap.",
+          "url": "https://en.wikipedia.org/wiki/Pan-American_Highway",
+          "quote": "vehicles must be shipped by cargo vessel to bridge this section"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In between is the Darién Gap: swamps, mountains and thick rainforest.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 7.9,
+              "lon": -77.3,
+              "km": 60
+            }
+          },
+          "fill": "#16a34a",
+          "at": "Darién",
+          "soft": true,
+          "rim": "#4ade80",
+          "fillOpacity": 0.4
+        },
+        {
+          "type": "label",
+          "text": "DARIÉN GAP",
+          "lat": 8.6,
+          "lon": -77.3,
+          "at": "Darién",
+          "style": "map",
+          "anim": "slam",
+          "size": 70
+        },
+        {
+          "type": "icon",
+          "icon": "🌴",
+          "lat": 7.7,
+          "lon": -77.6,
+          "size": 110,
+          "at": "rainforest"
+        },
+        {
+          "type": "icon",
+          "icon": "⛰️",
+          "lat": 8.0,
+          "lon": -77.9,
+          "size": 100,
+          "at": "mountains"
+        },
+        {
+          "type": "character",
+          "image": "jungle_explorer",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "swamps"
+        }
+      ],
+      "camera": {
+        "lat": 7.9,
+        "lon": -77.3,
+        "zoom": 14
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Colombian side: Atrato delta marshland; Panamanian side: mountainous rainforest.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "the Colombian side dominated primarily by the river delta of the Atrato River, which creates a flat marshland at least 80 km (50 mi) wide"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's full of venomous wildlife, diseases and flash floods.",
+      "show": [
+        {
+          "type": "tilt",
+          "deg": 36,
+          "at": "venomous",
+          "until": 4
+        },
+        {
+          "type": "icon",
+          "icon": "🐍",
+          "lat": 7.6,
+          "lon": -77.1,
+          "size": 110,
+          "at": "venomous"
+        },
+        {
+          "type": "icon",
+          "icon": "🦟",
+          "lat": 8.1,
+          "lon": -77.5,
+          "size": 100,
+          "at": "diseases"
+        },
+        {
+          "type": "icon",
+          "icon": "🌊",
+          "lat": 7.8,
+          "lon": -77.8,
+          "size": 110,
+          "at": "floods"
+        }
+      ],
+      "camera": {
+        "lat": 7.9,
+        "lon": -77.3,
+        "zoom": 20
+      },
+      "sources": [
+        {
+          "claim": "Dangers include venomous wildlife, diseases and flash floods.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "venomous and deadly wildlife, tropical insects, parasites and diseases, and frequent heavy rains and flash floods"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And there's no police and no hospital, so violent crime is everywhere.",
+      "show": [
+        {
+          "type": "stamp",
+          "text": "NO POLICE",
+          "size": 86,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "police"
+        },
+        {
+          "type": "icon",
+          "icon": "🚫",
+          "lat": 8.0,
+          "lon": -77.3,
+          "size": 110,
+          "at": "hospital"
+        },
+        {
+          "type": "shake",
+          "at": "violent"
+        }
+      ],
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "Law enforcement and medical support are nonexistent; violent crime is rampant.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "law enforcement and medical support are nonexistent, resulting in rampant violent crime"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Still, in 2023, more than 520,000 people crossed it on foot.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "520,000",
+              "value": "520,000+"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 7.9,
+              "lon": -77.3,
+              "km": 45
+            }
+          },
+          "icon": "🚶",
+          "count": 16,
+          "size": 48,
+          "at": "crossed",
+          "stagger": 0.05
+        }
+      ],
+      "camera": {
+        "lat": 7.9,
+        "lon": -77.3,
+        "zoom": 14,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "More than 520,000 people crossed in 2023.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "In 2023, more than 520,000 individuals passed through the gap"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's more than double the year before. The shortest gap on the road, and the most dangerous.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "2022",
+              "value": 240,
+              "display": "less than half",
+              "color": "#5ec8ff"
+            },
+            {
+              "label": "2023",
+              "value": 520,
+              "display": "520,000+",
+              "color": "#ff5a5f"
+            }
+          ],
+          "orient": "h",
+          "at": "double",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 170
+        }
+      ],
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "2023 more than doubled the previous year.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "more than doubling the previous year's number of crossings"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "box",
+      "keywords": {
+        "darién": "#4ade80",
+        "gap": "#4ade80",
+        "panama": "#5ec8ff",
+        "colombia": "#ffd60a",
+        "520,000": "#ff5a5f"
+      }
+    }
+  }
+}

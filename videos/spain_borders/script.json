@@ -1,0 +1,441 @@
+{
+  "id": "spain_borders",
+  "style": "geo",
+  "meta": {
+    "title": "Spain's Strangest Borders 🇪🇸🤯 An Island That Changes Country Every 6 Months!",
+    "description": "Spain 🇪🇸 has some of the strangest borders in the world! Llívia is a Spanish town completely surrounded by France 🇫🇷, thanks to a technicality in the 1659 Treaty of the Pyrenees: it was a 'town', not a 'village' 😅 Pheasant Island belongs to Spain for six months and to France for the other six 🏝️ In Africa, Spain holds Ceuta and Melilla, the EU's only land borders with Africa, and Peñón de Vélez de la Gomera, whose 85 m border with Morocco 🇲🇦 is the world's shortest 🤯",
+    "pinnedComment": [
+      "An island that switches country every 6 months 🤯🇪🇸🇫🇷",
+      "Which one surprised you most? 👇",
+      "Which country's borders should we explain next? 🗺️"
+    ],
+    "tags": [
+      "spain",
+      "borders",
+      "llivia",
+      "pheasant island",
+      "ceuta",
+      "melilla",
+      "penon de velez de la gomera",
+      "exclave",
+      "france",
+      "morocco",
+      "weird borders",
+      "geography",
+      "maps"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Spain has some of the strangest borders on the planet. Let's look at them.",
+      "show": [
+        {
+          "type": "title",
+          "text": "SPAIN'S *STRANGEST* BORDERS",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "planet",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": "ESP",
+          "fill": "flag:es",
+          "at": "Spain",
+          "fillOpacity": 0.85,
+          "hold": 1
+        }
+      ],
+      "camera": {
+        "fit": [
+          "ESP"
+        ],
+        "pad": 0.85,
+        "bearing": -3
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "First, Llívia. A Spanish town completely surrounded by France.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 42.46,
+          "lon": 1.98,
+          "color": "#ff3b3b",
+          "at": "Llívia"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 42.46,
+              "lon": 1.98,
+              "km": 3
+            }
+          },
+          "fill": "flag:es",
+          "at": "Llívia",
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "highlight",
+          "target": "FRA",
+          "fill": "#9fb8ff",
+          "at": "France",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "label",
+          "text": "LLÍVIA",
+          "lat": 42.52,
+          "lon": 1.98,
+          "at": "Llívia",
+          "style": "map",
+          "anim": "slam",
+          "size": 70
+        }
+      ],
+      "camera": {
+        "lat": 42.45,
+        "lon": 1.95,
+        "zoom": 90
+      },
+      "sources": [
+        {
+          "claim": "Llívia is a Spanish exclave surrounded by France.",
+          "url": "https://en.wikipedia.org/wiki/Llívia",
+          "quote": "It is a Spanish exclave surrounded by the French département of Pyrénées-Orientales."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1659, Spain gave France the villages of this area. But Llívia was a town, not a village, so it stayed Spanish.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1659",
+          "at": "1659"
+        },
+        {
+          "type": "label",
+          "text": "TOWN ≠ VILLAGE",
+          "lat": 42.55,
+          "lon": 1.9,
+          "at": "town",
+          "style": "note",
+          "typewriter": true,
+          "size": 58,
+          "rotate": -7
+        },
+        {
+          "type": "character",
+          "image": "spanish_guard",
+          "screen": [
+            0.72,
+            0.6
+          ],
+          "at": "Llívia",
+          "say": "Still ours!",
+          "flip": true
+        }
+      ],
+      "camera": {
+        "lat": 42.45,
+        "lon": 1.95,
+        "zoom": 60
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The 1659 Treaty of the Pyrenees transferred only villages; Llívia was a town.",
+          "url": "https://en.wikipedia.org/wiki/Llívia",
+          "quote": "Because of a technicality in the Treaty of the Pyrenees, signed in 1659, that transferred only 'villages' in the Pyrenees to France, Llívia, which was a 'town', remains under Spanish control."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Next, Pheasant Island. It's Spanish for six months, and French for the other six.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 43.343,
+          "lon": -1.766,
+          "color": "#ffd60a",
+          "at": "Pheasant"
+        },
+        {
+          "type": "label",
+          "text": "Pheasant Island",
+          "lat": 43.343,
+          "lon": -1.766,
+          "at": "Pheasant",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "vs",
+          "left": {
+            "flag": "es",
+            "label": "Feb–Jul"
+          },
+          "right": {
+            "flag": "fr",
+            "label": "Aug–Jan"
+          },
+          "at": "six",
+          "screen": [
+            0.5,
+            0.26
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 43.34,
+        "lon": -1.77,
+        "zoom": 200,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Alternating six-month sovereignty between Spain and France.",
+          "url": "https://en.wikipedia.org/wiki/Pheasant_Island",
+          "quote": "For alternating periods of six months, it is officially under the governance of the naval commander of Hondarribia, Spain (1 February – 31 July) and of a French viceroy (1 August – 31 January)."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Then Spain crosses into Africa. Ceuta and Melilla are the EU's only land borders with Africa.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "MAR",
+          "fill": "#e8b4a0",
+          "at": "Africa",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "ping",
+          "lat": 35.89,
+          "lon": -5.32,
+          "color": "#ffd60a",
+          "at": "Ceuta"
+        },
+        {
+          "type": "ping",
+          "lat": 35.29,
+          "lon": -2.94,
+          "color": "#ffd60a",
+          "at": "Melilla"
+        },
+        {
+          "type": "label",
+          "text": "Ceuta",
+          "lat": 35.89,
+          "lon": -5.32,
+          "at": "Ceuta",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "Melilla",
+          "lat": 35.29,
+          "lon": -2.94,
+          "at": "Melilla",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "flag",
+          "code": "eu",
+          "lat": 36.9,
+          "lon": -3.8,
+          "size": 120,
+          "at": "EU"
+        }
+      ],
+      "camera": {
+        "lat": 35.8,
+        "lon": -4.1,
+        "zoom": 11
+      },
+      "sources": [
+        {
+          "claim": "Ceuta and Melilla are the EU's only land borders with Africa.",
+          "url": "https://en.wikipedia.org/wiki/Ceuta",
+          "quote": "an autonomous city of Spain on the North African coast"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And the tiny Peñón de Vélez de la Gomera has a border with Morocco only 85 meters long.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 35.17,
+          "lon": -4.3,
+          "color": "#ff3b3b",
+          "at": "Peñón"
+        },
+        {
+          "type": "label",
+          "text": "Peñón de Vélez",
+          "lat": 35.17,
+          "lon": -4.3,
+          "at": "Peñón",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "85",
+              "value": "85 m"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "character",
+          "image": "spanish_guard",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Morocco"
+        }
+      ],
+      "camera": {
+        "lat": 35.17,
+        "lon": -4.3,
+        "zoom": 60
+      },
+      "sources": [
+        {
+          "claim": "Its border with Morocco is 85 m long.",
+          "url": "https://en.wikipedia.org/wiki/Peñón_de_Vélez_de_la_Gomera",
+          "quote": "Its border with Morocco is 85 m (279 ft) long."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "It became a border by accident: in 1930, a storm washed sand into the channel and joined the island to Africa.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1930",
+          "at": "1930"
+        },
+        {
+          "type": "icon",
+          "icon": "⛈️",
+          "lat": 35.2,
+          "lon": -4.25,
+          "size": 120,
+          "at": "storm"
+        },
+        {
+          "type": "icon",
+          "icon": "🏝️",
+          "lat": 35.17,
+          "lon": -4.32,
+          "size": 100,
+          "at": "island"
+        },
+        {
+          "type": "shake",
+          "at": "storm"
+        }
+      ],
+      "camera": {
+        "lat": 35.17,
+        "lon": -4.3,
+        "zoom": 90
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "In 1930 a storm washed sand into the channel, forming a tombolo.",
+          "url": "https://en.wikipedia.org/wiki/Peñón_de_Vélez_de_la_Gomera",
+          "quote": "In 1930, when a huge thunderstorm washed large quantities of sand into the short channel between the island and the African continent."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's now the shortest land border in the whole world.",
+      "show": [
+        {
+          "type": "stamp",
+          "text": "WORLD RECORD",
+          "size": 84,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "shortest"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "shortest",
+              "value": "#1"
+            }
+          ],
+          "size": 180
+        }
+      ],
+      "camera": {
+        "lat": 35.17,
+        "lon": -4.3,
+        "zoom": 120,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "It is the world's shortest single land-border segment.",
+          "url": "https://en.wikipedia.org/wiki/Peñón_de_Vélez_de_la_Gomera",
+          "quote": "the world's shortest single land-border segment"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "pop",
+      "keywords": {
+        "spain": "#ffd60a",
+        "france": "#5ec8ff",
+        "africa": "#f4a261",
+        "llívia": "#ff5a5f",
+        "morocco": "#4ade80"
+      }
+    }
+  },
+  "styles": {
+    "now": "atlas",
+    "history": "vintage"
+  }
+}

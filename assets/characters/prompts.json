@@ -193,5 +193,90 @@
     "prompt": "cute chibi 3D clay figurine, Omani sailor, white dishdasha robe, embroidered kuma cap, standing near rope, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
     "seed": 5,
     "source": "pollinations.ai (flux)"
+  },
+  "backpacker": {
+    "prompt": "cute chibi 3D clay figurine, long-distance walker man with big hiking backpack, cap, beard, walking stick, hiking boots, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 51,
+    "source": "pollinations.ai (flux)"
+  },
+  "jungle_explorer": {
+    "prompt": "cute chibi 3D clay figurine, jungle explorer man, safari hat, khaki shirt, machete, muddy boots, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 52,
+    "source": "pollinations.ai (flux)"
+  },
+  "fdr": {
+    "prompt": "cute chibi 3D clay figurine, US President Franklin D. Roosevelt 1930s, round glasses, grey suit, cigarette holder, smiling, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 53,
+    "source": "pollinations.ai (flux)"
+  },
+  "dustbowl_farmer": {
+    "prompt": "cute chibi 3D clay figurine, 1930s American farmer, straw hat, denim overalls, dusty face, holding a shovel, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 54,
+    "source": "pollinations.ai (flux)"
+  },
+  "pilot": {
+    "prompt": "cute chibi 3D clay figurine, airline pilot man, navy uniform, pilot cap with wings badge, aviator sunglasses, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 55,
+    "source": "pollinations.ai (flux)"
+  },
+  "alfred_wallace": {
+    "prompt": "cute chibi 3D clay figurine, Victorian naturalist Alfred Russel Wallace, long white beard, round glasses, holding a butterfly net, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 56,
+    "source": "pollinations.ai (flux)"
+  },
+  "lighthouse_keeper": {
+    "prompt": "cute chibi 3D clay figurine, old lighthouse keeper, yellow raincoat, sou'wester hat, white beard, holding a lantern, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 57,
+    "source": "pollinations.ai (flux)"
+  },
+  "dutch_farmer": {
+    "prompt": "cute chibi 3D clay figurine, Dutch farmer girl, traditional white cap, wooden clogs, holding tulips, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 58,
+    "source": "pollinations.ai (flux)"
+  },
+  "coal_miner": {
+    "prompt": "cute chibi 3D clay figurine, coal miner man, hard hat with headlamp, dirty face, overalls, pickaxe, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 59,
+    "source": "pollinations.ai (flux)"
+  },
+  "viking_erik": {
+    "prompt": "cute chibi 3D clay figurine, Viking explorer Erik the Red, red beard, fur cloak, horned-free iron helmet, holding a map, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 60,
+    "source": "pollinations.ai (flux)"
+  },
+  "storm_chaser": {
+    "prompt": "cute chibi 3D clay figurine, storm chaser woman, rain jacket, holding a camera, windblown hair, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 61,
+    "source": "pollinations.ai (flux)"
+  },
+  "penguin": {
+    "prompt": "cute chibi 3D clay figurine, cute emperor penguin, standing, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 62,
+    "source": "pollinations.ai (flux)"
+  },
+  "astronaut": {
+    "prompt": "cute chibi 3D clay figurine, astronaut in white space suit, helmet visor up, waving, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 63,
+    "source": "pollinations.ai (flux)"
+  },
+  "spanish_guard": {
+    "prompt": "cute chibi 3D clay figurine, Spanish guard soldier, green uniform, black tricorn hat, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 64,
+    "source": "pollinations.ai (flux)"
+  },
+  "french_gendarme": {
+    "prompt": "cute chibi 3D clay figurine, French gendarme, blue uniform, kepi cap, mustache, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 65,
+    "source": "pollinations.ai (flux)"
+  },
+  "cowboy": {
+    "prompt": "cute chibi 3D clay figurine, 1880s cowboy, brown hat, bandana, lasso, boots with spurs, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 66,
+    "source": "pollinations.ai (flux)"
+  },
+  "party_kid": {
+    "prompt": "cute chibi 3D clay figurine, child celebrating New Year, party hat, holding a sparkler, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 67,
+    "source": "pollinations.ai (flux)"
   }
 }

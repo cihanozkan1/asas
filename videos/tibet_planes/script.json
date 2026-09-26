@@ -1,0 +1,528 @@
+{
+  "id": "tibet_planes",
+  "style": "geo",
+  "meta": {
+    "title": "Why Planes Don't Fly Over Tibet ✈️🏔️😱",
+    "description": "Look at a live flight map and you'll see an empty hole over Tibet ✈️ It's not a no-fly zone. The Tibetan Plateau averages about 4,500 m high 🏔️ If a plane loses cabin pressure, the oxygen masks only last about 12 to 22 minutes, and pilots must dive to 10,000 feet (about 3,000 m) where people can breathe. Over Tibet the ground itself is higher than that, airports are rare, and the winds create brutal turbulence 😱",
+    "pinnedComment": [
+      "The 'Roof of the World' has no safe way down ✈️😱",
+      "Would you fly over Tibet? 👇",
+      "Which aviation mystery next? 🗺️"
+    ],
+    "tags": [
+      "tibet",
+      "tibetan plateau",
+      "planes",
+      "aviation",
+      "no fly zone",
+      "oxygen masks",
+      "himalayas",
+      "roof of the world",
+      "flights",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Look at flights over Asia, and you'll notice a giant empty hole right here.",
+      "show": [
+        {
+          "type": "title",
+          "text": "WHY PLANES *AVOID* TIBET",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Asia",
+          "at": 0.05
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              28.6,
+              77.2
+            ],
+            [
+              22.3,
+              114.2
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "flights",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 2.4
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              25.3,
+              55.4
+            ],
+            [
+              39.9,
+              116.4
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "flights",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 2.4
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              41.3,
+              69.2
+            ],
+            [
+              13.7,
+              100.5
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "flights",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 2.4
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 33.0,
+              "lon": 88.0,
+              "km": 800
+            }
+          },
+          "fill": "#ff3b3b",
+          "at": "hole",
+          "soft": true,
+          "rim": "#ff3b3b",
+          "fillOpacity": 0.25
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 90,
+        "zoom": 2.0
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "This is the Tibetan Plateau, the Roof of the World.",
+      "show": [
+        {
+          "type": "label",
+          "text": "TIBET",
+          "lat": 33.5,
+          "lon": 88,
+          "at": "Tibetan",
+          "style": "map",
+          "anim": "slam",
+          "size": 90
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 33.0,
+              "lon": 88.0,
+              "km": 750
+            }
+          },
+          "fill": "#2de2e6",
+          "at": "Roof",
+          "soft": true,
+          "rim": "#2de2e6",
+          "fillOpacity": 0.25
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 88,
+        "zoom": 2.8
+      },
+      "sources": [
+        {
+          "claim": "It is often called the Roof of the World.",
+          "url": "https://en.wikipedia.org/wiki/Tibetan_Plateau",
+          "quote": "often referred to as 'the Roof of the World'"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's the largest and highest plateau on Earth, about 2,500 kilometers wide.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            33,
+            76
+          ],
+          "to": [
+            32,
+            101
+          ],
+          "label": "2,500 km",
+          "at": "wide"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "largest",
+              "value": "#1"
+            }
+          ],
+          "size": 180
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 88,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "The world's largest and highest plateau; about 2,500 km east to west.",
+          "url": "https://en.wikipedia.org/wiki/Tibetan_Plateau",
+          "quote": "It is the world's largest and highest plateau above sea level, with an area of 2,500,000 square kilometres"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Its average height is about 4,500 meters.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Plateau",
+              "value": 4500,
+              "display": "4,500 m",
+              "color": "#2de2e6"
+            },
+            {
+              "label": "Safe air",
+              "value": 3000,
+              "display": "3,000 m",
+              "color": "#4ade80"
+            }
+          ],
+          "orient": "v",
+          "at": "height",
+          "shape": "mountain",
+          "height": 360
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The plateau averages over 4,500 m.",
+          "url": "https://en.wikipedia.org/wiki/Tibetan_Plateau",
+          "quote": "With an average elevation exceeding 4,500 metres (14,800 ft)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "If a plane loses cabin pressure, the oxygen masks last only about 12 to 22 minutes.",
+      "show": [
+        {
+          "type": "character",
+          "image": "pilot",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "plane",
+          "say": "Masks on!"
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "masks",
+              "time": "12:00"
+            },
+            {
+              "at": "minutes",
+              "time": "12:22"
+            }
+          ],
+          "at": "masks",
+          "screen": [
+            0.72,
+            0.33
+          ],
+          "size": 220,
+          "label": "12–22 min"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Masks typically last 12 to 22 minutes.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "typically burn for somewhere between 12 and 22 minutes, depending on the aircraft"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So pilots must quickly dive to 10,000 feet, where people can breathe on their own.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              35,
+              80
+            ],
+            [
+              33,
+              88
+            ],
+            [
+              31,
+              96
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "dive",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "id": "p2"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "10,000",
+              "value": "10,000 ft"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "arrow",
+          "from": [
+            34,
+            86
+          ],
+          "to": [
+            30,
+            86
+          ],
+          "color": "#ff5a5f",
+          "at": "dive"
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 88,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "Pilots dive to 10,000 feet where humans can breathe unaided.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "the aircraft dives to 10,000 feet — the altitude where humans can breathe unaided"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But over Tibet, the ground itself is higher than that. There's nowhere to go down.",
+      "show": [
+        {
+          "type": "tilt",
+          "deg": 40,
+          "at": "ground",
+          "until": 4
+        },
+        {
+          "type": "stamp",
+          "text": "NO WAY DOWN",
+          "size": 84,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "nowhere"
+        },
+        {
+          "type": "shake",
+          "at": "nowhere"
+        }
+      ],
+      "camera": {
+        "lat": 31,
+        "lon": 86,
+        "zoom": 4.0
+      },
+      "sources": [
+        {
+          "claim": "The plateau floor sits around 14,800 ft, above the 10,000 ft safety level.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "The plateau's valley floors sit at around 14,800 feet"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Airports are rare and far apart, and strong winds turn the air into a washing machine.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🛬",
+          "lat": 29.3,
+          "lon": 90.9,
+          "size": 100,
+          "at": "Airports"
+        },
+        {
+          "type": "icon",
+          "icon": "🌪️",
+          "lat": 34,
+          "lon": 84,
+          "size": 120,
+          "at": "winds"
+        },
+        {
+          "type": "icon",
+          "icon": "🌪️",
+          "lat": 31,
+          "lon": 94,
+          "size": 110,
+          "at": "machine"
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 89,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "Airports are rare, far apart and at extreme elevations.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "Airports are rare, far apart, and themselves perched at extreme elevations."
+        },
+        {
+          "claim": "Winds of 100–200 km/h create severe turbulence.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "the atmosphere downstream turns into a washing machine"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So it's not a no-fly zone. It's just a place where an emergency has no safe ending.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 33.0,
+              "lon": 88.0,
+              "km": 800
+            }
+          },
+          "fill": "#ff3b3b",
+          "at": "emergency",
+          "soft": true,
+          "rim": "#ff3b3b",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "safe",
+              "value": "0"
+            }
+          ],
+          "size": 200
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 90,
+        "zoom": 2.0
+      },
+      "sources": [
+        {
+          "claim": "There is no regulation designating Tibet as a no-fly zone.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "There is no regulation designating Tibet as a no-fly zone."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "impact",
+      "keywords": {
+        "tibet": "#2de2e6",
+        "tibetan": "#2de2e6",
+        "oxygen": "#ff5a5f",
+        "pressure": "#ff5a5f"
+      }
+    }
+  },
+  "styles": {
+    "now": "neon",
+    "history": "vintage"
+  }
+}

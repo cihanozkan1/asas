@@ -1,0 +1,492 @@
+{
+  "id": "longest_sail",
+  "style": "globe",
+  "meta": {
+    "title": "The Longest Straight Line You Can Sail on Earth 🌊⛵🤯",
+    "description": "What's the longest straight line you could sail without hitting land? ⛵ Scientists Rohan Chabukswar and Kushal Mukherjee confirmed it in 2018: start on the coast of Pakistan 🇵🇰, slip between Africa and Madagascar, pass between South America and Antarctica, cross the whole Pacific and land in Kamchatka, Russia 🇷🇺 That's about 32,090 km (19,940 miles) in one straight line 🤯",
+    "pinnedComment": [
+      "32,000 km in one straight line without touching land 🌊🤯",
+      "Would you sail it? ⛵👇",
+      "What should we measure next? 🗺️"
+    ],
+    "tags": [
+      "longest straight line",
+      "sailing",
+      "ocean",
+      "pakistan",
+      "kamchatka",
+      "russia",
+      "madagascar",
+      "antarctica",
+      "great circle",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "What's the longest straight line you could sail on Earth, without ever touching land?",
+      "show": [
+        {
+          "type": "title",
+          "text": "THE LONGEST *STRAIGHT LINE* AT SEA",
+          "hook": true,
+          "size": 100,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Earth",
+          "at": 0.05
+        },
+        {
+          "type": "question",
+          "lat": -10,
+          "lon": 70,
+          "at": "land"
+        }
+      ],
+      "camera": {
+        "lat": -10,
+        "lon": 70,
+        "zoom": 1.0
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "In 2018, two scientists calculated the answer with a computer.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2018",
+          "light": true,
+          "at": "2018"
+        },
+        {
+          "type": "icon",
+          "icon": "💻",
+          "lat": -10,
+          "lon": 70,
+          "size": 130,
+          "at": "computer"
+        },
+        {
+          "type": "character",
+          "image": "scientist",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "scientists"
+        }
+      ],
+      "camera": {
+        "lat": -10,
+        "lon": 70,
+        "zoom": 1.0
+      },
+      "sources": [
+        {
+          "claim": "Verified by Rohan Chabukswar and Kushal Mukherjee (published 2018).",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "Rohan Chabukswar, a physicist at United Technologies Research Center Ireland, and Kushal Mukherjee, an engineer at IBM Research India"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It was first found by a Reddit user years earlier. The computer confirmed it in just 10 minutes.",
+      "show": [
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "first",
+              "time": "12:00"
+            },
+            {
+              "at": "minutes",
+              "time": "12:10"
+            }
+          ],
+          "at": "first",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "size": 200,
+          "label": "10 min"
+        },
+        {
+          "type": "icon",
+          "icon": "💬",
+          "lat": -5,
+          "lon": 60,
+          "size": 110,
+          "at": "Reddit"
+        }
+      ],
+      "camera": {
+        "lat": -10,
+        "lon": 70,
+        "zoom": 1.0
+      },
+      "sources": [
+        {
+          "claim": "First mapped by a Reddit user; verified in 10 minutes.",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "first mapped five years ago by Reddit user Patrick Anderson"
+        },
+        {
+          "claim": "The computation took 10 minutes.",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "in just 10 minutes"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It starts on the coast of Pakistan, and heads south, straight between Africa and Madagascar.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 25.3,
+          "lon": 66.6,
+          "color": "#ffd60a",
+          "at": "Pakistan"
+        },
+        {
+          "type": "highlight",
+          "target": "PAK",
+          "fill": "flag:pk",
+          "at": "Pakistan",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "MDG",
+          "fill": "#ff5a5f",
+          "at": "Madagascar",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              25.3,
+              66.6
+            ],
+            [
+              10,
+              60
+            ],
+            [
+              -12,
+              43.5
+            ],
+            [
+              -35,
+              30
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "south",
+          "id": "sail",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#2de2e6"
+          },
+          "drawDur": 3.0
+        }
+      ],
+      "camera": {
+        "follow": "sail",
+        "zoom": 1.6,
+        "zoomTo": 1.2
+      },
+      "sources": [
+        {
+          "claim": "It runs from Pakistan through the passage between Madagascar and Africa.",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "runs from the Pakistan coast through the passage between Madagascar and Africa"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Then it slips between South America and Antarctica.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              -35,
+              30
+            ],
+            [
+              -55,
+              -40
+            ],
+            [
+              -58,
+              -66
+            ],
+            [
+              -45,
+              -110
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "slips",
+          "id": "sail2",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#2de2e6"
+          },
+          "drawDur": 2.6
+        },
+        {
+          "type": "highlight",
+          "target": "ARG",
+          "fill": "#5ec8ff",
+          "at": "America",
+          "fillOpacity": 0.6
+        }
+      ],
+      "camera": {
+        "follow": "sail2",
+        "zoom": 1.3,
+        "zoomTo": 1.1
+      },
+      "sources": [
+        {
+          "claim": "The route passes between Antarctica and Tierra del Fuego.",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "around to northeastern Russia"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It crosses the whole Pacific Ocean, and finally reaches Kamchatka, in the far east of Russia.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              -45,
+              -110
+            ],
+            [
+              -20,
+              -150
+            ],
+            [
+              10,
+              -175
+            ],
+            [
+              40,
+              170
+            ],
+            [
+              60,
+              164
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "Pacific",
+          "id": "sail3",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#2de2e6"
+          },
+          "drawDur": 3.0
+        },
+        {
+          "type": "ping",
+          "lat": 60,
+          "lon": 164,
+          "color": "#ff5a5f",
+          "at": "Kamchatka"
+        },
+        {
+          "type": "highlight",
+          "target": "RUS",
+          "fill": "flag:ru",
+          "at": "Russia",
+          "fillOpacity": 0.6
+        }
+      ],
+      "camera": {
+        "follow": "sail3",
+        "zoom": 1.2,
+        "zoomTo": 1.0
+      },
+      "sources": [
+        {
+          "claim": "It ends in northeastern Russia.",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "around to northeastern Russia"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The whole trip is about 32,000 kilometers. One single straight line.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              25.3,
+              66.6
+            ],
+            [
+              10,
+              60
+            ],
+            [
+              -12,
+              43.5
+            ],
+            [
+              -35,
+              30
+            ],
+            [
+              -55,
+              -40
+            ],
+            [
+              -58,
+              -66
+            ],
+            [
+              -45,
+              -110
+            ],
+            [
+              -20,
+              -150
+            ],
+            [
+              10,
+              -175
+            ],
+            [
+              40,
+              170
+            ],
+            [
+              60,
+              164
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 10,
+          "at": "trip",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 2.0
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "32,000",
+              "value": "32,090 km"
+            }
+          ],
+          "size": 160
+        }
+      ],
+      "camera": {
+        "lat": -20,
+        "lon": 100,
+        "zoom": 0.9
+      },
+      "sources": [
+        {
+          "claim": "The path is 19,940 miles (about 32,090 km) long.",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "This 19,940-mile trip runs from the Pakistan coast through the passage between Madagascar and Africa and around to northeastern Russia."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It looks curved on a map, but on a globe, it's perfectly straight.",
+      "show": [
+        {
+          "type": "stamp",
+          "text": "STRAIGHT!",
+          "size": 100,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "straight"
+        }
+      ],
+      "camera": {
+        "lat": -40,
+        "lon": 30,
+        "zoom": 1.0,
+        "bearing": 5
+      },
+      "sources": [
+        {
+          "claim": "It is the longest straight-line sailable path on Earth.",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "the longest straight-line sailable path on Earth"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "impact",
+      "keywords": {
+        "pakistan": "#4ade80",
+        "russia": "#ff5a5f",
+        "straight": "#2de2e6",
+        "madagascar": "#ffd60a"
+      }
+    }
+  },
+  "styles": {
+    "now": "neon",
+    "history": "neon"
+  }
+}

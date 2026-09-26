@@ -1,0 +1,365 @@
+{
+  "id": "market_island",
+  "style": "geo",
+  "meta": {
+    "title": "The Island With the Weirdest Border 🇸🇪🇫🇮🤯 Märket",
+    "description": "Märket is a tiny rocky island in the Baltic Sea, split between Sweden 🇸🇪 and Finland (Åland) 🇫🇮 since 1809. In 1885 Finland built a lighthouse on it… on the Swedish side! 😅 In 1985 the two countries redrew the border into a strange zigzag, so the lighthouse ended up in Finland without either country losing any land 🤯 The border is marked by holes drilled in the rock, and it's checked every 25 years.",
+    "pinnedComment": [
+      "They moved a border instead of a lighthouse 🤯🇸🇪🇫🇮",
+      "Would you visit Märket? 👇",
+      "Which border should we explain next? 🗺️"
+    ],
+    "tags": [
+      "market island",
+      "märket",
+      "sweden",
+      "finland",
+      "aland",
+      "lighthouse",
+      "baltic sea",
+      "weird borders",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is one of the strangest borders in the world, on a tiny island in the Baltic Sea.",
+      "show": [
+        {
+          "type": "title",
+          "text": "THE WEIRDEST *BORDER*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "world",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": "SWE",
+          "fill": "flag:se",
+          "at": "Baltic",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "highlight",
+          "target": "FIN",
+          "fill": "flag:fi",
+          "at": "Baltic",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "ping",
+          "lat": 60.3009,
+          "lon": 19.1313,
+          "color": "#ff3b3b",
+          "at": "island"
+        }
+      ],
+      "camera": {
+        "lat": 61,
+        "lon": 19.5,
+        "zoom": 5
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It's called Märket, and since 1809 it has been split between Sweden and Finland.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1809",
+          "at": "1809"
+        },
+        {
+          "type": "vs",
+          "left": {
+            "flag": "se",
+            "label": "Sweden"
+          },
+          "right": {
+            "flag": "ax",
+            "label": "Åland, Finland"
+          },
+          "at": "split",
+          "screen": [
+            0.5,
+            0.32
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 60.3,
+        "lon": 19.13,
+        "zoom": 40
+      },
+      "sources": [
+        {
+          "claim": "The island was divided in 1809 by the Treaty of Fredrikshamn.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "Märket has been divided between the two countries since the Treaty of Fredrikshamn of 1809 defined the border between Sweden and Grand Duchy of Finland as going through the middle of the island."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1885, Finland built a lighthouse on its highest point. But that spot was on the Swedish half.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1885",
+          "at": "1885"
+        },
+        {
+          "type": "character",
+          "image": "lighthouse_keeper",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "lighthouse",
+          "say": "Wrong half!"
+        },
+        {
+          "type": "ping",
+          "lat": 60.3009,
+          "lon": 19.1313,
+          "color": "#ffd60a",
+          "at": "lighthouse"
+        }
+      ],
+      "camera": {
+        "lat": 60.3,
+        "lon": 19.13,
+        "zoom": 60
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "In 1885 the lighthouse was built on the Swedish portion of the island.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "However, the location selected was within the Swedish portion of the island."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So in 1985, the two countries did something clever. Instead of moving the lighthouse, they moved the border.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1985",
+          "at": "1985"
+        },
+        {
+          "type": "stamp",
+          "text": "MOVE THE BORDER",
+          "size": 78,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "moved"
+        }
+      ],
+      "camera": {
+        "lat": 60.3,
+        "lon": 19.13,
+        "zoom": 60
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The border was adjusted in 1985 so the lighthouse is on Finnish territory.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "As a result, the border was adjusted in 1985 so that the lighthouse is now located on Finnish territory"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The new border zigzags around the lighthouse, so it ends up in Finland.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              60.3018,
+              19.129
+            ],
+            [
+              60.301,
+              19.13
+            ],
+            [
+              60.3013,
+              19.1312
+            ],
+            [
+              60.3006,
+              19.132
+            ],
+            [
+              60.3009,
+              19.1333
+            ],
+            [
+              60.3,
+              19.134
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 8,
+          "at": "zigzags",
+          "drawDur": 1.8,
+          "hold": 1
+        },
+        {
+          "type": "ping",
+          "lat": 60.3011,
+          "lon": 19.1316,
+          "color": "#ffd60a",
+          "at": "lighthouse"
+        },
+        {
+          "type": "label",
+          "text": "Lighthouse",
+          "lat": 60.3011,
+          "lon": 19.1316,
+          "at": "lighthouse",
+          "dot": true,
+          "dy": -54,
+          "size": 40
+        }
+      ],
+      "camera": {
+        "lat": 60.301,
+        "lon": 19.1315,
+        "zoom": 5000,
+        "bearing": -3
+      },
+      "style": "satellite",
+      "sources": [
+        {
+          "claim": "The adjusted border takes the form of an inverted S.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "The adjusted border takes the form of an inverted 'S'."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And no country lost any land. Both sides still have exactly the same area.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "land",
+              "value": "= 0 m²"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "tilt",
+          "deg": 36,
+          "at": "same",
+          "until": 3.5
+        }
+      ],
+      "camera": {
+        "lat": 60.301,
+        "lon": 19.1315,
+        "zoom": 5000
+      },
+      "style": "satellite",
+      "sources": [
+        {
+          "claim": "No net transfer of territory occurred.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "The adjustment was carried out such that no net transfer of territory occurred."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today the border is marked by holes drilled into the rock, and it's inspected every 25 years.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🕳️",
+          "lat": 60.3012,
+          "lon": 19.1305,
+          "size": 90,
+          "at": "holes"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "25",
+              "value": "25 years"
+            }
+          ],
+          "size": 160
+        }
+      ],
+      "camera": {
+        "lat": 60.301,
+        "lon": 19.1315,
+        "zoom": 4000,
+        "bearing": 3
+      },
+      "style": "satellite",
+      "sources": [
+        {
+          "claim": "The border is marked by drilled holes; resurveyed every 25 years.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "The border is marked by holes drilled into the rock, because the seasonal drift ice would shear off any protruding markers."
+        },
+        {
+          "claim": "Resurveyed every 25 years.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "The border is regularly resurveyed every 25 years by officials representing both countries."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "pop",
+      "keywords": {
+        "sweden": "#5ec8ff",
+        "finland": "#ffd60a",
+        "märket": "#ff5a5f",
+        "lighthouse": "#ffd60a"
+      }
+    }
+  },
+  "styles": {
+    "now": "atlas",
+    "history": "vintage"
+  },
+  "imagery": [
+    {
+      "bbox": [
+        19.12,
+        60.296,
+        19.142,
+        60.306
+      ],
+      "width": 2048
+    }
+  ]
+}

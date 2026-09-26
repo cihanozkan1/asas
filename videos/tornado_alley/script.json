@@ -1,0 +1,541 @@
+{
+  "id": "tornado_alley",
+  "style": "geo",
+  "meta": {
+    "title": "Why the USA Has the Most Tornadoes on Earth 🌪️🇺🇸😳",
+    "description": "The United States 🇺🇸 gets about 1,200 tornadoes a year, more than any other country. Canada, in second place, averages about 62 🌪️ Why? In Tornado Alley, warm humid air from the Gulf of Mexico meets cold dry air from Canada and the Rocky Mountains 🏔️ North America has no big east-west mountain range to keep these air masses apart, so they collide again and again, creating powerful thunderstorms and supercells ⛈️",
+    "pinnedComment": [
+      "1,200 tornadoes a year 🌪️😳",
+      "Have you ever seen a tornado? 👇",
+      "Which weather mystery next? 🗺️"
+    ],
+    "tags": [
+      "tornado alley",
+      "tornadoes",
+      "usa",
+      "weather",
+      "supercell",
+      "gulf of mexico",
+      "rocky mountains",
+      "storm",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "The United States gets about 1,200 tornadoes every year. More than any other country on Earth.",
+      "show": [
+        {
+          "type": "title",
+          "text": "TORNADO *ALLEY*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "States",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": "USA",
+          "fill": "#ff5a5f",
+          "at": "States",
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "1,200",
+              "value": "1,200"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              -104,
+              31,
+              -85,
+              45
+            ]
+          },
+          "icon": "🌪️",
+          "count": 16,
+          "size": 56,
+          "at": "year",
+          "stagger": 0.05
+        }
+      ],
+      "camera": {
+        "lat": 39,
+        "lon": -97,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "The US averages about 1,200 tornadoes a year.",
+          "url": "https://en.wikipedia.org/wiki/Tornado",
+          "quote": "The United States averages about 1,200 tornadoes per year, followed by Canada, averaging 62 reported per year."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Canada comes second, with only about 62.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "USA",
+              "value": 1200,
+              "display": "1,200",
+              "color": "#ff5a5f",
+              "flag": "us"
+            },
+            {
+              "label": "Canada",
+              "value": 62,
+              "display": "62",
+              "color": "#5ec8ff",
+              "flag": "ca"
+            }
+          ],
+          "orient": "h",
+          "at": "Canada",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 220
+        }
+      ],
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "Canada averages 62 per year.",
+          "url": "https://en.wikipedia.org/wiki/Tornado",
+          "quote": "followed by Canada, averaging 62 reported per year"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Tornado Alley has no official borders, but it can stretch from central Texas, all the way up to the Canadian Prairies.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              31,
+              -99
+            ],
+            [
+              38,
+              -98
+            ],
+            [
+              45,
+              -98
+            ],
+            [
+              52,
+              -104
+            ]
+          ],
+          "color": "#ff5a5f",
+          "width": 9,
+          "at": "stretch",
+          "drawDur": 1.6,
+          "arrowHead": true
+        },
+        {
+          "type": "label",
+          "text": "Central Texas",
+          "lat": 31,
+          "lon": -99,
+          "at": "Texas",
+          "dot": true,
+          "dy": 52,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "Canadian Prairies",
+          "lat": 52,
+          "lon": -104,
+          "at": "Prairies",
+          "dot": true,
+          "dy": -52,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 41,
+        "lon": -99,
+        "zoom": 2.0
+      },
+      "sources": [
+        {
+          "claim": "It can reach from central Texas to the Canadian Prairies.",
+          "url": "https://en.wikipedia.org/wiki/Tornado_Alley",
+          "quote": "Tornado Alley can also be defined as an area reaching from central Texas to the Canadian Prairies and from eastern Colorado to western Ohio"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Most of them hit here, in the middle of the country. It's called Tornado Alley.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Texas",
+            "country": "USA"
+          },
+          "fill": "#ff5a5f",
+          "at": "middle",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Oklahoma",
+            "country": "USA"
+          },
+          "fill": "#ff5a5f",
+          "at": "middle",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Kansas",
+            "country": "USA"
+          },
+          "fill": "#ff5a5f",
+          "at": "middle",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Nebraska",
+            "country": "USA"
+          },
+          "fill": "#ff5a5f",
+          "at": "middle",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "South Dakota",
+            "country": "USA"
+          },
+          "fill": "#ff5a5f",
+          "at": "middle",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Iowa",
+            "country": "USA"
+          },
+          "fill": "#ff5a5f",
+          "at": "middle",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Missouri",
+            "country": "USA"
+          },
+          "fill": "#ff5a5f",
+          "at": "middle",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "label",
+          "text": "TORNADO ALLEY",
+          "lat": 38,
+          "lon": -98,
+          "at": "Alley",
+          "style": "map",
+          "anim": "slam",
+          "size": 66
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -97,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "Tornado Alley covers the central US.",
+          "url": "https://en.wikipedia.org/wiki/Tornado_Alley",
+          "quote": "The area common to most definitions extends from Arkansas, Illinois, Indiana, Iowa, Kansas, Minnesota, Missouri, Montana, Nebraska, North Dakota, Ohio, Oklahoma, South Dakota, Texas, Wisconsin"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Warm, humid air flows up from the Gulf of Mexico.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              24,
+              -92
+            ],
+            [
+              29,
+              -95
+            ],
+            [
+              34,
+              -97
+            ],
+            [
+              38,
+              -97
+            ]
+          ],
+          "color": "#ff5a2a",
+          "width": 18,
+          "at": "Warm",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.6,
+          "hold": 2
+        },
+        {
+          "type": "label",
+          "text": "WARM & HUMID",
+          "lat": 26,
+          "lon": -92,
+          "at": "humid",
+          "style": "pill",
+          "bg": "#ff5a2a",
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 34,
+        "lon": -97,
+        "zoom": 2.8
+      },
+      "sources": [
+        {
+          "claim": "The Gulf of Mexico fuels abundant low-level moisture.",
+          "url": "https://en.wikipedia.org/wiki/Tornado",
+          "quote": "the Gulf of Mexico fuels abundant low-level moisture in the southerly flow to its east"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And cold, dry air comes down from Canada and the Rocky Mountains.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              52,
+              -105
+            ],
+            [
+              46,
+              -102
+            ],
+            [
+              41,
+              -99
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 18,
+          "at": "cold",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.6,
+          "hold": 1
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              40,
+              -110
+            ],
+            [
+              39,
+              -104
+            ],
+            [
+              38.5,
+              -100
+            ]
+          ],
+          "color": "#e5e7eb",
+          "width": 14,
+          "at": "Rocky",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.4,
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "COLD & DRY",
+          "lat": 49,
+          "lon": -104,
+          "at": "dry",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 40,
+        "lon": -100,
+        "zoom": 2.6
+      },
+      "sources": [
+        {
+          "claim": "Cold, dry air from Canada and the Rockies meets warm humid air.",
+          "url": "https://en.wikipedia.org/wiki/Tornado_Alley",
+          "quote": "In Tornado Alley, warm, humid air from the equator meets cool to cold, dry air from Canada and the Rocky Mountains."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "When they collide, they create giant thunderstorms, called supercells.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "⛈️",
+          "lat": 37,
+          "lon": -98,
+          "size": 160,
+          "at": "collide"
+        },
+        {
+          "type": "shake",
+          "at": "collide"
+        },
+        {
+          "type": "tilt",
+          "deg": 40,
+          "at": "supercells",
+          "until": 3.5
+        },
+        {
+          "type": "character",
+          "image": "storm_chaser",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "supercells",
+          "say": "Here it comes!"
+        }
+      ],
+      "camera": {
+        "lat": 37,
+        "lon": -98,
+        "zoom": 5
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "This creates an ideal environment for tornadoes within supercells.",
+          "url": "https://en.wikipedia.org/wiki/Tornado_Alley",
+          "quote": "This creates an ideal environment for tornadoes to form within developed thunderstorms and supercells."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And there's no big east-west mountain range to keep these air masses apart. So they meet again and again.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -100
+            ],
+            [
+              26,
+              -100
+            ]
+          ],
+          "color": "#9ca3af",
+          "width": 5,
+          "at": "mountain",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "stamp",
+          "text": "NO BARRIER",
+          "size": 86,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "apart"
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -97,
+        "zoom": 2.3
+      },
+      "sources": [
+        {
+          "claim": "No major east-west mountain barriers allow frequent collisions of warm and cold air.",
+          "url": "https://en.wikipedia.org/wiki/Tornado",
+          "quote": "This unique topography allows for frequent collisions of warm and cold air, the conditions that breed strong, long-lived storms throughout the year."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "impact",
+      "keywords": {
+        "tornado": "#ff5a5f",
+        "tornadoes": "#ff5a5f",
+        "warm": "#ff5a2a",
+        "cold": "#5ec8ff",
+        "alley": "#ff5a5f"
+      }
+    }
+  },
+  "styles": {
+    "now": "chalk",
+    "history": "vintage"
+  }
+}

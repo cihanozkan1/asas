@@ -1,0 +1,327 @@
+{
+  "id": "uk_gb_england",
+  "style": "geo",
+  "meta": {
+    "title": "UK vs Great Britain vs England: What's the Difference? 🇬🇧🏴󠁧󠁢󠁥󠁮󠁧󠁿🤯",
+    "description": "England, Great Britain and the United Kingdom are NOT the same thing 🇬🇧 England is one of four countries in the UK, together with Scotland, Wales and Northern Ireland 🏴󠁧󠁢󠁳󠁣󠁴󠁿🏴󠁧󠁢󠁷󠁬󠁳󠁿 Great Britain is the largest island, home to England, Scotland and Wales. The United Kingdom is Great Britain plus Northern Ireland; its full name is 'the United Kingdom of Great Britain and Northern Ireland'. And the British Isles? Great Britain, the island of Ireland and many smaller islands, a term the Irish government rejects 🤯",
+    "pinnedComment": [
+      "England ≠ Great Britain ≠ UK 🤯🇬🇧",
+      "Did you know the difference? 👇",
+      "Which confusing name should we explain next? 🗺️"
+    ],
+    "tags": [
+      "uk",
+      "united kingdom",
+      "great britain",
+      "england",
+      "scotland",
+      "wales",
+      "northern ireland",
+      "british isles",
+      "ireland",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "England, Great Britain, the United Kingdom. People mix them up all the time. They're not the same.",
+      "show": [
+        {
+          "type": "title",
+          "text": "UK ≠ GB ≠ *ENGLAND*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Kingdom",
+          "at": 0.05
+        },
+        {
+          "type": "question",
+          "lat": 54,
+          "lon": -3,
+          "at": "same"
+        }
+      ],
+      "camera": {
+        "lat": 54.5,
+        "lon": -4,
+        "zoom": 4.2
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "England is one of four countries. The others are Scotland, Wales and Northern Ireland.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "England",
+            "country": "GBR"
+          },
+          "fill": "#e63946",
+          "at": "England",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "Scotland",
+            "country": "GBR"
+          },
+          "fill": "#1d4ed8",
+          "at": "Scotland",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "Wales",
+            "country": "GBR"
+          },
+          "fill": "#16a34a",
+          "at": "Wales",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "Northern Ireland",
+            "country": "GBR"
+          },
+          "fill": "#f59e0b",
+          "at": "Northern",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "four",
+              "value": "4"
+            }
+          ],
+          "size": 220
+        }
+      ],
+      "camera": {
+        "lat": 54.5,
+        "lon": -4,
+        "zoom": 4.4
+      },
+      "sources": [
+        {
+          "claim": "England is one of the four countries of the UK.",
+          "url": "https://en.wikipedia.org/wiki/Terminology_of_the_British_Isles",
+          "quote": "England, Scotland, Wales and Northern Ireland are the four countries of the United Kingdom"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Great Britain is the name of the biggest island. It holds England, Scotland and Wales.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "England",
+            "country": "GBR"
+          },
+          "fill": "#6d28d9",
+          "at": "Great",
+          "fillOpacity": 0.75
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "Scotland",
+            "country": "GBR"
+          },
+          "fill": "#6d28d9",
+          "at": "Great",
+          "fillOpacity": 0.75
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "Wales",
+            "country": "GBR"
+          },
+          "fill": "#6d28d9",
+          "at": "Great",
+          "fillOpacity": 0.75
+        },
+        {
+          "type": "label",
+          "text": "GREAT BRITAIN",
+          "lat": 55.5,
+          "lon": -2.5,
+          "at": "island",
+          "style": "map",
+          "anim": "slam",
+          "size": 60
+        }
+      ],
+      "camera": {
+        "lat": 54.5,
+        "lon": -3.5,
+        "zoom": 4.4
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Great Britain is the largest island of the archipelago.",
+          "url": "https://en.wikipedia.org/wiki/Terminology_of_the_British_Isles",
+          "quote": "the largest island of the archipelago"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Add Northern Ireland, and you get the United Kingdom. Its full name is the United Kingdom of Great Britain and Northern Ireland.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "GBR",
+          "fill": "flag:gb",
+          "at": "United",
+          "fillOpacity": 0.9,
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "stamp",
+          "text": "UNITED KINGDOM",
+          "size": 76,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "full"
+        }
+      ],
+      "camera": {
+        "lat": 54.5,
+        "lon": -4,
+        "zoom": 4.4
+      },
+      "sources": [
+        {
+          "claim": "The UK is Great Britain plus Northern Ireland.",
+          "url": "https://en.wikipedia.org/wiki/Terminology_of_the_British_Isles",
+          "quote": "Great Britain plus Northern Ireland"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And the British Isles? That's Great Britain, the whole island of Ireland, and many smaller islands around them.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "IRL",
+          "fill": "#16a34a",
+          "at": "Ireland",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "highlight",
+          "target": "GBR",
+          "fill": "#9ca3af",
+          "at": "Great",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 57.5,
+              "lon": -6.5,
+              "km": 150
+            }
+          },
+          "icon": "🏝️",
+          "count": 6,
+          "size": 54,
+          "at": "smaller"
+        }
+      ],
+      "camera": {
+        "lat": 54.5,
+        "lon": -5,
+        "zoom": 3.6
+      },
+      "sources": [
+        {
+          "claim": "British Isles = Great Britain + Ireland + smaller islands.",
+          "url": "https://en.wikipedia.org/wiki/Terminology_of_the_British_Isles",
+          "quote": "the island of Great Britain plus the island of Ireland and many smaller surrounding islands"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But careful. The government of Ireland does not use that term at all.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "IRL",
+          "fill": "flag:ie",
+          "at": "Ireland",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "stamp",
+          "text": "NOT USED",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "term"
+        },
+        {
+          "type": "shake",
+          "at": "term"
+        }
+      ],
+      "camera": {
+        "lat": 53.4,
+        "lon": -8,
+        "zoom": 6
+      },
+      "sources": [
+        {
+          "claim": "The Irish government's policy is not to use the term.",
+          "url": "https://en.wikipedia.org/wiki/Terminology_of_the_British_Isles",
+          "quote": "The policy of the government of Ireland is that no branch of government should use the term"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "bebas",
+      "keywords": {
+        "england": "#e63946",
+        "scotland": "#5ec8ff",
+        "wales": "#4ade80",
+        "ireland": "#4ade80",
+        "kingdom": "#ffd60a",
+        "britain": "#a78bfa"
+      }
+    }
+  },
+  "styles": {
+    "now": "atlas",
+    "history": "vintage"
+  }
+}

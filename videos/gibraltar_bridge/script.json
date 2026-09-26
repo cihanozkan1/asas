@@ -1,0 +1,487 @@
+{
+  "id": "gibraltar_bridge",
+  "style": "geo",
+  "meta": {
+    "title": "Why There's No Bridge Between Europe and Africa 🌉🇪🇸🇲🇦",
+    "description": "At the Strait of Gibraltar, Europe 🇪🇸 and Africa 🇲🇦 are only about 14.2 km apart. So why no bridge? 🌉 The sea there is 300 to 900 m deep, and two strong currents pass through it: lighter Atlantic water flows in on top, while heavy, salty Mediterranean water flows out underneath 🌊 Spain and Morocco have studied an undersea rail tunnel since the 1980s, but after four decades of talks it still hasn't been built 🤯",
+    "pinnedComment": [
+      "Only 14 km between Europe and Africa… and still no bridge 🤯🌉",
+      "Would you rather cross by bridge or tunnel? 👇",
+      "Which strait should we explain next? 🗺️"
+    ],
+    "tags": [
+      "strait of gibraltar",
+      "europe",
+      "africa",
+      "spain",
+      "morocco",
+      "bridge",
+      "tunnel",
+      "mediterranean",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Here, Europe and Africa are only about 14 kilometers apart.",
+      "show": [
+        {
+          "type": "title",
+          "text": "WHY NO *BRIDGE*?",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Africa",
+          "at": 0.05
+        },
+        {
+          "type": "measure",
+          "from": [
+            36.02,
+            -5.6
+          ],
+          "to": [
+            35.9,
+            -5.52
+          ],
+          "label": "14.2 km",
+          "at": "kilometers"
+        },
+        {
+          "type": "highlight",
+          "target": "ESP",
+          "fill": "flag:es",
+          "at": "Europe",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "highlight",
+          "target": "MAR",
+          "fill": "flag:ma",
+          "at": "Africa",
+          "fillOpacity": 0.7
+        }
+      ],
+      "camera": {
+        "lat": 36.0,
+        "lon": -5.6,
+        "zoom": 20,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "The narrowest point is 14.2 km.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "7.7 nautical miles (14.2 kilometers, 8.9 statute miles)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's the Strait of Gibraltar, the only door between the Atlantic and the Mediterranean.",
+      "show": [
+        {
+          "type": "label",
+          "text": "GIBRALTAR",
+          "lat": 36.2,
+          "lon": -5.4,
+          "at": "Gibraltar",
+          "style": "map",
+          "anim": "slam",
+          "size": 70
+        },
+        {
+          "type": "label",
+          "text": "ATLANTIC",
+          "lat": 35.9,
+          "lon": -6.3,
+          "at": "Atlantic",
+          "style": "map",
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "MEDITERRANEAN",
+          "lat": 36.1,
+          "lon": -4.6,
+          "at": "Mediterranean",
+          "style": "map",
+          "size": 42
+        }
+      ],
+      "camera": {
+        "lat": 36.0,
+        "lon": -5.5,
+        "zoom": 12
+      },
+      "sources": [
+        {
+          "claim": "The strait connects the Atlantic to the Mediterranean and separates Europe from Africa.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "is a narrow strait that connects the Atlantic Ocean to the Mediterranean Sea and separates Europe from Africa"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "On the north side are Spain and British Gibraltar. On the south side, Morocco and the Spanish city of Ceuta.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Gibraltar 🇬🇧",
+          "lat": 36.14,
+          "lon": -5.35,
+          "at": "British",
+          "dot": true,
+          "dy": -54,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Ceuta 🇪🇸",
+          "lat": 35.89,
+          "lon": -5.32,
+          "at": "Ceuta",
+          "dot": true,
+          "dy": 54,
+          "size": 40
+        },
+        {
+          "type": "ping",
+          "lat": 36.14,
+          "lon": -5.35,
+          "color": "#ffd60a",
+          "at": "British"
+        },
+        {
+          "type": "ping",
+          "lat": 35.89,
+          "lon": -5.32,
+          "color": "#ffd60a",
+          "at": "Ceuta"
+        }
+      ],
+      "camera": {
+        "lat": 36.0,
+        "lon": -5.45,
+        "zoom": 18
+      },
+      "sources": [
+        {
+          "claim": "North: Spain and Gibraltar; South: Morocco and Ceuta.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "On the northern side of the Strait are Spain and Gibraltar (a British overseas territory in the Iberian Peninsula). On the southern side are Morocco and Ceuta (a Spanish autonomous city in northern Africa)."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why is there no bridge? First, the water is deep. Between 300 and 900 meters.",
+      "show": [
+        {
+          "type": "tilt",
+          "deg": 40,
+          "at": "deep",
+          "until": 5
+        },
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Strait depth",
+              "value": 900,
+              "display": "900 m",
+              "color": "#1d4ed8"
+            },
+            {
+              "label": "Eiffel Tower",
+              "value": 330,
+              "display": "330 m",
+              "color": "#9ca3af"
+            }
+          ],
+          "orient": "v",
+          "at": "deep",
+          "height": 380,
+          "screen": [
+            0.5,
+            0.33
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 35.95,
+        "lon": -5.55,
+        "zoom": 22
+      },
+      "sources": [
+        {
+          "claim": "The seabed is 300 to 900 m deep.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "The Strait's depth ranges between 300 and 900 metres"
+        },
+        {
+          "claim": "The Eiffel Tower is 330 m tall.",
+          "url": "https://en.wikipedia.org/wiki/Eiffel_Tower",
+          "quote": "330 metres"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And two currents run through it, one on top of the other.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              35.95,
+              -6.6
+            ],
+            [
+              35.97,
+              -5.8
+            ],
+            [
+              36.0,
+              -5.0
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 14,
+          "at": "currents",
+          "flow": true,
+          "arrowHead": true
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              35.88,
+              -4.9
+            ],
+            [
+              35.9,
+              -5.7
+            ],
+            [
+              35.92,
+              -6.5
+            ]
+          ],
+          "color": "#1d4ed8",
+          "width": 14,
+          "at": "other",
+          "flow": true,
+          "arrowHead": true
+        }
+      ],
+      "camera": {
+        "lat": 35.95,
+        "lon": -5.7,
+        "zoom": 14
+      },
+      "sources": [
+        {
+          "claim": "Surface water flows east; deeper, saltier water flows west.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "A smaller amount of deeper, saltier and therefore denser waters continually flow westwards (the Mediterranean outflow), while a larger amount of surface waters with lower salinity and density continually flow eastwards"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Lighter water flows in on the surface, while heavy, salty Mediterranean water flows out underneath.",
+      "show": [
+        {
+          "type": "label",
+          "text": "SURFACE IN ➜",
+          "lat": 36.05,
+          "lon": -5.9,
+          "at": "Lighter",
+          "style": "pill",
+          "bg": "#0ea5e9",
+          "size": 42
+        },
+        {
+          "type": "label",
+          "text": "⬅ DEEP OUT",
+          "lat": 35.85,
+          "lon": -5.4,
+          "at": "Mediterranean",
+          "style": "pill",
+          "bg": "#1e3a8a",
+          "size": 42
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Lighter surface water flows east; denser, saltier water flows west beneath.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "A smaller amount of deeper, saltier and therefore denser waters continually flow westwards (the Mediterranean outflow), while a larger amount of surface waters with lower salinity and density continually flow eastwards"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Spain and Morocco started talking about a tunnel under the strait in the 1980s.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1980",
+          "at": "1980s"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              36.03,
+              -5.62
+            ],
+            [
+              35.97,
+              -5.65
+            ],
+            [
+              35.87,
+              -5.68
+            ],
+            [
+              35.78,
+              -5.8
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 8,
+          "at": "tunnel",
+          "dashed": true,
+          "dash": [
+            16,
+            10
+          ],
+          "drawDur": 1.6
+        },
+        {
+          "type": "vs",
+          "left": {
+            "flag": "es",
+            "label": "Spain"
+          },
+          "right": {
+            "flag": "ma",
+            "label": "Morocco"
+          },
+          "at": "Spain",
+          "screen": [
+            0.5,
+            0.3
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 35.92,
+        "lon": -5.7,
+        "zoom": 16
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Spain and Morocco began discussing a tunnel in the 1980s.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "Discussion between Spain and Morocco of a tunnel under the strait began in the 1980s."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In 2003, both countries agreed to explore an undersea rail tunnel, to connect their train networks.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2003",
+          "light": true,
+          "at": "2003"
+        },
+        {
+          "type": "icon",
+          "icon": "🚆",
+          "lat": 35.95,
+          "lon": -5.65,
+          "size": 120,
+          "at": "rail"
+        }
+      ],
+      "camera": {
+        "lat": 35.92,
+        "lon": -5.7,
+        "zoom": 16
+      },
+      "sources": [
+        {
+          "claim": "In December 2003 both countries agreed to explore an undersea rail tunnel.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "In December 2003, both countries agreed to explore the construction of an undersea rail tunnel to connect their rail systems across the Strait."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "More than forty years later, it still hasn't been built.",
+      "show": [
+        {
+          "type": "stamp",
+          "text": "STILL WAITING",
+          "size": 86,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "built"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "forty",
+              "value": "40+ years"
+            }
+          ],
+          "size": 150
+        }
+      ],
+      "camera": {
+        "lat": 36.0,
+        "lon": -5.6,
+        "zoom": 12,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Talks began in the 1980s; no tunnel exists yet.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "Discussion between Spain and Morocco of a tunnel under the strait began in the 1980s."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "box",
+      "keywords": {
+        "europe": "#5ec8ff",
+        "africa": "#f4a261",
+        "gibraltar": "#ffd60a",
+        "tunnel": "#ffd60a"
+      }
+    }
+  }
+}

@@ -61,7 +61,7 @@ export async function ensureAdmin1() {
   const tmp = await download(ADMIN1_URL, out + '.tmp');
   // Keep only the fields we use, to make later loads fast.
   const gj = JSON.parse(fs.readFileSync(tmp, 'utf8'));
-  const keep = ['name', 'name_en', 'name_alt', 'woe_name', 'gn_name', 'adm0_a3', 'iso_a2', 'admin', 'type_en'];
+  const keep = ['name', 'name_en', 'name_alt', 'woe_name', 'gn_name', 'adm0_a3', 'iso_a2', 'admin', 'type_en', 'geonunit', 'region'];
   for (const f of gj.features) {
     const p = {};
     for (const k of keep) if (f.properties[k] != null) p[k] = f.properties[k];

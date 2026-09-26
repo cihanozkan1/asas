@@ -1,0 +1,375 @@
+{
+  "id": "niihau",
+  "style": "geo",
+  "meta": {
+    "title": "Hawaii's Forbidden Island 🚷🏝️ Niʻihau",
+    "description": "Niʻihau 🏝️ is a Hawaiian island that almost nobody is allowed to visit. In 1864 Elizabeth Sinclair bought it from King Kamehameha V for US$10,000 in gold 💰 Her descendants, the Robinson family, still own it. Known as 'the Forbidden Isle', it is off-limits to outsiders 🚷 Only 84 people lived there in the 2020 census, and it's the only island where Hawaiian is spoken as the main language. No running water, no power grid: water comes from rain and electricity from solar ☀️",
+    "pinnedComment": [
+      "An island you can't visit in Hawaii 🚷🏝️",
+      "Would you live without running water? 👇",
+      "Which forbidden place next? 🗺️"
+    ],
+    "tags": [
+      "niihau",
+      "forbidden island",
+      "hawaii",
+      "robinson family",
+      "kamehameha",
+      "hawaiian language",
+      "kauai",
+      "island",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "In Hawaii, there's an island almost nobody is allowed to visit.",
+      "show": [
+        {
+          "type": "title",
+          "text": "THE *FORBIDDEN* ISLAND",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Hawaii",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Hawaii",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": "Hawaii",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "ping",
+          "lat": 21.9,
+          "lon": -160.15,
+          "color": "#ff3b3b",
+          "at": "island"
+        }
+      ],
+      "camera": {
+        "lat": 21,
+        "lon": -158,
+        "zoom": 10
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It's Niʻihau, and people call it the Forbidden Isle.",
+      "show": [
+        {
+          "type": "label",
+          "text": "NIʻIHAU",
+          "lat": 22.1,
+          "lon": -160.1,
+          "at": "Niʻihau",
+          "style": "map",
+          "anim": "slam",
+          "size": 70
+        },
+        {
+          "type": "stamp",
+          "text": "FORBIDDEN",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "Forbidden"
+        }
+      ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 60,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Known as the Forbidden Isle, off-limits to outsiders.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "Known as 'the Forbidden Isle', it is off-limits to all outsiders except the Robinson family and their relatives"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's the seventh largest island in Hawaii, about 28 kilometers from Kauaʻi.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            22.05,
+            -159.75
+          ],
+          "to": [
+            21.95,
+            -160.05
+          ],
+          "label": "28 km",
+          "at": "kilometers"
+        },
+        {
+          "type": "label",
+          "text": "Kauaʻi",
+          "lat": 22.05,
+          "lon": -159.5,
+          "at": "Kauaʻi",
+          "dot": true,
+          "dy": -52,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 22.0,
+        "lon": -159.8,
+        "zoom": 22
+      },
+      "sources": [
+        {
+          "claim": "Seventh largest island in Hawaii; 17.5 mi (28.2 km) southwest of Kauaʻi.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "It is 17.5 miles (28.2 km) southwest of Kauaʻi across the Kaulakahi Channel."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1864, Elizabeth Sinclair bought it from King Kamehameha the Fifth, for 10,000 dollars in gold.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1864",
+          "at": "1864"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "10,000",
+              "value": "$10,000"
+            }
+          ],
+          "size": 170,
+          "color": "#ffd60a"
+        },
+        {
+          "type": "icon",
+          "icon": "💰",
+          "lat": 21.9,
+          "lon": -160.0,
+          "size": 120,
+          "at": "gold"
+        }
+      ],
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Sinclair bought Niʻihau from Kamehameha V in 1864 for $10,000 in gold.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "purchased Niʻihau and parts of Kauaʻi from Kamehameha V in 1864 for US$10,000 in gold"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Her family, the Robinsons, still own it today, and outsiders are not allowed in.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🚷",
+          "lat": 21.9,
+          "lon": -160.15,
+          "size": 130,
+          "at": "outsiders"
+        },
+        {
+          "type": "tilt",
+          "deg": 34,
+          "at": "outsiders",
+          "until": 3.5
+        }
+      ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 60
+      },
+      "sources": [
+        {
+          "claim": "Off-limits except the Robinson family and relatives.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "off-limits to all outsiders except the Robinson family and their relatives"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In the 2020 census, only 84 people lived there.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "84",
+              "value": "84"
+            }
+          ],
+          "size": 220
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Population 84 in 2020.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "As of the 2020 census, the population had fallen to 84."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's the only island where Hawaiian is still spoken as the main language.",
+      "show": [
+        {
+          "type": "label",
+          "text": "ALOHA!",
+          "lat": 21.95,
+          "lon": -160.1,
+          "at": "Hawaiian",
+          "style": "note",
+          "size": 70
+        },
+        {
+          "type": "icon",
+          "icon": "🗣️",
+          "lat": 21.85,
+          "lon": -160.2,
+          "size": 110,
+          "at": "spoken"
+        }
+      ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 80
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The only island where Hawaiian is the primary language.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "Niʻihau is the only island where Hawaiian is spoken as a primary language."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "People get around on horses, and alcohol and cigarettes are banned.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🐎",
+          "lat": 21.9,
+          "lon": -160.12,
+          "size": 130,
+          "at": "horses"
+        },
+        {
+          "type": "icon",
+          "icon": "🚭",
+          "lat": 21.85,
+          "lon": -160.2,
+          "size": 110,
+          "at": "cigarettes"
+        }
+      ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 80
+      },
+      "sources": [
+        {
+          "claim": "Horses are the main transport; alcohol and cigarettes are banned.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "Horses are the main form of transportation; bicycles are also used."
+        },
+        {
+          "claim": "Ban on alcohol and cigarettes.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "The rules include a ban on alcohol and cigarettes."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "There's no running water and no power grid. Water comes from the rain, and electricity from the sun.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🌧️",
+          "lat": 22.0,
+          "lon": -160.1,
+          "size": 120,
+          "at": "rain"
+        },
+        {
+          "type": "icon",
+          "icon": "☀️",
+          "lat": 21.8,
+          "lon": -160.2,
+          "size": 120,
+          "at": "sun"
+        },
+        {
+          "type": "stamp",
+          "text": "OFF GRID",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "grid"
+        }
+      ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 60,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "No running water; rainwater catchment; solar power.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "Water comes from rainwater catchment"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "classic",
+      "keywords": {
+        "forbidden": "#ff5a5f",
+        "niʻihau": "#ffd60a",
+        "hawaiian": "#4ade80"
+      }
+    }
+  }
+}

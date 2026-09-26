@@ -1,0 +1,574 @@
+{
+  "id": "time_zones",
+  "style": "globe",
+  "meta": {
+    "title": "Why Time Zones Look So Strange 🕒🌍🤯",
+    "description": "Time zones should be neat 1-hour stripes, but the real map is chaos 🕒 China 🇨🇳 spans five geographical time zones but uses only one, Beijing Time (UTC+8), since 1949, so in far-western Xinjiang shops often open at 10:00 Beijing Time 🌅 Some places are offset by 30 or 45 minutes, like India 🇮🇳 and Nepal 🇳🇵 And the country with the most time zones? France 🇫🇷 with 12, thanks to its overseas territories. Russia and the USA have 11 each 🤯",
+    "pinnedComment": [
+      "France has more time zones than Russia 🤯🇫🇷",
+      "What time is it where you are right now? 👇",
+      "Which map mystery next? 🗺️"
+    ],
+    "tags": [
+      "time zones",
+      "china",
+      "beijing time",
+      "france",
+      "russia",
+      "nepal",
+      "india",
+      "utc",
+      "clock",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "In theory, time zones should be neat stripes around the globe, one hour each.",
+      "show": [
+        {
+          "type": "title",
+          "text": "TIME ZONES ARE *CHAOS*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "globe",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -37.5,
+              -70,
+              -22.5,
+              75
+            ]
+          },
+          "fill": "#2de2e6",
+          "at": "stripes",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -22.5,
+              -70,
+              -7.5,
+              75
+            ]
+          },
+          "fill": "#ff5a5f",
+          "at": "stripes",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -7.5,
+              -70,
+              7.5,
+              75
+            ]
+          },
+          "fill": "#ffd60a",
+          "at": "stripes",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              7.5,
+              -70,
+              22.5,
+              75
+            ]
+          },
+          "fill": "#4ade80",
+          "at": "stripes",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              22.5,
+              -70,
+              37.5,
+              75
+            ]
+          },
+          "fill": "#a78bfa",
+          "at": "stripes",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              37.5,
+              -70,
+              52.5,
+              75
+            ]
+          },
+          "fill": "#2de2e6",
+          "at": "stripes",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              52.5,
+              -70,
+              67.5,
+              75
+            ]
+          },
+          "fill": "#ff5a5f",
+          "at": "stripes",
+          "fillOpacity": 0.35
+        }
+      ],
+      "camera": {
+        "lat": 25,
+        "lon": 20,
+        "zoom": 1.0
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "But look at China. It's huge, and it uses only one time zone.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "CHN",
+          "fill": "flag:cn",
+          "at": "China",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "one",
+              "time": "12:00"
+            }
+          ],
+          "at": "one",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "size": 200,
+          "label": "Beijing Time"
+        }
+      ],
+      "camera": {
+        "lat": 35,
+        "lon": 100,
+        "zoom": 1.8
+      },
+      "sources": [
+        {
+          "claim": "China uses a single time zone, UTC+8.",
+          "url": "https://en.wikipedia.org/wiki/Time_in_China",
+          "quote": "a single standard time offset of UTC+08:00"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Since 1949, the whole country follows Beijing Time, even though it spans five geographical time zones.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1949",
+          "at": "1949"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              72.5,
+              18,
+              87.5,
+              54
+            ]
+          },
+          "fill": "#ff5a5f",
+          "at": "five",
+          "fillOpacity": 0.25
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              87.5,
+              18,
+              102.5,
+              54
+            ]
+          },
+          "fill": "#ffd60a",
+          "at": "five",
+          "fillOpacity": 0.25
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              102.5,
+              18,
+              117.5,
+              54
+            ]
+          },
+          "fill": "#4ade80",
+          "at": "five",
+          "fillOpacity": 0.25
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              117.5,
+              18,
+              132.5,
+              54
+            ]
+          },
+          "fill": "#2de2e6",
+          "at": "five",
+          "fillOpacity": 0.25
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              132.5,
+              18,
+              147.5,
+              54
+            ]
+          },
+          "fill": "#a78bfa",
+          "at": "five",
+          "fillOpacity": 0.25
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "five",
+              "value": "5 → 1"
+            }
+          ],
+          "size": 160
+        }
+      ],
+      "camera": {
+        "lat": 35,
+        "lon": 100,
+        "zoom": 1.9
+      },
+      "sources": [
+        {
+          "claim": "It spans five geographical time zones; single time since 1949.",
+          "url": "https://en.wikipedia.org/wiki/Time_in_China",
+          "quote": "the country spans five geographical time zones"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So in far western Xinjiang, shops often open at ten o'clock, Beijing Time.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 43.8,
+          "lon": 87.6,
+          "color": "#ffd60a",
+          "at": "Xinjiang"
+        },
+        {
+          "type": "label",
+          "text": "Ürümqi",
+          "lat": 43.8,
+          "lon": 87.6,
+          "at": "Xinjiang",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "shops",
+              "time": "08:00"
+            },
+            {
+              "at": "ten",
+              "time": "10:00"
+            }
+          ],
+          "at": "shops",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "size": 200,
+          "label": "Opening time"
+        }
+      ],
+      "camera": {
+        "lat": 40,
+        "lon": 88,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "Stores and offices in Xinjiang commonly open 10:00–19:00 Beijing Time.",
+          "url": "https://en.wikipedia.org/wiki/Time_in_China",
+          "quote": "stores and offices in Xinjiang are commonly open from 10:00 to 19:00 Beijing Time"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Some countries don't even use whole hours. India and Nepal are offset by an extra 30 or 45 minutes.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "IND",
+          "fill": "flag:in",
+          "at": "India",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "NPL",
+          "fill": "flag:np",
+          "at": "Nepal",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "label",
+          "text": "+5:30",
+          "lat": 22,
+          "lon": 79,
+          "at": "India",
+          "style": "pill",
+          "size": 52
+        },
+        {
+          "type": "label",
+          "text": "+5:45",
+          "lat": 29.8,
+          "lon": 84,
+          "at": "Nepal",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 52
+        }
+      ],
+      "camera": {
+        "lat": 24,
+        "lon": 82,
+        "zoom": 3.0
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Some zones are offset by an additional 30 or 45 minutes, such as India and Nepal.",
+          "url": "https://en.wikipedia.org/wiki/Time_zone",
+          "quote": "a few zones are offset by an additional 30 or 45 minutes, such as in India and Nepal"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So which country has the most time zones? Not Russia, not the USA.",
+      "show": [
+        {
+          "type": "question",
+          "lat": 55,
+          "lon": 90,
+          "at": "which"
+        },
+        {
+          "type": "highlight",
+          "target": "RUS",
+          "fill": "#ff5a5f",
+          "at": "Russia",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "highlight",
+          "target": "USA",
+          "fill": "#5ec8ff",
+          "at": "USA",
+          "fillOpacity": 0.5
+        }
+      ],
+      "camera": {
+        "lat": 50,
+        "lon": 20,
+        "zoom": 0.95
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It's France. Thanks to its islands all around the world, it has 12. Russia and the USA have 11 each.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "FRA",
+          "fill": "flag:fr",
+          "at": "France",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "France",
+              "value": 12,
+              "display": "12",
+              "color": "#5ec8ff",
+              "flag": "fr"
+            },
+            {
+              "label": "Russia",
+              "value": 11,
+              "display": "11",
+              "color": "#ff5a5f",
+              "flag": "ru"
+            },
+            {
+              "label": "USA",
+              "value": 11,
+              "display": "11",
+              "color": "#ffd60a",
+              "flag": "us"
+            }
+          ],
+          "orient": "h",
+          "at": "France",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 220
+        }
+      ],
+      "camera": {
+        "lat": 20,
+        "lon": 0,
+        "zoom": 0.95
+      },
+      "sources": [
+        {
+          "claim": "France has the most time zones, 12 (13 with its Antarctic claim).",
+          "url": "https://en.wikipedia.org/wiki/List_of_time_zones_by_country",
+          "quote": "France, including its overseas territories, has the most time zones with 12 (13 including its claim in Antarctica)."
+        },
+        {
+          "claim": "Russia has 11 time zones.",
+          "url": "https://en.wikipedia.org/wiki/Time_in_Russia",
+          "quote": "There are 11 time zones in Russia, which currently observe times ranging from UTC+02:00 to UTC+12:00."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Russia alone goes from UTC plus 2 to UTC plus 12. When it's morning in Moscow, it's evening in Kamchatka.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "RUS",
+          "fill": "flag:ru",
+          "at": "Russia",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "Moscow",
+              "time": "09:00"
+            }
+          ],
+          "at": "Moscow",
+          "screen": [
+            0.28,
+            0.3
+          ],
+          "size": 180,
+          "label": "Moscow"
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "Kamchatka",
+              "time": "18:00"
+            }
+          ],
+          "at": "Kamchatka",
+          "screen": [
+            0.72,
+            0.3
+          ],
+          "size": 180,
+          "label": "Kamchatka",
+          "night": true
+        }
+      ],
+      "camera": {
+        "lat": 60,
+        "lon": 100,
+        "zoom": 1.4
+      },
+      "sources": [
+        {
+          "claim": "Russia spans UTC+2 to UTC+12.",
+          "url": "https://en.wikipedia.org/wiki/Time_in_Russia",
+          "quote": "There are 11 time zones in Russia, which currently observe times ranging from UTC+02:00 to UTC+12:00."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "pop",
+      "keywords": {
+        "china": "#ff5a5f",
+        "france": "#5ec8ff",
+        "beijing": "#ffd60a",
+        "nepal": "#4ade80",
+        "india": "#ffd60a"
+      }
+    }
+  },
+  "styles": {
+    "now": "neon",
+    "history": "neon"
+  }
+}

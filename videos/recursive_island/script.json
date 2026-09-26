@@ -1,0 +1,375 @@
+{
+  "id": "recursive_island",
+  "style": "geo",
+  "meta": {
+    "title": "An Island in a Lake on an Island in a Lake on an Island 🤯🇵🇭",
+    "description": "Meet Vulcan Point 🇵🇭 It's an island in Main Crater Lake, which is on Volcano Island, which sits in Taal Lake, which is on the island of Luzon in the Philippines 🤯 It's one of only a few 'islands in a lake on an island in a lake on an island' in the world. When Taal Volcano erupted in January 2020, the crater lake's water disappeared 🌋 Later, typhoon rains refilled it, and the lake and its tiny island came back 🌧️",
+    "pinnedComment": [
+      "Island-ception 🤯🏝️",
+      "Did you know recursive islands exist? 👇",
+      "Which weird island next? 🗺️"
+    ],
+    "tags": [
+      "vulcan point",
+      "taal volcano",
+      "taal lake",
+      "luzon",
+      "philippines",
+      "recursive island",
+      "island in a lake",
+      "volcano",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This tiny rock might be the strangest island on Earth.",
+      "show": [
+        {
+          "type": "title",
+          "text": "ISLAND-*CEPTION*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "rock",
+          "at": 0.05
+        },
+        {
+          "type": "ping",
+          "lat": 14.0096,
+          "lon": 120.9966,
+          "color": "#ffd60a",
+          "at": "rock"
+        }
+      ],
+      "camera": {
+        "lat": 14.01,
+        "lon": 121.0,
+        "zoom": 1500
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It's Vulcan Point, an island in a lake.",
+      "show": [
+        {
+          "type": "label",
+          "text": "VULCAN POINT",
+          "lat": 14.012,
+          "lon": 120.9966,
+          "at": "Vulcan",
+          "style": "map",
+          "anim": "slam",
+          "size": 58
+        },
+        {
+          "type": "ring",
+          "lat": 14.0096,
+          "lon": 120.9966,
+          "r": 50,
+          "at": "island"
+        }
+      ],
+      "camera": {
+        "lat": 14.01,
+        "lon": 121.0,
+        "zoom": 2200,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Vulcan Point sits in Main Crater Lake.",
+          "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
+          "quote": "one of only a few islands in a lake on an island in a lake on an island in the world"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That lake, Main Crater Lake, is on an island too: Volcano Island.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 14.008,
+              "lon": 120.998,
+              "km": 0.9
+            }
+          },
+          "fill": "#5ec8ff",
+          "at": "Crater",
+          "soft": true,
+          "rim": "#ffffff",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "label",
+          "text": "Main Crater Lake",
+          "lat": 14.016,
+          "lon": 120.998,
+          "at": "Crater",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        },
+        {
+          "type": "label",
+          "text": "Volcano Island",
+          "lat": 13.99,
+          "lon": 120.99,
+          "at": "Volcano",
+          "dot": true,
+          "dy": 56,
+          "size": 38
+        }
+      ],
+      "camera": {
+        "lat": 14.0,
+        "lon": 120.995,
+        "zoom": 320
+      },
+      "sources": [
+        {
+          "claim": "Main Crater Lake sits inside Taal Volcano (Volcano Island).",
+          "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
+          "quote": "one of only a few islands in a lake on an island in a lake on an island in the world"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Volcano Island sits in another lake: Taal Lake.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Taal Lake",
+          "lat": 13.95,
+          "lon": 121.02,
+          "at": "Taal",
+          "dot": true,
+          "dy": -50,
+          "size": 44
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 13.95,
+              "lon": 121.0,
+              "km": 12
+            }
+          },
+          "fill": "#1d4ed8",
+          "at": "lake",
+          "soft": true,
+          "rim": "#5ec8ff",
+          "fillOpacity": 0.25
+        }
+      ],
+      "camera": {
+        "lat": 13.95,
+        "lon": 121.0,
+        "zoom": 60
+      },
+      "sources": [
+        {
+          "claim": "Volcano Island lies in Taal Lake.",
+          "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
+          "quote": "one of only a few islands in a lake on an island in a lake on an island in the world"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And Taal Lake is on a bigger island: Luzon, in the Philippines.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "PHL",
+          "fill": "flag:ph",
+          "at": "Luzon",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "label",
+          "text": "Luzon",
+          "lat": 15.8,
+          "lon": 121,
+          "at": "Luzon",
+          "dot": true,
+          "dy": -50,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 14.5,
+        "lon": 121,
+        "zoom": 6
+      },
+      "sources": [
+        {
+          "claim": "Taal Lake is on Luzon.",
+          "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
+          "quote": "one of only a few islands in a lake on an island in a lake on an island in the world"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "An island, in a lake, on an island, in a lake, on an island. One of only a few in the world.",
+      "show": [
+        {
+          "type": "timeline",
+          "events": [
+            {
+              "at": "An",
+              "year": "1",
+              "label": "Rock"
+            },
+            {
+              "at": "lake,",
+              "year": "2",
+              "label": "Crater"
+            },
+            {
+              "at": "on",
+              "year": "3",
+              "label": "Volcano"
+            },
+            {
+              "at": "in",
+              "year": "4",
+              "label": "Taal"
+            },
+            {
+              "at": "world",
+              "year": "5",
+              "label": "Luzon"
+            }
+          ],
+          "at": "An",
+          "screen": [
+            0.5,
+            0.25
+          ],
+          "width": 940
+        }
+      ],
+      "camera": {
+        "lat": 14.3,
+        "lon": 121.0,
+        "zoom": 12
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "One of only a few such recursive islands.",
+          "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
+          "quote": "one of only a few islands in a lake on an island in a lake on an island in the world"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Then in January 2020, Taal Volcano erupted, and the water of Main Crater Lake disappeared.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2020",
+          "light": true,
+          "at": "2020"
+        },
+        {
+          "type": "icon",
+          "icon": "🌋",
+          "lat": 14.0,
+          "lon": 120.995,
+          "size": 150,
+          "at": "erupted"
+        },
+        {
+          "type": "shake",
+          "at": "erupted"
+        },
+        {
+          "type": "stamp",
+          "text": "LAKE GONE",
+          "size": 86,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "disappeared"
+        }
+      ],
+      "camera": {
+        "lat": 14.0,
+        "lon": 120.995,
+        "zoom": 300
+      },
+      "sources": [
+        {
+          "claim": "After the January 2020 eruption, the water in Main Crater Lake had disappeared.",
+          "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
+          "quote": "the water in Main Crater Lake had disappeared"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But typhoon rains later filled it up again, and the little island came back.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🌧️",
+          "lat": 14.02,
+          "lon": 121.0,
+          "size": 120,
+          "at": "rains"
+        },
+        {
+          "type": "ping",
+          "lat": 14.0096,
+          "lon": 120.9966,
+          "color": "#4ade80",
+          "at": "island"
+        }
+      ],
+      "camera": {
+        "lat": 14.01,
+        "lon": 121.0,
+        "zoom": 1500,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Typhoons let rain re-accumulate and reform Main Crater Lake.",
+          "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
+          "quote": "a series of typhoons allowed rain to re-accumulate and reform Main Crater Lake"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "box",
+      "keywords": {
+        "island": "#ffd60a",
+        "lake": "#5ec8ff",
+        "vulcan": "#ff5a5f",
+        "taal": "#5ec8ff"
+      }
+    }
+  }
+}

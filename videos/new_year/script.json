@@ -1,0 +1,387 @@
+{
+  "id": "new_year",
+  "style": "globe",
+  "meta": {
+    "title": "Who Celebrates New Year First, and Who Is Last? 🎆🌍🕛",
+    "description": "The first place on Earth to enter the New Year is Kiribati's Line Islands 🇰🇮, like Kiritimati, in UTC+14, the earliest time zone 🎆 Back in 1994 Kiribati moved its eastern islands across the date line, and in 2000 it was the first country to welcome the new millennium 🥳 The last places are Baker Island and Howland Island 🇺🇸, uninhabited US nature reserves in UTC−12. Between the first and the last New Year there are 26 hours! 🤯",
+    "pinnedComment": [
+      "First and last New Year are only ~2,000 km apart 🤯🎆",
+      "What time do you celebrate New Year? 👇",
+      "Which time mystery next? 🗺️"
+    ],
+    "tags": [
+      "new year",
+      "time zones",
+      "kiribati",
+      "kiritimati",
+      "baker island",
+      "howland island",
+      "international date line",
+      "utc+14",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Every New Year, one place on Earth celebrates first. And one place celebrates last.",
+      "show": [
+        {
+          "type": "title",
+          "text": "FIRST & *LAST* NEW YEAR",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "first",
+          "at": 0.05
+        },
+        {
+          "type": "question",
+          "lat": 0,
+          "lon": -170,
+          "at": "last"
+        }
+      ],
+      "camera": {
+        "lat": 0,
+        "lon": -170,
+        "zoom": 1.0
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "The first is here: Kiribati's Line Islands, like Kiritimati, in the Pacific.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 1.87,
+          "lon": -157.4,
+          "color": "#ffd60a",
+          "at": "first"
+        },
+        {
+          "type": "label",
+          "text": "Kiritimati 🇰🇮",
+          "lat": 1.87,
+          "lon": -157.4,
+          "at": "Kiritimati",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "Kiritimati",
+              "time": "23:59"
+            },
+            {
+              "at": "Pacific",
+              "time": "00:00"
+            }
+          ],
+          "at": "Kiritimati",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "size": 200,
+          "label": "UTC+14"
+        },
+        {
+          "type": "character",
+          "image": "party_kid",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "first"
+        }
+      ],
+      "camera": {
+        "lat": 2,
+        "lon": -160,
+        "zoom": 1.6
+      },
+      "sources": [
+        {
+          "claim": "The Line Islands (Kiritimati) use UTC+14.",
+          "url": "https://en.wikipedia.org/wiki/UTC+14:00",
+          "quote": "the earliest time zone on Earth, meaning that areas in this zone are the first to see a new day, and therefore the first to enter a New Year"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "They use UTC plus 14, the earliest time zone on the planet.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "14",
+              "value": "UTC+14"
+            }
+          ],
+          "size": 170,
+          "color": "#ffd60a"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "UTC+14 is the earliest time zone.",
+          "url": "https://en.wikipedia.org/wiki/UTC+14:00",
+          "quote": "the earliest time zone on Earth"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It wasn't always like that. At the end of 1994, Kiribati moved its eastern islands across the date line.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1994",
+          "light": true,
+          "at": "1994"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              20,
+              180
+            ],
+            [
+              -20,
+              180
+            ]
+          ],
+          "color": "#9ca3af",
+          "width": 5,
+          "at": "line",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            10,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              10,
+              180
+            ],
+            [
+              5,
+              -155
+            ],
+            [
+              -5,
+              -150
+            ],
+            [
+              -10,
+              180
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "across",
+          "drawDur": 1.6
+        }
+      ],
+      "camera": {
+        "lat": 0,
+        "lon": -170,
+        "zoom": 1.4
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Kiribati changed the date for its eastern half on 31 December 1994.",
+          "url": "https://en.wikipedia.org/wiki/UTC+14:00",
+          "quote": "introduced a change of date for its eastern half on 31 December 1994, from time zones UTC−11:00 and UTC−10:00 to UTC+13:00 and UTC+14:00"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So in the year 2000, Kiritimati became the first place to start the new millennium.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2000",
+          "light": true,
+          "at": "2000"
+        },
+        {
+          "type": "icon",
+          "icon": "🎆",
+          "lat": 3,
+          "lon": -157,
+          "size": 140,
+          "at": "millennium"
+        },
+        {
+          "type": "stamp",
+          "text": "FIRST!",
+          "size": 100,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "first"
+        }
+      ],
+      "camera": {
+        "lat": 2,
+        "lon": -158,
+        "zoom": 2.0
+      },
+      "sources": [
+        {
+          "claim": "Kiritimati started the year 2000 before any other country.",
+          "url": "https://en.wikipedia.org/wiki/UTC+14:00",
+          "quote": "started the year 2000 on its territory before any other country on Earth"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And the last place? Baker Island and Howland Island, in UTC minus 12. Nobody lives there, they're US nature reserves.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 0.19,
+          "lon": -176.48,
+          "color": "#ff5a5f",
+          "at": "Baker"
+        },
+        {
+          "type": "label",
+          "text": "Baker Is. 🇺🇸",
+          "lat": 0.19,
+          "lon": -176.48,
+          "at": "Baker",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "last",
+              "time": "23:59"
+            },
+            {
+              "at": "nature",
+              "time": "00:00"
+            }
+          ],
+          "at": "last",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "size": 200,
+          "label": "UTC−12",
+          "night": true
+        }
+      ],
+      "camera": {
+        "lat": 0.5,
+        "lon": -176,
+        "zoom": 3.0
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Baker and Howland Islands (US nature reserves) use UTC−12, the last to enter the New Year.",
+          "url": "https://en.wikipedia.org/wiki/UTC%E2%88%9212:00",
+          "quote": "comprises the United States Minor Outlying Islands, specifically Baker Island and Howland Island (strict nature reserves belonging to the United States), as standard time"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So from the first New Year to the last, the party lasts 26 hours.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "UTC+14",
+              "value": 26,
+              "display": "first",
+              "color": "#ffd60a"
+            },
+            {
+              "label": "UTC−12",
+              "value": 1,
+              "display": "last",
+              "color": "#ff5a5f"
+            }
+          ],
+          "orient": "h",
+          "at": "first",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 200
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "26",
+              "value": "26 h"
+            }
+          ],
+          "size": 200
+        }
+      ],
+      "camera": {
+        "lat": 0,
+        "lon": -170,
+        "zoom": 1.0
+      },
+      "sources": [
+        {
+          "claim": "UTC−12 is the last to enter a New Year; +14 to −12 is 26 hours.",
+          "url": "https://en.wikipedia.org/wiki/UTC%E2%88%9212:00",
+          "quote": "is the last to enter a New Year"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "impact",
+      "keywords": {
+        "first": "#ffd60a",
+        "last": "#ff5a5f",
+        "kiribati": "#ffd60a",
+        "baker": "#ff5a5f"
+      }
+    }
+  },
+  "styles": {
+    "now": "neon",
+    "history": "neon"
+  }
+}

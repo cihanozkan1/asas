@@ -1,0 +1,693 @@
+{
+  "id": "atlantic_tracks",
+  "style": "geo",
+  "meta": {
+    "title": "The Invisible Highways Planes Use Over the Atlantic ✈️🌊🤯",
+    "description": "Planes crossing the North Atlantic ✈️ don't fly random routes. They follow the North Atlantic Tracks, invisible highways that are re-drawn twice a day to follow the jet stream 🌬️ The jet stream is a river of wind about 30,000 ft up, blowing west to east, sometimes up to 400 km/h! Flights to Europe ride it as a tailwind, flights to America avoid it. About 500,000 flights used the system in 2018 🤯",
+    "pinnedComment": [
+      "The sky has highways that move every day ✈️🤯",
+      "Have you noticed flights to Europe are faster? 👇",
+      "Which aviation secret should we explain next? 🗺️"
+    ],
+    "tags": [
+      "north atlantic tracks",
+      "jet stream",
+      "planes",
+      "aviation",
+      "transatlantic flights",
+      "tailwind",
+      "atlantic ocean",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Every day, planes cross the Atlantic on invisible highways in the sky.",
+      "show": [
+        {
+          "type": "title",
+          "text": "INVISIBLE *HIGHWAYS* IN THE SKY",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Atlantic",
+          "at": 0.05
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              45,
+              -53
+            ],
+            [
+              48,
+              -40
+            ],
+            [
+              50,
+              -30
+            ],
+            [
+              51,
+              -20
+            ],
+            [
+              50,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "highways",
+          "drawDur": 1.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ],
+          "hold": 2
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              47,
+              -53
+            ],
+            [
+              50,
+              -40
+            ],
+            [
+              52,
+              -30
+            ],
+            [
+              53,
+              -20
+            ],
+            [
+              52,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "highways",
+          "drawDur": 1.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ],
+          "hold": 2
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -53
+            ],
+            [
+              52,
+              -40
+            ],
+            [
+              54,
+              -30
+            ],
+            [
+              55,
+              -20
+            ],
+            [
+              54,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "highways",
+          "drawDur": 1.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ],
+          "hold": 2
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              51,
+              -53
+            ],
+            [
+              54,
+              -40
+            ],
+            [
+              56,
+              -30
+            ],
+            [
+              57,
+              -20
+            ],
+            [
+              56,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "highways",
+          "drawDur": 1.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ],
+          "hold": 2
+        }
+      ],
+      "camera": {
+        "lat": 50,
+        "lon": -32,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "The North Atlantic Tracks are structured transatlantic routes.",
+          "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
+          "quote": "A structured set of transatlantic flight routes that stretch from eastern North America to western Europe across the Atlantic Ocean"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "They're called the North Atlantic Tracks, and they keep planes separated over the ocean, where there's little radar.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              45,
+              -53
+            ],
+            [
+              48,
+              -40
+            ],
+            [
+              50,
+              -30
+            ],
+            [
+              51,
+              -20
+            ],
+            [
+              50,
+              -10
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "Tracks",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 3.2
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -53
+            ],
+            [
+              52,
+              -40
+            ],
+            [
+              54,
+              -30
+            ],
+            [
+              55,
+              -20
+            ],
+            [
+              54,
+              -10
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "Tracks",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 3.2
+        },
+        {
+          "type": "icon",
+          "icon": "📡",
+          "lat": 45,
+          "lon": -30,
+          "size": 110,
+          "at": "radar"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "They separate aircraft over the ocean where there is little radar coverage.",
+          "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
+          "quote": "ensure that aircraft are separated over the ocean, where there is little radar coverage"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And here's the strange part: they're re-drawn twice every day.",
+      "show": [
+        {
+          "type": "stamp",
+          "text": "NEW ROUTES",
+          "size": 86,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "twice"
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "twice",
+              "time": "00:00"
+            },
+            {
+              "at": "day",
+              "time": "12:00"
+            }
+          ],
+          "at": "twice",
+          "screen": [
+            0.5,
+            0.45
+          ],
+          "size": 200
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The tracks are created twice daily.",
+          "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
+          "quote": "created twice daily to take account of the shifting of the winds aloft"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Because they follow the jet stream, a river of wind about 30,000 feet up, blowing from west to east.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              40,
+              -75
+            ],
+            [
+              45,
+              -55
+            ],
+            [
+              50,
+              -35
+            ],
+            [
+              52,
+              -15
+            ],
+            [
+              50,
+              0
+            ]
+          ],
+          "color": "#a78bfa",
+          "width": 16,
+          "at": "jet",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.6,
+          "flowSpeed": 260
+        },
+        {
+          "type": "label",
+          "text": "JET STREAM",
+          "lat": 45,
+          "lon": -50,
+          "at": "jet",
+          "style": "map",
+          "anim": "slam",
+          "size": 64
+        }
+      ],
+      "camera": {
+        "lat": 48,
+        "lon": -38,
+        "zoom": 1.9
+      },
+      "sources": [
+        {
+          "claim": "Jet streams are westerly winds near the tropopause (~30,000 ft).",
+          "url": "https://en.wikipedia.org/wiki/Jet_stream",
+          "quote": "westerly winds, flowing west to east around the globe"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It can reach 400 kilometers per hour.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "400",
+              "value": "400 km/h"
+            }
+          ],
+          "size": 180,
+          "color": "#a78bfa"
+        },
+        {
+          "type": "tilt",
+          "deg": 34,
+          "at": "400",
+          "until": 2.5
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Jet stream winds can reach 400 km/h.",
+          "url": "https://en.wikipedia.org/wiki/Jet_stream",
+          "quote": "400 km/h (220 kn; 250 mph)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So flights to Europe ride it as a tailwind, and flights to America try to avoid it.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              42,
+              -72
+            ],
+            [
+              47,
+              -50
+            ],
+            [
+              51,
+              -30
+            ],
+            [
+              52,
+              -10
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "Europe",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "id": "east"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              52,
+              -8
+            ],
+            [
+              58,
+              -30
+            ],
+            [
+              58,
+              -50
+            ],
+            [
+              48,
+              -70
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "America",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "id": "west"
+        },
+        {
+          "type": "label",
+          "text": "TAILWIND",
+          "lat": 45,
+          "lon": -45,
+          "at": "tailwind",
+          "style": "pill",
+          "bg": "#16a34a",
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "HEADWIND",
+          "lat": 60,
+          "lon": -40,
+          "at": "avoid",
+          "style": "pill",
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 50,
+        "lon": -38,
+        "zoom": 1.9
+      },
+      "sources": [
+        {
+          "claim": "Tracks minimize headwinds and maximize tailwinds.",
+          "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
+          "quote": "minimize any head winds and maximize tail winds impact on the aircraft"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Flying east across North America with the jet stream can save about 30 minutes.",
+      "show": [
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "east",
+              "time": "10:00"
+            },
+            {
+              "at": "minutes",
+              "time": "10:30"
+            }
+          ],
+          "at": "east",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "size": 200,
+          "label": "−30 min"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Eastbound flights across North America can save about 30 minutes.",
+          "url": "https://en.wikipedia.org/wiki/Jet_stream",
+          "quote": "about 30 minutes"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Back in 1952, a Pan Am flight from Tokyo to Honolulu used it to cut the trip from 18 hours to 11 and a half.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1952",
+          "at": "1952"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              35.6,
+              139.8
+            ],
+            [
+              30,
+              170
+            ],
+            [
+              21.3,
+              -157.9
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "Tokyo",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "id": "pa"
+        },
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Before",
+              "value": 18,
+              "display": "18 h",
+              "color": "#ff5a5f"
+            },
+            {
+              "label": "Jet stream",
+              "value": 11.5,
+              "display": "11.5 h",
+              "color": "#4ade80"
+            }
+          ],
+          "orient": "h",
+          "at": "cut",
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "labelWidth": 240
+        }
+      ],
+      "camera": {
+        "lat": 30,
+        "lon": 170,
+        "zoom": 1.4
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "In 1952 Pan Am cut Tokyo–Honolulu from 18 to 11.5 hours using the jet stream.",
+          "url": "https://en.wikipedia.org/wiki/Jet_stream",
+          "quote": "cut the trip time by over one-third, from 18 to 11.5 hours"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In 2018 alone, about 500,000 flights used these moving highways.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "500,000",
+              "value": "500,000"
+            }
+          ],
+          "size": 180
+        }
+      ],
+      "camera": {
+        "lat": 50,
+        "lon": -32,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "500,000 flights went through the system in 2018.",
+          "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
+          "quote": "500,000 flights went through"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "box",
+      "keywords": {
+        "jet": "#a78bfa",
+        "atlantic": "#2de2e6",
+        "europe": "#4ade80",
+        "america": "#ff5a5f"
+      }
+    }
+  },
+  "styles": {
+    "now": "neon",
+    "history": "vintage"
+  }
+}

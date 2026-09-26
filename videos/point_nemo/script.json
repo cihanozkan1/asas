@@ -1,0 +1,414 @@
+{
+  "id": "point_nemo",
+  "style": "globe",
+  "meta": {
+    "title": "Point Nemo: The Loneliest Place on Earth 🌊🚀😱",
+    "description": "Point Nemo 🌊 is the spot in the ocean farthest from any land: about 2,688 km from the nearest islands (Ducie Island, Motu Nui near Easter Island, and Maher Island off Antarctica) 😱 No regular ship or air routes pass within 400 km, so sometimes the closest humans are astronauts on the International Space Station flying overhead 🚀 It's also a 'spacecraft cemetery', where old satellites and space stations are sent to crash safely 🛰️",
+    "pinnedComment": [
+      "The nearest humans are in SPACE 🚀😱",
+      "Would you sail to Point Nemo? 👇",
+      "Which remote place next? 🗺️"
+    ],
+    "tags": [
+      "point nemo",
+      "pole of inaccessibility",
+      "pacific ocean",
+      "space station",
+      "iss",
+      "spacecraft cemetery",
+      "remote places",
+      "ocean",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is the loneliest place on Earth.",
+      "show": [
+        {
+          "type": "title",
+          "text": "THE *LONELIEST* PLACE",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Earth",
+          "at": 0.05
+        },
+        {
+          "type": "ping",
+          "lat": -48.877,
+          "lon": -123.393,
+          "color": "#ff3b3b",
+          "at": "loneliest",
+          "hold": 2
+        }
+      ],
+      "camera": {
+        "lat": -40,
+        "lon": -125,
+        "zoom": 1.2
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It's called Point Nemo, the spot in the ocean farthest from any land.",
+      "show": [
+        {
+          "type": "label",
+          "text": "POINT NEMO",
+          "lat": -44,
+          "lon": -123.4,
+          "at": "Nemo",
+          "style": "map",
+          "anim": "slam",
+          "size": 70
+        }
+      ],
+      "camera": {
+        "lat": -45,
+        "lon": -123,
+        "zoom": 1.6
+      },
+      "sources": [
+        {
+          "claim": "Point Nemo is equidistant from the three closest landmasses.",
+          "url": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
+          "quote": "is equidistant along vertices from the three closest landmasses, which are each roughly 2,688 km (1,670 mi) away"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Nemo is Latin for nobody, a nod to Captain Nemo from Jules Verne's novel. It was first found in 1992.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1992",
+          "light": true,
+          "at": "1992"
+        },
+        {
+          "type": "label",
+          "text": "NEMO = NOBODY",
+          "lat": -44,
+          "lon": -123.4,
+          "at": "nobody",
+          "style": "note",
+          "size": 60
+        }
+      ],
+      "camera": {
+        "lat": -45,
+        "lon": -123,
+        "zoom": 1.6
+      },
+      "sources": [
+        {
+          "claim": "Nemo is Latin for \"nobody\", a reference to Captain Nemo.",
+          "url": "https://en.wikipedia.org/wiki/Point_Nemo",
+          "quote": "Point Nemo, which is Latin for 'nobody' and a reference to Captain Nemo from Jules Verne's 1870 novel"
+        },
+        {
+          "claim": "First identified by Hrvoje Lukatela in 1992.",
+          "url": "https://en.wikipedia.org/wiki/Point_Nemo",
+          "quote": "Point Nemo was first identified by Croatian survey engineer Hrvoje Lukatela in 1992."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The nearest land is about 2,688 kilometers away, in three directions.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            -48.877,
+            -123.393
+          ],
+          "to": [
+            -24.67,
+            -124.78
+          ],
+          "label": "2,688 km",
+          "at": "nearest"
+        },
+        {
+          "type": "measure",
+          "from": [
+            -48.877,
+            -123.393
+          ],
+          "to": [
+            -27.2,
+            -109.45
+          ],
+          "label": "2,688 km",
+          "at": "three",
+          "countUp": false
+        },
+        {
+          "type": "measure",
+          "from": [
+            -48.877,
+            -123.393
+          ],
+          "to": [
+            -72.9,
+            -126.3
+          ],
+          "label": "2,688 km",
+          "at": "directions",
+          "countUp": false
+        }
+      ],
+      "camera": {
+        "lat": -48,
+        "lon": -122,
+        "zoom": 1.3
+      },
+      "sources": [
+        {
+          "claim": "The nearest land is roughly 2,688 km away.",
+          "url": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
+          "quote": "which are each roughly 2,688 km (1,670 mi) away"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Ducie Island, Motu Nui near Easter Island, and Maher Island next to Antarctica.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Ducie Island",
+          "lat": -24.67,
+          "lon": -124.78,
+          "at": "Ducie",
+          "dot": true,
+          "dy": -50,
+          "size": 38
+        },
+        {
+          "type": "label",
+          "text": "Motu Nui",
+          "lat": -27.2,
+          "lon": -109.45,
+          "at": "Motu",
+          "dot": true,
+          "dy": -50,
+          "size": 38
+        },
+        {
+          "type": "label",
+          "text": "Maher Island",
+          "lat": -72.9,
+          "lon": -126.3,
+          "at": "Maher",
+          "dot": true,
+          "dy": 50,
+          "size": 38
+        }
+      ],
+      "camera": {
+        "lat": -48,
+        "lon": -120,
+        "zoom": 1.3
+      },
+      "sources": [
+        {
+          "claim": "Nearest: Ducie Island, Motu Nui, Maher Island.",
+          "url": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
+          "quote": "They are Pandora Islet of the Ducie Island atoll (an island of the Pitcairn Islands) to the north; Motu Nui (adjacent to Easter Island) to the northeast; and Maher Island"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "No regular ships or planes pass within 400 kilometers.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": -48.877,
+              "lon": -123.393,
+              "km": 400
+            }
+          },
+          "fill": "#ff3b3b",
+          "at": "ships",
+          "soft": true,
+          "rim": "#ff3b3b",
+          "fillOpacity": 0.2
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "400",
+              "value": "400 km"
+            }
+          ],
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": -48,
+        "lon": -123,
+        "zoom": 3.0
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "No regular marine or air traffic routes within 400 km.",
+          "url": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
+          "quote": "since no regular marine or air traffic routes are within 400 kilometres (250 mi)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So sometimes, the closest humans are astronauts on the International Space Station, flying overhead.",
+      "show": [
+        {
+          "type": "character",
+          "image": "astronaut",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "astronauts",
+          "say": "Hello down there!"
+        },
+        {
+          "type": "icon",
+          "icon": "🛰️",
+          "lat": -47,
+          "lon": -121,
+          "size": 130,
+          "at": "Station"
+        },
+        {
+          "type": "tilt",
+          "deg": 40,
+          "at": "overhead",
+          "until": 3.5
+        }
+      ],
+      "camera": {
+        "lat": -48.8,
+        "lon": -123.4,
+        "zoom": 3.5
+      },
+      "sources": [
+        {
+          "claim": "Sometimes the closest humans are astronauts on the ISS.",
+          "url": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
+          "quote": "sometimes the closest human beings are astronauts aboard the International Space Station when it passes overhead"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's also a spacecraft cemetery. Old satellites and space stations are sent to crash here, far from everyone.",
+      "show": [
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": -48.877,
+              "lon": -123.393,
+              "km": 700
+            }
+          },
+          "icon": "🛰️",
+          "count": 10,
+          "size": 56,
+          "at": "cemetery",
+          "stagger": 0.06
+        },
+        {
+          "type": "stamp",
+          "text": "SPACECRAFT CEMETERY",
+          "size": 70,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "cemetery"
+        }
+      ],
+      "camera": {
+        "lat": -48,
+        "lon": -123,
+        "zoom": 2.6,
+        "bearing": 5
+      },
+      "sources": [
+        {
+          "claim": "Spacecraft are made to fall there on re-entry.",
+          "url": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
+          "quote": "The wider area is also known as a 'spacecraft cemetery', because hundreds of decommissioned satellites, space stations, and other spacecraft have been made to fall there upon re-entering the atmosphere"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And one day, the International Space Station itself is planned to end up here, in 2031.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2031",
+          "light": true,
+          "at": "2031"
+        },
+        {
+          "type": "icon",
+          "icon": "🛰️",
+          "lat": -48.9,
+          "lon": -123.4,
+          "size": 150,
+          "at": "Station"
+        },
+        {
+          "type": "shake",
+          "at": "end"
+        }
+      ],
+      "camera": {
+        "lat": -48.9,
+        "lon": -123.4,
+        "zoom": 3.0,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "The ISS is planned to crash near Point Nemo in 2031.",
+          "url": "https://en.wikipedia.org/wiki/Point_Nemo",
+          "quote": "The International Space Station (ISS) is planned to crash into the ocean near Point Nemo in 2031."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "box",
+      "keywords": {
+        "nemo": "#5ec8ff",
+        "space": "#a78bfa",
+        "astronauts": "#a78bfa",
+        "land": "#ffd60a"
+      }
+    }
+  }
+}

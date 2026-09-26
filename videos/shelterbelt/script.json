@@ -1,0 +1,440 @@
+{
+  "id": "shelterbelt",
+  "style": "geo",
+  "meta": {
+    "title": "Why the USA Planted a Wall of Trees From Canada to Texas 🌳🇺🇸😱",
+    "description": "In the 1930s the Great Plains 🇺🇸 were hit by the Dust Bowl: giant dust storms blew away farmland 🌪️ So in 1934 President Franklin D. Roosevelt launched the Great Plains Shelterbelt 🌳 By 1942, 220 million trees had been planted in a 100-mile-wide zone from the Canadian border in North Dakota to Texas, forming 30,233 shelterbelts to slow the wind and keep moisture in the soil 💧",
+    "pinnedComment": [
+      "220 million trees to stop the wind 🌳🤯",
+      "Have you ever seen a shelterbelt? 👇",
+      "Which giant project should we explain next? 🗺️"
+    ],
+    "tags": [
+      "great plains shelterbelt",
+      "dust bowl",
+      "franklin roosevelt",
+      "trees",
+      "usa",
+      "great plains",
+      "north dakota",
+      "texas",
+      "history",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "In the 1930s, the US built a wall from Canada to Texas. Not of stone, but of trees.",
+      "show": [
+        {
+          "type": "title",
+          "text": "A WALL OF *TREES*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Texas",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -101.5,
+              31.5,
+              -98.5,
+              49
+            ]
+          },
+          "fill": "#16a34a",
+          "at": "wall",
+          "fillOpacity": 0.55,
+          "soft": true,
+          "rim": "#4ade80",
+          "hold": 1
+        }
+      ],
+      "camera": {
+        "lat": 40,
+        "lon": -99,
+        "zoom": 2.6
+      },
+      "sources": [
+        {
+          "claim": "A 100-mile-wide zone from the Canadian border in North Dakota to Texas.",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "a 100-mile (160-kilometre) wide zone from the Canadian border in North Dakota to the Brazos River in Texas"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Why? Because of the Dust Bowl, when giant dust storms blew the farmland away.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🌪️",
+          "lat": 37,
+          "lon": -101,
+          "size": 150,
+          "at": "dust"
+        },
+        {
+          "type": "icon",
+          "icon": "🌪️",
+          "lat": 40,
+          "lon": -97,
+          "size": 120,
+          "at": "storms"
+        },
+        {
+          "type": "character",
+          "image": "dustbowl_farmer",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "farmland",
+          "say": "Where did my soil go?"
+        },
+        {
+          "type": "shake",
+          "at": "blew"
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -100,
+        "zoom": 3.2
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The project was a response to the Dust Bowl dust storms.",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "reduce wind velocity and lessen evaporation of moisture from the soil"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "So in 1934, President Franklin D. Roosevelt launched the Great Plains Shelterbelt.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1934",
+          "at": "1934"
+        },
+        {
+          "type": "character",
+          "image": "fdr",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Roosevelt",
+          "name": "F. D. Roosevelt",
+          "say": "Plant trees!"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Started in 1934 by President Franklin D. Roosevelt.",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "1934"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The idea: rows of trees slow down the wind, and keep moisture in the soil.",
+      "show": [
+        {
+          "type": "tilt",
+          "deg": 40,
+          "at": "rows",
+          "until": 4
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              -101,
+              34,
+              -99,
+              47
+            ]
+          },
+          "icon": "🌳",
+          "count": 18,
+          "size": 56,
+          "at": "rows",
+          "stagger": 0.05
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              40,
+              -106
+            ],
+            [
+              40,
+              -101.8
+            ]
+          ],
+          "color": "#e5e7eb",
+          "width": 9,
+          "at": "wind",
+          "flow": true,
+          "arrowHead": true
+        }
+      ],
+      "camera": {
+        "lat": 40,
+        "lon": -100,
+        "zoom": 5
+      },
+      "sources": [
+        {
+          "claim": "Windbreaks reduce wind velocity and evaporation.",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "reduce wind velocity and lessen evaporation of moisture from the soil"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "By 1942, they had planted 220 million trees.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "220",
+              "value": "220,000,000"
+            }
+          ],
+          "size": 130,
+          "color": "#4ade80"
+        },
+        {
+          "type": "timeline",
+          "events": [
+            {
+              "at": "By",
+              "year": "1934",
+              "label": "Start"
+            },
+            {
+              "at": "1942",
+              "year": "1942",
+              "label": "220M trees"
+            }
+          ],
+          "at": "By",
+          "screen": [
+            0.5,
+            0.26
+          ],
+          "width": 700
+        }
+      ],
+      "camera": {
+        "lat": 40,
+        "lon": -99,
+        "zoom": 2.8
+      },
+      "sources": [
+        {
+          "claim": "220 million trees by 1942.",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "220 million trees had been planted, covering 18,600 square miles"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's 30,233 separate shelterbelts, covering 18,600 square miles.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "30,233",
+              "value": "30,233"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              -101.5,
+              32,
+              -98.5,
+              48.5
+            ]
+          },
+          "icon": "🌲",
+          "count": 22,
+          "size": 48,
+          "at": "shelterbelts",
+          "stagger": 0.04
+        }
+      ],
+      "sources": [
+        {
+          "claim": "30,233 shelterbelts were planted.",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "30,233 shelterbelts had been planted"
+        },
+        {
+          "claim": "Covering 18,600 square miles.",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "covering 18,600 square miles (48,000 km2)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It stretched from the Canadian border in North Dakota, all the way to the Brazos River in Texas.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 48.9,
+          "lon": -100,
+          "color": "#ffd60a",
+          "at": "Canadian"
+        },
+        {
+          "type": "ping",
+          "lat": 33.5,
+          "lon": -99.5,
+          "color": "#ffd60a",
+          "at": "Brazos"
+        },
+        {
+          "type": "label",
+          "text": "Canada border",
+          "lat": 48.9,
+          "lon": -100,
+          "at": "Canadian",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "Brazos River",
+          "lat": 33.5,
+          "lon": -99.5,
+          "at": "Brazos",
+          "dot": true,
+          "dy": 56,
+          "size": 44
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              48.9,
+              -100
+            ],
+            [
+              41,
+              -99.8
+            ],
+            [
+              33.5,
+              -99.5
+            ]
+          ],
+          "color": "#4ade80",
+          "width": 8,
+          "at": "stretched",
+          "drawDur": 1.4,
+          "arrowHead": true
+        }
+      ],
+      "camera": {
+        "lat": 41,
+        "lon": -99,
+        "zoom": 2.5
+      },
+      "sources": [
+        {
+          "claim": "From the Canadian border in North Dakota to the Brazos River in Texas.",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "from the Canadian border in North Dakota to the Brazos River in Texas"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Experts later called it the largest government effort ever focused on an environmental problem in the US.",
+      "show": [
+        {
+          "type": "stamp",
+          "text": "BIGGEST EVER",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "largest"
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              -101.5,
+              32,
+              -98.5,
+              48.5
+            ]
+          },
+          "icon": "🌳",
+          "count": 14,
+          "size": 56,
+          "at": "environmental",
+          "stagger": 0.04
+        }
+      ],
+      "camera": {
+        "lat": 40,
+        "lon": -99,
+        "zoom": 2.6,
+        "bearing": 3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Called the largest and most-focused government effort to address an environmental problem (as of 2007).",
+          "url": "https://en.wikipedia.org/wiki/Great_Plains_Shelterbelt",
+          "quote": "the largest and most-focused effort of the [U.S.] government to address an environmental problem"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "classic",
+      "keywords": {
+        "trees": "#4ade80",
+        "dust": "#f4a261",
+        "roosevelt": "#ffd60a",
+        "wind": "#5ec8ff"
+      }
+    }
+  }
+}

@@ -1,0 +1,520 @@
+{
+  "id": "oklahoma_panhandle",
+  "style": "geo",
+  "meta": {
+    "title": "Why Oklahoma Has a Panhandle 🇺🇸🤔 No Man's Land",
+    "description": "Why does Oklahoma 🇺🇸 have that long thin 'handle'? Blame the fight over slavery ⛓️ The Missouri Compromise banned slavery north of 36°30′. When Texas joined the US in 1845 as a slave state, it couldn't keep land north of that line, so in the Compromise of 1850 Texas gave it up 📜 The leftover strip, 166 miles long and 34 miles wide, belonged to no state or territory for 40 years: 'No Man's Land' 🤠 It finally joined Oklahoma Territory in 1890.",
+    "pinnedComment": [
+      "A strip of land that belonged to nobody for 40 years 🤯🤠",
+      "Did you know this about Oklahoma? 👇",
+      "Which weird state border next? 🗺️"
+    ],
+    "tags": [
+      "oklahoma",
+      "oklahoma panhandle",
+      "no mans land",
+      "texas",
+      "missouri compromise",
+      "compromise of 1850",
+      "usa",
+      "history",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Why does Oklahoma have this long, thin handle?",
+      "show": [
+        {
+          "type": "title",
+          "text": "WHY THE *PANHANDLE*?",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "handle",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Oklahoma",
+            "country": "USA"
+          },
+          "fill": "#ef233c",
+          "at": "Oklahoma",
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "question",
+          "lat": 36.8,
+          "lon": -101.5,
+          "at": "handle"
+        }
+      ],
+      "camera": {
+        "lat": 35.5,
+        "lon": -98.5,
+        "zoom": 5
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It's 166 miles long, and only 34 miles wide.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Oklahoma",
+            "country": "USA"
+          },
+          "fill": "#f97316",
+          "at": 0.05,
+          "fillOpacity": 0.85,
+          "hold": 1,
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Texas",
+            "country": "USA"
+          },
+          "fill": "#f5c6c1",
+          "at": 0.05,
+          "fillOpacity": 0.8,
+          "hold": 1
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Kansas",
+            "country": "USA"
+          },
+          "fill": "#cfe8b8",
+          "at": 0.05,
+          "fillOpacity": 0.8,
+          "hold": 1
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Colorado",
+            "country": "USA"
+          },
+          "fill": "#d9d0f0",
+          "at": 0.05,
+          "fillOpacity": 0.8,
+          "hold": 1
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "New Mexico",
+            "country": "USA"
+          },
+          "fill": "#bfe3dc",
+          "at": 0.05,
+          "fillOpacity": 0.8,
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "TEXAS",
+          "lat": 35.6,
+          "lon": -101.8,
+          "at": 0.05,
+          "style": "map",
+          "size": 40,
+          "hold": 1,
+          "color": "#334155"
+        },
+        {
+          "type": "label",
+          "text": "KANSAS",
+          "lat": 37.6,
+          "lon": -100.3,
+          "at": 0.05,
+          "style": "map",
+          "size": 40,
+          "hold": 1,
+          "color": "#334155"
+        },
+        {
+          "type": "label",
+          "text": "COLORADO",
+          "lat": 37.7,
+          "lon": -103.3,
+          "at": 0.05,
+          "style": "map",
+          "size": 40,
+          "hold": 1,
+          "color": "#334155"
+        },
+        {
+          "type": "label",
+          "text": "NEW MEXICO",
+          "lat": 36.2,
+          "lon": -103.6,
+          "at": 0.05,
+          "style": "map",
+          "size": 40,
+          "hold": 1,
+          "color": "#334155"
+        },
+        {
+          "type": "measure",
+          "from": [
+            36.75,
+            -103.0
+          ],
+          "to": [
+            36.75,
+            -100.0
+          ],
+          "label": "166 mi",
+          "at": "long"
+        },
+        {
+          "type": "measure",
+          "from": [
+            36.5,
+            -101.6
+          ],
+          "to": [
+            37.0,
+            -101.6
+          ],
+          "label": "34 mi",
+          "at": "wide"
+        }
+      ],
+      "camera": {
+        "lat": 36.7,
+        "lon": -101.5,
+        "zoom": 11
+      },
+      "sources": [
+        {
+          "claim": "The strip is 166 miles long and 34 miles wide.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "166 miles (267 km) long and 34 miles (55 km) wide"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It has three counties, Cimarron, Texas and Beaver, and Oklahoma's highest point, Black Mesa.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Cimarron",
+          "lat": 36.75,
+          "lon": -102.5,
+          "at": "Cimarron",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Texas",
+          "lat": 36.75,
+          "lon": -101.5,
+          "at": "Texas",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Beaver",
+          "lat": 36.75,
+          "lon": -100.5,
+          "at": "Beaver",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "icon",
+          "icon": "⛰️",
+          "lat": 36.93,
+          "lon": -102.95,
+          "size": 110,
+          "at": "Mesa"
+        }
+      ],
+      "camera": {
+        "lat": 36.7,
+        "lon": -101.5,
+        "zoom": 11
+      },
+      "sources": [
+        {
+          "claim": "Its counties are Cimarron, Texas and Beaver.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "Its constituent counties are, from west to east, Cimarron, Texas and Beaver."
+        },
+        {
+          "claim": "Black Mesa, Oklahoma's highest point, is in Cimarron County.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "Black mesa, the highest point in Oklahoma at 4,973 feet (1,516 m), is located in Cimarron County."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "The answer is slavery. The Missouri Compromise banned slavery north of a line: 36 degrees 30 minutes.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              36.5,
+              -104
+            ],
+            [
+              36.5,
+              -89
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "line",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            16,
+            10
+          ],
+          "drawDur": 1.2,
+          "hold": 2
+        },
+        {
+          "type": "label",
+          "text": "36°30′",
+          "lat": 36.9,
+          "lon": -95,
+          "at": "degrees",
+          "style": "pill",
+          "size": 50
+        }
+      ],
+      "camera": {
+        "lat": 35.5,
+        "lon": -97,
+        "zoom": 4.5
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The Missouri Compromise prohibited slavery north of 36°30′.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "based on the Missouri Compromise, prohibited slavery north of 36°30′ north latitude"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "When Texas joined the US in 1845, it was a slave state. But it also claimed land north of that line.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1845",
+          "at": "1845"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Texas",
+            "country": "USA"
+          },
+          "fill": "#b3202a",
+          "at": "Texas",
+          "fillOpacity": 0.75
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -103,
+              36.5,
+              -100,
+              37
+            ]
+          },
+          "fill": "#b3202a",
+          "at": "north",
+          "fillOpacity": 0.75
+        }
+      ],
+      "camera": {
+        "lat": 33.5,
+        "lon": -99.5,
+        "zoom": 3.6
+      },
+      "sources": [
+        {
+          "claim": "Texas sought to enter the Union in 1845 as a slave state.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "When Texas sought to enter the Union in 1845 as a slave state"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "So in the Compromise of 1850, Texas gave up everything north of 36 degrees 30 minutes.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1850",
+          "at": "1850"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -103,
+              36.5,
+              -100,
+              37
+            ]
+          },
+          "fill": "#f5d76e",
+          "at": "gave",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "stamp",
+          "text": "GIVEN UP",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "gave"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Texas surrendered its lands north of 36°30′ under the 1850 Compromise.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "Texas surrendered its lands north of 36°30′"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And that leftover strip belonged to nobody. People called it No Man's Land.",
+      "show": [
+        {
+          "type": "label",
+          "text": "NO MAN'S LAND",
+          "lat": 37.1,
+          "lon": -101.5,
+          "at": "Man's",
+          "style": "map",
+          "anim": "slam",
+          "size": 58
+        },
+        {
+          "type": "character",
+          "image": "cowboy",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "nobody",
+          "say": "Whose land is this?"
+        }
+      ],
+      "camera": {
+        "lat": 36.7,
+        "lon": -101.5,
+        "zoom": 9
+      },
+      "sources": [
+        {
+          "claim": "The strip had no state or territorial ownership and was called No Man's Land.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "was left with no state or territorial ownership from 1850 until 1890. It was officially called the 'Public Land Strip' and was commonly referred to as 'No Man's Land.'"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It stayed that way for 40 years, until 1890, when it finally became part of Oklahoma Territory.",
+      "show": [
+        {
+          "type": "timeline",
+          "events": [
+            {
+              "at": "stayed",
+              "year": "1850",
+              "label": "Given up"
+            },
+            {
+              "at": "1890",
+              "year": "1890",
+              "label": "Oklahoma"
+            }
+          ],
+          "at": "stayed",
+          "screen": [
+            0.5,
+            0.25
+          ],
+          "width": 760
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Oklahoma",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": "Oklahoma",
+          "fillOpacity": 0.8
+        }
+      ],
+      "camera": {
+        "lat": 35.5,
+        "lon": -98.5,
+        "zoom": 5
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The Organic Act of 1890 assigned it to Oklahoma Territory.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "The passage of the Organic Act in 1890 assigned Public Land Strip to the new Oklahoma Territory"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "classic",
+      "keywords": {
+        "texas": "#ff5a5f",
+        "oklahoma": "#ffd60a",
+        "slavery": "#ff5a5f",
+        "nobody": "#9ca3af"
+      }
+    }
+  },
+  "styles": {
+    "now": "atlas",
+    "history": "vintage"
+  }
+}

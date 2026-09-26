@@ -1,0 +1,524 @@
+{
+  "id": "uae_emirates",
+  "style": "geo",
+  "meta": {
+    "title": "Dubai vs Abu Dhabi vs UAE: What's the Difference? 🇦🇪🤯",
+    "description": "Is Dubai a country? No! 🇦🇪 The United Arab Emirates is a federation of seven emirates: Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah and Fujairah. It was founded on 2 December 1971, and Ras Al Khaimah joined in 1972 🤝 Abu Dhabi is by far the biggest emirate, and its city is the national capital 🏛️ Dubai is both an emirate and a city, and it's the most populous, with about 4.47 million people 🌆",
+    "pinnedComment": [
+      "Dubai is not a country 🤯🇦🇪",
+      "Have you been to Dubai or Abu Dhabi? 👇",
+      "Which country should we explain next? 🗺️"
+    ],
+    "tags": [
+      "uae",
+      "united arab emirates",
+      "dubai",
+      "abu dhabi",
+      "sharjah",
+      "emirates",
+      "federation",
+      "middle east",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Dubai, Abu Dhabi, the Emirates. Are they the same thing?",
+      "show": [
+        {
+          "type": "title",
+          "text": "DUBAI ≠ *COUNTRY*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "same",
+          "at": 0.05
+        },
+        {
+          "type": "question",
+          "lat": 24.5,
+          "lon": 54.5,
+          "at": "same"
+        }
+      ],
+      "camera": {
+        "lat": 24.3,
+        "lon": 54.5,
+        "zoom": 7
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "The United Arab Emirates is a federation of seven emirates.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Abu Dhabi",
+            "country": "ARE"
+          },
+          "fill": "#f6d6a8",
+          "at": "seven",
+          "fillOpacity": 0.95,
+          "stagger": 0
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Dubay",
+            "country": "ARE"
+          },
+          "fill": "#f5c6c1",
+          "at": "seven",
+          "fillOpacity": 0.95,
+          "stagger": 0
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Sharjah",
+            "country": "ARE"
+          },
+          "fill": "#cfe8b8",
+          "at": "seven",
+          "fillOpacity": 0.95,
+          "stagger": 0
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Ajman",
+            "country": "ARE"
+          },
+          "fill": "#d9d0f0",
+          "at": "seven",
+          "fillOpacity": 0.95,
+          "stagger": 0
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Umm Al Qaywayn",
+            "country": "ARE"
+          },
+          "fill": "#fbe7a1",
+          "at": "seven",
+          "fillOpacity": 0.95,
+          "stagger": 0
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Ras Al Khaymah",
+            "country": "ARE"
+          },
+          "fill": "#bfe3dc",
+          "at": "seven",
+          "fillOpacity": 0.95,
+          "stagger": 0
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Fujayrah",
+            "country": "ARE"
+          },
+          "fill": "#f0d0e4",
+          "at": "seven",
+          "fillOpacity": 0.95,
+          "stagger": 0
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "seven",
+              "value": "7"
+            }
+          ],
+          "size": 220
+        }
+      ],
+      "camera": {
+        "lat": 24.3,
+        "lon": 54.5,
+        "zoom": 7
+      },
+      "sources": [
+        {
+          "claim": "The UAE consists of seven emirates.",
+          "url": "https://en.wikipedia.org/wiki/Emirates_of_the_United_Arab_Emirates",
+          "quote": "The United Arab Emirates consists of seven emirates"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah and Fujairah.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Abu Dhabi",
+          "lat": 23.4,
+          "lon": 54.0,
+          "at": "Abu",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        },
+        {
+          "type": "label",
+          "text": "Dubai",
+          "lat": 25.07,
+          "lon": 55.2,
+          "at": "Dubai",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        },
+        {
+          "type": "label",
+          "text": "Sharjah",
+          "lat": 25.3,
+          "lon": 55.6,
+          "at": "Sharjah",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        },
+        {
+          "type": "label",
+          "text": "Ajman",
+          "lat": 25.4,
+          "lon": 55.5,
+          "at": "Ajman",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        },
+        {
+          "type": "label",
+          "text": "Umm Al Quwain",
+          "lat": 25.5,
+          "lon": 55.7,
+          "at": "Umm",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        },
+        {
+          "type": "label",
+          "text": "Ras Al Khaimah",
+          "lat": 25.8,
+          "lon": 56.0,
+          "at": "Ras",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        },
+        {
+          "type": "label",
+          "text": "Fujairah",
+          "lat": 25.2,
+          "lon": 56.3,
+          "at": "Fujairah",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        }
+      ],
+      "camera": {
+        "lat": 25.0,
+        "lon": 55.4,
+        "zoom": 14
+      },
+      "sources": [
+        {
+          "claim": "The seven emirates.",
+          "url": "https://en.wikipedia.org/wiki/Emirates_of_the_United_Arab_Emirates",
+          "quote": "Abu Dhabi, Ajman, Dubai, Fujairah, Ras Al Khaimah, Sharjah, and Umm Al Quwain"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "They joined together on 2 December 1971. Ras Al Khaimah joined a few months later, in 1972.",
+      "show": [
+        {
+          "type": "timeline",
+          "events": [
+            {
+              "at": "1971",
+              "year": "1971",
+              "label": "6 emirates"
+            },
+            {
+              "at": "1972",
+              "year": "1972",
+              "label": "Ras Al Khaimah"
+            }
+          ],
+          "at": "1971",
+          "screen": [
+            0.5,
+            0.25
+          ],
+          "width": 760
+        },
+        {
+          "type": "flag",
+          "code": "ae",
+          "lat": 24.2,
+          "lon": 54.8,
+          "size": 150,
+          "at": "joined"
+        }
+      ],
+      "camera": {
+        "lat": 24.3,
+        "lon": 54.5,
+        "zoom": 7
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Six emirates joined on 2 December 1971; Ras Al Khaimah on 10 February 1972 (table).",
+          "url": "https://en.wikipedia.org/wiki/Emirates_of_the_United_Arab_Emirates",
+          "quote": "2 December 1971"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Abu Dhabi is by far the largest emirate, and its city is the capital of the whole country.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Abu Dhabi",
+            "country": "ARE"
+          },
+          "fill": "flag:ae",
+          "at": "largest",
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "largest",
+              "value": "67,340 km²"
+            }
+          ],
+          "size": 130
+        },
+        {
+          "type": "ping",
+          "lat": 24.47,
+          "lon": 54.37,
+          "color": "#ffd60a",
+          "at": "capital"
+        }
+      ],
+      "camera": {
+        "lat": 24.0,
+        "lon": 54.2,
+        "zoom": 8
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Abu Dhabi covers 67,340 km² (table), out of the UAE's 83,600 km².",
+          "url": "https://en.wikipedia.org/wiki/Emirates_of_the_United_Arab_Emirates",
+          "quote": "67,340"
+        },
+        {
+          "claim": "The UAE covers 83,600 km².",
+          "url": "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+          "quote": "83,600 km2"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Dubai is both an emirate and a city. The emirate is only about 4,100 square kilometers, but it has the most people: about 4.47 million.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Dubay",
+            "country": "ARE"
+          },
+          "fill": "#ff5a5f",
+          "at": "Dubai",
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "4.47",
+              "value": "4.47M"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "icon",
+          "icon": "🏙️",
+          "lat": 25.2,
+          "lon": 55.27,
+          "size": 120,
+          "at": "city"
+        },
+        {
+          "type": "tilt",
+          "deg": 36,
+          "at": "people",
+          "until": 3.5
+        }
+      ],
+      "camera": {
+        "lat": 25.1,
+        "lon": 55.3,
+        "zoom": 30
+      },
+      "sources": [
+        {
+          "claim": "Dubai: 4,471,000 people (2024), vs Abu Dhabi 4,135,985 (table).",
+          "url": "https://en.wikipedia.org/wiki/Emirates_of_the_United_Arab_Emirates",
+          "quote": "4,471,000 (2024)"
+        },
+        {
+          "claim": "Dubai emirate covers 4,114 km² (table).",
+          "url": "https://en.wikipedia.org/wiki/Emirates_of_the_United_Arab_Emirates",
+          "quote": "4,114"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So Dubai isn't a country. It's one of seven pieces of one.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Abu Dhabi",
+            "country": "ARE"
+          },
+          "fill": "#f6d6a8",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Dubay",
+            "country": "ARE"
+          },
+          "fill": "#f5c6c1",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Sharjah",
+            "country": "ARE"
+          },
+          "fill": "#cfe8b8",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Ajman",
+            "country": "ARE"
+          },
+          "fill": "#d9d0f0",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Umm Al Qaywayn",
+            "country": "ARE"
+          },
+          "fill": "#fbe7a1",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Ras Al Khaymah",
+            "country": "ARE"
+          },
+          "fill": "#bfe3dc",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Fujayrah",
+            "country": "ARE"
+          },
+          "fill": "#f0d0e4",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "stamp",
+          "text": "1 OF 7",
+          "size": 100,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "seven"
+        }
+      ],
+      "camera": {
+        "lat": 24.3,
+        "lon": 54.5,
+        "zoom": 7,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Dubai is one of the seven emirates.",
+          "url": "https://en.wikipedia.org/wiki/Emirates_of_the_United_Arab_Emirates",
+          "quote": "The United Arab Emirates consists of seven emirates"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "bebas",
+      "keywords": {
+        "dubai": "#ff5a5f",
+        "abu": "#ffd60a",
+        "dhabi": "#ffd60a",
+        "seven": "#4ade80"
+      }
+    }
+  },
+  "styles": {
+    "now": "atlas",
+    "history": "vintage"
+  }
+}

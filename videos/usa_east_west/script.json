@@ -1,0 +1,473 @@
+{
+  "id": "usa_east_west",
+  "style": "geo",
+  "meta": {
+    "title": "Why Most Americans Live East of This Line 🇺🇸🌃 The 100th Meridian",
+    "description": "Look at the USA at night 🌃 the East glows, the West is mostly dark. The line that splits it is the 100th meridian: John Wesley Powell noticed in the 1870s that rainfall changes dramatically across it 🌧️ East of it the climate is humid, west of it semi-arid, so farming there needs irrigation 🌵 The US center of population is in Missouri, far east of the line, and even after 230 years of moving west it is still there 🤯",
+    "pinnedComment": [
+      "The whole USA is split by one invisible line 🇺🇸🤯",
+      "Do you live east or west of the 100th meridian? 👇",
+      "Which map should we explain next? 🗺️"
+    ],
+    "tags": [
+      "usa",
+      "population",
+      "100th meridian",
+      "night lights",
+      "rainfall",
+      "great plains",
+      "john wesley powell",
+      "center of population",
+      "missouri",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is the United States at night. The East is glowing, the West is almost dark.",
+      "show": [
+        {
+          "type": "title",
+          "text": "WHY THE USA IS *SPLIT*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "night",
+          "at": 0.05
+        },
+        {
+          "type": "ping",
+          "lat": 40.7,
+          "lon": -74.0,
+          "color": "#ffd60a",
+          "at": "glowing"
+        },
+        {
+          "type": "ping",
+          "lat": 41.9,
+          "lon": -87.6,
+          "color": "#ffd60a",
+          "at": "glowing"
+        }
+      ],
+      "camera": {
+        "lat": 39,
+        "lon": -98,
+        "zoom": 2.3
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "And the line that splits it is the 100th meridian.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -100
+            ],
+            [
+              26,
+              -100
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "line",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            18,
+            12
+          ],
+          "drawDur": 1.2,
+          "hold": 5
+        },
+        {
+          "type": "label",
+          "text": "100°W",
+          "lat": 47,
+          "lon": -100,
+          "at": "100th",
+          "style": "map",
+          "anim": "slam",
+          "size": 74
+        }
+      ],
+      "camera": {
+        "lat": 39,
+        "lon": -98,
+        "zoom": 2.4
+      },
+      "sources": [
+        {
+          "claim": "The 100th meridian divides the humid East from the arid West.",
+          "url": "https://en.wikipedia.org/wiki/100th_meridian_west",
+          "quote": "As first noted by John Wesley Powell in the 1870s, there is a big difference in rainfall by the different sides of the meridian."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It runs straight down from North Dakota, through Nebraska, Kansas and Oklahoma, all the way to Texas.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "North Dakota",
+            "country": "USA"
+          },
+          "fill": "#ffd60a",
+          "at": "North",
+          "fillOpacity": 0.28
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Nebraska",
+            "country": "USA"
+          },
+          "fill": "#ffd60a",
+          "at": "Nebraska",
+          "fillOpacity": 0.28
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Kansas",
+            "country": "USA"
+          },
+          "fill": "#ffd60a",
+          "at": "Kansas",
+          "fillOpacity": 0.28
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Oklahoma",
+            "country": "USA"
+          },
+          "fill": "#ffd60a",
+          "at": "Oklahoma",
+          "fillOpacity": 0.28
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Texas",
+            "country": "USA"
+          },
+          "fill": "#ffd60a",
+          "at": "Texas",
+          "fillOpacity": 0.28
+        }
+      ],
+      "camera": {
+        "lat": 39,
+        "lon": -99,
+        "zoom": 2.6
+      },
+      "sources": [
+        {
+          "claim": "The meridian crosses North Dakota, South Dakota, Nebraska, Kansas, Oklahoma and Texas.",
+          "url": "https://en.wikipedia.org/wiki/100th_meridian_west",
+          "quote": "North Dakota"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In the 1870s, explorer John Wesley Powell noticed that rainfall changes a lot across this line.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1870",
+          "at": "1870s"
+        },
+        {
+          "type": "icon",
+          "icon": "🌧️",
+          "lat": 38,
+          "lon": -92,
+          "size": 120,
+          "at": "rainfall"
+        },
+        {
+          "type": "icon",
+          "icon": "☀️",
+          "lat": 38,
+          "lon": -110,
+          "size": 120,
+          "at": "rainfall"
+        }
+      ],
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Powell noted the rainfall difference in the 1870s.",
+          "url": "https://en.wikipedia.org/wiki/100th_meridian_west",
+          "quote": "As first noted by John Wesley Powell in the 1870s, there is a big difference in rainfall by the different sides of the meridian."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "To the east, the climate is humid. To the west, it's semi-arid.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -100,
+              25,
+              -67,
+              49
+            ]
+          },
+          "fill": "#16a34a",
+          "at": "east",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -125,
+              25,
+              -100,
+              49
+            ]
+          },
+          "fill": "#d97706",
+          "at": "west",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "label",
+          "text": "HUMID",
+          "lat": 38,
+          "lon": -88,
+          "at": "east",
+          "style": "pill",
+          "bg": "#16a34a",
+          "size": 48
+        },
+        {
+          "type": "label",
+          "text": "SEMI-ARID",
+          "lat": 38,
+          "lon": -112,
+          "at": "west",
+          "style": "pill",
+          "bg": "#d97706",
+          "size": 48
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -98,
+        "zoom": 2.4
+      },
+      "sources": [
+        {
+          "claim": "Semi-arid climate to the west; humid climates to the east.",
+          "url": "https://en.wikipedia.org/wiki/100th_meridian_west",
+          "quote": "semi-arid climate to the west"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So in the West, raising cattle matters more, and farming needs irrigation.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🐄",
+          "lat": 36,
+          "lon": -108,
+          "size": 110,
+          "at": "cattle"
+        },
+        {
+          "type": "icon",
+          "icon": "💧",
+          "lat": 41,
+          "lon": -104,
+          "size": 100,
+          "at": "irrigation"
+        },
+        {
+          "type": "tilt",
+          "deg": 34,
+          "at": "cattle",
+          "until": 3.5
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -104,
+        "zoom": 3.2
+      },
+      "sources": [
+        {
+          "claim": "West of the meridian livestock is more important and agriculture relies on irrigation.",
+          "url": "https://en.wikipedia.org/wiki/100th_meridian_west",
+          "quote": "West of the meridian, raising livestock is much more economically important than east of it, and what agriculture does exist relies heavily on irrigation."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's why the center of the US population, the average American, is in Missouri. Far east of the line.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 37.4,
+          "lon": -92.2,
+          "color": "#ff3b3b",
+          "at": "Missouri"
+        },
+        {
+          "type": "label",
+          "text": "Center of population",
+          "lat": 37.4,
+          "lon": -92.2,
+          "at": "center",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Missouri",
+            "country": "USA"
+          },
+          "fill": "#ff5a5f",
+          "at": "Missouri",
+          "fillOpacity": 0.45
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -96,
+        "zoom": 3.4
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The 2020 mean center of population is near Hartville, Wright County, Missouri.",
+          "url": "https://en.wikipedia.org/wiki/Mean_center_of_the_United_States_population",
+          "quote": "15 miles northeast of Hartville"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It has been moving west for 230 years, and it still hasn't even reached Kansas.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              39.28,
+              -76.2
+            ],
+            [
+              39.0,
+              -80.6
+            ],
+            [
+              38.9,
+              -84.5
+            ],
+            [
+              39.2,
+              -87.6
+            ],
+            [
+              38.6,
+              -90.5
+            ],
+            [
+              37.4,
+              -92.2
+            ]
+          ],
+          "color": "#ff5a5f",
+          "width": 7,
+          "at": "moving",
+          "drawDur": 2.2,
+          "arrowHead": true
+        },
+        {
+          "type": "label",
+          "text": "1790",
+          "lat": 39.28,
+          "lon": -76.2,
+          "at": "moving",
+          "dot": true,
+          "dy": -50,
+          "size": 44
+        },
+        {
+          "type": "timeline",
+          "events": [
+            {
+              "at": "moving",
+              "year": "1790",
+              "label": "Maryland"
+            },
+            {
+              "at": "Kansas",
+              "year": "2020",
+              "label": "Missouri"
+            }
+          ],
+          "at": "moving",
+          "screen": [
+            0.5,
+            0.25
+          ],
+          "width": 700
+        }
+      ],
+      "camera": {
+        "lat": 38.5,
+        "lon": -86,
+        "zoom": 3.6
+      },
+      "sources": [
+        {
+          "claim": "The center began in Maryland in 1790 and has moved west into Missouri.",
+          "url": "https://en.wikipedia.org/wiki/Mean_center_of_the_United_States_population",
+          "quote": "moving roughly 600 miles (966 km) west by south during the 19th century"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "bebas",
+      "keywords": {
+        "east": "#ffd60a",
+        "west": "#f4a261",
+        "humid": "#4ade80",
+        "missouri": "#ff5a5f",
+        "100th": "#ffd60a"
+      }
+    }
+  },
+  "earth": "night"
+}

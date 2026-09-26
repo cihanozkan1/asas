@@ -44,6 +44,21 @@ export async function resolveTargetSpec(t, videoDir) {
   if (Array.isArray(t)) return { type: 'multi', items: await Promise.all(t.map((x) => resolveTargetSpec(x, videoDir))) };
   if (typeof t === 'string') return countrySpec(t);
   if (t.countries) return { type: 'multi', items: t.countries.map(countrySpec) };
+  if (t.geonunit || t.admin1s) {
+    // several admin-1 units merged into one shape: a UK home nation, or a list of provinces
+    const feats = await admin1Features();
+    const iso = t.country ? String(t.country).toUpperCase() : null;
+    const wantList = (t.admin1s || []).map((n) => n.toLowerCase());
+    const sel = feats.filter((f) => {
+      const p = f.properties;
+      if (iso && p.adm0_a3 !== iso && p.iso_a2 !== iso) return false;
+      if (t.geonunit) return p.geonunit === t.geonunit;
+      return [p.name, p.name_en].filter(Boolean).some((n) => wantList.includes(n.toLowerCase()));
+    });
+    if (!sel.length) throw new Error('admin1 grubu bulunamadı: ' + JSON.stringify(t));
+    const polys = sel.flatMap((f) => (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates));
+    return { type: 'feature', feature: { type: 'Feature', properties: {}, geometry: { type: 'MultiPolygon', coordinates: polys } } };
+  }
   if (t.country && !t.admin1) return { ...countrySpec(t.country), part: t.part || null };
   if (t.admin1) {
     const feats = await admin1Features();

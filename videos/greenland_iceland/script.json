@@ -1,0 +1,391 @@
+{
+  "id": "greenland_iceland",
+  "style": "globe",
+  "meta": {
+    "title": "Why Greenland Is Ice and Iceland Is Green ❄️🌿🤯",
+    "description": "Greenland 🇬🇱 is covered by ice, and Iceland 🇮🇸 is surprisingly green. So are the names swapped? 🤔 According to the sagas, Erik the Red named Greenland to attract settlers: 'people would be attracted there if it had a favourable name' 😅 Iceland got its name from Flóki Vilgerðarson, who climbed a mountain after a harsh winter and saw an ice cap. Today about 81% of Greenland is ice sheet, while lakes and glaciers cover only 14.3% of Iceland, which is warmed by the Gulf Stream 🌊",
+    "pinnedComment": [
+      "The world's oldest marketing trick? 😂❄️🌿",
+      "Would you rather visit Greenland or Iceland? 👇",
+      "Which name mix-up next? 🗺️"
+    ],
+    "tags": [
+      "greenland",
+      "iceland",
+      "erik the red",
+      "vikings",
+      "ice sheet",
+      "gulf stream",
+      "denmark",
+      "arctic",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Greenland is covered in ice, and Iceland is green. Did someone mix up the names?",
+      "show": [
+        {
+          "type": "title",
+          "text": "GREEN-*ICE*-LAND?",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "names",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": "GRL",
+          "fill": "#e0f2fe",
+          "at": "Greenland",
+          "fillOpacity": 0.8,
+          "neon": "#9ee7ff"
+        },
+        {
+          "type": "highlight",
+          "target": "ISL",
+          "fill": "#16a34a",
+          "at": "Iceland",
+          "fillOpacity": 0.8,
+          "neon": "#4ade80"
+        },
+        {
+          "type": "question",
+          "lat": 70,
+          "lon": -30,
+          "at": "mix"
+        }
+      ],
+      "camera": {
+        "lat": 70,
+        "lon": -30,
+        "zoom": 2.0
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Greenland is the largest island in the world, and about 81 percent of it is a giant ice sheet.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "GRL",
+          "fill": "#e0f2fe",
+          "at": "largest",
+          "fillOpacity": 0.85,
+          "neon": "#9ee7ff"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "81",
+              "value": "81%"
+            }
+          ],
+          "size": 210,
+          "color": "#9ee7ff"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "largest",
+              "value": "#1 island"
+            }
+          ],
+          "size": 90,
+          "screen": [
+            0.5,
+            0.22
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 72,
+        "lon": -40,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "Greenland is the world's largest island.",
+          "url": "https://en.wikipedia.org/wiki/Greenland",
+          "quote": "It is the world's largest island"
+        },
+        {
+          "claim": "The ice sheet covers 81% of it.",
+          "url": "https://en.wikipedia.org/wiki/Greenland",
+          "quote": "covers 1,755,637 km2 (677,855 sq mi) (81%)"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "So why call it green? It was a sales trick, by the Viking Erik the Red.",
+      "show": [
+        {
+          "type": "character",
+          "image": "viking_erik",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "sales",
+          "name": "Erik the Red",
+          "say": "Come to Greenland!"
+        }
+      ],
+      "camera": {
+        "lat": 64,
+        "lon": -45,
+        "zoom": 3.0
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Erik the Red named it Greenland to attract settlers.",
+          "url": "https://en.wikipedia.org/wiki/Greenland",
+          "quote": "which he called Greenland, as he said people would be attracted there if it had a favourable name"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "The sagas say he called it Greenland, because people would be attracted there if it had a nice name.",
+      "show": [
+        {
+          "type": "label",
+          "text": "GREAT MARKETING",
+          "lat": 66,
+          "lon": -42,
+          "at": "nice",
+          "style": "note",
+          "typewriter": true,
+          "size": 58,
+          "rotate": -7
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              64.1,
+              -21.9
+            ],
+            [
+              64,
+              -30
+            ],
+            [
+              62,
+              -42
+            ],
+            [
+              61,
+              -45.5
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "attracted",
+          "id": "erik",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#b91c1c"
+          }
+        }
+      ],
+      "camera": {
+        "lat": 64,
+        "lon": -35,
+        "zoom": 2.6
+      },
+      "sources": [
+        {
+          "claim": "Erik: people would be attracted if it had a favourable name.",
+          "url": "https://en.wikipedia.org/wiki/Greenland",
+          "quote": "as he said people would be attracted there if it had a favourable name"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And Iceland? Its name comes from Flóki, a Viking who climbed a mountain after a harsh winter, and saw an ice cap.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "ISL",
+          "fill": "#e0f2fe",
+          "at": "Iceland",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "icon",
+          "icon": "🏔️",
+          "lat": 65.5,
+          "lon": -23,
+          "size": 120,
+          "at": "mountain"
+        },
+        {
+          "type": "icon",
+          "icon": "🧊",
+          "lat": 65,
+          "lon": -18,
+          "size": 110,
+          "at": "ice"
+        }
+      ],
+      "camera": {
+        "lat": 64.9,
+        "lon": -19,
+        "zoom": 6
+      },
+      "sources": [
+        {
+          "claim": "Flóki Vilgerðarson named it after seeing an ice cap.",
+          "url": "https://en.wikipedia.org/wiki/Iceland",
+          "quote": "Flóki coined the name after he climbed a mountain, despondent after a harsh winter in present-day Vatnsfjörður, and saw an ice cap."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, lakes and glaciers cover only 14.3 percent of Iceland.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Greenland",
+              "value": 81,
+              "display": "81% ice",
+              "color": "#9ee7ff",
+              "flag": "gl"
+            },
+            {
+              "label": "Iceland",
+              "value": 14.3,
+              "display": "14.3%",
+              "color": "#4ade80",
+              "flag": "is"
+            }
+          ],
+          "orient": "h",
+          "at": "cover",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 280
+        }
+      ],
+      "camera": {
+        "lat": 66,
+        "lon": -30,
+        "zoom": 2.2
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Lakes and glaciers cover 14.3% of Iceland.",
+          "url": "https://en.wikipedia.org/wiki/Iceland",
+          "quote": "Lakes and glaciers cover 14.3% of its surface"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Because Iceland is warmed by the Gulf Stream, even though it's just south of the Arctic Circle.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              40,
+              -60
+            ],
+            [
+              50,
+              -40
+            ],
+            [
+              58,
+              -28
+            ],
+            [
+              64,
+              -20
+            ]
+          ],
+          "color": "#ff5a2a",
+          "width": 14,
+          "at": "warmed",
+          "flow": true,
+          "arrowHead": true
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              66.56,
+              -50
+            ],
+            [
+              66.56,
+              0
+            ]
+          ],
+          "color": "#9ee7ff",
+          "width": 5,
+          "at": "Arctic",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            12,
+            10
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 60,
+        "lon": -30,
+        "zoom": 1.8
+      },
+      "sources": [
+        {
+          "claim": "Iceland is warmed by the Gulf Stream, just south of the Arctic Circle.",
+          "url": "https://en.wikipedia.org/wiki/Iceland",
+          "quote": "Iceland is warmed by the Gulf Stream and has a temperate climate, despite being at a latitude just south of the Arctic Circle."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "pop",
+      "keywords": {
+        "greenland": "#9ee7ff",
+        "iceland": "#4ade80",
+        "erik": "#ff5a5f",
+        "ice": "#9ee7ff"
+      }
+    }
+  }
+}

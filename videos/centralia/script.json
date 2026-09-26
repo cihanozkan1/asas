@@ -1,0 +1,438 @@
+{
+  "id": "centralia",
+  "style": "geo",
+  "meta": {
+    "title": "The Town That Has Been on Fire Since 1962 🔥🇺🇸 Centralia",
+    "description": "Under Centralia, Pennsylvania 🇺🇸, a coal mine fire started in 1962, and it's still burning today 🔥 Experts think it could burn for another 250 years. Around 1981 about 1,000 people lived there. In 1992 the state used eminent domain to condemn every building, and by the 2020 census only 5 residents were left 😱 The cracked Route 61 became the famous 'Graffiti Highway' before it was buried under dirt in 2020.",
+    "pinnedComment": [
+      "A fire that has been burning for 60+ years 🔥😱",
+      "Would you visit Centralia? 👇",
+      "Which ghost town should we explain next? 🗺️"
+    ],
+    "tags": [
+      "centralia",
+      "pennsylvania",
+      "mine fire",
+      "ghost town",
+      "coal",
+      "graffiti highway",
+      "usa",
+      "history",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "There's a town in Pennsylvania where the ground has been on fire since 1962.",
+      "show": [
+        {
+          "type": "title",
+          "text": "A TOWN ON *FIRE*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Pennsylvania",
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Pennsylvania",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": "Pennsylvania",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "ping",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "color": "#ff5a2a",
+          "at": "town"
+        }
+      ],
+      "camera": {
+        "lat": 41,
+        "lon": -77.5,
+        "zoom": 6
+      },
+      "sources": [
+        {
+          "claim": "A coal mine fire has burned beneath the borough since 1962.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "a coal mine fire burning beneath the borough since 1962"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "This is Centralia. Under it, a coal mine fire started, and it's still burning today.",
+      "show": [
+        {
+          "type": "label",
+          "text": "CENTRALIA",
+          "lat": 40.812,
+          "lon": -76.341,
+          "at": "Centralia",
+          "style": "map",
+          "anim": "slam",
+          "size": 70
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 40.8043,
+              "lon": -76.3408,
+              "km": 1.2
+            }
+          },
+          "icon": "🔥",
+          "count": 10,
+          "size": 64,
+          "at": "burning",
+          "stagger": 0.08
+        },
+        {
+          "type": "character",
+          "image": "coal_miner",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "coal"
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 400,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "A coal mine fire has burned beneath the borough since 1962.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "a coal mine fire burning beneath the borough since 1962"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Experts think it could keep burning for another 250 years.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "250",
+              "value": "250 years"
+            }
+          ],
+          "size": 180,
+          "color": "#ff5a2a"
+        },
+        {
+          "type": "tilt",
+          "deg": 40,
+          "at": "burning",
+          "until": 3.5
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 500
+      },
+      "sources": [
+        {
+          "claim": "It could burn for another 250 years.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "do so for another 250 years"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1980, about 1,000 people still lived here.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1980",
+          "at": "1980"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "1,000",
+              "value": "~1,000"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 40.8043,
+              "lon": -76.3408,
+              "km": 0.8
+            }
+          },
+          "icon": "🏠",
+          "count": 12,
+          "size": 54,
+          "at": "lived",
+          "stagger": 0.05
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 450
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "1,012 residents by 1980.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "By 1980, it had 1,012 residents."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Then, in 1992, the state condemned every single building in town.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1992",
+          "at": "1992"
+        },
+        {
+          "type": "stamp",
+          "text": "CONDEMNED",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "condemned"
+        },
+        {
+          "type": "shake",
+          "at": "condemned"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "In 1992 the governor invoked eminent domain on all property, condemning all buildings.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "invoked eminent domain on all property in the borough, condemning all the buildings within"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In 2013, the last seven residents were allowed to stay, but only until the end of their lives.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2013",
+          "light": true,
+          "at": "2013"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "seven",
+              "value": "7"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "icon",
+          "icon": "🏠",
+          "lat": 40.804,
+          "lon": -76.34,
+          "size": 110,
+          "at": "residents"
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 450
+      },
+      "sources": [
+        {
+          "claim": "In 2013 the seven remaining residents were allowed to remain until their deaths.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "State and local officials reached an agreement with the then seven remaining residents on October 29, 2013, allowing them to remain in Centralia until their deaths"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "By the 2020 census, only five people were left.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "1980",
+              "value": 1012,
+              "display": "1,012",
+              "color": "#9ca3af"
+            },
+            {
+              "label": "2020",
+              "value": 5,
+              "display": "5",
+              "color": "#ff5a2a"
+            }
+          ],
+          "orient": "h",
+          "at": "census",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 180
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 450
+      },
+      "style": "dark",
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Five residents in the 2020 census.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "As of the census of 2020, there were five people residing in the borough."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The cracked main road became the famous Graffiti Highway, until it was buried under dirt in 2020.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              40.797,
+              -76.349
+            ],
+            [
+              40.801,
+              -76.345
+            ],
+            [
+              40.806,
+              -76.34
+            ]
+          ],
+          "color": "#ff5a2a",
+          "width": 10,
+          "at": "road",
+          "drawDur": 1.2
+        },
+        {
+          "type": "label",
+          "text": "GRAFFITI HIGHWAY",
+          "lat": 40.797,
+          "lon": -76.349,
+          "at": "Graffiti",
+          "style": "note",
+          "size": 48,
+          "dy": -60
+        }
+      ],
+      "camera": {
+        "lat": 40.8,
+        "lon": -76.345,
+        "zoom": 700
+      },
+      "sources": [
+        {
+          "claim": "In April 2020 the owners covered the graffiti highway with mounds of dirt.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "the property's current owners made the decision to cover over the graffiti on the highway section of old Route 61. Several hundred mounds of dirt were laid over the area"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, Centralia is a ghost town, sitting on top of a fire that nobody can put out.",
+      "show": [
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 40.8043,
+              "lon": -76.3408,
+              "km": 1.2
+            }
+          },
+          "icon": "🔥",
+          "count": 12,
+          "size": 66,
+          "at": "fire",
+          "stagger": 0.06
+        },
+        {
+          "type": "stamp",
+          "text": "GHOST TOWN",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "ghost"
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 350,
+        "bearing": 3
+      },
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "Only five residents remain while the fire still burns.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "a coal mine fire burning beneath the borough since 1962"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "box",
+      "keywords": {
+        "fire": "#ff5a2a",
+        "burning": "#ff5a2a",
+        "centralia": "#ffd60a",
+        "five": "#ff5a2a"
+      }
+    }
+  }
+}

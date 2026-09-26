@@ -1,0 +1,468 @@
+{
+  "id": "holland_netherlands",
+  "style": "geo",
+  "meta": {
+    "title": "Holland vs the Netherlands: What's the Difference? 🇳🇱🌷🤯",
+    "description": "Holland and the Netherlands are not the same thing! 🇳🇱 The Netherlands has 12 provinces, and 'Holland' is just two of them: North Holland and South Holland 🌷 They cover about 13% of the country but hold around 38% of the people, including Amsterdam, Rotterdam and The Hague 🏙️ Because the name was used for the whole country for so long, in 2019 the Dutch government decided to stop promoting 'Holland' and use 'the Netherlands' instead 🤯",
+    "pinnedComment": [
+      "Holland is only 2 of 12 provinces 🤯🇳🇱",
+      "Did you know the difference? 👇",
+      "Which country name should we explain next? 🗺️"
+    ],
+    "tags": [
+      "holland",
+      "netherlands",
+      "dutch",
+      "amsterdam",
+      "rotterdam",
+      "the hague",
+      "north holland",
+      "south holland",
+      "europe",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Holland and the Netherlands. Most people think they're the same country. They're not.",
+      "show": [
+        {
+          "type": "title",
+          "text": "HOLLAND ≠ *NETHERLANDS*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "country",
+          "at": 0.05
+        },
+        {
+          "type": "vs",
+          "left": {
+            "flag": "nl",
+            "label": "Holland?"
+          },
+          "right": {
+            "flag": "nl",
+            "label": "Netherlands?"
+          },
+          "at": "same",
+          "screen": [
+            0.5,
+            0.33
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 52.25,
+        "lon": 5.3,
+        "zoom": 13
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "The Netherlands is the whole country, with 12 provinces.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "NLD",
+          "fill": "flag:nl",
+          "at": "Netherlands",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "12",
+              "value": "12"
+            }
+          ],
+          "size": 220
+        }
+      ],
+      "camera": {
+        "lat": 52.25,
+        "lon": 5.3,
+        "zoom": 13
+      },
+      "sources": [
+        {
+          "claim": "Holland: two of the country's twelve provinces.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "Holland comprises the provinces of North Holland and South Holland, representing two of the country's twelve provinces"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Holland is only two of them: North Holland and South Holland.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "NLD",
+          "fill": "#e5e7eb",
+          "at": "only",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Noord-Holland",
+              "Zuid-Holland"
+            ],
+            "country": "NLD"
+          },
+          "fill": "#f97316",
+          "at": "two",
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "label",
+          "text": "North Holland",
+          "lat": 52.6,
+          "lon": 4.9,
+          "at": "North",
+          "style": "pill",
+          "bg": "#f97316",
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "South Holland",
+          "lat": 51.95,
+          "lon": 4.5,
+          "at": "South",
+          "style": "pill",
+          "bg": "#f97316",
+          "size": 40
+        }
+      ],
+      "camera": {
+        "lat": 52.25,
+        "lon": 5.3,
+        "zoom": 13
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Holland = North Holland and South Holland.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "Holland comprises the provinces of North Holland and South Holland"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "They cover only about 13 percent of the land, but they're home to about 38 percent of the people.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Land",
+              "value": 13,
+              "display": "13%",
+              "color": "#f97316"
+            },
+            {
+              "label": "People",
+              "value": 38,
+              "display": "38%",
+              "color": "#ffd60a"
+            }
+          ],
+          "orient": "h",
+          "at": "land",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 200
+        },
+        {
+          "type": "tilt",
+          "deg": 34,
+          "at": "home",
+          "until": 3.5
+        }
+      ],
+      "camera": {
+        "lat": 52.25,
+        "lon": 5.3,
+        "zoom": 13
+      },
+      "sources": [
+        {
+          "claim": "About 13% of the territory and 38% of the population.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "covering about 13% of its national territory and approximately 38% of the Dutch population"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Because that's where the big cities are: Amsterdam, Rotterdam and The Hague.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 52.37,
+          "lon": 4.9,
+          "color": "#ffd60a",
+          "at": "Amsterdam"
+        },
+        {
+          "type": "ping",
+          "lat": 51.92,
+          "lon": 4.48,
+          "color": "#ffd60a",
+          "at": "Rotterdam"
+        },
+        {
+          "type": "ping",
+          "lat": 52.08,
+          "lon": 4.31,
+          "color": "#ffd60a",
+          "at": "Hague"
+        },
+        {
+          "type": "label",
+          "text": "Amsterdam",
+          "lat": 52.37,
+          "lon": 4.9,
+          "at": "Amsterdam",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Rotterdam",
+          "lat": 51.92,
+          "lon": 4.48,
+          "at": "Rotterdam",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "The Hague",
+          "lat": 52.08,
+          "lon": 4.31,
+          "at": "Hague",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "character",
+          "image": "dutch_farmer",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "cities"
+        }
+      ],
+      "camera": {
+        "lat": 52.2,
+        "lon": 4.7,
+        "zoom": 16
+      },
+      "sources": [
+        {
+          "claim": "Holland contains Amsterdam, Rotterdam and The Hague.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "The main cities in Holland are Amsterdam, Rotterdam and The Hague."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Rotterdam even has Europe's largest port. And with Utrecht, these cities form one giant metro area, the Randstad.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🚢",
+          "lat": 51.9,
+          "lon": 4.1,
+          "size": 110,
+          "at": "port"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Utrecht",
+            "country": "NLD"
+          },
+          "fill": "#ffd60a",
+          "at": "Utrecht",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "label",
+          "text": "RANDSTAD",
+          "lat": 52.45,
+          "lon": 4.3,
+          "at": "Randstad",
+          "style": "map",
+          "anim": "slam",
+          "size": 62
+        }
+      ],
+      "camera": {
+        "lat": 52.15,
+        "lon": 4.75,
+        "zoom": 13
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The Port of Rotterdam is Europe's largest.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "The Port of Rotterdam is Europe's largest and most important harbour and port."
+        },
+        {
+          "claim": "With Utrecht they form the Randstad conurbation.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "These cities, combined with Utrecht and other smaller municipalities, effectively form a single metroplex—a conurbation called Randstad."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's why, for centuries, the name Holland was used for the whole country.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "NLD",
+          "fill": "#f97316",
+          "at": "whole",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "question",
+          "lat": 52.2,
+          "lon": 5.3,
+          "at": "why"
+        }
+      ],
+      "camera": {
+        "lat": 52.25,
+        "lon": 5.3,
+        "zoom": 13
+      },
+      "sources": [
+        {
+          "claim": "Holland has frequently been used for the whole Netherlands.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "The name Holland has frequently been used to refer to the whole of the country of the Netherlands."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So many people called the whole country Holland that in 2019, the government decided to stop using the name.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2019",
+          "light": true,
+          "at": "2019"
+        },
+        {
+          "type": "stamp",
+          "text": "THE NETHERLANDS",
+          "size": 76,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "stop"
+        }
+      ],
+      "camera": {
+        "lat": 52.25,
+        "lon": 5.3,
+        "zoom": 13,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Since 2019 the government officially favours \"the Netherlands\"; logo changed from Holland to NL.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "In 2019, the Netherlands officially dropped its support of the term Holland for the whole country, which included a logo redesign that changed 'Holland' to 'NL'."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Even the official logo changed, from Holland to just NL.",
+      "show": [
+        {
+          "type": "vs",
+          "left": {
+            "flag": "nl",
+            "label": "HOLLAND"
+          },
+          "right": {
+            "flag": "nl",
+            "label": "NL"
+          },
+          "at": "logo",
+          "screen": [
+            0.5,
+            0.3
+          ]
+        },
+        {
+          "type": "stamp",
+          "text": "NL",
+          "size": 110,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "NL"
+        }
+      ],
+      "camera": {
+        "lat": 52.25,
+        "lon": 5.3,
+        "zoom": 13
+      },
+      "sources": [
+        {
+          "claim": "The logo changed from Holland to NL.",
+          "url": "https://en.wikipedia.org/wiki/Holland",
+          "quote": "which included a logo redesign that changed 'Holland' to 'NL'"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "pop",
+      "keywords": {
+        "holland": "#f97316",
+        "netherlands": "#5ec8ff",
+        "amsterdam": "#ffd60a"
+      }
+    }
+  },
+  "styles": {
+    "now": "atlas",
+    "history": "vintage"
+  }
+}

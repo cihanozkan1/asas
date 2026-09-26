@@ -1,0 +1,487 @@
+{
+  "id": "wallace_line",
+  "style": "geo",
+  "meta": {
+    "title": "Why Animals Don't Cross This Invisible Line 🦘🐒🚧 The Wallace Line",
+    "description": "Bali and Lombok 🇮🇩 are only about 35 km apart, but their animals are completely different 🐒🦘 In 1859 naturalist Alfred Russel Wallace noticed an invisible boundary: west of it you find Asian animals like apes, elephants and monkeys, east of it Australasian ones like marsupials 🤯 Why? Deep water. Even when sea levels dropped 120 m in the Ice Age, the islands never connected Asia with Australia 🌊",
+    "pinnedComment": [
+      "35 km of water that animals never crossed 🤯🐒🦘",
+      "Did you know about the Wallace Line? 👇",
+      "Which invisible line should we explain next? 🗺️"
+    ],
+    "tags": [
+      "wallace line",
+      "bali",
+      "lombok",
+      "indonesia",
+      "alfred russel wallace",
+      "animals",
+      "marsupials",
+      "biogeography",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "There's an invisible line in Indonesia that animals almost never cross.",
+      "show": [
+        {
+          "type": "title",
+          "text": "THE *INVISIBLE* ANIMAL BORDER",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Indonesia",
+          "at": 0.05
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              12,
+              121
+            ],
+            [
+              4.5,
+              119.5
+            ],
+            [
+              -1.5,
+              118.3
+            ],
+            [
+              -5.5,
+              117.2
+            ],
+            [
+              -8.1,
+              115.9
+            ],
+            [
+              -9.5,
+              115.8
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "line",
+          "dashed": true,
+          "dash": [
+            18,
+            12
+          ],
+          "drawDur": 1.6,
+          "hold": 6
+        }
+      ],
+      "camera": {
+        "lat": -2,
+        "lon": 118,
+        "zoom": 2.4
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It runs between Bali and Lombok, two islands only about 35 kilometers apart.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Bali",
+          "lat": -8.4,
+          "lon": 115.2,
+          "at": "Bali",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "Lombok",
+          "lat": -8.6,
+          "lon": 116.35,
+          "at": "Lombok",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "measure",
+          "from": [
+            -8.5,
+            115.6
+          ],
+          "to": [
+            -8.5,
+            116.05
+          ],
+          "label": "35 km",
+          "at": "kilometers"
+        }
+      ],
+      "camera": {
+        "lat": -8.5,
+        "lon": 115.8,
+        "zoom": 16,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "The line runs through the Lombok Strait between Bali and Lombok, about 35 km.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "through the Lombok Strait between Bali and Lombok, where the distance is strikingly small, only about 35 kilometers (22 mi)"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1859, naturalist Alfred Russel Wallace noticed something strange.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1859",
+          "at": "1859"
+        },
+        {
+          "type": "character",
+          "image": "alfred_wallace",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Wallace",
+          "say": "Hmm, different animals!"
+        }
+      ],
+      "camera": {
+        "lat": -8.5,
+        "lon": 115.8,
+        "zoom": 10
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Alfred Russel Wallace identified the boundary in 1859.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "1859"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Travelling through the islands, he saw a clear split in both mammals and birds.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🦜",
+          "lat": -6,
+          "lon": 110,
+          "size": 110,
+          "at": "birds"
+        },
+        {
+          "type": "icon",
+          "icon": "🐒",
+          "lat": -3,
+          "lon": 105,
+          "size": 110,
+          "at": "mammals"
+        },
+        {
+          "type": "icon",
+          "icon": "🦘",
+          "lat": -6,
+          "lon": 125,
+          "size": 110,
+          "at": "split"
+        }
+      ],
+      "camera": {
+        "lat": -4,
+        "lon": 116,
+        "zoom": 2.8
+      },
+      "sources": [
+        {
+          "claim": "Wallace noticed the division in land mammals and birds.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "Wallace noticed this clear division in both land mammals and birds during his travels through the East Indies in the 19th century."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "West of the line, you find Asian animals, like apes, elephants and monkeys.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              95,
+              -11,
+              115.8,
+              8
+            ]
+          },
+          "fill": "#f4a261",
+          "at": "West",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              100,
+              -8,
+              114,
+              4
+            ]
+          },
+          "icon": "🐒",
+          "count": 6,
+          "size": 70,
+          "at": "apes"
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              100,
+              -7,
+              113,
+              3
+            ]
+          },
+          "icon": "🐘",
+          "count": 4,
+          "size": 76,
+          "at": "elephants",
+          "seed": 5
+        },
+        {
+          "type": "label",
+          "text": "ASIA",
+          "lat": 1,
+          "lon": 106,
+          "at": "Asian",
+          "style": "pill",
+          "bg": "#d97706",
+          "size": 52
+        }
+      ],
+      "camera": {
+        "lat": -2,
+        "lon": 112,
+        "zoom": 2.6
+      },
+      "sources": [
+        {
+          "claim": "West of the line: Asian fauna such as apes, elephants and monkeys.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "apes, elephants"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "East of the line, the animals are Australian, like marsupials.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              115.8,
+              -11,
+              141,
+              8
+            ]
+          },
+          "fill": "#16a34a",
+          "at": "East",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              118,
+              -9,
+              138,
+              0
+            ]
+          },
+          "icon": "🦘",
+          "count": 6,
+          "size": 70,
+          "at": "marsupials"
+        },
+        {
+          "type": "label",
+          "text": "AUSTRALIA",
+          "lat": -3,
+          "lon": 128,
+          "at": "Australian",
+          "style": "pill",
+          "bg": "#16a34a",
+          "size": 52
+        }
+      ],
+      "camera": {
+        "lat": -4,
+        "lon": 124,
+        "zoom": 2.6
+      },
+      "sources": [
+        {
+          "claim": "East of the line: Australasian species such as marsupials.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "marsupials"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Why? Deep water. Even in the Ice Age, when seas dropped 120 meters, the two sides never joined.",
+      "show": [
+        {
+          "type": "tilt",
+          "deg": 38,
+          "at": "water",
+          "until": 4.5
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "120",
+              "value": "−120 m"
+            }
+          ],
+          "size": 170,
+          "color": "#5ec8ff"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": -8.5,
+              "lon": 115.85,
+              "km": 40
+            }
+          },
+          "fill": "#1d4ed8",
+          "at": "Deep",
+          "soft": true,
+          "rim": "#5ec8ff",
+          "fillOpacity": 0.5
+        }
+      ],
+      "camera": {
+        "lat": -8.5,
+        "lon": 116,
+        "zoom": 8
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Even when sea level dropped 120 m, the islands never united Asia with Australia.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "islands became connected, but never uniting Asia with Australia"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Bali sits on the Asian shelf, Lombok on the other side. For over 50 million years, deep water kept the two worlds apart.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              95,
+              -9,
+              115.8,
+              8
+            ]
+          },
+          "fill": "#f4a261",
+          "at": "Asian",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              115.8,
+              -11,
+              150,
+              0
+            ]
+          },
+          "fill": "#16a34a",
+          "at": "other",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "50",
+              "value": "50,000,000 years"
+            }
+          ],
+          "size": 120
+        },
+        {
+          "type": "vs",
+          "left": {
+            "flag": "id",
+            "label": "Asia side"
+          },
+          "right": {
+            "flag": "au",
+            "label": "Australia side"
+          },
+          "at": "worlds",
+          "screen": [
+            0.5,
+            0.33
+          ]
+        }
+      ],
+      "camera": {
+        "lat": -5,
+        "lon": 118,
+        "zoom": 2.3
+      },
+      "sources": [
+        {
+          "claim": "Deep water between the Sunda and Sahul shelves separated the fauna for over 50 million years.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "for over 50 million years, deep water between those two large continental shelf areas created a barrier that kept the flora and fauna of Australia separated from those of Asia."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "bebas",
+      "keywords": {
+        "wallace": "#ffd60a",
+        "bali": "#f4a261",
+        "lombok": "#4ade80",
+        "asian": "#f4a261",
+        "australian": "#4ade80"
+      }
+    }
+  }
+}

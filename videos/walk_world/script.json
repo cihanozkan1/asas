@@ -1,0 +1,523 @@
+{
+  "id": "walk_world",
+  "style": "globe",
+  "meta": {
+    "title": "The Longest Walk on Earth: 22,387 km Without a Plane 🚶‍♂️🌍🤯",
+    "description": "What's the longest distance you could walk on Earth without getting on a plane? 🚶‍♂️ A route found on Google Maps runs from Cape Town in South Africa 🇿🇦 all the way to Magadan in the far east of Russia 🇷🇺: about 22,387 km through 16 countries! Google Maps estimates 4,492 hours of walking, that's 187 days non-stop, or 562 days if you walk 8 hours a day 🤯",
+    "pinnedComment": [
+      "22,387 km on foot. Would you try it? 🚶‍♂️🌍",
+      "Which country on the route would you stop in first? 👇",
+      "What should we measure next? 🗺️"
+    ],
+    "tags": [
+      "longest walk",
+      "cape town",
+      "magadan",
+      "walking route",
+      "google maps",
+      "africa",
+      "russia",
+      "travel",
+      "geography",
+      "maps",
+      "learn",
+      "fun facts"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "What is the longest walk you could take on Earth, without ever getting on a plane?",
+      "show": [
+        {
+          "type": "title",
+          "text": "THE LONGEST *WALK* ON EARTH",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "plane",
+          "at": 0.05
+        },
+        {
+          "type": "question",
+          "lat": 0,
+          "lon": 20,
+          "at": "plane"
+        }
+      ],
+      "camera": {
+        "lat": 10,
+        "lon": 30,
+        "zoom": 1.0
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It starts here, at the southern tip of Africa, in Cape Town.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": -33.92,
+          "lon": 18.42,
+          "color": "#ffd60a",
+          "at": "Cape",
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "Cape Town",
+          "lat": -33.92,
+          "lon": 18.42,
+          "at": "Cape",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "flag",
+          "code": "za",
+          "lat": -30,
+          "lon": 24,
+          "size": 120,
+          "at": "Africa"
+        }
+      ],
+      "camera": {
+        "lat": -30,
+        "lon": 22,
+        "zoom": 3.2
+      },
+      "sources": [
+        {
+          "claim": "The route starts in Cape Town, South Africa.",
+          "url": "https://brilliantmaps.com/longest-walk/",
+          "quote": "from Cape Town, South Africa to Magadan, Russia"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And it ends on the other side of the world, in Magadan, in the far east of Russia.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 59.57,
+          "lon": 150.8,
+          "color": "#ff5a5f",
+          "at": "Magadan"
+        },
+        {
+          "type": "label",
+          "text": "Magadan",
+          "lat": 59.57,
+          "lon": 150.8,
+          "at": "Magadan",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "flag",
+          "code": "ru",
+          "lat": 63,
+          "lon": 140,
+          "size": 120,
+          "at": "Russia"
+        }
+      ],
+      "camera": {
+        "lat": 55,
+        "lon": 140,
+        "zoom": 2.6
+      },
+      "sources": [
+        {
+          "claim": "It ends in Magadan, Russia.",
+          "url": "https://brilliantmaps.com/longest-walk/",
+          "quote": "from Cape Town, South Africa to Magadan, Russia"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The whole route is about 22,387 kilometers long, and it crosses 16 countries.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              -33.92,
+              18.42
+            ],
+            [
+              -24.65,
+              25.91
+            ],
+            [
+              -17.83,
+              31.05
+            ],
+            [
+              -6.8,
+              39.28
+            ],
+            [
+              0.35,
+              32.58
+            ],
+            [
+              4.85,
+              31.58
+            ],
+            [
+              15.5,
+              32.56
+            ],
+            [
+              30.04,
+              31.24
+            ],
+            [
+              31.95,
+              35.93
+            ],
+            [
+              33.51,
+              36.28
+            ],
+            [
+              39.93,
+              32.86
+            ],
+            [
+              44.43,
+              26.1
+            ],
+            [
+              53.9,
+              27.57
+            ],
+            [
+              55.75,
+              37.62
+            ],
+            [
+              56.01,
+              92.87
+            ],
+            [
+              52.29,
+              104.3
+            ],
+            [
+              62.03,
+              129.73
+            ],
+            [
+              59.57,
+              150.8
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 8,
+          "at": "route",
+          "drawDur": 3.4,
+          "mover": {
+            "kind": "icon",
+            "icon": "🚶",
+            "size": 110
+          },
+          "id": "walk",
+          "hold": 1
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "22,387",
+              "value": "22,387 km"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "16",
+              "value": "16 countries"
+            }
+          ],
+          "size": 100,
+          "screen": [
+            0.5,
+            0.23
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 20,
+        "lon": 70,
+        "zoom": 0.95
+      },
+      "sources": [
+        {
+          "claim": "Distance 22,387 km through 16 countries.",
+          "url": "https://brilliantmaps.com/longest-walk/",
+          "quote": "a distance of 22,387km (13,910 miles)"
+        },
+        {
+          "claim": "16 countries.",
+          "url": "https://brilliantmaps.com/longest-walk/",
+          "quote": "You would have to travel through 16 countries"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's more than half of the way around the Earth, which is about 40,000 kilometers at the equator.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "This walk",
+              "value": 22387,
+              "display": "22,387 km",
+              "color": "#ffd60a"
+            },
+            {
+              "label": "Equator",
+              "value": 40075,
+              "display": "40,075 km",
+              "color": "#5ec8ff"
+            }
+          ],
+          "orient": "h",
+          "at": "half",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 240
+        }
+      ],
+      "camera": {
+        "lat": 0,
+        "lon": 60,
+        "zoom": 1.0
+      },
+      "sources": [
+        {
+          "claim": "Earth's equatorial circumference is 40,075 km.",
+          "url": "https://en.wikipedia.org/wiki/Earth",
+          "quote": "40075.017 km [equatorial]"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Through Africa, past Egypt, across Turkey and Russia, and all the way through Siberia.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 30.04,
+          "lon": 31.24,
+          "color": "#5ec8ff",
+          "at": "Egypt"
+        },
+        {
+          "type": "ping",
+          "lat": 39.93,
+          "lon": 32.86,
+          "color": "#5ec8ff",
+          "at": "Turkey"
+        },
+        {
+          "type": "ping",
+          "lat": 56.01,
+          "lon": 92.87,
+          "color": "#5ec8ff",
+          "at": "Siberia"
+        },
+        {
+          "type": "highlight",
+          "target": "EGY",
+          "fill": "flag:eg",
+          "at": "Egypt",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "highlight",
+          "target": "TUR",
+          "fill": "flag:tr",
+          "at": "Turkey",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "highlight",
+          "target": "RUS",
+          "fill": "flag:ru",
+          "at": "Russia",
+          "fillOpacity": 0.5
+        }
+      ],
+      "camera": {
+        "lat": 40,
+        "lon": 60,
+        "zoom": 1.4
+      },
+      "sources": [
+        {
+          "claim": "The route passes through Egypt, Turkey and Russia.",
+          "url": "https://explorersweb.com/the-longest-walk-in-the-world/",
+          "quote": "Cape Town, South Africa to Magadan, Russia"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Google Maps says it would take 4,492 hours of walking.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "4,492",
+              "value": "4,492 h"
+            }
+          ],
+          "size": 190
+        },
+        {
+          "type": "character",
+          "image": "backpacker",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "walking",
+          "name": "You",
+          "say": "My feet!"
+        }
+      ],
+      "camera": {
+        "lat": 35,
+        "lon": 80,
+        "zoom": 1.1
+      },
+      "sources": [
+        {
+          "claim": "4,492 hours of walking.",
+          "url": "https://brilliantmaps.com/longest-walk/",
+          "quote": "Google Maps estimates it would take 4,492 hours to walk it"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's 187 days of non-stop walking, day and night.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Non-stop",
+              "value": 187,
+              "display": "187 days",
+              "color": "#ff5a5f"
+            },
+            {
+              "label": "8 h a day",
+              "value": 562,
+              "display": "562 days",
+              "color": "#ffd60a"
+            }
+          ],
+          "orient": "h",
+          "at": "non-stop",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 240
+        }
+      ],
+      "style": "neon",
+      "sources": [
+        {
+          "claim": "187 days non-stop.",
+          "url": "https://brilliantmaps.com/longest-walk/",
+          "quote": "which translates into 187 days of non-stop walking"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And if you only walked eight hours a day, it would take you 562 days, more than a year and a half.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Non-stop",
+              "value": 187,
+              "display": "187 days",
+              "color": "#ff5a5f"
+            },
+            {
+              "label": "8 h a day",
+              "value": 562,
+              "display": "562 days",
+              "color": "#ffd60a"
+            }
+          ],
+          "orient": "h",
+          "at": 0,
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 240,
+          "stagger": 0
+        },
+        {
+          "type": "stamp",
+          "text": "1.5 YEARS",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "year"
+        }
+      ],
+      "style": "neon",
+      "sources": [
+        {
+          "claim": "562 days at 8 hours a day.",
+          "url": "https://brilliantmaps.com/longest-walk/",
+          "quote": "If instead you decided to walk a more sensible 8 hours a day, it would take you 562 days"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "impact",
+      "keywords": {
+        "cape": "#ffd60a",
+        "magadan": "#ff5a5f",
+        "walk": "#ffd60a",
+        "walking": "#ffd60a"
+      }
+    }
+  }
+}

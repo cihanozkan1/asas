@@ -1,0 +1,582 @@
+{
+  "id": "antarctica_claims",
+  "style": "globe",
+  "meta": {
+    "title": "Who Owns Antarctica? ❄️🗺️🤯",
+    "description": "Antarctica ❄️ is bigger than you think, and seven countries claim a piece of it: Argentina 🇦🇷, Australia 🇦🇺, Chile 🇨🇱, France 🇫🇷, New Zealand 🇳🇿, Norway 🇳🇴 and the United Kingdom 🇬🇧 Australia claims the biggest slice, and three claims even overlap 🤯 But one huge area, Marie Byrd Land, is claimed by nobody: at 1.6 million km² it's the largest unclaimed territory on Earth. Since the Antarctic Treaty of 1959, the continent is set aside for science 🔬",
+    "pinnedComment": [
+      "The biggest no-man's land on Earth is in Antarctica 🤯❄️",
+      "Which country should own it? 👇",
+      "Which map mystery next? 🗺️"
+    ],
+    "tags": [
+      "antarctica",
+      "territorial claims",
+      "marie byrd land",
+      "antarctic treaty",
+      "south pole",
+      "australia",
+      "norway",
+      "chile",
+      "argentina",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Who owns Antarctica? The answer is more complicated than you think.",
+      "show": [
+        {
+          "type": "title",
+          "text": "WHO OWNS *ANTARCTICA*?",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Antarctica",
+          "at": 0.05
+        },
+        {
+          "type": "question",
+          "lat": -80,
+          "lon": 0,
+          "at": "complicated"
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 0,
+        "zoom": 1.4
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Seven countries claim a piece of it.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "Seven",
+              "value": "7"
+            }
+          ],
+          "size": 220
+        },
+        {
+          "type": "flag",
+          "code": "ar",
+          "lat": -70,
+          "lon": -50,
+          "size": 90,
+          "at": "claim"
+        },
+        {
+          "type": "flag",
+          "code": "au",
+          "lat": -72,
+          "lon": 100,
+          "size": 90,
+          "at": "claim"
+        },
+        {
+          "type": "flag",
+          "code": "cl",
+          "lat": -72,
+          "lon": -80,
+          "size": 90,
+          "at": "claim"
+        },
+        {
+          "type": "flag",
+          "code": "fr",
+          "lat": -68,
+          "lon": 139,
+          "size": 90,
+          "at": "claim"
+        },
+        {
+          "type": "flag",
+          "code": "nz",
+          "lat": -80,
+          "lon": -170,
+          "size": 90,
+          "at": "claim"
+        },
+        {
+          "type": "flag",
+          "code": "no",
+          "lat": -73,
+          "lon": 20,
+          "size": 90,
+          "at": "claim"
+        },
+        {
+          "type": "flag",
+          "code": "gb",
+          "lat": -76,
+          "lon": -40,
+          "size": 90,
+          "at": "claim"
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 0,
+        "zoom": 1.3
+      },
+      "sources": [
+        {
+          "claim": "Seven sovereign states have made claims.",
+          "url": "https://en.wikipedia.org/wiki/Territorial_claims_in_Antarctica",
+          "quote": "Seven sovereign states – Argentina, Australia, Chile, France, New Zealand, Norway, and the United Kingdom – have made eight territorial claims in Antarctica."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Argentina, Australia, Chile, France, New Zealand, Norway, and the United Kingdom.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -74,
+              -90,
+              -25,
+              -60
+            ]
+          },
+          "fill": "#5ec8ff",
+          "at": "Argentina",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              44.6,
+              -90,
+              136,
+              -60
+            ]
+          },
+          "fill": "#ffd60a",
+          "at": "Australia",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              142,
+              -90,
+              160,
+              -60
+            ]
+          },
+          "fill": "#ffd60a",
+          "at": "Australia",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -90,
+              -90,
+              -53,
+              -60
+            ]
+          },
+          "fill": "#ff5a5f",
+          "at": "Chile",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              136,
+              -90,
+              142,
+              -60
+            ]
+          },
+          "fill": "#1d4ed8",
+          "at": "France",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              160,
+              -90,
+              180,
+              -60
+            ]
+          },
+          "fill": "#111827",
+          "at": "Zealand",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -180,
+              -90,
+              -150,
+              -60
+            ]
+          },
+          "fill": "#111827",
+          "at": "Zealand",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -20,
+              -90,
+              44.6,
+              -60
+            ]
+          },
+          "fill": "#b91c1c",
+          "at": "Norway",
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -80,
+              -90,
+              -20,
+              -60
+            ]
+          },
+          "fill": "#7c3aed",
+          "at": "Kingdom",
+          "fillOpacity": 0.4
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 0,
+        "zoom": 1.3
+      },
+      "sources": [
+        {
+          "claim": "Claimants: Argentina, Australia, Chile, France, New Zealand, Norway, UK.",
+          "url": "https://en.wikipedia.org/wiki/Territorial_claims_in_Antarctica",
+          "quote": "Seven sovereign states – Argentina, Australia, Chile, France, New Zealand, Norway, and the United Kingdom – have made eight territorial claims in Antarctica."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Australia claims the biggest slice, almost 5.9 million square kilometers.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              44.6,
+              -90,
+              136,
+              -60
+            ]
+          },
+          "fill": "flag:au",
+          "at": "Australia",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              142,
+              -90,
+              160,
+              -60
+            ]
+          },
+          "fill": "flag:au",
+          "at": "Australia",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "5.9",
+              "value": "5.9M km²"
+            }
+          ],
+          "size": 150
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 90,
+        "zoom": 1.4
+      },
+      "sources": [
+        {
+          "claim": "Australia claims 5,896,500 km² (table).",
+          "url": "https://en.wikipedia.org/wiki/Territorial_claims_in_Antarctica",
+          "quote": "5,896,500"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Norway claims a huge slice called Queen Maud Land, while France has the smallest one.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -20,
+              -90,
+              44.6,
+              -60
+            ]
+          },
+          "fill": "flag:no",
+          "at": "Norway",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              136,
+              -90,
+              142,
+              -60
+            ]
+          },
+          "fill": "flag:fr",
+          "at": "France",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Australia",
+              "value": 5896500,
+              "display": "5.9M km²",
+              "color": "#ffd60a",
+              "flag": "au"
+            },
+            {
+              "label": "Norway",
+              "value": 2700154,
+              "display": "2.7M km²",
+              "color": "#ff5a5f",
+              "flag": "no"
+            },
+            {
+              "label": "France",
+              "value": 351000,
+              "display": "0.35M km²",
+              "color": "#5ec8ff",
+              "flag": "fr"
+            }
+          ],
+          "orient": "h",
+          "at": "smallest",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 240
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 60,
+        "zoom": 1.4
+      },
+      "sources": [
+        {
+          "claim": "Norway claims Queen Maud Land (2,700,154 km² incl. Peter I Island); France 351,000 km² (table).",
+          "url": "https://en.wikipedia.org/wiki/Territorial_claims_in_Antarctica",
+          "quote": "351,000"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And three claims overlap. The UK, Chile and Argentina all want the same land.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -74,
+              -90,
+              -53,
+              -60
+            ]
+          },
+          "fill": "#ff0080",
+          "at": "overlap",
+          "fillOpacity": 0.7,
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "vs",
+          "left": {
+            "flag": "gb",
+            "label": "UK"
+          },
+          "right": {
+            "flag": "ar",
+            "label": "Argentina"
+          },
+          "at": "want",
+          "screen": [
+            0.5,
+            0.3
+          ]
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": -60,
+        "zoom": 1.5
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Argentine, Chilean and British claims overlap.",
+          "url": "https://en.wikipedia.org/wiki/Territorial_claims_in_Antarctica",
+          "quote": "There are overlaps among the territories claimed by Argentina, Chile, and the United Kingdom."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But one huge area is claimed by nobody: Marie Byrd Land. It's the largest unclaimed territory on Earth.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -150,
+              -90,
+              -90,
+              -60
+            ]
+          },
+          "fill": "#ffffff",
+          "at": "nobody",
+          "fillOpacity": 0.85,
+          "neon": "#9ee7ff"
+        },
+        {
+          "type": "label",
+          "text": "MARIE BYRD LAND",
+          "lat": -78,
+          "lon": -120,
+          "at": "Marie",
+          "style": "map",
+          "anim": "slam",
+          "size": 54
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "largest",
+              "value": "1,610,000 km²"
+            }
+          ],
+          "size": 110
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": -120,
+        "zoom": 1.5
+      },
+      "sources": [
+        {
+          "claim": "Marie Byrd Land (1,610,000 km²) is the largest unclaimed territory on Earth.",
+          "url": "https://en.wikipedia.org/wiki/Marie_Byrd_Land",
+          "quote": "Marie Byrd Land (MBL) is an unclaimed region of Antarctica. With an area of 1,610,000 km2 (620,000 sq mi), it is the largest unclaimed territory on Earth."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And since the Antarctic Treaty of 1959, the whole continent is set aside for science.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1959",
+          "light": true,
+          "at": "1959"
+        },
+        {
+          "type": "character",
+          "image": "penguin",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "science",
+          "say": "Science only!"
+        },
+        {
+          "type": "icon",
+          "icon": "🔬",
+          "lat": -80,
+          "lon": 60,
+          "size": 110,
+          "at": "science"
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 0,
+        "zoom": 1.3,
+        "bearing": 10
+      },
+      "sources": [
+        {
+          "claim": "The 1959 Antarctic Treaty set Antarctica aside as a scientific preserve.",
+          "url": "https://en.wikipedia.org/wiki/Territorial_claims_in_Antarctica",
+          "quote": "set aside Antarctica as a scientific preserve, established freedom of scientific investigation"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "pop",
+      "keywords": {
+        "antarctica": "#9ee7ff",
+        "australia": "#ffd60a",
+        "nobody": "#ffffff",
+        "marie": "#9ee7ff"
+      }
+    }
+  }
+}

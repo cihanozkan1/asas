@@ -1,0 +1,410 @@
+{
+  "id": "amazon_bridges",
+  "style": "geo",
+  "meta": {
+    "title": "Why No Bridge Crosses the Amazon River 🌊🌴🤯",
+    "description": "The Amazon 🇧🇷 flows for more than 6,400 km, and not a single bridge crosses it 🌉❌ Between December and May the rains swell the river, and in some stretches the water spreads 10, 15 or even 20 km from shore to shore 🌊 Its waters can rise 30 feet, and the soft riverbanks are always eroding. In the 1990s studies found bridge piles would need to go more than 100 m deep! And there are few roads to connect anyway, so ferries and boats do the job ⛴️",
+    "pinnedComment": [
+      "6,400 km of river… zero bridges 🤯🌉",
+      "Would you cross the Amazon by ferry? ⛴️👇",
+      "Which river mystery next? 🗺️"
+    ],
+    "tags": [
+      "amazon river",
+      "bridges",
+      "brazil",
+      "rainforest",
+      "manaus",
+      "ferry",
+      "flooding",
+      "rivers",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "The Amazon flows for more than 6,400 kilometers. And not a single bridge crosses it.",
+      "show": [
+        {
+          "type": "title",
+          "text": "ZERO *BRIDGES*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "kilometers",
+          "at": 0.05
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              -4.4,
+              -73.2
+            ],
+            [
+              -3.7,
+              -70.0
+            ],
+            [
+              -3.3,
+              -64.7
+            ],
+            [
+              -3.1,
+              -60.0
+            ],
+            [
+              -2.6,
+              -56.7
+            ],
+            [
+              -2.0,
+              -54.0
+            ],
+            [
+              -1.5,
+              -52.5
+            ],
+            [
+              0.0,
+              -50.0
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 12,
+          "at": "flows",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 2.4,
+          "hold": 1
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "single",
+              "value": "0"
+            }
+          ],
+          "size": 220,
+          "color": "#ff5a5f"
+        }
+      ],
+      "camera": {
+        "lat": -3,
+        "lon": -61,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "More than 6,400 km and no bridge connects its banks.",
+          "url": "https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/",
+          "quote": "along its more than 6,400 kilometers, no bridge connects its banks. Not a single one."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Why? First, the river changes size. From December to May, heavy rains make it swell.",
+      "show": [
+        {
+          "type": "tilt",
+          "deg": 38,
+          "at": "swell",
+          "until": 4
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": -3.2,
+              "lon": -61,
+              "km": 180
+            }
+          },
+          "fill": "#1d4ed8",
+          "at": "swell",
+          "soft": true,
+          "rim": "#5ec8ff",
+          "fillOpacity": 0.35
+        }
+      ],
+      "camera": {
+        "lat": -3.1,
+        "lon": -60.5,
+        "zoom": 7
+      },
+      "sources": [
+        {
+          "claim": "Rains swell the basin between December and May.",
+          "url": "https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/",
+          "quote": "When torrential rains swell the basin between December and May"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Its waters can rise 30 feet, and in some places it spreads 10, 15, even 20 kilometers from shore to shore.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "30",
+              "value": "+30 ft"
+            }
+          ],
+          "size": 170,
+          "color": "#5ec8ff"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "10",
+              "value": "10 km"
+            },
+            {
+              "at": "15",
+              "value": "15 km"
+            },
+            {
+              "at": "20",
+              "value": "20 km"
+            }
+          ],
+          "size": 110,
+          "screen": [
+            0.5,
+            0.23
+          ]
+        }
+      ],
+      "camera": {
+        "lat": -3.1,
+        "lon": -60.5,
+        "zoom": 9
+      },
+      "sources": [
+        {
+          "claim": "Waters rise 30 feet in the rainy season.",
+          "url": "https://interestingfacts.com/fact/there-are-no-bridges-across-the-amazon-river/",
+          "quote": "its waters rise 30 feet, causing 3-mile-wide crossings to grow by a factor of 10"
+        },
+        {
+          "claim": "The water spreads 10, 15 or 20 km between shores.",
+          "url": "https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/",
+          "quote": "the water spreads without obstacles to exceed 10, 15, or, in some stretches, 20 kilometers between the extreme shores"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The riverbanks are soft mud, always eroding. In the 1990s, studies found a bridge's piles would need to go more than 100 meters deep.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Piles needed",
+              "value": 100,
+              "display": "100+ m",
+              "color": "#f97316"
+            },
+            {
+              "label": "Statue of Liberty",
+              "value": 93,
+              "display": "93 m",
+              "color": "#4ade80"
+            }
+          ],
+          "orient": "v",
+          "at": "deep",
+          "height": 360,
+          "screen": [
+            0.5,
+            0.33
+          ]
+        },
+        {
+          "type": "year",
+          "value": "1990",
+          "at": "1990s"
+        }
+      ],
+      "style": "dark",
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The banks are soft, eroding sediment.",
+          "url": "https://interestingfacts.com/fact/there-are-no-bridges-across-the-amazon-river/",
+          "quote": "The river bank itself is also in a near-constant state of erosion due to how soft the sediment it consists of is"
+        },
+        {
+          "claim": "Piles would need to go more than 100 m deep.",
+          "url": "https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/",
+          "quote": "estimated that to reach competent ground the piles would have to descend more than 100 meters"
+        },
+        {
+          "claim": "The Statue of Liberty is 93 m tall including its pedestal.",
+          "url": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+          "quote": "93 m"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And there are very few roads on either side that would need a bridge anyway.",
+      "show": [
+        {
+          "type": "character",
+          "image": "jungle_explorer",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "roads",
+          "say": "Where is the road?"
+        }
+      ],
+      "camera": {
+        "lat": -3.1,
+        "lon": -60.5,
+        "zoom": 6
+      },
+      "sources": [
+        {
+          "claim": "There are few roads on either side that need connecting.",
+          "url": "https://interestingfacts.com/fact/there-are-no-bridges-across-the-amazon-river/",
+          "quote": "there are few roads on either side of the Amazon that need to be connected"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So people cross by boat. A ferry does the job, for a tiny fraction of the cost of a bridge.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              -3.14,
+              -60.1
+            ],
+            [
+              -3.2,
+              -59.95
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "boat",
+          "id": "ferry",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#ffd60a"
+          },
+          "drawDur": 2.0
+        },
+        {
+          "type": "icon",
+          "icon": "⛴️",
+          "lat": -3.2,
+          "lon": -60.0,
+          "size": 100,
+          "at": "ferry"
+        }
+      ],
+      "camera": {
+        "lat": -3.15,
+        "lon": -60.0,
+        "zoom": 60,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Boats and ferries are the preferred way to cross.",
+          "url": "https://interestingfacts.com/fact/there-are-no-bridges-across-the-amazon-river/",
+          "quote": "boats and ferries are the preferred method of crossing the Amazon"
+        },
+        {
+          "claim": "A ferry does it at negligible cost compared with a major civil work.",
+          "url": "https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/",
+          "quote": "at negligible cost compared to any major civil work"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The only big bridge nearby crosses the Rio Negro at Manaus. It opened in 2011, and it's 3,595 meters long.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": -3.11,
+          "lon": -60.08,
+          "color": "#ffd60a",
+          "at": "Manaus"
+        },
+        {
+          "type": "label",
+          "text": "Rio Negro Bridge",
+          "lat": -3.11,
+          "lon": -60.08,
+          "at": "Negro",
+          "dot": true,
+          "dy": -56,
+          "size": 44
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "3,595",
+              "value": "3,595 m"
+            }
+          ],
+          "size": 160
+        }
+      ],
+      "camera": {
+        "lat": -3.1,
+        "lon": -60.08,
+        "zoom": 120
+      },
+      "sources": [
+        {
+          "claim": "The bridge over the Negro River opened in 2011 and spans 3,595 m.",
+          "url": "https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/",
+          "quote": "to span 3,595 meters"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "theme": "classic",
+      "keywords": {
+        "amazon": "#5ec8ff",
+        "bridge": "#ffd60a",
+        "bridges": "#ffd60a",
+        "ferry": "#ffd60a"
+      }
+    }
+  }
+}

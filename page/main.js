@@ -1340,7 +1340,7 @@ function buildUi() {
             })
             .join('')}</div>`;
         } else {
-          const tw = el.trackWidth || 520;
+          const tw = el.trackWidth || 600;
           html = `<div class="inner bars" style="--lw:${el.labelWidth || 250}px">${el.items
             .map((it) => `<div class="row"><div class="lab">${it.flag ? `<img src="${flagUrl(it.flag)}">` : ''}${esc(it.label)}</div><div class="track" style="width:${tw}px"><div class="bar" data-w="${(it.value / max) * (tw - 150)}" style="background:${it.color || '#ffd60a'};width:0"></div><div class="val" data-v="${esc(it.display ?? it.value)}"></div></div></div>`)
             .join('')}</div>`;
@@ -1734,7 +1734,7 @@ function updateUi(t) {
 // Push overlapping on-screen texts apart. Screen-placed items (counters, stats, stamps,
 // characters) and the caption band are fixed obstacles; map labels/flags/icons move.
 // Displacement is recomputed from the anchors every frame, so it follows the camera smoothly.
-const MOVABLE = new Set(['label', 'flag', 'icon', 'badge', 'question', 'measure', 'year']);
+const MOVABLE = new Set(['label', 'flag', 'icon', 'badge', 'question', 'measure', 'year', 'stamp']);
 function resolveOverlaps(items) {
   const C = state.tl.config.captions;
   const boxes = items
@@ -1743,7 +1743,7 @@ function resolveOverlaps(items) {
       // axis-aligned box of the (possibly rotated) element
       const k = Math.max(p.scale, 0.6), r = ((p.rot || 0) * Math.PI) / 180;
       const c = Math.abs(Math.cos(r)), sn = Math.abs(Math.sin(r));
-      return { p, movable: MOVABLE.has(p.el.type) && (!p.el.screen || p.el.type === 'label' || p.el.type === 'year') && !p.el.fixed, w: (p.w * c + p.h * sn) * k, h: (p.w * sn + p.h * c) * k };
+      return { p, movable: MOVABLE.has(p.el.type) && (!p.el.screen || ['label', 'year', 'stamp'].includes(p.el.type)) && !p.el.fixed, w: (p.w * c + p.h * sn) * k, h: (p.w * sn + p.h * c) * k };
     });
   const cap = { p: { x: W / 2, y: H * C.y + C.size * 0.6 }, movable: false, w: W * 0.8, h: C.size * 1.5 };
   boxes.push(cap);
