@@ -1044,11 +1044,17 @@ function drawMarks(t) {
   }
 }
 
+// points behind the globe are dropped; the next visible point starts a new run (q.brk) instead of a chord
 function screenPolyline(pts) {
   const out = [];
+  let gap = false;
   for (const p of pts) {
     const q = project({ lon: p[0], lat: p[1] });
-    if (q) out.push(q);
+    if (!q) { gap = true; continue; }
+    const r = [q[0], q[1]];
+    if (gap && out.length) r.brk = true;
+    out.push(r);
+    gap = false;
   }
   return out;
 }
@@ -1080,7 +1086,7 @@ function partial(poly, u) {
 
 function strokePoly(ctx, pts) {
   ctx.beginPath();
-  pts.forEach((p, i) => (i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])));
+  pts.forEach((p, i) => (i && !p.brk ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])));
   ctx.stroke();
 }
 

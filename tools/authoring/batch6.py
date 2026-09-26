@@ -232,7 +232,8 @@ save('oklahoma_panhandle', meta(
 
 # ------------------------------------------------------------------ 15. LONGEST SAIL (globe neon)
 SMS = 'https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/'
-SAIL = [(25.3, 66.6), (10, 60), (-12, 43.5), (-35, 30), (-55, -40), (-58, -66), (-45, -110), (-20, -150), (10, -175), (40, 170), (60, 164)]
+# the great circle through the Pakistan coast and Kamchatka, taken the long way round (~32,040 km)
+SAIL = [(25.3, 66.6), (4.39, 54.3), (-16.71, 42.7), (-37.01, 28.16), (-54.29, 3.84), (-61.83, -40.34), (-52.99, -82.84), (-35.25, -105.83), (-14.83, -119.91), (6.29, -131.43), (27.14, -143.97), (46.36, -162.19), (60.0, 164.0)]
 save('longest_sail', meta(
     'The Longest Straight Line You Can Sail on Earth 🌊⛵🤯',
     "What's the longest straight line you could sail without hitting land? ⛵ Scientists Rohan Chabukswar and Kushal Mukherjee confirmed it in 2018: start on the coast of Pakistan 🇵🇰, slip between Africa and Madagascar, pass between South America and Antarctica, cross the whole Pacific and land in Kamchatka, Russia 🇷🇺 That's about 32,090 km (19,940 miles) in one straight line 🤯",
@@ -240,15 +241,15 @@ save('longest_sail', meta(
     ['longest straight line', 'sailing', 'ocean', 'pakistan', 'kamchatka', 'russia', 'madagascar', 'antarctica', 'great circle', 'geography', 'maps', 'learn']),
     [
         S("What's the longest straight line you could sail on Earth, without ever touching land?", [
-            hook('THE LONGEST *STRAIGHT LINE* AT SEA', at=0.05, until='Earth', size=100), q(-10, 70, 'land')],
-          cam=at_(-10, 70, 1.0), no_claim=True),
+            hook('THE LONGEST *STRAIGHT LINE* AT SEA', at=0.05, until='Earth', size=100), route(SAIL[:5], 'sail', color='#2de2e6', width=6, dashed=True, dash=[14, 12], drawDur=1.6), q(-10, 70, 'land')],
+          cam=at_(-15, 60, 1.3), no_claim=True),
         S("In 2018, two scientists calculated the answer with a computer.", [
             year(2018, '2018', light=True), icon('💻', -10, 70, 'computer', size=130), char('scientist', 'scientists')],
-          cam=at_(-10, 70, 1.0),
+          cam=at_(-10, 70, 1.3),
           src=[src('Verified by Rohan Chabukswar and Kushal Mukherjee (published 2018).', SMS, 'Rohan Chabukswar, a physicist at United Technologies Research Center Ireland, and Kushal Mukherjee, an engineer at IBM Research India')]),
         S("It was first found by a Reddit user years earlier. The computer confirmed it in just 10 minutes.", [
             clock([('first', '12:00'), ('minutes', '12:10')], screen=(0.5, 0.3), size=200, label='10 min'), icon('💬', -5, 60, 'Reddit', size=110)],
-          cam=at_(-10, 70, 1.0),
+          cam=at_(-10, 70, 1.3),
           src=[src('First mapped by a Reddit user; verified in 10 minutes.', SMS, 'first mapped five years ago by Reddit user Patrick Anderson'),
                src('The computation took 10 minutes.', SMS, 'in just 10 minutes')]),
         S("It starts on the coast of Pakistan, and heads south, straight between Africa and Madagascar.", [
@@ -257,7 +258,7 @@ save('longest_sail', meta(
           cam={'follow': 'sail', 'zoom': 1.6, 'zoomTo': 1.2},
           src=[src('It runs from Pakistan through the passage between Madagascar and Africa.', SMS, 'runs from the Pakistan coast through the passage between Madagascar and Africa')]),
         S("Then it slips between South America and Antarctica.", [
-            ship(SAIL[3:7], 'slips', 'sail2', emblem='#2de2e6', drawDur=2.6), hl('ARG', '#5ec8ff', 'America', fillOpacity=0.6)],
+            ship(SAIL[3:7], 'slips', 'sail2', emblem='#2de2e6', drawDur=2.6), hl('ARG', '#5ec8ff', 'America', fillOpacity=0.6), hl('CHL', '#5ec8ff', 'America', fillOpacity=0.6), hl('ATA', '#e5e7eb', 'Antarctica', fillOpacity=0.5)],
           cam={'follow': 'sail2', 'zoom': 1.3, 'zoomTo': 1.1},
           src=[src('The route passes between Antarctica and Tierra del Fuego.', SMS, 'around to northeastern Russia')]),
         S("It crosses the whole Pacific Ocean, and finally reaches Kamchatka, in the far east of Russia.", [
@@ -266,10 +267,10 @@ save('longest_sail', meta(
           src=[src('It ends in northeastern Russia.', SMS, 'around to northeastern Russia')]),
         S("The whole trip is about 32,000 kilometers. One single straight line.", [
             flow(SAIL, 'trip', color='#2de2e6', width=10, drawDur=2.0), cnt('32,090 km', '32,000', size=160)],
-          cam=at_(-20, 100, 0.9),
+          cam=at_(-25, 20, 1.05),
           src=[src('The path is 19,940 miles (about 32,090 km) long.', SMS, 'This 19,940-mile trip runs from the Pakistan coast through the passage between Madagascar and Africa and around to northeastern Russia.')]),
-        S("It looks curved on a map, but on a globe, it's perfectly straight.", [stamp('STRAIGHT!', 'straight', size=100)],
-          cam=at_(-40, 30, 1.0, bearing=5),
+        S("It looks curved on a map, but on a globe, it's perfectly straight.", [flow(SAIL, 'looks', color='#2de2e6', width=10, drawDur=1.4), stamp('STRAIGHT!', 'straight', size=100)],
+          cam=at_(-30, -60, 1.05, bearing=5),
           src=[src('It is the longest straight-line sailable path on Earth.', SMS, 'the longest straight-line sailable path on Earth')]),
     ],
     keywords={'pakistan': '#4ade80', 'russia': '#ff5a5f', 'straight': '#2de2e6', 'madagascar': '#ffd60a'},
