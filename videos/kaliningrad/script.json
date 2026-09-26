@@ -1,0 +1,253 @@
+{
+  "id": "kaliningrad",
+  "style": "geo",
+  "meta": {
+    "title": "Why Russia Owns a Piece of the EU 🇷🇺🤯 Kaliningrad Explained 🇪🇺",
+    "description": "Russia is the biggest country on Earth 🇷🇺 But one piece of it isn't connected to the rest at all. Kaliningrad sits on the Baltic Sea, squeezed between Poland 🇵🇱 and Lithuania 🇱🇹, completely surrounded by NATO and the European Union 🇪🇺 How did that happen? For centuries it was Königsberg, founded in 1255 by the Teutonic Knights and later the city where the first King in Prussia was crowned 👑 After World War II, the Soviet Union took the northern half of East Prussia and Poland got the south. In 1946 the city was renamed Kaliningrad. As long as Lithuania was part of the USSR, nobody cared about the border. But when Lithuania broke away and the Soviet Union collapsed, Kaliningrad was suddenly cut off 🤯 Today about one million people live there, just 65 km from Belarus across the Suwałki Gap, and its port of Baltiysk is Russia's only Baltic port that stays ice-free in winter ⚓",
+    "pinnedComment": [
+      "A piece of Russia inside the EU 🇷🇺🇪🇺🤯",
+      "Would you have guessed Kaliningrad used to be German Königsberg? 👑",
+      "Which weird border should we explain next? 👇🗺️"
+    ],
+    "tags": ["kaliningrad", "russia", "konigsberg", "eu", "nato", "poland", "lithuania", "baltic sea", "east prussia", "suwalki gap", "belarus", "weird borders", "exclave", "history", "geography", "maps", "learn"]
+  },
+  "imagery": [{ "bbox": [17.8, 53.3, 24.6, 56.3], "width": 4096 }],
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is Russia, the biggest country on Earth.",
+      "camera": { "fit": ["RUS"], "pad": 0.95 },
+      "show": [
+        { "type": "highlight", "target": "RUS", "fill": "flag:ru", "at": "Russia" },
+        { "type": "label", "text": "Russia", "lat": 62, "lon": 97, "size": 64, "at": "Russia" }
+      ],
+      "sources": [
+        { "claim": "Russia is the largest country in the world by area.", "url": "https://en.wikipedia.org/wiki/Russia", "quote": "It is the largest country in the world by area" }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But look closer, all the way over here, on the Baltic Sea.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "zoomMul": 0.3 },
+      "show": [
+        { "type": "highlight", "target": "RUS", "fill": "flag:ru" },
+        { "type": "label", "text": "Baltic Sea", "lat": 56.3, "lon": 18.6, "size": 46, "at": "Baltic" }
+      ],
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Squeezed between Poland and Lithuania, there's another piece of Russia.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "zoomMul": 0.42 },
+      "show": [
+        { "type": "highlight", "target": "POL", "fill": "flag:pl", "at": "Poland", "hold": 1 },
+        { "type": "label", "text": "Poland", "lat": 53.2, "lon": 19.6, "size": 48, "at": "Poland", "hold": 1 },
+        { "type": "highlight", "target": "LTU", "fill": "flag:lt", "at": "Lithuania", "hold": 1 },
+        { "type": "label", "text": "Lithuania", "lat": 55.35, "lon": 24.2, "size": 48, "at": "Lithuania", "hold": 1 },
+        { "type": "highlight", "target": { "admin1": "Kaliningrad", "country": "RUS" }, "fill": "flag:ru", "at": "another", "hold": 3 }
+      ],
+      "sources": [
+        { "claim": "Kaliningrad Oblast lies on the Baltic Sea, bordered by Poland and Lithuania.", "url": "https://en.wikipedia.org/wiki/Kaliningrad_Oblast", "quote": "It is a semi-exclave on the Baltic Sea within the historical Baltic region of Prussia, bordered by Poland to the south, Lithuania to the north and east, and the Baltic Sea to the west." }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's called Kaliningrad, and it doesn't touch the rest of Russia at all.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "pad": 0.8 },
+      "show": [
+        { "type": "label", "text": "Kaliningrad", "lat": 54.71, "lon": 20.51, "dy": -70, "size": 56, "at": "Kaliningrad", "dot": false },
+        { "type": "ring", "lat": 54.71, "lon": 20.51, "r": 60, "at": "Kaliningrad" }
+      ],
+      "sources": [
+        { "claim": "Kaliningrad Oblast is a semi-exclave with no land connection to the rest of Russia.", "url": "https://en.wikipedia.org/wiki/Kaliningrad_Oblast", "quote": "It is a semi-exclave on the Baltic Sea ... bordered by Poland to the south, Lithuania to the north and east, and the Baltic Sea to the west." }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Instead, it's surrounded by NATO and the European Union.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "zoomMul": 0.38 },
+      "show": [
+        { "type": "highlight", "target": { "countries": ["POL", "LTU", "LVA", "EST", "DEU", "DNK", "SWE", "FIN"] }, "fill": "#2350b8", "fillOpacity": 0.78, "at": "NATO" },
+        { "type": "flag", "code": "eu", "lat": 52.9, "lon": 21.2, "size": 150, "at": "European" },
+        { "type": "label", "text": "NATO + EU", "lat": 55.9, "lon": 24.4, "size": 50, "at": "NATO" }
+      ],
+      "sources": [
+        { "claim": "Poland and Lithuania, which border Kaliningrad, are both EU and NATO members.", "url": "https://en.wikipedia.org/wiki/2004_enlargement_of_the_European_Union", "quote": "The largest enlargement of the European Union ... took place on 1 May 2004." },
+        { "claim": "Lithuania joined NATO in 2004; Poland in 1999.", "url": "https://en.wikipedia.org/wiki/Enlargement_of_NATO", "quote": "Hungary, Poland, and the Czech Republic officially joined NATO in March 1999." }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So how did Russia end up with a piece of land in the middle of Europe?",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "zoomMul": 0.6 },
+      "show": [
+        { "type": "question", "lat": 54.8, "lon": 21.3, "dy": -40, "at": "how" }
+      ],
+      "noClaim": true
+    },
+    {
+      "era": "history",
+      "transition": "film",
+      "text": "Back in 1255, this place wasn't Russian at all.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "zoomMul": 0.5 },
+      "show": [
+        { "type": "year", "value": "1255", "at": "1255", "hold": 1 }
+      ],
+      "sources": [
+        { "claim": "Königsberg was founded in 1255.", "url": "https://en.wikipedia.org/wiki/Kaliningrad", "quote": "During the conquest of the Sambians by the Teutonic Knights in 1255, Twangste was destroyed and replaced by a fortress named Königsberg" }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "German crusader knights, the Teutonic Order, built a castle here and named it Königsberg.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "zoomMul": 0.7 },
+      "show": [
+        { "type": "icon", "icon": "⚔️", "lat": 54.2, "lon": 18.9, "size": 120, "at": "knights" },
+        { "type": "icon", "icon": "🏰", "lat": 54.71, "lon": 20.51, "size": 140, "at": "castle" },
+        { "type": "label", "text": "Königsberg", "style": "serif", "lat": 54.71, "lon": 20.51, "dy": 105, "size": 66, "at": "Königsberg", "hold": 2 }
+      ],
+      "sources": [
+        { "claim": "The Teutonic Knights built a fortress named Königsberg.", "url": "https://en.wikipedia.org/wiki/Kaliningrad", "quote": "During the conquest of the Sambians by the Teutonic Knights in 1255, Twangste was destroyed and replaced by a fortress named Königsberg" },
+        { "claim": "The Teutonic Order was a German Catholic military (crusader) order.", "url": "https://en.wikipedia.org/wiki/Teutonic_Order" }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "It grew into a proud Prussian city, and in 1701, the first King in Prussia was crowned right here.",
+      "show": [
+        { "type": "year", "value": "1701", "at": "1701" },
+        { "type": "icon", "icon": "👑", "lat": 54.71, "lon": 20.51, "size": 150, "at": "King" }
+      ],
+      "sources": [
+        { "claim": "Königsberg was the capital of the Duchy of Prussia; Frederick I was crowned King in Prussia in Königsberg in 1701.", "url": "https://en.wikipedia.org/wiki/Kaliningrad", "quote": "Königsberg became the capital of the Duchy of Prussia ... Frederick I of Prussia ... crowned King in Prussia in Königsberg, 1701" }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Then came World War Two. In April 1945, the Soviet army captured the city.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }, { "admin1": "Warmian-Masurian", "country": "POL" }], "zoomMul": 0.85 },
+      "show": [
+        { "type": "highlight", "target": [{ "admin1": "Kaliningrad", "country": "RUS" }, { "admin1": "Warmian-Masurian", "country": "POL" }, { "admin1": "Klaipedos", "country": "LTU" }], "fill": "#9a8c72", "fillOpacity": 0.85, "at": "Two" },
+        { "type": "label", "text": "East Prussia", "style": "serif", "lat": 53.9, "lon": 21.2, "size": 58, "at": "Two" },
+        { "type": "year", "value": "1945", "at": "1945" },
+        { "type": "arrow", "from": [54.45, 25.3], "to": [54.72, 20.9], "color": "#c8102e", "at": "Soviet", "curve": 0.18 }
+      ],
+      "sources": [
+        { "claim": "Soviet forces captured Königsberg on 9 April 1945.", "url": "https://en.wikipedia.org/wiki/Kaliningrad", "quote": "it was then captured by the Soviet Union on 9 April 1945" },
+        { "claim": "Map note: 'East Prussia' is drawn approximately as today's Kaliningrad Oblast + Warmian-Masurian Voivodeship + Klaipėda County (modern admin borders, not exact historical ones).", "url": "https://en.wikipedia.org/wiki/East_Prussia" }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "After the war, the winners split East Prussia. The north went to the Soviet Union, and the south to Poland.",
+      "show": [
+        { "type": "highlight", "target": [{ "admin1": "Kaliningrad", "country": "RUS" }, { "admin1": "Klaipedos", "country": "LTU" }], "fill": "#c8102e", "fillOpacity": 0.88, "at": "north" },
+        { "type": "label", "text": "Soviet Union", "style": "serif", "lat": 55.05, "lon": 21.4, "size": 54, "at": "north" },
+        { "type": "highlight", "target": { "admin1": "Warmian-Masurian", "country": "POL" }, "fill": "flag:pl", "at": "south" },
+        { "type": "label", "text": "Poland", "style": "serif", "lat": 53.75, "lon": 20.9, "size": 54, "at": "south" }
+      ],
+      "sources": [
+        { "claim": "Potsdam Conference agreed to transfer Königsberg and the adjacent area to the USSR.", "url": "https://en.wikipedia.org/wiki/Kaliningrad", "quote": "The Conference has agreed in principle to the proposal of the Soviet Government concerning the ultimate transfer to the Soviet Union of the city of Koenigsberg and the area adjacent to it" },
+        { "claim": "Northern East Prussia went to the Soviet republics (Russia, Lithuania); the south was placed under Polish administration.", "url": "https://en.wikipedia.org/wiki/East_Prussia", "quote": "Northern East Prussia was divided between the Soviet republics of Russia (the Kaliningrad Oblast) and Lithuania ... Southern East Prussia was placed under Polish administration." }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1946, the city was renamed Kaliningrad, after Soviet head of state Mikhail Kalinin, and its German residents were expelled.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "pad": 0.85 },
+      "show": [
+        { "type": "year", "value": "1946", "at": "1946" },
+        { "type": "highlight", "target": { "admin1": "Kaliningrad", "country": "RUS" }, "fill": "#c8102e", "fillOpacity": 0.88 },
+        { "type": "label", "text": "Kaliningrad", "style": "serif", "lat": 54.71, "lon": 20.51, "dy": 105, "size": 66, "at": "renamed" }
+      ],
+      "sources": [
+        { "claim": "Königsberg was renamed Kaliningrad in July 1946 after Mikhail Kalinin.", "url": "https://en.wikipedia.org/wiki/Kaliningrad", "quote": "Königsberg was renamed Kaliningrad in July 1946 in honour of Mikhail Kalinin, the Chairman of the Presidium of the Supreme Soviet, who had recently died" },
+        { "claim": "Kalinin was the (largely ceremonial) head of state of the Soviet Union.", "url": "https://en.wikipedia.org/wiki/Mikhail_Kalinin", "quote": "the head of state of the Soviet Union from 1919 until his resignation in 1946" },
+        { "claim": "The remaining German population was expelled (1947-1948).", "url": "https://en.wikipedia.org/wiki/Kaliningrad", "quote": "The remaining German population was forcibly expelled between 1947 and 1948" }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Back then, the border didn't matter, because Lithuania was part of the Soviet Union too.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "zoomMul": 0.2 },
+      "show": [
+        { "type": "highlight", "target": { "countries": ["RUS", "BLR", "UKR", "LTU", "LVA", "EST", "MDA", "GEO", "ARM", "AZE", "KAZ", "UZB", "TKM", "KGZ", "TJK"] }, "fill": "#c8102e", "fillOpacity": 0.82, "at": "border" },
+        { "type": "label", "text": "Soviet Union", "style": "serif", "lat": 56.2, "lon": 31.5, "size": 64, "at": "border" },
+        { "type": "label", "text": "Lithuania", "style": "serif", "lat": 55.3, "lon": 24.0, "size": 44, "at": "Lithuania" }
+      ],
+      "sources": [
+        { "claim": "Lithuania was a Soviet republic until 1990/1991, so Kaliningrad had no international border with it.", "url": "https://en.wikipedia.org/wiki/Kaliningrad_Oblast", "quote": "The independence of Lithuania in 1990 and full dissolution of the Soviet Union in 1991 isolated Kaliningrad from the rest of Russia" }
+      ]
+    },
+    {
+      "era": "now",
+      "transition": "flash",
+      "text": "But Lithuania declared independence in 1990, the Soviet Union collapsed in 1991, and Kaliningrad was suddenly cut off.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "zoomMul": 0.3 },
+      "show": [
+        { "type": "highlight", "target": "LTU", "fill": "flag:lt", "at": "Lithuania", "hold": 1 },
+        { "type": "year", "value": "1991", "light": true, "at": "1991" },
+        { "type": "highlight", "target": "BLR", "fill": "flag:by", "at": "Soviet" },
+        { "type": "highlight", "target": { "admin1": "Kaliningrad", "country": "RUS" }, "fill": "flag:ru", "at": "Kaliningrad", "hold": "end" },
+        { "type": "highlight", "target": { "country": "RUS" }, "fill": "flag:ru", "at": "Soviet" }
+      ],
+      "sources": [
+        { "claim": "Lithuania declared independence on 11 March 1990; the USSR recognised it on 6 September 1991.", "url": "https://en.wikipedia.org/wiki/Act_of_the_Re-Establishment_of_the_State_of_Lithuania", "quote": "11 March 1990 ... on 6 September 1991" },
+        { "claim": "Lithuanian independence and the 1991 Soviet dissolution isolated Kaliningrad from the rest of Russia.", "url": "https://en.wikipedia.org/wiki/Kaliningrad_Oblast", "quote": "The independence of Lithuania in 1990 and full dissolution of the Soviet Union in 1991 isolated Kaliningrad from the rest of Russia." }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Poland joined NATO in 1999, and by 2004, both neighbors were in NATO and the European Union.",
+      "show": [
+        { "type": "highlight", "target": { "countries": ["POL", "LTU"] }, "fill": "#2350b8", "fillOpacity": 0.8, "at": "1999" },
+        { "type": "flag", "code": "eu", "lat": 53.0, "lon": 21.3, "size": 150, "at": "European" },
+        { "type": "year", "value": "2004", "light": true, "at": "2004" }
+      ],
+      "sources": [
+        { "claim": "Poland joined NATO in March 1999; Lithuania on 29 March 2004.", "url": "https://en.wikipedia.org/wiki/Enlargement_of_NATO", "quote": "Hungary, Poland, and the Czech Republic officially joined NATO in March 1999." },
+        { "claim": "Poland and Lithuania joined the EU on 1 May 2004.", "url": "https://en.wikipedia.org/wiki/2004_enlargement_of_the_European_Union", "quote": "The largest enlargement of the European Union ... took place on 1 May 2004." }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, about one million people live in this little piece of Russia.",
+      "camera": { "fit": [{ "admin1": "Kaliningrad", "country": "RUS" }], "pad": 0.8 },
+      "show": [
+        { "type": "stat", "value": "1,000,000", "caption": "people", "size": 120, "at": "million" }
+      ],
+      "sources": [
+        { "claim": "Kaliningrad Oblast had a population of roughly one million in the 2021 census.", "url": "https://en.wikipedia.org/wiki/Kaliningrad_Oblast", "quote": "Kaliningrad Oblast had a population of roughly one million in the 2021 Russian census." }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And only a 65 kilometer strip of Poland, the Suwalki Gap, separates it from Russia's ally, Belarus.",
+      "camera": { "lat": 54.1, "lon": 23.2, "zoom": 9 },
+      "show": [
+        { "type": "highlight", "target": "BLR", "fill": "flag:by", "at": "Belarus" },
+        { "type": "line", "from": [54.36, 22.79], "to": [53.95, 23.51], "color": "#ffd60a", "label": "65 km", "labelDx": 90, "labelDy": 0, "at": "65" },
+        { "type": "label", "text": "Suwałki Gap", "lat": 53.75, "lon": 22.4, "size": 50, "at": "Gap" },
+        { "type": "label", "text": "Belarus", "lat": 53.55, "lon": 25.0, "size": 50, "at": "Belarus" }
+      ],
+      "sources": [
+        { "claim": "About 65 km of Polish territory (the Suwałki Gap) separates Kaliningrad Oblast from Belarus.", "url": "https://en.wikipedia.org/wiki/Suwa%C5%82ki_Gap", "quote": "only 65 km (40 mi) of Polish territory separates two areas of the rival Collective Security Treaty Organisation (CSTO) and the Union State" },
+        { "claim": "Belarus is a Russian ally (Union State, CSTO).", "url": "https://en.wikipedia.org/wiki/Suwa%C5%82ki_Gap" }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And why does Russia care so much? Its port of Baltiysk is Russia's only Baltic Sea port that stays ice-free all winter.",
+      "camera": { "lat": 54.75, "lon": 20.25, "zoom": 30 },
+      "show": [
+        { "type": "label", "text": "Baltiysk", "lat": 54.65, "lon": 19.91, "dy": -80, "size": 52, "at": "Baltiysk" },
+        { "type": "ring", "lat": 54.65, "lon": 19.91, "r": 55, "at": "Baltiysk" },
+        { "type": "icon", "icon": "⚓", "lat": 54.9, "lon": 19.3, "size": 110, "at": "port" },
+        { "type": "icon", "icon": "🧊", "lat": 55.35, "lon": 20.0, "size": 110, "at": "ice-free" }
+      ],
+      "sources": [
+        { "claim": "Baltiysk is Russia's only Baltic Sea port that remains ice-free in winter.", "url": "https://en.wikipedia.org/wiki/Kaliningrad_Oblast", "quote": "The port town of Baltiysk is Russia's only port on the Baltic Sea that remains ice-free in winter." }
+      ]
+    }
+  ]
+}

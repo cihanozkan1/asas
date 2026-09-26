@@ -1,0 +1,39 @@
+{
+  "video": { "width": 1080, "height": 1920, "fps": 30, "crf": 17, "tail": 0.8, "targetSeconds": [55, 95] },
+  "voice": {
+    "provider": "edge",
+    "name": "en-US-AndrewNeural",
+    "rate": "+12%",
+    "pitch": "+0Hz",
+    "leadIn": 0.12,
+    "sceneGap": 0.14,
+    "estWordsPerMin": 175
+  },
+  "audio": { "music": null, "musicVolume": 0.12, "loudness": -14 },
+  "safe": { "top": 0.08, "bottom": 0.17, "left": 0.04, "right": 0.13 },
+  "layout": { "mapCenterY": 0.40, "globeRadius": 0.42, "fitWidth": 0.78, "fitHeight": 0.44 },
+  "camera": { "duration": 1.3, "introDuration": 2.0, "lead": 0.15, "drift": 0.025 },
+  "captions": {
+    "y": 0.695,
+    "size": 50,
+    "weight": 700,
+    "maxWords": 4,
+    "maxChars": 22,
+    "uppercase": false,
+    "shadow": "0 2px 6px rgba(0,0,0,.95), 0 0 16px rgba(0,0,0,.6)",
+    "stroke": "0px transparent"
+  },
+  "satellite": { "borderAlpha": 0.32 },
+  "vintage": {
+    "sea": "#8fb1ac",
+    "land": "#dbc9a0",
+    "coast": "rgba(92,70,40,0.75)",
+    "coastGlow": "#6f9690",
+    "border": "rgba(110,80,45,0.55)",
+    "paper": 0.9
+  },
+  "presets": {
+    "globe": { "projection": "globe", "styles": { "now": "satellite", "history": "satellite" } },
+    "geo": { "projection": "flat", "styles": { "now": "satellite", "history": "vintage" } }
+  }
+}
