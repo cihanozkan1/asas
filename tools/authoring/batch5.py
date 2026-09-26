@@ -270,16 +270,16 @@ save('time_zones', meta(
           cam=at_(35, 100, 1.8),
           src=[src('China uses a single time zone, UTC+8.', 'Time_in_China', 'a single standard time offset of UTC+08:00')]),
         S("Since 1949, the whole country follows Beijing Time, even though it spans five geographical time zones.", [
-            year(1949, '1949'), *[hl(box(lo, 18, lo + 15, 54), c, 'five', fillOpacity=0.25) for lo, c in [(72.5, '#ff5a5f'), (87.5, '#ffd60a'), (102.5, '#4ade80'), (117.5, '#2de2e6'), (132.5, '#a78bfa')]],
+            hl('CHN', 'flag:cn', 'Since', fillOpacity=0.45), year(1949, '1949'), *[hl(box(lo, 18, lo + 15, 54), c, 'five', fillOpacity=0.25) for lo, c in [(72.5, '#ff5a5f'), (87.5, '#ffd60a'), (102.5, '#4ade80'), (117.5, '#2de2e6'), (132.5, '#a78bfa')]],
             cnt('5 → 1', 'five', size=160)],
           cam=at_(35, 100, 1.9),
           src=[src('It spans five geographical time zones; single time since 1949.', 'Time_in_China', 'the country spans five geographical time zones')]),
         S("So in far western Xinjiang, shops often open at ten o'clock, Beijing Time.", [
-            ping(43.8, 87.6, 'Xinjiang', color='#ffd60a'), dot('Ürümqi', 43.8, 87.6, 'Xinjiang', dy=-56), clock([('shops', '08:00'), ('ten', '10:00')], screen=(0.5, 0.3), size=200, label='Opening time')],
-          cam=at_(40, 88, 3.0),
+            hl('CHN', 'flag:cn', 'far', fillOpacity=0.35), ping(43.8, 87.6, 'Xinjiang', color='#ffd60a'), dot('Ürümqi', 43.8, 87.6, 'Xinjiang', dy=-56), clock([('shops', '08:00'), ('ten', '10:00')], screen=(0.5, 0.3), size=200, label='Opening time')],
+          cam=at_(47.5, 88, 3.0),
           src=[src('Stores and offices in Xinjiang commonly open 10:00–19:00 Beijing Time.', 'Time_in_China', 'stores and offices in Xinjiang are commonly open from 10:00 to 19:00 Beijing Time')]),
         S("Some countries don't even use whole hours. India and Nepal are offset by an extra 30 or 45 minutes.", [
-            hl('IND', 'flag:in', 'India', fillOpacity=0.8), hl('NPL', 'flag:np', 'Nepal', fillOpacity=0.9), lab('+5:30', 22, 79, 'India', style='pill', size=52), lab('+5:45', 29.8, 84, 'Nepal', style='pill', bg='#1d4ed8', size=52)],
+            clock([('whole', '12:00'), ('hours', '12:30')], screen=(0.5, 0.25), size=200, label='+30 min'), hl('IND', 'flag:in', 'India', fillOpacity=0.8), hl('NPL', 'flag:np', 'Nepal', fillOpacity=0.9), lab('+5:30', 22, 79, 'India', style='pill', size=52), lab('+5:45', 29.8, 84, 'Nepal', style='pill', bg='#1d4ed8', size=52)],
           cam=at_(24, 82, 3.0), tr='flash',
           src=[src('Some zones are offset by an additional 30 or 45 minutes, such as India and Nepal.', 'Time_zone', 'a few zones are offset by an additional 30 or 45 minutes, such as in India and Nepal')]),
         S("So which country has the most time zones? Not Russia, not the USA.", [q(55, 90, 'which'), hl('RUS', '#ff5a5f', 'Russia', fillOpacity=0.5), hl('USA', '#5ec8ff', 'USA', fillOpacity=0.5)],

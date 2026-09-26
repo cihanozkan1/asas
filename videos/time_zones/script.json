@@ -196,6 +196,13 @@
       "text": "Since 1949, the whole country follows Beijing Time, even though it spans five geographical time zones.",
       "show": [
         {
+          "type": "highlight",
+          "target": "CHN",
+          "fill": "flag:cn",
+          "at": "Since",
+          "fillOpacity": 0.45
+        },
+        {
           "type": "year",
           "value": "1949",
           "at": "1949"
@@ -299,6 +306,13 @@
       "text": "So in far western Xinjiang, shops often open at ten o'clock, Beijing Time.",
       "show": [
         {
+          "type": "highlight",
+          "target": "CHN",
+          "fill": "flag:cn",
+          "at": "far",
+          "fillOpacity": 0.35
+        },
+        {
           "type": "ping",
           "lat": 43.8,
           "lon": 87.6,
@@ -337,7 +351,7 @@
         }
       ],
       "camera": {
-        "lat": 40,
+        "lat": 47.5,
         "lon": 88,
         "zoom": 3.0
       },
@@ -353,6 +367,26 @@
       "era": "now",
       "text": "Some countries don't even use whole hours. India and Nepal are offset by an extra 30 or 45 minutes.",
       "show": [
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "whole",
+              "time": "12:00"
+            },
+            {
+              "at": "hours",
+              "time": "12:30"
+            }
+          ],
+          "at": "whole",
+          "screen": [
+            0.5,
+            0.25
+          ],
+          "size": 200,
+          "label": "+30 min"
+        },
         {
           "type": "highlight",
           "target": "IND",

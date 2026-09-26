@@ -229,6 +229,13 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     }
     el.end = Math.min(Math.max(el.end, end), narration.duration);
   }
+  // Pulled-forward cards can land on top of an earlier one: the earlier card yields.
+  const TOP = new Set(['counter', 'stat', 'year', 'stamp']);
+  const tops = elements.filter((e) => TOP.has(e.type) && (!e.screen || Math.abs(e.screen[0] - 0.5) < 0.15)).sort((a, b) => a.start - b.start);
+  for (let i = 0; i < tops.length - 1; i++) {
+    const a = tops[i], b = tops[i + 1];
+    if (a.end > b.start - 0.1) a.end = Math.max(a.start + 0.8, b.start - 0.1);
+  }
 
   // A hook title card shares the top of the screen with counters/years: end it when the first one appears.
   for (const h of elements.filter((e) => e.type === 'title' && e.hook)) {

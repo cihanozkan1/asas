@@ -294,3 +294,6 @@ html, body {
 .timeline .ev .y { font-size: 72px; }
 .timeline .ev .dot { width: 38px; height: 38px; }
 .timeline .ev .t { font-size: 40px; padding: 2px 14px; border-radius: 12px; background: rgba(0,0,0,.6); }
+/* bar labels size to the widest label so names never run under the bars */
+.bars { display: grid; grid-template-columns: max-content auto; column-gap: 20px; row-gap: 18px; }
+.bars .row { display: contents; }
