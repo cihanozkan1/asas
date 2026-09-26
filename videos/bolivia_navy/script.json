@@ -1,0 +1,455 @@
+{
+  "id": "bolivia_navy",
+  "style": "geo",
+  "meta": {
+    "title": "Why Bolivia Has a Navy but No Sea 🇧🇴🤯 The Lost Coast",
+    "description": "Bolivia 🇧🇴 is landlocked, yet it has a navy of about 5,000 personnel ⚓ patrolling Lake Titicaca and rivers. Why? Bolivia used to have a Pacific coast 🌊 In 1879 a tax dispute with a Chilean mining company started the War of the Pacific 🇨🇱 Chile defeated Bolivia and Peru, Bolivia lost its coastal Litoral Department, and Peru lost Tarapacá. Every 23 March Bolivia still marks the Day of the Sea, keeping hope of a coast alive 🤯",
+    "pinnedComment": [
+      "A navy with no sea 🤯🇧🇴⚓",
+      "Should Bolivia get its coast back? 👇",
+      "Which lost territory should we explain next? 🗺️"
+    ],
+    "tags": [
+      "bolivia",
+      "bolivian navy",
+      "lake titicaca",
+      "landlocked",
+      "chile",
+      "peru",
+      "war of the pacific",
+      "day of the sea",
+      "south america",
+      "history",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Bolivia is completely landlocked, with no coast at all. And yet, it has a navy, with about 5,000 personnel.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "BOL",
+          "fill": "flag:bo",
+          "at": "Bolivia",
+          "hold": 1
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "5,000",
+              "value": "5,000"
+            }
+          ],
+          "size": 190
+        },
+        {
+          "type": "icon",
+          "icon": "⚓",
+          "lat": -17,
+          "lon": -62,
+          "size": 150,
+          "at": "navy"
+        },
+        {
+          "type": "label",
+          "text": "NO SEA?!",
+          "lat": -12,
+          "lon": -66,
+          "at": "coast",
+          "style": "note",
+          "typewriter": true,
+          "size": 66,
+          "rotate": -7
+        }
+      ],
+      "camera": {
+        "fit": [
+          "BOL"
+        ],
+        "pad": 0.9,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Bolivia is landlocked but has a navy of about 5,000 personnel (2018).",
+          "url": "https://en.wikipedia.org/wiki/Bolivian_Navy",
+          "quote": "As of 2018, the force comprised \"approximately 5,000 personnel.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It patrols Lake Titicaca, the highest navigable lake in the world, and the rivers of the Amazon.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": -15.9,
+          "lon": -69.35,
+          "color": "#5ec8ff",
+          "at": "Titicaca"
+        },
+        {
+          "type": "label",
+          "text": "Lake Titicaca",
+          "lat": -15.9,
+          "lon": -69.35,
+          "at": "Titicaca",
+          "dot": true,
+          "dy": -50,
+          "size": 44
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              -16.4,
+              -69.0
+            ],
+            [
+              -15.9,
+              -69.35
+            ],
+            [
+              -15.5,
+              -69.6
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "patrols",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "🚤",
+            "size": 90
+          }
+        }
+      ],
+      "camera": {
+        "lat": -16.0,
+        "lon": -69.3,
+        "zoom": 14
+      },
+      "sources": [
+        {
+          "claim": "It operates on Lake Titicaca, the highest navigable lake, and Amazon tributaries.",
+          "url": "https://en.wikipedia.org/wiki/Bolivian_Navy",
+          "quote": "Lake Titicaca, described as \"the highest navigable lake in the world,\" and patrols Amazon tributaries"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why does a landlocked country need a navy?",
+      "show": [
+        {
+          "type": "question",
+          "lat": -17,
+          "lon": -65,
+          "at": "why"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "BOL"
+        ],
+        "pad": 0.9
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "history",
+      "text": "Because until the 1880s, Bolivia had its own coast on the Pacific Ocean, right here.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Antofagasta",
+            "country": "CHL"
+          },
+          "fill": "flag:bo",
+          "at": "here",
+          "reveal": {
+            "lat": -22.5,
+            "lon": -68
+          }
+        },
+        {
+          "type": "ping",
+          "lat": -23.65,
+          "lon": -70.4,
+          "color": "#ffd60a",
+          "at": "coast"
+        },
+        {
+          "type": "highlight",
+          "target": "BOL",
+          "fill": "flag:bo",
+          "at": 0.05
+        }
+      ],
+      "camera": {
+        "fit": [
+          "BOL",
+          {
+            "admin1": "Antofagasta",
+            "country": "CHL"
+          }
+        ],
+        "pad": 0.9
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Bolivia ceded its coastal Litoral Department to Chile.",
+          "url": "https://en.wikipedia.org/wiki/War_of_the_Pacific",
+          "quote": "Bolivia ceded its coastal Litoral Department to Chile, making it landlocked"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1879, Bolivia raised a tax on a Chilean mining company, breaking an earlier treaty, and it started the War of the Pacific.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1879",
+          "at": "1879"
+        },
+        {
+          "type": "icon",
+          "icon": "⛏️",
+          "lat": -23.0,
+          "lon": -69.5,
+          "size": 120,
+          "at": "mining"
+        },
+        {
+          "type": "stamp",
+          "text": "10¢ TAX",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "tax"
+        },
+        {
+          "type": "shake",
+          "at": "War"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Bolivia's 10 cents per quintal tax on the Chilean company CSFA triggered the war (1879–1884).",
+          "url": "https://en.wikipedia.org/wiki/War_of_the_Pacific",
+          "quote": "Bolivia imposed a controversial \"10 cents per quintal tax\" on the Chilean mining company CSFA, violating the 1874 boundary treaty ... 1 March 1879 – 4 April 1884"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Peru fought alongside Bolivia, but after five years of war, Chile won.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "PER",
+          "fill": "flag:pe",
+          "at": "Peru",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "CHL",
+          "fill": "flag:cl",
+          "at": "Chile",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "character",
+          "image": "soldier_chile",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Chile",
+          "name": "Chile"
+        },
+        {
+          "type": "character",
+          "image": "soldier_bolivia",
+          "screen": [
+            0.74,
+            0.6
+          ],
+          "at": "Bolivia",
+          "name": "Bolivia",
+          "flip": true
+        }
+      ],
+      "camera": {
+        "lat": -20,
+        "lon": -68,
+        "zoom": 2.6
+      },
+      "sources": [
+        {
+          "claim": "Chile fought an alliance of Bolivia and Peru and emerged victorious.",
+          "url": "https://en.wikipedia.org/wiki/War_of_the_Pacific",
+          "quote": "between Chile against an alliance of Bolivia and Peru ... Chile emerged victorious"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Bolivia lost its entire coastline, and Peru lost the Tarapacá region.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Antofagasta",
+            "country": "CHL"
+          },
+          "fill": "#c1121f",
+          "at": "coastline",
+          "morph": [
+            {
+              "at": "lost",
+              "fill": "#c1121f"
+            }
+          ]
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Tarapacá",
+            "country": "CHL"
+          },
+          "fill": "#c1121f",
+          "at": "Tarapacá"
+        },
+        {
+          "type": "label",
+          "text": "Tarapacá",
+          "lat": -20.2,
+          "lon": -69.3,
+          "at": "Tarapacá",
+          "style": "serif",
+          "size": 52
+        },
+        {
+          "type": "label",
+          "text": "LANDLOCKED",
+          "lat": -16,
+          "lon": -63,
+          "at": "coastline",
+          "style": "note",
+          "typewriter": true,
+          "size": 64,
+          "rotate": -7
+        }
+      ],
+      "camera": {
+        "fit": [
+          "BOL",
+          {
+            "admin1": "Antofagasta",
+            "country": "CHL"
+          }
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Peru ceded Tarapacá; Bolivia lost its coast (confirmed by the 1904 treaty).",
+          "url": "https://en.wikipedia.org/wiki/War_of_the_Pacific",
+          "quote": "\"Peru formally cedes the Tarapacá Department to Chile\" ... In 1904, Chile and Bolivia signed the Treaty of Peace and Friendship"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But Bolivia never gave up. Its navy partly exists to keep the dream of the sea alive, and every March 23, the country celebrates the Day of the Sea.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "March",
+              "value": "23 March"
+            }
+          ],
+          "size": 150
+        },
+        {
+          "type": "label",
+          "text": "Día del Mar",
+          "at": "Sea",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "icon",
+          "icon": "🌊",
+          "lat": -22,
+          "lon": -72,
+          "size": 130,
+          "at": "Sea"
+        },
+        {
+          "type": "highlight",
+          "target": "BOL",
+          "fill": "flag:bo",
+          "at": 0.05
+        }
+      ],
+      "camera": {
+        "fit": [
+          "BOL",
+          {
+            "admin1": "Antofagasta",
+            "country": "CHL"
+          }
+        ],
+        "pad": 0.9,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Bolivia marks Día del Mar every 23 March; the navy partly exists to keep hopes of a coast alive.",
+          "url": "https://en.wikipedia.org/wiki/Bolivian_Navy",
+          "quote": "Bolivia commemorates its lost coast annually through \"Día del Mar\" (Day of the Sea) on March 23 ... the navy exists partly to preserve maritime consciousness and keep hopes of coastal recovery alive"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "bolivia": "#4ade80",
+        "chile": "#ff5a5f",
+        "peru": "#ff5a5f",
+        "navy": "#5ec8ff",
+        "sea": "#5ec8ff",
+        "titicaca": "#5ec8ff"
+      }
+    }
+  }
+}

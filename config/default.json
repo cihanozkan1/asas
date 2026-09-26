@@ -8,7 +8,7 @@
     "rasterScale": "auto",
     "tail": 0.8,
     "targetSeconds": [
-      55,
+      40,
       95
     ]
   },

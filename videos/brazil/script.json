@@ -261,13 +261,13 @@
         },
         {
           "type": "character",
-          "preset": "navigator",
           "name": "Columbus",
           "screen": [
             0.26,
             0.6
           ],
-          "at": "Columbus"
+          "at": "Columbus",
+          "image": "columbus"
         },
         {
           "type": "label",
@@ -293,7 +293,6 @@
       "show": [
         {
           "type": "character",
-          "preset": "king",
           "name": "Spain",
           "screen": [
             0.25,
@@ -302,15 +301,10 @@
           "at": "Spain",
           "say": "It's ours!",
           "bubbleSide": "left",
-          "bg": [
-            "#8a5a10",
-            "#2a1a05"
-          ]
+          "image": "king_spain"
         },
         {
           "type": "character",
-          "preset": "king",
-          "outfitColor": "#1f6f43",
           "name": "Portugal",
           "flip": true,
           "screen": [
@@ -319,10 +313,7 @@
           ],
           "at": "Portugal",
           "say": "No, ours!",
-          "bg": [
-            "#1f5a3a",
-            "#07170f"
-          ]
+          "image": "king_portugal"
         },
         {
           "type": "icon",
@@ -363,14 +354,14 @@
         },
         {
           "type": "character",
-          "preset": "pope",
           "name": "Pope Alexander VI",
           "screen": [
             0.27,
             0.6
           ],
           "at": "Pope",
-          "say": "West = Spain!"
+          "say": "West = Spain!",
+          "image": "pope"
         },
         {
           "type": "route",
@@ -606,14 +597,14 @@
         },
         {
           "type": "character",
-          "preset": "explorer",
           "name": "Cabral",
           "screen": [
             0.72,
             0.6
           ],
           "flip": true,
-          "at": "Cabral"
+          "at": "Cabral",
+          "image": "cabral"
         },
         {
           "type": "label",
@@ -688,13 +679,13 @@
       "show": [
         {
           "type": "character",
-          "preset": "soldier",
           "name": "Bandeirantes",
           "screen": [
             0.26,
             0.6
           ],
-          "at": "Explorers"
+          "at": "Explorers",
+          "image": "bandeirante"
         },
         {
           "type": "arrow",

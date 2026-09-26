@@ -335,13 +335,13 @@
         },
         {
           "type": "character",
-          "preset": "farmer",
           "screen": [
             0.27,
             0.6
           ],
           "say": "Rain? What rain?",
-          "at": "rain"
+          "at": "rain",
+          "image": "egypt_farmer"
         }
       ],
       "sources": [
@@ -417,14 +417,14 @@
         },
         {
           "type": "character",
-          "preset": "pharaoh",
           "screen": [
             0.27,
             0.6
           ],
           "at": "Nile",
           "hold": 2,
-          "id": "pharaoh"
+          "id": "pharaoh",
+          "image": "pharaoh"
         },
         {
           "type": "label",
@@ -494,14 +494,14 @@
       "show": [
         {
           "type": "character",
-          "preset": "pharaoh",
           "screen": [
             0.27,
             0.6
           ],
           "say": "Thank you, Nile!",
           "at": "built",
-          "id": "pharaoh"
+          "id": "pharaoh",
+          "image": "pharaoh"
         },
         {
           "type": "icon",
@@ -564,12 +564,12 @@
         },
         {
           "type": "character",
-          "preset": "engineer",
           "screen": [
             0.27,
             0.6
           ],
-          "at": "tamed"
+          "at": "tamed",
+          "image": "engineer"
         },
         {
           "type": "icon",

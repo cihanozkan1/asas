@@ -1,0 +1,499 @@
+{
+  "id": "wakhan",
+  "style": "geo",
+  "meta": {
+    "title": "Why Afghanistan Has a Long Thin Arm 🇦🇫🤯 The Wakhan Corridor",
+    "description": "Afghanistan 🇦🇫 has a strange long arm reaching east: the Wakhan Corridor, about 350 km long and in places only 13 km wide 📏 It separates Tajikistan 🇹🇯 from Pakistan 🇵🇰 and touches China 🇨🇳 Why? In the 1800s the Russian Empire and British India were racing for Central Asia in the \"Great Game\" ♟️ Agreements in 1873, 1893 and 1895 left this thin strip to Afghanistan as a buffer, so the two empires would never touch. Today about 18,000 people live there, high in the Pamir mountains 🏔️",
+    "pinnedComment": [
+      "A 13 km wide strip made so two empires would never touch 🤯🇦🇫",
+      "Would you travel to the Wakhan? 🏔️👇",
+      "Which weird country shape next? 🗺️"
+    ],
+    "tags": [
+      "afghanistan",
+      "wakhan corridor",
+      "pamir",
+      "great game",
+      "russian empire",
+      "british india",
+      "tajikistan",
+      "pakistan",
+      "china",
+      "weird borders",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Look at Afghanistan on a map, and you'll notice a weird, long arm sticking out to the east.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "AFG",
+          "fill": "flag:af",
+          "at": "Afghanistan",
+          "hold": 1
+        },
+        {
+          "type": "ping",
+          "lat": 37.0,
+          "lon": 73.5,
+          "color": "#ffd60a",
+          "at": "arm"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            34.8,
+            71.5
+          ],
+          "to": [
+            36.8,
+            73.2
+          ],
+          "color": "#ffd60a",
+          "at": "arm"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "AFG"
+        ],
+        "pad": 0.9,
+        "bearing": -3
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It's the Wakhan Corridor, about 350 kilometers long, and in places only 13 kilometers wide.",
+      "show": [
+        {
+          "type": "label",
+          "text": "WAKHAN",
+          "lat": 37.6,
+          "lon": 73.2,
+          "at": "Wakhan",
+          "style": "map",
+          "anim": "slam",
+          "size": 80
+        },
+        {
+          "type": "measure",
+          "from": [
+            36.7,
+            71.6
+          ],
+          "to": [
+            37.05,
+            74.9
+          ],
+          "label": "350 km",
+          "at": "350"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "13",
+              "value": "13 km"
+            }
+          ],
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": 37.0,
+        "lon": 73.2,
+        "zoom": 7.5,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "About 350 km long and 13–65 km wide.",
+          "url": "https://en.wikipedia.org/wiki/Wakhan_Corridor",
+          "quote": "approximately 350 km ... varying in width from \"13–65 kilometres (8–40 mi).\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It separates Tajikistan from Pakistan, and touches China.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "TJK",
+          "fill": "flag:tj",
+          "at": "Tajikistan",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "PAK",
+          "fill": "flag:pk",
+          "at": "Pakistan",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "CHN",
+          "fill": "flag:cn",
+          "at": "China",
+          "fillOpacity": 0.8
+        }
+      ],
+      "camera": {
+        "lat": 37.0,
+        "lon": 73.2,
+        "zoom": 5.5
+      },
+      "sources": [
+        {
+          "claim": "It separates Tajikistan from Pakistan and borders China.",
+          "url": "https://en.wikipedia.org/wiki/Wakhan_Corridor",
+          "quote": "separates \"the Badakhshan Mountainous Autonomous Region in Tajikistan from Khyber Pakhtunkhwa in Pakistan\" and borders China"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why does it exist?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 37.0,
+          "lon": 73.2,
+          "at": "why"
+        },
+        {
+          "type": "highlight",
+          "target": "AFG",
+          "fill": "#d62828",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        }
+      ],
+      "camera": {
+        "lat": 36,
+        "lon": 70,
+        "zoom": 3.5
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "history",
+      "text": "In the 1800s, two empires were competing for Central Asia in what's called the Great Game: the Russian Empire in the north, and British India in the south.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "TJK",
+              "UZB",
+              "TKM",
+              "KGZ",
+              "KAZ"
+            ]
+          },
+          "fill": "#b3202a",
+          "at": "Russian",
+          "fillOpacity": 0.8,
+          "hold": 2
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "PAK",
+              "IND"
+            ]
+          },
+          "fill": "#e9a1a1",
+          "at": "British",
+          "fillOpacity": 0.8,
+          "hold": 2
+        },
+        {
+          "type": "label",
+          "text": "Russian Empire",
+          "lat": 42,
+          "lon": 66,
+          "at": "Russian",
+          "style": "serif",
+          "size": 56
+        },
+        {
+          "type": "label",
+          "text": "British India",
+          "lat": 27,
+          "lon": 72,
+          "at": "British",
+          "style": "serif",
+          "size": 56
+        },
+        {
+          "type": "arrow",
+          "from": [
+            44,
+            68
+          ],
+          "to": [
+            38.5,
+            71
+          ],
+          "color": "#b3202a",
+          "at": "north"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            27,
+            73
+          ],
+          "to": [
+            34.5,
+            72
+          ],
+          "color": "#c95a5a",
+          "at": "south"
+        }
+      ],
+      "camera": {
+        "lat": 36,
+        "lon": 70,
+        "zoom": 2.2
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The corridor emerged from Great Game rivalry between the Russian Empire and British India.",
+          "url": "https://en.wikipedia.org/wiki/Wakhan_Corridor",
+          "quote": "The corridor emerged from Great Game rivalry between empires"
+        },
+        {
+          "claim": "The Great Game was the 19th-century British–Russian rivalry over Central Asia.",
+          "url": "https://en.wikipedia.org/wiki/Great_Game",
+          "quote": "a rivalry between the 19th-century British and Russian empires over influence in Central Asia"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Neither side wanted a shared border with the other. So they left this thin strip of mountains to Afghanistan, as a buffer between the two empires.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "AFG",
+          "fill": "#2a9d8f",
+          "at": "strip",
+          "soft": true,
+          "rim": "#ffd60a",
+          "softness": 6,
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "BUFFER",
+          "lat": 38.3,
+          "lon": 73.5,
+          "at": "buffer",
+          "style": "note",
+          "typewriter": true,
+          "size": 70,
+          "rotate": -7
+        }
+      ],
+      "camera": {
+        "lat": 36.8,
+        "lon": 72.5,
+        "zoom": 5
+      },
+      "sources": [
+        {
+          "claim": "It was established as a buffer zone between the two empires.",
+          "url": "https://en.wikipedia.org/wiki/Wakhan_Corridor",
+          "quote": "established this territory as \"a buffer zone between the two empires.\""
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Agreements in 1873, 1893 and 1895 drew its borders.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "1873",
+              "value": "1873"
+            },
+            {
+              "at": "1893",
+              "value": "1893"
+            },
+            {
+              "at": "1895",
+              "value": "1895"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "ping",
+          "lat": 37.0,
+          "lon": 73.2,
+          "color": "#c1121f",
+          "at": "1873"
+        },
+        {
+          "type": "stamp",
+          "text": "BUFFER ZONE",
+          "size": 76,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "borders"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "1873 agreement (Russia border), 1893 Durand Line (British India), 1895 Pamir Boundary Commission.",
+          "url": "https://en.wikipedia.org/wiki/Wakhan_Corridor",
+          "quote": "An 1873 agreement made the Panj and Pamir Rivers the Afghanistan-Russia border, while the \"Durand Line Agreement of 1893 ... along with the 1895 Pamir Boundary Commission protocols"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "The rivalry only ended in 1907, when Britain and Russia signed a convention dividing their influence in Afghanistan, Persia and Tibet.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1907",
+          "at": "1907"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "AFG",
+              "IRN",
+              "CHN"
+            ]
+          },
+          "fill": "#6b7280",
+          "at": "Afghanistan",
+          "fillOpacity": 0.6,
+          "pattern": "hatch"
+        },
+        {
+          "type": "label",
+          "text": "Persia",
+          "lat": 32.5,
+          "lon": 54,
+          "at": "Persia",
+          "style": "serif",
+          "size": 54
+        },
+        {
+          "type": "label",
+          "text": "Tibet",
+          "lat": 31.5,
+          "lon": 88,
+          "at": "Tibet",
+          "style": "serif",
+          "size": 54
+        }
+      ],
+      "camera": {
+        "lat": 34,
+        "lon": 72,
+        "zoom": 1.6
+      },
+      "sources": [
+        {
+          "claim": "The Anglo-Russian Convention of 1907 formally delineated control in Afghanistan, Persia and Tibet.",
+          "url": "https://en.wikipedia.org/wiki/Great_Game",
+          "quote": "the Anglo-Russian Convention of 1907, which \"created an alliance between Britain and Russia, and formally delineated control in Afghanistan, Persia, and Tibet.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, about 18,000 people live there, high in the Pamir mountains.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "18,000",
+              "value": "18,000"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "label",
+          "text": "people",
+          "at": "18,000",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "scatter",
+          "target": "AFG",
+          "icon": "🏔️",
+          "count": 6,
+          "size": 60,
+          "at": "Pamir",
+          "minLat": 36.6
+        },
+        {
+          "type": "label",
+          "text": "PAMIR",
+          "lat": 37.8,
+          "lon": 74.2,
+          "at": "Pamir",
+          "style": "map",
+          "anim": "slam",
+          "size": 76
+        }
+      ],
+      "camera": {
+        "lat": 37.0,
+        "lon": 73.2,
+        "zoom": 6.5,
+        "bearing": -4
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "About 18,000 residents (2024); the northern section is also called the Pamir.",
+          "url": "https://en.wikipedia.org/wiki/Wakhan_Corridor",
+          "quote": "As of 2024, the district has an estimated population of 18,000 residents"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "afghanistan": "#4ade80",
+        "wakhan": "#ffd60a",
+        "china": "#ff5a5f",
+        "russian": "#ff5a5f",
+        "british": "#f4a261"
+      }
+    }
+  }
+}

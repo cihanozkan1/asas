@@ -18,7 +18,7 @@ import { buildSfxTrack } from '../src/sfx.mjs';
 import { buildTimeline } from '../src/timeline.mjs';
 import { renderVideo, renderStills, contactSheet } from '../src/render.mjs';
 import { writeUploadText, writeSources } from '../src/meta.mjs';
-import { ensureDetail, S2_CREDIT, BLUE_MARBLE_CREDIT, NE_CREDIT } from '../src/imagery.mjs';
+import { ensureDetail, autoDetailBoxes, byCoarseness, S2_CREDIT, BLUE_MARBLE_CREDIT, NE_CREDIT } from '../src/imagery.mjs';
 import { ensureEarth } from '../tools/fetch-data.mjs';
 import { buildPage } from '../tools/build-page.mjs';
 
@@ -71,14 +71,17 @@ async function main() {
   await buildPage();
   const earthFile = await ensureEarth();
   const assets = { earth: '/' + path.relative(ROOT, earthFile).split(path.sep).join('/'), detail: [] };
-  for (const d of script.imagery || []) assets.detail.push(await ensureDetail(d));
+  const auto = autoDetailBoxes(script, cfg);
+  const details = [...auto, ...(script.imagery || [])].sort(byCoarseness);
+  for (const d of details) assets.detail.push(await ensureDetail(d));
 
   const provider = args['mock-tts'] ? 'mock' : cfg.voice.provider;
   const narrationWav = path.join(outDir, `narration${provider === 'mock' ? '.mock' : ''}.wav`);
   const narration = await buildNarration(script, cfg, provider, narrationWav);
   log(`anlatım: ${narration.duration.toFixed(1)} sn (${provider}, ${narration.voice.name} ${narration.voice.rate})`);
 
-  const credits = [BLUE_MARBLE_CREDIT, NE_CREDIT, ...(assets.detail.length ? [S2_CREDIT] : [])];
+  const hasChars = script.scenes.some((sc) => (sc.show || []).some((e) => e.type === 'character' && e.image));
+  const credits = [BLUE_MARBLE_CREDIT, NE_CREDIT, ...(assets.detail.length ? [S2_CREDIT] : []), ...(hasChars ? ['Characters: AI-generated illustrations'] : [])];
   writeUploadText(script, path.join(outDir, `${script.id}.txt`), credits);
   writeSources(script, path.join(outDir, 'sources.md'));
 

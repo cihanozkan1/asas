@@ -1,0 +1,527 @@
+{
+  "id": "indonesia_capital",
+  "style": "geo",
+  "meta": {
+    "title": "Why Indonesia Is Moving Its Capital 🇮🇩🤯 Jakarta Is Sinking",
+    "description": "Indonesia 🇮🇩 is building a brand-new capital city from scratch! Jakarta, on the island of Java, is one of the most crowded urban areas on Earth, with over 40 million people in Greater Jakarta 🏙️ Parts of it lie below sea level, and pumping groundwater makes the land sink, raising the flood risk 🌊 So in August 2019, President Joko Widodo announced a new capital: Nusantara, on the island of Borneo in East Kalimantan 🌴 Construction began in 2022 and the project is estimated at about US$35 billion 💰",
+    "pinnedComment": [
+      "A whole country is moving its capital 🤯🇮🇩",
+      "Would you move to a brand-new city in the jungle? 🌴👇",
+      "Which capital should we explain next? 🗺️"
+    ],
+    "tags": [
+      "indonesia",
+      "jakarta",
+      "nusantara",
+      "new capital",
+      "sinking city",
+      "borneo",
+      "kalimantan",
+      "java",
+      "land subsidence",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Indonesia is building a brand new capital city, from scratch, in the jungle.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "IDN",
+          "fill": "flag:id",
+          "at": "Indonesia",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "ping",
+          "lat": -0.97,
+          "lon": 116.7,
+          "color": "#4ade80",
+          "at": "new"
+        },
+        {
+          "type": "icon",
+          "icon": "🏗️",
+          "lat": 0.22999999999999998,
+          "lon": 118.10000000000001,
+          "size": 120,
+          "at": "scratch"
+        },
+        {
+          "type": "icon",
+          "icon": "🌴",
+          "lat": -2.27,
+          "lon": 115.3,
+          "size": 110,
+          "at": "jungle"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "IDN"
+        ],
+        "pad": 0.9,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Indonesia is building Nusantara as its new capital.",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "Construction of the city began in 2022, starting with land clearing and creating access roads."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Its current capital is Jakarta, on the island of Java.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": -6.2,
+          "lon": 106.85,
+          "color": "#ff3b3b",
+          "at": "Jakarta",
+          "hold": 2
+        },
+        {
+          "type": "label",
+          "text": "Jakarta",
+          "lat": -6.2,
+          "lon": 106.85,
+          "at": "Jakarta",
+          "dot": true,
+          "dy": -52,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "JAVA",
+          "lat": -7.4,
+          "lon": 110.2,
+          "at": "Java",
+          "style": "map",
+          "anim": "slam",
+          "size": 74
+        }
+      ],
+      "camera": {
+        "lat": -6.8,
+        "lon": 108.5,
+        "zoom": 9,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Jakarta lies on the northwestern coast of Java.",
+          "url": "https://en.wikipedia.org/wiki/Jakarta",
+          "quote": "It lies on the northwestern coast of Java, borders the provinces of West Java and Banten, and faces the Java Sea to the north."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Greater Jakarta is one of the most crowded urban areas on Earth, with over 40 million people.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "40",
+              "value": "40M+"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": -6.35,
+              "lon": 106.85,
+              "km": 45
+            }
+          },
+          "icon": "🏙️",
+          "count": 12,
+          "size": 56,
+          "at": "crowded",
+          "stagger": 0.05
+        },
+        {
+          "type": "label",
+          "text": "Greater Jakarta",
+          "at": "Greater",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": -6.3,
+        "lon": 106.85,
+        "zoom": 45
+      },
+      "sources": [
+        {
+          "claim": "Greater Jakarta has a population of over 40 million.",
+          "url": "https://en.wikipedia.org/wiki/Jakarta",
+          "quote": "Greater Jakarta is the most populous urban area in the world with a population of over 40 million"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why would anyone leave such a huge city?",
+      "show": [
+        {
+          "type": "question",
+          "lat": -6.2,
+          "lon": 106.85,
+          "at": "why"
+        }
+      ],
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Because Jakarta is sinking. Parts of the city lie below sea level.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": -6.12,
+              "lon": 106.85,
+              "km": 9
+            }
+          },
+          "fill": "#1d4ed8",
+          "at": "sinking",
+          "fillOpacity": 0.6,
+          "soft": true,
+          "rim": "#5ec8ff",
+          "reveal": {
+            "lat": -6.12,
+            "lon": 106.85
+          }
+        },
+        {
+          "type": "stamp",
+          "text": "SINKING",
+          "size": 100,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "sinking"
+        },
+        {
+          "type": "icon",
+          "icon": "🌊",
+          "lat": -6.08,
+          "lon": 106.8,
+          "size": 120,
+          "at": "sea"
+        },
+        {
+          "type": "shake",
+          "at": "sinking"
+        }
+      ],
+      "camera": {
+        "lat": -6.15,
+        "lon": 106.85,
+        "zoom": 70
+      },
+      "sources": [
+        {
+          "claim": "Parts of Jakarta lie below sea level.",
+          "url": "https://en.wikipedia.org/wiki/Jakarta",
+          "quote": "Much of Jakarta lies on an alluvial plain, with elevations ranging from below sea level to about 50 metres (160 feet)."
+        },
+        {
+          "claim": "Land subsidence drives flood risk in northern Jakarta.",
+          "url": "https://en.wikipedia.org/wiki/Jakarta",
+          "quote": "Land subsidence is a major driver of coastal-flood risk in northern Jakarta."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Pumping water out of the ground makes the land sink even more, and floods get worse.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "🚰",
+          "lat": -6.18,
+          "lon": 106.8,
+          "size": 110,
+          "at": "Pumping"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            -6.1,
+            106.9
+          ],
+          "to": [
+            -6.25,
+            106.9
+          ],
+          "color": "#ff5a5f",
+          "at": "sink"
+        },
+        {
+          "type": "icon",
+          "icon": "🌧️",
+          "lat": -6.12,
+          "lon": 106.95,
+          "size": 110,
+          "at": "floods"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Groundwater extraction contributes to subsidence and flood risk.",
+          "url": "https://en.wikipedia.org/wiki/Jakarta",
+          "quote": "Land subsidence is a major driver of coastal-flood risk in northern Jakarta."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So in August 2019, President Joko Widodo announced a new capital, on the island of Borneo.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2019",
+          "light": true,
+          "at": "2019"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              -6.2,
+              106.85
+            ],
+            [
+              -5.5,
+              110
+            ],
+            [
+              -3.5,
+              114
+            ],
+            [
+              -1.5,
+              116.9
+            ],
+            [
+              -0.97,
+              116.7
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "Borneo",
+          "id": "move",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#e63946"
+          },
+          "drawDur": 2.2
+        },
+        {
+          "type": "label",
+          "text": "BORNEO",
+          "lat": 0.8,
+          "lon": 114,
+          "at": "Borneo",
+          "style": "map",
+          "anim": "slam",
+          "size": 74
+        }
+      ],
+      "camera": {
+        "lat": -3.4,
+        "lon": 111.5,
+        "zoom": 3.2,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Joko Widodo announced the relocation in August 2019.",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "President Joko Widodo announced the relocation in August 2019"
+        },
+        {
+          "claim": "Nusantara is in East Kalimantan on Borneo.",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "Nusantara occupies East Kalimantan on Borneo island"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The new city sits on the east coast of Borneo, right next to the port city of Balikpapan.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "IDN"
+            ]
+          },
+          "fill": "#16a34a",
+          "at": "Borneo",
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "ping",
+          "lat": -0.97,
+          "lon": 116.7,
+          "color": "#4ade80",
+          "at": "new"
+        },
+        {
+          "type": "label",
+          "text": "Balikpapan",
+          "lat": -1.24,
+          "lon": 116.85,
+          "at": "Balikpapan",
+          "dot": true,
+          "dy": 52,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "Nusantara",
+          "lat": -0.97,
+          "lon": 116.7,
+          "at": "city",
+          "dot": true,
+          "dy": -52,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": -1.1,
+        "lon": 116.6,
+        "zoom": 12,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Nusantara is adjacent to the port city of Balikpapan.",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "adjacent to the port city of Balikpapan"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Its name is Nusantara. Construction began in 2022, and it's estimated to cost about 35 billion dollars.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": -0.97,
+          "lon": 116.7,
+          "color": "#4ade80",
+          "at": "Nusantara"
+        },
+        {
+          "type": "label",
+          "text": "NUSANTARA",
+          "lat": -0.72,
+          "lon": 116.7,
+          "at": "Nusantara",
+          "style": "map",
+          "anim": "slam",
+          "size": 62
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "2022",
+              "value": "2022"
+            },
+            {
+              "at": "35",
+              "value": "$35B"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "character",
+          "image": "jakarta_resident",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Construction",
+          "name": "Moving day!"
+        }
+      ],
+      "camera": {
+        "lat": -1.0,
+        "lon": 116.6,
+        "zoom": 18,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Construction began in 2022.",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "Construction of the city began in 2022, starting with land clearing and creating access roads."
+        },
+        {
+          "claim": "Estimated at Rp 523 trillion (US$35 billion).",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "estimated to be worth Rp 523 trillion (US$35 billion)"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "jakarta": "#ff5a5f",
+        "sinking": "#ff5a5f",
+        "nusantara": "#4ade80",
+        "borneo": "#4ade80",
+        "indonesia": "#ffd60a"
+      }
+    }
+  },
+  "imagery": [
+    {
+      "bbox": [
+        106.55,
+        -6.45,
+        107.1,
+        -5.95
+      ],
+      "width": 2400
+    }
+  ]
+}

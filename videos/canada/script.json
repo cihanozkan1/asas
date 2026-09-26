@@ -603,13 +603,13 @@
         {
           "type": "character",
           "id": "canuck",
-          "preset": "canadian",
           "screen": [
             0.27,
             0.6
           ],
           "at": "everyone",
-          "hold": 1
+          "hold": 1,
+          "image": "lumberjack"
         }
       ],
       "noClaim": true,
@@ -622,13 +622,13 @@
         {
           "type": "character",
           "id": "canuck2",
-          "preset": "canadian",
           "screen": [
             0.27,
             0.6
           ],
           "say": "Brrr!",
-          "at": "cold"
+          "at": "cold",
+          "image": "lumberjack"
         },
         {
           "type": "scatter",

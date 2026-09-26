@@ -1,0 +1,542 @@
+{
+  "id": "hormuz",
+  "style": "geo",
+  "meta": {
+    "title": "The 39 km Strait That Controls World Oil 🛢️🌍🤯 Strait of Hormuz",
+    "description": "The Strait of Hormuz is only about 39 km wide at its narrowest 🌊 but around 25% of the world's seaborne oil trade and 20% of its liquefied natural gas pass through it 🛢️ It separates Iran 🇮🇷 from Oman's Musandam Peninsula 🇴🇲 and the shipping lanes are just 2 nautical miles wide in each direction 🚢 For countries like Qatar, Bahrain, Kuwait and Iraq it's the only sea route to the open ocean 🤯",
+    "pinnedComment": [
+      "A quarter of the world's seaborne oil squeezes through here 🤯🛢️",
+      "Did you know how narrow Hormuz is? 👇",
+      "Which chokepoint should we explain next? 🗺️"
+    ],
+    "tags": [
+      "strait of hormuz",
+      "oil",
+      "persian gulf",
+      "iran",
+      "oman",
+      "musandam",
+      "uae",
+      "qatar",
+      "lng",
+      "shipping",
+      "chokepoint",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "A quarter of the world's seaborne oil trade squeezes through this one narrow gap.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 26.6,
+          "lon": 56.4,
+          "color": "#ff3b3b",
+          "at": "gap",
+          "hold": 2
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "quarter",
+              "value": "25%"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "label",
+          "text": "of seaborne oil",
+          "at": "oil",
+          "style": "pill",
+          "bg": "#111827",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "icon",
+          "icon": "🛢️",
+          "lat": 27.6,
+          "lon": 55.0,
+          "size": 120,
+          "at": "oil"
+        }
+      ],
+      "camera": {
+        "lat": 26.5,
+        "lon": 55.5,
+        "zoom": 7,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "25% of seaborne oil trade passed through the strait in 2023–2025.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "During 2023–2025, 20% of the world's liquefied natural gas and 25% of seaborne oil trade passed through the Strait"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "This is the Strait of Hormuz. At its narrowest, it's only about 39 kilometers wide.",
+      "show": [
+        {
+          "type": "label",
+          "text": "HORMUZ",
+          "lat": 27.5,
+          "lon": 57.7,
+          "at": "Hormuz",
+          "style": "map",
+          "anim": "slam",
+          "size": 76
+        },
+        {
+          "type": "measure",
+          "from": [
+            26.52,
+            56.5
+          ],
+          "to": [
+            26.84,
+            56.36
+          ],
+          "label": "39 km",
+          "at": "narrowest"
+        }
+      ],
+      "camera": {
+        "lat": 26.6,
+        "lon": 56.4,
+        "zoom": 22,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "The width varies from about 97 km to 39 km.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "with a width varying from about 60 mi (52 nmi; 97 km) to 24 mi (21 nmi; 39 km)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "On one side is Iran. On the other, Oman's Musandam Peninsula.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "IRN",
+          "fill": "flag:ir",
+          "at": "Iran",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "OMN",
+          "fill": "flag:om",
+          "at": "Oman",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "label",
+          "text": "Musandam",
+          "lat": 26.2,
+          "lon": 56.25,
+          "at": "Musandam",
+          "dot": true,
+          "dy": 56,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 26.5,
+        "lon": 56.4,
+        "zoom": 12,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "It separates Iran from Oman's Musandam Peninsula.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "The waterway separates Iran on the north from Oman's Musandam Peninsula on the south"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And the shipping lanes are tiny. Just two nautical miles wide, in each direction.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              26.35,
+              56.85
+            ],
+            [
+              26.55,
+              56.55
+            ],
+            [
+              26.5,
+              56.2
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "lanes",
+          "drawDur": 1.0
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              26.45,
+              56.95
+            ],
+            [
+              26.65,
+              56.6
+            ],
+            [
+              26.62,
+              56.2
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 7,
+          "at": "direction",
+          "drawDur": 1.0
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "two",
+              "value": "3.7 km"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "label",
+          "text": "per lane",
+          "at": "lanes",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 26.55,
+        "lon": 56.55,
+        "zoom": 45,
+        "bearing": -6
+      },
+      "sources": [
+        {
+          "claim": "Each lane is 2 nautical miles (3.7 km) wide.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "each lane being 2 nautical miles (3.7 km) wide, with the two lanes separated by a similarly wide \"median\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And between the two lanes sits a buffer zone, just as wide.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 26.55,
+              "lon": 56.6,
+              "km": 3
+            }
+          },
+          "fill": "#ff5a5f",
+          "at": "buffer",
+          "soft": true,
+          "rim": "#ff5a5f",
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "label",
+          "text": "BUFFER",
+          "lat": 26.7,
+          "lon": 56.75,
+          "at": "buffer",
+          "style": "note",
+          "typewriter": true,
+          "size": 58,
+          "rotate": -7
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The two lanes are separated by a median of similar width.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "with the two lanes separated by a similarly wide \"median\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why does this tiny strait matter so much?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 26.6,
+          "lon": 56.4,
+          "at": "why"
+        }
+      ],
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Because for countries like Qatar, Bahrain, Kuwait and Iraq, it's the only sea route to the open ocean.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "QAT",
+          "fill": "flag:qa",
+          "at": "Qatar",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": "BHR",
+          "fill": "flag:bh",
+          "at": "Bahrain",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": "KWT",
+          "fill": "flag:kw",
+          "at": "Kuwait",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": "IRQ",
+          "fill": "flag:iq",
+          "at": "Iraq",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              29.3,
+              48.5
+            ],
+            [
+              27.8,
+              50.5
+            ],
+            [
+              26.6,
+              53.0
+            ],
+            [
+              26.4,
+              55.2
+            ],
+            [
+              26.6,
+              56.45
+            ],
+            [
+              25.6,
+              57.4
+            ],
+            [
+              24.2,
+              59.0
+            ],
+            [
+              22.0,
+              62.0
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "only",
+          "id": "tanker",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#111827"
+          },
+          "drawDur": 3.0
+        },
+        {
+          "type": "stamp",
+          "text": "ONLY WAY OUT",
+          "size": 80,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "open"
+        }
+      ],
+      "camera": {
+        "follow": "tanker",
+        "zoom": 6,
+        "zoomTo": 3.2
+      },
+      "sources": [
+        {
+          "claim": "It is the only maritime route for the UAE, Qatar, Bahrain, Kuwait and Iraq.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "is also the only maritime route for several Gulf countries including the UAE, Qatar, Bahrain, Kuwait, and Iraq"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Tankers also carry about 20 percent of the world's liquefied natural gas through here.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "20",
+              "value": "20%"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "label",
+          "text": "of world LNG",
+          "at": "gas",
+          "style": "pill",
+          "bg": "#0f766e",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "character",
+          "image": "tanker_captain",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Tankers",
+          "name": "Tanker captain"
+        },
+        {
+          "type": "icon",
+          "icon": "🔥",
+          "lat": 25.3,
+          "lon": 57.5,
+          "size": 110,
+          "at": "gas"
+        }
+      ],
+      "camera": {
+        "lat": 26.3,
+        "lon": 56.3,
+        "zoom": 6
+      },
+      "sources": [
+        {
+          "claim": "20% of the world's LNG passed through the strait.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "20% of the world's liquefied natural gas and 25% of seaborne oil trade passed through the Strait"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's why this 39 kilometer gap is one of the most important waterways on Earth.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 26.6,
+          "lon": 56.4,
+          "color": "#ffd60a",
+          "at": "gap"
+        },
+        {
+          "type": "measure",
+          "from": [
+            26.52,
+            56.5
+          ],
+          "to": [
+            26.84,
+            56.36
+          ],
+          "label": "39 km",
+          "at": "gap"
+        },
+        {
+          "type": "punch",
+          "at": "important"
+        }
+      ],
+      "camera": {
+        "lat": 26.6,
+        "lon": 56.4,
+        "zoom": 18,
+        "bearing": 4
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Width 39 km; carries 25% of seaborne oil.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "with a width varying from about 60 mi (52 nmi; 97 km) to 24 mi (21 nmi; 39 km)"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "hormuz": "#ffd60a",
+        "oil": "#ffd60a",
+        "iran": "#4ade80",
+        "oman": "#ff5a5f",
+        "gas": "#5ec8ff"
+      }
+    }
+  },
+  "imagery": [
+    {
+      "bbox": [
+        55.8,
+        26.0,
+        57.2,
+        27.2
+      ],
+      "width": 2600
+    }
+  ]
+}

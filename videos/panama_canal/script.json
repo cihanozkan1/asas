@@ -1,0 +1,572 @@
+{
+  "id": "panama_canal",
+  "style": "geo",
+  "meta": {
+    "title": "How the Panama Canal Saves Ships 13,000 km 🇵🇦🚢🤯",
+    "description": "Before 1914, a ship going from New York to San Francisco had to sail all the way around South America, about 22,500 km 🌎 Then the Panama Canal opened, cutting through this thin strip of land and shrinking the trip to about 9,500 km 🚢 The canal is just 82 km long, and locks lift ships 26 meters up to Gatun Lake and back down again ⬆️⬇️ Around 14,000 ships pass through every year. The US ran it for decades, but in 1999 Panama took control 🇵🇦🤯",
+    "pinnedComment": [
+      "82 km of canal saves ships 13,000 km 🤯🚢",
+      "Would you rather sail around Cape Horn or through Panama? 👇",
+      "Which canal should we explain next? 🗺️"
+    ],
+    "tags": [
+      "panama canal",
+      "panama",
+      "cape horn",
+      "ships",
+      "shipping",
+      "gatun lake",
+      "locks",
+      "new york",
+      "san francisco",
+      "geography",
+      "history",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Before 1914, a ship sailing from New York to San Francisco had to go all the way around South America, past Cape Horn at the very bottom.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              40.55,
+              -73.95
+            ],
+            [
+              30,
+              -68
+            ],
+            [
+              10,
+              -45
+            ],
+            [
+              -10,
+              -33
+            ],
+            [
+              -30,
+              -45
+            ],
+            [
+              -45,
+              -60
+            ],
+            [
+              -56.3,
+              -67.3
+            ],
+            [
+              -50,
+              -78
+            ],
+            [
+              -30,
+              -76
+            ],
+            [
+              -10,
+              -82
+            ],
+            [
+              10,
+              -95
+            ],
+            [
+              25,
+              -113
+            ],
+            [
+              37.75,
+              -122.6
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "sailing",
+          "id": "horn",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#c1121f"
+          },
+          "drawDur": 4.2
+        },
+        {
+          "type": "label",
+          "text": "New York",
+          "lat": 40.55,
+          "lon": -73.95,
+          "at": "New",
+          "dot": true,
+          "dy": -46,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "San Francisco",
+          "lat": 37.75,
+          "lon": -122.6,
+          "at": "San",
+          "dot": true,
+          "dy": -46,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "follow": "horn",
+        "zoom": 1.6,
+        "zoomTo": 0.95
+      },
+      "sources": [
+        {
+          "claim": "Around Cape Horn the voyage is about 22,500 km.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "Instead of traveling approximately 22,500 kilometers around South America's Cape Horn"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's about 22,500 kilometers.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "22,500",
+              "value": "22,500 km"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "ping",
+          "lat": -56.3,
+          "lon": -67.3,
+          "color": "#ff3b3b",
+          "at": "about"
+        },
+        {
+          "type": "label",
+          "text": "Cape Horn",
+          "lat": -56.3,
+          "lon": -67.3,
+          "at": "kilometers",
+          "dot": true,
+          "dy": 46,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 0,
+        "lon": -80,
+        "zoom": 0.8
+      },
+      "sources": [
+        {
+          "claim": "About 22,500 km around Cape Horn.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "approximately 22,500 kilometers around South America's Cape Horn"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Then in 1914, the Panama Canal opened, cutting right through this thin strip of land.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1914",
+          "light": true,
+          "at": "1914"
+        },
+        {
+          "type": "highlight",
+          "target": "PAN",
+          "fill": "flag:pa",
+          "at": "Panama",
+          "hold": 1
+        },
+        {
+          "type": "ping",
+          "lat": 9.1,
+          "lon": -79.7,
+          "color": "#ffd60a",
+          "at": "cutting"
+        }
+      ],
+      "camera": {
+        "lat": 9.0,
+        "lon": -79.7,
+        "zoom": 12,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Formally opened on 15 August 1914.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "was formally opened on 15 August 1914"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's only 82 kilometers long.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            9.36,
+            -79.92
+          ],
+          "to": [
+            8.9,
+            -79.53
+          ],
+          "label": "82 km",
+          "at": "82"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              9.36,
+              -79.92
+            ],
+            [
+              9.2,
+              -79.87
+            ],
+            [
+              9.05,
+              -79.7
+            ],
+            [
+              8.9,
+              -79.53
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 9,
+          "at": "long",
+          "drawDur": 1.2
+        }
+      ],
+      "camera": {
+        "lat": 9.13,
+        "lon": -79.72,
+        "zoom": 45
+      },
+      "sources": [
+        {
+          "claim": "The canal is 82 km long.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "The Panama Canal spans \"82 kilometers (51 miles)\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Giant locks lift ships 26 meters up to Gatun Lake, a man-made lake created by damming a river, and then lower them back down on the other side.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "26",
+              "value": "26 m"
+            }
+          ],
+          "size": 190
+        },
+        {
+          "type": "ping",
+          "lat": 9.2,
+          "lon": -79.9,
+          "color": "#5ec8ff",
+          "at": "Gatun"
+        },
+        {
+          "type": "label",
+          "text": "Gatun Lake",
+          "lat": 9.2,
+          "lon": -79.9,
+          "at": "Gatun",
+          "dot": true,
+          "dy": -48,
+          "size": 44
+        },
+        {
+          "type": "icon",
+          "icon": "🚢",
+          "lat": 9.3,
+          "lon": -79.95,
+          "size": 110,
+          "at": "lift"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            9.22,
+            -80.05
+          ],
+          "to": [
+            9.32,
+            -80.05
+          ],
+          "color": "#4ade80",
+          "at": "lift"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            8.98,
+            -79.45
+          ],
+          "to": [
+            8.9,
+            -79.45
+          ],
+          "color": "#ff5a5f",
+          "at": "lower"
+        }
+      ],
+      "camera": {
+        "lat": 9.13,
+        "lon": -79.75,
+        "zoom": 50
+      },
+      "sources": [
+        {
+          "claim": "Ships are raised 26 m to Gatun Lake (an artificial lake made by damming the Chagres River) and lowered at the other end.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "Vessels are raised 26 meters to Gatun Lake, an artificial freshwater body created by damming the Chagres River. The locks then lower ships at the opposite end."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Now the New York to San Francisco trip is only about 9,500 kilometers.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              40.55,
+              -73.95
+            ],
+            [
+              28,
+              -74
+            ],
+            [
+              19,
+              -75.5
+            ],
+            [
+              12,
+              -79
+            ],
+            [
+              9.36,
+              -79.92
+            ],
+            [
+              8.9,
+              -79.53
+            ],
+            [
+              7.5,
+              -80.5
+            ],
+            [
+              12,
+              -92
+            ],
+            [
+              25,
+              -113
+            ],
+            [
+              37.75,
+              -122.6
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "trip",
+          "id": "canalroute",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#1d4ed8"
+          },
+          "drawDur": 3.0
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "trip",
+              "value": "22,500 km"
+            },
+            {
+              "at": "9,500",
+              "value": "9,500 km"
+            }
+          ],
+          "size": 160
+        }
+      ],
+      "camera": {
+        "follow": "canalroute",
+        "zoom": 1.2,
+        "zoomTo": 0.95
+      },
+      "sources": [
+        {
+          "claim": "Through the canal the voyage is roughly 9,500 km.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "ships now transit roughly 9,500 kilometers through the canal"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Around 14,000 ships pass through every year, and by 2012, more than 815,000 ships had used it.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "14,000",
+              "value": "14,000"
+            }
+          ],
+          "size": 190
+        },
+        {
+          "type": "label",
+          "text": "ships per year",
+          "at": "ships",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 9.1,
+              "lon": -79.7,
+              "km": 60
+            }
+          },
+          "icon": "🚢",
+          "count": 10,
+          "size": 54,
+          "at": "pass"
+        }
+      ],
+      "camera": {
+        "lat": 9.1,
+        "lon": -79.7,
+        "zoom": 16
+      },
+      "sources": [
+        {
+          "claim": "About 14,702 transits a year; over 815,000 by 2012.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "The canal handles approximately 14,702 vessel transits yearly, with over 815,000 ships having passed through by 2012"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The United States ran the canal for most of the century, but in 1999, Panama finally took control.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1999",
+          "light": true,
+          "at": "1999"
+        },
+        {
+          "type": "highlight",
+          "target": "PAN",
+          "fill": "flag:us",
+          "at": "United",
+          "morph": [
+            {
+              "at": "Panama",
+              "fill": "#d62828"
+            }
+          ]
+        },
+        {
+          "type": "highlight",
+          "target": "PAN",
+          "fill": "flag:pa",
+          "at": "control"
+        }
+      ],
+      "camera": {
+        "lat": 8.6,
+        "lon": -80.0,
+        "zoom": 7,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Panama took control in 1999 under the Torrijos–Carter Treaties.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "the Panamanian government took control in 1999 following the Torrijos–Carter Treaties of 1977"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "panama": "#ff5a5f",
+        "canal": "#5ec8ff",
+        "ships": "#5ec8ff",
+        "america": "#ffd60a"
+      }
+    }
+  },
+  "imagery": [
+    {
+      "bbox": [
+        -80.3,
+        8.6,
+        -79.2,
+        9.6
+      ],
+      "width": 3072
+    }
+  ]
+}

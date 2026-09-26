@@ -1,0 +1,460 @@
+{
+  "id": "istanbul",
+  "style": "geo",
+  "meta": {
+    "title": "The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia",
+    "description": "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 It was the capital of the Roman, Byzantine and Ottoman empires, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
+    "pinnedComment": [
+      "One city, two continents 🤯🇹🇷",
+      "Do you live on the European or the Asian side? 👇",
+      "Which city should we explain next? 🗺️"
+    ],
+    "tags": [
+      "istanbul",
+      "turkey",
+      "bosphorus",
+      "europe",
+      "asia",
+      "constantinople",
+      "byzantium",
+      "ottoman empire",
+      "transcontinental",
+      "geography",
+      "history",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Istanbul is one of the very few cities in the world that sits on two continents at once.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "TUR",
+          "fill": "flag:tr",
+          "at": "Istanbul",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "ping",
+          "lat": 41.03,
+          "lon": 29.0,
+          "color": "#ffd60a",
+          "at": "cities"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "two",
+              "value": "2"
+            }
+          ],
+          "size": 220
+        }
+      ],
+      "camera": {
+        "lat": 39.5,
+        "lon": 32,
+        "zoom": 2.6,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Istanbul straddles the Bosphorus between Europe and Asia.",
+          "url": "https://en.wikipedia.org/wiki/Istanbul",
+          "quote": "straddles the Bosphorus ... between the Sea of Marmara and the Black Sea"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The Bosphorus Strait splits it in two: Europe on one side, and Asia on the other.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              40.99,
+              28.99
+            ],
+            [
+              41.03,
+              29.01
+            ],
+            [
+              41.07,
+              29.05
+            ],
+            [
+              41.11,
+              29.06
+            ],
+            [
+              41.16,
+              29.08
+            ],
+            [
+              41.2,
+              29.12
+            ],
+            [
+              41.23,
+              29.14
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 10,
+          "at": "Bosphorus",
+          "drawDur": 1.4,
+          "hold": 2
+        },
+        {
+          "type": "label",
+          "text": "EUROPE",
+          "lat": 41.15,
+          "lon": 28.8,
+          "at": "Europe",
+          "style": "map",
+          "anim": "slam",
+          "size": 80
+        },
+        {
+          "type": "label",
+          "text": "ASIA",
+          "lat": 41.0,
+          "lon": 29.25,
+          "at": "Asia",
+          "style": "map",
+          "anim": "slam",
+          "size": 80
+        }
+      ],
+      "camera": {
+        "lat": 41.08,
+        "lon": 29.05,
+        "zoom": 45,
+        "bearing": -6
+      },
+      "sources": [
+        {
+          "claim": "The Bosporus forms a continental boundary between Asia and Europe.",
+          "url": "https://en.wikipedia.org/wiki/Bosporus",
+          "quote": "forms one of the continental boundaries between Asia and Europe"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's 31 kilometers long, and at its narrowest point it's only about 700 meters wide.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "31",
+              "value": "31 km"
+            },
+            {
+              "at": "700",
+              "value": "700 m"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "ping",
+          "lat": 41.075,
+          "lon": 29.057,
+          "color": "#ffd60a",
+          "at": "narrowest"
+        },
+        {
+          "type": "label",
+          "text": "Kandilli",
+          "lat": 41.075,
+          "lon": 29.06,
+          "at": "narrowest",
+          "dot": true,
+          "dy": 48,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 41.075,
+        "lon": 29.05,
+        "zoom": 120
+      },
+      "sources": [
+        {
+          "claim": "31 km long; minimum width 700 m near Kandilli.",
+          "url": "https://en.wikipedia.org/wiki/Bosporus",
+          "quote": "measures \"31 km (17 nmi) long\" with a minimum width of \"700 m (0.38 nmi)\" at its narrowest point near Kandilli"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "More than 15 million people live here, and about two thirds of them are on the European side.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "15",
+              "value": "15M+"
+            }
+          ],
+          "size": 190
+        },
+        {
+          "type": "label",
+          "text": "⅔ live in Europe",
+          "at": "thirds",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 41.06,
+              "lon": 28.9,
+              "km": 12
+            }
+          },
+          "icon": "🏠",
+          "count": 10,
+          "size": 46,
+          "at": "European"
+        }
+      ],
+      "camera": {
+        "lat": 41.05,
+        "lon": 29.0,
+        "zoom": 40
+      },
+      "sources": [
+        {
+          "claim": "Over 15 million inhabitants; about two-thirds live in Europe.",
+          "url": "https://en.wikipedia.org/wiki/Istanbul",
+          "quote": "Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "It was founded by Greek colonists as Byzantium, and in 330 it became Constantinople.",
+      "show": [
+        {
+          "type": "year",
+          "value": "330",
+          "at": "330"
+        },
+        {
+          "type": "label",
+          "text": "Byzantium",
+          "lat": 41.1,
+          "lon": 28.75,
+          "at": "Byzantium",
+          "style": "serif",
+          "size": 60
+        },
+        {
+          "type": "label",
+          "text": "Constantinople",
+          "lat": 40.95,
+          "lon": 29.15,
+          "at": "Constantinople",
+          "style": "serif",
+          "size": 56
+        }
+      ],
+      "camera": {
+        "lat": 41.05,
+        "lon": 29.0,
+        "zoom": 30
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Founded as Byzantium (~660 BC); renamed Constantinople in 330 AD.",
+          "url": "https://en.wikipedia.org/wiki/Istanbul",
+          "quote": "originally called Byzantium when Greek colonists established it around 660 BC. It became Constantinople in 330 AD under Constantine the Great"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "It was the capital of the Roman, Byzantine and Ottoman empires.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "Roman",
+              "value": "ROME"
+            },
+            {
+              "at": "Byzantine",
+              "value": "BYZANTIUM"
+            },
+            {
+              "at": "Ottoman",
+              "value": "OTTOMANS"
+            }
+          ],
+          "size": 110
+        },
+        {
+          "type": "icon",
+          "icon": "👑",
+          "lat": 41.0,
+          "lon": 28.95,
+          "size": 130,
+          "at": "capital"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Capital of the Roman, Byzantine, Latin and Ottoman empires.",
+          "url": "https://en.wikipedia.org/wiki/Istanbul",
+          "quote": "Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1453, the Ottomans conquered it after a 55 day siege. And in 1930, it was officially renamed Istanbul.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1453",
+          "at": "1453"
+        },
+        {
+          "type": "character",
+          "image": "sultan",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Ottomans",
+          "name": "Mehmed II"
+        },
+        {
+          "type": "shake",
+          "at": "conquered"
+        },
+        {
+          "type": "label",
+          "text": "Istanbul",
+          "lat": 41.03,
+          "lon": 29.0,
+          "at": "1930",
+          "style": "serif",
+          "size": 68,
+          "anim": "slam"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930.",
+          "url": "https://en.wikipedia.org/wiki/Istanbul",
+          "quote": "The Ottomans conquered the city \"on 29 May 1453, after a 55-day siege.\" ... officially renamed Istanbul in 1930"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, three bridges and a railway tunnel under the strait connect Europe and Asia.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "three",
+              "value": "3 + 1"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "icon",
+          "icon": "🌉",
+          "lat": 41.05,
+          "lon": 29.03,
+          "size": 100,
+          "at": "bridges"
+        },
+        {
+          "type": "icon",
+          "icon": "🌉",
+          "lat": 41.09,
+          "lon": 29.06,
+          "size": 90,
+          "at": "bridges"
+        },
+        {
+          "type": "icon",
+          "icon": "🌉",
+          "lat": 41.2,
+          "lon": 29.11,
+          "size": 90,
+          "at": "bridges"
+        },
+        {
+          "type": "icon",
+          "icon": "🚆",
+          "lat": 41.01,
+          "lon": 29.0,
+          "size": 90,
+          "at": "tunnel"
+        }
+      ],
+      "camera": {
+        "lat": 41.1,
+        "lon": 29.05,
+        "zoom": 40,
+        "bearing": -6
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Three bridges (1973, 1988, 2016) and the Marmaray rail tunnel (2013).",
+          "url": "https://en.wikipedia.org/wiki/Bosporus",
+          "quote": "three major bridges ... plus the Marmaray railway tunnel that opened in 2013"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "istanbul": "#ff5a5f",
+        "europe": "#5ec8ff",
+        "asia": "#ffd60a",
+        "bosphorus": "#5ec8ff",
+        "constantinople": "#ffd60a"
+      }
+    }
+  },
+  "imagery": [
+    {
+      "bbox": [
+        28.55,
+        40.8,
+        29.45,
+        41.35
+      ],
+      "width": 4096
+    }
+  ]
+}

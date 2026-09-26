@@ -61,7 +61,9 @@ function prepareGeo(c50, c10, l50, l10) {
       borders50: indexParts(borders50.coordinates, (l) => l),
       borders10: indexParts(borders10.coordinates, (l) => l),
     },
-    byId: new Map(f10.filter((f) => f.id).map((f) => [f.id, f])),
+    // First feature wins: world-atlas lists the country before territories that share its id
+    // (e.g. 036 Australia, then Ashmore and Cartier Is.).
+    byId: f10.reduce((m, f) => (f.id && !m.has(f.id) ? m.set(f.id, f) : m), new Map()),
     byName: new Map(f10.map((f) => [f.properties.name.toLowerCase(), f])),
     all50: f50,
   };
@@ -87,7 +89,10 @@ function meanRgb(ctx, w, h) {
     if (d[i + 3] < 250) continue;
     r += d[i]; g += d[i + 1]; b += d[i + 2]; n++;
   }
-  return n ? [r / n, g / n, b / n] : null;
+  if (!n) return null;
+  const out = [r / n, g / n, b / n];
+  out.n = n;
+  return out;
 }
 
 function landMasked(img, bbox, land, base) {
@@ -105,10 +110,23 @@ function landMasked(img, bbox, land, base) {
   mc.filter = 'blur(3px)';
   mc.fillStyle = '#fff';
   mc.beginPath();
+  const cx = (w + e) / 2;
   for (const poly of land.geometry.coordinates) {
     for (const ring of poly) {
-      ring.forEach(([lon, lat], i) => {
-        const x = (lon - w) * sx, y = (n - lat) * sy;
+      // Unwrap longitudes so rings crossing the antimeridian (Chukotka, Fiji...) stay continuous,
+      // then shift the ring by a multiple of 360 so it lands next to this bbox.
+      let prev = null;
+      const pts = ring.map(([lon, lat]) => {
+        if (prev != null) lon += Math.round((prev - lon) / 360) * 360;
+        prev = lon;
+        return [lon, lat];
+      });
+      let lo = Infinity, hi = -Infinity;
+      for (const [lon] of pts) { lo = Math.min(lo, lon); hi = Math.max(hi, lon); }
+      const shift = Math.round((cx - (lo + hi) / 2) / 360) * 360;
+      if (hi + shift < w - 1 || lo + shift > e + 1) continue;
+      pts.forEach(([lon, lat], i) => {
+        const x = (lon + shift - w) * sx, y = (n - lat) * sy;
         if (i === 0) mc.moveTo(x, y);
         else mc.lineTo(x, y);
       });
@@ -128,7 +146,12 @@ function landMasked(img, bbox, land, base) {
   bx.drawImage(base, ((w + 180) / 360) * BW, ((90 - n) / 180) * BH, ((e - w) / 360) * BW, ((n - s) / 180) * BH, 0, 0, c.width, c.height);
   bx.globalCompositeOperation = 'destination-in';
   bx.drawImage(m, 0, 0);
-  const a = meanRgb(ctx, c.width, c.height), b = meanRgb(bx, c.width, c.height);
+  // Skip the match when the land covers only a handful of base pixels (small islands):
+  // the base's "land" there is mostly smeared sea colour and would tint the land blue.
+  const closeUp = ((e - w) / 360) * BW < 200;
+  const a = meanRgb(ctx, c.width, c.height);
+  const landBasePx = a ? (a.n / ((c.width * c.height) / 4)) * (((e - w) / 360) * BW) * (((n - s) / 180) * BH) : 0;
+  const b = landBasePx < 60 ? null : meanRgb(bx, c.width, c.height);
   if (a && b) {
     const img2 = ctx.getImageData(0, 0, c.width, c.height);
     const d = img2.data;
@@ -140,6 +163,25 @@ function landMasked(img, bbox, land, base) {
     }
     ctx.globalCompositeOperation = 'source-over';
     ctx.putImageData(img2, 0, 0);
+  }
+  // Close-up boxes: the 8k base has a smeared coastline at this scale, so fill the water with
+  // the base's mean sea colour instead (sharp coast from the land polygons). Wide boxes keep
+  // the base's own ocean shading.
+  if (closeUp) {
+    const wc = document.createElement('canvas');
+    wc.width = c.width;
+    wc.height = c.height;
+    const wx = wc.getContext('2d');
+    wx.drawImage(base, ((w + 180) / 360) * BW, ((90 - n) / 180) * BH, ((e - w) / 360) * BW, ((n - s) / 180) * BH, 0, 0, c.width, c.height);
+    wx.globalCompositeOperation = 'destination-out';
+    wx.drawImage(m, 0, 0);
+    const sea = meanRgb(wx, c.width, c.height);
+    if (sea) {
+      ctx.globalCompositeOperation = 'destination-over';
+      ctx.fillStyle = `rgb(${sea.map((v) => Math.round(v)).join(',')})`;
+      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.globalCompositeOperation = 'source-over';
+    }
   }
   return c;
 }
@@ -395,9 +437,11 @@ async function init(tl) {
   });
   const first = shots.find((s) => s.target)?.target || { lat: 20, lon: 0, zoom: 1 };
   const intro = tl.intro || {};
+  // default fly-in offset shrinks for close first shots so the opening frame stays on the subject
+  const introK = mode === 'globe' ? 1 : Math.min(1, 2 / Math.max(first.zoom, 0.1));
   const introCam = {
-    lat: first.lat + (intro.dLat ?? (mode === 'globe' ? -8 : -4)),
-    lon: first.lon + (intro.dLon ?? (mode === 'globe' ? 40 : 18)),
+    lat: first.lat + (intro.dLat ?? (mode === 'globe' ? -8 : -4 * introK)),
+    lon: first.lon + (intro.dLon ?? (mode === 'globe' ? 40 : 18 * introK)),
     zoom: intro.zoom ?? (mode === 'globe' ? 0.95 : Math.max(0.9, first.zoom * 0.6)),
   };
   if (mode === 'flat') {
@@ -1177,7 +1221,7 @@ function buildUi() {
         html = `<div class="inner badge" style="background:${el.color || '#2b6be0'}">${esc(el.text)}</div>`;
         break;
       case 'question':
-        html = `<div class="inner question">${[0, 1, 2].map((i) => `<span class="q" style="position:absolute;font-size:${[110, 150, 120][i]}px">?</span>`).join('')}</div>`;
+        html = `<div class="inner question" style="position:relative;width:330px;height:250px">${[0, 1, 2].map((i) => `<span class="q" style="position:absolute;left:165px;top:175px;font-size:${[110, 150, 120][i]}px">?</span>`).join('')}</div>`;
         break;
       case 'year':
         html = `<div class="inner year ${el.light ? 'light' : ''}" style="font-size:${el.size || 210}px"></div>`;
@@ -1192,9 +1236,12 @@ function buildUi() {
         html = `<div class="inner title" style="font-size:${el.size || 72}px;width:${W - 140}px">${esc(el.text)}</div>`;
         break;
       case 'character': {
-        const sz = el.size || 300;
-        html = `<div class="inner character" style="width:${sz}px">
-          <div class="body" style="width:${sz}px;height:${sz * 1.2}px">${characterSvg(el).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`)}</div>
+        const sz = el.size || (el.image ? 380 : 300);
+        const bodyHtml = el.image
+          ? `<img class="body figure" src="/assets/characters/${el.image}.png" style="height:${sz}px;display:block;margin:0 auto">`
+          : `<div class="body" style="width:${sz}px;height:${sz * 1.2}px">${characterSvg(el).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`)}</div>`;
+        html = `<div class="inner character ${el.image ? 'figure' : ''}" style="${el.image ? '' : `width:${sz}px`}">
+          ${bodyHtml}
           ${el.name ? `<div class="nametag">${esc(el.name)}</div>` : ''}
           ${el.say ? `<div class="bubble ${el.think ? 'think' : ''} ${el.bubbleSide === 'left' ? 'left' : ''}"><span>${esc(el.say)}</span></div>` : ''}
         </div>`;
@@ -1273,6 +1320,7 @@ function clampToSafe(x, y, w, h) {
 }
 
 function updateUi(t) {
+  const placed = [];
   for (const el of state.tl.elements) {
     if (!el._node) continue;
     const life = lifeOf(el, t, 0.35, 0.25);
@@ -1386,11 +1434,18 @@ function updateUi(t) {
         const talking = el.say && life.age > 0.25 && life.age < (el.talkFor ?? 2.2);
         const mouthOpen = talking && Math.floor(life.age * 9 + Math.sin(life.age * 13)) % 2 === 0;
         const blink = (life.age + (el.seed || 0) * 0.7) % 3.1 < 0.12;
-        body.style.transform = `translateY(${bob * 0.6}px) scaleX(${el.flip ? -1 : 1})`;
-        body.querySelector('.mouth-open').style.display = mouthOpen ? '' : 'none';
-        body.querySelector('.mouth-closed').style.display = mouthOpen ? 'none' : '';
-        body.querySelector('.eyes-open').style.display = blink ? 'none' : '';
-        body.querySelector('.eyes-closed').style.display = blink ? '' : 'none';
+        if (el.image) {
+          // clay figures: gentle hop while "talking", otherwise a slow sway
+          const hop = talking ? Math.abs(Math.sin(life.age * 7)) * 10 : 0;
+          const sq = 1 + (talking ? 0.025 * Math.sin(life.age * 14) : 0.012 * Math.sin(life.age * 3));
+          body.style.transform = `translateY(${-hop + bob * 0.4}px) scaleX(${(el.flip ? -1 : 1) / sq}) scaleY(${sq}) rotate(${Math.sin(life.age * 2.2) * 2}deg)`;
+        } else {
+          body.style.transform = `translateY(${bob * 0.6}px) scaleX(${el.flip ? -1 : 1})`;
+          body.querySelector('.mouth-open').style.display = mouthOpen ? '' : 'none';
+          body.querySelector('.mouth-closed').style.display = mouthOpen ? 'none' : '';
+          body.querySelector('.eyes-open').style.display = blink ? 'none' : '';
+          body.querySelector('.eyes-closed').style.display = blink ? '' : 'none';
+        }
         const bub = inner.querySelector('.bubble');
         if (bub) {
           const bu = clamp01((life.age - 0.3) / 0.25);
@@ -1452,15 +1507,73 @@ function updateUi(t) {
         rot = Math.sin(u * Math.PI) * -10;
       }
     }
+    placed.push({ el, node, inner, x, y, w, h, scale, rot, opacity });
+  }
+  resolveOverlaps(placed);
+  for (const p of placed) {
+    const { el, node, inner, scale, rot, opacity } = p;
     if (el.type === 'flag' && el.pin) {
-      node.style.transform = `translate(${x}px, ${y}px)`;
+      node.style.transform = `translate(${p.x}px, ${p.y}px)`;
       inner.style.transform = `scale(${scale})`;
       inner.style.transformOrigin = '0 0';
     } else {
-      node.style.transform = `translate(${x - w / 2}px, ${y - h / 2}px)`;
+      node.style.transform = `translate(${p.x - p.w / 2}px, ${p.y - p.h / 2}px)`;
       inner.style.transform = `scale(${scale}) rotate(${rot}deg)`;
     }
     node.style.opacity = String(opacity);
+  }
+}
+
+// Push overlapping on-screen texts apart. Screen-placed items (counters, stats, stamps,
+// characters) and the caption band are fixed obstacles; map labels/flags/icons move.
+// Displacement is recomputed from the anchors every frame, so it follows the camera smoothly.
+const MOVABLE = new Set(['label', 'flag', 'icon', 'badge', 'question', 'measure', 'year']);
+function resolveOverlaps(items) {
+  const C = state.tl.config.captions;
+  const boxes = items
+    .filter((p) => p.opacity > 0.02 && !(p.el.type === 'flag' && p.el.pin) && p.el.type !== 'route' && p.el.type !== 'scatter')
+    .map((p) => {
+      // axis-aligned box of the (possibly rotated) element
+      const k = Math.max(p.scale, 0.6), r = ((p.rot || 0) * Math.PI) / 180;
+      const c = Math.abs(Math.cos(r)), sn = Math.abs(Math.sin(r));
+      return { p, movable: MOVABLE.has(p.el.type) && (!p.el.screen || p.el.type === 'label' || p.el.type === 'year') && !p.el.fixed, w: (p.w * c + p.h * sn) * k, h: (p.w * sn + p.h * c) * k };
+    });
+  const cap = { p: { x: W / 2, y: H * C.y + C.size * 0.6 }, movable: false, w: W * 0.8, h: C.size * 1.5 };
+  boxes.push(cap);
+  // a character's speech bubble sits above its box: add it as an extra obstacle
+  for (const p of items) {
+    if (p.el.type !== 'character' || !p.el.say || p.opacity <= 0.02) continue;
+    boxes.push({ p: { x: p.x, y: p.y - p.h / 2 - 70 }, movable: false, w: Math.max(p.w, 360), h: 150 });
+  }
+  const pad = 14;
+  for (let it = 0; it < 14; it++) {
+    let moved = false;
+    for (let i = 0; i < boxes.length; i++) {
+      for (let j = i + 1; j < boxes.length; j++) {
+        const a = boxes[i], b = boxes[j];
+        if (!a.movable && !b.movable) continue;
+        const ox = (a.w + b.w) / 2 + pad - Math.abs(a.p.x - b.p.x);
+        const oy = (a.h + b.h) / 2 + pad - Math.abs(a.p.y - b.p.y);
+        if (ox <= 0 || oy <= 0) continue;
+        moved = true;
+        const share = a.movable && b.movable ? 0.5 : 1;
+        if (oy < ox) {
+          const dir = a.p.y <= b.p.y ? -1 : 1;
+          if (a.movable) a.p.y += dir * oy * share;
+          if (b.movable) b.p.y -= dir * oy * share;
+        } else {
+          const dir = a.p.x <= b.p.x ? -1 : 1;
+          if (a.movable) a.p.x += dir * ox * share;
+          if (b.movable) b.p.x -= dir * ox * share;
+        }
+      }
+    }
+    if (!moved) break;
+  }
+  for (const b of boxes) {
+    if (!b.movable) continue;
+    b.p.x = Math.min(Math.max(b.p.x, b.w / 2 + 20), W - b.w / 2 - 20);
+    b.p.y = Math.min(Math.max(b.p.y, b.h / 2 + 20), H * (1 - state.tl.config.safe.bottom) - b.h / 2);
   }
 }
 

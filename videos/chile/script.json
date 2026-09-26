@@ -1,0 +1,459 @@
+{
+  "id": "chile",
+  "style": "geo",
+  "meta": {
+    "title": "Why Chile Is So Long & So Thin 🇨🇱🤯 4,300 km Ribbon Country",
+    "description": "Chile 🇨🇱 is about 4,300 km long but on average only 177 km wide 📏 Why? To the east, the Andes form a giant wall ⛰️ and to the west there's only the Pacific Ocean 🌊 In the War of the Pacific (1879–1884) Chile defeated Bolivia 🇧🇴 and Peru 🇵🇪 and expanded its territory northward by almost one-third, taking the nitrate-rich Atacama and leaving Bolivia without a coast. That's how Chile became a ribbon squeezed between mountains and ocean 🤯",
+    "pinnedComment": [
+      "A country 4,300 km long but only 177 km wide 🤯🇨🇱",
+      "Chileans: north or south, where's the best part? 👇",
+      "Which weird country shape should we explain next? 🗺️"
+    ],
+    "tags": [
+      "chile",
+      "andes",
+      "atacama",
+      "pacific ocean",
+      "war of the pacific",
+      "bolivia",
+      "peru",
+      "weird borders",
+      "country shape",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Chile is about 4,300 kilometers long, but on average only 177 kilometers wide.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "CHL",
+          "fill": "flag:cl",
+          "at": "Chile",
+          "hold": 1
+        },
+        {
+          "type": "measure",
+          "from": [
+            -17.5,
+            -69.6
+          ],
+          "to": [
+            -55.9,
+            -67.3
+          ],
+          "label": "4,300 km",
+          "at": "4,300",
+          "labelDy": 0,
+          "labelDx": 0
+        },
+        {
+          "type": "measure",
+          "from": [
+            -30,
+            -71.6
+          ],
+          "to": [
+            -30,
+            -70
+          ],
+          "label": "177 km",
+          "at": "177"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "CHL"
+        ],
+        "pad": 0.95
+      },
+      "sources": [
+        {
+          "claim": "Chile is about 4,300 km long with an average width of 177 km.",
+          "url": "https://en.wikipedia.org/wiki/Chile",
+          "quote": "approximately 4,300 kilometers north to south with an average width of only 177 kilometers"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Put Chile on top of Europe, at its real size, and it would stretch across almost the whole continent.",
+      "show": [
+        {
+          "type": "ghost",
+          "target": "CHL",
+          "to": {
+            "lat": 52,
+            "lon": 12
+          },
+          "fill": "#e63946",
+          "at": "Europe"
+        },
+        {
+          "type": "label",
+          "text": "Chile",
+          "lat": 50,
+          "lon": 20,
+          "at": "Europe",
+          "style": "pill",
+          "bg": "#c1121f",
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 50,
+        "lon": 12,
+        "zoom": 1.1
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "So why is Chile shaped like this?",
+      "show": [
+        {
+          "type": "question",
+          "lat": -30,
+          "lon": -70,
+          "at": "why"
+        },
+        {
+          "type": "highlight",
+          "target": "CHL",
+          "fill": "#d62828",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        }
+      ],
+      "camera": {
+        "fit": [
+          "CHL"
+        ],
+        "pad": 0.9
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "First, look east. The Andes, some of the highest mountains on Earth, form a giant wall along the whole country.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              -18,
+              -69.2
+            ],
+            [
+              -24,
+              -68.2
+            ],
+            [
+              -30,
+              -69.8
+            ],
+            [
+              -36,
+              -70.4
+            ],
+            [
+              -41,
+              -71.8
+            ],
+            [
+              -47,
+              -72.9
+            ],
+            [
+              -52,
+              -72.9
+            ]
+          ],
+          "color": "#c8a46e",
+          "width": 16,
+          "at": "Andes",
+          "drawDur": 1.4
+        },
+        {
+          "type": "label",
+          "text": "ANDES",
+          "lat": -27,
+          "lon": -67.5,
+          "at": "Andes",
+          "style": "map",
+          "anim": "slam",
+          "size": 90,
+          "rotate": -80
+        },
+        {
+          "type": "icon",
+          "icon": "⛰️",
+          "lat": -33,
+          "lon": -66,
+          "size": 130,
+          "at": "wall"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "CHL"
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Chile is a narrow strip between the Andes and the Pacific.",
+          "url": "https://en.wikipedia.org/wiki/Chile",
+          "quote": "a narrow strip of land between the Andes Mountains and the Pacific Ocean"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And to the west, there's nothing but the Pacific Ocean. So Chile is trapped in a narrow strip between the two.",
+      "show": [
+        {
+          "type": "label",
+          "text": "PACIFIC OCEAN",
+          "lat": -32,
+          "lon": -84,
+          "at": "Pacific",
+          "style": "map",
+          "anim": "slam",
+          "size": 80,
+          "rotate": -80
+        },
+        {
+          "type": "icon",
+          "icon": "🌊",
+          "lat": -40,
+          "lon": -82,
+          "size": 120,
+          "at": "Ocean"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The Pacific Ocean lies to the west.",
+          "url": "https://en.wikipedia.org/wiki/Chile",
+          "quote": "a narrow strip of land between the Andes Mountains and the Pacific Ocean"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "But Chile also grew north. From 1879 to 1884, in the War of the Pacific, it fought and defeated Bolivia and Peru.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1879",
+          "at": "War"
+        },
+        {
+          "type": "highlight",
+          "target": "BOL",
+          "fill": "#f4a261",
+          "at": "Bolivia"
+        },
+        {
+          "type": "highlight",
+          "target": "PER",
+          "fill": "#e9c46a",
+          "at": "Peru"
+        },
+        {
+          "type": "character",
+          "image": "soldier_chile",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Chile",
+          "name": "Chile"
+        },
+        {
+          "type": "character",
+          "image": "soldier_bolivia",
+          "screen": [
+            0.74,
+            0.6
+          ],
+          "at": "Bolivia",
+          "name": "Bolivia",
+          "flip": true
+        },
+        {
+          "type": "shake",
+          "at": "defeated"
+        }
+      ],
+      "camera": {
+        "lat": -20,
+        "lon": -68,
+        "zoom": 3.2
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The War of the Pacific (1879–1884) was fought by Chile against Bolivia and Peru.",
+          "url": "https://en.wikipedia.org/wiki/War_of_the_Pacific",
+          "quote": "1 March 1879 – 4 April 1884"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Chile took the nitrate-rich north, including the Atacama, the driest non-polar desert in the world. And Bolivia lost its coast.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Antofagasta",
+            "country": "CHL"
+          },
+          "fill": "#c1121f",
+          "at": "nitrate",
+          "reveal": {
+            "lat": -23.6,
+            "lon": -70.4
+          },
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Tarapacá",
+            "country": "CHL"
+          },
+          "fill": "#c1121f",
+          "at": "north",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "label",
+          "text": "Atacama",
+          "lat": -23.5,
+          "lon": -69.2,
+          "at": "north",
+          "style": "serif",
+          "size": 56
+        },
+        {
+          "type": "label",
+          "text": "NO COAST!",
+          "lat": -17,
+          "lon": -64,
+          "at": "coast",
+          "style": "note",
+          "typewriter": true,
+          "size": 64,
+          "rotate": -7
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Chile acquired Antofagasta and Tarapacá with nitrate deposits; Bolivia lost its access to the Pacific.",
+          "url": "https://en.wikipedia.org/wiki/Chile",
+          "quote": "acquiring resource-rich northern territories including the Antofagasta and Tarapacá regions ... eliminating Bolivia's access to the Pacific, and acquiring valuable nitrate deposits"
+        },
+        {
+          "claim": "The Atacama is the driest non-polar desert in the world.",
+          "url": "https://en.wikipedia.org/wiki/Atacama_Desert",
+          "quote": "the driest non-polar desert in the world"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Chile expanded its territory north by almost one third.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "third",
+              "value": "+⅓"
+            }
+          ],
+          "size": 220
+        },
+        {
+          "type": "highlight",
+          "target": "CHL",
+          "fill": "#c1121f",
+          "at": 0.1,
+          "fillOpacity": 0.8
+        }
+      ],
+      "camera": {
+        "fit": [
+          "CHL"
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Chile expanded northward by almost one-third.",
+          "url": "https://en.wikipedia.org/wiki/Chile",
+          "quote": "Chile expanding its territory northward by almost one-third"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's how Chile became a 4,300 kilometer ribbon, squeezed between the mountains and the ocean.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "CHL",
+          "fill": "#d62828",
+          "at": "ribbon",
+          "soft": true,
+          "rim": "#ffb703",
+          "softness": 8
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "4,300",
+              "value": "4,300 km"
+            }
+          ],
+          "size": 150
+        }
+      ],
+      "camera": {
+        "fit": [
+          "CHL"
+        ],
+        "pad": 0.9,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "About 4,300 km long, between the Andes and the Pacific.",
+          "url": "https://en.wikipedia.org/wiki/Chile",
+          "quote": "approximately 4,300 kilometers north to south"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "chile": "#ff5a5f",
+        "andes": "#e9c46a",
+        "pacific": "#5ec8ff",
+        "bolivia": "#f4a261",
+        "peru": "#e9c46a"
+      }
+    }
+  }
+}

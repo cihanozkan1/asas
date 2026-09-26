@@ -1,0 +1,462 @@
+{
+  "id": "point_roberts",
+  "style": "geo",
+  "meta": {
+    "title": "The US Town You Can Only Drive to Through Canada 🇺🇸🇨🇦🤯 Point Roberts",
+    "description": "Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, and older kids go to school in Blaine, crossing the border four times on every round trip 🤯",
+    "pinnedComment": [
+      "Kids here cross an international border 4 times to go to school 🤯🚌",
+      "Would you live in Point Roberts? 👇",
+      "Which weird border should we explain next? 🗺️"
+    ],
+    "tags": [
+      "point roberts",
+      "washington",
+      "canada",
+      "usa",
+      "border",
+      "49th parallel",
+      "oregon treaty",
+      "vancouver",
+      "exclave",
+      "weird borders",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This little town is in the USA, but you can only drive there through Canada. Otherwise, you need a boat or a plane.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 48.975,
+          "lon": -123.06,
+          "color": "#ffd60a",
+          "at": "town",
+          "hold": 1
+        },
+        {
+          "type": "flag",
+          "code": "us",
+          "lat": 48.972,
+          "lon": -123.03,
+          "size": 110,
+          "at": "USA",
+          "pin": true
+        },
+        {
+          "type": "highlight",
+          "target": "CAN",
+          "fill": "flag:ca",
+          "at": "Canada",
+          "fillOpacity": 0.55
+        }
+      ],
+      "camera": {
+        "lat": 49.0,
+        "lon": -123.0,
+        "zoom": 120,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Point Roberts is a US pene-exclave reachable by land only through Canada (or by boat/plane).",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "a pene-exclave of the US state of Washington ... \"25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's Point Roberts, on the tip of a Canadian peninsula just south of Vancouver.",
+      "show": [
+        {
+          "type": "label",
+          "text": "POINT ROBERTS",
+          "lat": 48.955,
+          "lon": -123.06,
+          "at": "Point",
+          "style": "map",
+          "anim": "slam",
+          "size": 66
+        },
+        {
+          "type": "label",
+          "text": "Vancouver",
+          "lat": 49.25,
+          "lon": -123.1,
+          "at": "Vancouver",
+          "dot": true,
+          "dy": -46,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 49.08,
+        "lon": -123.05,
+        "zoom": 60
+      },
+      "sources": [
+        {
+          "claim": "On the southern tip of the Tsawwassen peninsula, south of Vancouver.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "on the southernmost tip of the Tsawwassen peninsula, south of Vancouver, British Columbia, Canada"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why is it American?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 48.975,
+          "lon": -123.06,
+          "at": "why"
+        }
+      ],
+      "camera": {
+        "lat": 49.0,
+        "lon": -123.0,
+        "zoom": 90
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "history",
+      "text": "In 1846, the Oregon Treaty set the border between the US and British Canada along the 49th parallel.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1846",
+          "at": "1846"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -125
+            ],
+            [
+              49,
+              -120
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "49th",
+          "rhumb": true,
+          "drawDur": 1.3,
+          "hold": 1
+        },
+        {
+          "type": "flag",
+          "code": "gb",
+          "lat": 49.6,
+          "lon": -122.0,
+          "size": 110,
+          "at": "British"
+        },
+        {
+          "type": "flag",
+          "code": "us",
+          "lat": 48.3,
+          "lon": -122.0,
+          "size": 110,
+          "at": "US"
+        }
+      ],
+      "camera": {
+        "lat": 49.0,
+        "lon": -122.5,
+        "zoom": 12
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The 1846 Oregon Treaty fixed the boundary at the 49th parallel.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "the 1846 Oregon Treaty, which established \"the 49th parallel would define the boundary between their respective territories\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But this perfectly straight line cut right across the peninsula, leaving its tip on the American side.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 48.975,
+              "lon": -123.06,
+              "km": 2.2
+            }
+          },
+          "fill": "#1d4ed8",
+          "at": "tip",
+          "fillOpacity": 0.35,
+          "reveal": {
+            "lat": 48.975,
+            "lon": -123.06
+          }
+        },
+        {
+          "type": "label",
+          "text": "USA",
+          "lat": 48.965,
+          "lon": -123.02,
+          "at": "American",
+          "style": "note",
+          "typewriter": true,
+          "size": 66,
+          "rotate": -7
+        }
+      ],
+      "camera": {
+        "lat": 49.0,
+        "lon": -123.05,
+        "zoom": 140
+      },
+      "sources": [
+        {
+          "claim": "The 49th parallel left the southern peninsula tip on the US side.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "leaving this southern peninsula on the American side"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "To reach the rest of the USA by land, you drive about 40 kilometers through Canada.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              48.975,
+              -123.06
+            ],
+            [
+              49.005,
+              -123.08
+            ],
+            [
+              49.07,
+              -123.02
+            ],
+            [
+              49.08,
+              -122.85
+            ],
+            [
+              49.0,
+              -122.76
+            ],
+            [
+              48.993,
+              -122.75
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "drive",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "🚗",
+            "size": 90
+          }
+        },
+        {
+          "type": "label",
+          "text": "Blaine, USA",
+          "lat": 48.993,
+          "lon": -122.75,
+          "at": "Canada",
+          "dot": true,
+          "dy": 50,
+          "size": 44
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "40",
+              "value": "40 km"
+            }
+          ],
+          "size": 160
+        }
+      ],
+      "camera": {
+        "lat": 49.03,
+        "lon": -122.92,
+        "zoom": 70
+      },
+      "sources": [
+        {
+          "claim": "Residents travel about 25 mi (40 km) through Canada.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "traveling \"25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Older kids go to school in Blaine, so they cross the border four times on every round trip.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              48.975,
+              -123.06
+            ],
+            [
+              49.005,
+              -123.08
+            ],
+            [
+              49.07,
+              -123.02
+            ],
+            [
+              49.08,
+              -122.85
+            ],
+            [
+              49.0,
+              -122.76
+            ],
+            [
+              48.993,
+              -122.75
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "school",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "🚌",
+            "size": 90
+          },
+          "drawDur": 2.4
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "school",
+              "value": "1"
+            },
+            {
+              "at": "cross",
+              "value": "2"
+            },
+            {
+              "at": "four",
+              "value": "4"
+            }
+          ],
+          "size": 200
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Students in grade 4 and above commute to Blaine, crossing the border four times.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to \"cross the US–Canada border four times, two on the trip to Blaine and two on the trip back.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, about 1,191 people live in this American island on land.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "1,191",
+              "value": "1,191"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "label",
+          "text": "people (2020)",
+          "at": "1,191",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "ping",
+          "lat": 48.975,
+          "lon": -123.06,
+          "color": "#ffd60a",
+          "at": "American"
+        }
+      ],
+      "camera": {
+        "lat": 48.99,
+        "lon": -123.05,
+        "zoom": 150,
+        "bearing": -4
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Population 1,191 (2020 census).",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "The 2020 census recorded 1,191 residents across 4.884 square miles of territory."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "canada": "#ff5a5f",
+        "usa": "#5ec8ff",
+        "american": "#5ec8ff",
+        "blaine": "#ffd60a",
+        "vancouver": "#ffd60a"
+      }
+    }
+  },
+  "imagery": [
+    {
+      "bbox": [
+        -123.35,
+        48.85,
+        -122.6,
+        49.35
+      ],
+      "width": 4096
+    }
+  ]
+}

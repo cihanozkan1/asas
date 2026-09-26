@@ -1,0 +1,554 @@
+{
+  "id": "northwest_angle",
+  "style": "geo",
+  "meta": {
+    "title": "Why This Piece of the USA Is Only Reachable Through Canada 🇺🇸🇨🇦🤯 Northwest Angle",
+    "description": "The Northwest Angle in Minnesota 🇺🇸 is the only place in the contiguous United States north of the 49th parallel, and you can only drive there through Canada 🇨🇦 Why? In 1783 the negotiators of the Treaty of Paris, including Benjamin Franklin, used John Mitchell's map, which got the Mississippi River and the Lake of the Woods wrong 🗺️ The treaty sent the border to the lake's northwesternmost point and then west to the Mississippi, but the river actually starts further south at Lake Itasca. Later treaties fixed the rest of the border, and this little corner stayed American. Only 149 people live there today 🤯",
+    "pinnedComment": [
+      "A piece of the USA you can only drive to through Canada 🤯🇺🇸🇨🇦",
+      "Would you live in the Northwest Angle? 🎣👇",
+      "Which weird border should we explain next? 🗺️"
+    ],
+    "tags": [
+      "northwest angle",
+      "minnesota",
+      "lake of the woods",
+      "canada",
+      "usa",
+      "border",
+      "49th parallel",
+      "treaty of paris",
+      "benjamin franklin",
+      "map mistake",
+      "weird borders",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This tiny piece of Minnesota is the only place in the lower 48 states that sits north of the 49th parallel.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Minnesota",
+            "country": "USA"
+          },
+          "fill": "#1d4ed8",
+          "at": "Minnesota",
+          "fillOpacity": 0.35,
+          "hold": 1
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -97.5
+            ],
+            [
+              49,
+              -93
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 6,
+          "at": "49th",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            16,
+            12
+          ],
+          "drawDur": 1.0,
+          "hold": 1
+        },
+        {
+          "type": "ping",
+          "lat": 49.34,
+          "lon": -95.07,
+          "color": "#ffd60a",
+          "at": "tiny",
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "NORTHWEST ANGLE",
+          "lat": 49.55,
+          "lon": -95.1,
+          "at": "tiny",
+          "style": "map",
+          "anim": "slam",
+          "size": 64
+        }
+      ],
+      "camera": {
+        "lat": 49.1,
+        "lon": -95.2,
+        "zoom": 26,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "The only place in the contiguous US north of the 49th parallel.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "the only place in the contiguous United States north of the 49th parallel"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And if you want to drive there, you have to go through Canada.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Manitoba",
+            "country": "CAN"
+          },
+          "fill": "flag:ca",
+          "at": "Canada",
+          "fillOpacity": 0.75
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              48.905,
+              -95.314
+            ],
+            [
+              48.99,
+              -95.55
+            ],
+            [
+              49.2,
+              -95.62
+            ],
+            [
+              49.33,
+              -95.35
+            ],
+            [
+              49.34,
+              -95.07
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "drive",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "🚗",
+            "size": 90
+          }
+        },
+        {
+          "type": "label",
+          "text": "Warroad",
+          "lat": 48.905,
+          "lon": -95.314,
+          "at": "drive",
+          "dot": true,
+          "dy": 46,
+          "size": 40
+        }
+      ],
+      "sources": [
+        {
+          "claim": "It can be reached by land only through Canada, or across Lake of the Woods.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "accessible only through Canada or by crossing Lake of the Woods"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So how did this happen? A map mistake from 1783.",
+      "show": [
+        {
+          "type": "question",
+          "lat": 49.34,
+          "lon": -95.07,
+          "at": "how"
+        },
+        {
+          "type": "year",
+          "value": "1783",
+          "at": "1783"
+        },
+        {
+          "type": "stamp",
+          "text": "MAP MISTAKE",
+          "size": 84,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "mistake"
+        }
+      ],
+      "camera": {
+        "lat": 48,
+        "lon": -95,
+        "zoom": 7
+      },
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "It stems from a 1783 mapping mistake.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "The region's existence stems from a 1783 mapping mistake."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "The negotiators of the Treaty of Paris, including Benjamin Franklin, used a map that got the Mississippi River and this lake wrong.",
+      "show": [
+        {
+          "type": "character",
+          "image": "franklin",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Benjamin",
+          "name": "Benjamin Franklin"
+        },
+        {
+          "type": "icon",
+          "icon": "🗺️",
+          "lat": 47.8,
+          "lon": -92.0,
+          "size": 150,
+          "at": "map"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 49.05,
+              "lon": -94.85,
+              "km": 32
+            }
+          },
+          "fill": "#5ec8ff",
+          "at": "lake",
+          "soft": true,
+          "rim": "#1d4ed8",
+          "fillOpacity": 0.55,
+          "hold": 2
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              47.24,
+              -95.21
+            ],
+            [
+              47.45,
+              -94.9
+            ],
+            [
+              47.3,
+              -94.2
+            ],
+            [
+              46.4,
+              -94.3
+            ],
+            [
+              45.6,
+              -94.2
+            ],
+            [
+              44.98,
+              -93.27
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 7,
+          "at": "Mississippi",
+          "drawDur": 1.2,
+          "hold": 2
+        },
+        {
+          "type": "label",
+          "text": "Lake of the Woods",
+          "lat": 49.45,
+          "lon": -94.3,
+          "at": "lake",
+          "style": "serif",
+          "size": 48
+        }
+      ],
+      "camera": {
+        "lat": 47.8,
+        "lon": -94.8,
+        "zoom": 6
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Negotiators incl. Benjamin Franklin relied on John Mitchell's inaccurate map.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "Negotiators of the Canada-U.S. border, including Benjamin Franklin, relied on John Mitchell's colonial map, which contained critical inaccuracies."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "The treaty said the border runs to the lake's northwesternmost point, and then west to the Mississippi.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              48.7,
+              -93.5
+            ],
+            [
+              49.2,
+              -94.5
+            ],
+            [
+              49.38,
+              -95.15
+            ]
+          ],
+          "color": "#c1121f",
+          "width": 7,
+          "at": "northwesternmost",
+          "drawDur": 1.2,
+          "hold": 1
+        },
+        {
+          "type": "ping",
+          "lat": 49.38,
+          "lon": -95.15,
+          "color": "#c1121f",
+          "at": "point"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            49.38,
+            -95.3
+          ],
+          "to": [
+            49.38,
+            -97.5
+          ],
+          "color": "#c1121f",
+          "at": "west"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The treaty set the boundary through the lake to its \"northwesternmost point,\" then westward to the Mississippi.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "The Treaty of Paris consequently set the boundary to run through the lake to its \"northwesternmost point,\" then westward to the Mississippi."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "But the Mississippi actually starts far to the south, at Lake Itasca. The line could never reach it.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 47.24,
+          "lon": -95.21,
+          "color": "#5ec8ff",
+          "at": "Itasca"
+        },
+        {
+          "type": "label",
+          "text": "Lake Itasca",
+          "lat": 47.24,
+          "lon": -95.21,
+          "at": "Itasca",
+          "dot": true,
+          "dy": 48,
+          "size": 44
+        },
+        {
+          "type": "arrow",
+          "from": [
+            49.2,
+            -97.3
+          ],
+          "to": [
+            47.5,
+            -95.5
+          ],
+          "color": "#5ec8ff",
+          "at": "south"
+        },
+        {
+          "type": "label",
+          "text": "???",
+          "lat": 48.3,
+          "lon": -96.4,
+          "at": "never",
+          "style": "note",
+          "typewriter": true,
+          "size": 80,
+          "rotate": -7
+        }
+      ],
+      "camera": {
+        "lat": 48.0,
+        "lon": -95.3,
+        "zoom": 6
+      },
+      "sources": [
+        {
+          "claim": "The Mississippi's actual source, Lake Itasca, lies south of Lake of the Woods.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "the river's actual source—Lake Itasca—lies south of Lake of the Woods, not northwest"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Later treaties fixed the rest of the border, but this little corner stayed American.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -97.5
+            ],
+            [
+              49,
+              -95.15
+            ],
+            [
+              49.38,
+              -95.15
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "fixed",
+          "rhumb": true,
+          "drawDur": 1.0
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Minnesota",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": "American",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "ping",
+          "lat": 49.34,
+          "lon": -95.07,
+          "color": "#ffd60a",
+          "at": "corner"
+        }
+      ],
+      "camera": {
+        "lat": 49.1,
+        "lon": -95.3,
+        "zoom": 18
+      },
+      "sources": [
+        {
+          "claim": "Later treaties (Jay Treaty, Treaty of Ghent, 1818 Convention, Webster–Ashburton) clarified the boundary.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "Subsequent treaties (Jay Treaty, Treaty of Ghent, Anglo-American Convention of 1818, and Webster-Ashburton Treaty) gradually clarified the boundary, cementing the Angle's unusual status."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, only 149 people live there, and about 79 percent of the area is water.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "149",
+              "value": "149"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "label",
+          "text": "people (2020)",
+          "at": "149",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "icon",
+          "icon": "🎣",
+          "lat": 49.25,
+          "lon": -94.85,
+          "size": 110,
+          "at": "water"
+        }
+      ],
+      "camera": {
+        "lat": 49.34,
+        "lon": -95.07,
+        "zoom": 40,
+        "bearing": -4
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "149 residents in 2020; about 79% water.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "With just 149 residents as of the 2020 census ... though about 79% is water"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "minnesota": "#5ec8ff",
+        "canada": "#ff5a5f",
+        "mississippi": "#5ec8ff",
+        "franklin": "#ffd60a",
+        "american": "#5ec8ff"
+      }
+    }
+  },
+  "imagery": [
+    {
+      "bbox": [
+        -95.9,
+        48.7,
+        -94.5,
+        49.6
+      ],
+      "width": 3072
+    }
+  ]
+}

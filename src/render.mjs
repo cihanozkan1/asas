@@ -19,6 +19,7 @@ export function startServer() {
       const url = decodeURIComponent(req.url.split('?')[0]);
       const file = path.normalize(path.join(ROOT, url));
       if (!file.startsWith(ROOT) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
+        if (!url.endsWith('favicon.ico')) console.warn('[server] 404', url);
         res.writeHead(404);
         res.end();
         return;
@@ -45,7 +46,7 @@ async function openPage(timeline, scale = 1) {
   });
   const page = await browser.newPage();
   page.on('console', (m) => {
-    if (['error', 'warning'].includes(m.type())) log('[page]', m.text());
+    if (['error', 'warning', 'warn'].includes(m.type())) log('[page]', m.text());
   });
   page.on('pageerror', (e) => log('[page error]', e.message));
   await page.setViewport({ width: timeline.W, height: timeline.H, deviceScaleFactor: scale });

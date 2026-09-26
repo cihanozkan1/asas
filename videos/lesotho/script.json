@@ -1,0 +1,428 @@
+{
+  "id": "lesotho",
+  "style": "geo",
+  "meta": {
+    "title": "Why Lesotho Is Trapped Inside South Africa 🇱🇸🇿🇦🤯",
+    "description": "Lesotho 🇱🇸 is a whole country completely surrounded by South Africa 🇿🇦 It's one of only three countries on Earth fully inside another (with Vatican City and San Marino) and the only country entirely above 1,000 meters ⛰️ Why isn't it part of South Africa? In the 1800s King Moshoeshoe I united the Basotho in these mountains, and after wars with Boer settlers he asked Britain for protection. Basutoland became a British protectorate in 1868. When South Africa was formed in 1910 it wanted Basutoland too, but Britain refused 🇬🇧 In 1966 it became the independent Kingdom of Lesotho 🤯",
+    "pinnedComment": [
+      "A country completely inside another country 🤯🇱🇸",
+      "Would you visit the 'Kingdom in the Sky'? ⛰️👇",
+      "Which enclave should we explain next? 🗺️"
+    ],
+    "tags": [
+      "lesotho",
+      "south africa",
+      "enclave",
+      "basotho",
+      "moshoeshoe",
+      "basutoland",
+      "africa",
+      "weird borders",
+      "mountains",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is South Africa. And this is a whole country completely inside it: Lesotho.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "ZAF",
+          "fill": "flag:za",
+          "at": "South",
+          "hold": 1
+        },
+        {
+          "type": "highlight",
+          "target": "LSO",
+          "fill": "flag:ls",
+          "at": "Lesotho",
+          "hold": 2
+        },
+        {
+          "type": "label",
+          "text": "LESOTHO",
+          "lat": -29.6,
+          "lon": 28.3,
+          "at": "Lesotho",
+          "style": "map",
+          "anim": "slam",
+          "size": 80
+        },
+        {
+          "type": "ping",
+          "lat": -29.6,
+          "lon": 28.2,
+          "color": "#ffd60a",
+          "at": "whole"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "ZAF"
+        ],
+        "pad": 0.9,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Lesotho is completely surrounded by South Africa.",
+          "url": "https://en.wikipedia.org/wiki/Lesotho",
+          "quote": "the largest of the world's three independent states completely surrounded by the territory of another country"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's one of only three countries on Earth completely surrounded by another country. The other two are San Marino and Vatican City, both inside Italy.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "three",
+              "value": "3"
+            }
+          ],
+          "size": 220
+        },
+        {
+          "type": "label",
+          "text": "only 3!",
+          "lat": -24,
+          "lon": 33,
+          "at": "three",
+          "style": "note",
+          "typewriter": true,
+          "size": 66,
+          "rotate": -7
+        },
+        {
+          "type": "label",
+          "text": "San Marino + Vatican City",
+          "at": "San",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "sources": [
+        {
+          "claim": "One of three such states, with Vatican City and San Marino.",
+          "url": "https://en.wikipedia.org/wiki/Lesotho",
+          "quote": "the largest of the world's three independent states completely surrounded by the territory of another country"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And it's the only country on Earth that lies entirely above 1,000 meters. Even its lowest point is 1,400 meters high.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "1,000",
+              "value": "1,000 m+"
+            }
+          ],
+          "size": 150
+        },
+        {
+          "type": "scatter",
+          "target": "LSO",
+          "icon": "⛰️",
+          "count": 8,
+          "size": 62,
+          "at": "above"
+        },
+        {
+          "type": "label",
+          "text": "lowest point: 1,400 m",
+          "at": "meters",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "fit": [
+          "LSO"
+        ],
+        "pad": 0.85
+      },
+      "sources": [
+        {
+          "claim": "The only independent state entirely above 1,000 m; its lowest point is 1,400 m.",
+          "url": "https://en.wikipedia.org/wiki/Lesotho",
+          "quote": "the only independent state in the world that lies entirely above 1,000 metres ... its lowest point at 1,400 meters"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why isn't it just part of South Africa?",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "ZAF",
+          "fill": "#e76f51",
+          "at": 0.05,
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "LSO",
+          "fill": "#2a9d8f",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "question",
+          "lat": -29.5,
+          "lon": 28.3,
+          "at": "why"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "ZAF"
+        ],
+        "pad": 0.9
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "history",
+      "text": "In the early 1800s, King Moshoeshoe the First united the Basotho people here, using the mountains as a natural fortress.",
+      "show": [
+        {
+          "type": "character",
+          "image": "moshoeshoe",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "King",
+          "name": "Moshoeshoe I"
+        },
+        {
+          "type": "year",
+          "value": "1822",
+          "at": "united"
+        },
+        {
+          "type": "highlight",
+          "target": "LSO",
+          "fill": "#8a5a2b",
+          "at": "Basotho",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "label",
+          "text": "Basotho",
+          "lat": -29.3,
+          "lon": 28.3,
+          "at": "Basotho",
+          "style": "serif",
+          "size": 58
+        }
+      ],
+      "camera": {
+        "fit": [
+          "LSO"
+        ],
+        "pad": 0.8
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "King Moshoeshoe I established the Basotho nation; Basutoland emerged under him in 1822.",
+          "url": "https://en.wikipedia.org/wiki/Lesotho",
+          "quote": "Basutoland emerged as a single polity under King Moshoeshoe I in 1822"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Fighting Boer settlers, he asked Britain for protection, and in 1868 Basutoland became a British protectorate.",
+      "show": [
+        {
+          "type": "arrow",
+          "from": [
+            -28.5,
+            26.0
+          ],
+          "to": [
+            -29.2,
+            27.6
+          ],
+          "color": "#c1121f",
+          "at": "Boer"
+        },
+        {
+          "type": "year",
+          "value": "1868",
+          "at": "1868"
+        },
+        {
+          "type": "flag",
+          "code": "gb",
+          "lat": -29.4,
+          "lon": 28.3,
+          "size": 120,
+          "at": "Britain",
+          "pin": true
+        },
+        {
+          "type": "label",
+          "text": "Basutoland",
+          "lat": -30.2,
+          "lon": 28.3,
+          "at": "Basutoland",
+          "style": "serif",
+          "size": 56
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Moshoeshoe sought British protection; Basutoland became a British protectorate in 1868.",
+          "url": "https://en.wikipedia.org/wiki/Basutoland",
+          "quote": "I am giving myself and my country up to Her Majesty's Government ... This appeal led to British protection in 1868"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1910, the new Union of South Africa wanted Basutoland too, but Britain refused.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1910",
+          "at": "1910"
+        },
+        {
+          "type": "highlight",
+          "target": "ZAF",
+          "fill": "#e76f51",
+          "at": "Union",
+          "fillOpacity": 0.7,
+          "pattern": "hatch"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            -27,
+            26
+          ],
+          "to": [
+            -29.2,
+            27.8
+          ],
+          "color": "#e76f51",
+          "at": "wanted"
+        },
+        {
+          "type": "stamp",
+          "text": "REFUSED",
+          "size": 96,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "refused"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "ZAF"
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "South Africa sought to take over the High Commission Territories incl. Basutoland; Britain refused.",
+          "url": "https://en.wikipedia.org/wiki/Basutoland",
+          "quote": "the South African government made numerous overtures to take over the High Commission Territories, which included Basutoland. However these demands were refused by Britain"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So in 1966, it became independent as the Kingdom of Lesotho, a country inside a country.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1966",
+          "light": true,
+          "at": "1966"
+        },
+        {
+          "type": "highlight",
+          "target": "LSO",
+          "fill": "flag:ls",
+          "at": "Kingdom"
+        },
+        {
+          "type": "highlight",
+          "target": "LSO",
+          "fill": "#1d4ed8",
+          "at": "inside",
+          "soft": true,
+          "rim": "#5ec8ff",
+          "softness": 6,
+          "fillOpacity": 0.0
+        },
+        {
+          "type": "character",
+          "image": "moshoeshoe",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Kingdom",
+          "name": "Lesotho"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "ZAF"
+        ],
+        "pad": 0.9,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Independence on 4 October 1966 as the Kingdom of Lesotho.",
+          "url": "https://en.wikipedia.org/wiki/Lesotho",
+          "quote": "achieving independence on October 4, 1966"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "lesotho": "#5ec8ff",
+        "south": "#4ade80",
+        "africa": "#4ade80",
+        "britain": "#ff5a5f",
+        "basutoland": "#ffd60a"
+      }
+    }
+  }
+}

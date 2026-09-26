@@ -1,0 +1,546 @@
+{
+  "id": "italy_microstates",
+  "style": "geo",
+  "meta": {
+    "title": "Why Are There 2 Countries Inside Italy? 🇮🇹🇸🇲🇻🇦🤯",
+    "description": "There are two whole countries inside Italy 🇮🇹 San Marino 🇸🇲 is only about 61 km² with around 34,000 people, and claims to have been founded in AD 301 🏰 When Italy unified in the 1800s, San Marino had sheltered Giuseppe Garibaldi, and Garibaldi let it stay independent; the two signed a Convention of Friendship in 1862 🤝 Vatican City 🇻🇦 is even smaller: 0.49 km² and about 882 people, the smallest country in the world ⛪ The popes once ruled the Papal States across central Italy, but lost them to the new Kingdom of Italy in 1870. The Lateran Treaty of 1929 created Vatican City 🤯 Together with Lesotho, they're the only countries completely surrounded by one other country 🌍",
+    "pinnedComment": [
+      "Two countries hiding inside Italy 🤯🇸🇲🇻🇦",
+      "Have you visited San Marino or the Vatican? 👇",
+      "Which tiny country should we explain next? 🗺️"
+    ],
+    "tags": [
+      "san marino",
+      "vatican city",
+      "italy",
+      "microstates",
+      "enclave",
+      "garibaldi",
+      "papal states",
+      "lateran treaty",
+      "smallest country",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Italy has not one, but two whole countries inside it.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "ITA",
+          "fill": "flag:it",
+          "at": "Italy",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "ping",
+          "lat": 43.94,
+          "lon": 12.46,
+          "color": "#ffd60a",
+          "at": "two"
+        },
+        {
+          "type": "ping",
+          "lat": 41.903,
+          "lon": 12.453,
+          "color": "#ffd60a",
+          "at": "two"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "two",
+              "value": "2"
+            }
+          ],
+          "size": 240
+        }
+      ],
+      "camera": {
+        "fit": [
+          "ITA"
+        ],
+        "pad": 0.9,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "San Marino and Vatican City are both enclaved by Italy.",
+          "url": "https://en.wikipedia.org/wiki/Enclave_and_exclave",
+          "quote": "Three such sovereign states exist globally: Lesotho (enclaved by South Africa), San Marino, and Vatican City (both enclaved by Italy)."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The first is San Marino. Only 61 square kilometers, with about 34,000 people.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 43.94,
+          "lon": 12.46,
+          "color": "#5ec8ff",
+          "at": "Marino"
+        },
+        {
+          "type": "highlight",
+          "target": "SMR",
+          "fill": "flag:sm",
+          "at": "Marino",
+          "neon": "#5ec8ff",
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "SAN MARINO",
+          "lat": 44.01,
+          "lon": 12.46,
+          "at": "Marino",
+          "style": "map",
+          "anim": "slam",
+          "size": 64
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "61",
+              "value": "61 km²"
+            },
+            {
+              "at": "34,000",
+              "value": "34,000"
+            }
+          ],
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": 43.93,
+        "lon": 12.45,
+        "zoom": 90,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "San Marino covers just over 61 km².",
+          "url": "https://en.wikipedia.org/wiki/San_Marino",
+          "quote": "with a land area of just over 61 square kilometres (24 sq mi)"
+        },
+        {
+          "claim": "Population 34,042 (2025).",
+          "url": "https://en.wikipedia.org/wiki/San_Marino",
+          "quote": "a population of 34,042 as of 2025"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And it claims to have been founded way back in the year 301.",
+      "show": [
+        {
+          "type": "year",
+          "value": "301",
+          "at": "301"
+        },
+        {
+          "type": "icon",
+          "icon": "🏰",
+          "lat": 43.919999999999995,
+          "lon": 12.48,
+          "size": 130,
+          "at": "founded"
+        }
+      ],
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "San Marino claims to have been founded in AD 301.",
+          "url": "https://en.wikipedia.org/wiki/San_Marino",
+          "quote": "San Marino claims to have been founded in AD 301"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So how did it survive when Italy unified?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 43.5,
+          "lon": 12.3,
+          "at": "how"
+        }
+      ],
+      "camera": {
+        "lat": 43,
+        "lon": 12.5,
+        "zoom": 6
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "history",
+      "text": "San Marino had sheltered the unification hero Giuseppe Garibaldi. So Garibaldi let it stay independent.",
+      "show": [
+        {
+          "type": "character",
+          "image": "garibaldi",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Garibaldi",
+          "name": "Garibaldi",
+          "say": "Stay free!"
+        },
+        {
+          "type": "ping",
+          "lat": 43.94,
+          "lon": 12.46,
+          "color": "#5ec8ff",
+          "at": "independent"
+        },
+        {
+          "type": "stamp",
+          "text": "INDEPENDENT",
+          "size": 84,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "independent"
+        }
+      ],
+      "camera": {
+        "lat": 43.93,
+        "lon": 12.45,
+        "zoom": 30
+      },
+      "sources": [
+        {
+          "claim": "San Marino sheltered Garibaldi, who let it remain independent.",
+          "url": "https://en.wikipedia.org/wiki/San_Marino",
+          "quote": "San Marino served as a refuge for many people persecuted because of their support for unification, including Giuseppe Garibaldi and his wife Anita. Garibaldi allowed San Marino to remain independent."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1862, the two countries signed a Convention of Friendship.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1862",
+          "at": "1862"
+        },
+        {
+          "type": "flag",
+          "code": "it",
+          "lat": 44.3,
+          "lon": 11.9,
+          "size": 110,
+          "at": "two"
+        },
+        {
+          "type": "flag",
+          "code": "sm",
+          "lat": 44.3,
+          "lon": 13.0,
+          "size": 110,
+          "at": "two"
+        },
+        {
+          "type": "icon",
+          "icon": "🤝",
+          "lat": 43.7,
+          "lon": 12.45,
+          "size": 120,
+          "at": "Friendship"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862.",
+          "url": "https://en.wikipedia.org/wiki/San_Marino",
+          "quote": "San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The second country is even smaller. Vatican City, just 0.49 square kilometers, the smallest country in the world.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "VAT",
+          "fill": "#ffd60a",
+          "at": "Vatican",
+          "neon": "#ffd60a",
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "Vatican City",
+          "lat": 41.903,
+          "lon": 12.453,
+          "at": "Vatican",
+          "dot": true,
+          "dy": -60,
+          "size": 44
+        },
+        {
+          "type": "ring",
+          "lat": 41.903,
+          "lon": 12.453,
+          "r": 48,
+          "at": "smaller"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "0.49",
+              "value": "0.49 km²"
+            }
+          ],
+          "size": 160
+        },
+        {
+          "type": "label",
+          "text": "Rome",
+          "lat": 41.89,
+          "lon": 12.51,
+          "at": "smallest",
+          "dot": true,
+          "dy": 52,
+          "size": 38
+        }
+      ],
+      "camera": {
+        "lat": 41.9,
+        "lon": 12.47,
+        "zoom": 260,
+        "bearing": 3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Vatican City is 0.49 km², the smallest country by area and population.",
+          "url": "https://en.wikipedia.org/wiki/Vatican_City",
+          "quote": "the smallest country in the world both by area and by population ... 0.49 km2 (0.19 sq mi)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Only about 882 people live there.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "882",
+              "value": "882"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "character",
+          "image": "pope",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "people",
+          "name": "Vatican City"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Population about 882 (2024).",
+          "url": "https://en.wikipedia.org/wiki/Vatican_City",
+          "quote": "a population of about 882 in 2024"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Popes once ruled the Papal States, across central Italy. But in 1870, the new Kingdom of Italy took them.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 42.7,
+              "lon": 12.6,
+              "km": 150
+            }
+          },
+          "fill": "#f5d76e",
+          "at": "Papal",
+          "soft": true,
+          "rim": "#ffd60a",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "label",
+          "text": "Papal States",
+          "lat": 43.0,
+          "lon": 12.6,
+          "at": "Papal",
+          "style": "serif",
+          "size": 58
+        },
+        {
+          "type": "year",
+          "value": "1870",
+          "at": "1870"
+        },
+        {
+          "type": "shake",
+          "at": "took"
+        }
+      ],
+      "camera": {
+        "lat": 42.6,
+        "lon": 12.6,
+        "zoom": 5.5
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The popes ruled the Papal States until the Kingdom of Italy seized them (1870).",
+          "url": "https://en.wikipedia.org/wiki/Vatican_City",
+          "quote": "ruled the Papal States, which covered a large portion of the Italian Peninsula, for more than a thousand years until the mid-19th century, when all the territory belonging to the papacy was seized by the newly created Kingdom of Italy"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "It wasn't until 1929, with the Lateran Treaty, that Vatican City became its own country.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1929",
+          "at": "1929"
+        },
+        {
+          "type": "stamp",
+          "text": "LATERAN TREATY",
+          "size": 72,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "Lateran"
+        },
+        {
+          "type": "flag",
+          "code": "va",
+          "lat": 41.95,
+          "lon": 12.36,
+          "size": 120,
+          "at": "country"
+        }
+      ],
+      "camera": {
+        "lat": 41.9,
+        "lon": 12.46,
+        "zoom": 120
+      },
+      "sources": [
+        {
+          "claim": "Vatican City came into existence in 1929 via the Lateran Treaty.",
+          "url": "https://en.wikipedia.org/wiki/Vatican_City",
+          "quote": "The independent state of Vatican City came into existence in 1929 via the Lateran Treaty"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Only three countries on Earth are completely surrounded by just one other country. Italy has two of them.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "LSO",
+          "fill": "flag:ls",
+          "at": "three",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "ping",
+          "lat": -29.6,
+          "lon": 28.2,
+          "color": "#ffd60a",
+          "at": "three"
+        },
+        {
+          "type": "ping",
+          "lat": 43.94,
+          "lon": 12.46,
+          "color": "#ffd60a",
+          "at": "two"
+        },
+        {
+          "type": "ping",
+          "lat": 41.903,
+          "lon": 12.453,
+          "color": "#ffd60a",
+          "at": "two"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "three",
+              "value": "3"
+            }
+          ],
+          "size": 220
+        },
+        {
+          "type": "label",
+          "text": "Lesotho",
+          "lat": -29.6,
+          "lon": 28.2,
+          "at": "three",
+          "dot": true,
+          "dy": -50,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 22,
+        "lon": 20,
+        "zoom": 1.05,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Lesotho, San Marino and Vatican City are the only three enclaved sovereign states.",
+          "url": "https://en.wikipedia.org/wiki/Enclave_and_exclave",
+          "quote": "Three such sovereign states exist globally: Lesotho (enclaved by South Africa), San Marino, and Vatican City (both enclaved by Italy)."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "italy": "#4ade80",
+        "marino": "#5ec8ff",
+        "vatican": "#ffd60a",
+        "garibaldi": "#ff5a5f",
+        "papal": "#ffd60a"
+      }
+    }
+  }
+}

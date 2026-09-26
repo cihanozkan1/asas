@@ -1,0 +1,537 @@
+{
+  "id": "doubly_landlocked",
+  "style": "geo",
+  "meta": {
+    "title": "The Only 2 Doubly Landlocked Countries 🇺🇿🇱🇮🤯",
+    "description": "44 countries in the world have no coast 🌍 but only two are doubly landlocked, meaning you must cross at least two borders to reach the sea 🌊 Uzbekistan 🇺🇿 is surrounded only by landlocked countries, and tiny Liechtenstein 🇱🇮 sits between Switzerland and Austria. Liechtenstein became doubly landlocked in 1918, when Austria-Hungary broke up and Austria lost its Adriatic coast 🤯",
+    "pinnedComment": [
+      "Only 2 countries are 'doubly landlocked' 🤯🇺🇿🇱🇮",
+      "Have you been to Liechtenstein or Uzbekistan? 👇",
+      "Which geography record should we explain next? 🗺️"
+    ],
+    "tags": [
+      "doubly landlocked",
+      "landlocked",
+      "uzbekistan",
+      "liechtenstein",
+      "switzerland",
+      "austria",
+      "austria-hungary",
+      "central asia",
+      "geography",
+      "maps",
+      "learn",
+      "weird borders"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "44 countries in the world have no coast at all.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "44",
+              "value": "44"
+            }
+          ],
+          "size": 220
+        },
+        {
+          "type": "label",
+          "text": "landlocked countries",
+          "at": "coast",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "BOL",
+              "PRY",
+              "MNG",
+              "KAZ",
+              "ETH",
+              "TCD",
+              "MLI",
+              "NER",
+              "AUT",
+              "CHE",
+              "HUN",
+              "CZE"
+            ]
+          },
+          "fill": "#e76f51",
+          "at": "coast",
+          "fillOpacity": 0.85
+        }
+      ],
+      "camera": {
+        "lat": 20,
+        "lon": 20,
+        "zoom": 0.55
+      },
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "As of 2026 there are 44 landlocked countries.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "As of 2026, there are 44 landlocked countries total"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But only two are doubly landlocked. To reach the sea, you have to cross at least two borders.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "two",
+              "value": "2"
+            }
+          ],
+          "size": 240
+        },
+        {
+          "type": "label",
+          "text": "2 BORDERS!",
+          "lat": 30,
+          "lon": 50,
+          "at": "borders",
+          "style": "note",
+          "typewriter": true,
+          "size": 66,
+          "rotate": -7
+        }
+      ],
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "Doubly landlocked = surrounded only by landlocked countries; only two exist.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "A country is \"doubly landlocked\" when it is surrounded entirely by landlocked countries (i.e. requiring the crossing of at least two national borders to reach a coastline)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So which countries are they?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 40,
+          "lon": 40,
+          "at": "which"
+        }
+      ],
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "The first is Uzbekistan, in Central Asia. Every single one of its neighbors is landlocked too.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "UZB",
+          "fill": "flag:uz",
+          "at": "Uzbekistan"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "KAZ",
+              "KGZ",
+              "TJK",
+              "AFG",
+              "TKM"
+            ]
+          },
+          "fill": "#6b7280",
+          "at": "neighbors",
+          "fillOpacity": 0.75,
+          "pattern": "hatch"
+        },
+        {
+          "type": "label",
+          "text": "UZBEKISTAN",
+          "lat": 41.5,
+          "lon": 64,
+          "at": "Uzbekistan",
+          "style": "map",
+          "anim": "slam",
+          "size": 70
+        }
+      ],
+      "camera": {
+        "fit": [
+          "UZB"
+        ],
+        "pad": 0.6
+      },
+      "sources": [
+        {
+          "claim": "Uzbekistan is bordered by five landlocked neighbours.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "Uzbekistan (Central Asia, bordered by five landlocked neighbors)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Kazakhstan, Kyrgyzstan, Tajikistan, Afghanistan and Turkmenistan. None of them has an ocean coast.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "KAZ",
+          "fill": "flag:kz",
+          "at": "Kazakhstan",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "KGZ",
+          "fill": "flag:kg",
+          "at": "Kyrgyzstan",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "TJK",
+          "fill": "flag:tj",
+          "at": "Tajikistan",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "AFG",
+          "fill": "flag:af",
+          "at": "Afghanistan",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "TKM",
+          "fill": "flag:tm",
+          "at": "Turkmenistan",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "UZB",
+          "fill": "flag:uz",
+          "at": "Kazakhstan"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "UZB",
+          "KAZ",
+          "AFG"
+        ],
+        "pad": 0.85
+      },
+      "sources": [
+        {
+          "claim": "Uzbekistan borders Kazakhstan, Kyrgyzstan, Tajikistan, Afghanistan and Turkmenistan.",
+          "url": "https://en.wikipedia.org/wiki/Uzbekistan",
+          "quote": "It is bordered by Kazakhstan to the north, Kyrgyzstan to the northeast, Tajikistan to the southeast, Afghanistan to the south, and Turkmenistan to the south-west."
+        },
+        {
+          "claim": "All five are landlocked.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "Uzbekistan (Central Asia, bordered by five landlocked neighbors)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The second is tiny Liechtenstein, only 160 square kilometers, squeezed between Switzerland and Austria.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "LIE",
+          "fill": "flag:li",
+          "at": "Liechtenstein"
+        },
+        {
+          "type": "highlight",
+          "target": "CHE",
+          "fill": "flag:ch",
+          "at": "Switzerland",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "highlight",
+          "target": "AUT",
+          "fill": "flag:at",
+          "at": "Austria",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "ping",
+          "lat": 47.14,
+          "lon": 9.52,
+          "color": "#ffd60a",
+          "at": "tiny"
+        },
+        {
+          "type": "character",
+          "image": "swiss_hiker",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Liechtenstein"
+        }
+      ],
+      "camera": {
+        "lat": 47.2,
+        "lon": 10.0,
+        "zoom": 14,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Liechtenstein is bordered by Austria and Switzerland.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "Liechtenstein (Western Europe, bordered by Austria and Switzerland)"
+        },
+        {
+          "claim": "Area about 160 km².",
+          "url": "https://en.wikipedia.org/wiki/Liechtenstein",
+          "quote": "160.50 km2 (61.97 sq mi)"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "But Liechtenstein wasn't always like this. Before 1918, its neighbor was Austria-Hungary, which had a coast on the Adriatic Sea.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1918",
+          "at": "1918"
+        },
+        {
+          "type": "ping",
+          "lat": 45.65,
+          "lon": 13.78,
+          "color": "#5ec8ff",
+          "at": "Adriatic"
+        },
+        {
+          "type": "label",
+          "text": "Trieste",
+          "lat": 45.65,
+          "lon": 13.78,
+          "at": "Adriatic",
+          "dot": true,
+          "dy": 46,
+          "size": 44
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "AUT",
+              "HUN",
+              "CZE",
+              "SVK",
+              "SVN",
+              "HRV",
+              "BIH"
+            ]
+          },
+          "fill": "#c9a227",
+          "at": "Austria-Hungary",
+          "soft": true,
+          "rim": "#8a6d1a",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "label",
+          "text": "Austria-Hungary",
+          "lat": 47.8,
+          "lon": 15.5,
+          "at": "Austria-Hungary",
+          "style": "serif",
+          "size": 58
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              47.14,
+              9.52
+            ],
+            [
+              46.6,
+              11.5
+            ],
+            [
+              45.65,
+              13.78
+            ]
+          ],
+          "color": "#1d4ed8",
+          "width": 7,
+          "at": "coast"
+        }
+      ],
+      "camera": {
+        "lat": 46.8,
+        "lon": 12.5,
+        "zoom": 5.5
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Before 1918 it had sea access via Austria-Hungary on the Adriatic.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "Before this event, it had access to the Adriatic coastline through the Austro-Hungarian Empire."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "When the empire broke up that year, Austria lost its coast, and Liechtenstein became doubly landlocked.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "AUT",
+          "fill": "#c1121f",
+          "at": "Austria",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "stamp",
+          "text": "NO COAST",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "coast"
+        },
+        {
+          "type": "shake",
+          "at": "broke"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "It became doubly landlocked in 1918 after Austria-Hungary dissolved.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "The nation became doubly landlocked specifically in 1918 following Austria-Hungary's dissolution, which created an independent but landlocked Austria."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So from Liechtenstein, reaching the sea means crossing at least two countries.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              47.14,
+              9.52
+            ],
+            [
+              46.8,
+              9.4
+            ],
+            [
+              46.2,
+              9.0
+            ],
+            [
+              45.46,
+              9.19
+            ],
+            [
+              44.41,
+              8.93
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "reaching",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "🚗",
+            "size": 90
+          },
+          "drawDur": 2.4
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "reaching",
+              "value": "1"
+            },
+            {
+              "at": "two",
+              "value": "2"
+            }
+          ],
+          "size": 190
+        },
+        {
+          "type": "label",
+          "text": "Genoa",
+          "lat": 44.41,
+          "lon": 8.93,
+          "at": "sea",
+          "dot": true,
+          "dy": 46,
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 45.9,
+        "lon": 9.3,
+        "zoom": 7,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Doubly landlocked means crossing at least two borders to reach a coastline.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "requiring the crossing of at least two national borders to reach a coastline"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "uzbekistan": "#5ec8ff",
+        "liechtenstein": "#ff5a5f",
+        "austria": "#ff5a5f",
+        "switzerland": "#ff5a5f",
+        "sea": "#5ec8ff"
+      }
+    }
+  }
+}

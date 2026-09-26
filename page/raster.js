@@ -2,6 +2,9 @@
 // d3 uses for the vector overlay (orthographic globe or Mercator), so imagery and
 // borders line up exactly at any zoom.
 
+// Up to this many Sentinel-2 detail textures (texture units 1..MAX_DETAIL).
+const MAX_DETAIL = 4;
+
 const VS = `#version 300 es
 in vec2 aPos;
 void main() { gl_Position = vec4(aPos, 0.0, 1.0); }`;
@@ -23,8 +26,12 @@ uniform vec2 uBaseSize;
 uniform int uDetailCount;
 uniform sampler2D uDetail0;
 uniform sampler2D uDetail1;
+uniform sampler2D uDetail2;
+uniform sampler2D uDetail3;
 uniform vec4 uDetailBox0;  // west, south, east, north (radians)
 uniform vec4 uDetailBox1;
+uniform vec4 uDetailBox2;
+uniform vec4 uDetailBox3;
 uniform float uDetailMix;
 out vec4 outColor;
 
@@ -56,6 +63,14 @@ vec3 imagery(float lon, float lat) {
   }
   if (uDetailCount > 1) {
     vec4 d = sampleBox(uDetail1, uDetailBox1, lon, lat);
+    c = mix(c, d.rgb, d.a * uDetailMix);
+  }
+  if (uDetailCount > 2) {
+    vec4 d = sampleBox(uDetail2, uDetailBox2, lon, lat);
+    c = mix(c, d.rgb, d.a * uDetailMix);
+  }
+  if (uDetailCount > 3) {
+    vec4 d = sampleBox(uDetail3, uDetailBox3, lon, lat);
     c = mix(c, d.rgb, d.a * uDetailMix);
   }
   return c;
@@ -128,7 +143,7 @@ export class Raster {
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
     this.u = {};
     for (const name of ['uAngle', 'uRes', 'uCenter', 'uK', 'uLon0', 'uLat0', 'uMercY0', 'uMode', 'uAlpha', 'uAtmo', 'uBase', 'uBaseSize',
-      'uDetailCount', 'uDetail0', 'uDetail1', 'uDetailBox0', 'uDetailBox1', 'uDetailMix']) {
+      'uDetailCount', 'uDetail0', 'uDetail1', 'uDetail2', 'uDetail3', 'uDetailBox0', 'uDetailBox1', 'uDetailBox2', 'uDetailBox3', 'uDetailMix']) {
       this.u[name] = gl.getUniformLocation(prog, name);
     }
     this.details = [];
@@ -174,7 +189,7 @@ export class Raster {
   }
 
   addDetail(img, bboxDeg) {
-    if (this.details.length >= 2) return;
+    if (this.details.length >= MAX_DETAIL) return;
     const unit = 1 + this.details.length;
     const t = this._texture(img, unit, true);
     const r = Math.PI / 180;
@@ -211,7 +226,7 @@ export class Raster {
       gl.uniform4f(u[`uDetailBox${i}`], ...d.box);
     });
     // Unused detail samplers still need a valid unit.
-    for (let i = this.details.length; i < 2; i++) gl.uniform1i(u[`uDetail${i}`], 0);
+    for (let i = this.details.length; i < MAX_DETAIL; i++) gl.uniform1i(u[`uDetail${i}`], 0);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);

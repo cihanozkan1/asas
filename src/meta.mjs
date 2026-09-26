@@ -4,7 +4,8 @@ import fs from 'node:fs';
 export function writeUploadText(script, file, extraCredits = []) {
   const m = script.meta || {};
   const tags = m.tags || [];
-  const hashtags = (m.hashtags || tags.map((t) => '#' + t.replace(/\s+/g, ''))).join(' ');
+  // YouTube ignores every hashtag when a description has more than 15: keep a few.
+  const hashtags = (m.hashtags || ['#shorts', ...tags.slice(0, 4).map((t) => '#' + t.replace(/[^\p{L}\p{N}]+/gu, ''))]).join(' ');
   const credits = [...(m.credits || []), ...extraCredits];
   const lines = [
     'TITLE',

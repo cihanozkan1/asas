@@ -210,11 +210,14 @@ html, body {
 .label.glow { -webkit-text-stroke: 0; }
 
 /* ---------- styled captions ---------- */
-#captions .cap .w { display: inline-block; margin: 0 0.07em; }
-#captions .cap .w.active { color: var(--active) !important; transform: scale(1.12); }
+#captions .cap .w { display: inline-block; margin: 0 0.13em; }
+#captions .cap .w.active { color: var(--active) !important; transform: scale(1.06); }
 
 .counter {
   font-weight: 900; line-height: 1;
   -webkit-text-stroke: 6px rgba(0,0,0,.55); paint-order: stroke fill;
   text-shadow: 0 8px 30px rgba(0,0,0,.55);
 }
+
+.character.figure .body { filter: drop-shadow(0 14px 16px rgba(0,0,0,.55)); transform-origin: 50% 100%; }
+.character.figure .nametag { bottom: -8px; }

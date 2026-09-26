@@ -1,0 +1,408 @@
+{
+  "id": "gambia",
+  "style": "geo",
+  "meta": {
+    "title": "Why Gambia Is a Snake Inside Senegal 🇬🇲🇸🇳🤯",
+    "description": "The Gambia 🇬🇲 is the smallest country on mainland Africa, and apart from its coast it's completely surrounded by Senegal 🇸🇳 It's about 320 km long but only 10–50 km wide, because it follows the Gambia River 🌊 British traders controlled the river, and in 1889 Britain and France agreed a border roughly 16 km north and south of it, drawn with straight lines and arcs 📏 The Gambia became independent in 1965 and even joined Senegal in the Senegambia Confederation from 1982 until 1989 🤯",
+    "pinnedComment": [
+      "A country shaped like a river 🤯🇬🇲",
+      "Gambia & Senegal: should they have stayed united? 👇",
+      "Which weird border should we explain next? 🗺️"
+    ],
+    "tags": [
+      "gambia",
+      "senegal",
+      "gambia river",
+      "africa",
+      "smallest country",
+      "colonial borders",
+      "britain",
+      "france",
+      "senegambia",
+      "weird borders",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Meet The Gambia, the smallest country on mainland Africa, and one of the strangest shapes on any map.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "GMB",
+          "fill": "#ef233c",
+          "at": "Gambia",
+          "hold": 3,
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "label",
+          "text": "THE GAMBIA",
+          "lat": 13.9,
+          "lon": -15.3,
+          "at": "Gambia",
+          "style": "map",
+          "anim": "slam",
+          "size": 76
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "smallest",
+              "value": "#1"
+            }
+          ],
+          "size": 170
+        }
+      ],
+      "camera": {
+        "fit": [
+          "GMB"
+        ],
+        "pad": 0.8,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "The Gambia is the smallest country in continental Africa.",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "the smallest country in continental Africa"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And apart from its coast, it's completely surrounded by Senegal.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "SEN",
+          "fill": "flag:sn",
+          "at": "Senegal",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "ping",
+          "lat": 13.45,
+          "lon": -16.58,
+          "color": "#5ec8ff",
+          "at": "coast"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "SEN"
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Senegal surrounds it except for its Atlantic coast.",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "Senegal completely surrounds the country except for \"the western part, which is bordered by the Atlantic Ocean.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "With just 11,300 square kilometers, it's it's about 320 kilometers long, but only 10 to 50 kilometers wide.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            13.3,
+            -16.8
+          ],
+          "to": [
+            13.3,
+            -13.8
+          ],
+          "label": "320 km",
+          "at": "320"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "wide",
+              "value": "10–50 km"
+            }
+          ],
+          "size": 150
+        }
+      ],
+      "camera": {
+        "fit": [
+          "GMB"
+        ],
+        "pad": 0.8
+      },
+      "sources": [
+        {
+          "claim": "Area 11,300 km²; about 320 km long and 10–50 km wide.",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "with an area of 11,300 square kilometers ... approximately 320 km in length but only 10-50 km wide"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why does this country look like a long, thin snake, crawling deep into Senegal?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 13.5,
+          "lon": -15.2,
+          "at": "why"
+        },
+        {
+          "type": "highlight",
+          "target": "GMB",
+          "fill": "#2a9d8f",
+          "at": 0.05,
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": "SEN",
+          "fill": "#3a3b40",
+          "at": 0.05
+        }
+      ],
+      "camera": {
+        "fit": [
+          "SEN"
+        ],
+        "pad": 0.9
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Because the whole country follows one single river, the Gambia River, all the way from the Atlantic deep into Africa.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              13.45,
+              -16.6
+            ],
+            [
+              13.4,
+              -16.2
+            ],
+            [
+              13.5,
+              -15.6
+            ],
+            [
+              13.55,
+              -15.1
+            ],
+            [
+              13.45,
+              -14.7
+            ],
+            [
+              13.6,
+              -14.2
+            ],
+            [
+              13.55,
+              -13.8
+            ],
+            [
+              13.4,
+              -13.7
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 10,
+          "at": "river",
+          "drawDur": 1.8
+        },
+        {
+          "type": "label",
+          "text": "Gambia River",
+          "lat": 13.9,
+          "lon": -14.8,
+          "at": "River",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 44
+        }
+      ],
+      "camera": {
+        "fit": [
+          "GMB"
+        ],
+        "pad": 0.8
+      },
+      "sources": [
+        {
+          "claim": "Its elongated shape follows the Gambia River.",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "The nation's distinctive elongated shape follows the Gambia River"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In colonial times, British traders controlled the river itself, while France took the land all around it.",
+      "show": [
+        {
+          "type": "flag",
+          "code": "gb",
+          "lat": 13.5,
+          "lon": -15.4,
+          "size": 120,
+          "at": "British"
+        },
+        {
+          "type": "flag",
+          "code": "fr",
+          "lat": 15.0,
+          "lon": -14.5,
+          "size": 120,
+          "at": "France"
+        },
+        {
+          "type": "highlight",
+          "target": "SEN",
+          "fill": "#1d4ed8",
+          "at": "France",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "highlight",
+          "target": "GMB",
+          "fill": "#c8102e",
+          "at": "British",
+          "fillOpacity": 0.8
+        }
+      ],
+      "camera": {
+        "fit": [
+          "SEN"
+        ],
+        "pad": 0.9
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The British acquired the river trade rights; Britain and France competed for the region.",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "Portuguese merchants received exclusive trade rights along the Gambia River, which the British later acquired"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1889, they agreed a border about 16 kilometers north and south of the river, using straight lines and arcs.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1889",
+          "at": "1889"
+        },
+        {
+          "type": "measure",
+          "from": [
+            13.45,
+            -15.3
+          ],
+          "to": [
+            13.6,
+            -15.3
+          ],
+          "label": "16 km",
+          "at": "north",
+          "countUp": false
+        }
+      ],
+      "camera": {
+        "fit": [
+          "GMB"
+        ],
+        "pad": 0.8
+      },
+      "sources": [
+        {
+          "claim": "The 1889 Anglo-French agreement set a border about 16 km north and south of the river with straight lines and arcs.",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "The 1889 Anglo-French agreement formally established boundaries, with \"straight lines and arcs\" giving Britain control of areas roughly 16 kilometers north and south of the river"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The Gambia became independent in 1965, and from 1982 to 1989 it even joined Senegal in one confederation.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1965",
+          "light": true,
+          "at": "1965"
+        },
+        {
+          "type": "highlight",
+          "target": "GMB",
+          "fill": "#ef233c",
+          "at": 0.1,
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "highlight",
+          "target": "SEN",
+          "fill": "flag:sn",
+          "at": "1982",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "label",
+          "text": "Senegambia 1982–1989",
+          "at": "1982",
+          "style": "pill",
+          "bg": "#16a34a",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "fit": [
+          "SEN"
+        ],
+        "pad": 0.9,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Independence 18 February 1965; Senegambia Confederation 1982–1989.",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "formed the Senegambia Confederation with its neighbor in 1982, but \"permanently withdrew from the confederation in 1989.\""
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "gambia": "#ff5a5f",
+        "senegal": "#4ade80",
+        "river": "#5ec8ff",
+        "british": "#ff5a5f",
+        "france": "#5ec8ff"
+      }
+    }
+  }
+}

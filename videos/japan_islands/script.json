@@ -1,0 +1,488 @@
+{
+  "id": "japan_islands",
+  "style": "geo",
+  "meta": {
+    "title": "Japan Found 7,000 \"New\" Islands 🇯🇵🤯",
+    "description": "In 2023 Japan recounted its islands and the number jumped from 6,852 to 14,125 🇯🇵🏝️ No new islands appeared: better surveying and digital maps simply found more islands with a coastline of at least 100 meters 🗺️ Only about 260 of them are inhabited, and Honshu alone holds over 80% of the population 🗼 Japan is the third-largest island country in the world, behind Indonesia and Madagascar 🤯",
+    "pinnedComment": [
+      "Japan 'found' 7,000 islands overnight 🤯🇯🇵🏝️",
+      "Which Japanese island would you visit? 👇",
+      "Which country should we count next? 🗺️"
+    ],
+    "tags": [
+      "japan",
+      "islands",
+      "14125 islands",
+      "honshu",
+      "hokkaido",
+      "kyushu",
+      "shikoku",
+      "island country",
+      "geography",
+      "maps",
+      "learn",
+      "fun facts"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "For decades, Japan said it had 6,852 islands.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "JPN",
+          "fill": "flag:jp",
+          "at": "Japan",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "6,852",
+              "value": "6,852"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "scatter",
+          "target": "JPN",
+          "icon": "🏝️",
+          "count": 10,
+          "size": 54,
+          "at": "islands",
+          "stagger": 0.05
+        }
+      ],
+      "camera": {
+        "fit": [
+          "JPN"
+        ],
+        "pad": 0.9,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "A 1987 Japan Coast Guard survey counted 6,852 islands.",
+          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
+          "quote": "According to a survey conducted by the Japan Coast Guard in 1987, the number of islands in Japan was 6,852."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But in 2023, they counted again, and the number more than doubled, to 14,125.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2023",
+          "light": true,
+          "at": "2023"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "counted",
+              "value": "6,852"
+            },
+            {
+              "at": "14,125",
+              "value": "14,125"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "scatter",
+          "target": "JPN",
+          "icon": "🏝️",
+          "count": 22,
+          "size": 48,
+          "at": "doubled",
+          "stagger": 0.04,
+          "seed": 7
+        },
+        {
+          "type": "punch",
+          "at": "doubled"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Japan is an island country of 14,125 islands.",
+          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
+          "quote": "Japan is an island country of 14,125 islands, of which approximately 260 are inhabited."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So where did 7,000 new islands come from?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 36,
+          "lon": 138,
+          "at": "where"
+        }
+      ],
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Nothing new appeared. Better surveys and digital maps simply found more islands, with a coastline of at least 100 meters.",
+      "show": [
+        {
+          "type": "character",
+          "image": "japanese_surveyor",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "surveys",
+          "name": "Surveyor"
+        },
+        {
+          "type": "icon",
+          "icon": "🛰️",
+          "lat": 40,
+          "lon": 145,
+          "size": 120,
+          "at": "digital"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "100",
+              "value": "100 m"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "ring",
+          "lat": 34.4,
+          "lon": 132.4,
+          "r": 70,
+          "at": "coastline"
+        }
+      ],
+      "camera": {
+        "lat": 34.2,
+        "lon": 132.8,
+        "zoom": 16,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The increase came from better surveying and digital mapping; the criterion is a coastline of 100 m or more.",
+          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
+          "quote": "advances in surveying technology and the detailed representation of topographic features through digital mapping ... a coastline of 100 meters or more"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And only about 260 of them have people living on them.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "260",
+              "value": "260"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "label",
+          "text": "inhabited",
+          "at": "people",
+          "style": "pill",
+          "bg": "#16a34a",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "highlight",
+          "target": "JPN",
+          "fill": "#16a34a",
+          "at": "people",
+          "fillOpacity": 0.6
+        }
+      ],
+      "camera": {
+        "fit": [
+          "JPN"
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "About 260 islands are inhabited.",
+          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
+          "quote": "of which approximately 260 are inhabited"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Most people live on four main islands: Hokkaido, Honshu, Shikoku and Kyushu.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Hokkaido",
+          "lat": 43.4,
+          "lon": 142.8,
+          "at": "Hokkaido",
+          "dot": true,
+          "dy": -50,
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "Honshu",
+          "lat": 37.2,
+          "lon": 139.2,
+          "at": "Honshu",
+          "dot": true,
+          "dy": -50,
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "Shikoku",
+          "lat": 33.7,
+          "lon": 133.4,
+          "at": "Shikoku",
+          "dot": true,
+          "dy": -50,
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "Kyushu",
+          "lat": 32.6,
+          "lon": 130.8,
+          "at": "Kyushu",
+          "dot": true,
+          "dy": -50,
+          "size": 46
+        },
+        {
+          "type": "ping",
+          "lat": 43.4,
+          "lon": 142.8,
+          "color": "#ffd60a",
+          "at": "Hokkaido"
+        },
+        {
+          "type": "ping",
+          "lat": 37.2,
+          "lon": 139.2,
+          "color": "#ffd60a",
+          "at": "Honshu"
+        },
+        {
+          "type": "ping",
+          "lat": 33.7,
+          "lon": 133.4,
+          "color": "#ffd60a",
+          "at": "Shikoku"
+        },
+        {
+          "type": "ping",
+          "lat": 32.6,
+          "lon": 130.8,
+          "color": "#ffd60a",
+          "at": "Kyushu"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "JPN"
+        ],
+        "pad": 0.85,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "The four main islands are Hokkaido, Honshu, Kyushu and Shikoku.",
+          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
+          "quote": "Honshu – the largest island, with the capital Tokyo and over 80% of the population."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And Honshu alone, home of Tokyo, holds over 80 percent of the population.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "80",
+              "value": "80%+"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "label",
+          "text": "HONSHU",
+          "lat": 37.8,
+          "lon": 139.5,
+          "at": "Honshu",
+          "style": "map",
+          "anim": "slam",
+          "size": 80
+        },
+        {
+          "type": "ping",
+          "lat": 35.68,
+          "lon": 139.76,
+          "color": "#ff3b3b",
+          "at": "Tokyo"
+        },
+        {
+          "type": "label",
+          "text": "Tokyo",
+          "lat": 35.68,
+          "lon": 139.76,
+          "at": "Tokyo",
+          "dot": true,
+          "dy": 50,
+          "size": 44
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Honshu has over 80% of the population and the capital Tokyo.",
+          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
+          "quote": "Honshu – the largest island, with the capital Tokyo and over 80% of the population."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That makes Japan the third largest island country on Earth, behind only Indonesia and Madagascar.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "IDN",
+          "fill": "flag:id",
+          "at": "Indonesia",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "MDG",
+          "fill": "flag:mg",
+          "at": "Madagascar",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "JPN",
+          "fill": "flag:jp",
+          "at": "Japan",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "third",
+              "value": "#3"
+            }
+          ],
+          "size": 200
+        }
+      ],
+      "camera": {
+        "lat": 30,
+        "lon": 95,
+        "zoom": 0.75,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Japan is the third-largest island country, behind Indonesia and Madagascar.",
+          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
+          "quote": "Japan is the third-largest island country in the world, behind Indonesia and Madagascar"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And the second most populous island country, beaten only by Indonesia again.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "second",
+              "value": "#2"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "highlight",
+          "target": "IDN",
+          "fill": "flag:id",
+          "at": "Indonesia",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": "JPN",
+          "fill": "flag:jp",
+          "at": "second",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "icon",
+          "icon": "👥",
+          "lat": 36,
+          "lon": 139,
+          "size": 120,
+          "at": "populous"
+        }
+      ],
+      "camera": {
+        "lat": 30,
+        "lon": 95,
+        "zoom": 0.75,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Japan is the second-most-populous island country, behind Indonesia.",
+          "url": "https://en.wikipedia.org/wiki/List_of_islands_of_Japan",
+          "quote": "the second-most-populous island country in the world, behind only Indonesia"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "japan": "#ff5a5f",
+        "islands": "#5ec8ff",
+        "honshu": "#ffd60a",
+        "14,125": "#4ade80"
+      }
+    }
+  }
+}

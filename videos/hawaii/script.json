@@ -1,0 +1,383 @@
+{
+  "id": "hawaii",
+  "style": "geo",
+  "meta": {
+    "title": "How Hawaii Became Part of the USA 🇺🇸🌺🤯",
+    "description": "Hawaii 🌺 is a US state in the middle of the Pacific, but it used to be an independent kingdom 👑 In 1893 a group of mostly American businessmen, backed by US sailors and Marines, overthrew Queen Liliʻuokalani, who surrendered to avoid bloodshed. The United States annexed Hawaii in 1898, it became a territory in 1900 and a state in 1959 🇺🇸 And in 1993, Congress formally apologized for the US role in the overthrow 🤯",
+    "pinnedComment": [
+      "A kingdom that became a US state 🤯🌺",
+      "Did you know the US apologized for this in 1993? 👇",
+      "Which island story should we explain next? 🗺️"
+    ],
+    "tags": [
+      "hawaii",
+      "usa",
+      "hawaiian kingdom",
+      "queen liliuokalani",
+      "annexation",
+      "honolulu",
+      "pacific ocean",
+      "history",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Hawaii is part of the United States, even though it sits in the middle of the Pacific Ocean.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Hawaii",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": "Hawaii",
+          "hold": 1
+        },
+        {
+          "type": "highlight",
+          "target": "USA",
+          "fill": "flag:us",
+          "at": "United",
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "label",
+          "text": "HAWAII",
+          "lat": 24,
+          "lon": -157,
+          "at": "Hawaii",
+          "style": "map",
+          "anim": "slam",
+          "size": 90
+        },
+        {
+          "type": "arrow",
+          "from": [
+            33,
+            -120
+          ],
+          "to": [
+            23,
+            -152
+          ],
+          "color": "#ffd60a",
+          "at": "middle"
+        }
+      ],
+      "camera": {
+        "lat": 28,
+        "lon": -140,
+        "zoom": 1.2,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Hawaii became a US state in 1959.",
+          "url": "https://en.wikipedia.org/wiki/Overthrow_of_the_Hawaiian_Kingdom",
+          "quote": "eventually achieved statehood in 1959"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So how did an island kingdom become an American state?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 21,
+          "lon": -157,
+          "at": "how"
+        }
+      ],
+      "camera": {
+        "lat": 20.6,
+        "lon": -157.4,
+        "zoom": 15
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "history",
+      "text": "In the 1890s, Hawaii was an independent kingdom, ruled by Queen Liliʻuokalani.",
+      "show": [
+        {
+          "type": "character",
+          "image": "queen_liliuokalani",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Queen",
+          "name": "Queen Liliʻuokalani"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Hawaii",
+            "country": "USA"
+          },
+          "fill": "#b3202a",
+          "at": "kingdom",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "icon",
+          "icon": "👑",
+          "lat": 20.3,
+          "lon": -156.5,
+          "size": 110,
+          "at": "kingdom"
+        }
+      ],
+      "camera": {
+        "lat": 20.6,
+        "lon": -157.4,
+        "zoom": 15
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Queen Liliʻuokalani was the monarch deposed in 1893.",
+          "url": "https://en.wikipedia.org/wiki/Overthrow_of_the_Hawaiian_Kingdom",
+          "quote": "Queen Liliʻuokalani was deposed during this coup d'état against the Hawaiian Kingdom."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "The kingdom was founded in 1795 by Kamehameha the First. And in 1843, Britain and France recognized it as an independent state.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1795",
+          "at": "1795"
+        },
+        {
+          "type": "flag",
+          "code": "gb",
+          "lat": 23.5,
+          "lon": -159.5,
+          "size": 110,
+          "at": "Britain"
+        },
+        {
+          "type": "flag",
+          "code": "fr",
+          "lat": 23.5,
+          "lon": -155.2,
+          "size": 110,
+          "at": "France"
+        },
+        {
+          "type": "stamp",
+          "text": "INDEPENDENT",
+          "size": 84,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "independent"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Kamehameha I established the Hawaiian Kingdom in 1795.",
+          "url": "https://en.wikipedia.org/wiki/Hawaiian_Kingdom",
+          "quote": "He established the Hawaiian Kingdom in 1795 with the help of western weapons and advisors"
+        },
+        {
+          "claim": "In 1843 Britain and France jointly declared Hawaii an independent state.",
+          "url": "https://en.wikipedia.org/wiki/Hawaiian_Kingdom",
+          "quote": "Britain and France issued the Anglo-Franco Proclamation, jointly declaring the Hawaiian Islands \"an Independent State.\""
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "But in 1893, a group of mostly foreign businessmen overthrew her, backed by US sailors and Marines.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1893",
+          "at": "1893"
+        },
+        {
+          "type": "character",
+          "image": "businessman",
+          "screen": [
+            0.74,
+            0.6
+          ],
+          "at": "businessmen",
+          "name": "Committee of Safety",
+          "flip": true
+        },
+        {
+          "type": "character",
+          "image": "us_marine",
+          "screen": [
+            0.5,
+            0.6
+          ],
+          "at": "Marines"
+        },
+        {
+          "type": "ping",
+          "lat": 21.31,
+          "lon": -157.86,
+          "color": "#ff3b3b",
+          "at": "overthrew"
+        },
+        {
+          "type": "shake",
+          "at": "overthrew"
+        }
+      ],
+      "camera": {
+        "lat": 21.4,
+        "lon": -157.9,
+        "zoom": 30
+      },
+      "sources": [
+        {
+          "claim": "On 17 January 1893 the Committee of Safety, backed by 162 sailors and Marines from the USS Boston, overthrew the Queen.",
+          "url": "https://en.wikipedia.org/wiki/Overthrow_of_the_Hawaiian_Kingdom",
+          "quote": "The \"Committee of Safety,\" composed of foreign-born residents and Hawaiian-born individuals, led the overthrow ... deployed 162 sailors and Marines from the USS Boston"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "The Queen surrendered, to avoid bloodshed.",
+      "show": [
+        {
+          "type": "character",
+          "image": "queen_liliuokalani",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Queen",
+          "name": "Queen Liliʻuokalani"
+        },
+        {
+          "type": "icon",
+          "icon": "🕊️",
+          "lat": 21.6,
+          "lon": -157.5,
+          "size": 110,
+          "at": "bloodshed"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The Queen surrendered to avoid bloodshed.",
+          "url": "https://en.wikipedia.org/wiki/Overthrow_of_the_Hawaiian_Kingdom",
+          "quote": "The Queen surrendered to avoid bloodshed."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In 1898, the United States annexed Hawaii. It became a territory in 1900, and a state in 1959.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "1898",
+              "value": "1898"
+            },
+            {
+              "at": "1900",
+              "value": "1900"
+            },
+            {
+              "at": "1959",
+              "value": "1959"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Hawaii",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": "annexed",
+          "reveal": {
+            "lat": 21.3,
+            "lon": -157.8
+          }
+        }
+      ],
+      "camera": {
+        "lat": 20.6,
+        "lon": -157.4,
+        "zoom": 15
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Annexed via the Newlands Resolution (1898); territory 1900; statehood 1959.",
+          "url": "https://en.wikipedia.org/wiki/Overthrow_of_the_Hawaiian_Kingdom",
+          "quote": "The United States annexed Hawaii through the Newlands Resolution in 1898. Hawaii became a territory in 1900 and eventually achieved statehood in 1959."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And in 1993, the US Congress formally apologized for the overthrow.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1993",
+          "light": true,
+          "at": "1993"
+        },
+        {
+          "type": "stamp",
+          "text": "SORRY",
+          "size": 110,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "apologized"
+        },
+        {
+          "type": "ping",
+          "lat": 21.31,
+          "lon": -157.86,
+          "color": "#ffd60a",
+          "at": "overthrow"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "In 1993 Congress passed the Apology Resolution, signed by President Clinton.",
+          "url": "https://en.wikipedia.org/wiki/Overthrow_of_the_Hawaiian_Kingdom",
+          "quote": "In 1993, Congress passed the Apology Resolution, which President Clinton signed, formally apologizing for the U.S. role in the overthrow"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "hawaii": "#ff5a5f",
+        "united": "#5ec8ff",
+        "queen": "#ffd60a",
+        "marines": "#5ec8ff"
+      }
+    }
+  }
+}

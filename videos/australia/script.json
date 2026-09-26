@@ -1,0 +1,510 @@
+{
+  "id": "australia",
+  "style": "geo",
+  "meta": {
+    "title": "Why Almost Nobody Lives in the Middle of Australia 🇦🇺🤯",
+    "description": "Australia 🇦🇺 is a giant continent, but almost 80% of Australians live within 25 km of the coast 🏖️ Why? 80% of the land gets less than 600 mm of rain a year and half gets less than 300 mm 🏜️ The Great Dividing Range runs almost 4,000 km along the east coast, and the interior, the Outback, is desert and semi-desert. That's why Australia has only about 3.5 people per km², with 27 million people living mostly on the edges 🤯",
+    "pinnedComment": [
+      "80% of Australians live near the coast 🤯🇦🇺",
+      "Aussies: coast or Outback, where do you live? 👇",
+      "Which country's population map next? 🗺️"
+    ],
+    "tags": [
+      "australia",
+      "outback",
+      "population",
+      "desert",
+      "great dividing range",
+      "sydney",
+      "melbourne",
+      "coast",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Australia is a giant continent. But almost 80 percent of Australians live within 25 kilometers of the coast.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "AUS",
+          "fill": "flag:au",
+          "at": "Australia",
+          "hold": 0
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "80",
+              "value": "80%"
+            }
+          ],
+          "size": 190
+        },
+        {
+          "type": "label",
+          "text": "live near the coast",
+          "at": "coast",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "ping",
+          "lat": -33.87,
+          "lon": 151.21,
+          "color": "#ffd60a",
+          "at": "coast"
+        },
+        {
+          "type": "ping",
+          "lat": -37.81,
+          "lon": 144.96,
+          "color": "#ffd60a",
+          "at": "coast"
+        },
+        {
+          "type": "ping",
+          "lat": -27.47,
+          "lon": 153.03,
+          "color": "#ffd60a",
+          "at": "coast"
+        },
+        {
+          "type": "ping",
+          "lat": -31.95,
+          "lon": 115.86,
+          "color": "#ffd60a",
+          "at": "coast"
+        },
+        {
+          "type": "ping",
+          "lat": -34.93,
+          "lon": 138.6,
+          "color": "#ffd60a",
+          "at": "coast"
+        }
+      ],
+      "camera": {
+        "lat": -26,
+        "lon": 134,
+        "zoom": 2.7,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Almost 80% of Australians live within 25 km of the coast.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "Almost 80% of the Australian population live within 25 km (16 mi) of the coast"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The big cities are all on the edges: Sydney, Melbourne, Brisbane, Perth and Adelaide.",
+      "show": [
+        {
+          "type": "label",
+          "text": "Sydney",
+          "lat": -33.87,
+          "lon": 151.21,
+          "at": "Sydney",
+          "dot": true,
+          "dy": -46,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Melbourne",
+          "lat": -37.81,
+          "lon": 144.96,
+          "at": "Melbourne",
+          "dot": true,
+          "dy": -46,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Brisbane",
+          "lat": -27.47,
+          "lon": 153.03,
+          "at": "Brisbane",
+          "dot": true,
+          "dy": -46,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Perth",
+          "lat": -31.95,
+          "lon": 115.86,
+          "at": "Perth",
+          "dot": true,
+          "dy": -46,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Adelaide",
+          "lat": -34.93,
+          "lon": 138.6,
+          "at": "Adelaide",
+          "dot": true,
+          "dy": -46,
+          "size": 40
+        },
+        {
+          "type": "highlight",
+          "target": "AUS",
+          "fill": "#2a2b2f",
+          "at": 0.05,
+          "soft": true,
+          "rim": "#ffd60a",
+          "softness": 4,
+          "fillOpacity": 0.0
+        }
+      ],
+      "camera": {
+        "lat": -26,
+        "lon": 134,
+        "zoom": 2.7
+      },
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "73% live in major coastal urban centres.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "with 73% inhabiting major coastal urban centers"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why is the middle almost empty?",
+      "show": [
+        {
+          "type": "question",
+          "lat": -25,
+          "lon": 134,
+          "at": "why"
+        },
+        {
+          "type": "highlight",
+          "target": "AUS",
+          "fill": "#e76f51",
+          "at": 0.05,
+          "fillOpacity": 0.85
+        }
+      ],
+      "camera": {
+        "lat": -26,
+        "lon": 134,
+        "zoom": 2.7
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Water. 80 percent of the land gets less than 600 millimeters of rain a year, and half gets less than 300.",
+      "show": [
+        {
+          "type": "scatter",
+          "target": "AUS",
+          "icon": "🏜️",
+          "count": 14,
+          "size": 64,
+          "at": "rain"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "80",
+              "value": "80%"
+            },
+            {
+              "at": "half",
+              "value": "50%"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "label",
+          "text": "< 600 mm rain",
+          "at": "rain",
+          "style": "pill",
+          "bg": "#b45309",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": -26,
+        "lon": 134,
+        "zoom": 2.7
+      },
+      "sources": [
+        {
+          "claim": "80% of the land gets <600 mm of rain a year, 50% gets <300 mm.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "80% of the land area receives less than 600 mm (24 in) of annual rainfall and 50% less than 300 mm (12 in)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The Great Dividing Range runs almost 4,000 kilometers along the east coast, separating the rainy coast from the dry interior.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              -11,
+              142.5
+            ],
+            [
+              -17,
+              145.3
+            ],
+            [
+              -23,
+              148
+            ],
+            [
+              -28,
+              152
+            ],
+            [
+              -33,
+              150.3
+            ],
+            [
+              -37,
+              148.5
+            ]
+          ],
+          "color": "#c8a46e",
+          "width": 14,
+          "at": "Great",
+          "drawDur": 1.6
+        },
+        {
+          "type": "label",
+          "text": "GREAT DIVIDING RANGE",
+          "lat": -24,
+          "lon": 150,
+          "at": "Range",
+          "style": "map",
+          "anim": "slam",
+          "size": 54,
+          "rotate": -70
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "4,000",
+              "value": "4,000 km"
+            }
+          ],
+          "size": 150
+        }
+      ],
+      "camera": {
+        "lat": -26,
+        "lon": 146,
+        "zoom": 1.9
+      },
+      "sources": [
+        {
+          "claim": "The Great Dividing Range runs almost 4,000 km parallel to the east coast, separating coastal rainfall from interior dryness.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "runs parallel to the east coast from the tip of the Cape York Peninsula in Queensland almost 4,000 km (2,500 mi) south"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And the heart of the country, the Outback, is desert and semi-desert, with very few people.",
+      "show": [
+        {
+          "type": "label",
+          "text": "OUTBACK",
+          "lat": -25,
+          "lon": 133,
+          "at": "Outback",
+          "style": "map",
+          "anim": "slam",
+          "size": 110
+        },
+        {
+          "type": "icon",
+          "icon": "🐪",
+          "lat": -23,
+          "lon": 128,
+          "size": 120,
+          "at": "desert"
+        },
+        {
+          "type": "icon",
+          "icon": "☀️",
+          "lat": -21,
+          "lon": 137,
+          "size": 120,
+          "at": "semi-desert"
+        }
+      ],
+      "camera": {
+        "lat": -26,
+        "lon": 134,
+        "zoom": 2.7,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "The Outback is sparsely populated and semi-arid/desert.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "sparsely populated and characterised by semi-arid and desert landscapes"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's why Australia has only about 3.5 people per square kilometer.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "3.5",
+              "value": "3.5"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "label",
+          "text": "people per km²",
+          "at": "people",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "punch",
+          "at": "only"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Mean population density 3.5/km² (2024).",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "a mean population density of 3.5/km2 (9.1/sq mi) as of 2024"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "27 million people, living mostly on the edges of a huge, dry continent.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "27",
+              "value": "27M"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "highlight",
+          "target": "AUS",
+          "fill": "#b45309",
+          "at": "edges",
+          "soft": true,
+          "rim": "#ffd60a",
+          "softness": 6,
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "ping",
+          "lat": -33.87,
+          "lon": 151.21,
+          "color": "#ffd60a",
+          "at": "edges"
+        },
+        {
+          "type": "ping",
+          "lat": -37.81,
+          "lon": 144.96,
+          "color": "#ffd60a",
+          "at": "edges"
+        },
+        {
+          "type": "ping",
+          "lat": -27.47,
+          "lon": 153.03,
+          "color": "#ffd60a",
+          "at": "edges"
+        },
+        {
+          "type": "ping",
+          "lat": -31.95,
+          "lon": 115.86,
+          "color": "#ffd60a",
+          "at": "edges"
+        },
+        {
+          "type": "ping",
+          "lat": -34.93,
+          "lon": 138.6,
+          "color": "#ffd60a",
+          "at": "edges"
+        }
+      ],
+      "camera": {
+        "lat": -26,
+        "lon": 134,
+        "zoom": 2.7,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Total population 27.2 million.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "its substantial total population of 27.2 million"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "australia": "#ffd60a",
+        "australians": "#ffd60a",
+        "outback": "#f4a261",
+        "coast": "#5ec8ff",
+        "water": "#5ec8ff"
+      }
+    }
+  }
+}

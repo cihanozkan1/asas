@@ -1,0 +1,579 @@
+{
+  "id": "alaska",
+  "style": "geo",
+  "meta": {
+    "title": "Why Russia Sold Alaska to the USA 🇷🇺🇺🇸🤯 2 Cents per Acre!",
+    "description": "Alaska is by far the biggest US state 🇺🇸 but until 1867 it belonged to Russia 🇷🇺 Then Tsar Alexander II sold all of it for just $7.2 million, about 2 cents per acre 💰 Why? Russia had just lost the Crimean War, money was tight, and the far-away land was hard to defend, especially against Britain next door in Canada 🇬🇧 US Secretary of State William Seward made the deal, and critics mocked it as \"Seward's Folly\" or \"Seward's Icebox\" 🧊 Then in 1896 the Klondike Gold Rush began ⛏️ and the frozen land suddenly looked like a bargain 🤯",
+    "pinnedComment": [
+      "Russia sold Alaska for 2 cents per acre 🤯🇷🇺🇺🇸",
+      "Best deal in history or Russia's biggest mistake? 👇",
+      "Which land deal should we explain next? 🗺️"
+    ],
+    "tags": [
+      "alaska",
+      "russia",
+      "usa",
+      "alaska purchase",
+      "seward",
+      "1867",
+      "tsar alexander",
+      "crimean war",
+      "klondike",
+      "gold rush",
+      "history",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is Alaska, by far the biggest state in the USA, and home to about 740,000 people.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": "Alaska",
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "ALASKA",
+          "lat": 64,
+          "lon": -152,
+          "at": "Alaska",
+          "style": "map",
+          "anim": "slam",
+          "size": 96,
+          "rotate": -6
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "biggest",
+              "value": "#1"
+            }
+          ],
+          "size": 180
+        }
+      ],
+      "camera": {
+        "fit": [
+          {
+            "admin1": "Alaska",
+            "country": "USA"
+          }
+        ],
+        "pad": 0.9,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "Alaska is by far the largest US state; population 740,133 in 2024.",
+          "url": "https://en.wikipedia.org/wiki/Alaska",
+          "quote": "Alaska is by far the largest state in the United States ... a population of 740,133 in 2024"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But until 1867, it belonged to Russia.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "fill": "#b3202a",
+          "at": "Russia",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "year",
+          "value": "1867",
+          "light": true,
+          "at": "1867"
+        },
+        {
+          "type": "flag",
+          "code": "ru",
+          "lat": 62,
+          "lon": -150,
+          "size": 150,
+          "at": "Russia"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Alaska was Russian until the 1867 purchase.",
+          "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+          "quote": "Signed March 30, 1867"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Then, in 1867, Russia sold the whole thing to the United States, for just 7.2 million dollars.",
+      "show": [
+        {
+          "type": "character",
+          "image": "tsar",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Russia",
+          "name": "Tsar Alexander II"
+        },
+        {
+          "type": "character",
+          "image": "seward",
+          "screen": [
+            0.74,
+            0.6
+          ],
+          "at": "States",
+          "name": "Seward",
+          "flip": true
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "7.2",
+              "value": "$7.2M"
+            }
+          ],
+          "size": 180,
+          "color": "#4ade80"
+        },
+        {
+          "type": "stamp",
+          "text": "SOLD!",
+          "size": 110,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "sold"
+        }
+      ],
+      "camera": {
+        "fit": [
+          {
+            "admin1": "Alaska",
+            "country": "USA"
+          }
+        ],
+        "pad": 0.9,
+        "zoomMul": 0.8
+      },
+      "sources": [
+        {
+          "claim": "The price was $7.2 million.",
+          "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+          "quote": "Price: $7.2 million"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's about two cents per acre.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "two",
+              "value": "2¢"
+            }
+          ],
+          "size": 220,
+          "color": "#4ade80"
+        },
+        {
+          "type": "label",
+          "text": "per acre",
+          "at": "acre",
+          "style": "pill",
+          "bg": "#16a34a",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "punch",
+          "at": "cents"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "About 2 cents per acre.",
+          "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+          "quote": "Cost per acre: approximately 2 cents"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why would Russia sell such a huge land?",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "fill": "#c1121f",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "highlight",
+          "target": "RUS",
+          "fill": "#c1121f",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "question",
+          "lat": 63,
+          "lon": -150,
+          "at": "why"
+        }
+      ],
+      "camera": {
+        "lat": 63,
+        "lon": -175,
+        "zoom": 0.9
+      },
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "history",
+      "text": "Russia had just lost the Crimean War against Britain, France and the Ottoman Empire, and money was tight.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1856",
+          "at": "Crimean"
+        },
+        {
+          "type": "icon",
+          "icon": "⚔️",
+          "lat": 45,
+          "lon": 34,
+          "size": 140,
+          "at": "Crimean"
+        },
+        {
+          "type": "icon",
+          "icon": "💸",
+          "lat": 55,
+          "lon": 45,
+          "size": 130,
+          "at": "money"
+        },
+        {
+          "type": "highlight",
+          "target": "RUS",
+          "fill": "#8a1c1c",
+          "at": 0.1,
+          "fillOpacity": 0.85
+        }
+      ],
+      "camera": {
+        "lat": 55,
+        "lon": 60,
+        "zoom": 0.75
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Russia sold after defeat in the Crimean War and under financial pressure.",
+          "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+          "quote": "After suffering defeat in the Crimean War, Russia recognized that defending this distant territory would be difficult ... Financial pressures from the war also motivated the sale."
+        },
+        {
+          "claim": "Crimean War 1853–1856: Russia vs the Ottoman Empire, France, the UK and Sardinia; Russia sued for peace.",
+          "url": "https://en.wikipedia.org/wiki/Crimean_War",
+          "quote": "The conflict lasted from October 1853 to March 1856 ... Russia ultimately sued for peace"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And Alaska was far away and hard to defend, especially against Britain, right next door in Canada.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "fill": "#8a1c1c",
+          "at": "Alaska",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": "CAN",
+          "fill": "#c8102e",
+          "at": "Britain",
+          "fillOpacity": 0.55,
+          "pattern": "hatch"
+        },
+        {
+          "type": "label",
+          "text": "British",
+          "lat": 58,
+          "lon": -105,
+          "at": "Britain",
+          "style": "serif",
+          "size": 58
+        },
+        {
+          "type": "arrow",
+          "from": [
+            57,
+            -110
+          ],
+          "to": [
+            62,
+            -140
+          ],
+          "color": "#c8102e",
+          "at": "defend"
+        }
+      ],
+      "camera": {
+        "fit": [
+          {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "CAN"
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Alaska was hard to defend, particularly against Britain from neighboring Canada.",
+          "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+          "quote": "defending this distant territory would be difficult, particularly against Britain from neighboring Canada"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "The deal was negotiated by US Secretary of State William Seward. Critics mocked it as Seward's Folly, or Seward's Icebox, a worthless frozen wasteland.",
+      "show": [
+        {
+          "type": "label",
+          "text": "SEWARD'S FOLLY",
+          "lat": 66,
+          "lon": -160,
+          "at": "Folly",
+          "style": "note",
+          "typewriter": true,
+          "size": 66,
+          "rotate": -7
+        },
+        {
+          "type": "label",
+          "text": "ICEBOX",
+          "lat": 60,
+          "lon": -145,
+          "at": "Icebox",
+          "style": "note",
+          "typewriter": true,
+          "size": 70,
+          "rotate": 6
+        },
+        {
+          "type": "icon",
+          "icon": "🧊",
+          "lat": 63,
+          "lon": -138,
+          "size": 130,
+          "at": "Icebox"
+        },
+        {
+          "type": "character",
+          "image": "seward",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Seward",
+          "name": "Seward"
+        }
+      ],
+      "camera": {
+        "fit": [
+          {
+            "admin1": "Alaska",
+            "country": "USA"
+          }
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Critics dubbed it \"Seward's Folly\" or \"Seward's Icebox\".",
+          "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+          "quote": "critics dubbed it \"Seward's Folly\" or \"Seward's Icebox,\" claiming the U.S. had purchased worthless frozen land"
+        },
+        {
+          "claim": "William Seward, US Secretary of State, negotiated the purchase.",
+          "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+          "quote": "William H. Seward, U.S. Secretary of State, negotiated with Russian diplomat Eduard de Stoeckl"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But in 1896, the Klondike Gold Rush began next door, and the frozen land suddenly looked like a bargain.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1896",
+          "light": true,
+          "at": "1896"
+        },
+        {
+          "type": "ping",
+          "lat": 64.06,
+          "lon": -139.43,
+          "color": "#ffd60a",
+          "at": "Klondike"
+        },
+        {
+          "type": "label",
+          "text": "Klondike",
+          "lat": 64.06,
+          "lon": -139.43,
+          "at": "Klondike",
+          "dot": true,
+          "dy": -48,
+          "size": 44
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "icon": "💰",
+          "count": 12,
+          "size": 60,
+          "at": "bargain"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": "bargain"
+        }
+      ],
+      "camera": {
+        "fit": [
+          {
+            "admin1": "Alaska",
+            "country": "USA"
+          }
+        ],
+        "pad": 0.9,
+        "bearing": -4
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Alaska stayed sparsely populated until the Klondike Gold Rush began in 1896.",
+          "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+          "quote": "Alaska remained sparsely populated until the Klondike Gold Rush began in 1896"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, Alaska is more than twice the size of Texas. All for about two cents an acre.",
+      "show": [
+        {
+          "type": "ghost",
+          "target": {
+            "admin1": "Texas",
+            "country": "USA"
+          },
+          "to": {
+            "lat": 63.5,
+            "lon": -152
+          },
+          "fill": "#f4a261",
+          "at": "Texas"
+        },
+        {
+          "type": "label",
+          "text": "Texas",
+          "lat": 61,
+          "lon": -152,
+          "at": "Texas",
+          "style": "pill",
+          "bg": "#e76f51",
+          "size": 44
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "two",
+              "value": "2¢"
+            }
+          ],
+          "size": 180,
+          "color": "#4ade80"
+        }
+      ],
+      "camera": {
+        "fit": [
+          {
+            "admin1": "Alaska",
+            "country": "USA"
+          }
+        ],
+        "pad": 0.85
+      },
+      "sources": [
+        {
+          "claim": "Alaska is more than twice the size of Texas.",
+          "url": "https://en.wikipedia.org/wiki/Alaska",
+          "quote": "more than twice the size of the second-largest U.S. state (Texas)"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "alaska": "#5ec8ff",
+        "russia": "#ff5a5f",
+        "seward": "#ffd60a",
+        "klondike": "#ffd60a",
+        "texas": "#f4a261"
+      }
+    }
+  }
+}

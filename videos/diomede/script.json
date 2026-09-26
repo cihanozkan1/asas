@@ -1,0 +1,446 @@
+{
+  "id": "diomede",
+  "style": "geo",
+  "meta": {
+    "title": "Russia and the USA Are Only 3.8 km Apart 🇷🇺🇺🇸🤯 Diomede Islands",
+    "description": "Russia 🇷🇺 and the United States 🇺🇸 are only 3.8 km apart! In the Bering Strait, Big Diomede belongs to Russia and Little Diomede to Alaska 🧊 The International Date Line runs between them, so Big Diomede is 21 hours ahead: they're nicknamed \"Tomorrow Island\" and \"Yesterday Island\" ⏰ In winter an ice bridge usually forms between them, but crossing is prohibited. Little Diomede has about 77 residents, while Big Diomede's people were moved to the mainland in 1948 and it has only a military presence 🤯",
+    "pinnedComment": [
+      "You can see tomorrow from yesterday here 🤯⏰🇷🇺🇺🇸",
+      "Would you visit Little Diomede? 🧊👇",
+      "Which border oddity next? 🗺️"
+    ],
+    "tags": [
+      "diomede islands",
+      "bering strait",
+      "russia",
+      "usa",
+      "alaska",
+      "international date line",
+      "tomorrow island",
+      "yesterday island",
+      "weird borders",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Russia and the United States are much closer than you think. In one place, only 3.8 kilometers apart.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "RUS",
+          "fill": "flag:ru",
+          "at": "Russia",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": "USA",
+          "fill": "flag:us",
+          "at": "United",
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "3.8",
+              "value": "3.8 km"
+            }
+          ],
+          "size": 190
+        }
+      ],
+      "camera": {
+        "lat": 65.8,
+        "lon": -170,
+        "zoom": 3.2,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "At their closest points the two islands are about 3.8 km apart.",
+          "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+          "quote": "At their closest points, the two islands are approximately 2.4 miles (3.8 km) away from each other."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Here in the Bering Strait, Big Diomede belongs to Russia, and Little Diomede belongs to Alaska.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 65.78,
+          "lon": -169.05,
+          "color": "#ff5a5f",
+          "at": "Big"
+        },
+        {
+          "type": "ping",
+          "lat": 65.755,
+          "lon": -168.93,
+          "color": "#5ec8ff",
+          "at": "Little"
+        },
+        {
+          "type": "label",
+          "text": "Big Diomede",
+          "lat": 65.78,
+          "lon": -169.05,
+          "at": "Big",
+          "dot": true,
+          "dy": -52,
+          "size": 44,
+          "color": "#ff5a5f"
+        },
+        {
+          "type": "label",
+          "text": "Little Diomede",
+          "lat": 65.755,
+          "lon": -168.93,
+          "at": "Little",
+          "dot": true,
+          "dy": 52,
+          "size": 44,
+          "color": "#5ec8ff"
+        },
+        {
+          "type": "flag",
+          "code": "ru",
+          "lat": 65.81,
+          "lon": -169.13000000000002,
+          "size": 100,
+          "at": "Russia"
+        },
+        {
+          "type": "flag",
+          "code": "us",
+          "lat": 65.735,
+          "lon": -168.84,
+          "size": 100,
+          "at": "Alaska"
+        },
+        {
+          "type": "measure",
+          "from": [
+            65.78,
+            -169.05
+          ],
+          "to": [
+            65.755,
+            -168.93
+          ],
+          "label": "3.8 km",
+          "at": "Diomede"
+        }
+      ],
+      "camera": {
+        "lat": 65.77,
+        "lon": -168.99,
+        "zoom": 300,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "Big Diomede is Russian; Little Diomede is part of Alaska.",
+          "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+          "quote": "Big Diomede belongs to Russia while Little Diomede is part of Alaska"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But these two neighbors don't even live on the same day. How?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 65.77,
+          "lon": -168.99,
+          "at": "How"
+        }
+      ],
+      "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "And the International Date Line runs right between them. Big Diomede is 21 hours ahead.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              65.95,
+              -168.99
+            ],
+            [
+              65.6,
+              -168.99
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 6,
+          "at": "Date",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            16,
+            12
+          ],
+          "drawDur": 0.9,
+          "hold": 1
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "21",
+              "value": "+21 h"
+            }
+          ],
+          "size": 200
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The Date Line runs between them; Big Diomede is 21 hours ahead (20 in summer).",
+          "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+          "quote": "Big Diomede is 21 hours ahead of Little Diomede (20 in summer)."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's why they're nicknamed Tomorrow Island and Yesterday Island.",
+      "show": [
+        {
+          "type": "label",
+          "text": "TOMORROW",
+          "lat": 65.83,
+          "lon": -169.05,
+          "at": "Tomorrow",
+          "style": "note",
+          "typewriter": true,
+          "size": 62,
+          "rotate": -7
+        },
+        {
+          "type": "label",
+          "text": "YESTERDAY",
+          "lat": 65.71,
+          "lon": -168.92,
+          "at": "Yesterday",
+          "style": "note",
+          "typewriter": true,
+          "size": 62,
+          "rotate": 6
+        }
+      ],
+      "sources": [
+        {
+          "claim": "They are nicknamed \"Tomorrow Island\" and \"Yesterday Island\".",
+          "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+          "quote": "This quirk earned them the nicknames \"Tomorrow Island\" and \"Yesterday Island.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In winter, an ice bridge usually forms between them. But crossing it is prohibited.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "circle": {
+              "lat": 65.77,
+              "lon": -168.99,
+              "km": 5
+            }
+          },
+          "fill": "#e0f2fe",
+          "at": "ice",
+          "fillOpacity": 0.55,
+          "reveal": {
+            "lat": 65.77,
+            "lon": -168.99
+          }
+        },
+        {
+          "type": "icon",
+          "icon": "🧊",
+          "lat": 65.77,
+          "lon": -168.99,
+          "size": 110,
+          "at": "ice"
+        },
+        {
+          "type": "stamp",
+          "text": "PROHIBITED",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "prohibited"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "An ice bridge usually forms in winter, but crossing is prohibited.",
+          "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+          "quote": "An ice bridge usually spans the distance between the two islands in winter, though crossing between them is prohibited"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Little Diomede is home to a small Inupiat community of about 77 people.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "77",
+              "value": "77"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "character",
+          "image": "inuit_kid",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "community"
+        },
+        {
+          "type": "ping",
+          "lat": 65.755,
+          "lon": -168.93,
+          "color": "#5ec8ff",
+          "at": "Little"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "77 residents as of January 2023.",
+          "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+          "quote": "Little Diomede supports a small Inupiat community of 77 residents as of January 2023"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "But Big Diomede has no villagers at all. In 1948, the Soviets moved its people to the mainland, and today only the military is there.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1948",
+          "at": "1948"
+        },
+        {
+          "type": "ping",
+          "lat": 65.78,
+          "lon": -169.05,
+          "color": "#ff5a5f",
+          "at": "military"
+        },
+        {
+          "type": "icon",
+          "icon": "🪖",
+          "lat": 65.8,
+          "lon": -169.05,
+          "size": 100,
+          "at": "military"
+        }
+      ],
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "In 1948 the Soviet government relocated its inhabitants; only military units remain.",
+          "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+          "quote": "the Soviet government relocated indigenous inhabitants to mainland Russia in 1948 and established a military base there"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So from Little Diomede, you can look across the water and see tomorrow.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 65.755,
+          "lon": -168.93,
+          "color": "#5ec8ff",
+          "at": "Little"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            65.755,
+            -168.93
+          ],
+          "to": [
+            65.78,
+            -169.05
+          ],
+          "color": "#ffd60a",
+          "at": "look"
+        },
+        {
+          "type": "label",
+          "text": "TOMORROW",
+          "lat": 65.83,
+          "lon": -169.05,
+          "at": "tomorrow",
+          "style": "note",
+          "typewriter": true,
+          "size": 66,
+          "rotate": -7
+        }
+      ],
+      "camera": {
+        "lat": 65.77,
+        "lon": -168.99,
+        "zoom": 300,
+        "bearing": 3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Big Diomede is ahead of Little Diomede across the Date Line, 3.8 km away.",
+          "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+          "quote": "Big Diomede is 21 hours ahead of Little Diomede (20 in summer)."
+        }
+      ]
+    }
+  ],
+  "config": {
+    "captions": {
+      "keywords": {
+        "russia": "#ff5a5f",
+        "united": "#5ec8ff",
+        "alaska": "#5ec8ff",
+        "tomorrow": "#ffd60a",
+        "yesterday": "#ffd60a"
+      }
+    }
+  },
+  "imagery": [
+    {
+      "bbox": [
+        -169.35,
+        65.6,
+        -168.65,
+        65.95
+      ],
+      "width": 3072
+    }
+  ]
+}
