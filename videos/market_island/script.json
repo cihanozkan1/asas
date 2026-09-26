@@ -125,23 +125,65 @@
           "image": "lighthouse_keeper",
           "screen": [
             0.25,
-            0.6
+            0.62
           ],
           "at": "lighthouse",
           "say": "Wrong half!"
         },
         {
-          "type": "ping",
-          "lat": 60.3009,
-          "lon": 19.1313,
-          "color": "#ffd60a",
+          "type": "highlight",
+          "target": {
+            "geojson": "sweden_old.geojson"
+          },
+          "fill": "flag:se",
+          "at": "Swedish",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "finland_old.geojson"
+          },
+          "fill": "flag:ax",
+          "at": "Finland",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              60.30158,
+              19.1318
+            ],
+            [
+              60.300219999999996,
+              19.1318
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 7,
+          "at": "built",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ],
+          "drawDur": 0.8
+        },
+        {
+          "type": "icon",
+          "icon": "🗼",
+          "lat": 60.3011,
+          "lon": 19.1311,
+          "size": 110,
           "at": "lighthouse"
         }
       ],
       "camera": {
-        "lat": 60.3,
-        "lon": 19.13,
-        "zoom": 60
+        "lat": 60.3009,
+        "lon": 19.1318,
+        "zoom": 14500
       },
       "transition": "film",
       "sources": [
@@ -170,12 +212,61 @@
             0.33
           ],
           "at": "moved"
+        },
+        {
+          "type": "icon",
+          "icon": "🗼",
+          "lat": 60.3011,
+          "lon": 19.1311,
+          "size": 110,
+          "at": 0.05
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "sweden_old.geojson"
+          },
+          "fill": "flag:se",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "finland_old.geojson"
+          },
+          "fill": "flag:ax",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              60.30158,
+              19.1318
+            ],
+            [
+              60.300219999999996,
+              19.1318
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 7,
+          "at": 0.05,
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ],
+          "drawDur": 0.1
         }
       ],
       "camera": {
-        "lat": 60.3,
-        "lon": 19.13,
-        "zoom": 60
+        "lat": 60.3009,
+        "lon": 19.1318,
+        "zoom": 14500
       },
       "transition": "flash",
       "sources": [
@@ -191,64 +282,92 @@
       "text": "The new border zigzags around the lighthouse, so it ends up in Finland.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "geojson": "sweden_new.geojson"
+          },
+          "fill": "flag:se",
+          "at": "zigzags",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "finland_new.geojson"
+          },
+          "fill": "flag:ax",
+          "at": "zigzags",
+          "fillOpacity": 0.9
+        },
+        {
           "type": "route",
           "points": [
             [
-              60.3018,
-              19.129
-            ],
-            [
-              60.301,
-              19.13
+              60.30158,
+              19.1318
             ],
             [
               60.3013,
-              19.1312
+              19.1318
             ],
             [
-              60.3006,
-              19.132
+              60.3013,
+              19.130699999999997
             ],
             [
               60.3009,
-              19.1333
+              19.130699999999997
             ],
             [
-              60.3,
-              19.134
+              60.3009,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1318
+            ],
+            [
+              60.300219999999996,
+              19.1318
             ]
           ],
           "color": "#ffd60a",
-          "width": 8,
+          "width": 9,
           "at": "zigzags",
-          "drawDur": 1.8,
-          "hold": 1
+          "rhumb": true,
+          "drawDur": 1.6
         },
         {
-          "type": "ping",
+          "type": "icon",
+          "icon": "🗼",
           "lat": 60.3011,
-          "lon": 19.1316,
-          "color": "#ffd60a",
-          "at": "lighthouse"
+          "lon": 19.1311,
+          "size": 110,
+          "at": 0.05
         },
         {
           "type": "label",
-          "text": "Lighthouse",
-          "lat": 60.3011,
-          "lon": 19.1316,
-          "at": "lighthouse",
-          "dot": true,
-          "dy": -54,
-          "size": 40
+          "text": "SIMPLIFIED MAP",
+          "at": 0.05,
+          "style": "pill",
+          "bg": "#111827",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "size": 34
         }
       ],
       "camera": {
-        "lat": 60.301,
-        "lon": 19.1315,
-        "zoom": 5000,
+        "lat": 60.3009,
+        "lon": 19.1318,
+        "zoom": 14500,
         "bearing": -3
       },
-      "style": "satellite",
       "sources": [
         {
           "claim": "The adjusted border takes the form of an inverted S.",
@@ -262,28 +381,101 @@
       "text": "And no country lost any land. Both sides still have exactly the same area.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "geojson": "sweden_new.geojson"
+          },
+          "fill": "flag:se",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "finland_new.geojson"
+          },
+          "fill": "flag:ax",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              60.30158,
+              19.1318
+            ],
+            [
+              60.3013,
+              19.1318
+            ],
+            [
+              60.3013,
+              19.130699999999997
+            ],
+            [
+              60.3009,
+              19.130699999999997
+            ],
+            [
+              60.3009,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1318
+            ],
+            [
+              60.300219999999996,
+              19.1318
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 9,
+          "at": 0.05,
+          "rhumb": true,
+          "drawDur": 0.1
+        },
+        {
+          "type": "vs",
+          "left": {
+            "flag": "se",
+            "label": "Sweden"
+          },
+          "right": {
+            "flag": "ax",
+            "label": "Finland"
+          },
+          "at": "same",
+          "screen": [
+            0.5,
+            0.25
+          ]
+        },
+        {
           "type": "counter",
           "steps": [
             {
-              "at": "land",
-              "value": "= 0 m²"
+              "at": "area",
+              "value": "="
             }
           ],
-          "size": 170
-        },
-        {
-          "type": "tilt",
-          "deg": 36,
-          "at": "same",
-          "until": 3.5
+          "size": 150,
+          "screen": [
+            0.5,
+            0.38
+          ]
         }
       ],
       "camera": {
-        "lat": 60.301,
-        "lon": 19.1315,
-        "zoom": 5000
+        "lat": 60.3009,
+        "lon": 19.1318,
+        "zoom": 14500
       },
-      "style": "satellite",
       "sources": [
         {
           "claim": "No net transfer of territory occurred.",
@@ -297,11 +489,111 @@
       "text": "Today the border is marked by holes drilled into the rock, and it's inspected every 25 years.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "geojson": "sweden_new.geojson"
+          },
+          "fill": "flag:se",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "finland_new.geojson"
+          },
+          "fill": "flag:ax",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              60.30158,
+              19.1318
+            ],
+            [
+              60.3013,
+              19.1318
+            ],
+            [
+              60.3013,
+              19.130699999999997
+            ],
+            [
+              60.3009,
+              19.130699999999997
+            ],
+            [
+              60.3009,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1318
+            ],
+            [
+              60.300219999999996,
+              19.1318
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 9,
+          "at": 0.05,
+          "rhumb": true,
+          "drawDur": 0.1
+        },
+        {
           "type": "icon",
           "icon": "🕳️",
-          "lat": 60.3012,
-          "lon": 19.1305,
-          "size": 90,
+          "lat": 60.3013,
+          "lon": 19.1318,
+          "size": 60,
+          "at": "holes"
+        },
+        {
+          "type": "icon",
+          "icon": "🕳️",
+          "lat": 60.3013,
+          "lon": 19.130699999999997,
+          "size": 60,
+          "at": "holes"
+        },
+        {
+          "type": "icon",
+          "icon": "🕳️",
+          "lat": 60.3009,
+          "lon": 19.130699999999997,
+          "size": 60,
+          "at": "holes"
+        },
+        {
+          "type": "icon",
+          "icon": "🕳️",
+          "lat": 60.3009,
+          "lon": 19.1328,
+          "size": 60,
+          "at": "holes"
+        },
+        {
+          "type": "icon",
+          "icon": "🕳️",
+          "lat": 60.3005,
+          "lon": 19.1328,
+          "size": 60,
+          "at": "holes"
+        },
+        {
+          "type": "icon",
+          "icon": "🕳️",
+          "lat": 60.3005,
+          "lon": 19.1318,
+          "size": 60,
           "at": "holes"
         },
         {
@@ -316,15 +608,14 @@
         }
       ],
       "camera": {
-        "lat": 60.301,
-        "lon": 19.1315,
-        "zoom": 4000,
+        "lat": 60.3009,
+        "lon": 19.1318,
+        "zoom": 13500,
         "bearing": 3
       },
-      "style": "satellite",
       "sources": [
         {
-          "claim": "The border is marked by drilled holes; resurveyed every 25 years.",
+          "claim": "The border is marked by drilled holes.",
           "url": "https://en.wikipedia.org/wiki/Märket",
           "quote": "The border is marked by holes drilled into the rock, because the seasonal drift ice would shear off any protruding markers."
         },
@@ -350,16 +641,5 @@
   "styles": {
     "now": "atlas",
     "history": "vintage"
-  },
-  "imagery": [
-    {
-      "bbox": [
-        19.12,
-        60.296,
-        19.142,
-        60.306
-      ],
-      "width": 2048
-    }
-  ]
+  }
 }

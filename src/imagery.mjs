@@ -38,7 +38,7 @@ export async function ensureDetail({ bbox, width = 4096 }) {
       }
     }
   }
-  return { url: '/' + rel, bbox };
+  return { url: '/' + rel, bbox, mask: arguments[0].mask !== false };
 }
 
 // Close-up cameras (explicit lat/lon/zoom) get Sentinel-2 detail automatically, so no shot

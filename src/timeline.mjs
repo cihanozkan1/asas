@@ -200,6 +200,12 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     }
   }
 
+  // A hook title card shares the top of the screen with counters/years: end it when the first one appears.
+  for (const h of elements.filter((e) => e.type === 'title' && e.hook)) {
+    const first = elements.filter((e) => ['counter', 'stat', 'year', 'bars', 'vs', 'timeline', 'clock'].includes(e.type) && e.start > h.start && e.start < h.end).sort((a, b) => a.start - b.start)[0];
+    if (first) h.end = Math.max(h.start + 0.6, first.start - 0.05);
+  }
+
   // Same key in consecutive scenes = one continuous element (no re-animation).
   const merged = [];
   const open = new Map();

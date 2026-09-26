@@ -122,7 +122,7 @@ save('spain_borders', meta(
     ['spain', 'borders', 'llivia', 'pheasant island', 'ceuta', 'melilla', 'penon de velez de la gomera', 'exclave', 'france', 'morocco', 'weird borders', 'geography', 'maps']),
     [
         S("Spain has some of the strangest borders on the planet. Let's look at them.", [
-            hook("SPAIN'S *STRANGEST* BORDERS", at=0.05, until='planet'), hl('ESP', 'flag:es', 'Spain', fillOpacity=0.85, hold=1)],
+            hook("SPAIN'S *STRANGEST* BORDERS", at=0.05, until='planet'), hl('ESP', 'flag:es', 'Spain', fillOpacity=0.85)],
           cam=fit('ESP', pad=0.85, bearing=-3), no_claim=True),
         S("First, Llívia. A Spanish town completely surrounded by France.", [
             ping(*LLI, 'Llívia', color='#ff3b3b'), hl({'circle': {'lat': LLI[0], 'lon': LLI[1], 'km': 3}}, 'flag:es', 'Llívia', neon='#ffd60a'),

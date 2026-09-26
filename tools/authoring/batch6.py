@@ -44,6 +44,10 @@ save('chimborazo', meta(
 
 # ------------------------------------------------------------------ 11. MÄRKET (atlas)
 MK = (60.3009, 19.1313)
+import json as _j, os as _o
+_B = _j.load(open(_o.path.join(ROOT, 'videos/market_island/borders.json')))
+BNEW, BOLD = [tuple(p) for p in _B['border_new']], [tuple(p) for p in _B['border_old']]
+LH = (60.3011, 19.1311)
 save('market_island', meta(
     'The Island With the Weirdest Border 🇸🇪🇫🇮🤯 Märket',
     "Märket is a tiny rocky island in the Baltic Sea, split between Sweden 🇸🇪 and Finland (Åland) 🇫🇮 since 1809. In 1885 Finland built a lighthouse on it… on the Swedish side! 😅 In 1985 the two countries redrew the border into a strange zigzag, so the lighthouse ended up in Finland without either country losing any land 🤯 The border is marked by holes drilled in the rock, and it's checked every 25 years.",
@@ -58,30 +62,35 @@ save('market_island', meta(
           cam=at_(60.3, 19.13, 40),
           src=[src('The island was divided in 1809 by the Treaty of Fredrikshamn.', 'Märket', 'Märket has been divided between the two countries since the Treaty of Fredrikshamn of 1809 defined the border between Sweden and Grand Duchy of Finland as going through the middle of the island.')]),
         S("In 1885, Finland built a lighthouse on its highest point. But that spot was on the Swedish half.", [
-            year(1885, '1885'), char('lighthouse_keeper', 'lighthouse', say='Wrong half!'), ping(*MK, 'lighthouse', color='#ffd60a')],
-          cam=at_(60.3, 19.13, 60), era='history', tr='film',
+            year(1885, '1885'), char('lighthouse_keeper', 'lighthouse', say='Wrong half!', screen=(0.25, 0.62)),
+            hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 'Swedish', fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:ax', 'Finland', fillOpacity=0.9),
+            route(BOLD, 'built', rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.8), icon('🗼', *LH, 'lighthouse', size=110)],
+          cam=at_(60.3009, 19.1318, 14500), era='history', tr='film',
           src=[src('In 1885 the lighthouse was built on the Swedish portion of the island.', 'Märket', 'However, the location selected was within the Swedish portion of the island.')]),
         S("So in 1985, the two countries did something clever. Instead of moving the lighthouse, they moved the border.", [
-            year(1985, '1985'), stamp('MOVE THE BORDER', 'moved', size=78)],
-          cam=at_(60.3, 19.13, 60), tr='flash',
+            year(1985, '1985'), stamp('MOVE THE BORDER', 'moved', size=78), icon('🗼', *LH, 0.05, size=110), hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:ax', 0.05, fillOpacity=0.9), route(BOLD, 0.05, rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.1)],
+          cam=at_(60.3009, 19.1318, 14500), tr='flash',
           src=[src('The border was adjusted in 1985 so the lighthouse is on Finnish territory.', 'Märket', 'As a result, the border was adjusted in 1985 so that the lighthouse is now located on Finnish territory')]),
         S("The new border zigzags around the lighthouse, so it ends up in Finland.", [
-            route([(60.3018, 19.1290), (60.3010, 19.1300), (60.3013, 19.1312), (60.3006, 19.1320), (60.3009, 19.1333), (60.3000, 19.1340)], 'zigzags', color='#ffd60a', width=8, drawDur=1.8, hold=1),
-            ping(60.3011, 19.1316, 'lighthouse', color='#ffd60a'), dot('Lighthouse', 60.3011, 19.1316, 'lighthouse', dy=-54, size=40)],
-          cam=at_(60.301, 19.1315, 5000, bearing=-3), style='satellite',
+            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 'zigzags', fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:ax', 'zigzags', fillOpacity=0.9),
+            route(BNEW, 'zigzags', rhumb=True, color='#ffd60a', width=9, drawDur=1.6), icon('🗼', *LH, 0.05, size=110), pill('SIMPLIFIED MAP', 0.05, bg='#111827', size=34, screen=(0.5, 0.2))],
+          cam=at_(60.3009, 19.1318, 14500, bearing=-3),
           src=[src('The adjusted border takes the form of an inverted S.', 'Märket', "The adjusted border takes the form of an inverted 'S'.")]),
-        S("And no country lost any land. Both sides still have exactly the same area.", [cnt('= 0 m²', 'land', size=170), tilt('same', deg=36, until=3.5)],
-          cam=at_(60.301, 19.1315, 5000), style='satellite',
+        S("And no country lost any land. Both sides still have exactly the same area.", [
+            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:ax', 0.05, fillOpacity=0.9),
+            route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1), vs(('se', 'Sweden'), ('ax', 'Finland'), 'same', screen=[0.5, 0.25]), cnt('=', 'area', size=150, screen=[0.5, 0.38])],
+          cam=at_(60.3009, 19.1318, 14500),
           src=[src('No net transfer of territory occurred.', 'Märket', 'The adjustment was carried out such that no net transfer of territory occurred.')]),
         S("Today the border is marked by holes drilled into the rock, and it's inspected every 25 years.", [
-            icon('🕳️', 60.3012, 19.1305, 'holes', size=90), cnt('25 years', '25', size=160)],
-          cam=at_(60.301, 19.1315, 4000, bearing=3), style='satellite',
-          src=[src('The border is marked by drilled holes; resurveyed every 25 years.', 'Märket', 'The border is marked by holes drilled into the rock, because the seasonal drift ice would shear off any protruding markers.'),
+            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:ax', 0.05, fillOpacity=0.9),
+            route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1),
+            *[icon('🕳️', la, lo, 'holes', size=60) for la, lo in BNEW[1:-1]], cnt('25 years', '25', size=160)],
+          cam=at_(60.3009, 19.1318, 13500, bearing=3),
+          src=[src('The border is marked by drilled holes.', 'Märket', 'The border is marked by holes drilled into the rock, because the seasonal drift ice would shear off any protruding markers.'),
                src('Resurveyed every 25 years.', 'Märket', 'The border is regularly resurveyed every 25 years by officials representing both countries.')]),
     ],
     keywords={'sweden': '#5ec8ff', 'finland': '#ffd60a', 'märket': '#ff5a5f', 'lighthouse': '#ffd60a'},
-    styles={'now': 'atlas', 'history': 'vintage'}, captions={'theme': 'pop'},
-    imagery=[{'bbox': [19.12, 60.296, 19.142, 60.306], 'width': 2048}])
+    styles={'now': 'atlas', 'history': 'vintage'}, captions={'theme': 'pop'})
 
 # ------------------------------------------------------------------ 12. GIBRALTAR (satellite)
 GIB = 'Strait_of_Gibraltar'

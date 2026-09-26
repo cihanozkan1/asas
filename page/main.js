@@ -369,7 +369,7 @@ async function init(tl) {
   const rs = cfg.video.rasterScale;
   state.raster.setScale(W, H, rs === 'auto' || rs == null ? (state.raster.software ? 0.6 : 1) : rs);
   state.raster.setBase(earth);
-  for (const d of tl.assets.detail || []) state.raster.addDetail(landMasked(await loadImg(d.url), d.bbox, state.geo.land10, earth), d.bbox);
+  for (const d of tl.assets.detail || []) state.raster.addDetail(d.mask === false ? await loadImg(d.url) : landMasked(await loadImg(d.url), d.bbox, state.geo.land10, earth), d.bbox);
 
   // targets
   state.targets = {};

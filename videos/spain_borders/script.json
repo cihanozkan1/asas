@@ -50,8 +50,7 @@
           "target": "ESP",
           "fill": "flag:es",
           "at": "Spain",
-          "fillOpacity": 0.85,
-          "hold": 1
+          "fillOpacity": 0.85
         }
       ],
       "camera": {
