@@ -24,7 +24,7 @@ export function validateScript(script, cfg) {
       return tw.some((_, i) => want.every((w, j) => tw[i + j] === w || (j === want.length - 1 && tw[i + j]?.startsWith(w))));
     };
     for (const el of s.show || []) {
-      const specs = [el.at, el.until, el.moveAt, ...(el.steps || []).map((x) => x.at), ...(el.morph || []).map((x) => x.at)];
+      const specs = [el.at, el.until, el.moveAt, ...(el.steps || []).map((x) => x.at), ...(el.morph || []).map((x) => x.at), ...(el.events || []).map((x) => x.at)];
       for (const sp of specs) if (typeof sp === 'string' && !has(sp)) errors.push(`${n}: "${sp}" kelimesi metinde yok (${el.type})`);
     }
   });

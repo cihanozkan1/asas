@@ -88,5 +88,50 @@
   "sfx": {
     "enabled": true,
     "volume": 0.5
+  },
+  "palettes": {
+    "dark": {
+      "sea": "#131417",
+      "land": "#2a2b2f",
+      "border": "#46474d"
+    },
+    "atlas": {
+      "sea": "#9fd3f2",
+      "land": "#f3ead7",
+      "border": "rgba(90,80,70,0.55)",
+      "coast": "rgba(40,90,140,0.55)",
+      "coastGlow": "#c9ecff",
+      "glowWidth": 18,
+      "graticule": "rgba(255,255,255,0.35)",
+      "countries": [
+        "#f6d6a8",
+        "#cfe8b8",
+        "#f5c6c1",
+        "#d9d0f0",
+        "#fbe7a1",
+        "#bfe3dc",
+        "#f0d0e4",
+        "#e3dcc2"
+      ]
+    },
+    "neon": {
+      "sea": "#060a1c",
+      "land": "#0f1733",
+      "border": "rgba(45,226,230,0.55)",
+      "borderGlow": "#2de2e6",
+      "coast": "#2de2e6",
+      "coastWidth": 2,
+      "coastGlow": "#2de2e6",
+      "glowWidth": 10,
+      "graticule": "rgba(45,226,230,0.10)"
+    },
+    "chalk": {
+      "sea": "#1f3b35",
+      "land": "#2f5249",
+      "border": "rgba(255,255,255,0.35)",
+      "coast": "rgba(255,255,255,0.8)",
+      "coastWidth": 2.2,
+      "graticule": "rgba(255,255,255,0.07)"
+    }
   }
 }

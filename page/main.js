@@ -1,6 +1,6 @@
 // Frame renderer. Everything on screen is a pure function of time t, so headless
 // Chrome can step through frames deterministically: GG.init(timeline) then GG.frame(t).
-import { geoPath, geoBounds, geoContains, geoCentroid, geoDistance, geoCircle, geoArea, geoInterpolate, geoRotation } from 'd3-geo';
+import { geoPath, geoBounds, geoContains, geoCentroid, geoDistance, geoCircle, geoArea, geoInterpolate, geoRotation, geoGraticule10 } from 'd3-geo';
 import { feature as topoFeature, mesh as topoMesh } from 'topojson-client';
 import { Raster } from './raster.js';
 import { CameraPath, makeProjection, ease, clamp01 } from './camera.js';
@@ -558,7 +558,9 @@ function styleAt(t) {
     }
   }
   const w = (name) => (cur === name ? mix : 0) + (prev === name ? 1 - mix : 0);
-  return { sat: w('satellite'), vin: w('vintage'), dark: w('dark') };
+  const pal = {};
+  for (const name of Object.keys(state.tl.config.palettes || {})) pal[name] = w(name);
+  return { sat: w('satellite'), vin: w('vintage'), pal };
 }
 
 // ---------------------------------------------------------------- timing helpers
@@ -621,25 +623,10 @@ function drawVector(t, proj, view, mix) {
     ctx.stroke();
     ctx.setLineDash([]);
   }
-  if (mix.dark > 0.001) {
-    // dark "infographic" basemap
-    ctx.globalAlpha = mix.dark;
-    ctx.fillStyle = '#131417';
-    if (view.mode === 'globe') {
-      ctx.beginPath();
-      path({ type: 'Sphere' });
-      ctx.fill();
-    } else ctx.fillRect(0, 0, W, H);
-    ctx.beginPath();
-    path(land);
-    ctx.fillStyle = '#2a2b2f';
-    ctx.fill();
-    ctx.beginPath();
-    path(borders);
-    ctx.strokeStyle = '#46474d';
-    ctx.lineWidth = 1.3;
-    ctx.stroke();
-    ctx.globalAlpha = 1;
+  // flat "infographic" basemaps (dark, atlas, neon...) from config.palettes
+  for (const [name, a] of Object.entries(mix.pal)) {
+    if (a <= 0.001) continue;
+    drawPalette(ctx, path, view, land, borders, box, state.tl.config.palettes[name], a);
   }
   if (mix.sat > 0.001) {
     ctx.globalAlpha = mix.sat * state.tl.config.satellite.borderAlpha;
@@ -674,6 +661,81 @@ function drawVector(t, proj, view, mix) {
     if (el.type === 'ghost') drawGhost(ctx, path, el, life, t);
     else drawHighlight(ctx, path, el, life, mix, t);
   }
+}
+
+// Flat basemap in one colour palette. Optional per-country pastel fills (political atlas look)
+// and a neon glow on coasts/borders.
+function drawPalette(ctx, path, view, land, borders, box, P, a) {
+  ctx.save();
+  ctx.globalAlpha = a;
+  ctx.fillStyle = P.sea;
+  if (view.mode === 'globe') {
+    ctx.beginPath();
+    path({ type: 'Sphere' });
+    ctx.fill();
+    if (P.graticule) {
+      ctx.beginPath();
+      path(geoGraticule10());
+      ctx.strokeStyle = P.graticule;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+  } else {
+    ctx.fillRect(0, 0, W, H);
+    if (P.graticule) {
+      ctx.beginPath();
+      path(geoGraticule10());
+      ctx.strokeStyle = P.graticule;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+  }
+  if (P.coastGlow) {
+    ctx.beginPath();
+    path(land);
+    ctx.strokeStyle = P.coastGlow;
+    ctx.lineWidth = P.glowWidth ?? 14;
+    ctx.globalAlpha = a * 0.35;
+    ctx.stroke();
+    ctx.globalAlpha = a;
+  }
+  ctx.beginPath();
+  path(land);
+  ctx.fillStyle = P.land;
+  ctx.fill();
+  if (P.countries) {
+    // pastel fill per country, stable colour from its id
+    const feats = view.k > state.baseK * 5 ? state.geo.countries10 : state.geo.all50;
+    for (const f of feats) {
+      if (f._skip == null) f._skip = geoArea(f) > 2 * Math.PI || f.id === '010'; // inverted rings / Antarctica
+      if (f._skip) continue;
+      const b = f._bb || (f._bb = geoBounds(f));
+      if (box && !(b[1][0] >= box[0] - 5 && b[0][0] <= box[2] + 5 && b[1][1] >= box[1] - 5 && b[0][1] <= box[3] + 5) && b[1][0] >= b[0][0]) continue;
+      let hsh = 0;
+      for (const ch of String(f.id || f.properties?.name || '')) hsh = (hsh * 31 + ch.charCodeAt(0)) >>> 0;
+      ctx.beginPath();
+      path(f);
+      ctx.fillStyle = P.countries[hsh % P.countries.length];
+      ctx.fill();
+    }
+  }
+  if (P.coast) {
+    ctx.beginPath();
+    path(land);
+    ctx.strokeStyle = P.coast;
+    ctx.lineWidth = P.coastWidth ?? 1.6;
+    ctx.stroke();
+  }
+  ctx.beginPath();
+  path(borders);
+  ctx.strokeStyle = P.border;
+  ctx.lineWidth = P.borderWidth ?? 1.3;
+  if (P.borderGlow) {
+    ctx.shadowColor = P.borderGlow;
+    ctx.shadowBlur = 10;
+  }
+  ctx.stroke();
+  ctx.restore();
 }
 
 // A country's real outline moved across the globe (rotation keeps its true size).
@@ -772,7 +834,7 @@ function drawHighlight(ctx, path, el, life, mix, t) {
   const alpha = ease.outCubic(life.in) * life.out * (el.opacity ?? 1);
   if (alpha <= 0) return;
   const fc = { type: 'FeatureCollection', features: feats };
-  const satLook = mix.sat + mix.dark >= 0.5;
+  const satLook = mix.vin < 0.5;
   const st = morphState(el, t);
   const neon = st.neon;
   if (el.soft) {
@@ -1055,7 +1117,35 @@ function drawRoute(ctx, el, life) {
   ctx.strokeStyle = color;
   ctx.lineWidth = width;
   strokePoly(ctx, pts);
+  if (el.flow) {
+    // current / wind: bright dashes streaming along the line
+    ctx.shadowBlur = 0;
+    ctx.setLineDash(el.flowDash || [26, 38]);
+    ctx.lineDashOffset = -state.t * (el.flowSpeed ?? 150);
+    ctx.strokeStyle = el.flowColor || 'rgba(255,255,255,0.9)';
+    ctx.lineWidth = Math.max(3, width * 0.45);
+    strokePoly(ctx, pts);
+  }
   ctx.restore();
+  if (el.arrowHead && pts.length > 2) {
+    const [hx, hy] = pts[pts.length - 1];
+    const s2 = width * 2.6;
+    ctx.save();
+    ctx.globalAlpha = life.out;
+    ctx.translate(hx, hy);
+    ctx.rotate(ang);
+    ctx.fillStyle = color;
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.moveTo(s2, 0);
+    ctx.lineTo(-s2 * 0.7, -s2 * 0.8);
+    ctx.lineTo(-s2 * 0.35, 0);
+    ctx.lineTo(-s2 * 0.7, s2 * 0.8);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
   const head = pts[pts.length - 1];
   if (el.headDot !== false && !el.mover && u < 1) {
     ctx.save();
@@ -1233,8 +1323,51 @@ function buildUi() {
         html = `<div class="inner stat"><div class="v" style="font-size:${el.size || 150}px"></div>${el.caption ? `<div class="c">${esc(el.caption)}</div>` : ''}</div>`;
         break;
       case 'title':
-        html = `<div class="inner title" style="font-size:${el.size || 72}px;width:${W - 140}px">${esc(el.text)}</div>`;
+        // *word* marks accent words; "hook" = big condensed opening card
+        html = `<div class="inner title ${el.hook ? 'hook' : ''}" style="font-size:${el.size || 72}px;width:${el.width || W - 140}px;${el.accent ? `--accent:${el.accent}` : ''}">${esc(el.text).replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>')}</div>`;
         break;
+      case 'bars': {
+        const max = Math.max(...el.items.map((it) => it.value));
+        if (el.orient === 'v') {
+          const hMax = el.height || 420;
+          html = `<div class="inner vbars">${el.items
+            .map((it) => {
+              const h = Math.max(8, (it.value / max) * hMax);
+              const shape = el.shape === 'mountain'
+                ? `<svg class="shape" viewBox="0 0 200 100" preserveAspectRatio="none" style="height:${h}px"><polygon points="0,100 100,0 200,100" fill="${it.color || '#ffd60a'}"/><polygon points="100,0 128,28 112,24 100,36 88,24 72,28" fill="#fff" opacity=".9"/></svg>`
+                : `<div class="shape" style="height:${h}px;background:${it.color || '#ffd60a'};border-radius:14px 14px 4px 4px"></div>`;
+              return `<div class="col"><div class="val" data-v="${esc(it.display ?? it.value)}"></div><div class="grow" style="height:${h}px;display:flex;align-items:flex-end;overflow:hidden">${shape}</div><div class="lab">${it.flag ? `<img src="${flagUrl(it.flag)}" style="width:54px;height:40px;border-radius:5px;vertical-align:middle;margin-right:8px">` : ''}${esc(it.label)}</div></div>`;
+            })
+            .join('')}</div>`;
+        } else {
+          const tw = el.trackWidth || 520;
+          html = `<div class="inner bars" style="--lw:${el.labelWidth || 250}px">${el.items
+            .map((it) => `<div class="row"><div class="lab">${it.flag ? `<img src="${flagUrl(it.flag)}">` : ''}${esc(it.label)}</div><div class="track" style="width:${tw}px"><div class="bar" data-w="${(it.value / max) * (tw - 150)}" style="background:${it.color || '#ffd60a'};width:0"></div><div class="val" data-v="${esc(it.display ?? it.value)}"></div></div></div>`)
+            .join('')}</div>`;
+        }
+        break;
+      }
+      case 'vs': {
+        const side = (o) => `<div class="side"><img src="${o.flag ? flagUrl(o.flag) : o.src}"><div class="n">${esc(o.label || '')}</div></div>`;
+        html = `<div class="inner vs">${side(el.left)}<div class="mid">VS</div>${side(el.right)}</div>`;
+        break;
+      }
+      case 'timeline': {
+        const wpx = el.width || 900;
+        html = `<div class="inner timeline" style="width:${wpx}px"><div class="axis"></div>${el.events
+          .map((ev, i) => `<div class="ev" style="left:${el.events.length === 1 ? 50 : 8 + (i / (el.events.length - 1)) * 84}%"><div class="y">${esc(ev.year || '')}</div><div class="dot"></div><div class="t">${esc(ev.label || '')}</div></div>`)
+          .join('')}</div>`;
+        break;
+      }
+      case 'clock': {
+        const r = (el.size || 200) / 2;
+        const ticks = Array.from({ length: 12 }, (_, i) => {
+          const a = (i / 12) * 2 * Math.PI;
+          return `<line x1="${r + Math.sin(a) * r * 0.78}" y1="${r - Math.cos(a) * r * 0.78}" x2="${r + Math.sin(a) * r * 0.9}" y2="${r - Math.cos(a) * r * 0.9}" stroke="#222" stroke-width="${i % 3 ? 3 : 6}" stroke-linecap="round"/>`;
+        }).join('');
+        html = `<div class="inner clock"><svg class="face" width="${2 * r}" height="${2 * r}"><circle cx="${r}" cy="${r}" r="${r - 4}" fill="${el.night ? '#1d2440' : '#fff'}" stroke="#111" stroke-width="8"/>${ticks}<line class="hh" x1="${r}" y1="${r}" x2="${r}" y2="${r * 0.48}" stroke="${el.night ? '#fff' : '#111'}" stroke-width="10" stroke-linecap="round"/><line class="mh" x1="${r}" y1="${r}" x2="${r}" y2="${r * 0.22}" stroke="${el.color || '#e63946'}" stroke-width="6" stroke-linecap="round"/><circle cx="${r}" cy="${r}" r="9" fill="#111"/></svg>${el.label ? `<div class="cl">${esc(el.label)}</div>` : ''}</div>`;
+        break;
+      }
       case 'character': {
         const sz = el.size || (el.image ? 380 : 300);
         const bodyHtml = el.image
@@ -1281,6 +1414,8 @@ function buildUi() {
   const cap = $('captions');
   cap.innerHTML = '';
   const C = state.tl.config.captions;
+  cap.className = C.theme ? `theme-${C.theme}` : '';
+  const noStroke = C.theme === 'box';
   for (const c of state.tl.captions) {
     const d = document.createElement('div');
     d.className = 'cap';
@@ -1289,19 +1424,20 @@ function buildUi() {
       fontSize: `${C.size}px`,
       fontWeight: C.weight,
       textShadow: C.shadow,
-      webkitTextStroke: C.stroke,
+      webkitTextStroke: noStroke ? '0' : C.stroke,
       paintOrder: 'stroke fill',
       display: 'none',
       textTransform: C.uppercase ? 'uppercase' : 'none',
     });
     const kw = C.keywords || {};
-    d.innerHTML = c.words
+    const words = c.words
       .map((w, i) => {
         const key = w.text.toLowerCase().replace(/[^a-z0-9%$]/g, '');
         const color = kw[key] || (C.numberColor && /[0-9]/.test(w.text) ? C.numberColor : null);
         return `<span class="w" data-i="${i}" style="${color ? `color:${color}` : ''}">${esc(w.text)}</span>`;
       })
       .join(' ');
+    d.innerHTML = C.theme === 'box' ? `<span class="line">${words}</span>` : words;
     cap.appendChild(d);
     c._node = d;
     c._spans = [...d.querySelectorAll('.w')];
@@ -1334,7 +1470,8 @@ function updateUi(t) {
       node.style.transform = 'none';
       const imgs = el._inner.children;
       el._pts.forEach((pt, i) => {
-        const q = project({ lon: pt[0], lat: pt[1] });
+        const q0 = project({ lon: pt[0], lat: pt[1] });
+        const q = q0 && tiltPoint(q0[0], q0[1]);
         const img = imgs[i];
         const u = clamp01((life.age - i * (el.stagger ?? 0.09)) / 0.3);
         if (!q || u <= 0) {
@@ -1353,8 +1490,9 @@ function updateUi(t) {
         node.style.opacity = '0';
         continue;
       }
-      x = el._head.x + (el.type === 'measure' ? 0 : el.mover?.dx || 0);
-      y = el._head.y + (el.type === 'measure' ? 0 : el.mover?.dy || 0);
+      [x, y] = tiltPoint(el._head.x, el._head.y);
+      x += el.type === 'measure' ? 0 : el.mover?.dx || 0;
+      y += el.type === 'measure' ? 0 : el.mover?.dy || 0;
     } else if (el.screen) {
       x = W * el.screen[0];
       y = H * el.screen[1];
@@ -1370,8 +1508,9 @@ function updateUi(t) {
         node.style.opacity = '0';
         continue;
       }
-      x = p[0] + (el.dx || 0);
-      y = p[1] + (el.dy || 0);
+      [x, y] = tiltPoint(p[0], p[1]);
+      x += el.dx || 0;
+      y += el.dy || 0;
     } else if (el.type === 'label' && el.anchor === 'lineMid' && el._line?._mid) {
       x = el._line._mid[0] + (el.dx || 0);
       y = el._line._mid[1] + (el.dy || 0);
@@ -1482,6 +1621,74 @@ function updateUi(t) {
         scale = 1 + 0.35 * (1 - ease.outCubic(clamp01((t - el._since) / 0.3)));
         opacity *= clamp01(life.age / 0.2);
         break;
+      case 'bars': {
+        scale = 0.9 + 0.1 * ease.outBack(life.in);
+        const st = el.stagger ?? 0.18;
+        if (el.orient === 'v') {
+          inner.querySelectorAll('.col').forEach((col, i) => {
+            const u = ease.outCubic(clamp01((life.age - 0.15 - i * st) / 0.8));
+            col.querySelector('.shape').style.transform = `translateY(${(1 - u) * 100}%)`;
+            const v = col.querySelector('.val');
+            v.textContent = countUp(v.dataset.v, u);
+            v.style.opacity = String(clamp01(u * 3));
+          });
+        } else {
+          inner.querySelectorAll('.row').forEach((row, i) => {
+            const u = ease.outCubic(clamp01((life.age - 0.15 - i * st) / 0.8));
+            const bar = row.querySelector('.bar');
+            const bw = Number(bar.dataset.w) * u;
+            bar.style.width = `${bw}px`;
+            const v = row.querySelector('.val');
+            v.style.left = `${bw + 14}px`;
+            v.textContent = countUp(v.dataset.v, u);
+            v.style.opacity = String(clamp01(u * 3));
+            row.style.opacity = String(clamp01((life.age - i * st) / 0.2));
+          });
+        }
+        break;
+      }
+      case 'vs': {
+        const [l, m, r] = inner.children;
+        const u = ease.outBack(clamp01(life.age / 0.45));
+        l.style.transform = `translateX(${(1 - u) * -420}px)`;
+        r.style.transform = `translateX(${(1 - u) * 420}px)`;
+        const mu = clamp01((life.age - 0.35) / 0.3);
+        m.style.transform = `scale(${3 - 2 * ease.outCubic(mu)}) rotate(${-8 + 8 * mu}deg)`;
+        m.style.opacity = String(clamp01(mu * 4));
+        break;
+      }
+      case 'timeline': {
+        const evs = el.events;
+        let shown = 0;
+        inner.querySelectorAll('.ev').forEach((d, i) => {
+          const u = clamp01((t - evs[i].t) / 0.35);
+          if (t >= evs[i].t) shown = i;
+          d.style.opacity = String(u);
+          d.style.transform = `translateX(-50%) translateY(${(1 - ease.outBack(u)) * 30}px) scale(${0.6 + 0.4 * ease.outBack(u)})`;
+        });
+        const frac = evs.length === 1 ? 1 : 0.08 + (0.84 * shown) / (evs.length - 1);
+        const prevFrac = evs.length === 1 ? 0 : shown === 0 ? 0 : 0.08 + (0.84 * (shown - 1)) / (evs.length - 1);
+        const k = clamp01((t - evs[shown].t) / 0.5);
+        inner.querySelector('.axis').style.transform = `scaleX(${Math.max(0.02, prevFrac + (frac - prevFrac) * ease.outCubic(k))})`;
+        break;
+      }
+      case 'clock': {
+        const mins = (str) => {
+          const [h, m] = String(str).split(':').map(Number);
+          return h * 60 + (m || 0);
+        };
+        let cur = mins(el.steps[0].time), from = cur, since = el.start;
+        for (const stp of el.steps) if (t >= stp.t) { from = cur; cur = mins(stp.time); since = stp.t; }
+        const k = ease.inOutCubic(clamp01((t - since) / 0.9));
+        let delta = cur - from;
+        if (el.forward !== false && delta < 0) delta += 24 * 60;
+        const now = from + delta * k;
+        const r = (el.size || 200) / 2;
+        inner.querySelector('.hh').setAttribute('transform', `rotate(${((now / 60) % 12) * 30} ${r} ${r})`);
+        inner.querySelector('.mh').setAttribute('transform', `rotate(${(now % 60) * 6} ${r} ${r})`);
+        scale = ease.outBack(life.in);
+        break;
+      }
       default:
         if (el.anim === 'slam') {
           // arrives huge and settles into place
@@ -1642,12 +1849,47 @@ function updateFx(t) {
   fx.innerHTML = html;
   const f = blur > 0.2 ? `blur(${blur}px)` : 'none';
   for (const id of ['raster', 'vector', 'marks']) $(id).style.filter = f;
+  // tilt: the map layers lean back like a 3D table (CSS); UI labels stay upright and are
+  // re-positioned with the same maths in tiltPoint()
+  const T = state.tilt;
+  const tf = T ? `perspective(${TILT_P}px) rotateX(${T.deg}deg) scale(${T.s})` : 'none';
+  for (const id of ['space', 'raster', 'vector', 'paper', 'marks']) {
+    const n = $(id);
+    n.style.transformOrigin = `50% ${TILT_OY * 100}%`;
+    n.style.transform = tf;
+  }
+}
+
+// ---------------------------------------------------------------- tilt
+
+const TILT_P = 1500, TILT_OY = 0.62;
+function computeTilt(t) {
+  let deg = 0;
+  for (const el of state.tl.elements) {
+    if (el.type !== 'tilt') continue;
+    const life = lifeOf(el, t, 0.9, 0.7);
+    if (life) deg = Math.max(deg, (el.deg ?? 38) * ease.inOutCubic(life.in) * ease.inOutCubic(life.out));
+  }
+  state.tilt = deg > 0.05 ? { deg, s: 1 + deg / 70 } : null;
+}
+
+// where a point of the flat map ends up on screen once the map layers are tilted
+function tiltPoint(x, y) {
+  const T = state.tilt;
+  if (!T) return [x, y];
+  const ox = W / 2, oy = H * TILT_OY;
+  const a = (T.deg * Math.PI) / 180;
+  const dx = (x - ox) * T.s, dy = (y - oy) * T.s;
+  const yy = dy * Math.cos(a), z = dy * Math.sin(a);
+  const f = TILT_P / (TILT_P - z);
+  return [ox + dx * f, oy + yy * f];
 }
 
 // ---------------------------------------------------------------- frame
 
 function frame(t) {
   state.t = t;
+  computeTilt(t);
   const cam = { ...state.camera.at(t) };
   // camera follows a moving ship/plane: keep it in the centre of the frame
   for (const s of state.tl.scenes) {

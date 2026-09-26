@@ -190,10 +190,75 @@ def meta(title, description, pinned, tags):
     return {'title': title, 'description': description, 'pinnedComment': pinned, 'tags': tags}
 
 
-def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None):
+def hook(text, at=0.05, size=110, until=None, screen=(0.5, 0.2), accent='#ffd60a', **kw):
+    """Big condensed opening title; *word* = accent colour."""
+    d = {'type': 'title', 'text': text, 'hook': True, 'size': size, 'anim': 'slam', 'screen': list(screen), 'accent': accent, 'width': 960}
+    if until is not None:
+        d['until'] = until
+    return _put(d, at, kw)
+
+
+def bars(items, at, orient='h', **kw):
+    """items: [(label, value, display, color, flag)] - display/color/flag optional."""
+    its = []
+    for it in items:
+        it = list(it) + [None] * (5 - len(it))
+        d = {'label': it[0], 'value': it[1]}
+        if it[2] is not None:
+            d['display'] = it[2]
+        if it[3]:
+            d['color'] = it[3]
+        if it[4]:
+            d['flag'] = it[4]
+        its.append(d)
+    return _put({'type': 'bars', 'items': its, 'orient': orient}, at, kw)
+
+
+def vs(left, right, at, **kw):
+    """left/right: (flag_code, label)"""
+    return _put({'type': 'vs', 'left': {'flag': left[0], 'label': left[1]}, 'right': {'flag': right[0], 'label': right[1]}}, at, kw)
+
+
+def timeline(events, **kw):
+    """events: [(at, year, label)]"""
+    d = {'type': 'timeline', 'events': [{'at': a, 'year': y, 'label': l} for a, y, l in events], 'at': events[0][0]}
+    d.update(kw)
+    return d
+
+
+def clock(steps, at=None, **kw):
+    """steps: [(at, 'HH:MM')]"""
+    d = {'type': 'clock', 'steps': [{'at': a, 'time': tm} for a, tm in steps]}
+    return _put(d, at if at is not None else steps[0][0], kw)
+
+
+def tilt(at, deg=38, **kw):
+    return _put({'type': 'tilt', 'deg': deg}, at, kw)
+
+
+def flow(points, at, color='#5ec8ff', width=12, **kw):
+    return route(points, at, color=color, width=width, flow=True, arrowHead=True, **kw)
+
+
+def box(w, s, e, n):
+    return {'box': [w, s, e, n]}
+
+
+def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None, styles=None, earth=None, captions=None, config=None):
     d = {'id': vid, 'style': style, 'meta': m, 'scenes': scenes}
-    if keywords:
-        d['config'] = {'captions': {'keywords': keywords}}
+    cfg = {}
+    if keywords or captions:
+        cfg['captions'] = dict(captions or {})
+        if keywords:
+            cfg['captions']['keywords'] = keywords
+    if config:
+        cfg.update(config)
+    if cfg:
+        d['config'] = cfg
+    if styles:
+        d['styles'] = styles
+    if earth:
+        d['earth'] = earth
     if imagery:
         d['imagery'] = imagery
     if intro:

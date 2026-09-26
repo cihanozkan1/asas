@@ -46,7 +46,7 @@ async function openPage(timeline, scale = 1) {
   });
   const page = await browser.newPage();
   page.on('console', (m) => {
-    if (['error', 'warning', 'warn'].includes(m.type())) log('[page]', m.text());
+    if (['error', 'warning', 'warn'].includes(m.type()) && !m.text().includes('GL Driver Message')) log('[page]', m.text());
   });
   page.on('pageerror', (e) => log('[page error]', e.message));
   await page.setViewport({ width: timeline.W, height: timeline.H, deviceScaleFactor: scale });

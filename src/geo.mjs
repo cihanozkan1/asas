@@ -69,6 +69,18 @@ export async function resolveTargetSpec(t, videoDir) {
     return { type: 'feature', feature };
   }
   if (t.circle) return { type: 'circle', lat: t.circle.lat, lon: t.circle.lon, km: t.circle.km };
+  if (t.box) {
+    // lon/lat rectangle [west, south, east, north], edges densified so parallels stay parallels;
+    // clockwise ring (d3-geo's exterior winding)
+    const [w, so, e, n] = t.box;
+    const ring = [];
+    const N = 24;
+    for (let i = 0; i <= N; i++) ring.push([w, so + ((n - so) * i) / N]);
+    for (let i = 1; i <= N; i++) ring.push([w + ((e - w) * i) / N, n]);
+    for (let i = 1; i <= N; i++) ring.push([e, n - ((n - so) * i) / N]);
+    for (let i = 1; i <= N; i++) ring.push([e - ((e - w) * i) / N, so]);
+    return { type: 'feature', feature: { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [ring] } } };
+  }
   throw new Error('Tanınmayan hedef: ' + JSON.stringify(t));
 }
 

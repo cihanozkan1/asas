@@ -60,6 +60,12 @@ export function sfxEvents(tl) {
       case 'counter': for (const st of el.steps) add(st.t, 'pop2', 0.55); break;
       case 'shake': add(t, 'boom', 0.9); add(t, 'thud', 0.6); break;
       case 'punch': add(t, 'knock', 0.5); break;
+      case 'title': add(t, 'swish', 0.55); add(t + 0.3, 'thud', 0.6); break;
+      case 'bars': el.items.forEach((_, i) => add(t + 0.15 + i * (el.stagger ?? 0.18), 'swish', 0.35)); add(t + 0.95 + el.items.length * (el.stagger ?? 0.18), 'ding', 0.4); break;
+      case 'vs': add(t, 'whoosh', 0.6); add(t + 0.4, 'thud', 0.8); break;
+      case 'timeline': for (const ev of el.events) add(ev.t, 'pop2', 0.5); break;
+      case 'clock': for (const st of el.steps) { add(st.t, 'tick', 0.6); add(st.t + 0.45, 'tick', 0.5); } break;
+      case 'tilt': add(t, 'whoosh', 0.45); break;
       default: break;
     }
   }

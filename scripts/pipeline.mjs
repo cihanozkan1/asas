@@ -19,7 +19,7 @@ import { buildTimeline } from '../src/timeline.mjs';
 import { renderVideo, renderStills, contactSheet } from '../src/render.mjs';
 import { writeUploadText, writeSources } from '../src/meta.mjs';
 import { ensureDetail, autoDetailBoxes, byCoarseness, S2_CREDIT, BLUE_MARBLE_CREDIT, NE_CREDIT } from '../src/imagery.mjs';
-import { ensureEarth } from '../tools/fetch-data.mjs';
+import { ensureEarth, ensureNight } from '../tools/fetch-data.mjs';
 import { buildPage } from '../tools/build-page.mjs';
 
 const BOOLEAN = new Set(['check-only', 'mock-tts', 'guides']);
@@ -69,10 +69,12 @@ async function main() {
   fs.mkdirSync(outDir, { recursive: true });
 
   await buildPage();
-  const earthFile = await ensureEarth();
+  const night = script.earth === 'night';
+  const earthFile = night ? await ensureNight() : await ensureEarth();
   const assets = { earth: '/' + path.relative(ROOT, earthFile).split(path.sep).join('/'), detail: [] };
-  const auto = autoDetailBoxes(script, cfg);
-  const details = [...auto, ...(script.imagery || [])].sort(byCoarseness);
+  // day-time Sentinel close-ups would clash with the night lights texture
+  const auto = night ? [] : autoDetailBoxes(script, cfg);
+  const details = night ? [] : [...auto, ...(script.imagery || [])].sort(byCoarseness);
   for (const d of details) assets.detail.push(await ensureDetail(d));
 
   const provider = args['mock-tts'] ? 'mock' : cfg.voice.provider;
@@ -81,7 +83,7 @@ async function main() {
   log(`anlatım: ${narration.duration.toFixed(1)} sn (${provider}, ${narration.voice.name} ${narration.voice.rate})`);
 
   const hasChars = script.scenes.some((sc) => (sc.show || []).some((e) => e.type === 'character' && e.image));
-  const credits = [BLUE_MARBLE_CREDIT, NE_CREDIT, ...(assets.detail.length ? [S2_CREDIT] : []), ...(hasChars ? ['Characters: AI-generated illustrations'] : [])];
+  const credits = [night ? 'Earth at night: NASA Black Marble (NASA Earth Observatory)' : BLUE_MARBLE_CREDIT, NE_CREDIT, ...(assets.detail.length ? [S2_CREDIT] : []), ...(hasChars ? ['Characters: AI-generated illustrations'] : [])];
   writeUploadText(script, path.join(outDir, `${script.id}.txt`), credits);
   writeSources(script, path.join(outDir, 'sources.md'));
 

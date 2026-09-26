@@ -2,7 +2,7 @@
 import { resolveTargetSpec, flagExists, iconUrl } from './geo.mjs';
 import { normWord } from './util.mjs';
 
-const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12] };
+const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12], bars: [0.5, 0.3], vs: [0.5, 0.27], timeline: [0.5, 0.24], clock: [0.5, 0.3] };
 
 function toPt(p) {
   if (!p) return null;
@@ -86,7 +86,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
   for (let i = 0; i < scenes.length; i++) {
     const sc = scenes[i];
     const src = script.scenes[i];
-    sc.style = src.style || preset.styles[sc.era] || 'satellite';
+    sc.style = src.style || script.styles?.[sc.era] || preset.styles[sc.era] || 'satellite';
     sc.transition = src.transition || null;
     const sceneDur = sc.end - sc.start;
     // camera
@@ -181,6 +181,13 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           el.target = shortKey(await targetKey(raw.target));
           el.to = toPt(raw.to);
           break;
+        case 'timeline':
+          el.events = raw.events.map((ev) => ({ ...ev, t: timeSpec(sc, ev.at, el.start) }));
+          el.start = Math.min(el.start, el.events[0].t - 0.3);
+          break;
+        case 'clock':
+          el.steps = (raw.steps || [{ time: raw.time }]).map((st) => ({ time: st.time, t: timeSpec(sc, st.at, el.start) }));
+          break;
         case 'character':
           el.key = el.id ? `char|${el.id}` : null;
           el.seed = elements.length;
@@ -188,7 +195,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         default:
           break;
       }
-      if (['year', 'stamp', 'stat', 'title'].includes(el.type) && el.lat == null && !el.screen) el.screen = SCREEN_DEFAULTS[el.type];
+      if (SCREEN_DEFAULTS[el.type] && el.lat == null && !el.screen) el.screen = SCREEN_DEFAULTS[el.type];
       elements.push(el);
     }
   }

@@ -42,6 +42,18 @@ export async function ensureEarth() {
   throw new Error('Dünya dokusu indirilemedi');
 }
 
+// NASA Black Marble 2016 (Earth at night), public domain, resampled like the day texture.
+const NIGHT_URL = 'https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_3km.jpg';
+export async function ensureNight() {
+  const out = path.join(ROOT, 'assets/earth/night-8k.jpg');
+  if (fs.existsSync(out)) return out;
+  log('Black Marble (gece) indiriliyor:', NIGHT_URL);
+  const raw = await download(NIGHT_URL, path.join(ROOT, 'data/cache/night-source.jpg'));
+  await runFfmpeg(['-y', '-i', raw, '-vf', 'scale=8192:4096:flags=lanczos', '-q:v', '2', out]);
+  fs.rmSync(raw);
+  return out;
+}
+
 export async function ensureAdmin1() {
   const out = path.join(ROOT, 'data/cache/ne_10m_admin_1.geojson');
   if (fs.existsSync(out)) return out;
