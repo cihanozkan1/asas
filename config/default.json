@@ -1,5 +1,5 @@
 {
-  "video": { "width": 1080, "height": 1920, "fps": 30, "crf": 17, "tail": 0.8, "targetSeconds": [55, 95] },
+  "video": { "width": 1080, "height": 1920, "fps": 30, "crf": 18, "workers": null, "rasterScale": "auto", "tail": 0.8, "targetSeconds": [55, 95] },
   "voice": {
     "provider": "edge",
     "name": "en-US-AndrewNeural",

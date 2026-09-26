@@ -129,6 +129,9 @@ export class Raster {
     }
     this.details = [];
     this.maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE);
+    const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+    this.renderer = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : 'unknown';
+    this.software = /swiftshader|llvmpipe|software/i.test(this.renderer);
   }
 
   _texture(img, unit, mip) {
@@ -155,6 +158,13 @@ export class Raster {
     return { tex, w: src.width, h: src.height };
   }
 
+  // Render the imagery at a fraction of the output size (CSS scales it back up).
+  setScale(cssW, cssH, scale) {
+    this.cssWidth = cssW;
+    this.canvas.width = Math.round(cssW * scale);
+    this.canvas.height = Math.round(cssH * scale);
+  }
+
   setBase(img) {
     this.base = this._texture(img, 0, true);
   }
@@ -178,8 +188,9 @@ export class Raster {
     const u = this.u;
     const r = Math.PI / 180;
     gl.uniform2f(u.uRes, width, height);
-    gl.uniform2f(u.uCenter, view.cx, view.cy);
-    gl.uniform1f(u.uK, view.k);
+    const f = width / this.cssWidth;
+    gl.uniform2f(u.uCenter, view.cx * f, view.cy * f);
+    gl.uniform1f(u.uK, view.k * f);
     gl.uniform1f(u.uLon0, view.lon * r);
     gl.uniform1f(u.uLat0, view.lat * r);
     gl.uniform1f(u.uMercY0, Math.log(Math.tan(Math.PI / 4 + (view.lat * r) / 2)));

@@ -44,12 +44,22 @@ export const flagUrl = (code) => `/node_modules/flag-icons/flags/4x3/${code}.svg
 function prepareGeo(c50, c10, l50, l10) {
   const f50 = topoFeature(c50, c50.objects.countries).features;
   const f10 = topoFeature(c10, c10.objects.countries).features;
+  const land10 = dropPolar(topoFeature(l10, l10.objects.land));
+  const land50 = dropPolar(topoFeature(l50, l50.objects.land));
+  const borders50 = topoMesh(c50, c50.objects.countries, (a, b) => a !== b);
+  const borders10 = topoMesh(c10, c10.objects.countries, (a, b) => a !== b);
   return {
     countries10: f10,
-    borders50: topoMesh(c50, c50.objects.countries, (a, b) => a !== b),
-    borders10: topoMesh(c10, c10.objects.countries, (a, b) => a !== b),
-    land50: dropPolar(topoFeature(l50, l50.objects.land)),
-    land10: dropPolar(topoFeature(l10, l10.objects.land)),
+    borders50,
+    borders10,
+    land50,
+    land10,
+    cull: {
+      land50: indexParts(land50.geometry.coordinates, (p) => p[0]),
+      land10: indexParts(land10.geometry.coordinates, (p) => p[0]),
+      borders50: indexParts(borders50.coordinates, (l) => l),
+      borders10: indexParts(borders10.coordinates, (l) => l),
+    },
     byId: new Map(f10.filter((f) => f.id).map((f) => [f.id, f])),
     byName: new Map(f10.map((f) => [f.properties.name.toLowerCase(), f])),
     all50: f50,
@@ -131,6 +141,41 @@ function landMasked(img, bbox, land, base) {
     ctx.putImageData(img2, 0, 0);
   }
   return c;
+}
+
+// Bounding boxes per polygon / line so each frame only draws what is on screen.
+function indexParts(parts, ring) {
+  return parts.map((part) => {
+    let x0 = 180, y0 = 90, x1 = -180, y1 = -90;
+    for (const [x, y] of ring(part)) {
+      if (x < x0) x0 = x; if (x > x1) x1 = x;
+      if (y < y0) y0 = y; if (y > y1) y1 = y;
+    }
+    return { part, box: [x0, y0, x1, y1] };
+  });
+}
+
+function viewBox(proj, view) {
+  if (view.mode === 'globe' && view.k < state.baseK * 2.5) return null; // whole globe visible
+  let x0 = 180, y0 = 90, x1 = -180, y1 = -90;
+  for (let i = 0; i <= 6; i++) {
+    for (let j = 0; j <= 10; j++) {
+      const q = proj.invert([(W * i) / 6, (H * j) / 10]);
+      if (!q || !isFinite(q[0]) || !isFinite(q[1])) return null;
+      x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]);
+      y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]);
+    }
+  }
+  if (x1 - x0 > 300) return null;
+  const mx = (x1 - x0) * 0.1 + 0.5, my = (y1 - y0) * 0.1 + 0.5;
+  return [x0 - mx, y0 - my, x1 + mx, y1 + my];
+}
+
+function culled(index, box, type) {
+  const parts = box
+    ? index.filter(({ box: b }) => b[2] >= box[0] && b[0] <= box[2] && b[3] >= box[1] && b[1] <= box[3]).map((p) => p.part)
+    : index.map((p) => p.part);
+  return { type, coordinates: parts };
 }
 
 function pickPart(feat, pt) {
@@ -226,12 +271,24 @@ async function init(tl) {
   state.geo = prepareGeo(c50, c10, l50, l10);
 
   state.raster = new Raster($('raster'));
+  const rs = cfg.video.rasterScale;
+  state.raster.setScale(W, H, rs === 'auto' || rs == null ? (state.raster.software ? 0.6 : 1) : rs);
   state.raster.setBase(earth);
   for (const d of tl.assets.detail || []) state.raster.addDetail(landMasked(await loadImg(d.url), d.bbox, state.geo.land10, earth), d.bbox);
 
   // targets
   state.targets = {};
-  for (const [key, spec] of Object.entries(tl.targets)) state.targets[key] = resolveTarget(spec, state.geo);
+  state.targetIdx = {};
+  for (const [key, spec] of Object.entries(tl.targets)) {
+    state.targets[key] = resolveTarget(spec, state.geo);
+    const polys = [];
+    for (const f of state.targets[key]) {
+      const g = f.geometry;
+      if (g.type === 'Polygon') polys.push(g.coordinates);
+      else if (g.type === 'MultiPolygon') polys.push(...g.coordinates);
+    }
+    state.targetIdx[key] = indexParts(polys, (p) => p[0]);
+  }
 
   // images for flags / icons
   state.images = {};
@@ -278,7 +335,7 @@ async function init(tl) {
     ['600 40px Montserrat', '700 40px Montserrat', '800 40px Montserrat', '900 40px Montserrat',
       '400 40px "Playfair Display"', '700 40px "Playfair Display"'].map((f) => document.fonts.load(f)),
   );
-  return { ok: true, maxTexture: state.raster.maxTex };
+  return { ok: true, maxTexture: state.raster.maxTex, renderer: state.raster.renderer, rasterScale: $('raster').width / W };
 }
 
 // ---------------------------------------------------------------- static layers
@@ -394,6 +451,10 @@ function drawVector(t, proj, view, mix) {
   const path = geoPath(proj, ctx);
   const detailed = view.k > state.baseK * 5;
   const geo = state.geo;
+  const box = viewBox(proj, view);
+  state.box = box;
+  const land = culled(detailed ? geo.cull.land10 : geo.cull.land50, box, 'MultiPolygon');
+  const borders = culled(detailed ? geo.cull.borders10 : geo.cull.borders50, box, 'MultiLineString');
   const V = state.tl.config.vintage;
 
   if (mix.vin > 0.001) {
@@ -404,7 +465,6 @@ function drawVector(t, proj, view, mix) {
       path({ type: 'Sphere' });
       ctx.fill();
     } else ctx.fillRect(0, 0, W, H);
-    const land = detailed ? geo.land10 : geo.land50;
     // "water lines" around coasts like old maps
     ctx.save();
     ctx.beginPath();
@@ -426,7 +486,7 @@ function drawVector(t, proj, view, mix) {
     ctx.lineWidth = 1.6;
     ctx.stroke();
     ctx.beginPath();
-    path(detailed ? geo.borders10 : geo.borders50);
+    path(borders);
     ctx.setLineDash([6, 5]);
     ctx.strokeStyle = V.border;
     ctx.lineWidth = 1.4;
@@ -436,7 +496,7 @@ function drawVector(t, proj, view, mix) {
   if (mix.sat > 0.001) {
     ctx.globalAlpha = mix.sat * state.tl.config.satellite.borderAlpha;
     ctx.beginPath();
-    path(detailed ? geo.borders10 : geo.borders50);
+    path(borders);
     ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 1.3;
     ctx.stroke();
@@ -453,7 +513,10 @@ function drawVector(t, proj, view, mix) {
 }
 
 function drawHighlight(ctx, path, el, life, mix) {
-  const feats = state.targets[el.target];
+  const feats = state.box
+    ? [{ type: 'Feature', geometry: culled(state.targetIdx[el.target], state.box, 'MultiPolygon') }]
+    : state.targets[el.target];
+  if (state.box && !feats[0].geometry.coordinates.length) return;
   const alpha = ease.outCubic(life.in) * life.out * (el.opacity ?? 1);
   if (alpha <= 0) return;
   const fc = { type: 'FeatureCollection', features: feats };
@@ -860,7 +923,8 @@ function frame(t) {
   const texelsPerPx = state.raster.base.w / (2 * Math.PI) / view.k;
   const detailMix = clamp01((1.2 - texelsPerPx) / 0.9);
   state.raster.draw(view, { alpha: mix.sat, atmo: state.mode === 'globe' ? 1 : 0, detailMix: state.raster.details.length ? Math.max(detailMix, 0) : 0 });
-  $('space').style.opacity = state.mode === 'globe' ? '1' : '0';
+  $('space').style.display = state.mode === 'globe' ? 'block' : 'none';
+  $('paper').style.display = mix.vin > 0.001 ? 'block' : 'none';
   $('paper').style.opacity = String(mix.vin * state.tl.config.vintage.paper);
   drawVector(t, state.proj, view, mix);
   drawMarks(t);

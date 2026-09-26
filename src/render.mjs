@@ -3,6 +3,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import os from 'node:os';
 import puppeteer from 'puppeteer-core';
 import { ROOT, findChrome, findFfmpeg, log, runFfmpeg } from './util.mjs';
 
@@ -86,37 +87,70 @@ export async function contactSheet(files, out, cols = 5) {
   return out;
 }
 
-export async function renderVideo(timeline, out, { from = 0, to = null, fps = null, scale = 1, crf = 17 } = {}) {
-  const rate = fps || timeline.fps;
-  const end = to ?? timeline.duration;
-  const n = Math.ceil((end - from) * rate);
+async function renderChunk(timeline, out, { from, n, rate, scale, crf, onFrame }) {
   const { page, close, info } = await openPage(timeline, scale);
-  log(`render: ${n} kare, ${rate} fps (max texture ${info.maxTexture})`);
+  if (onFrame.first) { onFrame.first = false; log(`GPU: ${info.renderer}, uydu katmanı ölçeği ${info.rasterScale}`); }
   const ff = spawn(findFfmpeg(), [
     '-hide_banner', '-loglevel', 'error', '-y',
     '-f', 'image2pipe', '-framerate', String(rate), '-c:v', 'mjpeg', '-i', '-',
     '-vf', 'scale=in_range=full:out_range=tv,format=yuv420p',
-    '-c:v', 'libx264', '-preset', 'medium', '-crf', String(crf), '-r', String(rate),
-    '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-movflags', '+faststart', out,
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', String(crf), '-r', String(rate),
+    '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', out,
   ], { stdio: ['pipe', 'inherit', 'inherit'] });
   const done = new Promise((resolve, reject) => ff.on('close', (c) => (c === 0 ? resolve() : reject(new Error('ffmpeg exit ' + c)))));
-  const t0 = Date.now();
   try {
     for (let i = 0; i < n; i++) {
-      const t = from + i / rate;
-      await page.evaluate((tt) => window.GG.frame(tt), t);
-      const buf = await page.screenshot({ type: 'jpeg', quality: 94, optimizeForSpeed: true });
+      await page.evaluate((tt) => window.GG.frame(tt), from + i / rate);
+      const buf = await page.screenshot({ type: 'jpeg', quality: 92, optimizeForSpeed: true, captureBeyondViewport: false });
       if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
-      if (i % 30 === 0 || i === n - 1) {
-        const el = (Date.now() - t0) / 1000;
-        const eta = (el / (i + 1)) * (n - i - 1);
-        process.stdout.write(`\r[geo] kare ${i + 1}/${n}  (${(el / (i + 1) * 1000).toFixed(0)} ms/kare, kalan ~${Math.round(eta)} sn)   `);
-      }
+      onFrame();
     }
-    process.stdout.write('\n');
   } finally {
     ff.stdin.end();
     await close();
   }
   await done;
+}
+
+// Frames are split into contiguous chunks rendered by parallel Chrome instances,
+// then joined losslessly with the concat demuxer.
+export async function renderVideo(timeline, out, { from = 0, to = null, fps = null, scale = 1, crf = 18, workers = null } = {}) {
+  const rate = fps || timeline.fps;
+  const end = to ?? timeline.duration;
+  const total = Math.ceil((end - from) * rate);
+  const k = Math.max(1, Math.min(workers || os.cpus().length, Math.ceil(total / 60)));
+  log(`render: ${total} kare, ${rate} fps, ${k} paralel işçi`);
+  const dir = fs.mkdtempSync(path.join(path.dirname(out), '.chunks-'));
+  const per = Math.ceil(total / k);
+  let doneFrames = 0;
+  const t0 = Date.now();
+  const tick = () => {
+    doneFrames++;
+    if (doneFrames % 30 === 0 || doneFrames === total) {
+      const el = (Date.now() - t0) / 1000;
+      const eta = (el / doneFrames) * (total - doneFrames);
+      process.stdout.write(`\r[geo] kare ${doneFrames}/${total}  (${((el / doneFrames) * 1000).toFixed(0)} ms/kare efektif, kalan ~${Math.round(eta)} sn)   `);
+    }
+  };
+  tick.first = true;
+  const parts = [];
+  const jobs = [];
+  for (let w = 0; w < k; w++) {
+    const f0 = w * per;
+    const n = Math.min(per, total - f0);
+    if (n <= 0) break;
+    const file = path.join(dir, `part${w}.mp4`);
+    parts.push(file);
+    jobs.push(renderChunk(timeline, file, { from: from + f0 / rate, n, rate, scale, crf, onFrame: tick }));
+  }
+  try {
+    await Promise.all(jobs);
+    process.stdout.write('\n');
+    const list = path.join(dir, 'list.txt');
+    fs.writeFileSync(list, parts.map((p) => `file '${p.split(path.sep).join('/')}'`).join('\n'));
+    await runFfmpeg(['-y', '-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', '-movflags', '+faststart', out]);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+  log(`render süresi: ${Math.round((Date.now() - t0) / 1000)} sn`);
 }

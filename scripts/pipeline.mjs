@@ -105,6 +105,7 @@ async function main() {
       fps: args.fps ? Number(args.fps) : null,
       scale: Number(args.scale || 1),
       crf: cfg.video.crf,
+      workers: args.workers ? Number(args.workers) : cfg.video.workers,
     });
     const final = path.join(outDir, `${script.id}_${style}${provider === 'mock' ? '_mock' : ''}.mp4`);
     const from = Number(args.from || 0);
