@@ -67,11 +67,12 @@ export function autoDetailBoxes(script, cfg, { minZoom = 8, max = 4 } = {}) {
     if (explicit.some((b) => inside(v.box, b))) continue;
     const g = groups.find((g) => inside(v.box, g.box));
     if (g) continue;
-    // merge into a group if the union still gives >= ~0.75 texel per output pixel for its tightest view
+    // merge into a group if the union still gives >= 1 texel per output pixel for its tightest view
+    // (span includes the 1.35 margin, so the view itself is span / 1.35 wide)
     let best = null;
     for (const g of groups) {
       const u = [Math.min(g.box[0], v.box[0]), Math.min(g.box[1], v.box[1]), Math.max(g.box[2], v.box[2]), Math.max(g.box[3], v.box[3])];
-      const need = ((u[2] - u[0]) / Math.min(g.span, v.span)) * cfg.video.width * 0.75;
+      const need = ((u[2] - u[0]) / (Math.min(g.span, v.span) / 1.35)) * cfg.video.width;
       if (need <= 4096 && (!best || need < best.need)) best = { g, u, need };
     }
     if (best) {
@@ -88,7 +89,7 @@ export function autoDetailBoxes(script, cfg, { minZoom = 8, max = 4 } = {}) {
       bbox: g.box.map(r4),
       // very close shots: small islands/rocks are missing from the land polygons, so keep the raw image
       mask: g.zoom < 500,
-      width: Math.max(1536, Math.min(4096, Math.round((((g.box[2] - g.box[0]) / g.span) * cfg.video.width * 0.75) / 256) * 256)),
+      width: Math.max(1536, Math.min(4096, Math.round((((g.box[2] - g.box[0]) / (g.span / 1.35)) * cfg.video.width) / 256) * 256)),
     }));
 }
 
