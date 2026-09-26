@@ -1,0 +1,780 @@
+{
+  "id": "egypt",
+  "style": "geo",
+  "config": {
+    "captions": {
+      "keywords": {
+        "egypt": "#ffd60a",
+        "egyptians": "#ffd60a",
+        "nile": "#5ec8ff",
+        "desert": "#f4a261",
+        "cairo": "#ffd60a",
+        "ethiopia": "#4ade80",
+        "dam": "#ff5a5f"
+      }
+    }
+  },
+  "meta": {
+    "title": "Why 95% of Egyptians Live on 5% of Egypt 🇪🇬🤯 The Nile Explained 🌊",
+    "description": "Egypt 🇪🇬 is home to more than 107 million people, but about 95% of them live on just 5% of the country's land: the Nile Valley and the Delta 🌊 The rest is desert 🏜️ South of Cairo it almost never rains, and Cairo itself gets only about 25 mm of rain a year ☀️ For thousands of years the Nile's yearly flood left rich soil along its banks and made Ancient Egypt possible 🌾 In 1970 the Aswan High Dam tamed the floods. Today Egypt still gets about 90% of its water from the Nile, which is why the Grand Ethiopian Renaissance Dam, 2,500 km upstream and opened in 2025, worries Egypt so much ⚠️",
+    "pinnedComment": [
+      "Imagine 100+ million people living along ONE river 🤯🇪🇬",
+      "Who should control the Nile: Egypt 🇪🇬, Sudan 🇸🇩 or Ethiopia 🇪🇹? 👇",
+      "Which river should we explain next? 🌊"
+    ],
+    "tags": [
+      "egypt",
+      "nile",
+      "nile river",
+      "cairo",
+      "sahara",
+      "desert",
+      "aswan dam",
+      "ethiopia",
+      "gerd",
+      "sudan",
+      "population",
+      "africa",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is Egypt, home to more than 107 million people.",
+      "camera": {
+        "fit": [
+          "EGY"
+        ],
+        "pad": 0.9
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": "EGY",
+          "fill": "flag:eg",
+          "at": "Egypt"
+        },
+        {
+          "type": "label",
+          "text": "EGYPT",
+          "style": "map",
+          "lat": 26.5,
+          "lon": 29.5,
+          "size": 110,
+          "rotate": -5,
+          "at": "Egypt"
+        },
+        {
+          "type": "stat",
+          "value": "107,000,000",
+          "caption": "people",
+          "size": 110,
+          "at": "107"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Egypt has over 107 million inhabitants.",
+          "url": "https://en.wikipedia.org/wiki/Egypt",
+          "quote": "With over 107 million inhabitants, Egypt is the most populous country in the Arab world"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But almost all of them are squeezed into this one thin green line.",
+      "show": [
+        {
+          "type": "dim",
+          "amount": 0.62,
+          "except": [
+            {
+              "geojson": "nile_valley.geojson"
+            }
+          ],
+          "at": "almost",
+          "hold": 1
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "nile_valley.geojson"
+          },
+          "neon": "#39ff14",
+          "at": "green",
+          "hold": 1,
+          "fillOpacity": 0.7,
+          "strokeWidth": 5
+        },
+        {
+          "type": "label",
+          "text": "HERE!",
+          "style": "note",
+          "lat": 27.4,
+          "lon": 34.0,
+          "size": 80,
+          "rotate": -8,
+          "at": "line"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            27.8,
+            34.6
+          ],
+          "to": [
+            27.3,
+            31.7
+          ],
+          "color": "#ffffff",
+          "curve": 0.2,
+          "width": 9,
+          "at": "line"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "More than 95% of Egypt's population lives in the Nile Delta and along the Nile Valley. (Valley/Delta outline on the map is schematic.)",
+          "url": "https://www.ined.fr/en/everything_about_population/demographic-facts-sheets/focus-on/egypt",
+          "quote": "More than 95% of Egypt's population lives on a mere 5% of the country's surface, in the Nile Delta, along the river banks of the Nile Valley..."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "About 95% of Egyptians live on just 5% of the land, along the Nile River.",
+      "show": [
+        {
+          "type": "stat",
+          "value": "95%",
+          "caption": "of Egyptians",
+          "size": 170,
+          "at": "95%"
+        },
+        {
+          "type": "label",
+          "text": "on 5% of the land",
+          "style": "pill",
+          "bg": "#16a34a",
+          "screen": [
+            0.5,
+            0.27
+          ],
+          "size": 50,
+          "at": "5%"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              24.09,
+              32.9
+            ],
+            [
+              24.98,
+              32.88
+            ],
+            [
+              25.69,
+              32.64
+            ],
+            [
+              26.16,
+              32.72
+            ],
+            [
+              26.56,
+              31.7
+            ],
+            [
+              27.18,
+              31.18
+            ],
+            [
+              28.1,
+              30.75
+            ],
+            [
+              29.07,
+              31.1
+            ],
+            [
+              30.04,
+              31.24
+            ],
+            [
+              31.45,
+              30.4
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 7,
+          "at": "Nile",
+          "drawDur": 1.6,
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "Nile",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "lat": 26.4,
+          "lon": 33.6,
+          "size": 44,
+          "at": "Nile"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "More than 95% of Egyptians live on about 5% of the country's surface.",
+          "url": "https://www.ined.fr/en/everything_about_population/demographic-facts-sheets/focus-on/egypt",
+          "quote": "More than 95% of Egypt's population lives on a mere 5% of the country's surface"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The rest is desert. South of Cairo, it almost never rains.",
+      "show": [
+        {
+          "type": "scatter",
+          "target": "EGY",
+          "icon": "🏜️",
+          "count": 12,
+          "size": 76,
+          "seed": 5,
+          "at": "desert"
+        },
+        {
+          "type": "icon",
+          "icon": "☀️",
+          "lat": 24.5,
+          "lon": 27.5,
+          "size": 150,
+          "at": "never"
+        },
+        {
+          "type": "label",
+          "text": "Cairo",
+          "dot": true,
+          "lat": 30.04,
+          "lon": 31.24,
+          "dy": -46,
+          "size": 46,
+          "at": "Cairo",
+          "hold": 1
+        }
+      ],
+      "sources": [
+        {
+          "claim": "South of Cairo, average rainfall drops to nearly 0 mm; essentially all of Egypt has a hot desert climate.",
+          "url": "https://en.wikipedia.org/wiki/Climate_of_Egypt",
+          "quote": "south from Cairo, the average drops to nearly 0 millimetres ... Essentially all of Egypt has a hot desert climate"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Even Cairo only gets about 25 millimeters of rain in a whole year.",
+      "camera": {
+        "lat": 29.2,
+        "lon": 31.2,
+        "zoom": 6
+      },
+      "show": [
+        {
+          "type": "stat",
+          "value": "25 mm",
+          "caption": "of rain per year",
+          "size": 150,
+          "at": "25"
+        },
+        {
+          "type": "icon",
+          "icon": "💧",
+          "lat": 30.6,
+          "lon": 32.3,
+          "size": 110,
+          "at": "rain"
+        },
+        {
+          "type": "character",
+          "preset": "farmer",
+          "screen": [
+            0.27,
+            0.6
+          ],
+          "say": "Rain? What rain?",
+          "at": "rain"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Cairo's average annual precipitation is about 24.8 mm.",
+          "url": "https://en.wikipedia.org/wiki/Climate_of_Egypt",
+          "quote": "Average precipitation mm (inches) 24.8 (0.98)"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "transition": "film",
+      "text": "For thousands of years, the Nile was Egypt's lifeline.",
+      "camera": {
+        "fit": [
+          "EGY"
+        ],
+        "pad": 0.85,
+        "zoomMul": 1.3
+      },
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              24.09,
+              32.9
+            ],
+            [
+              24.98,
+              32.88
+            ],
+            [
+              25.69,
+              32.64
+            ],
+            [
+              26.16,
+              32.72
+            ],
+            [
+              26.56,
+              31.7
+            ],
+            [
+              27.18,
+              31.18
+            ],
+            [
+              28.1,
+              30.75
+            ],
+            [
+              29.07,
+              31.1
+            ],
+            [
+              30.04,
+              31.24
+            ],
+            [
+              31.45,
+              30.4
+            ]
+          ],
+          "color": "#2b7bd6",
+          "width": 9,
+          "glow": false,
+          "at": "Nile",
+          "drawDur": 1.2,
+          "hold": 2
+        },
+        {
+          "type": "character",
+          "preset": "pharaoh",
+          "screen": [
+            0.27,
+            0.6
+          ],
+          "at": "Nile",
+          "hold": 2,
+          "id": "pharaoh"
+        },
+        {
+          "type": "label",
+          "text": "Ancient Egypt",
+          "style": "serif",
+          "lat": 27.5,
+          "lon": 33.9,
+          "size": 58,
+          "at": "thousands",
+          "hold": 2
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The Nile was the foundation of Ancient Egyptian civilization.",
+          "url": "https://en.wikipedia.org/wiki/Nile",
+          "quote": "The Nile was the foundation of the Ancient Egyptian civilization, which relied on the river for nearly every aspect of life."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Every year it flooded, leaving rich black soil along its banks.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "nile_valley.geojson"
+          },
+          "fill": "#3f6b2a",
+          "fillOpacity": 0.85,
+          "at": "flooded",
+          "hold": 1
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "geojson": "nile_valley.geojson"
+          },
+          "icon": "🌾",
+          "count": 10,
+          "size": 62,
+          "minDist": 0.05,
+          "at": "soil",
+          "hold": 1
+        },
+        {
+          "type": "icon",
+          "icon": "🌊",
+          "lat": 28.6,
+          "lon": 33.2,
+          "size": 120,
+          "at": "flooded"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The river's annual flooding deposited nutrient-rich silt along its banks.",
+          "url": "https://en.wikipedia.org/wiki/Nile",
+          "quote": "annual flooding of the river deposited nutrient-rich silt along the riverbanks"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Ancient Egyptians built their whole civilization around it.",
+      "show": [
+        {
+          "type": "character",
+          "preset": "pharaoh",
+          "screen": [
+            0.27,
+            0.6
+          ],
+          "say": "Thank you, Nile!",
+          "at": "built",
+          "id": "pharaoh"
+        },
+        {
+          "type": "icon",
+          "icon": "⛵",
+          "lat": 26.2,
+          "lon": 32.9,
+          "size": 90,
+          "at": "civilization"
+        },
+        {
+          "type": "icon",
+          "icon": "⛵",
+          "lat": 29.4,
+          "lon": 31.3,
+          "size": 90,
+          "at": "around"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Ancient Egyptian civilization relied on the Nile for nearly every aspect of life.",
+          "url": "https://en.wikipedia.org/wiki/Nile",
+          "quote": "relied on the river for nearly every aspect of life"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "transition": "flash",
+      "text": "In 1970, the Aswan High Dam finally tamed the floods and gave Egypt water all year round.",
+      "camera": {
+        "lat": 24.4,
+        "lon": 32.3,
+        "zoom": 12
+      },
+      "show": [
+        {
+          "type": "year",
+          "value": "1970",
+          "light": true,
+          "at": "1970"
+        },
+        {
+          "type": "label",
+          "text": "Aswan High Dam",
+          "dot": true,
+          "lat": 23.97,
+          "lon": 32.88,
+          "dy": -52,
+          "size": 48,
+          "at": "Aswan"
+        },
+        {
+          "type": "ring",
+          "lat": 23.97,
+          "lon": 32.88,
+          "r": 60,
+          "at": "Dam"
+        },
+        {
+          "type": "character",
+          "preset": "engineer",
+          "screen": [
+            0.27,
+            0.6
+          ],
+          "at": "tamed"
+        },
+        {
+          "type": "icon",
+          "icon": "⚡",
+          "lat": 24.5,
+          "lon": 33.8,
+          "size": 110,
+          "at": "water"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The Aswan High Dam, completed in 1970, regulates the Nile's flow year-round.",
+          "url": "https://en.wikipedia.org/wiki/Nile",
+          "quote": "The Aswan High Dam, completed in 1970 ... now regulates water flow year-round"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, Egypt still gets about 90% of its water from the Nile.",
+      "camera": {
+        "fit": [
+          "EGY"
+        ],
+        "pad": 0.9
+      },
+      "show": [
+        {
+          "type": "stat",
+          "value": "90%",
+          "caption": "of Egypt's water",
+          "size": 170,
+          "at": "90%"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "nile_valley.geojson"
+          },
+          "neon": "#5ec8ff",
+          "at": "90%",
+          "fillOpacity": 0.7,
+          "strokeWidth": 5
+        },
+        {
+          "type": "icon",
+          "icon": "💧",
+          "lat": 25.5,
+          "lon": 29,
+          "size": 120,
+          "at": "water"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Egypt depends on the Nile for about 90% of its water.",
+          "url": "https://en.wikipedia.org/wiki/Grand_Ethiopian_Renaissance_Dam",
+          "quote": "Egypt ... depends on the Nile for about 90% of its water"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That's why this dam, 2,500 kilometers upstream in Ethiopia, worries Egypt so much.",
+      "camera": {
+        "fit": [
+          "EGY",
+          "ETH"
+        ],
+        "pad": 0.9
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": "ETH",
+          "fill": "flag:et",
+          "at": "Ethiopia"
+        },
+        {
+          "type": "highlight",
+          "target": "EGY",
+          "fill": "flag:eg",
+          "at": 0.1,
+          "hold": 1
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              11.21,
+              35.09
+            ],
+            [
+              11.8,
+              34.38
+            ],
+            [
+              13.55,
+              33.63
+            ],
+            [
+              15.5,
+              32.56
+            ],
+            [
+              17.7,
+              33.98
+            ],
+            [
+              19.53,
+              33.33
+            ],
+            [
+              19.17,
+              30.48
+            ],
+            [
+              21.8,
+              31.35
+            ],
+            [
+              24.09,
+              32.9
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 8,
+          "at": "upstream",
+          "drawDur": 2.0,
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "2,500 km",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "lat": 17.5,
+          "lon": 30.5,
+          "size": 50,
+          "at": "2,500"
+        },
+        {
+          "type": "icon",
+          "icon": "⚠️",
+          "lat": 11.21,
+          "lon": 35.09,
+          "size": 130,
+          "at": "worries"
+        },
+        {
+          "type": "shake",
+          "at": "worries"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Egypt lies over 2,500 km downstream of the GERD, on the Blue Nile in Ethiopia, and fears it will reduce available Nile water.",
+          "url": "https://en.wikipedia.org/wiki/Grand_Ethiopian_Renaissance_Dam",
+          "quote": "Egypt, situated over 2,500 kilometers downstream, fears the dam will reduce available Nile water."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's the Grand Ethiopian Renaissance Dam, the biggest hydropower plant in Africa, and it opened in September 2025.",
+      "camera": {
+        "lat": 11.4,
+        "lon": 35.0,
+        "zoom": 14
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": "ETH",
+          "neon": "#4ade80",
+          "fillOpacity": 0.12,
+          "at": 0.05
+        },
+        {
+          "type": "label",
+          "text": "GERD",
+          "style": "pill",
+          "bg": "#e63946",
+          "lat": 11.21,
+          "lon": 35.09,
+          "dy": -70,
+          "size": 60,
+          "at": "Grand"
+        },
+        {
+          "type": "ring",
+          "lat": 11.21,
+          "lon": 35.09,
+          "r": 60,
+          "at": "Grand"
+        },
+        {
+          "type": "badge",
+          "text": "#1",
+          "color": "#ffb703",
+          "lat": 11.9,
+          "lon": 36.1,
+          "at": "biggest"
+        },
+        {
+          "type": "year",
+          "value": "2025",
+          "light": true,
+          "at": "2025"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The GERD, on the Blue Nile in Ethiopia, is Africa's largest hydroelectric power plant; inaugurated on 9 September 2025.",
+          "url": "https://en.wikipedia.org/wiki/Grand_Ethiopian_Renaissance_Dam",
+          "quote": "Africa's largest hydroelectric power plant ... officially inaugurated on September 9, 2025"
+        }
+      ]
+    }
+  ],
+  "imagery": [
+    {
+      "bbox": [
+        31.4,
+        23.3,
+        34.2,
+        25.4
+      ],
+      "width": 3072
+    },
+    {
+      "bbox": [
+        34.0,
+        10.3,
+        36.3,
+        12.4
+      ],
+      "width": 3072
+    }
+  ]
+}

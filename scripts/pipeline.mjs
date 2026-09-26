@@ -14,6 +14,7 @@ import path from 'node:path';
 import { ROOT, readJson, writeJson, deepMerge, log } from '../src/util.mjs';
 import { validateScript } from '../src/validate.mjs';
 import { buildNarration, mux } from '../src/audio.mjs';
+import { buildSfxTrack } from '../src/sfx.mjs';
 import { buildTimeline } from '../src/timeline.mjs';
 import { renderVideo, renderStills, contactSheet } from '../src/render.mjs';
 import { writeUploadText, writeSources } from '../src/meta.mjs';
@@ -114,9 +115,16 @@ async function main() {
       log('--from kullanıldı: ses eklenmedi, sadece görüntü:', path.relative(ROOT, silent));
       continue;
     }
+    let sfxWav = null;
+    if (cfg.sfx?.enabled !== false) {
+      sfxWav = path.join(outDir, `sfx.${style}.wav`);
+      const n = await buildSfxTrack(tl, sfxWav, cfg.sfx?.volume ?? 0.5);
+      log(`ses efektleri: ${n} olay`);
+    }
     await mux({
       video: silent,
       narration: narrationWav,
+      sfx: sfxWav,
       music: script.music ?? cfg.audio.music,
       musicVolume: cfg.audio.musicVolume,
       duration: to,

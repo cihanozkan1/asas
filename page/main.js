@@ -1,9 +1,10 @@
 // Frame renderer. Everything on screen is a pure function of time t, so headless
 // Chrome can step through frames deterministically: GG.init(timeline) then GG.frame(t).
-import { geoPath, geoBounds, geoContains, geoCentroid, geoDistance, geoCircle, geoArea } from 'd3-geo';
+import { geoPath, geoBounds, geoContains, geoCentroid, geoDistance, geoCircle, geoArea, geoInterpolate, geoRotation } from 'd3-geo';
 import { feature as topoFeature, mesh as topoMesh } from 'topojson-client';
 import { Raster } from './raster.js';
 import { CameraPath, makeProjection, ease, clamp01 } from './camera.js';
+import { characterSvg, shipSvg } from './sprites.js';
 
 const W = 1080;
 const H = 1920;
@@ -178,6 +179,41 @@ function culled(index, box, type) {
   return { type, coordinates: parts };
 }
 
+// Random points inside a target (deterministic), spread apart a little.
+function scatterPoints(feats, n, seed, minDistDeg, minLat = -90, maxLat = 90) {
+  const fc = { type: 'FeatureCollection', features: feats };
+  let [[w, s], [e, nn]] = geoBounds(fc);
+  s = Math.max(s, minLat);
+  nn = Math.min(nn, maxLat);
+  const r = rng(seed * 7919);
+  const pts = [];
+  let tries = 0;
+  const span = e >= w ? e - w : e + 360 - w;
+  while (pts.length < n && tries++ < 20000) {
+    const lon = w + r() * span, lat = s + r() * (nn - s);
+    const p = [lon > 180 ? lon - 360 : lon, lat];
+    if (!feats.some((f) => geoContains(f, p))) continue;
+    if (pts.some((q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < minDistDeg * Math.sqrt(span * (nn - s) / n))) continue;
+    pts.push(p);
+  }
+  return pts;
+}
+
+// [[lat,lon],...] -> dense [lon,lat] great-circle polyline
+function densify(points, rhumb = false) {
+  const out = [];
+  for (let i = 0; i < points.length - 1; i++) {
+    const a = [points[i].lon, points[i].lat], b = [points[i + 1].lon, points[i + 1].lat];
+    // rhumb: straight in lon/lat (e.g. a line along a parallel or meridian)
+    const f = rhumb ? (u) => [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u] : geoInterpolate(a, b);
+    const n = Math.max(2, Math.ceil(geoDistance(a, b) / 0.01));
+    for (let k = 0; k < n; k++) out.push(f(k / n));
+  }
+  const last = points[points.length - 1];
+  out.push([last.lon, last.lat]);
+  return out;
+}
+
 function pickPart(feat, pt) {
   if (feat.geometry.type !== 'MultiPolygon') return feat;
   const p = [pt.lon, pt.lat];
@@ -288,6 +324,23 @@ async function init(tl) {
       else if (g.type === 'MultiPolygon') polys.push(...g.coordinates);
     }
     state.targetIdx[key] = indexParts(polys, (p) => p[0]);
+    let best = null, bestA = -1;
+    for (const p of polys) {
+      const a = geoArea({ type: 'Polygon', coordinates: p });
+      if (a < 2 * Math.PI && a > bestA) { bestA = a; best = p; }
+    }
+    state.targetMain = state.targetMain || {};
+    state.targetMain[key] = best ? { type: 'Feature', geometry: { type: 'Polygon', coordinates: best } } : null;
+  }
+
+  // per-element geometry
+  for (const el of tl.elements) {
+    if (el.type === 'scatter') el._pts = scatterPoints(state.targets[el.target], el.count || 12, el.seed || 7, el.minDist ?? 0.25, el.minLat ?? -90, el.maxLat ?? 90);
+    if (el.type === 'ghost') {
+      el._fc = { type: 'FeatureCollection', features: state.targets[el.target] };
+      el._c = geoCentroid(el._fc);
+    }
+    if (el.type === 'route' || el.type === 'measure') el._pts = densify(el.points || [el.from, el.to], el.rhumb);
   }
 
   // images for flags / icons
@@ -296,7 +349,8 @@ async function init(tl) {
   for (const el of tl.elements) {
     if (el.fill && el.fill.startsWith('flag:')) wanted.add(flagUrl(el.fill.slice(5)));
     if (el.type === 'flag') wanted.add(flagUrl(el.code));
-    if (el.type === 'icon') wanted.add(el.src);
+    if (el.src) wanted.add(el.src);
+    if (el.mover?.src) wanted.add(el.mover.src);
   }
   await Promise.all([...wanted].map(async (u) => (state.images[u] = await loadImg(u))));
   state.flagCanvas = {};
@@ -319,10 +373,17 @@ async function init(tl) {
   const first = shots.find((s) => s.target)?.target || { lat: 20, lon: 0, zoom: 1 };
   const intro = tl.intro || {};
   const introCam = {
-    lat: first.lat + (intro.dLat ?? -8),
-    lon: first.lon + (intro.dLon ?? 40),
-    zoom: intro.zoom ?? (mode === 'globe' ? 0.95 : Math.max(0.55, first.zoom * 0.35)),
+    lat: first.lat + (intro.dLat ?? (mode === 'globe' ? -8 : -4)),
+    lon: first.lon + (intro.dLon ?? (mode === 'globe' ? 40 : 18)),
+    zoom: intro.zoom ?? (mode === 'globe' ? 0.95 : Math.max(0.9, first.zoom * 0.6)),
   };
+  if (mode === 'flat') {
+    // don't zoom out so far that the Mercator poles (Antarctica band) fill the frame
+    const my = (lat) => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
+    const cy = H * cfg.layout.mapCenterY;
+    const kMin = Math.max((H - cy) / (my(introCam.lat) - my(-60)), cy / (my(80) - my(introCam.lat)));
+    introCam.zoom = Math.max(introCam.zoom, kMin / state.baseK);
+  }
   state.camera = new CameraPath(shots, introCam, { W, baseK: state.baseK, drift: cfg.camera.drift });
   state.sceneShots = shots;
 
@@ -333,7 +394,7 @@ async function init(tl) {
   await document.fonts.ready;
   await Promise.all(
     ['600 40px Montserrat', '700 40px Montserrat', '800 40px Montserrat', '900 40px Montserrat',
-      '400 40px "Playfair Display"', '700 40px "Playfair Display"'].map((f) => document.fonts.load(f)),
+      '400 40px "Playfair Display"', '700 40px "Playfair Display"', '400 40px "Permanent Marker"'].map((f) => document.fonts.load(f)),
   );
   return { ok: true, maxTexture: state.raster.maxTex, renderer: state.raster.renderer, rasterScale: $('raster').width / W };
 }
@@ -503,33 +564,105 @@ function drawVector(t, proj, view, mix) {
   }
   ctx.globalAlpha = 1;
 
-  // highlights
+  // spotlight: darken everything except the given targets
   for (const el of state.tl.elements) {
-    if (el.type !== 'highlight') continue;
+    if (el.type !== 'dim') continue;
+    const life = lifeOf(el, t, 0.5, 0.4);
+    if (!life) continue;
+    ctx.save();
+    ctx.globalAlpha = (el.amount ?? 0.6) * ease.outCubic(life.in) * life.out;
+    ctx.fillStyle = el.color || '#05070c';
+    ctx.beginPath();
+    ctx.rect(0, 0, W, H);
+    for (const k of el.targets || []) path({ type: 'FeatureCollection', features: state.targets[k] });
+    ctx.fill('evenodd');
+    ctx.restore();
+  }
+
+  // highlights & ghosts
+  for (const el of state.tl.elements) {
+    if (el.type !== 'highlight' && el.type !== 'ghost') continue;
     const life = lifeOf(el, t, 0.45, 0.3);
     if (!life) continue;
-    drawHighlight(ctx, path, el, life, mix);
+    if (el.type === 'ghost') drawGhost(ctx, path, el, life, t);
+    else drawHighlight(ctx, path, el, life, mix, t);
   }
 }
 
-function drawHighlight(ctx, path, el, life, mix) {
-  const feats = state.box
-    ? [{ type: 'Feature', geometry: culled(state.targetIdx[el.target], state.box, 'MultiPolygon') }]
+// A country's real outline moved across the globe (rotation keeps its true size).
+function drawGhost(ctx, path, el, life, t) {
+  const u = ease.inOutCubic(clamp01((life.age - (el.delay ?? 0.3)) / (el.moveDur ?? 1.4)));
+  const dest = geoInterpolate(el._c, [el.to.lon, el.to.lat])(u);
+  const r1 = geoRotation([-el._c[0], -el._c[1]]);
+  const r2 = geoRotation([-dest[0], -dest[1]]);
+  const mv = (c) => r2.invert(r1(c));
+  const mapGeom = (g) => {
+    if (g.type === 'Polygon') return { type: 'Polygon', coordinates: g.coordinates.map((ring) => ring.map(mv)) };
+    if (g.type === 'MultiPolygon') return { type: 'MultiPolygon', coordinates: g.coordinates.map((p) => p.map((ring) => ring.map(mv))) };
+    return g;
+  };
+  const fc = { type: 'FeatureCollection', features: el._fc.features.map((f) => ({ type: 'Feature', geometry: mapGeom(f.geometry) })) };
+  const a = ease.outCubic(life.in) * life.out;
+  ctx.save();
+  ctx.globalAlpha = a * (el.fillOpacity ?? 0.75);
+  ctx.beginPath();
+  path(fc);
+  ctx.fillStyle = el.fill || '#4cc9f0';
+  ctx.fill();
+  ctx.globalAlpha = a;
+  ctx.shadowColor = el.stroke || '#ffffff';
+  ctx.shadowBlur = 14;
+  ctx.strokeStyle = el.stroke || '#ffffff';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawHighlight(ctx, path, el, life, mix, t) {
+  const idx = state.targetIdx[el.target];
+  const feats = state.box && idx.length
+    ? [{ type: 'Feature', geometry: culled(idx, state.box, 'MultiPolygon') }]
     : state.targets[el.target];
-  if (state.box && !feats[0].geometry.coordinates.length) return;
+  if (state.box && idx.length && !feats[0].geometry.coordinates.length) return;
   const alpha = ease.outCubic(life.in) * life.out * (el.opacity ?? 1);
   if (alpha <= 0) return;
   const fc = { type: 'FeatureCollection', features: feats };
   const satLook = mix.sat >= 0.5;
-  const strokeColor = el.stroke ?? (satLook ? '#ffffff' : 'rgba(70,45,20,0.75)');
-  const strokeW = el.strokeWidth ?? (satLook ? 3 : 2);
+  const neon = el.neon;
+  const strokeColor = neon || (el.stroke ?? (satLook ? '#ffffff' : 'rgba(70,45,20,0.75)'));
+  const strokeW = el.strokeWidth ?? (neon ? 4 : satLook ? 3 : 2);
+  ctx.save();
+  if ((el.eastOf != null || el.westOf != null) && state.view.mode !== 'globe') {
+    const x0 = el.eastOf != null ? state.proj([el.eastOf, state.view.lat])[0] : -10;
+    const x1 = el.westOf != null ? state.proj([el.westOf, state.view.lat])[0] : W + 10;
+    ctx.beginPath();
+    ctx.rect(x0, -10, x1 - x0, H + 20);
+    ctx.clip();
+  }
+  if (el.reveal) {
+    // territory spreading out from a point
+    const o = project(el.reveal) || [W / 2, H / 2];
+    const u = ease.inOutSine(clamp01(life.age / (el.revealDur ?? 1.4)));
+    ctx.beginPath();
+    ctx.arc(o[0], o[1], Math.max(1, u * Math.hypot(W, H) * 1.1), 0, Math.PI * 2);
+    ctx.clip();
+  }
 
   // outer stroke (+glow): stroke at 2x then cover the inner half with the fill
   ctx.save();
   ctx.globalAlpha = alpha;
   ctx.beginPath();
   path(fc);
-  if (satLook && el.glow !== false) {
+  if (neon) {
+    const pulse = 0.75 + 0.25 * Math.sin(t * 5);
+    ctx.shadowColor = neon;
+    ctx.shadowBlur = 38 * pulse;
+    ctx.strokeStyle = neon;
+    ctx.lineWidth = strokeW * 2;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+    ctx.shadowBlur = 14;
+  } else if (satLook && el.glow !== false) {
     ctx.shadowColor = el.glowColor ?? 'rgba(255,255,255,0.9)';
     ctx.shadowBlur = 18;
   }
@@ -540,13 +673,17 @@ function drawHighlight(ctx, path, el, life, mix) {
   ctx.restore();
 
   ctx.save();
-  ctx.globalAlpha = alpha * (el.fillOpacity ?? 0.92);
+  ctx.globalAlpha = alpha * (el.fillOpacity ?? (neon && !el.fill ? 0.38 : 0.92));
   ctx.beginPath();
   path(fc);
-  if (el.fill && el.fill.startsWith('flag:')) {
+  if (neon && !el.fill) {
+    ctx.fillStyle = neon;
+    ctx.fill();
+  } else if (el.fill && el.fill.startsWith('flag:')) {
     ctx.clip();
     const img = state.flagCanvas[flagUrl(el.fill.slice(5))];
-    const b = geoPath(state.proj).bounds(fc);
+    // place the flag over the main landmass so big archipelagos don't wash it out
+    const b = geoPath(state.proj).bounds(el.flagFit === 'all' || !state.targetMain[el.target] ? fc : state.targetMain[el.target]);
     const bw = b[1][0] - b[0][0], bh = b[1][1] - b[0][1];
     const s = Math.max(bw / img.width, bh / img.height);
     const dw = img.width * s, dh = img.height * s;
@@ -570,6 +707,7 @@ function drawHighlight(ctx, path, el, life, mix) {
     }
   }
   ctx.restore();
+  ctx.restore();
 }
 
 // ---------------------------------------------------------------- marks (arrows, lines, rings)
@@ -589,12 +727,116 @@ function drawMarks(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, W, H);
   for (const el of state.tl.elements) {
-    if (el.type !== 'arrow' && el.type !== 'line' && el.type !== 'ring') continue;
+    if (!['arrow', 'line', 'ring', 'route', 'measure'].includes(el.type)) continue;
     const life = lifeOf(el, t, el.type === 'ring' ? 0.5 : 0.8, 0.25);
-    if (!life) continue;
-    if (el.type === 'ring') drawRing(ctx, el, life);
+    if (!life) {
+      el._head = null;
+      continue;
+    }
+    if (el.type === 'route') drawRoute(ctx, el, life);
+    else if (el.type === 'measure') drawMeasure(ctx, el, life);
+    else if (el.type === 'ring') drawRing(ctx, el, life);
     else drawArrowOrLine(ctx, el, life);
   }
+}
+
+function screenPolyline(pts) {
+  const out = [];
+  for (const p of pts) {
+    const q = project({ lon: p[0], lat: p[1] });
+    if (q) out.push(q);
+  }
+  return out;
+}
+
+function partial(poly, u) {
+  let total = 0;
+  const seg = [];
+  for (let i = 1; i < poly.length; i++) {
+    const d = Math.hypot(poly[i][0] - poly[i - 1][0], poly[i][1] - poly[i - 1][1]);
+    seg.push(d);
+    total += d;
+  }
+  const want = total * u;
+  const out = [poly[0]];
+  let acc = 0;
+  let ang = 0;
+  for (let i = 1; i < poly.length; i++) {
+    ang = Math.atan2(poly[i][1] - poly[i - 1][1], poly[i][0] - poly[i - 1][0]);
+    if (acc + seg[i - 1] >= want) {
+      const f = seg[i - 1] ? (want - acc) / seg[i - 1] : 0;
+      out.push([poly[i - 1][0] + (poly[i][0] - poly[i - 1][0]) * f, poly[i - 1][1] + (poly[i][1] - poly[i - 1][1]) * f]);
+      return { pts: out, ang };
+    }
+    acc += seg[i - 1];
+    out.push(poly[i]);
+  }
+  return { pts: out, ang };
+}
+
+function strokePoly(ctx, pts) {
+  ctx.beginPath();
+  pts.forEach((p, i) => (i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])));
+  ctx.stroke();
+}
+
+function drawRoute(ctx, el, life) {
+  const poly = screenPolyline(el._pts);
+  if (poly.length < 2) return;
+  const dur = el.drawDur ?? Math.max(0.6, (el.end - el.start) * 0.85);
+  const u = (el.ease === 'linear' ? (x) => x : ease.inOutSine)(clamp01(life.age / dur));
+  const { pts, ang } = partial(poly, u);
+  const color = el.color || '#ffd60a';
+  const width = el.width || 9;
+  ctx.save();
+  ctx.globalAlpha = life.out;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  if (el.dashed) ctx.setLineDash(el.dash || [2, 18]);
+  ctx.strokeStyle = 'rgba(0,0,0,0.45)';
+  ctx.lineWidth = width + 6;
+  strokePoly(ctx, pts);
+  ctx.shadowColor = el.glow === false ? 'transparent' : color;
+  ctx.shadowBlur = el.glow === false ? 0 : 16;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  strokePoly(ctx, pts);
+  ctx.restore();
+  const head = pts[pts.length - 1];
+  el._head = { x: head[0], y: head[1], ang, u };
+}
+
+function drawMeasure(ctx, el, life) {
+  const poly = screenPolyline(el._pts);
+  if (poly.length < 2) return;
+  const u = ease.outCubic(clamp01(life.age / 0.6));
+  const a = poly[0], b = poly[poly.length - 1];
+  const mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+  const half = [(b[0] - a[0]) / 2 * u, (b[1] - a[1]) / 2 * u];
+  const p0 = [mid[0] - half[0], mid[1] - half[1]], p1 = [mid[0] + half[0], mid[1] + half[1]];
+  const ang = Math.atan2(b[1] - a[1], b[0] - a[0]);
+  const color = el.color || '#ffffff';
+  ctx.save();
+  ctx.globalAlpha = life.out;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+  ctx.lineWidth = 11;
+  strokePoly(ctx, [p0, p1]);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 6;
+  strokePoly(ctx, [p0, p1]);
+  for (const [p, dir] of [[p0, ang + Math.PI], [p1, ang]]) {
+    const s = 26;
+    ctx.beginPath();
+    ctx.moveTo(p[0] + Math.cos(dir) * 6, p[1] + Math.sin(dir) * 6);
+    ctx.lineTo(p[0] + Math.cos(dir + 2.5) * s, p[1] + Math.sin(dir + 2.5) * s);
+    ctx.lineTo(p[0] + Math.cos(dir - 2.5) * s, p[1] + Math.sin(dir - 2.5) * s);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+  ctx.restore();
+  el._head = { x: mid[0], y: mid[1], ang, u };
 }
 
 function drawRing(ctx, el, life) {
@@ -700,7 +942,7 @@ function buildUi() {
     let html = null;
     switch (el.type) {
       case 'label':
-        html = `<div class="inner label ${el.style || ''}" style="font-size:${el.size || 44}px">${el.dot ? '<span class="dot"></span>' : ''}${esc(el.text)}</div>`;
+        html = `<div class="inner label ${el.style || ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `background:${el.bg};` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${el.dot ? '<span class="dot"></span>' : ''}${esc(el.text)}</div>`;
         break;
       case 'flag': {
         const w = el.size || 150;
@@ -727,6 +969,32 @@ function buildUi() {
         break;
       case 'title':
         html = `<div class="inner title" style="font-size:${el.size || 72}px;width:${W - 140}px">${esc(el.text)}</div>`;
+        break;
+      case 'character': {
+        const sz = el.size || 300;
+        html = `<div class="inner character" style="width:${sz}px">
+          <div class="body" style="width:${sz}px;height:${sz * 1.2}px">${characterSvg(el).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`)}</div>
+          ${el.name ? `<div class="nametag">${esc(el.name)}</div>` : ''}
+          ${el.say ? `<div class="bubble ${el.think ? 'think' : ''} ${el.bubbleSide === 'left' ? 'left' : ''}"><span>${esc(el.say)}</span></div>` : ''}
+        </div>`;
+        break;
+      }
+      case 'route': {
+        if (!el.mover) continue;
+        const m = el.mover;
+        const sz = m.size || 150;
+        let inner = '';
+        if (m.kind === 'ship') inner = shipSvg(m).replace('<svg', `<svg width="${sz}" height="${sz * 0.92}"`);
+        else if (m.kind === 'character') inner = characterSvg(m).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`);
+        else inner = `<img src="${m.src}" style="width:${sz}px;height:${sz}px">`;
+        html = `<div class="inner mover ${m.kind}"><div class="spr">${inner}</div></div>`;
+        break;
+      }
+      case 'measure':
+        html = `<div class="inner label pill" style="font-size:${el.size || 44}px;background:${el.bg || 'rgba(0,0,0,.72)'}">${esc(el.label || '')}</div>`;
+        break;
+      case 'scatter':
+        html = `<div class="inner scatter">${el._pts.map(() => `<img src="${el.src}" style="width:${el.size || 70}px;height:${el.size || 70}px">`).join('')}</div>`;
         break;
       default:
         continue;
@@ -755,9 +1023,17 @@ function buildUi() {
       display: 'none',
       textTransform: C.uppercase ? 'uppercase' : 'none',
     });
-    d.textContent = c.text;
+    const kw = C.keywords || {};
+    d.innerHTML = c.words
+      .map((w, i) => {
+        const key = w.text.toLowerCase().replace(/[^a-z0-9%$]/g, '');
+        const color = kw[key] || (C.numberColor && /[0-9]/.test(w.text) ? C.numberColor : null);
+        return `<span class="w" data-i="${i}" style="${color ? `color:${color}` : ''}">${esc(w.text)}</span>`;
+      })
+      .join(' ');
     cap.appendChild(d);
     c._node = d;
+    c._spans = [...d.querySelectorAll('.w')];
   }
 }
 
@@ -781,8 +1057,33 @@ function updateUi(t) {
       node.style.opacity = '0';
       continue;
     }
+    if (el.type === 'scatter') {
+      node.style.opacity = '1';
+      node.style.transform = 'none';
+      const imgs = el._inner.children;
+      el._pts.forEach((pt, i) => {
+        const q = project({ lon: pt[0], lat: pt[1] });
+        const img = imgs[i];
+        const u = clamp01((life.age - i * (el.stagger ?? 0.09)) / 0.3);
+        if (!q || u <= 0) {
+          img.style.opacity = '0';
+          return;
+        }
+        const sz = el.size || 70;
+        const sc = ease.outBack(u) * (1 + 0.06 * Math.sin(t * 6 + i));
+        img.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;left:${q[0] - sz / 2}px;top:${q[1] - sz / 2}px;opacity:${life.out};transform:scale(${sc});filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))`;
+      });
+      continue;
+    }
     let x, y;
-    if (el.screen) {
+    if (el.type === 'route' || el.type === 'measure') {
+      if (!el._head) {
+        node.style.opacity = '0';
+        continue;
+      }
+      x = el._head.x + (el.type === 'measure' ? 0 : el.mover?.dx || 0);
+      y = el._head.y + (el.type === 'measure' ? 0 : el.mover?.dy || 0);
+    } else if (el.screen) {
       x = W * el.screen[0];
       y = H * el.screen[1];
     } else if (el.lat != null) {
@@ -816,7 +1117,8 @@ function updateUi(t) {
       inner.querySelector('.v').textContent = countUp(el.value, clamp01(life.age / 0.9));
     }
     const w = inner.offsetWidth, h = inner.offsetHeight;
-    if (el.type !== 'flag' || !el.pin) [x, y] = clampToSafe(x, y, w, h);
+    if (el.type === 'character') y -= h / 2 - 10; // anchor at the feet
+    if ((el.type !== 'flag' || !el.pin) && el.type !== 'route' && el.type !== 'measure') [x, y] = clampToSafe(x, y, w, h);
     let scale = 1;
     let opacity = life.out;
     let rot = el.rotate || 0;
@@ -841,6 +1143,49 @@ function updateUi(t) {
           const wob = Math.sin(life.age * 5 + i * 2) * 8;
           q.style.transform = `translate(${pos[i][0]}px, ${pos[i][1]}px) translate(-50%,-50%) scale(${u}) rotate(${wob + (i - 1) * 12}deg)`;
         });
+        break;
+      }
+      case 'character': {
+        scale = ease.outBack(life.in);
+        const body = inner.querySelector('.body');
+        const bob = Math.sin(life.age * 2 * Math.PI * 0.9) * 4;
+        const talking = el.say && life.age > 0.25 && life.age < (el.talkFor ?? 2.2);
+        const mouthOpen = talking && Math.floor(life.age * 9 + Math.sin(life.age * 13)) % 2 === 0;
+        const blink = (life.age + (el.seed || 0) * 0.7) % 3.1 < 0.12;
+        body.style.transform = `translateY(${bob * 0.6}px) scaleX(${el.flip ? -1 : 1})`;
+        body.querySelector('.mouth-open').style.display = mouthOpen ? '' : 'none';
+        body.querySelector('.mouth-closed').style.display = mouthOpen ? 'none' : '';
+        body.querySelector('.eyes-open').style.display = blink ? 'none' : '';
+        body.querySelector('.eyes-closed').style.display = blink ? '' : 'none';
+        const bub = inner.querySelector('.bubble');
+        if (bub) {
+          const bu = clamp01((life.age - 0.3) / 0.25);
+          bub.style.opacity = String(bu);
+          bub.style.transform = `scale(${ease.outBack(bu)})`;
+        }
+        break;
+      }
+      case 'route': {
+        const m = el.mover;
+        scale = ease.outBack(clamp01(life.age / 0.35));
+        const spr = inner.querySelector('.spr');
+        const goingLeft = Math.cos(el._head.ang) < 0;
+        if (m.kind === 'plane') rot = (el._head.ang * 180) / Math.PI + 45;
+        else if (m.kind === 'ship') {
+          spr.style.transform = `scaleX(${goingLeft ? -1 : 1}) translateY(${Math.sin(t * 3.2) * 4}px) rotate(${Math.sin(t * 2.3) * 3}deg)`;
+        } else if (m.kind === 'character') {
+          spr.style.transform = `scaleX(${goingLeft ? -1 : 1}) translateY(${-Math.abs(Math.sin(t * 9)) * 10}px)`;
+        }
+        if (el._head.u >= 1 && m.hideAtEnd) opacity *= clamp01(1 - (life.age - (el.drawDur ?? 0)) / 0.3);
+        break;
+      }
+      case 'measure': {
+        let deg = (el._head.ang * 180) / Math.PI;
+        if (deg > 90) deg -= 180;
+        if (deg < -90) deg += 180;
+        rot = el.labelRotate === false ? 0 : deg;
+        scale = ease.outBack(clamp01((life.age - 0.4) / 0.3));
+        y += el.labelDy ?? -46;
         break;
       }
       default:
@@ -874,9 +1219,16 @@ function updateCaptions(t) {
     const on = t >= c.start && t < c.end;
     c._node.style.display = on ? 'block' : 'none';
     if (on) {
-      const u = clamp01((t - c.start) / 0.09);
-      c._node.style.transform = `scale(${0.92 + 0.08 * u})`;
-      c._node.style.opacity = String(0.4 + 0.6 * u);
+      const C = state.tl.config.captions;
+      const u = ease.outBack(clamp01((t - c.start) / 0.14));
+      c._node.style.transform = `scale(${0.8 + 0.2 * u})`;
+      c._node.style.opacity = String(clamp01(0.3 + u));
+      c.words.forEach((w, i) => {
+        const sp = c._spans[i];
+        const active = C.activeColor && t >= w.start - 0.02 && t < (c.words[i + 1]?.start ?? c.end);
+        sp.classList.toggle('active', !!active);
+        sp.style.setProperty('--active', C.activeColor || '#ffd60a');
+      });
     }
   }
 }
@@ -917,8 +1269,23 @@ function updateFx(t) {
 // ---------------------------------------------------------------- frame
 
 function frame(t) {
-  const cam = state.camera.at(t);
+  const cam = { ...state.camera.at(t) };
+  let dx = 0, dy = 0;
+  for (const el of state.tl.elements) {
+    if (el.type !== 'shake' && el.type !== 'punch') continue;
+    const a = t - el.start;
+    const dur = el.dur ?? (el.type === 'shake' ? 0.45 : 0.35);
+    if (a < 0 || a > dur) continue;
+    const k = 1 - a / dur;
+    if (el.type === 'shake') {
+      const amp = (el.amp ?? 16) * k * k;
+      dx += amp * Math.sin(a * 83);
+      dy += amp * Math.cos(a * 71);
+    } else cam.zoom *= 1 + (el.amount ?? 0.07) * Math.sin(Math.PI * (a / dur));
+  }
   const view = viewFor(cam, state.mode);
+  view.cx += dx;
+  view.cy += dy;
   state.view = view;
   state.proj = makeProjection(view);
   const mix = styleAt(t);

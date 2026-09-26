@@ -38,7 +38,7 @@ export function buildCaptions(scenes, cfg) {
     let cur = [];
     const flush = () => {
       if (!cur.length) return;
-      caps.push({ text: cur.map((w) => w.text).join(' '), start: cur[0].start, end: cur[cur.length - 1].end });
+      caps.push({ text: cur.map((w) => w.text).join(' '), start: cur[0].start, end: cur[cur.length - 1].end, words: cur.map((w) => ({ text: w.text, start: w.start, end: w.end })) });
       cur = [];
     };
     for (const w of s.words) {
@@ -146,6 +146,30 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           break;
         case 'label':
           el.key = el.id || `label|${el.text}|${el.lat}|${el.lon}|${el.style}`;
+          break;
+        case 'route':
+          el.points = raw.points.map(toPt);
+          if (raw.mover && raw.mover.icon) el.mover = { ...raw.mover, src: iconUrl(raw.mover.icon) };
+          if (raw.mover?.kind === 'plane') el.mover = { ...el.mover, src: iconUrl('✈️') };
+          break;
+        case 'measure':
+          el.points = [toPt(raw.from), toPt(raw.to)];
+          break;
+        case 'scatter':
+          el.target = shortKey(await targetKey(raw.target));
+          el.src = iconUrl(raw.icon);
+          break;
+        case 'dim':
+          el.targets = [];
+          for (const t of raw.except || []) el.targets.push(shortKey(await targetKey(t)));
+          break;
+        case 'ghost':
+          el.target = shortKey(await targetKey(raw.target));
+          el.to = toPt(raw.to);
+          break;
+        case 'character':
+          el.key = el.id ? `char|${el.id}` : null;
+          el.seed = elements.length;
           break;
         default:
           break;

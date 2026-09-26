@@ -1,0 +1,791 @@
+{
+  "id": "brazil",
+  "style": "geo",
+  "config": {
+    "captions": {
+      "keywords": {
+        "brazil": "#4ade80",
+        "portugal": "#4ade80",
+        "portuguese": "#4ade80",
+        "spain": "#ffb703",
+        "spanish": "#ffb703",
+        "pope": "#e0e0ff",
+        "columbus": "#ffb703",
+        "cabral": "#4ade80",
+        "tordesillas": "#ff5a5f",
+        "madrid": "#ff5a5f"
+      }
+    }
+  },
+  "meta": {
+    "title": "Why Brazil Speaks Portuguese 🇧🇷🇵🇹 The Line That Split the World 🤯",
+    "description": "Brazil 🇧🇷 is the only country in the Americas that speaks Portuguese, while most of its neighbors speak Spanish 🇪🇸 How did Portugal end up with half of South America? It started in 1492 when Columbus sailed west for Spain ⛵ In 1493 Pope Alexander VI drew a line down the Atlantic: everything west of it for Spain. Portugal protested, and in 1494 the Treaty of Tordesillas moved the line further west 📜 In 1500 Pedro Álvares Cabral's fleet, on its way to India, landed on a coast east of that line, inside Portugal's half. Later, explorers from São Paulo pushed far beyond the line, and in 1750 the Treaty of Madrid let Portugal keep those lands 🗺️ Today around 200 million people in South America speak Portuguese 🤯",
+    "pinnedComment": [
+      "One line on a map decided the language of 200 million people 🤯🇧🇷",
+      "Brazilians: Spanish or Portuguese neighbors, which is easier to understand? 👇",
+      "Which colonial border should we explain next? 🗺️"
+    ],
+    "tags": [
+      "brazil",
+      "portugal",
+      "portuguese",
+      "spain",
+      "treaty of tordesillas",
+      "columbus",
+      "cabral",
+      "pope",
+      "south america",
+      "colonial history",
+      "history",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is Brazil, the only country in the Americas where people speak Portuguese.",
+      "camera": {
+        "fit": [
+          "BRA"
+        ],
+        "pad": 0.9
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": "BRA",
+          "fill": "flag:br",
+          "at": "Brazil",
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "BRAZIL",
+          "style": "map",
+          "lat": -8,
+          "lon": -53,
+          "size": 110,
+          "rotate": -6,
+          "at": "Brazil"
+        },
+        {
+          "type": "flag",
+          "code": "pt",
+          "lat": -2,
+          "lon": -38,
+          "size": 150,
+          "at": "Portuguese"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Brazil is the only Portuguese-speaking country in the Americas.",
+          "url": "https://en.wikipedia.org/wiki/Brazil",
+          "quote": "has the largest Lusophone population in the world and is the only Portuguese-speaking country in the Americas"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Almost all of its neighbors speak Spanish.",
+      "camera": {
+        "fit": [
+          "BRA",
+          "ARG",
+          "CHL",
+          "COL"
+        ],
+        "pad": 0.92
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "ARG",
+              "BOL",
+              "PER",
+              "COL",
+              "VEN",
+              "CHL",
+              "PRY",
+              "URY",
+              "ECU"
+            ]
+          },
+          "fill": "#f4a261",
+          "fillOpacity": 0.85,
+          "at": "neighbors",
+          "hold": 1
+        },
+        {
+          "type": "flag",
+          "code": "es",
+          "lat": -28,
+          "lon": -66,
+          "size": 120,
+          "at": "Spanish"
+        },
+        {
+          "type": "label",
+          "text": "SPANISH",
+          "style": "pill",
+          "bg": "#e76f51",
+          "lat": -12,
+          "lon": -75,
+          "size": 44,
+          "at": "Spanish"
+        },
+        {
+          "type": "label",
+          "text": "PORTUGUESE",
+          "style": "pill",
+          "bg": "#16a34a",
+          "lat": -12,
+          "lon": -50,
+          "size": 44,
+          "at": "Spanish"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The overwhelming majority of South Americans speak Portuguese (Brazil) or Spanish.",
+          "url": "https://en.wikipedia.org/wiki/South_America",
+          "quote": "Given a long history of colonialism, the overwhelming majority of South Americans speak Portuguese or Spanish"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So how did little Portugal end up with half of South America?",
+      "show": [
+        {
+          "type": "question",
+          "lat": -10,
+          "lon": -52,
+          "at": "how"
+        },
+        {
+          "type": "label",
+          "text": "HALF?!",
+          "style": "note",
+          "lat": -32,
+          "lon": -46,
+          "size": 76,
+          "rotate": -8,
+          "at": "half"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Brazil covers roughly half of South America's land area.",
+          "url": "https://en.wikipedia.org/wiki/Brazil",
+          "quote": "roughly half of South America's land area"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "transition": "film",
+      "text": "It all started in 1492, when Christopher Columbus sailed west for Spain.",
+      "camera": {
+        "lat": 27,
+        "lon": -40,
+        "zoom": 1.25
+      },
+      "show": [
+        {
+          "type": "year",
+          "value": "1492",
+          "at": "1492"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              37.2,
+              -6.9
+            ],
+            [
+              28.1,
+              -17.1
+            ],
+            [
+              26.5,
+              -45
+            ],
+            [
+              24.05,
+              -74.47
+            ]
+          ],
+          "color": "#ffb703",
+          "width": 8,
+          "dashed": true,
+          "dash": [
+            2,
+            16
+          ],
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#c1121f",
+            "cross": "saltire"
+          },
+          "at": "sailed",
+          "drawDur": 3.2,
+          "hold": 1
+        },
+        {
+          "type": "character",
+          "preset": "navigator",
+          "name": "Columbus",
+          "screen": [
+            0.26,
+            0.6
+          ],
+          "at": "Columbus"
+        },
+        {
+          "type": "label",
+          "text": "Spain",
+          "style": "serif",
+          "lat": 40.3,
+          "lon": -4,
+          "size": 54,
+          "at": "Spain"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Columbus's first voyage left Palos on 3 August 1492, sponsored by Spain's Catholic Monarchs, stopped in the Canaries and landed in the Bahamas on 12 October 1492.",
+          "url": "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus",
+          "quote": "On the morning of 3 August 1492, the expedition departed from the Port of Palos ... They landed on the morning of 12 October"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "He reached the Caribbean, and suddenly Spain and Portugal were racing to claim new lands.",
+      "show": [
+        {
+          "type": "character",
+          "preset": "king",
+          "name": "Spain",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Spain",
+          "say": "It's ours!",
+          "bubbleSide": "left",
+          "bg": [
+            "#8a5a10",
+            "#2a1a05"
+          ]
+        },
+        {
+          "type": "character",
+          "preset": "king",
+          "outfitColor": "#1f6f43",
+          "name": "Portugal",
+          "flip": true,
+          "screen": [
+            0.66,
+            0.6
+          ],
+          "at": "Portugal",
+          "say": "No, ours!",
+          "bg": [
+            "#1f5a3a",
+            "#07170f"
+          ]
+        },
+        {
+          "type": "icon",
+          "icon": "⚔️",
+          "screen": [
+            0.49,
+            0.47
+          ],
+          "size": 140,
+          "at": "racing"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "After Columbus's voyage, Spain and Portugal disputed claims to newly discovered lands (the papal bull and then the Treaty of Tordesillas).",
+          "url": "https://en.wikipedia.org/wiki/Inter_caetera",
+          "quote": "King John II of Portugal objected to these terms ... Portugal pursued direct negotiations with Spain."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1493, the Pope drew a line down the Atlantic. Everything west of it would belong to Spain.",
+      "camera": {
+        "lat": 8,
+        "lon": -42,
+        "zoom": 1.15
+      },
+      "show": [
+        {
+          "type": "year",
+          "value": "1493",
+          "at": "1493"
+        },
+        {
+          "type": "character",
+          "preset": "pope",
+          "name": "Pope Alexander VI",
+          "screen": [
+            0.27,
+            0.6
+          ],
+          "at": "Pope",
+          "say": "West = Spain!"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              58,
+              -38
+            ],
+            [
+              -50,
+              -38
+            ]
+          ],
+          "rhumb": true,
+          "color": "#ffffff",
+          "width": 7,
+          "dashed": true,
+          "dash": [
+            20,
+            14
+          ],
+          "at": "line",
+          "drawDur": 1.2,
+          "hold": 1
+        },
+        {
+          "type": "arrow",
+          "from": [
+            30,
+            -40
+          ],
+          "to": [
+            30,
+            -62
+          ],
+          "color": "#ffb703",
+          "curve": 0,
+          "at": "west"
+        },
+        {
+          "type": "label",
+          "text": "SPAIN",
+          "style": "pill",
+          "bg": "#e76f51",
+          "lat": 34,
+          "lon": -72,
+          "size": 46,
+          "at": "Spain"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Pope Alexander VI's bull Inter caetera (4 May 1493) gave Spain lands west of a line 100 leagues west of the Azores/Cape Verde islands. (Line drawn at ~38°W, approximate.)",
+          "url": "https://en.wikipedia.org/wiki/Inter_caetera",
+          "quote": "one hundred leagues towards the west and south from any of the islands commonly known as the Azores and Cape Verde"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Portugal protested, and in 1494 both kingdoms signed the Treaty of Tordesillas, moving the line further west.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1494",
+          "at": "1494"
+        },
+        {
+          "type": "stamp",
+          "text": "TORDESILLAS",
+          "size": 86,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "Treaty",
+          "until": "Tordesillas"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              58,
+              -46.6
+            ],
+            [
+              -50,
+              -46.6
+            ]
+          ],
+          "rhumb": true,
+          "color": "#ffd60a",
+          "width": 9,
+          "at": "moving",
+          "drawDur": 1.0,
+          "hold": 2
+        },
+        {
+          "type": "arrow",
+          "from": [
+            -5,
+            -38.5
+          ],
+          "to": [
+            -5,
+            -46
+          ],
+          "color": "#ffd60a",
+          "curve": 0,
+          "at": "moving"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The Treaty of Tordesillas (7 June 1494) set a meridian 370 leagues west of the Cape Verde islands, about 46°37′W.",
+          "url": "https://en.wikipedia.org/wiki/Treaty_of_Tordesillas",
+          "quote": "370 leagues (c. 2,100 km or 1,300 mi) west of the Cape Verde islands ... 46°37′ W"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Land east of the line would be Portuguese, and land west of it Spanish.",
+      "show": [
+        {
+          "type": "label",
+          "text": "PORTUGAL",
+          "style": "pill",
+          "bg": "#16a34a",
+          "lat": 14,
+          "lon": -30,
+          "size": 50,
+          "at": "Portuguese"
+        },
+        {
+          "type": "label",
+          "text": "SPAIN",
+          "style": "pill",
+          "bg": "#e76f51",
+          "lat": 14,
+          "lon": -63,
+          "size": 50,
+          "at": "Spanish"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Lands east of the line to Portugal, west to Castile (Spain).",
+          "url": "https://en.wikipedia.org/wiki/Treaty_of_Tordesillas",
+          "quote": "The lands to the east would belong to Portugal and the lands to the west to Castile"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Then in 1500, Pedro Cabral's fleet, on its way to India, landed on a coast east of the line.",
+      "camera": {
+        "lat": 5,
+        "lon": -28,
+        "zoom": 1.2
+      },
+      "show": [
+        {
+          "type": "year",
+          "value": "1500",
+          "at": "1500"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              38.7,
+              -9.1
+            ],
+            [
+              15.5,
+              -23.5
+            ],
+            [
+              -4,
+              -30
+            ],
+            [
+              -16.45,
+              -39.06
+            ]
+          ],
+          "color": "#4ade80",
+          "width": 8,
+          "dashed": true,
+          "dash": [
+            2,
+            16
+          ],
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#c1121f"
+          },
+          "at": "fleet",
+          "drawDur": 3.0
+        },
+        {
+          "type": "character",
+          "preset": "explorer",
+          "name": "Cabral",
+          "screen": [
+            0.72,
+            0.6
+          ],
+          "flip": true,
+          "at": "Cabral"
+        },
+        {
+          "type": "label",
+          "text": "to India",
+          "style": "note",
+          "lat": 22,
+          "lon": -18,
+          "size": 50,
+          "rotate": -8,
+          "at": "India"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Cabral's fleet, sailing to India, reached Brazil on 22 April 1500; the land lay east of the Tordesillas line.",
+          "url": "https://en.wikipedia.org/wiki/Pedro_%C3%81lvares_Cabral",
+          "quote": "Wednesday 22 April 1500, when the fleet anchored near what Cabral christened the Monte Pascoal ... Cabral ascertained that the new land lay east of the demarcation line"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "It was on Portugal's side, so Portugal claimed it. That land became Brazil.",
+      "camera": {
+        "lat": -12,
+        "lon": -48,
+        "zoom": 1.9
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": "BRA",
+          "fill": "#1f7a3a",
+          "fillOpacity": 0.85,
+          "eastOf": -46.6,
+          "reveal": {
+            "lat": -16.45,
+            "lon": -39.06
+          },
+          "at": "claimed"
+        },
+        {
+          "type": "flag",
+          "code": "pt",
+          "pin": true,
+          "lat": -16.45,
+          "lon": -39.06,
+          "size": 120,
+          "at": "claimed"
+        },
+        {
+          "type": "label",
+          "text": "Brazil",
+          "style": "serif",
+          "lat": -8,
+          "lon": -40,
+          "size": 64,
+          "at": "Brazil"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The territory was within the sphere allotted to Portugal, which claimed it.",
+          "url": "https://en.wikipedia.org/wiki/Pedro_%C3%81lvares_Cabral",
+          "quote": "The territory was thus within the sphere allotted to Portugal."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "But the Portuguese didn't stop at the line. Explorers from São Paulo pushed deep into Spanish land, hunting for gold and slaves.",
+      "show": [
+        {
+          "type": "character",
+          "preset": "soldier",
+          "name": "Bandeirantes",
+          "screen": [
+            0.26,
+            0.6
+          ],
+          "at": "Explorers"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            -23.55,
+            -46.63
+          ],
+          "to": [
+            -15.6,
+            -56.1
+          ],
+          "color": "#1f7a3a",
+          "width": 14,
+          "at": "pushed"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            -23.55,
+            -46.63
+          ],
+          "to": [
+            -16.0,
+            -50.1
+          ],
+          "color": "#1f7a3a",
+          "width": 14,
+          "at": "deep"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            -23.55,
+            -46.63
+          ],
+          "to": [
+            -27,
+            -53
+          ],
+          "color": "#1f7a3a",
+          "width": 14,
+          "at": "Spanish"
+        },
+        {
+          "type": "icon",
+          "icon": "💰",
+          "lat": -15.2,
+          "lon": -57.5,
+          "size": 110,
+          "at": "gold"
+        },
+        {
+          "type": "label",
+          "text": "São Paulo",
+          "dot": true,
+          "lat": -23.55,
+          "lon": -46.63,
+          "dy": 48,
+          "size": 42,
+          "at": "São"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Bandeirantes (slave-hunters and gold-seekers from São Paulo) pushed far beyond the Tordesillas line.",
+          "url": "https://en.wikipedia.org/wiki/Treaty_of_Madrid_(13_January_1750)",
+          "quote": "bandeirantes (slave-hunters and gold-seekers from São Paulo) and other adventurers who had penetrated far beyond the original Tordesillas line"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1750, the Treaty of Madrid let Portugal keep the land it had taken, and the old line was scrapped.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1750",
+          "at": "1750"
+        },
+        {
+          "type": "highlight",
+          "target": "BRA",
+          "fill": "#1f7a3a",
+          "fillOpacity": 0.85,
+          "reveal": {
+            "lat": -23.55,
+            "lon": -46.63
+          },
+          "revealDur": 1.8,
+          "at": "keep"
+        },
+        {
+          "type": "stamp",
+          "text": "TREATY OF MADRID",
+          "size": 70,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "at": "Madrid",
+          "until": "keep"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The 1750 Treaty of Madrid abandoned Tordesillas and let Portugal retain the lands it had occupied, largely defining Brazil's modern borders.",
+          "url": "https://en.wikipedia.org/wiki/Treaty_of_Madrid_(13_January_1750)",
+          "quote": "expressly abandoned the papal bull, Inter caetera, and the treaties of Tordesillas and Zaragoza ... the Portuguese to retain the lands they had occupied at the expense of the Spanish Empire"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "transition": "flash",
+      "text": "That's why Brazil is so huge today, and why around 200 million people there speak Portuguese.",
+      "camera": {
+        "fit": [
+          "BRA"
+        ],
+        "pad": 0.9
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": "BRA",
+          "fill": "flag:br",
+          "at": 0.1
+        },
+        {
+          "type": "stat",
+          "value": "200,000,000",
+          "caption": "Portuguese speakers",
+          "size": 110,
+          "at": "200"
+        },
+        {
+          "type": "punch",
+          "at": "huge"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "About 200 million people in South America (overwhelmingly Brazil) speak Portuguese.",
+          "url": "https://en.wikipedia.org/wiki/Portuguese_language",
+          "quote": "Portuguese is spoken by approximately 200 million people in South America"
+        }
+      ]
+    }
+  ]
+}

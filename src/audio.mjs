@@ -44,21 +44,30 @@ export async function buildNarration(script, cfg, provider, outWav) {
   return { scenes, duration, voice };
 }
 
-export async function mux({ video, narration, music, musicVolume, duration, out, loudness }) {
+export async function mux({ video, narration, sfx, music, musicVolume, duration, out, loudness }) {
   const args = ['-y', '-i', video, '-i', narration];
   let filter;
+  // narration (+ sfx) -> [voice]
+  let voice = '[1:a]aresample=48000,apad[voice];';
+  let next = 2;
+  if (sfx) {
+    args.push('-i', sfx);
+    voice = `[1:a]aresample=48000,apad[n0];[${next}:a]aresample=48000[fx];[n0][fx]amix=inputs=2:duration=first:normalize=0[voice];`;
+    next++;
+  }
   if (music) {
     const m = path.resolve(ROOT, music);
     if (!fs.existsSync(m)) throw new Error('Müzik dosyası yok: ' + m);
     args.push('-stream_loop', '-1', '-i', m);
     const fadeOut = Math.max(0, duration - 1.5).toFixed(2);
     filter =
-      `[1:a]aresample=48000,apad,asplit=2[n1][n2];` +
-      `[2:a]aresample=48000,volume=${musicVolume},afade=t=in:d=0.8,afade=t=out:st=${fadeOut}:d=1.5[m];` +
+      voice +
+      `[voice]asplit=2[n1][n2];` +
+      `[${next}:a]aresample=48000,volume=${musicVolume},afade=t=in:d=0.8,afade=t=out:st=${fadeOut}:d=1.5[m];` +
       `[m][n2]sidechaincompress=threshold=0.04:ratio=5:attack=15:release=350[md];` +
       `[n1][md]amix=inputs=2:duration=first:normalize=0,loudnorm=I=${loudness}:TP=-1.5:LRA=11[a]`;
   } else {
-    filter = `[1:a]aresample=48000,apad,loudnorm=I=${loudness}:TP=-1.5:LRA=11[a]`;
+    filter = voice + `[voice]loudnorm=I=${loudness}:TP=-1.5:LRA=11[a]`;
   }
   args.push('-filter_complex', filter, '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000',
     '-t', duration.toFixed(3), '-movflags', '+faststart', out);

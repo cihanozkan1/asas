@@ -61,7 +61,11 @@ export async function resolveTargetSpec(t, videoDir) {
   if (t.geojson) {
     const p = path.resolve(videoDir, t.geojson);
     const gj = readJson(p);
-    const feature = gj.type === 'FeatureCollection' ? { type: 'Feature', properties: {}, geometry: { type: 'GeometryCollection', geometries: gj.features.map((f) => f.geometry) } } : gj.type === 'Feature' ? gj : { type: 'Feature', properties: {}, geometry: gj };
+    // Merge polygons into one MultiPolygon so the renderer can index/cull it like a country.
+    const geoms = gj.type === 'FeatureCollection' ? gj.features.map((f) => f.geometry) : [gj.type === 'Feature' ? gj.geometry : gj];
+    const polys = geoms.flatMap((g) => (g.type === 'Polygon' ? [g.coordinates] : g.type === 'MultiPolygon' ? g.coordinates : []));
+    if (!polys.length) throw new Error('GeoJSON içinde poligon yok: ' + t.geojson);
+    const feature = { type: 'Feature', properties: {}, geometry: { type: 'MultiPolygon', coordinates: polys } };
     return { type: 'feature', feature };
   }
   if (t.circle) return { type: 'circle', lat: t.circle.lat, lon: t.circle.lon, km: t.circle.km };

@@ -1,0 +1,842 @@
+{
+  "id": "canada",
+  "style": "geo",
+  "config": {
+    "captions": {
+      "keywords": {
+        "canada": "#ff5a5f",
+        "canadians": "#ff5a5f",
+        "seattle": "#5ec8ff",
+        "toronto": "#ffd60a",
+        "montreal": "#ffd60a",
+        "ottawa": "#ffd60a",
+        "permafrost": "#9be7ff",
+        "nunavut": "#9be7ff",
+        "mexico": "#4ade80"
+      }
+    }
+  },
+  "meta": {
+    "title": "Why Canadians Live Near the US Border 🇨🇦🤯 Toronto Is South of Seattle?!",
+    "description": "Canada is the second biggest country in the world 🇨🇦 but almost nobody lives in most of it. Two out of three Canadians live within 100 km of the US border 🇺🇸, on only about 4% of Canada's land. Even crazier: Toronto, Montreal and Ottawa are all further south than Seattle 🤯 Why? About half of Canada has permafrost ❄️, the Canadian Shield is mostly thin soil and bare rock 🪨, and more than 60% of Canadians live along the Great Lakes and the St. Lawrence River between Windsor and Quebec City. Meanwhile Nunavut, a territory almost as big as Mexico, has fewer than 40,000 people.",
+    "pinnedComment": [
+      "Toronto is further south than Seattle 🤯🇨🇦",
+      "Canadians: how far do YOU live from the US border? 👇",
+      "Would you live in Nunavut? ❄️🐻‍❄️"
+    ],
+    "tags": [
+      "canada",
+      "canadians",
+      "us border",
+      "usa",
+      "toronto",
+      "montreal",
+      "ottawa",
+      "seattle",
+      "nunavut",
+      "permafrost",
+      "canadian shield",
+      "great lakes",
+      "population",
+      "geography",
+      "maps",
+      "learn"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "This is Canada, the second biggest country in the world.",
+      "camera": {
+        "fit": [
+          "CAN"
+        ],
+        "pad": 0.92
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": "CAN",
+          "fill": "flag:ca",
+          "at": "Canada",
+          "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "CANADA",
+          "style": "map",
+          "lat": 61,
+          "lon": -104,
+          "size": 104,
+          "rotate": -7,
+          "at": "Canada",
+          "hold": 1
+        },
+        {
+          "type": "badge",
+          "text": "#2",
+          "color": "#e63946",
+          "lat": 55,
+          "lon": -78,
+          "at": "second"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Canada is the second-largest country by total area.",
+          "url": "https://en.wikipedia.org/wiki/Canada",
+          "quote": "the second-largest country by total area"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "But look closer, and you'll see that almost nobody lives in most of it.",
+      "show": [
+        {
+          "type": "scatter",
+          "target": "CAN",
+          "icon": "❄️",
+          "count": 16,
+          "minLat": 58,
+          "size": 64,
+          "at": "nobody"
+        },
+        {
+          "type": "label",
+          "text": "EMPTY?!",
+          "style": "note",
+          "lat": 67,
+          "lon": -118,
+          "size": 70,
+          "rotate": -9,
+          "at": "nobody"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Large areas of Canada are sparsely populated.",
+          "url": "https://en.wikipedia.org/wiki/Canada",
+          "quote": "...in its urban areas and large areas being sparsely populated"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Two out of three Canadians live within 100 kilometers of the US border.",
+      "camera": {
+        "lat": 50.5,
+        "lon": -97,
+        "zoom": 1.55
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": "CAN",
+          "fill": "#d62828",
+          "fillOpacity": 0.35,
+          "at": "Two",
+          "hold": 2
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -123.3
+            ],
+            [
+              49,
+              -95.2
+            ],
+            [
+              48.3,
+              -89.6
+            ],
+            [
+              46.5,
+              -84.5
+            ],
+            [
+              45.3,
+              -82.5
+            ],
+            [
+              43,
+              -82.4
+            ],
+            [
+              42.3,
+              -83
+            ],
+            [
+              41.8,
+              -82.6
+            ],
+            [
+              42.9,
+              -79.1
+            ],
+            [
+              43.6,
+              -79.2
+            ],
+            [
+              44.2,
+              -76.4
+            ],
+            [
+              45,
+              -74.7
+            ],
+            [
+              45,
+              -71.5
+            ],
+            [
+              46.3,
+              -70
+            ],
+            [
+              47.4,
+              -69.2
+            ],
+            [
+              47.1,
+              -67.8
+            ],
+            [
+              45.1,
+              -67.1
+            ]
+          ],
+          "rhumb": true,
+          "color": "#ffd60a",
+          "width": 10,
+          "at": "border",
+          "drawDur": 1.6,
+          "hold": 2
+        },
+        {
+          "type": "scatter",
+          "target": "CAN",
+          "icon": "🏠",
+          "count": 20,
+          "maxLat": 50,
+          "size": 62,
+          "at": "Canadians",
+          "hold": 2
+        },
+        {
+          "type": "stat",
+          "value": "66%",
+          "caption": "within 100 km of the USA",
+          "size": 150,
+          "at": "Two"
+        },
+        {
+          "type": "label",
+          "text": "USA",
+          "style": "map",
+          "lat": 40.5,
+          "lon": -100,
+          "size": 90,
+          "at": "US"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "In 2016, two out of three people (66%) lived within 100 km of the Canada–US border.",
+          "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/170208/dq170208a-eng.htm",
+          "quote": "In 2016, two out of three people (66%) lived within 100 kilometres of the southern Canada–United States border, an area that represents about 4% of Canada's territory."
+        },
+        {
+          "claim": "Same share in 2021.",
+          "url": "https://www.statcan.gc.ca/o1/en/plus/3250-canada-and-united-states-numbers-unique-relationship",
+          "quote": "In 2021, two out of three Canadians (66%) lived within 100 kilometres of the southern Canada-US border."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And that thin strip is only about 4% of the country.",
+      "show": [
+        {
+          "type": "stat",
+          "value": "4%",
+          "caption": "of Canada's land",
+          "size": 170,
+          "at": "4%"
+        },
+        {
+          "type": "punch",
+          "at": "4%"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The 100 km strip is about 4% of Canada's territory.",
+          "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/170208/dq170208a-eng.htm",
+          "quote": "...an area that represents about 4% of Canada's territory."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That border is the longest land border on Earth, at 8,891 kilometers.",
+      "show": [
+        {
+          "type": "label",
+          "text": "8,891 km",
+          "style": "pill",
+          "bg": "#e63946",
+          "lat": 52.2,
+          "lon": -97,
+          "size": 64,
+          "at": "8,891"
+        },
+        {
+          "type": "badge",
+          "text": "#1",
+          "color": "#ffb703",
+          "lat": 47.2,
+          "lon": -110,
+          "at": "longest"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The Canada–US border is 8,891 km long, the longest international border in the world.",
+          "url": "https://en.wikipedia.org/wiki/Canada%E2%80%93United_States_border",
+          "quote": "8,891 km (5,525 mi) ... the longest international border in the world"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Even crazier: Toronto, Montreal and Ottawa are all further south than Seattle.",
+      "camera": {
+        "lat": 45.8,
+        "lon": -98,
+        "zoom": 2.35
+      },
+      "show": [
+        {
+          "type": "dim",
+          "amount": 0.35,
+          "at": 0
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              47.61,
+              -127
+            ],
+            [
+              47.61,
+              -62
+            ]
+          ],
+          "rhumb": true,
+          "color": "#5ec8ff",
+          "width": 7,
+          "dashed": true,
+          "dash": [
+            18,
+            14
+          ],
+          "at": 0.15,
+          "drawDur": 0.9
+        },
+        {
+          "type": "label",
+          "text": "Seattle",
+          "dot": true,
+          "lat": 47.61,
+          "lon": -122.33,
+          "dy": -50,
+          "size": 50,
+          "at": 0.15
+        },
+        {
+          "type": "label",
+          "text": "Toronto",
+          "dot": true,
+          "lat": 43.65,
+          "lon": -79.38,
+          "dy": 55,
+          "size": 48,
+          "color": "#ffd60a",
+          "at": "Toronto",
+          "dx": -30
+        },
+        {
+          "type": "label",
+          "text": "Ottawa",
+          "dot": true,
+          "lat": 45.42,
+          "lon": -75.7,
+          "dx": -95,
+          "dy": -40,
+          "size": 44,
+          "color": "#ffd60a",
+          "at": "Ottawa"
+        },
+        {
+          "type": "label",
+          "text": "Montreal",
+          "dot": true,
+          "lat": 45.5,
+          "lon": -73.57,
+          "dx": 80,
+          "dy": 40,
+          "size": 44,
+          "color": "#ffd60a",
+          "at": "Montreal"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            47.4,
+            -90
+          ],
+          "to": [
+            44.4,
+            -90
+          ],
+          "color": "#ffd60a",
+          "curve": 0,
+          "width": 10,
+          "at": "south"
+        },
+        {
+          "type": "label",
+          "text": "further SOUTH!",
+          "style": "note",
+          "lat": 49.8,
+          "lon": -84,
+          "size": 58,
+          "rotate": -6,
+          "at": "south"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Seattle is at about 47.6°N.",
+          "url": "https://en.wikipedia.org/wiki/Seattle",
+          "quote": "Coordinates: 47°36′N 122°20′W"
+        },
+        {
+          "claim": "Toronto (43.7°N), Montreal (45.5°N) and Ottawa (45.4°N) all lie south of Seattle's latitude.",
+          "url": "https://en.wikipedia.org/wiki/Montreal",
+          "quote": "Montreal: 45°30′32″N 73°33′15″W"
+        },
+        {
+          "claim": "Toronto and Montreal lie well south of Seattle, as does Ottawa.",
+          "url": "https://bigthink.com/strange-maps/canadians-south-seattle-mental-map-surprise/",
+          "title": "Big Think – Most Canadians live south of Seattle"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And Canada's southernmost point, Middle Island in Lake Erie, is even further south than the top of California.",
+      "camera": {
+        "lat": 42.2,
+        "lon": -102,
+        "zoom": 2.0
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "California",
+            "country": "USA"
+          },
+          "fill": "#f4a261",
+          "fillOpacity": 0.8,
+          "at": "California"
+        },
+        {
+          "type": "label",
+          "text": "California",
+          "style": "pill",
+          "bg": "#e76f51",
+          "lat": 37,
+          "lon": -119.5,
+          "size": 44,
+          "at": "California"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              42,
+              -124.4
+            ],
+            [
+              42,
+              -82
+            ]
+          ],
+          "rhumb": true,
+          "color": "#f4a261",
+          "width": 6,
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "at": "California",
+          "drawDur": 0.8
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              41.685,
+              -124.4
+            ],
+            [
+              41.685,
+              -82.68
+            ]
+          ],
+          "rhumb": true,
+          "color": "#ff5a5f",
+          "width": 7,
+          "at": "southernmost",
+          "drawDur": 1.2
+        },
+        {
+          "type": "label",
+          "text": "Middle Island",
+          "dot": true,
+          "lat": 41.685,
+          "lon": -82.684,
+          "dy": 52,
+          "size": 42,
+          "color": "#ff5a5f",
+          "at": "Middle"
+        },
+        {
+          "type": "ring",
+          "lat": 41.685,
+          "lon": -82.684,
+          "r": 46,
+          "at": "Middle"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Middle Island is the southernmost point of land in Canada, at about 41.7°N.",
+          "url": "https://en.wikipedia.org/wiki/Middle_Island_(Lake_Erie)",
+          "quote": "located at 41°41'N, 82°41'W (41.685,-82.684)"
+        },
+        {
+          "claim": "California extends north to 42°N (its border with Oregon).",
+          "url": "https://en.wikipedia.org/wiki/California",
+          "quote": "Latitude: 32°32′ N to 42° N"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why does everyone squeeze into the south?",
+      "camera": {
+        "fit": [
+          "CAN"
+        ],
+        "pad": 0.92
+      },
+      "show": [
+        {
+          "type": "question",
+          "lat": 60,
+          "lon": -100,
+          "at": "why"
+        },
+        {
+          "type": "character",
+          "id": "canuck",
+          "preset": "canadian",
+          "screen": [
+            0.27,
+            0.6
+          ],
+          "at": "everyone",
+          "hold": 1
+        }
+      ],
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "First, the cold. About half of Canada has permafrost, ground that stays frozen year after year.",
+      "show": [
+        {
+          "type": "character",
+          "id": "canuck2",
+          "preset": "canadian",
+          "screen": [
+            0.27,
+            0.6
+          ],
+          "say": "Brrr!",
+          "at": "cold"
+        },
+        {
+          "type": "scatter",
+          "target": "CAN",
+          "icon": "🧊",
+          "count": 18,
+          "minLat": 60,
+          "size": 66,
+          "seed": 3,
+          "at": "permafrost"
+        },
+        {
+          "type": "label",
+          "text": "PERMAFROST",
+          "style": "map",
+          "lat": 73,
+          "lon": -92,
+          "size": 92,
+          "rotate": -5,
+          "color": "#bff3ff",
+          "at": "permafrost"
+        },
+        {
+          "type": "stat",
+          "value": "50%",
+          "caption": "of Canada",
+          "size": 140,
+          "screen": [
+            0.72,
+            0.16
+          ],
+          "at": "half"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Approximately 50% of Canada has permafrost.",
+          "url": "https://geo.ca/communities/permafrost/",
+          "quote": "Approximately 50% of Canada has permafrost beneath the surface, ranging from a few metres thick in the subarctic to several hundred metres thick in the high arctic."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Second, the rock. The Canadian Shield covers huge areas with thin soil and bare stone, which is bad for farming.",
+      "show": [
+        {
+          "type": "scatter",
+          "target": "CAN",
+          "icon": "🪨",
+          "count": 16,
+          "minLat": 47,
+          "maxLat": 60,
+          "size": 66,
+          "seed": 11,
+          "at": "rock"
+        },
+        {
+          "type": "label",
+          "text": "CANADIAN SHIELD",
+          "style": "pill",
+          "bg": "#6b7280",
+          "lat": 55.5,
+          "lon": -85,
+          "size": 50,
+          "at": "Shield"
+        },
+        {
+          "type": "icon",
+          "icon": "🌾",
+          "lat": 52,
+          "lon": -72,
+          "size": 110,
+          "at": "farming"
+        },
+        {
+          "type": "icon",
+          "icon": "❌",
+          "lat": 52,
+          "lon": -72,
+          "size": 150,
+          "at": "bad"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "The Canadian Shield has very thin soil on bedrock with many bare outcrops; its soils are poorly suited to farming.",
+          "url": "https://en.wikipedia.org/wiki/Canadian_Shield",
+          "quote": "The current surface expression of the shield is one of very thin soil lying on top of the bedrock, with many bare outcrops."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Meanwhile, more than 60% of Canadians live along the Great Lakes and the St. Lawrence River, between Windsor and Quebec City.",
+      "camera": {
+        "lat": 44.6,
+        "lon": -77.2,
+        "zoom": 6.2
+      },
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              42.31,
+              -83.03
+            ],
+            [
+              43.65,
+              -79.38
+            ],
+            [
+              44.23,
+              -76.49
+            ],
+            [
+              45.5,
+              -73.57
+            ],
+            [
+              46.81,
+              -71.21
+            ]
+          ],
+          "color": "#39ff14",
+          "width": 12,
+          "at": "Great",
+          "drawDur": 2.2
+        },
+        {
+          "type": "label",
+          "text": "Windsor",
+          "dot": true,
+          "lat": 42.31,
+          "lon": -83.03,
+          "dy": 46,
+          "size": 42,
+          "at": "Windsor"
+        },
+        {
+          "type": "label",
+          "text": "Quebec City",
+          "dot": true,
+          "lat": 46.81,
+          "lon": -71.21,
+          "dy": -46,
+          "size": 42,
+          "at": "Quebec"
+        },
+        {
+          "type": "label",
+          "text": "Toronto",
+          "dot": true,
+          "lat": 43.65,
+          "lon": -79.38,
+          "dy": -46,
+          "size": 40,
+          "at": "Great"
+        },
+        {
+          "type": "label",
+          "text": "Montreal",
+          "dot": true,
+          "lat": 45.5,
+          "lon": -73.57,
+          "dy": 46,
+          "size": 40,
+          "at": "St."
+        },
+        {
+          "type": "stat",
+          "value": "60%+",
+          "caption": "of all Canadians",
+          "size": 150,
+          "at": "60%"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Over 60% of Canadians live along the Great Lakes and St. Lawrence River between Windsor, Ontario, and Quebec City.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Canada",
+          "quote": "over 60 per cent of the population lives along the Great Lakes and St. Lawrence River between Windsor, Ontario, and Quebec City"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And up north, Nunavut is almost as big as Mexico, but fewer than 40,000 people live there.",
+      "camera": {
+        "fit": [
+          {
+            "admin1": "Nunavut",
+            "country": "CAN"
+          }
+        ],
+        "pad": 0.9
+      },
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Nunavut",
+            "country": "CAN"
+          },
+          "neon": "#5ec8ff",
+          "at": "Nunavut"
+        },
+        {
+          "type": "label",
+          "text": "NUNAVUT",
+          "style": "map",
+          "lat": 66,
+          "lon": -97,
+          "size": 86,
+          "at": "Nunavut"
+        },
+        {
+          "type": "ghost",
+          "target": "MEX",
+          "to": {
+            "lat": 65,
+            "lon": -96
+          },
+          "fill": "#4ade80",
+          "at": "Mexico"
+        },
+        {
+          "type": "label",
+          "text": "Mexico",
+          "style": "pill",
+          "bg": "#16a34a",
+          "lat": 60.5,
+          "lon": -80,
+          "size": 44,
+          "at": "Mexico"
+        },
+        {
+          "type": "stat",
+          "value": "36,858",
+          "caption": "people (2021 census)",
+          "size": 130,
+          "at": "fewer"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Nunavut had 36,858 residents in the 2021 census and a land mass almost as large as Mexico.",
+          "url": "https://en.wikipedia.org/wiki/Nunavut",
+          "quote": "36,858 ... a land mass almost as large as Mexico"
+        }
+      ]
+    }
+  ]
+}
