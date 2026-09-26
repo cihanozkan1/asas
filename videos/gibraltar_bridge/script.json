@@ -72,9 +72,9 @@
         }
       ],
       "camera": {
-        "lat": 36.0,
-        "lon": -5.6,
-        "zoom": 20,
+        "lat": 35.98,
+        "lon": -5.55,
+        "zoom": 80,
         "bearing": -3
       },
       "sources": [
@@ -92,8 +92,8 @@
         {
           "type": "label",
           "text": "GIBRALTAR",
-          "lat": 36.2,
-          "lon": -5.4,
+          "lat": 36.35,
+          "lon": -5.5,
           "at": "Gibraltar",
           "style": "map",
           "anim": "slam",
@@ -102,8 +102,8 @@
         {
           "type": "label",
           "text": "ATLANTIC",
-          "lat": 35.9,
-          "lon": -6.3,
+          "lat": 35.85,
+          "lon": -6.35,
           "at": "Atlantic",
           "style": "map",
           "size": 46
@@ -111,8 +111,8 @@
         {
           "type": "label",
           "text": "MEDITERRANEAN",
-          "lat": 36.1,
-          "lon": -4.6,
+          "lat": 36.05,
+          "lon": -4.75,
           "at": "Mediterranean",
           "style": "map",
           "size": 42
@@ -121,7 +121,7 @@
       "camera": {
         "lat": 36.0,
         "lon": -5.5,
-        "zoom": 12
+        "zoom": 36
       },
       "sources": [
         {
@@ -172,8 +172,8 @@
       ],
       "camera": {
         "lat": 36.0,
-        "lon": -5.45,
-        "zoom": 18
+        "lon": -5.4,
+        "zoom": 100
       },
       "sources": [
         {
@@ -221,7 +221,7 @@
       "camera": {
         "lat": 35.95,
         "lon": -5.55,
-        "zoom": 22
+        "zoom": 60
       },
       "sources": [
         {
@@ -244,16 +244,16 @@
           "type": "route",
           "points": [
             [
-              35.95,
-              -6.6
-            ],
-            [
-              35.97,
-              -5.8
+              36.0,
+              -6.1
             ],
             [
               36.0,
-              -5.0
+              -5.6
+            ],
+            [
+              36.02,
+              -5.1
             ]
           ],
           "color": "#5ec8ff",
@@ -266,16 +266,16 @@
           "type": "route",
           "points": [
             [
-              35.88,
-              -4.9
+              35.9,
+              -5.1
             ],
             [
               35.9,
-              -5.7
+              -5.6
             ],
             [
-              35.92,
-              -6.5
+              35.9,
+              -6.1
             ]
           ],
           "color": "#1d4ed8",
@@ -287,8 +287,8 @@
       ],
       "camera": {
         "lat": 35.95,
-        "lon": -5.7,
-        "zoom": 14
+        "lon": -5.6,
+        "zoom": 55
       },
       "sources": [
         {
@@ -305,8 +305,8 @@
         {
           "type": "label",
           "text": "SURFACE IN ➜",
-          "lat": 36.05,
-          "lon": -5.9,
+          "lat": 36.04,
+          "lon": -5.75,
           "at": "Lighter",
           "style": "pill",
           "bg": "#0ea5e9",
@@ -315,8 +315,8 @@
         {
           "type": "label",
           "text": "⬅ DEEP OUT",
-          "lat": 35.85,
-          "lon": -5.4,
+          "lat": 35.86,
+          "lon": -5.45,
           "at": "Mediterranean",
           "style": "pill",
           "bg": "#1e3a8a",
@@ -390,7 +390,7 @@
       "camera": {
         "lat": 35.92,
         "lon": -5.7,
-        "zoom": 16
+        "zoom": 70
       },
       "transition": "flash",
       "sources": [
@@ -414,16 +414,46 @@
         {
           "type": "icon",
           "icon": "🚆",
-          "lat": 35.95,
-          "lon": -5.65,
-          "size": 120,
+          "lat": 35.93,
+          "lon": -5.66,
+          "size": 150,
           "at": "rail"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              36.03,
+              -5.62
+            ],
+            [
+              35.97,
+              -5.65
+            ],
+            [
+              35.87,
+              -5.68
+            ],
+            [
+              35.78,
+              -5.8
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 8,
+          "at": "undersea",
+          "dashed": true,
+          "dash": [
+            16,
+            10
+          ],
+          "drawDur": 0.6
         }
       ],
       "camera": {
         "lat": 35.92,
         "lon": -5.7,
-        "zoom": 16
+        "zoom": 70
       },
       "sources": [
         {
@@ -461,7 +491,7 @@
       "camera": {
         "lat": 36.0,
         "lon": -5.6,
-        "zoom": 12,
+        "zoom": 40,
         "bearing": 3
       },
       "sources": [
