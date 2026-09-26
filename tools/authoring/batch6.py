@@ -34,9 +34,9 @@ save('chimborazo', meta(
           cam=at_(-1.5, -78.8, 6),
           src=[src('Its summit is 6,384.4 km from Earth\'s center.', 'Chimborazo', 'it is 6,384.4 km (3,967.1 mi) from the Earth\'s center')]),
         S("That's about 2.1 kilometers farther out than the top of Everest.", [
-            bars([('Chimborazo', 6384.4, '6,384.4 km', '#ff5a5f', 'ec'), ('Everest', 6382.3, '6,382.3 km', '#ffd60a', 'np')], 'farther', screen=[0.5, 0.3], labelWidth=260),
-            stamp('+2.1 KM', '2.1', size=100)],
-          cam=at_(0, -78.8, 1.6),
+            ping(*CH, "That's", color='#ff5a5f'), dot('Chimborazo', *CH, "That's", dy=-56), cnt('+2.1 km', '2.1', size=170, color='#ff5a5f'),
+            stamp('CLOSEST TO SPACE', 'farther', size=78)],
+          cam=at_(0, -78.8, 2.2),
           src=[src('About 2.1 km farther than Everest\'s summit.', 'Chimborazo', 'it is 6,384.4 km (3,967.1 mi) from the Earth\'s center, 2.1 km (1.3 mi) farther than')]),
     ],
     keywords={'chimborazo': '#ff5a5f', 'everest': '#ffd60a', 'equator': '#ffd60a', 'space': '#2de2e6'},
