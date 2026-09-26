@@ -24,9 +24,18 @@ export function sfxEvents(tl) {
   for (const el of tl.elements) {
     const t = el.start;
     switch (el.type) {
-      case 'highlight': add(t, 'fill', 0.35); break;
-      case 'label': add(t, el.style === 'map' || el.style === 'note' ? 'swish' : 'pop1', 0.45); break;
-      case 'flag': add(t, 'pop2', 0.55); break;
+      case 'highlight':
+        add(t, 'fill', 0.35);
+        for (const m of el.morph || []) add(m.t, 'fill', 0.4);
+        break;
+      case 'label':
+        if (el.anim === 'slam') { add(t, 'swish', 0.5); add(t + 0.3, 'thud', 0.45); }
+        else add(t, el.style === 'map' || el.style === 'note' ? 'swish' : 'pop1', 0.45);
+        break;
+      case 'flag':
+        add(t, 'pop2', 0.55);
+        if (el.moveAt != null) add(el.moveAt, 'swish', 0.45);
+        break;
       case 'icon': add(t, 'pop3', 0.5); break;
       case 'badge': add(t, 'pop1', 0.5); break;
       case 'character':
@@ -47,6 +56,8 @@ export function sfxEvents(tl) {
         if (el.mover?.kind === 'ship') add(t, 'waves', 0.35);
         break;
       case 'ghost': add(t + (el.delay ?? 0.3), 'whoosh', 0.5); break;
+      case 'ping': add(t, 'select', 0.4); break;
+      case 'counter': for (const st of el.steps) add(st.t, 'pop2', 0.55); break;
       case 'shake': add(t, 'boom', 0.9); add(t, 'thud', 0.6); break;
       case 'punch': add(t, 'knock', 0.5); break;
       default: break;

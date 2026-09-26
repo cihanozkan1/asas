@@ -20,6 +20,7 @@ export function makeProjection(view) {
       .rotate([-view.lon, -view.lat])
       .scale(view.k)
       .translate([view.cx, view.cy])
+      .angle(view.angle || 0)
       .clipAngle(90)
       .precision(0.3);
   }
@@ -28,6 +29,7 @@ export function makeProjection(view) {
     .center([0, view.lat])
     .scale(view.k)
     .translate([view.cx, view.cy])
+    .angle(view.angle || 0)
     .precision(0.3);
 }
 
@@ -66,7 +68,7 @@ export class CameraPath {
     const drift = this.opts.drift;
     if (u >= 1) {
       const dt = t - (seg.t0 + seg.dur);
-      return { lat: seg.to.lat, lon: seg.to.lon, zoom: seg.to.zoom * Math.exp(drift * dt) };
+      return { lat: seg.to.lat, lon: seg.to.lon, zoom: seg.to.zoom * Math.exp(drift * dt), bearing: seg.to.bearing ?? 0 };
     }
     const e = ease.inOutCubic(u);
     const interp = geoInterpolate([seg.from.lon, seg.from.lat], [seg.to.lon, seg.to.lat]);
@@ -80,7 +82,8 @@ export class CameraPath {
     } else {
       lz = l0 + (l1 - l0) * e;
     }
-    return { lat, lon, zoom: Math.exp(lz) };
+    const b0 = seg.from.bearing ?? 0, b1 = seg.to.bearing ?? 0;
+    return { lat, lon, zoom: Math.exp(lz), bearing: b0 + (b1 - b0) * e };
   }
 
   at(t) {

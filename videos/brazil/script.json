@@ -50,7 +50,8 @@
         "fit": [
           "BRA"
         ],
-        "pad": 0.9
+        "pad": 0.9,
+        "bearing": -4
       },
       "show": [
         {
@@ -68,7 +69,8 @@
           "lon": -53,
           "size": 110,
           "rotate": -6,
-          "at": "Brazil"
+          "at": "Brazil",
+          "anim": "slam"
         },
         {
           "type": "flag",
@@ -118,7 +120,8 @@
           "fill": "#f4a261",
           "fillOpacity": 0.85,
           "at": "neighbors",
-          "hold": 1
+          "hold": 1,
+          "pattern": "hatch"
         },
         {
           "type": "flag",
@@ -147,6 +150,13 @@
           "lon": -50,
           "size": 44,
           "at": "Spanish"
+        },
+        {
+          "type": "highlight",
+          "target": "BRA",
+          "fill": "#16a34a",
+          "fillOpacity": 0.9,
+          "at": 0.1
         }
       ],
       "sources": [
@@ -155,7 +165,8 @@
           "url": "https://en.wikipedia.org/wiki/South_America",
           "quote": "Given a long history of colonialism, the overwhelming majority of South Americans speak Portuguese or Spanish"
         }
-      ]
+      ],
+      "style": "dark"
     },
     {
       "era": "now",
@@ -175,7 +186,15 @@
           "lon": -46,
           "size": 76,
           "rotate": -8,
-          "at": "half"
+          "at": "half",
+          "typewriter": true
+        },
+        {
+          "type": "highlight",
+          "target": "BRA",
+          "fill": "#16a34a",
+          "fillOpacity": 0.9,
+          "at": 0.05
         }
       ],
       "sources": [
@@ -184,7 +203,8 @@
           "url": "https://en.wikipedia.org/wiki/Brazil",
           "quote": "roughly half of South America's land area"
         }
-      ]
+      ],
+      "style": "dark"
     },
     {
       "era": "history",
@@ -192,7 +212,8 @@
       "text": "It all started in 1492, when Christopher Columbus sailed west for Spain.",
       "camera": {
         "follow": "columbus",
-        "zoom": 2.4
+        "zoom": 3.2,
+        "zoomTo": 1.5
       },
       "show": [
         {
@@ -323,7 +344,7 @@
       ],
       "camera": {
         "follow": "columbus",
-        "zoom": 2.4
+        "zoom": 1.5
       }
     },
     {
@@ -493,6 +514,36 @@
           "lon": -63,
           "size": 50,
           "at": "Spanish"
+        },
+        {
+          "type": "flag",
+          "code": "pt",
+          "screen": [
+            0.5,
+            0.52
+          ],
+          "size": 130,
+          "at": "east",
+          "moveTo": {
+            "lat": 8,
+            "lon": -28
+          },
+          "moveAt": "Portuguese"
+        },
+        {
+          "type": "flag",
+          "code": "es",
+          "screen": [
+            0.5,
+            0.52
+          ],
+          "size": 130,
+          "at": "west",
+          "moveTo": {
+            "lat": 8,
+            "lon": -64
+          },
+          "moveAt": "Spanish"
         }
       ],
       "sources": [
@@ -508,7 +559,8 @@
       "text": "Then in 1500, Pedro Cabral's fleet, on its way to India, landed on a coast east of the line.",
       "camera": {
         "follow": "cabral",
-        "zoom": 2.4
+        "zoom": 2.8,
+        "zoomTo": 1.8
       },
       "show": [
         {

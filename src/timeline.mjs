@@ -86,7 +86,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
   for (let i = 0; i < scenes.length; i++) {
     const sc = scenes[i];
     const src = script.scenes[i];
-    sc.style = preset.styles[sc.era] || 'satellite';
+    sc.style = src.style || preset.styles[sc.era] || 'satellite';
     sc.transition = src.transition || null;
     const sceneDur = sc.end - sc.start;
     // camera
@@ -97,13 +97,13 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         if (list === 'highlights') list = (src.show || []).filter((e) => e.type === 'highlight').map((e) => e.target);
         const keys = [];
         for (const t of list) keys.push(shortKey(await targetKey(t)));
-        sc.camera = { fit: keys, pad: c.pad, zoomMul: c.zoomMul, lat: c.lat, lon: c.lon, dy: c.dy };
+        sc.camera = { fit: keys, pad: c.pad, zoomMul: c.zoomMul, lat: c.lat, lon: c.lon, dy: c.dy, bearing: c.bearing };
       } else if (c.follow) {
         const r = script.scenes.slice(0, i + 1).flatMap((x) => x.show || []).find((e) => e.id === c.follow);
         if (!r) throw new Error(`Sahne ${i + 1}: follow "${c.follow}" rotası yok`);
         const p0 = toPt(r.points[0]);
-        sc.camera = { lat: p0.lat, lon: p0.lon, zoom: c.zoom ?? 3, follow: c.follow };
-      } else sc.camera = { lat: c.lat, lon: c.lon, zoom: c.zoom };
+        sc.camera = { lat: p0.lat, lon: p0.lon, zoom: c.zoom ?? 3, follow: c.follow, zoomTo: c.zoomTo, bearing: c.bearing };
+      } else sc.camera = { lat: c.lat, lon: c.lon, zoom: c.zoom, bearing: c.bearing };
       sc.cameraDuration = c.duration ?? (i === 0 ? cfg.camera.introDuration : Math.min(cfg.camera.duration, Math.max(0.6, sceneDur * 0.8)));
       sc.cameraLead = c.lead ?? (i === 0 ? 0 : cfg.camera.lead);
     } else sc.camera = null;
@@ -122,7 +122,16 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
       delete el.until;
       delete el.hold;
 
+      if (raw.morph) el.morph = raw.morph.map((m) => ({ ...m, t: timeSpec(sc, m.at, sc.start) }));
+      if (raw.moveAt != null || raw.moveTo) el.moveAt = timeSpec(sc, raw.moveAt ?? 0.6, sc.start + 0.6);
+      if (raw.moveTo) el.moveTo = raw.moveTo.screen ? raw.moveTo : { ...toPt(raw.moveTo), dx: raw.moveTo.dx, dy: raw.moveTo.dy };
       switch (el.type) {
+        case 'counter':
+          el.steps = raw.steps.map((st) => ({ value: st.value, t: timeSpec(sc, st.at, sc.start) }));
+          el.start = el.steps[0].t - 0.05;
+          el.end = Math.max(el.end, el.start + 0.5);
+          if (!el.screen) el.screen = [0.5, 0.13];
+          break;
         case 'highlight':
           el.target = shortKey(await targetKey(raw.target));
           if (el.fill?.startsWith('flag:') && !flagExists(el.fill.slice(5))) throw new Error('Bayrak yok: ' + el.fill);

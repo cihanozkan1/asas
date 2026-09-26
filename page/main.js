@@ -271,6 +271,7 @@ function viewFor(cam, mode) {
     k: cam.zoom * state.baseK,
     cx: W / 2,
     cy: H * L.mapCenterY,
+    angle: (cam.bearing || 0) + (state.tl.config.camera.sway || 0) * Math.sin((state.t || 0) * 0.35),
   };
 }
 
@@ -388,6 +389,7 @@ async function init(tl) {
       } else {
         target = { lat: s.camera.lat, lon: s.camera.lon, zoom: s.camera.zoom };
       }
+      target.bearing = s.camera.bearing ?? 0;
     }
     return { start: s.start, end: s.end, target, duration: s.cameraDuration, lead: s.cameraLead };
   });
@@ -511,8 +513,8 @@ function styleAt(t) {
       mix = 1;
     }
   }
-  const sat = (cur === 'satellite' ? mix : 0) + (prev === 'satellite' ? 1 - mix : 0);
-  return { sat, vin: 1 - sat };
+  const w = (name) => (cur === name ? mix : 0) + (prev === name ? 1 - mix : 0);
+  return { sat: w('satellite'), vin: w('vintage'), dark: w('dark') };
 }
 
 // ---------------------------------------------------------------- timing helpers
@@ -574,6 +576,26 @@ function drawVector(t, proj, view, mix) {
     ctx.lineWidth = 1.4;
     ctx.stroke();
     ctx.setLineDash([]);
+  }
+  if (mix.dark > 0.001) {
+    // dark "infographic" basemap
+    ctx.globalAlpha = mix.dark;
+    ctx.fillStyle = '#131417';
+    if (view.mode === 'globe') {
+      ctx.beginPath();
+      path({ type: 'Sphere' });
+      ctx.fill();
+    } else ctx.fillRect(0, 0, W, H);
+    ctx.beginPath();
+    path(land);
+    ctx.fillStyle = '#2a2b2f';
+    ctx.fill();
+    ctx.beginPath();
+    path(borders);
+    ctx.strokeStyle = '#46474d';
+    ctx.lineWidth = 1.3;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
   }
   if (mix.sat > 0.001) {
     ctx.globalAlpha = mix.sat * state.tl.config.satellite.borderAlpha;
@@ -639,6 +661,64 @@ function drawGhost(ctx, path, el, life, t) {
   ctx.restore();
 }
 
+// colour states: el.morph = [{t, fill?, neon?}] (times resolved in Node); blends over 0.45s
+function hexRgb(h) {
+  const m = /^#?([0-9a-f]{6})$/i.exec(h || '');
+  if (!m) return null;
+  const n = parseInt(m[1], 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+function mixColor(a, b, u) {
+  const A = hexRgb(a), B = hexRgb(b);
+  if (!A || !B) return u < 0.5 ? a : b;
+  const c = A.map((v, i) => Math.round(v + (B[i] - v) * u));
+  return '#' + c.map((v) => v.toString(16).padStart(2, '0')).join('');
+}
+function morphState(el, t) {
+  let fill = el.fill, neon = el.neon;
+  for (const m of el.morph || []) {
+    if (t < m.t) break;
+    const u = ease.inOutSine(clamp01((t - m.t) / 0.45));
+    if (m.fill) fill = mixColor(fill, m.fill, u);
+    if (m.neon) neon = mixColor(neon || m.neon, m.neon, u);
+  }
+  return { fill, neon };
+}
+
+// Rounded "blob" look: the shape is dilated with round joins, then rimmed with a glow.
+function drawSoftBlob(ctx, path, fc, el, st, alpha, t) {
+  const R = el.softness ?? 16;
+  const rim = st.neon || el.rim || '#ffb703';
+  const fill = st.fill && !st.fill.startsWith('flag:') ? st.fill : '#d62828';
+  const pulse = 0.85 + 0.15 * Math.sin(t * 4);
+  ctx.save();
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.globalAlpha = alpha;
+  ctx.beginPath();
+  path(fc);
+  ctx.shadowColor = rim;
+  ctx.shadowBlur = 34 * pulse;
+  ctx.strokeStyle = rim;
+  ctx.lineWidth = R * 2 + (el.rimWidth ?? 9) * 2;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+  ctx.globalAlpha = alpha * (el.fillOpacity ?? 0.95);
+  ctx.strokeStyle = fill;
+  ctx.lineWidth = R * 2;
+  ctx.stroke();
+  ctx.fillStyle = fill;
+  ctx.fill();
+  // soft inner shading
+  const b = geoPath(state.proj).bounds(fc);
+  const g = ctx.createRadialGradient((b[0][0] + b[1][0]) / 2, (b[0][1] + b[1][1]) / 2, 10, (b[0][0] + b[1][0]) / 2, (b[0][1] + b[1][1]) / 2, Math.max(b[1][0] - b[0][0], b[1][1] - b[0][1]) * 0.7);
+  g.addColorStop(0, 'rgba(255,255,255,0.10)');
+  g.addColorStop(1, 'rgba(0,0,0,0.22)');
+  ctx.fillStyle = g;
+  ctx.fill();
+  ctx.restore();
+}
+
 function drawHighlight(ctx, path, el, life, mix, t) {
   const idx = state.targetIdx[el.target];
   const feats = state.box && idx.length
@@ -648,8 +728,13 @@ function drawHighlight(ctx, path, el, life, mix, t) {
   const alpha = ease.outCubic(life.in) * life.out * (el.opacity ?? 1);
   if (alpha <= 0) return;
   const fc = { type: 'FeatureCollection', features: feats };
-  const satLook = mix.sat >= 0.5;
-  const neon = el.neon;
+  const satLook = mix.sat + mix.dark >= 0.5;
+  const st = morphState(el, t);
+  const neon = st.neon;
+  if (el.soft) {
+    drawSoftBlob(ctx, path, fc, el, st, alpha, t);
+    return;
+  }
   const strokeColor = neon || (el.stroke ?? (satLook ? '#ffffff' : 'rgba(70,45,20,0.75)'));
   const strokeW = el.strokeWidth ?? (neon ? 4 : satLook ? 3 : 2);
   ctx.save();
@@ -697,10 +782,10 @@ function drawHighlight(ctx, path, el, life, mix, t) {
   ctx.globalAlpha = alpha * (el.fillOpacity ?? (neon && !el.fill ? 0.38 : 0.92));
   ctx.beginPath();
   path(fc);
-  if (neon && !el.fill) {
+  if (neon && !st.fill) {
     ctx.fillStyle = neon;
     ctx.fill();
-  } else if (el.fill && el.fill.startsWith('flag:')) {
+  } else if (st.fill && st.fill.startsWith('flag:')) {
     ctx.clip();
     const img = state.flagCanvas[flagUrl(el.fill.slice(5))];
     // place the flag over the main landmass so big archipelagos don't wash it out
@@ -713,7 +798,7 @@ function drawHighlight(ctx, path, el, life, mix, t) {
     ctx.fillStyle = 'rgba(0,0,0,0.08)';
     ctx.fillRect(b[0][0], b[0][1], bw, bh);
   } else {
-    ctx.fillStyle = el.fill || '#f07a1a';
+    ctx.fillStyle = st.fill || '#f07a1a';
     ctx.fill();
     if (el.pattern === 'hatch') {
       ctx.clip();
@@ -747,6 +832,58 @@ function drawMarks(t) {
   const ctx = $('marks').getContext('2d');
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, W, H);
+  for (const el of state.tl.elements) {
+    if (el.type !== 'ping') continue;
+    const life = lifeOf(el, t, 0.3, 0.3);
+    const p = life && project(el);
+    if (!p) continue;
+    const color = el.color || '#ff3b3b';
+    ctx.save();
+    ctx.globalAlpha = life.out;
+    for (let k = 0; k < 2; k++) {
+      const ph = (life.age * 0.9 + k * 0.5) % 1;
+      ctx.globalAlpha = life.out * (1 - ph) * 0.9;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.arc(p[0], p[1], 14 + ph * (el.r ?? 70), 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = life.out;
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 24;
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(p[0], p[1], 11 * ease.outBack(clamp01(life.age / 0.3)), 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(p[0], p[1], 7 * ease.outBack(clamp01(life.age / 0.3)), 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+  for (const el of state.tl.elements) {
+    if (el.type !== 'flag' || !el.moveTo || !el._arc) continue;
+    const life = lifeOf(el, t);
+    if (!life) continue;
+    const [a, c, b, u] = el._arc;
+    if (u <= 0.02) continue;
+    ctx.save();
+    ctx.globalAlpha = life.out * 0.9;
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 3.5;
+    ctx.setLineDash([2, 10]);
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    for (let i = 0; i <= 30; i++) {
+      const v = (i / 30) * u;
+      const x = (1 - v) * (1 - v) * a[0] + 2 * v * (1 - v) * c[0] + v * v * b[0];
+      const y = (1 - v) * (1 - v) * a[1] + 2 * v * (1 - v) * c[1] + v * v * b[1];
+      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    }
+    ctx.stroke();
+    ctx.restore();
+  }
   for (const el of state.tl.elements) {
     if (el.type !== 'label' || !el.dot || el.lat == null) continue;
     const life = lifeOf(el, t, 0.3, 0.4);
@@ -1074,6 +1211,9 @@ function buildUi() {
         html = `<div class="inner mover ${m.kind}"><div class="spr">${inner}</div></div>`;
         break;
       }
+      case 'counter':
+        html = `<div class="inner counter" style="font-size:${el.size || 170}px;color:${el.color || '#ffd60a'}"></div>`;
+        break;
       case 'measure':
         html = `<div class="inner label pill" style="font-size:${el.size || 44}px;background:${el.bg || 'rgba(0,0,0,.72)'}">${esc(el.label || '')}</div>`;
         break;
@@ -1193,6 +1333,16 @@ function updateUi(t) {
     }
     const inner = el._inner;
     // update text content first so the measured size matches this frame
+    if (el.type === 'counter') {
+      let v = el.steps[0].value, since = el.start;
+      for (const st of el.steps) if (t >= st.t) { v = st.value; since = st.t; }
+      inner.textContent = String(v);
+      el._since = since;
+    } else if (el.type === 'label' && el.typewriter) {
+      const words = String(el.text).split(' ');
+      const n = Math.max(1, Math.ceil(words.length * clamp01(life.age / (el.typeDur ?? 0.8))));
+      inner.textContent = words.slice(0, n).join(' ');
+    }
     if (el.type === 'year') {
       const txt = String(el.value);
       const n = Math.max(1, Math.round(txt.length * clamp01(life.age / 0.45)));
@@ -1264,6 +1414,7 @@ function updateUi(t) {
         break;
       }
       case 'measure': {
+        if (el.countUp !== false) inner.textContent = countUp(el.label || '', el._head.u);
         let deg = (el._head.ang * 180) / Math.PI;
         if (deg > 90) deg -= 180;
         if (deg < -90) deg += 180;
@@ -1272,8 +1423,34 @@ function updateUi(t) {
         y += el.labelDy ?? -46;
         break;
       }
+      case 'counter':
+        scale = 1 + 0.35 * (1 - ease.outCubic(clamp01((t - el._since) / 0.3)));
+        opacity *= clamp01(life.age / 0.2);
+        break;
       default:
-        scale = ease.outBack(life.in);
+        if (el.anim === 'slam') {
+          // arrives huge and settles into place
+          const u = ease.outCubic(clamp01(life.age / 0.45));
+          scale = 3.2 - 2.2 * u;
+          opacity *= clamp01(life.age / 0.15);
+        } else if (el.anim === 'fade') {
+          scale = 0.96 + 0.04 * ease.outCubic(life.in);
+          opacity *= ease.outCubic(life.in);
+        } else scale = 0.9 * ease.outBack(life.in) + 0.1 * life.in;
+        if (life.out < 1) scale *= 0.9 + 0.1 * life.out;
+    }
+    if (el.type === 'flag' && el.moveTo) {
+      const from = [x, y];
+      const tp = el.moveTo.lat != null ? project(el.moveTo) : [W * el.moveTo.screen[0], H * el.moveTo.screen[1]];
+      if (tp) {
+        const to = [tp[0] + (el.moveTo.dx || 0), tp[1] + (el.moveTo.dy || 0)];
+        const u = ease.inOutCubic(clamp01((t - el.moveAt) / (el.moveDur ?? 0.9)));
+        const c = [(from[0] + to[0]) / 2, Math.min(from[1], to[1]) - Math.abs(to[0] - from[0]) * 0.35 - 60];
+        x = (1 - u) * (1 - u) * from[0] + 2 * u * (1 - u) * c[0] + u * u * to[0];
+        y = (1 - u) * (1 - u) * from[1] + 2 * u * (1 - u) * c[1] + u * u * to[1];
+        el._arc = [from, c, to, u];
+        rot = Math.sin(u * Math.PI) * -10;
+      }
     }
     if (el.type === 'flag' && el.pin) {
       node.style.transform = `translate(${x}px, ${y}px)`;
@@ -1335,6 +1512,10 @@ function updateFx(t) {
       blur = Math.max(blur, 10 * a);
     } else if (tr === 'flash' && d > -0.05 && d < 0.3) {
       html += `<div class="flash" style="opacity:${0.85 * (1 - clamp01((d + 0.05) / 0.35))}"></div>`;
+    } else if (tr === 'wipe' && d > -0.25 && d < 0.35) {
+      const u = clamp01((d + 0.25) / 0.6);
+      const x = -60 + u * (W + 120);
+      html += `<div class="flash" style="opacity:${0.35 * Math.sin(Math.PI * u)}"></div><div style="position:absolute;top:0;bottom:0;left:${x - 14}px;width:28px;background:#fff;box-shadow:0 0 40px 18px rgba(255,255,255,.8)"></div>`;
     } else if (tr === 'fade' && d > -0.3 && d < 0.3) {
       html += `<div class="black" style="opacity:${1 - Math.abs(d) / 0.3}"></div>`;
     }
@@ -1363,6 +1544,11 @@ function frame(t) {
     if (!el || t < el.start) continue;
     const head = routeHeadGeo(el, t);
     const w = ease.inOutCubic(clamp01((t - el.start) / 0.8)) * (t > s.end ? clamp01(1 - (t - s.end) / 0.3) : 1);
+    if (s.camera.zoomTo) {
+      // e.g. start close on the route and pull back while it is drawn
+      const u = routeProgress(el, t);
+      cam.zoom = Math.exp(Math.log(s.camera.zoom) + (Math.log(s.camera.zoomTo) - Math.log(s.camera.zoom)) * u);
+    }
     cam.lon += (((head[0] - cam.lon + 540) % 360) - 180) * w;
     cam.lat += (head[1] - cam.lat) * w;
   }

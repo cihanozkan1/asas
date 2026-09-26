@@ -42,7 +42,8 @@
     "duration": 1.3,
     "introDuration": 2.0,
     "lead": 0.15,
-    "drift": 0.025
+    "drift": 0.025,
+    "sway": 1.6
   },
   "captions": {
     "y": 0.655,

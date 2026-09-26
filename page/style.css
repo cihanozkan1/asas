@@ -212,3 +212,9 @@ html, body {
 /* ---------- styled captions ---------- */
 #captions .cap .w { display: inline-block; margin: 0 0.07em; }
 #captions .cap .w.active { color: var(--active) !important; transform: scale(1.12); }
+
+.counter {
+  font-weight: 900; line-height: 1;
+  -webkit-text-stroke: 6px rgba(0,0,0,.55); paint-order: stroke fill;
+  text-shadow: 0 8px 30px rgba(0,0,0,.55);
+}

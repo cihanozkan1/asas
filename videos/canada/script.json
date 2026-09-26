@@ -51,7 +51,8 @@
         "fit": [
           "CAN"
         ],
-        "pad": 0.92
+        "pad": 0.92,
+        "bearing": -5
       },
       "show": [
         {
@@ -70,15 +71,18 @@
           "size": 104,
           "rotate": -7,
           "at": "Canada",
-          "hold": 1
+          "hold": 1,
+          "anim": "slam"
         },
         {
-          "type": "badge",
-          "text": "#2",
-          "color": "#e63946",
-          "lat": 55,
-          "lon": -78,
-          "at": "second"
+          "type": "counter",
+          "steps": [
+            {
+              "at": "second",
+              "value": "#2"
+            }
+          ],
+          "size": 190
         }
       ],
       "sources": [
@@ -110,7 +114,8 @@
           "lon": -118,
           "size": 70,
           "rotate": -9,
-          "at": "nobody"
+          "at": "nobody",
+          "typewriter": true
         }
       ],
       "sources": [
@@ -119,7 +124,8 @@
           "url": "https://en.wikipedia.org/wiki/Canada",
           "quote": "...in its urban areas and large areas being sparsely populated"
         }
-      ]
+      ],
+      "style": "dark"
     },
     {
       "era": "now",
@@ -228,13 +234,6 @@
           "hold": 2
         },
         {
-          "type": "stat",
-          "value": "66%",
-          "caption": "within 100 km of the USA",
-          "size": 150,
-          "at": "Two"
-        },
-        {
           "type": "label",
           "text": "USA",
           "style": "map",
@@ -242,6 +241,40 @@
           "lon": -100,
           "size": 90,
           "at": "US"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "Two",
+              "value": "66%"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "ping",
+          "lat": 49.28,
+          "lon": -123.12,
+          "color": "#ffd60a",
+          "at": "Canadians",
+          "hold": 1
+        },
+        {
+          "type": "ping",
+          "lat": 43.65,
+          "lon": -79.38,
+          "color": "#ffd60a",
+          "at": "within",
+          "hold": 1
+        },
+        {
+          "type": "ping",
+          "lat": 45.5,
+          "lon": -73.57,
+          "color": "#ffd60a",
+          "at": "kilometers",
+          "hold": 1
         }
       ],
       "sources": [
@@ -262,14 +295,29 @@
       "text": "And that thin strip is only about 4% of the country.",
       "show": [
         {
-          "type": "stat",
-          "value": "4%",
-          "caption": "of Canada's land",
-          "size": 170,
-          "at": "4%"
+          "type": "counter",
+          "steps": [
+            {
+              "at": "4%",
+              "value": "4%"
+            }
+          ],
+          "size": 200
         },
         {
           "type": "punch",
+          "at": "4%"
+        },
+        {
+          "type": "label",
+          "text": "of Canada's land",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46,
           "at": "4%"
         }
       ],
@@ -293,15 +341,8 @@
           "lat": 52.2,
           "lon": -97,
           "size": 64,
-          "at": "8,891"
-        },
-        {
-          "type": "badge",
-          "text": "#1",
-          "color": "#ffb703",
-          "lat": 47.2,
-          "lon": -110,
-          "at": "longest"
+          "at": "8,891",
+          "anim": "slam"
         }
       ],
       "sources": [
@@ -316,9 +357,10 @@
       "era": "now",
       "text": "Even crazier: Toronto, Montreal and Ottawa are all further south than Seattle.",
       "camera": {
-        "lat": 45.8,
+        "lat": 45.6,
         "lon": -98,
-        "zoom": 2.35
+        "zoom": 1.95,
+        "bearing": -4
       },
       "show": [
         {
@@ -418,7 +460,8 @@
           "lon": -84,
           "size": 58,
           "rotate": -6,
-          "at": "south"
+          "at": "south",
+          "typewriter": true
         }
       ],
       "sources": [
@@ -569,7 +612,8 @@
           "hold": 1
         }
       ],
-      "noClaim": true
+      "noClaim": true,
+      "style": "dark"
     },
     {
       "era": "now",
@@ -600,23 +644,24 @@
           "type": "label",
           "text": "PERMAFROST",
           "style": "map",
-          "lat": 73,
-          "lon": -92,
+          "lat": 76,
+          "lon": -80,
           "size": 92,
           "rotate": -5,
           "color": "#bff3ff",
-          "at": "permafrost"
+          "at": "permafrost",
+          "anim": "slam"
         },
         {
-          "type": "stat",
-          "value": "50%",
-          "caption": "of Canada",
-          "size": 140,
-          "screen": [
-            0.72,
-            0.16
+          "type": "counter",
+          "steps": [
+            {
+              "at": "half",
+              "value": "50%"
+            }
           ],
-          "at": "half"
+          "size": 170,
+          "color": "#9be7ff"
         }
       ],
       "sources": [
@@ -683,7 +728,8 @@
       "camera": {
         "lat": 44.6,
         "lon": -77.2,
-        "zoom": 6.2
+        "zoom": 6.2,
+        "bearing": -12
       },
       "show": [
         {
@@ -756,11 +802,28 @@
           "at": "St."
         },
         {
-          "type": "stat",
-          "value": "60%+",
-          "caption": "of all Canadians",
-          "size": 150,
-          "at": "60%"
+          "type": "counter",
+          "steps": [
+            {
+              "at": "60%",
+              "value": "60%+"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "ping",
+          "lat": 43.65,
+          "lon": -79.38,
+          "color": "#39ff14",
+          "at": "Great"
+        },
+        {
+          "type": "ping",
+          "lat": 45.5,
+          "lon": -73.57,
+          "color": "#39ff14",
+          "at": "Lawrence"
         }
       ],
       "sources": [
@@ -790,8 +853,11 @@
             "admin1": "Nunavut",
             "country": "CAN"
           },
-          "neon": "#5ec8ff",
-          "at": "Nunavut"
+          "at": "Nunavut",
+          "soft": true,
+          "softness": 10,
+          "fill": "#1e6fb8",
+          "rim": "#9be7ff"
         },
         {
           "type": "label",
@@ -800,7 +866,8 @@
           "lat": 66,
           "lon": -97,
           "size": 86,
-          "at": "Nunavut"
+          "at": "Nunavut",
+          "anim": "slam"
         },
         {
           "type": "ghost",
@@ -823,10 +890,25 @@
           "at": "Mexico"
         },
         {
-          "type": "stat",
-          "value": "36,858",
-          "caption": "people (2021 census)",
-          "size": 130,
+          "type": "counter",
+          "steps": [
+            {
+              "at": "fewer",
+              "value": "36,858"
+            }
+          ],
+          "size": 150
+        },
+        {
+          "type": "label",
+          "text": "people (2021)",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.22
+          ],
+          "size": 44,
           "at": "fewer"
         }
       ],

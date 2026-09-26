@@ -15,6 +15,7 @@ uniform float uLon0;       // radians
 uniform float uLat0;       // radians
 uniform float uMercY0;     // mercator y of lat0
 uniform int uMode;         // 0 globe, 1 flat mercator
+uniform float uAngle;      // post-projection rotation (radians, d3 projection.angle)
 uniform float uAlpha;      // overall opacity of the imagery
 uniform float uAtmo;       // atmosphere glow strength (globe)
 uniform sampler2D uBase;
@@ -62,7 +63,10 @@ vec3 imagery(float lon, float lat) {
 
 void main() {
   vec2 p = vec2(gl_FragCoord.x, uRes.y - gl_FragCoord.y);
-  vec2 q = (p - uCenter) / uK;
+  vec2 d = p - uCenter;
+  float ca = cos(uAngle), sa = sin(uAngle);
+  d = vec2(d.x * ca - d.y * sa, d.x * sa + d.y * ca);
+  vec2 q = d / uK;
   q.y = -q.y;
   if (uMode == 0) {
     float r2 = dot(q, q);
@@ -123,7 +127,7 @@ export class Raster {
     gl.enableVertexAttribArray(loc);
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
     this.u = {};
-    for (const name of ['uRes', 'uCenter', 'uK', 'uLon0', 'uLat0', 'uMercY0', 'uMode', 'uAlpha', 'uAtmo', 'uBase', 'uBaseSize',
+    for (const name of ['uAngle', 'uRes', 'uCenter', 'uK', 'uLon0', 'uLat0', 'uMercY0', 'uMode', 'uAlpha', 'uAtmo', 'uBase', 'uBaseSize',
       'uDetailCount', 'uDetail0', 'uDetail1', 'uDetailBox0', 'uDetailBox1', 'uDetailMix']) {
       this.u[name] = gl.getUniformLocation(prog, name);
     }
@@ -191,6 +195,7 @@ export class Raster {
     const f = width / this.cssWidth;
     gl.uniform2f(u.uCenter, view.cx * f, view.cy * f);
     gl.uniform1f(u.uK, view.k * f);
+    gl.uniform1f(u.uAngle, ((view.angle || 0) * Math.PI) / 180);
     gl.uniform1f(u.uLon0, view.lon * r);
     gl.uniform1f(u.uLat0, view.lat * r);
     gl.uniform1f(u.uMercY0, Math.log(Math.tan(Math.PI / 4 + (view.lat * r) / 2)));
