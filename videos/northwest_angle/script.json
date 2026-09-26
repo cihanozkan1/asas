@@ -172,7 +172,7 @@
       ]
     },
     {
-      "era": "now",
+      "era": "history",
       "text": "So how did this happen? A map mistake from 1783.",
       "show": [
         {
@@ -202,7 +202,7 @@
         "lon": -95,
         "zoom": 7
       },
-      "style": "dark",
+      "style": "vintage",
       "sources": [
         {
           "claim": "It stems from a 1783 mapping mistake.",

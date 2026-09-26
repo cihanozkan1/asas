@@ -518,9 +518,9 @@
         }
       ],
       "camera": {
-        "lat": 22,
+        "lat": -2,
         "lon": 20,
-        "zoom": 1.05,
+        "zoom": 0.8,
         "bearing": -3
       },
       "sources": [

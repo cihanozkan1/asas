@@ -22,7 +22,7 @@ save('northwest_angle', meta(
           src=[src('It can be reached by land only through Canada, or across Lake of the Woods.', 'Northwest_Angle', 'accessible only through Canada or by crossing Lake of the Woods')]),
         S("So how did this happen? A map mistake from 1783.", [
             q(ANGLE[0], ANGLE[1], 'how'), year(1783, '1783'), stamp('MAP MISTAKE', 'mistake', size=84)],
-          cam=at_(48, -95, 7), style='dark',
+          cam=at_(48, -95, 7), style='vintage', era='history',
           src=[src('It stems from a 1783 mapping mistake.', 'Northwest_Angle', "The region's existence stems from a 1783 mapping mistake.")]),
         S("The negotiators of the Treaty of Paris, including Benjamin Franklin, used a map that got the Mississippi River and this lake wrong.", [
             char('franklin', 'Benjamin', name='Benjamin Franklin'), icon('🗺️', 47.8, -92.0, 'map', size=150),

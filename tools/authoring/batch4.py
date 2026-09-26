@@ -151,7 +151,7 @@ save('italy_microstates', meta(
         S("Only three countries on Earth are completely surrounded by just one other country. Italy has two of them.", [
             hl('LSO', 'flag:ls', 'three', fillOpacity=0.9), ping(-29.6, 28.2, 'three', color='#ffd60a'), ping(*SMR, 'two', color='#ffd60a'), ping(*VAT, 'two', color='#ffd60a'),
             cnt_steps([('three', '3')], size=220), dot('Lesotho', -29.6, 28.2, 'three', dy=-50)],
-          cam=at_(22, 20, 1.05, bearing=-3),
+          cam=at_(-2, 20, 0.8, bearing=-3),
           src=[src('Lesotho, San Marino and Vatican City are the only three enclaved sovereign states.', 'Enclave_and_exclave', 'Three such sovereign states exist globally: Lesotho (enclaved by South Africa), San Marino, and Vatican City (both enclaved by Italy).')]),
     ],
     keywords={'italy': '#4ade80', 'marino': '#5ec8ff', 'vatican': '#ffd60a', 'garibaldi': '#ff5a5f', 'papal': '#ffd60a'},
