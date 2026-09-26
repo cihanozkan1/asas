@@ -217,42 +217,36 @@
       "show": [
         {
           "type": "label",
-          "text": "Cimarron County",
+          "text": "Cimarron",
           "lat": 36.75,
           "lon": -102.5,
           "at": "Cimarron",
           "style": "pill",
           "bg": "#111827",
-          "size": 48,
-          "dy": -70,
-          "until": "Texas",
-          "fixed": true
+          "size": 44,
+          "dy": -80
         },
         {
           "type": "label",
-          "text": "Texas County",
+          "text": "Texas",
           "lat": 36.75,
           "lon": -101.5,
           "at": "Texas",
           "style": "pill",
           "bg": "#111827",
-          "size": 48,
-          "dy": -70,
-          "until": "Beaver",
-          "fixed": true
+          "size": 44,
+          "dy": 80
         },
         {
           "type": "label",
-          "text": "Beaver County",
+          "text": "Beaver",
           "lat": 36.75,
           "lon": -100.5,
           "at": "Beaver",
           "style": "pill",
           "bg": "#111827",
-          "size": 48,
-          "dy": -70,
-          "until": "Oklahoma",
-          "fixed": true
+          "size": 44,
+          "dy": -80
         },
         {
           "type": "ping",
@@ -344,18 +338,18 @@
         },
         {
           "type": "label",
-          "text": "36°30′",
-          "lat": 36.9,
-          "lon": -95,
+          "text": "36°30′ LINE",
+          "lat": 37.2,
+          "lon": -97,
           "at": "degrees",
           "style": "pill",
-          "size": 50
+          "size": 58
         }
       ],
       "camera": {
-        "lat": 35.5,
-        "lon": -97,
-        "zoom": 4.5
+        "lat": 36.0,
+        "lon": -99,
+        "zoom": 6.5
       },
       "transition": "film",
       "sources": [

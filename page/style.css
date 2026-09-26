@@ -288,3 +288,9 @@ html, body {
 .vbars .val { font-size: 50px; }
 .vbars .lab { font-size: 40px; }
 .vbars .shape { width: 230px; }
+/* bigger timeline */
+.timeline { height: 230px; }
+.timeline .axis { top: 88px; height: 10px; }
+.timeline .ev .y { font-size: 72px; }
+.timeline .ev .dot { width: 38px; height: 38px; }
+.timeline .ev .t { font-size: 40px; padding: 2px 14px; border-radius: 12px; background: rgba(0,0,0,.6); }

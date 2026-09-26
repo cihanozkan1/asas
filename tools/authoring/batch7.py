@@ -268,21 +268,21 @@ save('new_year', meta(
         S("Every New Year, one place on Earth celebrates first. And one place celebrates last.", [hook('FIRST & *LAST* NEW YEAR', at=0.05, until='first'), q(0, -170, 'last')],
           cam=at_(0, -170, 1.0), no_claim=True),
         S("The first is here: Kiribati's Line Islands, like Kiritimati, in the Pacific.", [
-            ping(*KIR, 'first', color='#ffd60a'), dot('Kiritimati 🇰🇮', *KIR, 'Kiritimati', dy=-56), clock([('Kiritimati', '23:59'), ('Pacific', '00:00')], screen=(0.5, 0.3), size=200, label='UTC+14'), char('party_kid', 'first')],
-          cam=at_(1.87, -157.4, 25),
+            ping(*KIR, 'first', color='#ffd60a'), dot('Kiritimati 🇰🇮', *KIR, 'Kiritimati', dy=-56), clock([('Kiritimati', '23:59'), ('Pacific', '00:00')], screen=(0.5, 0.22), size=180, label='UTC+14'), char('party_kid', 'first')],
+          cam=at_(1.87, -157.4, 70),
           src=[src('The Line Islands (Kiritimati) use UTC+14.', 'UTC+14:00', 'the earliest time zone on Earth, meaning that areas in this zone are the first to see a new day, and therefore the first to enter a New Year')]),
         S("They use UTC plus 14, the earliest time zone on the planet.", [cnt('UTC+14', '14', size=170, color='#ffd60a')],
           src=[src('UTC+14 is the earliest time zone.', 'UTC+14:00', 'the earliest time zone on Earth')]),
         S("It wasn't always like that. At the end of 1994, Kiribati moved its eastern islands across the date line.", [
-            year(1994, '1994', light=True), route([(20, 180), (-20, 180)], 'line', rhumb=True, color='#9ca3af', width=5, dashed=True, dash=[10, 10]), route([(10, 180), (5, -155), (-5, -150), (-10, 180)], 'across', color='#ffd60a', width=7, drawDur=1.6)],
+            year(1994, '1994', light=True), route([(20, 180), (-20, 180)], 'line', rhumb=True, color='#9ca3af', width=6, dashed=True, dash=[14, 10]), arrow((1.9, -150), (1.9, 172), 'across', color='#ffd60a'), dot('Kiribati', 1.87, -157.4, 'Kiribati', dy=-56)],
           cam=at_(0, -170, 1.4), tr='film',
           src=[src('Kiribati changed the date for its eastern half on 31 December 1994.', 'UTC+14:00', 'introduced a change of date for its eastern half on 31 December 1994, from time zones UTC−11:00 and UTC−10:00 to UTC+13:00 and UTC+14:00')]),
         S("So in the year 2000, Kiritimati became the first place to start the new millennium.", [year(2000, '2000', light=True), icon('🎆', 3, -157, 'millennium', size=140), stamp('FIRST!', 'first', size=100)],
-          cam=at_(1.87, -157.4, 22),
+          cam=at_(1.87, -157.4, 65),
           src=[src('Kiritimati started the year 2000 before any other country.', 'UTC+14:00', 'started the year 2000 on its territory before any other country on Earth')]),
         S("And the last place? Baker Island and Howland Island, in UTC minus 12. Nobody lives there, they're US nature reserves.", [
-            ping(*BAK, 'Baker', color='#ff5a5f'), dot('Baker Is. 🇺🇸', *BAK, 'Baker', dy=-56), clock([('last', '23:59'), ('nature', '00:00')], screen=(0.5, 0.3), size=200, label='UTC−12', night=True)],
-          cam=at_(0.195, -176.48, 500), tr='flash',
+            ping(*BAK, 'Baker', color='#ff5a5f'), dot('Baker Is.', *BAK, 'Baker', dy=60), ping(0.807, -176.617, 'Howland', color='#ff5a5f'), dot('Howland Is.', 0.807, -176.617, 'Howland', dy=-60), clock([('last', '23:59'), ('nature', '00:00')], screen=(0.5, 0.22), size=180, label='UTC−12', night=True)],
+          cam=at_(0.5, -176.55, 30), tr='flash',
           src=[src('Baker and Howland Islands (US nature reserves) use UTC−12, the last to enter the New Year.', 'UTC%E2%88%9212:00', 'comprises the United States Minor Outlying Islands, specifically Baker Island and Howland Island (strict nature reserves belonging to the United States), as standard time')]),
         S("So from the first New Year to the last, the party lasts 26 hours.", [
             bars([('UTC+14', 26, 'first', '#ffd60a'), ('UTC−12', 1, 'last', '#ff5a5f')], 'first', screen=[0.5, 0.3], labelWidth=200), cnt('26 h', '26', size=200)],

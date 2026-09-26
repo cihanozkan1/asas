@@ -183,7 +183,7 @@ save('usa_east_west', meta(
           era='history', tr='film',
           src=[src('Powell noted the rainfall difference in the 1870s.', '100th_meridian_west', 'As first noted by John Wesley Powell in the 1870s, there is a big difference in rainfall by the different sides of the meridian.')]),
         S("To the east, the climate is humid. To the west, it's semi-arid.", [
-            hl(box(-100, 25, -67, 49), '#16a34a', 'east', fillOpacity=0.35), hl(box(-125, 25, -100, 49), '#d97706', 'west', fillOpacity=0.35),
+            hl({'admin1s': ['Minnesota', 'Iowa', 'Missouri', 'Arkansas', 'Louisiana', 'Wisconsin', 'Illinois', 'Michigan', 'Indiana', 'Ohio', 'Kentucky', 'Tennessee', 'Mississippi', 'Alabama', 'Georgia', 'Florida', 'South Carolina', 'North Carolina', 'Virginia', 'West Virginia', 'Pennsylvania', 'New York', 'Vermont', 'New Hampshire', 'Maine', 'Massachusetts', 'Connecticut', 'Rhode Island', 'New Jersey', 'Delaware', 'Maryland'], 'country': 'USA'}, '#16a34a', 'east', fillOpacity=0.45), hl({'admin1s': ['Washington', 'Oregon', 'California', 'Nevada', 'Idaho', 'Montana', 'Wyoming', 'Utah', 'Arizona', 'New Mexico', 'Colorado'], 'country': 'USA'}, '#d97706', 'west', fillOpacity=0.45),
             lab('HUMID', 38, -88, 'east', style='pill', bg='#16a34a', size=48), lab('SEMI-ARID', 38, -112, 'west', style='pill', bg='#d97706', size=48)],
           cam=at_(38, -98, 2.4),
           src=[src('Semi-arid climate to the west; humid climates to the east.', '100th_meridian_west', 'semi-arid climate to the west')]),
@@ -412,11 +412,11 @@ save('wallace_line', meta(
           cam=at_(-4, 116, 2.8), era='history',
           src=[src('Wallace noticed the division in land mammals and birds.', WL, 'Wallace noticed this clear division in both land mammals and birds during his travels through the East Indies in the 19th century.')]),
         S("West of the line, you find Asian animals, like apes, elephants and monkeys.", [
-            hl(box(95, -11, 115.8, 8), '#f4a261', 'West', fillOpacity=0.3), scatter(box(100, -8, 114, 4), '🐒', 'apes', count=6, size=70), scatter(box(100, -7, 113, 3), '🐘', 'elephants', count=4, size=76, seed=5), lab('ASIA', 1, 106, 'Asian', style='pill', bg='#d97706', size=52)],
+            blob({'circle': {'lat': -1, 'lon': 106, 'km': 900}}, '#f59e0b', '#fbbf24', 'West', fillOpacity=0.35), scatter(box(100, -8, 114, 4), '🐒', 'apes', count=6, size=70), scatter(box(100, -7, 113, 3), '🐘', 'elephants', count=4, size=76, seed=5), lab('ASIA', 5, 106, 'Asian', style='pill', bg='#d97706', size=52)],
           cam=at_(-2, 112, 2.6),
           src=[src('West of the line: Asian fauna such as apes, elephants and monkeys.', WL, 'apes, elephants')]),
         S("East of the line, the animals are Australian, like marsupials.", [
-            hl(box(115.8, -11, 141, 8), '#16a34a', 'East', fillOpacity=0.3), scatter(box(118, -9, 138, 0), '🦘', 'marsupials', count=6, size=70), lab('AUSTRALIA', -3, 128, 'Australian', style='pill', bg='#16a34a', size=52)],
+            blob({'circle': {'lat': -5, 'lon': 128, 'km': 1000}}, '#16a34a', '#4ade80', 'East', fillOpacity=0.35), scatter(box(118, -9, 138, 0), '🦘', 'marsupials', count=6, size=70), lab('AUSTRALIA', -3, 128, 'Australian', style='pill', bg='#16a34a', size=52)],
           cam=at_(-4, 124, 2.6),
           src=[src('East of the line: Australasian species such as marsupials.', WL, 'marsupials')]),
         S("Why? Deep water. Even in the Ice Age, when seas dropped 120 meters, the two sides never joined.", [
@@ -424,7 +424,7 @@ save('wallace_line', meta(
           cam=at_(-8.5, 116, 8), tr='flash',
           src=[src('Even when sea level dropped 120 m, the islands never united Asia with Australia.', WL, 'islands became connected, but never uniting Asia with Australia')]),
         S("Bali sits on the Asian shelf, Lombok on the other side. For over 50 million years, deep water kept the two worlds apart.", [
-            hl(box(95, -9, 115.8, 8), '#f4a261', 'Asian', fillOpacity=0.3), hl(box(115.8, -11, 150, 0), '#16a34a', 'other', fillOpacity=0.3),
+            blob({'circle': {'lat': -1, 'lon': 106, 'km': 900}}, '#f59e0b', '#fbbf24', 'Asian', fillOpacity=0.35), blob({'circle': {'lat': -5, 'lon': 128, 'km': 1000}}, '#16a34a', '#4ade80', 'other', fillOpacity=0.35),
             cnt('50,000,000 years', '50', size=120), lab('ASIAN SIDE', -2, 108, 'Asian', style='pill', bg='#d97706', size=48, fixed=True), lab('AUSTRALIAN SIDE', -6, 128, 'other', style='pill', bg='#16a34a', size=48, fixed=True)],
           cam=at_(-5, 118, 2.3),
           src=[src('Deep water between the Sunda and Sahul shelves separated the fauna for over 50 million years.', WL, 'for over 50 million years, deep water between those two large continental shelf areas created a barrier that kept the flora and fauna of Australia separated from those of Asia.')]),

@@ -228,30 +228,66 @@
         {
           "type": "highlight",
           "target": {
-            "box": [
-              -100,
-              25,
-              -67,
-              49
-            ]
+            "admin1s": [
+              "Minnesota",
+              "Iowa",
+              "Missouri",
+              "Arkansas",
+              "Louisiana",
+              "Wisconsin",
+              "Illinois",
+              "Michigan",
+              "Indiana",
+              "Ohio",
+              "Kentucky",
+              "Tennessee",
+              "Mississippi",
+              "Alabama",
+              "Georgia",
+              "Florida",
+              "South Carolina",
+              "North Carolina",
+              "Virginia",
+              "West Virginia",
+              "Pennsylvania",
+              "New York",
+              "Vermont",
+              "New Hampshire",
+              "Maine",
+              "Massachusetts",
+              "Connecticut",
+              "Rhode Island",
+              "New Jersey",
+              "Delaware",
+              "Maryland"
+            ],
+            "country": "USA"
           },
           "fill": "#16a34a",
           "at": "east",
-          "fillOpacity": 0.35
+          "fillOpacity": 0.45
         },
         {
           "type": "highlight",
           "target": {
-            "box": [
-              -125,
-              25,
-              -100,
-              49
-            ]
+            "admin1s": [
+              "Washington",
+              "Oregon",
+              "California",
+              "Nevada",
+              "Idaho",
+              "Montana",
+              "Wyoming",
+              "Utah",
+              "Arizona",
+              "New Mexico",
+              "Colorado"
+            ],
+            "country": "USA"
           },
           "fill": "#d97706",
           "at": "west",
-          "fillOpacity": 0.35
+          "fillOpacity": 0.45
         },
         {
           "type": "label",

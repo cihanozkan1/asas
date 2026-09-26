@@ -201,6 +201,8 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           break;
       }
       if (SCREEN_DEFAULTS[el.type] && el.lat == null && !el.screen) el.screen = SCREEN_DEFAULTS[el.type];
+      // dark serif years are only readable on parchment
+      if (el.type === 'year' && raw.light == null && sc.style !== 'vintage') el.light = true;
       elements.push(el);
     }
   }
@@ -215,11 +217,12 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     let deficit = MIN_ON - (el.end - el.start);
     if (deficit <= 0) continue;
     const sc = scenes[el.scene];
-    const pull = Math.max(0, Math.min(deficit, 0.6, el.start - sc.start - 0.05));
+    const pull = Math.max(0, Math.min(deficit, 1.0, el.start - sc.start - 0.05));
     el.start -= pull;
     if (el.steps) el.start = Math.min(el.start, el.steps[0].t - 0.05);
     deficit -= pull;
-    let end = el.end + deficit;
+    // map-anchored things must not wander far into the next (unrelated) scene
+    let end = SLOT.has(el.type) ? el.end + deficit : Math.min(el.end + deficit, sc.end + 0.8);
     if (SLOT.has(el.type)) {
       const next = elements.filter((o) => o !== el && SLOT.has(o.type) && o.start > el.start + 0.1).map((o) => o.start);
       if (next.length) end = Math.min(end, Math.max(el.end, Math.min(...next) - 0.1));
@@ -230,7 +233,17 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
   // A hook title card shares the top of the screen with counters/years: end it when the first one appears.
   for (const h of elements.filter((e) => e.type === 'title' && e.hook)) {
     const first = elements.filter((e) => ['counter', 'stat', 'year', 'bars', 'vs', 'timeline', 'clock'].includes(e.type) && e.start > h.start && e.start < h.end).sort((a, b) => a.start - b.start)[0];
-    if (first) h.end = Math.max(h.start + 0.6, first.start - 0.05);
+    if (first) {
+      // the hook stays readable for 2 s; cards that would cover it wait until it is gone
+      h.end = Math.max(h.start + 2.0, first.start - 0.05);
+      for (const o of elements) {
+        if (!['counter', 'stat', 'year', 'bars', 'vs', 'timeline', 'clock', 'stamp'].includes(o.type) || o.start >= h.end || o.start <= h.start) continue;
+        const shift = h.end + 0.05 - o.start;
+        o.start += shift;
+        if (o.steps) o.steps = o.steps.map((st) => ({ ...st, t: Math.max(st.t, o.start + 0.05) }));
+        o.end = Math.max(o.end, o.start + 1.5);
+      }
+    }
   }
 
   // Same key in consecutive scenes = one continuous element (no re-animation).

@@ -93,9 +93,9 @@
           "at": "Kiritimati",
           "screen": [
             0.5,
-            0.3
+            0.22
           ],
-          "size": 200,
+          "size": 180,
           "label": "UTC+14"
         },
         {
@@ -111,7 +111,7 @@
       "camera": {
         "lat": 1.87,
         "lon": -157.4,
-        "zoom": 25
+        "zoom": 70
       },
       "sources": [
         {
@@ -168,39 +168,37 @@
             ]
           ],
           "color": "#9ca3af",
-          "width": 5,
+          "width": 6,
           "at": "line",
           "rhumb": true,
           "dashed": true,
           "dash": [
-            10,
+            14,
             10
           ]
         },
         {
-          "type": "route",
-          "points": [
-            [
-              10,
-              180
-            ],
-            [
-              5,
-              -155
-            ],
-            [
-              -5,
-              -150
-            ],
-            [
-              -10,
-              180
-            ]
+          "type": "arrow",
+          "from": [
+            1.9,
+            -150
+          ],
+          "to": [
+            1.9,
+            172
           ],
           "color": "#ffd60a",
-          "width": 7,
-          "at": "across",
-          "drawDur": 1.6
+          "at": "across"
+        },
+        {
+          "type": "label",
+          "text": "Kiribati",
+          "lat": 1.87,
+          "lon": -157.4,
+          "at": "Kiribati",
+          "dot": true,
+          "dy": -56,
+          "size": 44
         }
       ],
       "camera": {
@@ -249,7 +247,7 @@
       "camera": {
         "lat": 1.87,
         "lon": -157.4,
-        "zoom": 22
+        "zoom": 65
       },
       "sources": [
         {
@@ -272,12 +270,29 @@
         },
         {
           "type": "label",
-          "text": "Baker Is. 🇺🇸",
+          "text": "Baker Is.",
           "lat": 0.19,
           "lon": -176.48,
           "at": "Baker",
           "dot": true,
-          "dy": -56,
+          "dy": 60,
+          "size": 44
+        },
+        {
+          "type": "ping",
+          "lat": 0.807,
+          "lon": -176.617,
+          "color": "#ff5a5f",
+          "at": "Howland"
+        },
+        {
+          "type": "label",
+          "text": "Howland Is.",
+          "lat": 0.807,
+          "lon": -176.617,
+          "at": "Howland",
+          "dot": true,
+          "dy": -60,
           "size": 44
         },
         {
@@ -295,17 +310,17 @@
           "at": "last",
           "screen": [
             0.5,
-            0.3
+            0.22
           ],
-          "size": 200,
+          "size": 180,
           "label": "UTC−12",
           "night": true
         }
       ],
       "camera": {
-        "lat": 0.195,
-        "lon": -176.48,
-        "zoom": 500
+        "lat": 0.5,
+        "lon": -176.55,
+        "zoom": 30
       },
       "transition": "flash",
       "sources": [

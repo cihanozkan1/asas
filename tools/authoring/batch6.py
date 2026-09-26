@@ -151,19 +151,19 @@ save('uae_emirates', meta(
     ['uae', 'united arab emirates', 'dubai', 'abu dhabi', 'sharjah', 'emirates', 'federation', 'middle east', 'geography', 'maps', 'learn']),
     [
         S("Dubai, Abu Dhabi, the Emirates. Are they the same thing?", [hook('DUBAI ≠ *COUNTRY*', at=0.05, until='same'), q(24.5, 54.5, 'same')],
-          cam=at_(24.3, 54.5, 7), no_claim=True),
+          cam=at_(24.4, 54.6, 19), no_claim=True),
         S("The United Arab Emirates is a federation of seven emirates.", [
             *[hl({'admin1': n, 'country': 'ARE'}, c, 'seven', fillOpacity=0.95, stagger=0) for n, c in EM], cnt('7', 'seven', size=220)],
-          cam=at_(24.3, 54.5, 7),
+          cam=at_(24.4, 54.6, 19),
           src=[src('The UAE consists of seven emirates.', AE, 'The United Arab Emirates consists of seven emirates')]),
         S("Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah and Fujairah.", [
-            *[lab(lbl, la, lo, w, style='pill', bg='#111827', size=54, dy=-70, until=u, fixed=True) for lbl, la, lo, w, u in [('Abu Dhabi', 23.6, 54.3, 'Abu', 'Dubai'), ('Dubai', 25.07, 55.25, 'Dubai', 'Sharjah'), ('Sharjah', 25.3, 55.55, 'Sharjah', 'Ajman'), ('Ajman', 25.4, 55.5, 'Ajman', 'Umm'), ('Umm Al Quwain', 25.52, 55.65, 'Umm', 'Ras'), ('Ras Al Khaimah', 25.75, 56.0, 'Ras', 'Fujairah'), ('Fujairah', 25.25, 56.3, 'Fujairah', None)]],
+            *[lab(lbl, la, lo, w, style='pill', bg='#111827', size=54, dy=-70, until=u) for lbl, la, lo, w, u in [('Abu Dhabi', 23.6, 54.3, 'Abu', 'Dubai'), ('Dubai', 25.07, 55.25, 'Dubai', 'Sharjah'), ('Sharjah', 25.3, 55.55, 'Sharjah', 'Ajman'), ('Ajman', 25.4, 55.5, 'Ajman', 'Umm'), ('Umm Al Quwain', 25.52, 55.65, 'Umm', 'Ras'), ('Ras Al Khaimah', 25.75, 56.0, 'Ras', 'Fujairah'), ('Fujairah', 25.25, 56.3, 'Fujairah', None)]],
             *[ping(la, lo, w, color='#ffd60a', until=u) for lbl, la, lo, w, u in [('Abu Dhabi', 23.6, 54.3, 'Abu', 'Dubai'), ('Dubai', 25.07, 55.25, 'Dubai', 'Sharjah'), ('Sharjah', 25.3, 55.55, 'Sharjah', 'Ajman'), ('Ajman', 25.4, 55.5, 'Ajman', 'Umm'), ('Umm Al Quwain', 25.52, 55.65, 'Umm', 'Ras'), ('Ras Al Khaimah', 25.75, 56.0, 'Ras', 'Fujairah'), ('Fujairah', 25.25, 56.3, 'Fujairah', None)]]],
           cam=at_(24.6, 55.0, 22),
           src=[src('The seven emirates.', AE, 'Abu Dhabi, Ajman, Dubai, Fujairah, Ras Al Khaimah, Sharjah, and Umm Al Quwain')]),
         S("They joined together on 2 December 1971. Ras Al Khaimah joined a few months later, in 1972.", [
             cnt_steps([('1971', '1971: 6'), ('1972', '1972: 7')], size=150), flag('ae', 24.2, 54.8, 'joined', size=150)],
-          cam=at_(24.3, 54.5, 7), era='history', tr='film',
+          cam=at_(24.4, 54.6, 19), era='history', tr='film',
           src=[src('Six emirates joined on 2 December 1971; Ras Al Khaimah on 10 February 1972 (table).', AE, '2 December 1971')]),
         S("Abu Dhabi is by far the largest emirate, and its city is the capital of the whole country.", [
             hl({'admin1': 'Abu Dhabi', 'country': 'ARE'}, 'flag:ae', 'largest', neon='#ffd60a'), cnt('67,340 km²', 'largest', size=130), ping(24.47, 54.37, 'capital', color='#ffd60a')],
@@ -177,7 +177,7 @@ save('uae_emirates', meta(
                src('Dubai emirate covers 4,114 km² (table).', AE, '4,114')]),
         S("So Dubai isn't a country. It's one of seven pieces of one.", [
             *[hl({'admin1': n, 'country': 'ARE'}, c, 0.05, fillOpacity=0.95) for n, c in EM], stamp('1 OF 7', 'seven', size=100)],
-          cam=at_(24.3, 54.5, 7, bearing=3),
+          cam=at_(24.4, 54.6, 19, bearing=3),
           src=[src('Dubai is one of the seven emirates.', AE, 'The United Arab Emirates consists of seven emirates')]),
     ],
     keywords={'dubai': '#ff5a5f', 'abu': '#ffd60a', 'dhabi': '#ffd60a', 'seven': '#4ade80'},
@@ -202,13 +202,13 @@ save('oklahoma_panhandle', meta(
           cam=at_(36.7, -101.5, 11),
           src=[src('The strip is 166 miles long and 34 miles wide.', PH, '166 miles (267 km) long and 34 miles (55 km) wide')]),
         S("It has three counties, Cimarron, Texas and Beaver, and Oklahoma's highest point, Black Mesa.", [
-            *[lab(n + ' County', 36.75, lo, n, style='pill', bg='#111827', size=48, dy=-70, until=u, fixed=True) for n, lo, u in [('Cimarron', -102.5, 'Texas'), ('Texas', -101.5, 'Beaver'), ('Beaver', -100.5, 'Oklahoma')]], *[ping(36.75, lo, n, color='#ffd60a') for n, lo in [('Cimarron', -102.5), ('Texas', -101.5), ('Beaver', -100.5)]], icon('⛰️', 36.93, -102.95, 'Mesa', size=110), lab('Black Mesa', 36.93, -102.95, 'Mesa', style='pill', bg='#7c2d12', size=46, dy=-90, fixed=True)],
+            *[lab(n, 36.75, lo, n, style='pill', bg='#111827', size=44, dy=d) for n, lo, d in [('Cimarron', -102.5, -80), ('Texas', -101.5, 80), ('Beaver', -100.5, -80)]], *[ping(36.75, lo, n, color='#ffd60a') for n, lo in [('Cimarron', -102.5), ('Texas', -101.5), ('Beaver', -100.5)]], icon('⛰️', 36.93, -102.95, 'Mesa', size=110), lab('Black Mesa', 36.93, -102.95, 'Mesa', style='pill', bg='#7c2d12', size=46, dy=-90, fixed=True)],
           cam=at_(36.7, -101.5, 11),
           src=[src('Its counties are Cimarron, Texas and Beaver.', PH, 'Its constituent counties are, from west to east, Cimarron, Texas and Beaver.'),
                src('Black Mesa, Oklahoma\'s highest point, is in Cimarron County.', PH, 'Black mesa, the highest point in Oklahoma at 4,973 feet (1,516 m), is located in Cimarron County.')]),
         S("The answer is slavery. The Missouri Compromise banned slavery north of a line: 36 degrees 30 minutes.", [
-            route([(36.5, -104), (36.5, -89)], 'line', rhumb=True, color='#ffd60a', width=7, dashed=True, dash=[16, 10], drawDur=1.2, hold=2), lab('36°30′', 36.9, -95, 'degrees', style='pill', size=50)],
-          cam=at_(35.5, -97, 4.5), era='history', tr='film',
+            route([(36.5, -104), (36.5, -89)], 'line', rhumb=True, color='#ffd60a', width=7, dashed=True, dash=[16, 10], drawDur=1.2, hold=2), lab('36°30′ LINE', 37.2, -97, 'degrees', style='pill', size=58)],
+          cam=at_(36.0, -99, 6.5), era='history', tr='film',
           src=[src('The Missouri Compromise prohibited slavery north of 36°30′.', PH, 'based on the Missouri Compromise, prohibited slavery north of 36°30′ north latitude')]),
         S("When Texas joined the US in 1845, it was a slave state. But it also claimed land north of that line.", [
             year(1845, '1845'), hl({'admin1': 'Texas', 'country': 'USA'}, '#b3202a', 'Texas', fillOpacity=0.75), hl(box(-103, 36.5, -100, 37), '#b3202a', 'north', fillOpacity=0.75)],

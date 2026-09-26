@@ -51,9 +51,9 @@
         }
       ],
       "camera": {
-        "lat": 24.3,
-        "lon": 54.5,
-        "zoom": 7
+        "lat": 24.4,
+        "lon": 54.6,
+        "zoom": 19
       },
       "noClaim": true
     },
@@ -150,9 +150,9 @@
         }
       ],
       "camera": {
-        "lat": 24.3,
-        "lon": 54.5,
-        "zoom": 7
+        "lat": 24.4,
+        "lon": 54.6,
+        "zoom": 19
       },
       "sources": [
         {
@@ -176,8 +176,7 @@
           "bg": "#111827",
           "size": 54,
           "dy": -70,
-          "until": "Dubai",
-          "fixed": true
+          "until": "Dubai"
         },
         {
           "type": "label",
@@ -189,8 +188,7 @@
           "bg": "#111827",
           "size": 54,
           "dy": -70,
-          "until": "Sharjah",
-          "fixed": true
+          "until": "Sharjah"
         },
         {
           "type": "label",
@@ -202,8 +200,7 @@
           "bg": "#111827",
           "size": 54,
           "dy": -70,
-          "until": "Ajman",
-          "fixed": true
+          "until": "Ajman"
         },
         {
           "type": "label",
@@ -215,8 +212,7 @@
           "bg": "#111827",
           "size": 54,
           "dy": -70,
-          "until": "Umm",
-          "fixed": true
+          "until": "Umm"
         },
         {
           "type": "label",
@@ -228,8 +224,7 @@
           "bg": "#111827",
           "size": 54,
           "dy": -70,
-          "until": "Ras",
-          "fixed": true
+          "until": "Ras"
         },
         {
           "type": "label",
@@ -241,8 +236,7 @@
           "bg": "#111827",
           "size": 54,
           "dy": -70,
-          "until": "Fujairah",
-          "fixed": true
+          "until": "Fujairah"
         },
         {
           "type": "label",
@@ -254,8 +248,7 @@
           "bg": "#111827",
           "size": 54,
           "dy": -70,
-          "until": null,
-          "fixed": true
+          "until": null
         },
         {
           "type": "ping",
@@ -355,9 +348,9 @@
         }
       ],
       "camera": {
-        "lat": 24.3,
-        "lon": 54.5,
-        "zoom": 7
+        "lat": 24.4,
+        "lon": 54.6,
+        "zoom": 19
       },
       "transition": "film",
       "sources": [
@@ -562,9 +555,9 @@
         }
       ],
       "camera": {
-        "lat": 24.3,
-        "lon": 54.5,
-        "zoom": 7,
+        "lat": 24.4,
+        "lon": 54.6,
+        "zoom": 19,
         "bearing": 3
       },
       "sources": [

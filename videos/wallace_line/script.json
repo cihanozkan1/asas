@@ -225,16 +225,17 @@
         {
           "type": "highlight",
           "target": {
-            "box": [
-              95,
-              -11,
-              115.8,
-              8
-            ]
+            "circle": {
+              "lat": -1,
+              "lon": 106,
+              "km": 900
+            }
           },
-          "fill": "#f4a261",
+          "fill": "#f59e0b",
           "at": "West",
-          "fillOpacity": 0.3
+          "soft": true,
+          "rim": "#fbbf24",
+          "fillOpacity": 0.35
         },
         {
           "type": "scatter",
@@ -270,7 +271,7 @@
         {
           "type": "label",
           "text": "ASIA",
-          "lat": 1,
+          "lat": 5,
           "lon": 106,
           "at": "Asian",
           "style": "pill",
@@ -298,16 +299,17 @@
         {
           "type": "highlight",
           "target": {
-            "box": [
-              115.8,
-              -11,
-              141,
-              8
-            ]
+            "circle": {
+              "lat": -5,
+              "lon": 128,
+              "km": 1000
+            }
           },
           "fill": "#16a34a",
           "at": "East",
-          "fillOpacity": 0.3
+          "soft": true,
+          "rim": "#4ade80",
+          "fillOpacity": 0.35
         },
         {
           "type": "scatter",
@@ -406,30 +408,32 @@
         {
           "type": "highlight",
           "target": {
-            "box": [
-              95,
-              -9,
-              115.8,
-              8
-            ]
+            "circle": {
+              "lat": -1,
+              "lon": 106,
+              "km": 900
+            }
           },
-          "fill": "#f4a261",
+          "fill": "#f59e0b",
           "at": "Asian",
-          "fillOpacity": 0.3
+          "soft": true,
+          "rim": "#fbbf24",
+          "fillOpacity": 0.35
         },
         {
           "type": "highlight",
           "target": {
-            "box": [
-              115.8,
-              -11,
-              150,
-              0
-            ]
+            "circle": {
+              "lat": -5,
+              "lon": 128,
+              "km": 1000
+            }
           },
           "fill": "#16a34a",
           "at": "other",
-          "fillOpacity": 0.3
+          "soft": true,
+          "rim": "#4ade80",
+          "fillOpacity": 0.35
         },
         {
           "type": "counter",
