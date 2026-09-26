@@ -807,22 +807,24 @@ function updateUi(t) {
       y = H * 0.2;
     }
     const inner = el._inner;
+    // update text content first so the measured size matches this frame
+    if (el.type === 'year') {
+      const txt = String(el.value);
+      const n = Math.max(1, Math.round(txt.length * clamp01(life.age / 0.45)));
+      inner.textContent = el.typewriter === false ? txt : txt.slice(0, n);
+    } else if (el.type === 'stat') {
+      inner.querySelector('.v').textContent = countUp(el.value, clamp01(life.age / 0.9));
+    }
     const w = inner.offsetWidth, h = inner.offsetHeight;
     if (el.type !== 'flag' || !el.pin) [x, y] = clampToSafe(x, y, w, h);
     let scale = 1;
     let opacity = life.out;
     let rot = el.rotate || 0;
     switch (el.type) {
-      case 'year': {
-        const txt = String(el.value);
-        const n = Math.max(1, Math.round(txt.length * clamp01(life.age / 0.45)));
-        inner.textContent = el.typewriter === false ? txt : txt.slice(0, n);
+      case 'year':
         opacity *= clamp01(life.age / 0.15);
         break;
-      }
       case 'stat': {
-        const v = inner.querySelector('.v');
-        v.textContent = countUp(el.value, clamp01(life.age / 0.9));
         scale = 0.6 + 0.4 * ease.outBack(life.in);
         break;
       }
