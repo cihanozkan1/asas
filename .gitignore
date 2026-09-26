@@ -1,0 +1,8 @@
+node_modules/
+output/
+cache/
+page/dist/
+assets/earth/*.jpg
+assets/tiles/
+data/cache/
+*.log
