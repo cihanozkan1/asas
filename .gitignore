@@ -6,3 +6,4 @@ assets/earth/*.jpg
 assets/tiles/
 data/cache/
 *.log
+pilot/
