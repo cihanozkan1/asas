@@ -83,10 +83,14 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
   }));
 
   const elements = [];
+  let lastZoom = 0;
   for (let i = 0; i < scenes.length; i++) {
     const sc = scenes[i];
     const src = script.scenes[i];
     sc.style = src.style || script.styles?.[sc.era] || preset.styles[sc.era] || 'satellite';
+    // flat palettes only have 1:10M vector data: very close shots switch to satellite imagery
+    if (src.camera) lastZoom = src.camera.fit || src.camera.follow ? 0 : src.camera.zoom ?? 0;
+    if (!src.style && lastZoom >= 60 && cfg.palettes?.[sc.style]) sc.style = 'satellite';
     sc.transition = src.transition || null;
     const sceneDur = sc.end - sc.start;
     // camera
@@ -116,6 +120,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
       else if (typeof raw.hold === 'number') end = scenes[Math.min(scenes.length - 1, i + raw.hold)].end;
       else end = sc.end;
       if (raw.until != null) end = typeof raw.until === 'string' ? wordTime(sc, raw.until, 'end') + 0.1 : sc.start + raw.until;
+      if (raw.until != null) el._until = true;
       el.end = Math.max(el.start + 0.3, end);
       el.scene = i;
       delete el.at;
@@ -198,6 +203,28 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
       if (SCREEN_DEFAULTS[el.type] && el.lat == null && !el.screen) el.screen = SCREEN_DEFAULTS[el.type];
       elements.push(el);
     }
+  }
+
+  // Minimum screen time: nothing should flash by. Start up to 0.6 s earlier, then run into the
+  // next scene; top-of-screen cards stop before the next card takes their place.
+  const MIN_ON = cfg.video.minOnScreen ?? 2.4;
+  const SLOT = new Set(['counter', 'stat', 'year', 'stamp', 'title', 'bars', 'vs', 'timeline', 'clock']);
+  const INSTANT = new Set(['shake', 'punch', 'tilt', 'dim']);
+  for (const el of elements) {
+    if (INSTANT.has(el.type) || el._until) continue;
+    let deficit = MIN_ON - (el.end - el.start);
+    if (deficit <= 0) continue;
+    const sc = scenes[el.scene];
+    const pull = Math.max(0, Math.min(deficit, 0.6, el.start - sc.start - 0.05));
+    el.start -= pull;
+    if (el.steps) el.start = Math.min(el.start, el.steps[0].t - 0.05);
+    deficit -= pull;
+    let end = el.end + deficit;
+    if (SLOT.has(el.type)) {
+      const next = elements.filter((o) => o !== el && SLOT.has(o.type) && o.start > el.start + 0.1).map((o) => o.start);
+      if (next.length) end = Math.min(end, Math.max(el.end, Math.min(...next) - 0.1));
+    }
+    el.end = Math.min(Math.max(el.end, end), narration.duration);
   }
 
   // A hook title card shares the top of the screen with counters/years: end it when the first one appears.

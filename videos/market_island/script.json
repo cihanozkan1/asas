@@ -88,8 +88,8 @@
             "label": "Sweden"
           },
           "right": {
-            "flag": "ax",
-            "label": "Åland, Finland"
+            "flag": "fi",
+            "label": "Finland"
           },
           "at": "split",
           "screen": [
@@ -144,7 +144,7 @@
           "target": {
             "geojson": "finland_old.geojson"
           },
-          "fill": "flag:ax",
+          "fill": "flag:fi",
           "at": "Finland",
           "fillOpacity": 0.9
         },
@@ -185,6 +185,7 @@
         "lon": 19.1318,
         "zoom": 14500
       },
+      "style": "vintage",
       "transition": "film",
       "sources": [
         {
@@ -235,7 +236,7 @@
           "target": {
             "geojson": "finland_old.geojson"
           },
-          "fill": "flag:ax",
+          "fill": "flag:fi",
           "at": 0.05,
           "fillOpacity": 0.9
         },
@@ -268,6 +269,7 @@
         "lon": 19.1318,
         "zoom": 14500
       },
+      "style": "atlas",
       "transition": "flash",
       "sources": [
         {
@@ -295,7 +297,7 @@
           "target": {
             "geojson": "finland_new.geojson"
           },
-          "fill": "flag:ax",
+          "fill": "flag:fi",
           "at": "zigzags",
           "fillOpacity": 0.9
         },
@@ -368,6 +370,7 @@
         "zoom": 14500,
         "bearing": -3
       },
+      "style": "atlas",
       "sources": [
         {
           "claim": "The adjusted border takes the form of an inverted S.",
@@ -394,7 +397,7 @@
           "target": {
             "geojson": "finland_new.geojson"
           },
-          "fill": "flag:ax",
+          "fill": "flag:fi",
           "at": 0.05,
           "fillOpacity": 0.9
         },
@@ -447,7 +450,7 @@
             "label": "Sweden"
           },
           "right": {
-            "flag": "ax",
+            "flag": "fi",
             "label": "Finland"
           },
           "at": "same",
@@ -476,6 +479,7 @@
         "lon": 19.1318,
         "zoom": 14500
       },
+      "style": "atlas",
       "sources": [
         {
           "claim": "No net transfer of territory occurred.",
@@ -502,7 +506,7 @@
           "target": {
             "geojson": "finland_new.geojson"
           },
-          "fill": "flag:ax",
+          "fill": "flag:fi",
           "at": 0.05,
           "fillOpacity": 0.9
         },
@@ -613,6 +617,7 @@
         "zoom": 13500,
         "bearing": 3
       },
+      "style": "atlas",
       "sources": [
         {
           "claim": "The border is marked by drilled holes.",

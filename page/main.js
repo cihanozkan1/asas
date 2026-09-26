@@ -463,6 +463,21 @@ async function init(tl) {
     ['600 40px Montserrat', '700 40px Montserrat', '800 40px Montserrat', '900 40px Montserrat',
       '400 40px "Playfair Display"', '700 40px "Playfair Display"', '400 40px "Permanent Marker"'].map((f) => document.fonts.load(f)),
   );
+  // layout pre-pass: for each group of elements appearing together, solve overlaps once
+  state.layoutOnly = true;
+  const groups = new Map();
+  for (const el of tl.elements) {
+    if (!el._node || !isMovable(el)) continue;
+    const k = Math.round(el.start * 20) / 20;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(el);
+  }
+  for (const [k, els] of [...groups].sort((a, b) => a[0] - b[0])) {
+    state.layoutFor = new Set(els);
+    frame(Math.max(k + 0.02, Math.min(k + 0.5, Math.min(...els.map((e) => e.end)) - 0.05)));
+  }
+  state.layoutFor = null;
+  state.layoutOnly = false;
   return { ok: true, maxTexture: state.raster.maxTex, renderer: state.raster.renderer, rasterScale: $('raster').width / W };
 }
 
@@ -1716,7 +1731,18 @@ function updateUi(t) {
     }
     placed.push({ el, node, inner, x, y, w, h, scale, rot, opacity });
   }
-  resolveOverlaps(placed);
+  // Overlap offsets are solved once per element when it appears (init pre-pass) and then kept,
+  // so labels never slide around while they are on screen.
+  for (const p of placed) if (p.el._off) { p.x += p.el._off[0]; p.y += p.el._off[1]; }
+  if (state.layoutFor) {
+    const raw = new Map(placed.map((p) => [p.el, [p.x, p.y]]));
+    resolveOverlaps(placed, (el) => state.layoutFor.has(el));
+    for (const p of placed) {
+      if (!state.layoutFor.has(p.el)) continue;
+      const r = raw.get(p.el);
+      p.el._off = [p.x - r[0], p.y - r[1]];
+    }
+  }
   for (const p of placed) {
     const { el, node, inner, scale, rot, opacity } = p;
     if (el.type === 'flag' && el.pin) {
@@ -1735,7 +1761,8 @@ function updateUi(t) {
 // characters) and the caption band are fixed obstacles; map labels/flags/icons move.
 // Displacement is recomputed from the anchors every frame, so it follows the camera smoothly.
 const MOVABLE = new Set(['label', 'flag', 'icon', 'badge', 'question', 'measure', 'year', 'stamp']);
-function resolveOverlaps(items) {
+const isMovable = (el) => MOVABLE.has(el.type) && (!el.screen || ['label', 'year', 'stamp'].includes(el.type)) && !el.fixed;
+function resolveOverlaps(items, canMove = isMovable) {
   const C = state.tl.config.captions;
   const boxes = items
     .filter((p) => p.opacity > 0.02 && !(p.el.type === 'flag' && p.el.pin) && p.el.type !== 'route' && p.el.type !== 'scatter')
@@ -1743,7 +1770,7 @@ function resolveOverlaps(items) {
       // axis-aligned box of the (possibly rotated) element
       const k = Math.max(p.scale, 0.6), r = ((p.rot || 0) * Math.PI) / 180;
       const c = Math.abs(Math.cos(r)), sn = Math.abs(Math.sin(r));
-      return { p, movable: MOVABLE.has(p.el.type) && (!p.el.screen || ['label', 'year', 'stamp'].includes(p.el.type)) && !p.el.fixed, w: (p.w * c + p.h * sn) * k, h: (p.w * sn + p.h * c) * k };
+      return { p, movable: canMove(p.el), w: (p.w * c + p.h * sn) * k, h: (p.w * sn + p.h * c) * k };
     });
   const cap = { p: { x: W / 2, y: H * C.y + C.size * 0.6 }, movable: false, w: W * 0.8, h: C.size * 1.5 };
   boxes.push(cap);
@@ -1928,11 +1955,11 @@ function frame(t) {
   const mix = styleAt(t);
   const texelsPerPx = state.raster.base.w / (2 * Math.PI) / view.k;
   const detailMix = clamp01((1.2 - texelsPerPx) / 0.9);
-  state.raster.draw(view, { alpha: mix.sat, atmo: state.mode === 'globe' ? 1 : 0, detailMix: state.raster.details.length ? Math.max(detailMix, 0) : 0 });
+  if (!state.layoutOnly) state.raster.draw(view, { alpha: mix.sat, atmo: state.mode === 'globe' ? 1 : 0, detailMix: state.raster.details.length ? Math.max(detailMix, 0) : 0 });
   $('space').style.display = state.mode === 'globe' ? 'block' : 'none';
   $('paper').style.display = mix.vin > 0.001 ? 'block' : 'none';
   $('paper').style.opacity = String(mix.vin * state.tl.config.vintage.paper);
-  drawVector(t, state.proj, view, mix);
+  if (!state.layoutOnly) drawVector(t, state.proj, view, mix);
   drawMarks(t);
   updateUi(t);
   updateCaptions(t);

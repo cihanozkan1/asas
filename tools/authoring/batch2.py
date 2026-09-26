@@ -232,7 +232,7 @@ save('panama_canal', meta(
           cam=at_(9.1, -79.7, 16),
           src=[src('About 14,702 transits a year; over 815,000 by 2012.', 'Panama_Canal', 'The canal handles approximately 14,702 vessel transits yearly, with over 815,000 ships having passed through by 2012')]),
         S("The United States ran the canal for most of the century, but in 1999, Panama finally took control.", [
-            year(1999, '1999', light=True), hl('PAN', 'flag:us', 'United', morph=[{'at': 'Panama', 'fill': '#d62828'}]), hl('PAN', 'flag:pa', 'control')],
+            year(1999, '1999', light=True), hl({'geojson': 'canal_zone.geojson'}, 'flag:us', 'United', until='Panama'), lab('CANAL ZONE', 9.35, -79.5, 'United', style='pill', bg='#1d4ed8', size=44, until='Panama', fixed=True), hl('PAN', 'flag:pa', 'Panama')],
           cam=at_(8.6, -80.0, 7, bearing=-3),
           src=[src('Panama took control in 1999 under the Torrijos–Carter Treaties.', 'Panama_Canal', 'the Panamanian government took control in 1999 following the Torrijos–Carter Treaties of 1977')]),
     ],

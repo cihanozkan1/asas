@@ -86,6 +86,8 @@ export function autoDetailBoxes(script, cfg, { minZoom = 8, max = 4 } = {}) {
     .slice(0, Math.max(0, max - explicit.length))
     .map((g) => ({
       bbox: g.box.map(r4),
+      // very close shots: small islands/rocks are missing from the land polygons, so keep the raw image
+      mask: g.zoom < 500,
       width: Math.max(1536, Math.min(4096, Math.round((((g.box[2] - g.box[0]) / g.span) * cfg.video.width * 0.75) / 256) * 256)),
     }));
 }

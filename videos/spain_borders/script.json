@@ -68,8 +68,8 @@
       "show": [
         {
           "type": "ping",
-          "lat": 42.46,
-          "lon": 1.98,
+          "lat": 42.464,
+          "lon": 1.975,
           "color": "#ff3b3b",
           "at": "Llívia"
         },
@@ -77,8 +77,8 @@
           "type": "highlight",
           "target": {
             "circle": {
-              "lat": 42.46,
-              "lon": 1.98,
+              "lat": 42.464,
+              "lon": 1.975,
               "km": 3
             }
           },
@@ -96,8 +96,8 @@
         {
           "type": "label",
           "text": "LLÍVIA",
-          "lat": 42.52,
-          "lon": 1.98,
+          "lat": 42.482,
+          "lon": 1.975,
           "at": "Llívia",
           "style": "map",
           "anim": "slam",
@@ -105,9 +105,9 @@
         }
       ],
       "camera": {
-        "lat": 42.45,
-        "lon": 1.95,
-        "zoom": 90
+        "lat": 42.46,
+        "lon": 1.975,
+        "zoom": 1100
       },
       "sources": [
         {
@@ -129,8 +129,8 @@
         {
           "type": "label",
           "text": "TOWN ≠ VILLAGE",
-          "lat": 42.55,
-          "lon": 1.9,
+          "lat": 42.49,
+          "lon": 1.975,
           "at": "town",
           "style": "note",
           "typewriter": true,
@@ -150,10 +150,11 @@
         }
       ],
       "camera": {
-        "lat": 42.45,
-        "lon": 1.95,
-        "zoom": 60
+        "lat": 42.46,
+        "lon": 1.975,
+        "zoom": 1300
       },
+      "style": "satellite",
       "transition": "film",
       "sources": [
         {
@@ -169,16 +170,16 @@
       "show": [
         {
           "type": "ping",
-          "lat": 43.343,
-          "lon": -1.766,
+          "lat": 43.3434,
+          "lon": -1.7658,
           "color": "#ffd60a",
           "at": "Pheasant"
         },
         {
           "type": "label",
           "text": "Pheasant Island",
-          "lat": 43.343,
-          "lon": -1.766,
+          "lat": 43.3434,
+          "lon": -1.7658,
           "at": "Pheasant",
           "dot": true,
           "dy": -56,
@@ -202,9 +203,9 @@
         }
       ],
       "camera": {
-        "lat": 43.34,
-        "lon": -1.77,
-        "zoom": 200,
+        "lat": 43.3434,
+        "lon": -1.7658,
+        "zoom": 6000,
         "bearing": -3
       },
       "transition": "flash",
@@ -289,16 +290,16 @@
       "show": [
         {
           "type": "ping",
-          "lat": 35.17,
-          "lon": -4.3,
+          "lat": 35.1722,
+          "lon": -4.3003,
           "color": "#ff3b3b",
           "at": "Peñón"
         },
         {
           "type": "label",
           "text": "Peñón de Vélez",
-          "lat": 35.17,
-          "lon": -4.3,
+          "lat": 35.1722,
+          "lon": -4.3003,
           "at": "Peñón",
           "dot": true,
           "dy": -56,
@@ -325,9 +326,9 @@
         }
       ],
       "camera": {
-        "lat": 35.17,
-        "lon": -4.3,
-        "zoom": 60
+        "lat": 35.172,
+        "lon": -4.3003,
+        "zoom": 3500
       },
       "sources": [
         {
@@ -349,17 +350,16 @@
         {
           "type": "icon",
           "icon": "⛈️",
-          "lat": 35.2,
-          "lon": -4.25,
+          "lat": 35.176,
+          "lon": -4.296,
           "size": 120,
           "at": "storm"
         },
         {
-          "type": "icon",
-          "icon": "🏝️",
-          "lat": 35.17,
-          "lon": -4.32,
-          "size": 100,
+          "type": "ring",
+          "lat": 35.1722,
+          "lon": -4.3003,
+          "r": 70,
           "at": "island"
         },
         {
@@ -368,10 +368,11 @@
         }
       ],
       "camera": {
-        "lat": 35.17,
-        "lon": -4.3,
-        "zoom": 90
+        "lat": 35.172,
+        "lon": -4.3003,
+        "zoom": 3500
       },
+      "style": "satellite",
       "transition": "film",
       "sources": [
         {
@@ -407,9 +408,9 @@
         }
       ],
       "camera": {
-        "lat": 35.17,
-        "lon": -4.3,
-        "zoom": 120,
+        "lat": 35.172,
+        "lon": -4.3003,
+        "zoom": 2500,
         "bearing": 3
       },
       "sources": [

@@ -96,7 +96,7 @@
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 60,
+        "zoom": 140,
         "bearing": -3
       },
       "sources": [
@@ -208,7 +208,7 @@
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 60
+        "zoom": 140
       },
       "sources": [
         {
@@ -266,7 +266,7 @@
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 80
+        "zoom": 160
       },
       "transition": "flash",
       "sources": [
@@ -301,7 +301,7 @@
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 80
+        "zoom": 160
       },
       "sources": [
         {
@@ -350,7 +350,7 @@
       "camera": {
         "lat": 21.9,
         "lon": -160.15,
-        "zoom": 60,
+        "zoom": 140,
         "bearing": 3
       },
       "sources": [

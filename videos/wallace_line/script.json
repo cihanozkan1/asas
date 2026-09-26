@@ -442,20 +442,26 @@
           "size": 120
         },
         {
-          "type": "vs",
-          "left": {
-            "flag": "id",
-            "label": "Asia side"
-          },
-          "right": {
-            "flag": "au",
-            "label": "Australia side"
-          },
-          "at": "worlds",
-          "screen": [
-            0.5,
-            0.33
-          ]
+          "type": "label",
+          "text": "ASIAN SIDE",
+          "lat": -2,
+          "lon": 108,
+          "at": "Asian",
+          "style": "pill",
+          "bg": "#d97706",
+          "size": 48,
+          "fixed": true
+        },
+        {
+          "type": "label",
+          "text": "AUSTRALIAN SIDE",
+          "lat": -6,
+          "lon": 128,
+          "at": "other",
+          "style": "pill",
+          "bg": "#16a34a",
+          "size": 48,
+          "fixed": true
         }
       ],
       "camera": {

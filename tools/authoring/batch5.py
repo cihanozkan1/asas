@@ -111,9 +111,9 @@ save('darien_gap', meta(
     captions={'theme': 'box'})
 
 # ------------------------------------------------------------------ 3. SPAIN BORDERS (atlas)
-LLI = (42.46, 1.98)
-PHE = (43.343, -1.766)
-PEN = (35.17, -4.30)
+LLI = (42.464, 1.975)
+PHE = (43.3434, -1.7658)
+PEN = (35.1722, -4.3003)
 CEU, MEL = (35.89, -5.32), (35.29, -2.94)
 save('spain_borders', meta(
     "Spain's Strangest Borders 🇪🇸🤯 An Island That Changes Country Every 6 Months!",
@@ -126,17 +126,17 @@ save('spain_borders', meta(
           cam=fit('ESP', pad=0.85, bearing=-3), no_claim=True),
         S("First, Llívia. A Spanish town completely surrounded by France.", [
             ping(*LLI, 'Llívia', color='#ff3b3b'), hl({'circle': {'lat': LLI[0], 'lon': LLI[1], 'km': 3}}, 'flag:es', 'Llívia', neon='#ffd60a'),
-            hl('FRA', '#9fb8ff', 'France', fillOpacity=0.55), slam('LLÍVIA', 42.52, 1.98, 'Llívia', size=70)],
-          cam=at_(42.45, 1.95, 90),
+            hl('FRA', '#9fb8ff', 'France', fillOpacity=0.55), slam('LLÍVIA', 42.482, 1.975, 'Llívia', size=70)],
+          cam=at_(42.46, 1.975, 1100),
           src=[src('Llívia is a Spanish exclave surrounded by France.', 'Llívia', 'It is a Spanish exclave surrounded by the French département of Pyrénées-Orientales.')]),
         S("In 1659, Spain gave France the villages of this area. But Llívia was a town, not a village, so it stayed Spanish.", [
-            year(1659, '1659'), note('TOWN ≠ VILLAGE', 42.55, 1.9, 'town', size=58), char('spanish_guard', 'Llívia', say='Still ours!', flip=True, screen=(0.72, 0.6))],
-          cam=at_(42.45, 1.95, 60), era='history', tr='film',
+            year(1659, '1659'), note('TOWN ≠ VILLAGE', 42.49, 1.975, 'town', size=58), char('spanish_guard', 'Llívia', say='Still ours!', flip=True, screen=(0.72, 0.6))],
+          cam=at_(42.46, 1.975, 1300), era='history', tr='film', style='satellite',
           src=[src('The 1659 Treaty of the Pyrenees transferred only villages; Llívia was a town.', 'Llívia', "Because of a technicality in the Treaty of the Pyrenees, signed in 1659, that transferred only 'villages' in the Pyrenees to France, Llívia, which was a 'town', remains under Spanish control.")]),
         S("Next, Pheasant Island. It's Spanish for six months, and French for the other six.", [
             ping(*PHE, 'Pheasant', color='#ffd60a'), dot('Pheasant Island', *PHE, 'Pheasant', dy=-56),
             vs(('es', 'Feb–Jul'), ('fr', 'Aug–Jan'), 'six', screen=[0.5, 0.26])],
-          cam=at_(43.34, -1.77, 200, bearing=-3), tr='flash',
+          cam=at_(43.3434, -1.7658, 6000, bearing=-3), tr='flash',
           src=[src('Alternating six-month sovereignty between Spain and France.', 'Pheasant_Island', 'For alternating periods of six months, it is officially under the governance of the naval commander of Hondarribia, Spain (1 February – 31 July) and of a French viceroy (1 August – 31 January).')]),
         S("Then Spain crosses into Africa. Ceuta and Melilla are the EU's only land borders with Africa.", [
             hl('MAR', '#e8b4a0', 'Africa', fillOpacity=0.6), ping(*CEU, 'Ceuta', color='#ffd60a'), ping(*MEL, 'Melilla', color='#ffd60a'),
@@ -145,15 +145,15 @@ save('spain_borders', meta(
           src=[src('Ceuta and Melilla are the EU\'s only land borders with Africa.', 'Ceuta', 'an autonomous city of Spain on the North African coast')]),
         S("And the tiny Peñón de Vélez de la Gomera has a border with Morocco only 85 meters long.", [
             ping(*PEN, 'Peñón', color='#ff3b3b'), dot('Peñón de Vélez', *PEN, 'Peñón', dy=-56), cnt('85 m', '85', size=200), char('spanish_guard', 'Morocco')],
-          cam=at_(35.17, -4.3, 60),
+          cam=at_(35.172, -4.3003, 3500),
           src=[src('Its border with Morocco is 85 m long.', 'Peñón_de_Vélez_de_la_Gomera', 'Its border with Morocco is 85 m (279 ft) long.')]),
         S("It became a border by accident: in 1930, a storm washed sand into the channel and joined the island to Africa.", [
-            year(1930, '1930'), icon('⛈️', 35.2, -4.25, 'storm', size=120), icon('🏝️', 35.17, -4.32, 'island', size=100), shake('storm')],
-          cam=at_(35.17, -4.3, 90), era='history', tr='film',
+            year(1930, '1930'), icon('⛈️', 35.176, -4.296, 'storm', size=120), ring(35.1722, -4.3003, 'island', r=70), shake('storm')],
+          cam=at_(35.172, -4.3003, 3500), era='history', tr='film', style='satellite',
           src=[src('In 1930 a storm washed sand into the channel, forming a tombolo.', 'Peñón_de_Vélez_de_la_Gomera', 'In 1930, when a huge thunderstorm washed large quantities of sand into the short channel between the island and the African continent.')]),
         S("It's now the shortest land border in the whole world.", [
             stamp('WORLD RECORD', 'shortest', size=84), cnt('#1', 'shortest', size=180)],
-          cam=at_(35.17, -4.3, 120, bearing=3),
+          cam=at_(35.172, -4.3003, 2500, bearing=3),
           src=[src('It is the world\'s shortest single land-border segment.', 'Peñón_de_Vélez_de_la_Gomera', "the world's shortest single land-border segment")]),
     ],
     keywords={'spain': '#ffd60a', 'france': '#5ec8ff', 'africa': '#f4a261', 'llívia': '#ff5a5f', 'morocco': '#4ade80'},
@@ -425,7 +425,7 @@ save('wallace_line', meta(
           src=[src('Even when sea level dropped 120 m, the islands never united Asia with Australia.', WL, 'islands became connected, but never uniting Asia with Australia')]),
         S("Bali sits on the Asian shelf, Lombok on the other side. For over 50 million years, deep water kept the two worlds apart.", [
             hl(box(95, -9, 115.8, 8), '#f4a261', 'Asian', fillOpacity=0.3), hl(box(115.8, -11, 150, 0), '#16a34a', 'other', fillOpacity=0.3),
-            cnt('50,000,000 years', '50', size=120), vs(('id', 'Asia side'), ('au', 'Australia side'), 'worlds', screen=[0.5, 0.33])],
+            cnt('50,000,000 years', '50', size=120), lab('ASIAN SIDE', -2, 108, 'Asian', style='pill', bg='#d97706', size=48, fixed=True), lab('AUSTRALIAN SIDE', -6, 128, 'other', style='pill', bg='#16a34a', size=48, fixed=True)],
           cam=at_(-5, 118, 2.3),
           src=[src('Deep water between the Sunda and Sahul shelves separated the fauna for over 50 million years.', WL, 'for over 50 million years, deep water between those two large continental shelf areas created a barrier that kept the flora and fauna of Australia separated from those of Asia.')]),
     ],

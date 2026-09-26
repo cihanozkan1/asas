@@ -73,11 +73,11 @@
           "anim": "slam"
         },
         {
-          "type": "flag",
-          "code": "pt",
+          "type": "icon",
+          "icon": "🗣️",
           "lat": -2,
           "lon": -38,
-          "size": 150,
+          "size": 120,
           "at": "Portuguese"
         }
       ],
@@ -124,8 +124,8 @@
           "pattern": "hatch"
         },
         {
-          "type": "flag",
-          "code": "es",
+          "type": "icon",
+          "icon": "🗣️",
           "lat": -28,
           "lon": -66,
           "size": 120,

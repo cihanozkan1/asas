@@ -67,7 +67,7 @@
             "admin1": "Abu Dhabi",
             "country": "ARE"
           },
-          "fill": "#f6d6a8",
+          "fill": "#ef4444",
           "at": "seven",
           "fillOpacity": 0.95,
           "stagger": 0
@@ -78,7 +78,7 @@
             "admin1": "Dubay",
             "country": "ARE"
           },
-          "fill": "#f5c6c1",
+          "fill": "#f59e0b",
           "at": "seven",
           "fillOpacity": 0.95,
           "stagger": 0
@@ -89,7 +89,7 @@
             "admin1": "Sharjah",
             "country": "ARE"
           },
-          "fill": "#cfe8b8",
+          "fill": "#10b981",
           "at": "seven",
           "fillOpacity": 0.95,
           "stagger": 0
@@ -100,7 +100,7 @@
             "admin1": "Ajman",
             "country": "ARE"
           },
-          "fill": "#d9d0f0",
+          "fill": "#3b82f6",
           "at": "seven",
           "fillOpacity": 0.95,
           "stagger": 0
@@ -111,7 +111,7 @@
             "admin1": "Umm Al Qaywayn",
             "country": "ARE"
           },
-          "fill": "#fbe7a1",
+          "fill": "#8b5cf6",
           "at": "seven",
           "fillOpacity": 0.95,
           "stagger": 0
@@ -122,7 +122,7 @@
             "admin1": "Ras Al Khaymah",
             "country": "ARE"
           },
-          "fill": "#bfe3dc",
+          "fill": "#ec4899",
           "at": "seven",
           "fillOpacity": 0.95,
           "stagger": 0
@@ -133,7 +133,7 @@
             "admin1": "Fujayrah",
             "country": "ARE"
           },
-          "fill": "#f0d0e4",
+          "fill": "#14b8a6",
           "at": "seven",
           "fillOpacity": 0.95,
           "stagger": 0
@@ -169,32 +169,41 @@
         {
           "type": "label",
           "text": "Abu Dhabi",
-          "lat": 23.4,
-          "lon": 54.0,
+          "lat": 23.6,
+          "lon": 54.3,
           "at": "Abu",
-          "dot": true,
-          "dy": -50,
-          "size": 36
+          "style": "pill",
+          "bg": "#111827",
+          "size": 54,
+          "dy": -70,
+          "until": "Dubai",
+          "fixed": true
         },
         {
           "type": "label",
           "text": "Dubai",
           "lat": 25.07,
-          "lon": 55.2,
+          "lon": 55.25,
           "at": "Dubai",
-          "dot": true,
-          "dy": -50,
-          "size": 36
+          "style": "pill",
+          "bg": "#111827",
+          "size": 54,
+          "dy": -70,
+          "until": "Sharjah",
+          "fixed": true
         },
         {
           "type": "label",
           "text": "Sharjah",
           "lat": 25.3,
-          "lon": 55.6,
+          "lon": 55.55,
           "at": "Sharjah",
-          "dot": true,
-          "dy": -50,
-          "size": 36
+          "style": "pill",
+          "bg": "#111827",
+          "size": 54,
+          "dy": -70,
+          "until": "Ajman",
+          "fixed": true
         },
         {
           "type": "label",
@@ -202,45 +211,113 @@
           "lat": 25.4,
           "lon": 55.5,
           "at": "Ajman",
-          "dot": true,
-          "dy": -50,
-          "size": 36
+          "style": "pill",
+          "bg": "#111827",
+          "size": 54,
+          "dy": -70,
+          "until": "Umm",
+          "fixed": true
         },
         {
           "type": "label",
           "text": "Umm Al Quwain",
-          "lat": 25.5,
-          "lon": 55.7,
+          "lat": 25.52,
+          "lon": 55.65,
           "at": "Umm",
-          "dot": true,
-          "dy": -50,
-          "size": 36
+          "style": "pill",
+          "bg": "#111827",
+          "size": 54,
+          "dy": -70,
+          "until": "Ras",
+          "fixed": true
         },
         {
           "type": "label",
           "text": "Ras Al Khaimah",
-          "lat": 25.8,
+          "lat": 25.75,
           "lon": 56.0,
           "at": "Ras",
-          "dot": true,
-          "dy": -50,
-          "size": 36
+          "style": "pill",
+          "bg": "#111827",
+          "size": 54,
+          "dy": -70,
+          "until": "Fujairah",
+          "fixed": true
         },
         {
           "type": "label",
           "text": "Fujairah",
-          "lat": 25.2,
+          "lat": 25.25,
           "lon": 56.3,
           "at": "Fujairah",
-          "dot": true,
-          "dy": -50,
-          "size": 36
+          "style": "pill",
+          "bg": "#111827",
+          "size": 54,
+          "dy": -70,
+          "until": null,
+          "fixed": true
+        },
+        {
+          "type": "ping",
+          "lat": 23.6,
+          "lon": 54.3,
+          "color": "#ffd60a",
+          "at": "Abu",
+          "until": "Dubai"
+        },
+        {
+          "type": "ping",
+          "lat": 25.07,
+          "lon": 55.25,
+          "color": "#ffd60a",
+          "at": "Dubai",
+          "until": "Sharjah"
+        },
+        {
+          "type": "ping",
+          "lat": 25.3,
+          "lon": 55.55,
+          "color": "#ffd60a",
+          "at": "Sharjah",
+          "until": "Ajman"
+        },
+        {
+          "type": "ping",
+          "lat": 25.4,
+          "lon": 55.5,
+          "color": "#ffd60a",
+          "at": "Ajman",
+          "until": "Umm"
+        },
+        {
+          "type": "ping",
+          "lat": 25.52,
+          "lon": 55.65,
+          "color": "#ffd60a",
+          "at": "Umm",
+          "until": "Ras"
+        },
+        {
+          "type": "ping",
+          "lat": 25.75,
+          "lon": 56.0,
+          "color": "#ffd60a",
+          "at": "Ras",
+          "until": "Fujairah"
+        },
+        {
+          "type": "ping",
+          "lat": 25.25,
+          "lon": 56.3,
+          "color": "#ffd60a",
+          "at": "Fujairah",
+          "until": null
         }
       ],
       "camera": {
-        "lat": 25.0,
-        "lon": 55.4,
-        "zoom": 14
+        "lat": 24.6,
+        "lon": 55.0,
+        "zoom": 22
       },
       "sources": [
         {
@@ -255,25 +332,18 @@
       "text": "They joined together on 2 December 1971. Ras Al Khaimah joined a few months later, in 1972.",
       "show": [
         {
-          "type": "timeline",
-          "events": [
+          "type": "counter",
+          "steps": [
             {
               "at": "1971",
-              "year": "1971",
-              "label": "6 emirates"
+              "value": "1971: 6"
             },
             {
               "at": "1972",
-              "year": "1972",
-              "label": "Ras Al Khaimah"
+              "value": "1972: 7"
             }
           ],
-          "at": "1971",
-          "screen": [
-            0.5,
-            0.25
-          ],
-          "width": 760
+          "size": 150
         },
         {
           "type": "flag",
@@ -416,7 +486,7 @@
             "admin1": "Abu Dhabi",
             "country": "ARE"
           },
-          "fill": "#f6d6a8",
+          "fill": "#ef4444",
           "at": 0.05,
           "fillOpacity": 0.95
         },
@@ -426,7 +496,7 @@
             "admin1": "Dubay",
             "country": "ARE"
           },
-          "fill": "#f5c6c1",
+          "fill": "#f59e0b",
           "at": 0.05,
           "fillOpacity": 0.95
         },
@@ -436,7 +506,7 @@
             "admin1": "Sharjah",
             "country": "ARE"
           },
-          "fill": "#cfe8b8",
+          "fill": "#10b981",
           "at": 0.05,
           "fillOpacity": 0.95
         },
@@ -446,7 +516,7 @@
             "admin1": "Ajman",
             "country": "ARE"
           },
-          "fill": "#d9d0f0",
+          "fill": "#3b82f6",
           "at": 0.05,
           "fillOpacity": 0.95
         },
@@ -456,7 +526,7 @@
             "admin1": "Umm Al Qaywayn",
             "country": "ARE"
           },
-          "fill": "#fbe7a1",
+          "fill": "#8b5cf6",
           "at": 0.05,
           "fillOpacity": 0.95
         },
@@ -466,7 +536,7 @@
             "admin1": "Ras Al Khaymah",
             "country": "ARE"
           },
-          "fill": "#bfe3dc",
+          "fill": "#ec4899",
           "at": 0.05,
           "fillOpacity": 0.95
         },
@@ -476,7 +546,7 @@
             "admin1": "Fujayrah",
             "country": "ARE"
           },
-          "fill": "#f0d0e4",
+          "fill": "#14b8a6",
           "at": 0.05,
           "fillOpacity": 0.95
         },

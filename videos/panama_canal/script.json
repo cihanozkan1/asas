@@ -516,21 +516,30 @@
         },
         {
           "type": "highlight",
-          "target": "PAN",
+          "target": {
+            "geojson": "canal_zone.geojson"
+          },
           "fill": "flag:us",
           "at": "United",
-          "morph": [
-            {
-              "at": "Panama",
-              "fill": "#d62828"
-            }
-          ]
+          "until": "Panama"
+        },
+        {
+          "type": "label",
+          "text": "CANAL ZONE",
+          "lat": 9.35,
+          "lon": -79.5,
+          "at": "United",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 44,
+          "until": "Panama",
+          "fixed": true
         },
         {
           "type": "highlight",
           "target": "PAN",
           "fill": "flag:pa",
-          "at": "control"
+          "at": "Panama"
         }
       ],
       "camera": {

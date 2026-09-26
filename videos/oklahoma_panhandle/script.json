@@ -217,33 +217,63 @@
       "show": [
         {
           "type": "label",
-          "text": "Cimarron",
+          "text": "Cimarron County",
           "lat": 36.75,
           "lon": -102.5,
           "at": "Cimarron",
-          "dot": true,
-          "dy": -52,
-          "size": 40
+          "style": "pill",
+          "bg": "#111827",
+          "size": 48,
+          "dy": -70,
+          "until": "Texas",
+          "fixed": true
         },
         {
           "type": "label",
-          "text": "Texas",
+          "text": "Texas County",
           "lat": 36.75,
           "lon": -101.5,
           "at": "Texas",
-          "dot": true,
-          "dy": -52,
-          "size": 40
+          "style": "pill",
+          "bg": "#111827",
+          "size": 48,
+          "dy": -70,
+          "until": "Beaver",
+          "fixed": true
         },
         {
           "type": "label",
-          "text": "Beaver",
+          "text": "Beaver County",
           "lat": 36.75,
           "lon": -100.5,
           "at": "Beaver",
-          "dot": true,
-          "dy": -52,
-          "size": 40
+          "style": "pill",
+          "bg": "#111827",
+          "size": 48,
+          "dy": -70,
+          "until": "Oklahoma",
+          "fixed": true
+        },
+        {
+          "type": "ping",
+          "lat": 36.75,
+          "lon": -102.5,
+          "color": "#ffd60a",
+          "at": "Cimarron"
+        },
+        {
+          "type": "ping",
+          "lat": 36.75,
+          "lon": -101.5,
+          "color": "#ffd60a",
+          "at": "Texas"
+        },
+        {
+          "type": "ping",
+          "lat": 36.75,
+          "lon": -100.5,
+          "color": "#ffd60a",
+          "at": "Beaver"
         },
         {
           "type": "icon",
@@ -252,6 +282,18 @@
           "lon": -102.95,
           "size": 110,
           "at": "Mesa"
+        },
+        {
+          "type": "label",
+          "text": "Black Mesa",
+          "lat": 36.93,
+          "lon": -102.95,
+          "at": "Mesa",
+          "style": "pill",
+          "bg": "#7c2d12",
+          "size": 46,
+          "dy": -90,
+          "fixed": true
         }
       ],
       "camera": {

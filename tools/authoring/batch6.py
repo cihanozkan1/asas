@@ -58,34 +58,34 @@ save('market_island', meta(
             hook('THE WEIRDEST *BORDER*', at=0.05, until='world'), hl('SWE', 'flag:se', 'Baltic', fillOpacity=0.6), hl('FIN', 'flag:fi', 'Baltic', fillOpacity=0.6), ping(*MK, 'island', color='#ff3b3b')],
           cam=at_(61, 19.5, 5), no_claim=True),
         S("It's called Märket, and since 1809 it has been split between Sweden and Finland.", [
-            year(1809, '1809'), vs(('se', 'Sweden'), ('ax', 'Åland, Finland'), 'split', screen=[0.5, 0.32])],
+            year(1809, '1809'), vs(('se', 'Sweden'), ('fi', 'Finland'), 'split', screen=[0.5, 0.32])],
           cam=at_(60.3, 19.13, 40),
           src=[src('The island was divided in 1809 by the Treaty of Fredrikshamn.', 'Märket', 'Märket has been divided between the two countries since the Treaty of Fredrikshamn of 1809 defined the border between Sweden and Grand Duchy of Finland as going through the middle of the island.')]),
         S("In 1885, Finland built a lighthouse on its highest point. But that spot was on the Swedish half.", [
             year(1885, '1885'), char('lighthouse_keeper', 'lighthouse', say='Wrong half!', screen=(0.25, 0.62)),
-            hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 'Swedish', fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:ax', 'Finland', fillOpacity=0.9),
+            hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 'Swedish', fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:fi', 'Finland', fillOpacity=0.9),
             route(BOLD, 'built', rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.8), icon('🗼', *LH, 'lighthouse', size=110)],
-          cam=at_(60.3009, 19.1318, 14500), era='history', tr='film',
+          cam=at_(60.3009, 19.1318, 14500), era='history', tr='film', style='vintage',
           src=[src('In 1885 the lighthouse was built on the Swedish portion of the island.', 'Märket', 'However, the location selected was within the Swedish portion of the island.')]),
         S("So in 1985, the two countries did something clever. Instead of moving the lighthouse, they moved the border.", [
-            year(1985, '1985'), stamp('MOVE THE BORDER', 'moved', size=78), icon('🗼', *LH, 0.05, size=110), hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:ax', 0.05, fillOpacity=0.9), route(BOLD, 0.05, rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.1)],
-          cam=at_(60.3009, 19.1318, 14500), tr='flash',
+            year(1985, '1985'), stamp('MOVE THE BORDER', 'moved', size=78), icon('🗼', *LH, 0.05, size=110), hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9), route(BOLD, 0.05, rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.1)],
+          cam=at_(60.3009, 19.1318, 14500), style='atlas', tr='flash',
           src=[src('The border was adjusted in 1985 so the lighthouse is on Finnish territory.', 'Märket', 'As a result, the border was adjusted in 1985 so that the lighthouse is now located on Finnish territory')]),
         S("The new border zigzags around the lighthouse, so it ends up in Finland.", [
-            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 'zigzags', fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:ax', 'zigzags', fillOpacity=0.9),
+            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 'zigzags', fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:fi', 'zigzags', fillOpacity=0.9),
             route(BNEW, 'zigzags', rhumb=True, color='#ffd60a', width=9, drawDur=1.6), icon('🗼', *LH, 0.05, size=110), pill('SIMPLIFIED MAP', 0.05, bg='#111827', size=34, screen=(0.5, 0.2))],
-          cam=at_(60.3009, 19.1318, 14500, bearing=-3),
+          cam=at_(60.3009, 19.1318, 14500, bearing=-3), style='atlas',
           src=[src('The adjusted border takes the form of an inverted S.', 'Märket', "The adjusted border takes the form of an inverted 'S'.")]),
         S("And no country lost any land. Both sides still have exactly the same area.", [
-            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:ax', 0.05, fillOpacity=0.9),
-            route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1), vs(('se', 'Sweden'), ('ax', 'Finland'), 'same', screen=[0.5, 0.25]), cnt('=', 'area', size=150, screen=[0.5, 0.38])],
-          cam=at_(60.3009, 19.1318, 14500),
+            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9),
+            route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1), vs(('se', 'Sweden'), ('fi', 'Finland'), 'same', screen=[0.5, 0.25]), cnt('=', 'area', size=150, screen=[0.5, 0.38])],
+          cam=at_(60.3009, 19.1318, 14500), style='atlas',
           src=[src('No net transfer of territory occurred.', 'Märket', 'The adjustment was carried out such that no net transfer of territory occurred.')]),
         S("Today the border is marked by holes drilled into the rock, and it's inspected every 25 years.", [
-            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:ax', 0.05, fillOpacity=0.9),
+            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9),
             route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1),
             *[icon('🕳️', la, lo, 'holes', size=60) for la, lo in BNEW[1:-1]], cnt('25 years', '25', size=160)],
-          cam=at_(60.3009, 19.1318, 13500, bearing=3),
+          cam=at_(60.3009, 19.1318, 13500, bearing=3), style='atlas',
           src=[src('The border is marked by drilled holes.', 'Märket', 'The border is marked by holes drilled into the rock, because the seasonal drift ice would shear off any protruding markers.'),
                src('Resurveyed every 25 years.', 'Märket', 'The border is regularly resurveyed every 25 years by officials representing both countries.')]),
     ],
@@ -143,7 +143,7 @@ save('gibraltar_bridge', meta(
 
 # ------------------------------------------------------------------ 13. UAE (atlas)
 AE = 'Emirates_of_the_United_Arab_Emirates'
-EM = [('Abu Dhabi', '#f6d6a8'), ('Dubay', '#f5c6c1'), ('Sharjah', '#cfe8b8'), ('Ajman', '#d9d0f0'), ('Umm Al Qaywayn', '#fbe7a1'), ('Ras Al Khaymah', '#bfe3dc'), ('Fujayrah', '#f0d0e4')]
+EM = [('Abu Dhabi', '#ef4444'), ('Dubay', '#f59e0b'), ('Sharjah', '#10b981'), ('Ajman', '#3b82f6'), ('Umm Al Qaywayn', '#8b5cf6'), ('Ras Al Khaymah', '#ec4899'), ('Fujayrah', '#14b8a6')]
 save('uae_emirates', meta(
     'Dubai vs Abu Dhabi vs UAE: What\'s the Difference? 🇦🇪🤯',
     "Is Dubai a country? No! 🇦🇪 The United Arab Emirates is a federation of seven emirates: Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah and Fujairah. It was founded on 2 December 1971, and Ras Al Khaimah joined in 1972 🤝 Abu Dhabi is by far the biggest emirate, and its city is the national capital 🏛️ Dubai is both an emirate and a city, and it's the most populous, with about 4.47 million people 🌆",
@@ -157,11 +157,12 @@ save('uae_emirates', meta(
           cam=at_(24.3, 54.5, 7),
           src=[src('The UAE consists of seven emirates.', AE, 'The United Arab Emirates consists of seven emirates')]),
         S("Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah and Fujairah.", [
-            *[dot(lbl, la, lo, w, dy=-50, size=36) for lbl, la, lo, w in [('Abu Dhabi', 23.4, 54.0, 'Abu'), ('Dubai', 25.07, 55.2, 'Dubai'), ('Sharjah', 25.3, 55.6, 'Sharjah'), ('Ajman', 25.4, 55.5, 'Ajman'), ('Umm Al Quwain', 25.5, 55.7, 'Umm'), ('Ras Al Khaimah', 25.8, 56.0, 'Ras'), ('Fujairah', 25.2, 56.3, 'Fujairah')]]],
-          cam=at_(25.0, 55.4, 14),
+            *[lab(lbl, la, lo, w, style='pill', bg='#111827', size=54, dy=-70, until=u, fixed=True) for lbl, la, lo, w, u in [('Abu Dhabi', 23.6, 54.3, 'Abu', 'Dubai'), ('Dubai', 25.07, 55.25, 'Dubai', 'Sharjah'), ('Sharjah', 25.3, 55.55, 'Sharjah', 'Ajman'), ('Ajman', 25.4, 55.5, 'Ajman', 'Umm'), ('Umm Al Quwain', 25.52, 55.65, 'Umm', 'Ras'), ('Ras Al Khaimah', 25.75, 56.0, 'Ras', 'Fujairah'), ('Fujairah', 25.25, 56.3, 'Fujairah', None)]],
+            *[ping(la, lo, w, color='#ffd60a', until=u) for lbl, la, lo, w, u in [('Abu Dhabi', 23.6, 54.3, 'Abu', 'Dubai'), ('Dubai', 25.07, 55.25, 'Dubai', 'Sharjah'), ('Sharjah', 25.3, 55.55, 'Sharjah', 'Ajman'), ('Ajman', 25.4, 55.5, 'Ajman', 'Umm'), ('Umm Al Quwain', 25.52, 55.65, 'Umm', 'Ras'), ('Ras Al Khaimah', 25.75, 56.0, 'Ras', 'Fujairah'), ('Fujairah', 25.25, 56.3, 'Fujairah', None)]]],
+          cam=at_(24.6, 55.0, 22),
           src=[src('The seven emirates.', AE, 'Abu Dhabi, Ajman, Dubai, Fujairah, Ras Al Khaimah, Sharjah, and Umm Al Quwain')]),
         S("They joined together on 2 December 1971. Ras Al Khaimah joined a few months later, in 1972.", [
-            timeline([('1971', '1971', '6 emirates'), ('1972', '1972', 'Ras Al Khaimah')], screen=(0.5, 0.25), width=760), flag('ae', 24.2, 54.8, 'joined', size=150)],
+            cnt_steps([('1971', '1971: 6'), ('1972', '1972: 7')], size=150), flag('ae', 24.2, 54.8, 'joined', size=150)],
           cam=at_(24.3, 54.5, 7), era='history', tr='film',
           src=[src('Six emirates joined on 2 December 1971; Ras Al Khaimah on 10 February 1972 (table).', AE, '2 December 1971')]),
         S("Abu Dhabi is by far the largest emirate, and its city is the capital of the whole country.", [
@@ -201,7 +202,7 @@ save('oklahoma_panhandle', meta(
           cam=at_(36.7, -101.5, 11),
           src=[src('The strip is 166 miles long and 34 miles wide.', PH, '166 miles (267 km) long and 34 miles (55 km) wide')]),
         S("It has three counties, Cimarron, Texas and Beaver, and Oklahoma's highest point, Black Mesa.", [
-            *[dot(n, 36.75, lo, n, dy=-52, size=40) for n, lo in [('Cimarron', -102.5), ('Texas', -101.5), ('Beaver', -100.5)]], icon('⛰️', 36.93, -102.95, 'Mesa', size=110)],
+            *[lab(n + ' County', 36.75, lo, n, style='pill', bg='#111827', size=48, dy=-70, until=u, fixed=True) for n, lo, u in [('Cimarron', -102.5, 'Texas'), ('Texas', -101.5, 'Beaver'), ('Beaver', -100.5, 'Oklahoma')]], *[ping(36.75, lo, n, color='#ffd60a') for n, lo in [('Cimarron', -102.5), ('Texas', -101.5), ('Beaver', -100.5)]], icon('⛰️', 36.93, -102.95, 'Mesa', size=110), lab('Black Mesa', 36.93, -102.95, 'Mesa', style='pill', bg='#7c2d12', size=46, dy=-90, fixed=True)],
           cam=at_(36.7, -101.5, 11),
           src=[src('Its counties are Cimarron, Texas and Beaver.', PH, 'Its constituent counties are, from west to east, Cimarron, Texas and Beaver.'),
                src('Black Mesa, Oklahoma\'s highest point, is in Cimarron County.', PH, 'Black mesa, the highest point in Oklahoma at 4,973 feet (1,516 m), is located in Cimarron County.')]),

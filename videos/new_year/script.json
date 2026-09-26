@@ -109,9 +109,9 @@
         }
       ],
       "camera": {
-        "lat": 2,
-        "lon": -160,
-        "zoom": 1.6
+        "lat": 1.87,
+        "lon": -157.4,
+        "zoom": 25
       },
       "sources": [
         {
@@ -247,9 +247,9 @@
         }
       ],
       "camera": {
-        "lat": 2,
-        "lon": -158,
-        "zoom": 2.0
+        "lat": 1.87,
+        "lon": -157.4,
+        "zoom": 22
       },
       "sources": [
         {
@@ -303,9 +303,9 @@
         }
       ],
       "camera": {
-        "lat": 0.5,
-        "lon": -176,
-        "zoom": 3.0
+        "lat": 0.195,
+        "lon": -176.48,
+        "zoom": 500
       },
       "transition": "flash",
       "sources": [
