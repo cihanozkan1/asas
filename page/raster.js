@@ -32,7 +32,7 @@ uniform vec4 uDetailBox0;  // west, south, east, north (radians)
 uniform vec4 uDetailBox1;
 uniform vec4 uDetailBox2;
 uniform vec4 uDetailBox3;
-uniform float uDetailMix;
+uniform vec4 uDetailMix;  // per box
 out vec4 outColor;
 
 const float PI = 3.141592653589793;
@@ -59,19 +59,19 @@ vec3 imagery(float lon, float lat) {
   vec3 c = sampleEquirect(uBase, lon, lat);
   if (uDetailCount > 0) {
     vec4 d = sampleBox(uDetail0, uDetailBox0, lon, lat);
-    c = mix(c, d.rgb, d.a * uDetailMix);
+    c = mix(c, d.rgb, d.a * uDetailMix[0]);
   }
   if (uDetailCount > 1) {
     vec4 d = sampleBox(uDetail1, uDetailBox1, lon, lat);
-    c = mix(c, d.rgb, d.a * uDetailMix);
+    c = mix(c, d.rgb, d.a * uDetailMix[1]);
   }
   if (uDetailCount > 2) {
     vec4 d = sampleBox(uDetail2, uDetailBox2, lon, lat);
-    c = mix(c, d.rgb, d.a * uDetailMix);
+    c = mix(c, d.rgb, d.a * uDetailMix[2]);
   }
   if (uDetailCount > 3) {
     vec4 d = sampleBox(uDetail3, uDetailBox3, lon, lat);
-    c = mix(c, d.rgb, d.a * uDetailMix);
+    c = mix(c, d.rgb, d.a * uDetailMix[3]);
   }
   return c;
 }
@@ -220,7 +220,9 @@ export class Raster {
     gl.uniform1i(u.uBase, 0);
     gl.uniform2f(u.uBaseSize, this.base.w, this.base.h);
     gl.uniform1i(u.uDetailCount, this.details.length);
-    gl.uniform1f(u.uDetailMix, detailMix);
+    // detailMix: one number, or one per box
+    const m = [0, 1, 2, 3].map((i) => (Array.isArray(detailMix) ? detailMix[i] ?? 0 : detailMix));
+    gl.uniform4f(u.uDetailMix, m[0], m[1], m[2], m[3]);
     this.details.forEach((d, i) => {
       gl.uniform1i(u[`uDetail${i}`], d.unit);
       gl.uniform4f(u[`uDetailBox${i}`], ...d.box);

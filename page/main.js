@@ -1961,7 +1961,15 @@ function frame(t) {
   const mix = styleAt(t);
   const texelsPerPx = state.raster.base.w / (2 * Math.PI) / view.k;
   const detailMix = clamp01((1.2 - texelsPerPx) / 0.9);
-  if (!state.layoutOnly) state.raster.draw(view, { alpha: mix.sat, atmo: state.mode === 'globe' ? 1 : 0, detailMix: state.raster.details.length ? Math.max(detailMix, 0) : 0 });
+  // a detail box that no longer fills the screen fades out, so its edges never show as a rectangle
+  const W = $('stage').clientWidth || 1080, H = $('stage').clientHeight || 1920;
+  const boxMix = state.raster.details.map((d) => {
+    const [w, s, e, n] = d.box;
+    const cl = Math.cos((s + n) / 2);
+    const wPx = (e - w) * view.k * (state.mode === 'globe' ? cl : 1), hPx = ((n - s) * view.k) / (state.mode === 'globe' ? 1 : cl);
+    return Math.max(detailMix, 0) * clamp01((Math.min(wPx / W, hPx / H) - 0.8) / 0.3);
+  });
+  if (!state.layoutOnly) state.raster.draw(view, { alpha: mix.sat, atmo: state.mode === 'globe' ? 1 : 0, detailMix: boxMix });
   $('space').style.display = state.mode === 'globe' ? 'block' : 'none';
   $('paper').style.display = mix.vin > 0.001 ? 'block' : 'none';
   $('paper').style.opacity = String(mix.vin * state.tl.config.vintage.paper);
