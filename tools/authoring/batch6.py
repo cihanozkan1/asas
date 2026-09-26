@@ -387,10 +387,10 @@ save('gulf_stream', meta(
         S("London and Calgary are at almost the same latitude. So why are Europe's winters so much milder?", [
             hook('WHY IS EUROPE *WARMER*?', at=0.05, until='latitude'), route([(51.3, -125), (51.3, 20)], 'latitude', rhumb=True, color='#ffd60a', width=5, dashed=True, dash=[14, 10], drawDur=1.4, hold=1),
             dot('London', 51.5, -0.13, 'London', dy=-50), dot('Calgary', 51.05, -114.07, 'Calgary', dy=-50)],
-          cam=at_(48, -55, 1.2), no_claim=True),
+          cam=at_(48, -57, 0.95), no_claim=True),
         S("A big part of the answer is flowing right here: the Gulf Stream.", [
             flow(GSP, 'Gulf', color='#ff5a2a', width=18, drawDur=2.6, flowSpeed=220, hold=3), slam('GULF STREAM', 38, -62, 'Stream', size=66)],
-          cam=at_(42, -45, 1.3),
+          cam=at_(44, -57, 1.0),
           src=[src('The Gulf Stream is a warm and swift Atlantic current.', GS, 'a warm and swift Atlantic ocean current that originates in the Gulf of Mexico')]),
         S("It's a warm, fast current that starts in the Gulf of Mexico and runs up the coast of the US.", [
             ping(25, -83, 'Gulf', color='#ff5a2a'), lab('WARM', 30, -76, 'warm', style='pill', bg='#ff5a2a', size=46)],
