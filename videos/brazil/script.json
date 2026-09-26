@@ -191,9 +191,8 @@
       "transition": "film",
       "text": "It all started in 1492, when Christopher Columbus sailed west for Spain.",
       "camera": {
-        "lat": 27,
-        "lon": -40,
-        "zoom": 1.25
+        "follow": "columbus",
+        "zoom": 2.4
       },
       "show": [
         {
@@ -221,12 +220,12 @@
               -74.47
             ]
           ],
-          "color": "#ffb703",
-          "width": 8,
+          "color": "#ffffff",
+          "width": 5,
           "dashed": true,
           "dash": [
-            2,
-            16
+            14,
+            12
           ],
           "mover": {
             "kind": "ship",
@@ -235,7 +234,8 @@
             "cross": "saltire"
           },
           "at": "sailed",
-          "drawDur": 3.2,
+          "id": "columbus",
+          "glow": false,
           "hold": 1
         },
         {
@@ -308,7 +308,7 @@
           "icon": "⚔️",
           "screen": [
             0.49,
-            0.47
+            0.55
           ],
           "size": 140,
           "at": "racing"
@@ -320,7 +320,11 @@
           "url": "https://en.wikipedia.org/wiki/Inter_caetera",
           "quote": "King John II of Portugal objected to these terms ... Portugal pursued direct negotiations with Spain."
         }
-      ]
+      ],
+      "camera": {
+        "follow": "columbus",
+        "zoom": 2.4
+      }
     },
     {
       "era": "history",
@@ -503,9 +507,8 @@
       "era": "history",
       "text": "Then in 1500, Pedro Cabral's fleet, on its way to India, landed on a coast east of the line.",
       "camera": {
-        "lat": 5,
-        "lon": -28,
-        "zoom": 1.2
+        "follow": "cabral",
+        "zoom": 2.4
       },
       "show": [
         {
@@ -533,12 +536,12 @@
               -39.06
             ]
           ],
-          "color": "#4ade80",
-          "width": 8,
+          "color": "#ffffff",
+          "width": 5,
           "dashed": true,
           "dash": [
-            2,
-            16
+            14,
+            12
           ],
           "mover": {
             "kind": "ship",
@@ -546,7 +549,8 @@
             "emblem": "#c1121f"
           },
           "at": "fleet",
-          "drawDur": 3.0
+          "id": "cabral",
+          "glow": false
         },
         {
           "type": "character",

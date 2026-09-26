@@ -98,6 +98,11 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         const keys = [];
         for (const t of list) keys.push(shortKey(await targetKey(t)));
         sc.camera = { fit: keys, pad: c.pad, zoomMul: c.zoomMul, lat: c.lat, lon: c.lon, dy: c.dy };
+      } else if (c.follow) {
+        const r = script.scenes.slice(0, i + 1).flatMap((x) => x.show || []).find((e) => e.id === c.follow);
+        if (!r) throw new Error(`Sahne ${i + 1}: follow "${c.follow}" rotası yok`);
+        const p0 = toPt(r.points[0]);
+        sc.camera = { lat: p0.lat, lon: p0.lon, zoom: c.zoom ?? 3, follow: c.follow };
       } else sc.camera = { lat: c.lat, lon: c.lon, zoom: c.zoom };
       sc.cameraDuration = c.duration ?? (i === 0 ? cfg.camera.introDuration : Math.min(cfg.camera.duration, Math.max(0.6, sceneDur * 0.8)));
       sc.cameraLead = c.lead ?? (i === 0 ? 0 : cfg.camera.lead);

@@ -200,6 +200,22 @@ function scatterPoints(feats, n, seed, minDistDeg, minLat = -90, maxLat = 90) {
 }
 
 // [[lat,lon],...] -> dense [lon,lat] great-circle polyline
+function catmullRom(points, steps = 10) {
+  if (points.length < 3) return points;
+  const P = points.map((p) => [p.lon, p.lat]);
+  const out = [];
+  for (let i = 0; i < P.length - 1; i++) {
+    const p0 = P[Math.max(0, i - 1)], p1 = P[i], p2 = P[i + 1], p3 = P[Math.min(P.length - 1, i + 2)];
+    for (let k = 0; k < steps; k++) {
+      const t = k / steps, t2 = t * t, t3 = t2 * t;
+      const f = (a, b, c, d) => 0.5 * (2 * b + (-a + c) * t + (2 * a - 5 * b + 4 * c - d) * t2 + (-a + 3 * b - 3 * c + d) * t3);
+      out.push({ lon: f(p0[0], p1[0], p2[0], p3[0]), lat: f(p0[1], p1[1], p2[1], p3[1]) });
+    }
+  }
+  out.push(points[points.length - 1]);
+  return out;
+}
+
 function densify(points, rhumb = false) {
   const out = [];
   for (let i = 0; i < points.length - 1; i++) {
@@ -340,7 +356,12 @@ async function init(tl) {
       el._fc = { type: 'FeatureCollection', features: state.targets[el.target] };
       el._c = geoCentroid(el._fc);
     }
-    if (el.type === 'route' || el.type === 'measure') el._pts = densify(el.points || [el.from, el.to], el.rhumb);
+    if (el.type === 'route' || el.type === 'measure') {
+      const pts = el.type === 'route' && el.smooth !== false && !el.rhumb ? catmullRom(el.points) : el.points || [el.from, el.to];
+      el._pts = densify(pts, el.rhumb);
+      el._cum = [0];
+      for (let i = 1; i < el._pts.length; i++) el._cum.push(el._cum[i - 1] + geoDistance(el._pts[i - 1], el._pts[i]));
+    }
   }
 
   // images for flags / icons
@@ -496,7 +517,7 @@ function styleAt(t) {
 
 // ---------------------------------------------------------------- timing helpers
 
-function lifeOf(el, t, inDur = 0.35, outDur = 0.25) {
+function lifeOf(el, t, inDur = 0.35, outDur = 0.4) {
   if (t < el.start || t > el.end) return null;
   const a = clamp01((t - el.start) / inDur);
   const b = el.end >= state.tl.duration - 0.01 ? 1 : clamp01((el.end - t) / outDur);
@@ -727,6 +748,31 @@ function drawMarks(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, W, H);
   for (const el of state.tl.elements) {
+    if (el.type !== 'label' || !el.dot || el.lat == null) continue;
+    const life = lifeOf(el, t, 0.3, 0.4);
+    const p = life && project(el);
+    if (!p) continue;
+    const u = ease.outBack(clamp01(life.age / 0.3));
+    const pulse = 1 + 0.5 * ((life.age * 1.2) % 1);
+    ctx.save();
+    ctx.globalAlpha = life.out;
+    ctx.fillStyle = el.dotColor || el.color || '#ffd60a';
+    ctx.globalAlpha = life.out * 0.35 * (1 - ((life.age * 1.2) % 1));
+    ctx.beginPath();
+    ctx.arc(p[0], p[1], 11 * pulse * 1.6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = life.out;
+    ctx.shadowColor = 'rgba(0,0,0,.6)';
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.arc(p[0], p[1], 10 * u, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.lineWidth = 3.5;
+    ctx.strokeStyle = '#fff';
+    ctx.stroke();
+    ctx.restore();
+  }
+  for (const el of state.tl.elements) {
     if (!['arrow', 'line', 'ring', 'route', 'measure'].includes(el.type)) continue;
     const life = lifeOf(el, t, el.type === 'ring' ? 0.5 : 0.8, 0.25);
     if (!life) {
@@ -780,12 +826,39 @@ function strokePoly(ctx, pts) {
   ctx.stroke();
 }
 
-function drawRoute(ctx, el, life) {
-  const poly = screenPolyline(el._pts);
-  if (poly.length < 2) return;
+function routeProgress(el, t) {
   const dur = el.drawDur ?? Math.max(0.6, (el.end - el.start) * 0.85);
-  const u = (el.ease === 'linear' ? (x) => x : ease.inOutSine)(clamp01(life.age / dur));
-  const { pts, ang } = partial(poly, u);
+  return (el.ease === 'linear' ? (x) => x : ease.inOutSine)(clamp01((t - el.start) / dur));
+}
+
+// geo points between fractions u0..u1 of the route's length
+function geoSlice(el, u0, u1) {
+  const total = el._cum[el._cum.length - 1];
+  const a = u0 * total, b = u1 * total;
+  const at = (d) => {
+    let i = 1;
+    while (i < el._cum.length - 1 && el._cum[i] < d) i++;
+    const seg = el._cum[i] - el._cum[i - 1] || 1;
+    return geoInterpolate(el._pts[i - 1], el._pts[i])(clamp01((d - el._cum[i - 1]) / seg));
+  };
+  const out = [at(a)];
+  for (let i = 0; i < el._pts.length; i++) if (el._cum[i] > a && el._cum[i] < b) out.push(el._pts[i]);
+  out.push(at(b));
+  return out;
+}
+
+function routeHeadGeo(el, t) {
+  const pts = geoSlice(el, 0, Math.max(routeProgress(el, t), 1e-4));
+  return pts[pts.length - 1];
+}
+
+function drawRoute(ctx, el, life) {
+  const u = routeProgress(el, state.t);
+  const tail = el.retract === false ? 0 : 1 - life.out; // on exit the line is wound back from its start
+  const pts = screenPolyline(geoSlice(el, Math.min(tail, u), Math.max(u, 1e-4)));
+  if (pts.length < 2) return;
+  const n = pts.length;
+  const ang = Math.atan2(pts[n - 1][1] - pts[Math.max(0, n - 4)][1], pts[n - 1][0] - pts[Math.max(0, n - 4)][0]);
   const color = el.color || '#ffd60a';
   const width = el.width || 9;
   ctx.save();
@@ -803,6 +876,17 @@ function drawRoute(ctx, el, life) {
   strokePoly(ctx, pts);
   ctx.restore();
   const head = pts[pts.length - 1];
+  if (el.headDot !== false && !el.mover && u < 1) {
+    ctx.save();
+    ctx.globalAlpha = life.out;
+    ctx.fillStyle = '#fff';
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 18;
+    ctx.beginPath();
+    ctx.arc(head[0], head[1], width * 0.9, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
   el._head = { x: head[0], y: head[1], ang, u };
 }
 
@@ -942,7 +1026,7 @@ function buildUi() {
     let html = null;
     switch (el.type) {
       case 'label':
-        html = `<div class="inner label ${el.style || ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `background:${el.bg};` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${el.dot ? '<span class="dot"></span>' : ''}${esc(el.text)}</div>`;
+        html = `<div class="inner label ${el.style || ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `background:${el.bg};` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${esc(el.text)}</div>`;
         break;
       case 'flag': {
         const w = el.size || 150;
@@ -1118,7 +1202,7 @@ function updateUi(t) {
     }
     const w = inner.offsetWidth, h = inner.offsetHeight;
     if (el.type === 'character') y -= h / 2 - 10; // anchor at the feet
-    if ((el.type !== 'flag' || !el.pin) && el.type !== 'route' && el.type !== 'measure') [x, y] = clampToSafe(x, y, w, h);
+    if (el.screen) [x, y] = clampToSafe(x, y, w, h);
     let scale = 1;
     let opacity = life.out;
     let rot = el.rotate || 0;
@@ -1269,7 +1353,19 @@ function updateFx(t) {
 // ---------------------------------------------------------------- frame
 
 function frame(t) {
+  state.t = t;
   const cam = { ...state.camera.at(t) };
+  // camera follows a moving ship/plane: keep it in the centre of the frame
+  for (const s of state.tl.scenes) {
+    const f = s.camera?.follow;
+    if (!f || t < s.start - 0.3 || t > s.end + 0.3) continue;
+    const el = state.tl.elements.find((e) => e.id === f && e.type === 'route');
+    if (!el || t < el.start) continue;
+    const head = routeHeadGeo(el, t);
+    const w = ease.inOutCubic(clamp01((t - el.start) / 0.8)) * (t > s.end ? clamp01(1 - (t - s.end) / 0.3) : 1);
+    cam.lon += (((head[0] - cam.lon + 540) % 360) - 180) * w;
+    cam.lat += (head[1] - cam.lat) * w;
+  }
   let dx = 0, dy = 0;
   for (const el of state.tl.elements) {
     if (el.type !== 'shake' && el.type !== 'punch') continue;
