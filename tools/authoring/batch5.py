@@ -223,8 +223,9 @@ save('tibet_planes', meta(
           cam=at_(32, 88, 2.8),
           src=[src('It is often called the Roof of the World.', 'Tibetan_Plateau', "often referred to as 'the Roof of the World'")]),
         S("It's the largest and highest plateau on Earth, about 2,500 kilometers wide.", [
-            meas((33, 76), (32, 101), '2,500 km', 'wide'), cnt('#1', 'largest', size=180)],
-          cam=at_(32, 88, 2.2),
+            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 'largest', fillOpacity=0.25),
+            stamp('LARGEST & HIGHEST', 'largest', size=78), meas((33, 76), (32, 101), '2,500 km', 'wide')],
+          cam=at_(32, 88, 2.6),
           src=[src('The world\'s largest and highest plateau; about 2,500 km east to west.', 'Tibetan_Plateau', "It is the world's largest and highest plateau above sea level, with an area of 2,500,000 square kilometres")]),
         S("Its average height is about 4,500 meters.", [
             bars([('Plateau', 4500, '4,500 m', '#2de2e6'), ('Safe air', 3000, '3,000 m', '#4ade80')], 'height', orient='v', shape='mountain', height=360)],
@@ -241,12 +242,12 @@ save('tibet_planes', meta(
           cam=at_(31, 86, 4.0),
           src=[src('The plateau floor sits around 14,800 ft, above the 10,000 ft safety level.', MF, "The plateau's valley floors sit at around 14,800 feet")]),
         S("Airports are rare and far apart, and strong winds turn the air into a washing machine.", [
-            icon('🛬', 29.3, 90.9, 'Airports', size=100), icon('🌪️', 34, 84, 'winds', size=120), icon('🌪️', 31, 94, 'machine', size=110)],
-          cam=at_(32, 89, 3.0),
+            icon('🛬', 29.3, 90.9, 'Airports', size=150), dot('Lhasa', 29.65, 91.1, 'Airports', dy=-80), icon('🌪️', 34, 84, 'winds', size=170), icon('🌪️', 31.5, 95, 'machine', size=160), shake('machine')],
+          cam=at_(32, 89, 4.2),
           src=[src('Airports are rare, far apart and at extreme elevations.', MF, 'Airports are rare, far apart, and themselves perched at extreme elevations.'),
                src('Winds of 100–200 km/h create severe turbulence.', MF, 'the atmosphere downstream turns into a washing machine')]),
         S("So it's not a no-fly zone. It's just a place where an emergency has no safe ending.", [
-            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 800}}, '#ff3b3b', '#ff3b3b', 'emergency', fillOpacity=0.3), cnt('0', 'safe', size=200)],
+            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 800}}, '#ff3b3b', '#ff3b3b', 'emergency', fillOpacity=0.3), stamp('NO SAFE ENDING', 'safe', size=84)],
           cam=at_(32, 90, 2.0),
           src=[src('There is no regulation designating Tibet as a no-fly zone.', MF, "There is no regulation designating Tibet as a no-fly zone.")]),
     ],
