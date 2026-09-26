@@ -65,7 +65,7 @@ save('amazon_bridges', meta(
                src('The water spreads 10, 15 or 20 km between shores.', LBV, 'the water spreads without obstacles to exceed 10, 15, or, in some stretches, 20 kilometers between the extreme shores')]),
         S("The riverbanks are soft mud, always eroding. In the 1990s, studies found a bridge's piles would need to go more than 100 meters deep.", [
             bars([('Piles needed', 100, '100+ m', '#f97316'), ('Statue of Liberty', 93, '93 m', '#4ade80')], 'deep', orient='v', height=360, screen=[0.5, 0.33]), year(1990, '1990s')],
-          style='dark', tr='flash',
+          tr='flash',
           src=[src('The banks are soft, eroding sediment.', IFA, 'The river bank itself is also in a near-constant state of erosion due to how soft the sediment it consists of is'),
                src('Piles would need to go more than 100 m deep.', LBV, 'estimated that to reach competent ground the piles would have to descend more than 100 meters'),
                src('The Statue of Liberty is 93 m tall including its pedestal.', 'Statue_of_Liberty', '93 m')]),
@@ -100,7 +100,6 @@ save('tornado_alley', meta(
           src=[src('The US averages about 1,200 tornadoes a year.', 'Tornado', 'The United States averages about 1,200 tornadoes per year, followed by Canada, averaging 62 reported per year.')]),
         S("Canada comes second, with only about 62.", [
             bars([('USA', 1200, '1,200', '#ff5a5f', 'us'), ('Canada', 62, '62', '#5ec8ff', 'ca')], 'Canada', screen=[0.5, 0.3], labelWidth=220)],
-          style='dark',
           src=[src('Canada averages 62 per year.', 'Tornado', 'followed by Canada, averaging 62 reported per year')]),
         S("Tornado Alley has no official borders, but it can stretch from central Texas, all the way up to the Canadian Prairies.", [
             route([(31, -99), (38, -98), (45, -98), (52, -104)], 'stretch', color='#ff5a5f', width=9, drawDur=1.6, arrowHead=True), dot('Central Texas', 31, -99, 'Texas', dy=52), dot('Canadian Prairies', 52, -104, 'Prairies', dy=-52)],
