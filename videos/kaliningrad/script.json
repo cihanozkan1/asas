@@ -105,7 +105,7 @@
           },
           "fill": "flag:ru",
           "at": "piece",
-          "hold": 3,
+          "hold": 1,
           "neon": "#ff3b3b"
         },
         {
@@ -238,6 +238,16 @@
           "at": "1255"
         },
         {
+          "type": "highlight",
+          "target": {
+            "admin1": "Kaliningrad",
+            "country": "RUS"
+          },
+          "fill": "#8b5e34",
+          "at": "German",
+          "fillOpacity": 0.45
+        },
+        {
           "type": "character",
           "image": "teutonic_knight",
           "screen": [
@@ -326,6 +336,28 @@
           "at": "1945"
         },
         {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Warmian-Masurian"
+            ],
+            "country": "POL"
+          },
+          "fill": "#8b5e34",
+          "at": "Then",
+          "fillOpacity": 0.4
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Kaliningrad",
+            "country": "RUS"
+          },
+          "fill": "#8b5e34",
+          "at": "Then",
+          "fillOpacity": 0.4
+        },
+        {
           "type": "character",
           "image": "soviet_soldier",
           "screen": [
@@ -354,9 +386,9 @@
         }
       ],
       "camera": {
-        "lat": 54.6,
-        "lon": 21.5,
-        "zoom": 7
+        "lat": 54.3,
+        "lon": 21.2,
+        "zoom": 14
       },
       "sources": [
         {
@@ -370,6 +402,40 @@
       "era": "history",
       "text": "After the war, East Prussia was split. The north went to the Soviet Union, the south went to Poland.",
       "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Warmian-Masurian"
+            ],
+            "country": "POL"
+          },
+          "fill": "#8b5e34",
+          "at": "After",
+          "fillOpacity": 0.4,
+          "until": "south"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Kaliningrad",
+            "country": "RUS"
+          },
+          "fill": "#8b5e34",
+          "at": "After",
+          "fillOpacity": 0.4,
+          "until": "north"
+        },
+        {
+          "type": "label",
+          "text": "East Prussia",
+          "lat": 54.2,
+          "lon": 21.0,
+          "at": "East",
+          "style": "serif",
+          "size": 56,
+          "until": "north"
+        },
         {
           "type": "highlight",
           "target": {
@@ -392,22 +458,19 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 53.8,
-              "lon": 20.9,
-              "km": 90
-            }
+            "admin1s": [
+              "Warmian-Masurian"
+            ],
+            "country": "POL"
           },
           "fill": "#dc143c",
           "at": "south",
-          "soft": true,
-          "rim": "#ffffff",
-          "fillOpacity": 0.55
+          "fillOpacity": 0.6
         },
         {
           "type": "label",
           "text": "Poland",
-          "lat": 53.7,
+          "lat": 53.8,
           "lon": 20.9,
           "at": "Poland",
           "style": "serif",
@@ -415,9 +478,9 @@
         }
       ],
       "camera": {
-        "lat": 54.2,
+        "lat": 54.1,
         "lon": 21.0,
-        "zoom": 6.5
+        "zoom": 13
       },
       "sources": [
         {
@@ -435,6 +498,16 @@
           "type": "year",
           "value": "1946",
           "at": "1946"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Kaliningrad",
+            "country": "RUS"
+          },
+          "fill": "#c1121f",
+          "at": "renamed",
+          "fillOpacity": 0.6
         },
         {
           "type": "label",

@@ -222,7 +222,7 @@ save('kaliningrad', meta(
           src=[src('Russia is the largest country in the world by area.', 'Russia', 'It is the largest country in the world by area')]),
         S("But one piece of it is stuck between Poland and Lithuania, not touching the rest of Russia at all.", [
             hl('POL', 'flag:pl', 'Poland', fillOpacity=0.75, hold=1), hl('LTU', 'flag:lt', 'Lithuania', fillOpacity=0.75, hold=1),
-            hl(KO, 'flag:ru', 'piece', hold=3, neon='#ff3b3b'), ping(*KGD, 'piece', color='#ff3b3b', hold=1),
+            hl(KO, 'flag:ru', 'piece', hold=1, neon='#ff3b3b'), ping(*KGD, 'piece', color='#ff3b3b', hold=1),
             dot('Kaliningrad', *KGD, 'stuck', dy=-54, size=48, hold=1)],
           cam=fit(KO, pad=0.8, zoomMul=0.45, bearing=-3),
           src=[src('Kaliningrad Oblast is a semi-exclave bordered by Poland, Lithuania and the Baltic Sea.', K, 'It is a semi-exclave on the Baltic Sea within the historical Baltic region of Prussia, bordered by Poland to the south, Lithuania to the north and east, and the Baltic Sea to the west.')]),
@@ -234,7 +234,7 @@ save('kaliningrad', meta(
                src('Poland and Lithuania joined the EU on 1 May 2004.', '2004_enlargement_of_the_European_Union', 'The largest enlargement of the European Union ... took place on 1 May 2004.')]),
         S("So how did Russia end up with a piece of land in the middle of Europe?", [q(*KGD, 'how')], style='dark', no_claim=True),
         S("In 1255, German crusader knights, the Teutonic Order, built a castle here, and named it Königsberg.", [
-            year(1255, '1255'), char('teutonic_knight', 'knights', name='Teutonic Knight'), icon('🏰', KGD[0] + 0.1, KGD[1], 'castle', size=130),
+            year(1255, '1255'), hl(KO, '#8b5e34', 'German', fillOpacity=0.45), char('teutonic_knight', 'knights', name='Teutonic Knight'), icon('🏰', KGD[0] + 0.1, KGD[1], 'castle', size=130),
             lab('Königsberg', KGD[0] - 0.35, KGD[1], 'Königsberg', style='serif', size=60)],
           cam=at_(54.7, 20.5, 14), era='history', tr='film',
           src=[src('In 1255 the Teutonic Knights built the fortress of Königsberg.', 'Kaliningrad', 'During the conquest of the Sambians by the Teutonic Knights in 1255, Twangste was destroyed and replaced by a fortress named Königsberg')]),
@@ -243,16 +243,17 @@ save('kaliningrad', meta(
           era='history',
           src=[src('Frederick I was crowned King in Prussia in Königsberg in 1701.', 'Kaliningrad', 'Frederick I of Prussia ... crowned King in Prussia in Königsberg, 1701')]),
         S("Then, in April 1945, the Soviet army captured the city.", [
-            year(1945, '1945'), char('soviet_soldier', 'Soviet', name='Red Army'), arrow((54.6, 23.5), (54.72, 20.7), 'captured', color='#c1121f'), shake('captured')],
-          cam=at_(54.6, 21.5, 7), era='history',
+            year(1945, '1945'), hl({'admin1s': ['Warmian-Masurian'], 'country': 'POL'}, '#8b5e34', 'Then', fillOpacity=0.4), hl(KO, '#8b5e34', 'Then', fillOpacity=0.4), char('soviet_soldier', 'Soviet', name='Red Army'), arrow((54.6, 23.5), (54.72, 20.7), 'captured', color='#c1121f'), shake('captured')],
+          cam=at_(54.3, 21.2, 14), era='history',
           src=[src('The Soviet Union captured the city on 9 April 1945.', 'Kaliningrad', 'it was then captured by the Soviet Union on 9 April 1945')]),
         S("After the war, East Prussia was split. The north went to the Soviet Union, the south went to Poland.", [
+            hl({'admin1s': ['Warmian-Masurian'], 'country': 'POL'}, '#8b5e34', 'After', fillOpacity=0.4, until='south'), hl(KO, '#8b5e34', 'After', fillOpacity=0.4, until='north'), lab('East Prussia', 54.2, 21.0, 'East', style='serif', size=56, until='north'),
             hl(KO, '#c1121f', 'north', fillOpacity=0.85), lab('USSR', 54.85, 21.2, 'north', style='serif', size=58),
-            hl({'circle': {'lat': 53.8, 'lon': 20.9, 'km': 90}}, '#dc143c', 'south', soft=True, rim='#ffffff', fillOpacity=0.55), lab('Poland', 53.7, 20.9, 'Poland', style='serif', size=58)],
-          cam=at_(54.2, 21.0, 6.5), era='history',
+            hl({'admin1s': ['Warmian-Masurian'], 'country': 'POL'}, '#dc143c', 'south', fillOpacity=0.6), lab('Poland', 53.8, 20.9, 'Poland', style='serif', size=58)],
+          cam=at_(54.1, 21.0, 13), era='history',
           src=[src('Northern East Prussia went to the USSR; the south came under Polish administration.', 'East_Prussia', 'Northern East Prussia was divided between the Soviet republics of Russia (the Kaliningrad Oblast) and Lithuania ... Southern East Prussia was placed under Polish administration.')]),
         S("In 1946, the city was renamed Kaliningrad, after the Soviet leader Mikhail Kalinin.", [
-            year(1946, '1946'), slam('KALININGRAD', KGD[0] + 0.3, KGD[1], 'renamed', size=66)],
+            year(1946, '1946'), hl(KO, '#c1121f', 'renamed', fillOpacity=0.6), slam('KALININGRAD', KGD[0] + 0.3, KGD[1], 'renamed', size=66)],
           cam=at_(54.7, 20.5, 14), era='history',
           src=[src('Renamed Kaliningrad in July 1946 after Mikhail Kalinin.', 'Kaliningrad', 'Königsberg was renamed Kaliningrad in July 1946 in honour of Mikhail Kalinin')]),
         S("Back then, nobody cared about the border, because Lithuania was Soviet too. But Lithuania became independent in 1990, the Soviet Union dissolved in 1991, and Kaliningrad was suddenly cut off.", [
