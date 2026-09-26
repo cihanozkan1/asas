@@ -402,6 +402,38 @@
       "text": "It can reach 400 kilometers per hour.",
       "show": [
         {
+          "type": "route",
+          "points": [
+            [
+              40,
+              -75
+            ],
+            [
+              45,
+              -55
+            ],
+            [
+              50,
+              -35
+            ],
+            [
+              52,
+              -15
+            ],
+            [
+              50,
+              0
+            ]
+          ],
+          "color": "#a78bfa",
+          "width": 22,
+          "at": "It",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 0.4,
+          "flowSpeed": 520
+        },
+        {
           "type": "counter",
           "steps": [
             {
@@ -419,6 +451,11 @@
           "until": 2.5
         }
       ],
+      "camera": {
+        "lat": 48,
+        "lon": -38,
+        "zoom": 1.9
+      },
       "sources": [
         {
           "claim": "Jet stream winds can reach 400 km/h.",
@@ -539,6 +576,66 @@
       "text": "Flying east across North America with the jet stream can save about 30 minutes.",
       "show": [
         {
+          "type": "route",
+          "points": [
+            [
+              38,
+              -122
+            ],
+            [
+              41,
+              -105
+            ],
+            [
+              42,
+              -90
+            ],
+            [
+              41,
+              -74
+            ]
+          ],
+          "color": "#a78bfa",
+          "width": 16,
+          "at": "Flying",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.0,
+          "flowSpeed": 300
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              37.6,
+              -122.4
+            ],
+            [
+              41,
+              -100
+            ],
+            [
+              40.7,
+              -74
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "east",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 2.6,
+          "id": "us"
+        },
+        {
           "type": "clock",
           "steps": [
             {
@@ -553,12 +650,17 @@
           "at": "east",
           "screen": [
             0.5,
-            0.3
+            0.26
           ],
           "size": 200,
           "label": "−30 min"
         }
       ],
+      "camera": {
+        "lat": 40,
+        "lon": -98,
+        "zoom": 2.4
+      },
       "sources": [
         {
           "claim": "Eastbound flights across North America can save about 30 minutes.",
@@ -575,6 +677,26 @@
           "type": "year",
           "value": "1952",
           "at": "1952"
+        },
+        {
+          "type": "label",
+          "text": "Tokyo",
+          "lat": 35.6,
+          "lon": 139.8,
+          "at": "Tokyo",
+          "dot": true,
+          "dy": -50,
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "Honolulu",
+          "lat": 21.3,
+          "lon": -157.9,
+          "at": "Honolulu",
+          "dot": true,
+          "dy": 50,
+          "size": 44
         },
         {
           "type": "route",
@@ -650,6 +772,220 @@
       "era": "now",
       "text": "In 2018 alone, about 500,000 flights used these moving highways.",
       "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              45,
+              -53
+            ],
+            [
+              48,
+              -40
+            ],
+            [
+              50,
+              -30
+            ],
+            [
+              51,
+              -20
+            ],
+            [
+              50,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "In",
+          "drawDur": 0.8,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              47,
+              -53
+            ],
+            [
+              50,
+              -40
+            ],
+            [
+              52,
+              -30
+            ],
+            [
+              53,
+              -20
+            ],
+            [
+              52,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "In",
+          "drawDur": 0.8,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -53
+            ],
+            [
+              52,
+              -40
+            ],
+            [
+              54,
+              -30
+            ],
+            [
+              55,
+              -20
+            ],
+            [
+              54,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "In",
+          "drawDur": 0.8,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              51,
+              -53
+            ],
+            [
+              54,
+              -40
+            ],
+            [
+              56,
+              -30
+            ],
+            [
+              57,
+              -20
+            ],
+            [
+              56,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "In",
+          "drawDur": 0.8,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              47,
+              -53
+            ],
+            [
+              50,
+              -40
+            ],
+            [
+              52,
+              -30
+            ],
+            [
+              53,
+              -20
+            ],
+            [
+              52,
+              -10
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "flights",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 3.0
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              51,
+              -53
+            ],
+            [
+              54,
+              -40
+            ],
+            [
+              56,
+              -30
+            ],
+            [
+              57,
+              -20
+            ],
+            [
+              56,
+              -10
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "flights",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 3.0
+        },
         {
           "type": "counter",
           "steps": [
