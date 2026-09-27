@@ -248,7 +248,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
   });
 
   const VW = cfg.video.width, VH = cfg.video.height;
-  const central = (e) => e.screen && e.lat == null && e.type !== 'character' && Math.abs(e.screen[0] - 0.5) <= 0.3;
+  const central = (e) => e.screen && e.lat == null && !e.fixed && e.type !== 'character' && Math.abs(e.screen[0] - 0.5) <= 0.3;
 
   // Hook title: readable for at least 2.6 s. It gives way to the first card after that;
   // cards that would start earlier wait for it.
