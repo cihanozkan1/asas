@@ -140,9 +140,10 @@
           "type": "scatter",
           "target": "LSO",
           "icon": "⛰️",
-          "count": 8,
-          "size": 62,
-          "at": "above"
+          "count": 4,
+          "size": 70,
+          "at": "above",
+          "stagger": 0.12
         },
         {
           "type": "label",

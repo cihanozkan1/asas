@@ -364,3 +364,12 @@ html, body {
 .kit-outline .label.map { color: transparent !important; -webkit-text-stroke: 2.5px #fff; text-shadow: none; filter: drop-shadow(0 0 8px var(--kit)); font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: .05em; }
 .title.hook { box-sizing: border-box; }
 .character.figure .nametag { font-size: 30px; padding: 4px 14px; }
+/* icon markers: round badge with the kit accent ring */
+.icon.badged { display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #e9edf3); border: 6px solid var(--kit, #ffd60a);
+  box-shadow: 0 8px 18px rgba(0,0,0,.45), 0 0 0 3px rgba(0,0,0,.25); }
+.icon.badged img { filter: none; }
+.kit-neon .icon.badged { background: radial-gradient(circle at 35% 30%, #1c2340, #0b1024); box-shadow: 0 0 18px var(--kit), 0 8px 18px rgba(0,0,0,.5); }
+.kit-paper .icon.badged { border-color: #fff; background: var(--kit); }
+.kit-outline .icon.badged { background: rgba(0,0,0,.55); border-color: #fff; outline: 3px solid var(--kit); outline-offset: 3px; }
+.kit-news .icon.badged { border-radius: 14px; }

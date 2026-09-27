@@ -98,10 +98,10 @@
             }
           },
           "icon": "🔥",
-          "count": 10,
-          "size": 64,
+          "count": 4,
+          "size": 72,
           "at": "burning",
-          "stagger": 0.08
+          "stagger": 0.15
         },
         {
           "type": "character",
@@ -299,10 +299,10 @@
             }
           },
           "icon": "🏚️",
-          "count": 12,
-          "size": 58,
+          "count": 4,
+          "size": 64,
           "at": "building",
-          "stagger": 0.05
+          "stagger": 0.12
         }
       ],
       "style": "satellite",
@@ -490,10 +490,10 @@
             }
           },
           "icon": "🔥",
-          "count": 12,
-          "size": 66,
+          "count": 4,
+          "size": 72,
           "at": "fire",
-          "stagger": 0.06
+          "stagger": 0.15
         },
         {
           "type": "stamp",

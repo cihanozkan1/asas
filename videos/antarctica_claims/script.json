@@ -597,14 +597,6 @@
           ],
           "at": "science",
           "say": "Science only!"
-        },
-        {
-          "type": "icon",
-          "icon": "🔬",
-          "lat": -80,
-          "lon": 60,
-          "size": 110,
-          "at": "science"
         }
       ],
       "camera": {

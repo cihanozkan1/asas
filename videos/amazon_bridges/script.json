@@ -168,16 +168,11 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": -3.2,
-              "lon": -61,
-              "km": 180
-            }
+            "admin1": "Amazonas",
+            "country": "BRA"
           },
           "fill": "#1d4ed8",
           "at": "swell",
-          "soft": true,
-          "rim": "#5ec8ff",
           "fillOpacity": 0.35
         }
       ],
@@ -244,16 +239,11 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": -3.2,
-              "lon": -61,
-              "km": 180
-            }
+            "admin1": "Amazonas",
+            "country": "BRA"
           },
           "fill": "#1d4ed8",
           "at": 0.05,
-          "soft": true,
-          "rim": "#5ec8ff",
           "fillOpacity": 0.35
         },
         {

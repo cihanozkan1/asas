@@ -275,22 +275,6 @@
           "at": "map"
         },
         {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": 49.05,
-              "lon": -94.85,
-              "km": 32
-            }
-          },
-          "fill": "#5ec8ff",
-          "at": "lake",
-          "soft": true,
-          "rim": "#1d4ed8",
-          "fillOpacity": 0.55,
-          "hold": 2
-        },
-        {
           "type": "route",
           "points": [
             [

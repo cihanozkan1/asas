@@ -130,10 +130,10 @@
             }
           },
           "icon": "🚢",
-          "count": 14,
-          "size": 48,
+          "count": 5,
+          "size": 60,
           "at": "ships",
-          "stagger": 0.06
+          "stagger": 0.1
         },
         {
           "type": "scatter",
@@ -145,10 +145,10 @@
             }
           },
           "icon": "🚢",
-          "count": 10,
-          "size": 48,
+          "count": 4,
+          "size": 60,
           "at": "waiting",
-          "stagger": 0.06,
+          "stagger": 0.1,
           "seed": 3
         },
         {

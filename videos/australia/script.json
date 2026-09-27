@@ -217,12 +217,27 @@
       "text": "Water. 80 percent of the land gets less than 600 millimeters of rain a year, and half gets less than 300.",
       "show": [
         {
-          "type": "scatter",
-          "target": "AUS",
-          "icon": "🏜️",
-          "count": 14,
-          "size": 64,
-          "at": "rain"
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Northern Territory",
+              "South Australia",
+              "Western Australia"
+            ],
+            "country": "AUS"
+          },
+          "fill": "#c2703d",
+          "at": "rain",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "label",
+          "text": "OUTBACK",
+          "lat": -24,
+          "lon": 131,
+          "at": "rain",
+          "style": "map",
+          "size": 64
         },
         {
           "type": "counter",

@@ -137,19 +137,18 @@
           "size": 210
         },
         {
-          "type": "scatter",
+          "type": "highlight",
           "target": {
-            "circle": {
-              "lat": -6.35,
-              "lon": 106.85,
-              "km": 45
-            }
+            "admin1s": [
+              "Jakarta Raya",
+              "Banten",
+              "Jawa Barat"
+            ],
+            "country": "IDN"
           },
-          "icon": "🏙️",
-          "count": 12,
-          "size": 56,
+          "fill": "#ff5a5f",
           "at": "crowded",
-          "stagger": 0.05
+          "fillOpacity": 0.35
         },
         {
           "type": "label",
@@ -198,21 +197,12 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": -6.12,
-              "lon": 106.85,
-              "km": 9
-            }
+            "admin1": "Jakarta Raya",
+            "country": "IDN"
           },
           "fill": "#1d4ed8",
           "at": "sinking",
-          "fillOpacity": 0.6,
-          "soft": true,
-          "rim": "#5ec8ff",
-          "reveal": {
-            "lat": -6.12,
-            "lon": 106.85
-          }
+          "fillOpacity": 0.55
         },
         {
           "type": "stamp",

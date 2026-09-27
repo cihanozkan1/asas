@@ -74,17 +74,12 @@
           "at": "Llívia"
         },
         {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": 42.464,
-              "lon": 1.975,
-              "km": 3
-            }
-          },
-          "fill": "flag:es",
-          "at": "Llívia",
-          "neon": "#ffd60a"
+          "type": "flag",
+          "code": "es",
+          "lat": 42.476,
+          "lon": 1.975,
+          "size": 110,
+          "at": "Llívia"
         },
         {
           "type": "highlight",
@@ -127,18 +122,11 @@
           "at": "1659"
         },
         {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": 42.464,
-              "lon": 1.975,
-              "km": 3
-            }
-          },
-          "fill": "#ffd60a",
-          "at": "Llívia",
-          "fillOpacity": 0.35,
-          "neon": "#ffd60a"
+          "type": "ping",
+          "lat": 42.464,
+          "lon": 1.975,
+          "color": "#ffd60a",
+          "at": "Llívia"
         },
         {
           "type": "label",
@@ -380,10 +368,10 @@
           "at": "storm"
         },
         {
-          "type": "ring",
+          "type": "ping",
           "lat": 35.1722,
           "lon": -4.3003,
-          "r": 70,
+          "color": "#ffd60a",
           "at": "island"
         },
         {

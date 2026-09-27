@@ -63,18 +63,21 @@
         {
           "type": "scatter",
           "target": {
-            "box": [
-              -104,
-              31,
-              -85,
-              45
-            ]
+            "admin1s": [
+              "Texas",
+              "Oklahoma",
+              "Kansas",
+              "Nebraska",
+              "Iowa",
+              "Missouri"
+            ],
+            "country": "USA"
           },
           "icon": "🌪️",
-          "count": 16,
-          "size": 56,
+          "count": 6,
+          "size": 64,
           "at": "year",
-          "stagger": 0.05
+          "stagger": 0.1
         }
       ],
       "camera": {

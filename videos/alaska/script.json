@@ -475,9 +475,10 @@
             "country": "USA"
           },
           "icon": "💰",
-          "count": 12,
-          "size": 60,
-          "at": "bargain"
+          "count": 5,
+          "size": 72,
+          "at": "bargain",
+          "stagger": 0.12
         },
         {
           "type": "highlight",

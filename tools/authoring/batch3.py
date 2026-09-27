@@ -20,7 +20,7 @@ save('suez_ever_given', meta(
             slam('EVER GIVEN', 30.12, 32.58, 'Ever', size=70), cnt('400 m', '400', size=180), icon('🌪️', 30.2, 32.7, 'sandstorm', size=110)],
           src=[src('The 400 m ship became wedged across the canal during a sandstorm.', '2021_Suez_Canal_obstruction', 'The 400-meter vessel became wedged across the canal during a sandstorm')]),
         S("About 369 ships got stuck waiting at both ends.", [
-            scatter(Q_N, '🚢', 'ships', count=14, size=48, stagger=0.06), scatter(Q_S, '🚢', 'waiting', count=10, size=48, stagger=0.06, seed=3),
+            scatter(Q_N, '🚢', 'ships', count=5, size=60, stagger=0.1), scatter(Q_S, '🚢', 'waiting', count=4, size=60, stagger=0.1, seed=3),
             cnt('369', '369', size=190)],
           cam=at_(30.6, 32.45, 14),
           src=[src('Approximately 369 ships queued.', '2021_Suez_Canal_obstruction', 'Approximately 369 ships queued to pass through')]),
@@ -73,7 +73,7 @@ save('istanbul', meta(
           src=[src('31 km long; minimum width 700 m near Kandilli.', 'Bosporus', 'measures "31 km (17 nmi) long" with a minimum width of "700 m (0.38 nmi)" at its narrowest point near Kandilli')]),
         S("More than 15 million people live here, and about two thirds of them are on the European side.", [
             slam('ISTANBUL', 41.2, 28.95, 'More', size=64), cnt('15M+', '15', size=190), pill('⅔ live in Europe', 'thirds', bg='#1d4ed8'),
-            scatter({'circle': {'lat': 41.06, 'lon': 28.9, 'km': 12}}, '🏠', 'European', count=10, size=46)],
+            scatter({'circle': {'lat': 41.06, 'lon': 28.9, 'km': 12}}, '🏠', 'European', count=4, size=56)],
           cam=at_(41.05, 29.0, 40),
           src=[src('Over 15 million inhabitants; about two-thirds live in Europe.', 'Istanbul', 'Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants')]),
         S("It was founded by Greek colonists as Byzantium, and in 330 it became Constantinople.", [
@@ -175,7 +175,7 @@ save('diomede', meta(
             note('TOMORROW', 65.83, -169.05, 'Tomorrow', size=62), note('YESTERDAY', 65.71, -168.92, 'Yesterday', size=62, rotate=6)],
           src=[src('They are nicknamed "Tomorrow Island" and "Yesterday Island".', 'Diomede_Islands', 'This quirk earned them the nicknames "Tomorrow Island" and "Yesterday Island."')]),
         S("In winter, an ice bridge usually forms between them. But crossing it is prohibited.", [
-            hl({'circle': {'lat': 65.77, 'lon': -168.99, 'km': 5}}, '#e0f2fe', 'ice', fillOpacity=0.55, reveal={'lat': 65.77, 'lon': -168.99}),
+            route([(65.78, -169.05), (65.77, -168.93)], 'ice', color='#e0f2fe', width=18, drawDur=0.8),
             icon('🧊', 65.77, -168.99, 'ice', size=110), stamp('PROHIBITED', 'prohibited', size=90, screen=[0.5, 0.22])],
           src=[src('An ice bridge usually forms in winter, but crossing is prohibited.', 'Diomede_Islands', 'An ice bridge usually spans the distance between the two islands in winter, though crossing between them is prohibited')]),
         S("Little Diomede is home to a small Inupiat community of about 77 people.", [

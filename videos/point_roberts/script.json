@@ -232,19 +232,16 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 48.975,
-              "lon": -123.06,
-              "km": 2.2
-            }
+            "box": [
+              -123.1,
+              48.955,
+              -123.0,
+              49.0
+            ]
           },
           "fill": "#1d4ed8",
           "at": "tip",
-          "fillOpacity": 0.35,
-          "reveal": {
-            "lat": 48.975,
-            "lon": -123.06
-          }
+          "fillOpacity": 0.5
         }
       ],
       "camera": {
@@ -423,15 +420,16 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 48.975,
-              "lon": -123.06,
-              "km": 2.2
-            }
+            "box": [
+              -123.1,
+              48.955,
+              -123.0,
+              49.0
+            ]
           },
           "fill": "#1d4ed8",
           "at": 0.05,
-          "fillOpacity": 0.35
+          "fillOpacity": 0.5
         },
         {
           "type": "label",

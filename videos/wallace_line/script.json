@@ -225,48 +225,70 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": -1,
-              "lon": 106,
-              "km": 900
-            }
+            "admin1s": [
+              "Aceh",
+              "Sumatera Utara",
+              "Sumatera Barat",
+              "Riau",
+              "Jambi",
+              "Sumatera Selatan",
+              "Bengkulu",
+              "Lampung",
+              "Bangka-Belitung",
+              "Kepulauan Riau",
+              "Banten",
+              "Jakarta Raya",
+              "Jawa Barat",
+              "Jawa Tengah",
+              "Yogyakarta",
+              "Jawa Timur",
+              "Bali",
+              "Kalimantan Barat",
+              "Kalimantan Tengah",
+              "Kalimantan Selatan",
+              "Kalimantan Timur"
+            ],
+            "country": "IDN"
           },
           "fill": "#f59e0b",
           "at": "West",
-          "soft": true,
-          "rim": "#fbbf24",
-          "fillOpacity": 0.35
+          "fillOpacity": 0.55
         },
         {
-          "type": "scatter",
+          "type": "highlight",
           "target": {
-            "box": [
-              100,
-              -8,
-              114,
-              4
+            "countries": [
+              "MYS",
+              "BRN"
             ]
           },
-          "icon": "🐒",
-          "count": 6,
-          "size": 70,
+          "fill": "#f59e0b",
+          "at": "West",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "icon",
+          "icon": "🦧",
+          "lat": 0.8,
+          "lon": 113.8,
+          "size": 96,
           "at": "apes"
         },
         {
-          "type": "scatter",
-          "target": {
-            "box": [
-              100,
-              -7,
-              113,
-              3
-            ]
-          },
+          "type": "icon",
           "icon": "🐘",
-          "count": 4,
-          "size": 76,
-          "at": "elephants",
-          "seed": 5
+          "lat": -0.3,
+          "lon": 101.8,
+          "size": 96,
+          "at": "elephants"
+        },
+        {
+          "type": "icon",
+          "icon": "🐒",
+          "lat": -7.4,
+          "lon": 110.2,
+          "size": 90,
+          "at": "monkeys"
         },
         {
           "type": "label",
@@ -299,31 +321,53 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": -5,
-              "lon": 128,
-              "km": 1000
-            }
+            "admin1s": [
+              "Nusa Tenggara Barat",
+              "Nusa Tenggara Timur",
+              "Sulawesi Utara",
+              "Sulawesi Tengah",
+              "Sulawesi Selatan",
+              "Sulawesi Tenggara",
+              "Sulawesi Barat",
+              "Gorontalo",
+              "Maluku",
+              "Maluku Utara",
+              "Papua",
+              "Papua Barat"
+            ],
+            "country": "IDN"
           },
           "fill": "#16a34a",
           "at": "East",
-          "soft": true,
-          "rim": "#4ade80",
-          "fillOpacity": 0.35
+          "fillOpacity": 0.55
         },
         {
-          "type": "scatter",
+          "type": "highlight",
           "target": {
-            "box": [
-              118,
-              -9,
-              138,
-              0
+            "countries": [
+              "PNG",
+              "TLS",
+              "AUS"
             ]
           },
+          "fill": "#16a34a",
+          "at": "East",
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "icon",
           "icon": "🦘",
-          "count": 6,
-          "size": 70,
+          "lat": -16.5,
+          "lon": 133,
+          "size": 96,
+          "at": "marsupials"
+        },
+        {
+          "type": "icon",
+          "icon": "🐨",
+          "lat": -5.5,
+          "lon": 142.5,
+          "size": 90,
           "at": "marsupials"
         },
         {
@@ -372,19 +416,36 @@
           "color": "#5ec8ff"
         },
         {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": -8.5,
-              "lon": 115.85,
-              "km": 40
-            }
-          },
-          "fill": "#1d4ed8",
+          "type": "route",
+          "points": [
+            [
+              -7.2,
+              115.75
+            ],
+            [
+              -8.3,
+              115.85
+            ],
+            [
+              -9.3,
+              115.8
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 14,
           "at": "Deep",
-          "soft": true,
-          "rim": "#5ec8ff",
-          "fillOpacity": 0.5
+          "flow": true,
+          "drawDur": 0.8
+        },
+        {
+          "type": "label",
+          "text": "LOMBOK STRAIT",
+          "lat": -8.1,
+          "lon": 117.2,
+          "at": "Deep",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 40
         }
       ],
       "camera": {
@@ -408,32 +469,82 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": -1,
-              "lon": 106,
-              "km": 900
-            }
+            "admin1s": [
+              "Aceh",
+              "Sumatera Utara",
+              "Sumatera Barat",
+              "Riau",
+              "Jambi",
+              "Sumatera Selatan",
+              "Bengkulu",
+              "Lampung",
+              "Bangka-Belitung",
+              "Kepulauan Riau",
+              "Banten",
+              "Jakarta Raya",
+              "Jawa Barat",
+              "Jawa Tengah",
+              "Yogyakarta",
+              "Jawa Timur",
+              "Bali",
+              "Kalimantan Barat",
+              "Kalimantan Tengah",
+              "Kalimantan Selatan",
+              "Kalimantan Timur"
+            ],
+            "country": "IDN"
           },
           "fill": "#f59e0b",
           "at": "Asian",
-          "soft": true,
-          "rim": "#fbbf24",
-          "fillOpacity": 0.35
+          "fillOpacity": 0.55
         },
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": -5,
-              "lon": 128,
-              "km": 1000
-            }
+            "countries": [
+              "MYS",
+              "BRN"
+            ]
+          },
+          "fill": "#f59e0b",
+          "at": "Asian",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Nusa Tenggara Barat",
+              "Nusa Tenggara Timur",
+              "Sulawesi Utara",
+              "Sulawesi Tengah",
+              "Sulawesi Selatan",
+              "Sulawesi Tenggara",
+              "Sulawesi Barat",
+              "Gorontalo",
+              "Maluku",
+              "Maluku Utara",
+              "Papua",
+              "Papua Barat"
+            ],
+            "country": "IDN"
           },
           "fill": "#16a34a",
           "at": "other",
-          "soft": true,
-          "rim": "#4ade80",
-          "fillOpacity": 0.35
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "PNG",
+              "TLS",
+              "AUS"
+            ]
+          },
+          "fill": "#16a34a",
+          "at": "other",
+          "fillOpacity": 0.45
         },
         {
           "type": "counter",

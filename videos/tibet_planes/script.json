@@ -128,16 +128,14 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 33.0,
-              "lon": 88.0,
-              "km": 800
-            }
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
           },
           "fill": "#ff3b3b",
           "at": "hole",
-          "soft": true,
-          "rim": "#ff3b3b",
           "fillOpacity": 0.25
         }
       ],
@@ -165,16 +163,14 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 33.0,
-              "lon": 88.0,
-              "km": 750
-            }
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
           },
           "fill": "#2de2e6",
           "at": "Roof",
-          "soft": true,
-          "rim": "#2de2e6",
           "fillOpacity": 0.25
         }
       ],
@@ -198,16 +194,14 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 33.0,
-              "lon": 88.0,
-              "km": 750
-            }
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
           },
           "fill": "#2de2e6",
           "at": "largest",
-          "soft": true,
-          "rim": "#2de2e6",
           "fillOpacity": 0.25
         },
         {
@@ -254,16 +248,14 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 33.0,
-              "lon": 88.0,
-              "km": 750
-            }
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
           },
           "fill": "#2de2e6",
           "at": 0.05,
-          "soft": true,
-          "rim": "#2de2e6",
           "fillOpacity": 0.2
         },
         {
@@ -303,16 +295,14 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 33.0,
-              "lon": 88.0,
-              "km": 750
-            }
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
           },
           "fill": "#2de2e6",
           "at": 0.05,
-          "soft": true,
-          "rim": "#2de2e6",
           "fillOpacity": 0.2
         },
         {
@@ -361,16 +351,14 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 33.0,
-              "lon": 88.0,
-              "km": 750
-            }
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
           },
           "fill": "#2de2e6",
           "at": 0.05,
-          "soft": true,
-          "rim": "#2de2e6",
           "fillOpacity": 0.2
         },
         {
@@ -448,16 +436,14 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 33.0,
-              "lon": 88.0,
-              "km": 750
-            }
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
           },
           "fill": "#2de2e6",
           "at": 0.05,
-          "soft": true,
-          "rim": "#2de2e6",
           "fillOpacity": 0.2
         },
         {
@@ -562,16 +548,14 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 33.0,
-              "lon": 88.0,
-              "km": 800
-            }
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
           },
           "fill": "#ff3b3b",
           "at": "emergency",
-          "soft": true,
-          "rim": "#ff3b3b",
           "fillOpacity": 0.3
         },
         {

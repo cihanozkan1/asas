@@ -45,21 +45,56 @@
           "at": 0.05
         },
         {
-          "type": "highlight",
+          "type": "route",
+          "points": [
+            [
+              48.9,
+              -100.0
+            ],
+            [
+              41.0,
+              -99.8
+            ],
+            [
+              33.5,
+              -99.5
+            ]
+          ],
+          "color": "#16a34a",
+          "width": 30,
+          "at": "wall",
+          "drawDur": 1.4,
+          "glow": true
+        },
+        {
+          "type": "scatter",
           "target": {
             "box": [
               -101.5,
-              31.5,
+              32,
               -98.5,
-              49
+              48.5
             ]
           },
-          "fill": "#16a34a",
-          "at": "wall",
-          "fillOpacity": 0.55,
-          "soft": true,
-          "rim": "#4ade80",
-          "hold": 1
+          "icon": "🌳",
+          "count": 7,
+          "size": 58,
+          "at": "Not",
+          "stagger": 0.1,
+          "along": [
+            [
+              48.6,
+              -100.0
+            ],
+            [
+              41.0,
+              -99.8
+            ],
+            [
+              33.8,
+              -99.5
+            ]
+          ]
         }
       ],
       "camera": {
@@ -197,10 +232,20 @@
             ]
           },
           "icon": "🌳",
-          "count": 18,
-          "size": 56,
+          "count": 5,
+          "size": 64,
           "at": "idea",
-          "stagger": 0.05
+          "stagger": 0.12,
+          "along": [
+            [
+              41.5,
+              -100.2
+            ],
+            [
+              38.5,
+              -100.2
+            ]
+          ]
         },
         {
           "type": "route",
@@ -239,20 +284,26 @@
       "text": "By 1942, they had planted 220 million trees.",
       "show": [
         {
-          "type": "highlight",
-          "target": {
-            "box": [
-              -101.5,
-              31.5,
-              -98.5,
-              49
+          "type": "route",
+          "points": [
+            [
+              48.9,
+              -100.0
+            ],
+            [
+              41.0,
+              -99.8
+            ],
+            [
+              33.5,
+              -99.5
             ]
-          },
-          "fill": "#16a34a",
+          ],
+          "color": "#16a34a",
+          "width": 30,
           "at": 0.05,
-          "fillOpacity": 0.45,
-          "soft": true,
-          "rim": "#4ade80"
+          "drawDur": 0.4,
+          "glow": true
         },
         {
           "type": "counter",
@@ -305,20 +356,26 @@
       "text": "That's 30,233 separate shelterbelts, covering 18,600 square miles.",
       "show": [
         {
-          "type": "highlight",
-          "target": {
-            "box": [
-              -101.5,
-              31.5,
-              -98.5,
-              49
+          "type": "route",
+          "points": [
+            [
+              48.9,
+              -100.0
+            ],
+            [
+              41.0,
+              -99.8
+            ],
+            [
+              33.5,
+              -99.5
             ]
-          },
-          "fill": "#16a34a",
+          ],
+          "color": "#16a34a",
+          "width": 30,
           "at": 0.05,
-          "fillOpacity": 0.45,
-          "soft": true,
-          "rim": "#4ade80"
+          "drawDur": 0.4,
+          "glow": true
         },
         {
           "type": "counter",
@@ -344,11 +401,25 @@
               48.5
             ]
           },
-          "icon": "🌲",
-          "count": 22,
-          "size": 48,
+          "icon": "🌳",
+          "count": 7,
+          "size": 58,
           "at": "shelterbelts",
-          "stagger": 0.04
+          "stagger": 0.1,
+          "along": [
+            [
+              48.6,
+              -100.0
+            ],
+            [
+              41.0,
+              -99.8
+            ],
+            [
+              33.8,
+              -99.5
+            ]
+          ]
         }
       ],
       "sources": [
@@ -369,20 +440,26 @@
       "text": "It stretched from the Canadian border in North Dakota, all the way to the Brazos River in Texas.",
       "show": [
         {
-          "type": "highlight",
-          "target": {
-            "box": [
-              -101.5,
-              31.5,
-              -98.5,
-              49
+          "type": "route",
+          "points": [
+            [
+              48.9,
+              -100.0
+            ],
+            [
+              41.0,
+              -99.8
+            ],
+            [
+              33.5,
+              -99.5
             ]
-          },
-          "fill": "#16a34a",
+          ],
+          "color": "#16a34a",
+          "width": 30,
           "at": 0.05,
-          "fillOpacity": 0.45,
-          "soft": true,
-          "rim": "#4ade80"
+          "drawDur": 0.4,
+          "glow": true
         },
         {
           "type": "ping",
@@ -459,20 +536,26 @@
       "text": "Experts later called it the largest government effort ever focused on an environmental problem in the US.",
       "show": [
         {
-          "type": "highlight",
-          "target": {
-            "box": [
-              -101.5,
-              31.5,
-              -98.5,
-              49
+          "type": "route",
+          "points": [
+            [
+              48.9,
+              -100.0
+            ],
+            [
+              41.0,
+              -99.8
+            ],
+            [
+              33.5,
+              -99.5
             ]
-          },
-          "fill": "#16a34a",
+          ],
+          "color": "#16a34a",
+          "width": 30,
           "at": 0.05,
-          "fillOpacity": 0.45,
-          "soft": true,
-          "rim": "#4ade80"
+          "drawDur": 0.4,
+          "glow": true
         },
         {
           "type": "stamp",
@@ -495,10 +578,24 @@
             ]
           },
           "icon": "🌳",
-          "count": 14,
-          "size": 56,
+          "count": 7,
+          "size": 58,
           "at": "Experts",
-          "stagger": 0.04
+          "stagger": 0.1,
+          "along": [
+            [
+              48.6,
+              -100.0
+            ],
+            [
+              41.0,
+              -99.8
+            ],
+            [
+              33.8,
+              -99.5
+            ]
+          ]
         }
       ],
       "camera": {

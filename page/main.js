@@ -222,23 +222,56 @@ function culled(index, box, type) {
 }
 
 // Random points inside a target (deterministic), spread apart a little.
-function scatterPoints(feats, n, seed, minDistDeg, minLat = -90, maxLat = 90) {
+// Evenly spread points inside the target: a regular grid of candidates, then farthest-point
+// sampling so icons form a tidy, balanced pattern instead of random clumps.
+// `along` ([[lat,lon],...]) instead places them at equal steps along a path (a row / a wall).
+function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, along = null) {
+  if (along && along.length > 1) {
+    const P = along.map(([la, lo]) => [lo, la]);
+    const seg = [0];
+    for (let i = 1; i < P.length; i++) seg.push(seg[i - 1] + geoDistance(P[i - 1], P[i]));
+    const tot = seg[seg.length - 1] || 1;
+    const out = [];
+    for (let k = 0; k < n; k++) {
+      const d = n === 1 ? tot / 2 : (tot * k) / (n - 1);
+      let i = 1;
+      while (i < seg.length - 1 && seg[i] < d) i++;
+      const f = (d - seg[i - 1]) / ((seg[i] - seg[i - 1]) || 1);
+      out.push(geoInterpolate(P[i - 1], P[i])(f));
+    }
+    return out;
+  }
   const fc = { type: 'FeatureCollection', features: feats };
   let [[w, s], [e, nn]] = geoBounds(fc);
   s = Math.max(s, minLat);
   nn = Math.min(nn, maxLat);
-  const r = rng(seed * 7919);
-  const pts = [];
-  let tries = 0;
   const span = e >= w ? e - w : e + 360 - w;
-  while (pts.length < n && tries++ < 20000) {
-    const lon = w + r() * span, lat = s + r() * (nn - s);
-    const p = [lon > 180 ? lon - 360 : lon, lat];
-    if (!feats.some((f) => geoContains(f, p))) continue;
-    if (pts.some((q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < minDistDeg * Math.sqrt(span * (nn - s) / n))) continue;
-    pts.push(p);
+  const cands = [];
+  for (let g = 24; g <= 96 && cands.length < n * 6; g += 12) {
+    cands.length = 0;
+    const step = Math.max(span, nn - s) / g;
+    for (let row = 0, lat = s + step / 2; lat < nn; lat += step * 0.866, row++) {
+      for (let lon = w + (row % 2 ? step : step / 2); lon < w + span; lon += step) {
+        const p = [lon > 180 ? lon - 360 : lon, lat];
+        if (feats.some((f) => geoContains(f, p))) cands.push(p);
+      }
+    }
   }
-  return pts;
+  if (!cands.length) return [];
+  // start near the centroid, then keep adding the candidate farthest from all chosen ones
+  const cx = cands.reduce((a, p) => a + p[0], 0) / cands.length, cy = cands.reduce((a, p) => a + p[1], 0) / cands.length;
+  let first = cands[0], bd = Infinity;
+  for (const p of cands) { const d = Math.hypot(p[0] - cx, p[1] - cy); if (d < bd) { bd = d; first = p; } }
+  const out = [first];
+  const dmin = cands.map((p) => Math.hypot(p[0] - first[0], p[1] - first[1]));
+  while (out.length < Math.min(n, cands.length)) {
+    let k = 0;
+    for (let i = 1; i < cands.length; i++) if (dmin[i] > dmin[k]) k = i;
+    if (dmin[k] <= 0) break;
+    out.push(cands[k]);
+    for (let i = 0; i < cands.length; i++) dmin[i] = Math.min(dmin[i], Math.hypot(cands[i][0] - cands[k][0], cands[i][1] - cands[k][1]));
+  }
+  return out;
 }
 
 // [[lat,lon],...] -> dense [lon,lat] great-circle polyline
@@ -398,7 +431,7 @@ async function init(tl) {
 
   // per-element geometry
   for (const el of tl.elements) {
-    if (el.type === 'scatter') el._pts = scatterPoints(state.targets[el.target], el.count || 12, el.seed || 7, el.minDist ?? 0.25, el.minLat ?? -90, el.maxLat ?? 90);
+    if (el.type === 'scatter') el._pts = scatterPoints(state.targets[el.target] || [], el.count || 12, el.seed || 7, el.minDist ?? 0.25, el.minLat ?? -90, el.maxLat ?? 90, el.along);
     if (el.type === 'ghost') {
       el._fc = { type: 'FeatureCollection', features: state.targets[el.target] };
       el._c = geoCentroid(el._fc);
@@ -481,6 +514,52 @@ async function init(tl) {
     frame(Math.max(k + 0.02, Math.min(k + 0.5, Math.min(...els.map((e) => e.end)) - 0.05)));
   }
   state.layoutFor = null;
+  // characters stand on whichever side of the screen keeps them clear of labels, icons and cards
+  const rectOf = (e) => {
+    const op = parseFloat(e._node.style.opacity || '1');
+    if (!(op > 0.3)) return null;
+    const r = (e._inner || e._node).getBoundingClientRect();
+    return r.width > 2 ? r : null;
+  };
+  const inter = (a, b) => Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left)) * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
+  for (const ch of tl.elements) {
+    if (ch.type !== 'character' || !ch._node || !ch.screen || ch.side === 'fixed') continue;
+    const x0 = ch.screen[0];
+    if (Math.abs(x0 - 0.5) < 0.08) continue;
+    const ts = [];
+    for (let t = ch.start + 0.4; t < ch.end - 0.1; t += 0.5) ts.push(t);
+    if (!ts.length) ts.push((ch.start + ch.end) / 2);
+    const cost = (x) => {
+      ch.screen[0] = x;
+      let c = 0;
+      for (const t of ts) {
+        frame(t);
+        const a = rectOf(ch);
+        if (!a) continue;
+        for (const o of tl.elements) {
+          if (o === ch || !o._node || o.type === 'route' || o.type === 'scatter' || o.type === 'measure') continue;
+          const b = rectOf(o);
+          if (b) c += inter(a, b);
+        }
+      }
+      return c;
+    };
+    const keep = cost(x0), flip = cost(1 - x0);
+    ch.screen[0] = flip < keep * 0.6 ? 1 - x0 : x0;
+  }
+  // an older map label/icon that a later card, stamp or character would cover leaves as it arrives
+  const area = (r) => r.width * r.height;
+  for (const ob of tl.elements) {
+    if (!ob._node || isMovable(ob) || ['route', 'scatter', 'measure'].includes(ob.type)) continue;
+    frame(Math.min(ob.start + 0.35, ob.end - 0.05));
+    const a = rectOf(ob);
+    if (!a) continue;
+    for (const m of tl.elements) {
+      if (m === ob || !m._node || !isMovable(m) || m.start > ob.start - 0.1 || m.end < ob.start + 0.3) continue;
+      const b = rectOf(m);
+      if (b && inter(a, b) > 0.12 * Math.min(area(a), area(b))) m.end = Math.max(m.start + 1.5, ob.start + 0.1);
+    }
+  }
   state.layoutOnly = false;
   return { ok: true, maxTexture: state.raster.maxTex, renderer: state.raster.renderer, rasterScale: $('raster').width / W };
 }
@@ -1330,7 +1409,10 @@ function buildUi() {
         break;
       }
       case 'icon':
-        html = `<div class="inner icon"><img src="${el.src}" style="width:${el.size || 110}px;height:${el.size || 110}px"></div>`;
+        // icons sit on a round badge (like map markers), so they read as designed markers, not loose emoji
+        html = el.plain
+          ? `<div class="inner icon"><img src="${el.src}" style="width:${el.size || 110}px;height:${el.size || 110}px"></div>`
+          : `<div class="inner icon badged" style="width:${(el.size || 110) * 1.25}px;height:${(el.size || 110) * 1.25}px"><img src="${el.src}" style="width:${(el.size || 110) * 0.78}px;height:${(el.size || 110) * 0.78}px"></div>`;
         break;
       case 'badge':
         html = `<div class="inner badge" style="background:${el.color || '#2b6be0'}">${esc(el.text)}</div>`;
@@ -1529,7 +1611,17 @@ function updateUi(t) {
           return;
         }
         const sz = el.size || 70;
-        const sc = ease.outBack(u) * (1 + 0.06 * Math.sin(t * 6 + i));
+        // decided once, when the icon first appears: drop icons that would touch an earlier one
+        el._keep = el._keep || [];
+        if (el._keep[i] == null) {
+          el._keep[i] = !el._pts.some((pt2, j) => {
+            if (j >= i || !el._keep[j]) return false;
+            const r = project({ lon: pt2[0], lat: pt2[1] });
+            return r && Math.hypot(r[0] - q[0], r[1] - q[1]) < sz * 1.15;
+          });
+        }
+        if (!el._keep[i]) { img.style.opacity = '0'; return; }
+        const sc = ease.outBack(u) * (1 + 0.04 * Math.sin(t * 3 + i));
         img.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;left:${q[0] - sz / 2}px;top:${q[1] - sz / 2}px;opacity:${life.out};transform:scale(${sc});filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))`;
       });
       continue;
@@ -1806,6 +1898,19 @@ function updateUi(t) {
       const r = raw.get(p.el);
       p.el._off = [p.x - r[0], p.y - r[1]];
     }
+  }
+  // scatter icons never sit under a label, card or character: hide the ones that would
+  for (const el of state.tl.elements) {
+    if (el.type !== 'scatter' || !el._node || !el._inner) continue;
+    [...el._inner.children].forEach((img, i) => {
+      if (img.style.opacity === '0' || !img.style.left) return;
+      const sz = el.size || 70, x = parseFloat(img.style.left) + sz / 2, y = parseFloat(img.style.top) + sz / 2;
+      el._clear = el._clear || [];
+      if (el._clear[i] == null) {
+        el._clear[i] = !placed.some((p) => p.opacity > 0.3 && p.el.type !== 'route' && Math.abs(p.x - x) < (p.w * p.scale + sz) / 2 && Math.abs(p.y - y) < (p.h * p.scale + sz) / 2);
+      }
+      if (!el._clear[i]) img.style.opacity = '0';
+    });
   }
   for (const p of placed) {
     const { el, node, inner, scale, rot, opacity } = p;

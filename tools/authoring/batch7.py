@@ -55,11 +55,11 @@ save('amazon_bridges', meta(
           cam=at_(-3, -61, 3.0),
           src=[src('More than 6,400 km and no bridge connects its banks.', LBV, 'along its more than 6,400 kilometers, no bridge connects its banks. Not a single one.')]),
         S("Why? First, the river changes size. From December to May, heavy rains make it swell.", [
-            flow(AMZ, 0.05, color='#5ec8ff', width=12, drawDur=0.6), tilt('swell', deg=38, until=4), blob({'circle': {'lat': -3.2, 'lon': -61, 'km': 180}}, '#1d4ed8', '#5ec8ff', 'swell', fillOpacity=0.35)],
+            flow(AMZ, 0.05, color='#5ec8ff', width=12, drawDur=0.6), tilt('swell', deg=38, until=4), hl({'admin1': 'Amazonas', 'country': 'BRA'}, '#1d4ed8', 'swell', fillOpacity=0.35)],
           cam=at_(-3.1, -60.5, 7),
           src=[src('Rains swell the basin between December and May.', LBV, 'When torrential rains swell the basin between December and May')]),
         S("Its waters can rise 30 feet, and in some places it spreads 10, 15, even 20 kilometers from shore to shore.", [
-            flow(AMZ, 0.05, color='#5ec8ff', width=12, drawDur=0.6), blob({'circle': {'lat': -3.2, 'lon': -61, 'km': 180}}, '#1d4ed8', '#5ec8ff', 0.05, fillOpacity=0.35), meas((-3.35, -60.5), (-2.95, -60.5), '20 km', '20', countUp=False), cnt('+30 ft', '30', size=170, color='#5ec8ff'), cnt_steps([('10', '10 km'), ('15', '15 km'), ('20', '20 km')], size=110, screen=[0.5, 0.23])],
+            flow(AMZ, 0.05, color='#5ec8ff', width=12, drawDur=0.6), hl({'admin1': 'Amazonas', 'country': 'BRA'}, '#1d4ed8', 0.05, fillOpacity=0.35), meas((-3.35, -60.5), (-2.95, -60.5), '20 km', '20', countUp=False), cnt('+30 ft', '30', size=170, color='#5ec8ff'), cnt_steps([('10', '10 km'), ('15', '15 km'), ('20', '20 km')], size=110, screen=[0.5, 0.23])],
           cam=at_(-3.1, -60.5, 9),
           src=[src('Waters rise 30 feet in the rainy season.', IFA, 'its waters rise 30 feet, causing 3-mile-wide crossings to grow by a factor of 10'),
                src('The water spreads 10, 15 or 20 km between shores.', LBV, 'the water spreads without obstacles to exceed 10, 15, or, in some stretches, 20 kilometers between the extreme shores')]),
@@ -95,7 +95,7 @@ save('tornado_alley', meta(
     ['tornado alley', 'tornadoes', 'usa', 'weather', 'supercell', 'gulf of mexico', 'rocky mountains', 'storm', 'geography', 'maps', 'learn']),
     [
         S("The United States gets about 1,200 tornadoes every year. More than any other country on Earth.", [
-            hook('TORNADO *ALLEY*', at=0.05, until='States'), hl('USA', '#ff5a5f', 'States', fillOpacity=0.45), cnt('1,200', '1,200', size=200), scatter(box(-104, 31, -85, 45), '🌪️', 'year', count=16, size=56, stagger=0.05)],
+            hook('TORNADO *ALLEY*', at=0.05, until='States'), hl('USA', '#ff5a5f', 'States', fillOpacity=0.45), cnt('1,200', '1,200', size=200), scatter({'admin1s': ['Texas', 'Oklahoma', 'Kansas', 'Nebraska', 'Iowa', 'Missouri'], 'country': 'USA'}, '🌪️', 'year', count=6, size=64, stagger=0.1)],
           cam=at_(39, -97, 2.2),
           src=[src('The US averages about 1,200 tornadoes a year.', 'Tornado', 'The United States averages about 1,200 tornadoes per year, followed by Canada, averaging 62 reported per year.')]),
         S("Canada comes second, with only about 62.", [
@@ -143,14 +143,14 @@ save('recursive_island', meta(
     [
         S("This tiny rock might be the strangest island on Earth.", [hook('ISLAND-*CEPTION*', at=0.05, until='rock'), ping(*VP, 'rock', color='#ffd60a')],
           cam=at_(14.01, 121.0, 1500), no_claim=True),
-        S("It's Vulcan Point, an island in a lake.", [slam('VULCAN POINT', 14.012, 120.9966, 'Vulcan', size=58), ring(*VP, 'island', r=50)],
+        S("It's Vulcan Point, an island in a lake.", [slam('VULCAN POINT', 14.012, 120.9966, 'Vulcan', size=58), ping(*VP, 'island', color='#ffd60a')],
           cam=at_(14.01, 121.0, 2200, bearing=-3),
           src=[src('Vulcan Point sits in Main Crater Lake.', VPA, 'one of only a few islands in a lake on an island in a lake on an island in the world')]),
         S("That lake, Main Crater Lake, is on an island too: Volcano Island.", [
-            blob({'circle': {'lat': 14.008, 'lon': 120.998, 'km': 0.9}}, '#5ec8ff', '#ffffff', 'Crater', fillOpacity=0.35), dot('Main Crater Lake', 14.016, 120.998, 'Crater', dy=-50, size=36), dot('Volcano Island', 13.99, 120.99, 'Volcano', dy=56, size=38)],
+            dot('Main Crater Lake', 14.016, 120.998, 'Crater', dy=-50, size=36), dot('Volcano Island', 13.99, 120.99, 'Volcano', dy=56, size=38)],
           cam=at_(14.0, 120.995, 320),
           src=[src('Main Crater Lake sits inside Taal Volcano (Volcano Island).', VPA, 'one of only a few islands in a lake on an island in a lake on an island in the world')]),
-        S("Volcano Island sits in another lake: Taal Lake.", [dot('Taal Lake', 13.95, 121.02, 'Taal', dy=-50), blob({'circle': {'lat': 13.95, 'lon': 121.0, 'km': 12}}, '#1d4ed8', '#5ec8ff', 'lake', fillOpacity=0.25)],
+        S("Volcano Island sits in another lake: Taal Lake.", [dot('Taal Lake', 13.95, 121.02, 'Taal', dy=-50)],
           cam=at_(13.95, 121.0, 60),
           src=[src('Volcano Island lies in Taal Lake.', VPA, 'one of only a few islands in a lake on an island in a lake on an island in the world')]),
         S("And Taal Lake is on a bigger island: Luzon, in the Philippines.", [hl('PHL', 'flag:ph', 'Luzon', fillOpacity=0.7), dot('Luzon', 15.8, 121, 'Luzon', dy=-50)],
@@ -199,7 +199,7 @@ save('uk_gb_england', meta(
           cam=at_(54.5, -4, 4.4),
           src=[src('The UK is Great Britain plus Northern Ireland.', BT, 'Great Britain plus Northern Ireland')]),
         S("And the British Isles? That's Great Britain, the whole island of Ireland, and many smaller islands around them.", [
-            hl('IRL', '#16a34a', 'Ireland', fillOpacity=0.7), hl('GBR', '#9ca3af', 'Great', fillOpacity=0.5), scatter({'circle': {'lat': 57.5, 'lon': -6.5, 'km': 150}}, '🏝️', 'smaller', count=6, size=54)],
+            hl('IRL', '#16a34a', 'Ireland', fillOpacity=0.7), hl('GBR', '#9ca3af', 'Great', fillOpacity=0.5), lab('+ 6,000 smaller islands', 58.5, -9.5, 'smaller', style='pill', bg='#0f766e', size=38)],
           cam=at_(54.5, -5, 3.6),
           src=[src('British Isles = Great Britain + Ireland + smaller islands.', BT, 'the island of Great Britain plus the island of Ireland and many smaller surrounding islands')]),
         S("But careful. The government of Ireland does not use that term at all.", [hl('IRL', 'flag:ie', 'Ireland', fillOpacity=0.9), stamp('NOT USED', 'term', size=90), shake('term')],
@@ -250,7 +250,7 @@ save('antarctica_claims', meta(
           cam=at_(-90, -120, 1.5),
           src=[src('Marie Byrd Land (1,610,000 km²) is the largest unclaimed territory on Earth.', 'Marie_Byrd_Land', 'Marie Byrd Land (MBL) is an unclaimed region of Antarctica. With an area of 1,610,000 km2 (620,000 sq mi), it is the largest unclaimed territory on Earth.')]),
         S("And since the Antarctic Treaty of 1959, the whole continent is set aside for science.", [
-            hl({'countries': ['ATA']}, '#9ee7ff', 'Antarctic', fillOpacity=0.35, neon='#9ee7ff'), year(1959, '1959', light=True), char('penguin', 'science', say='Science only!'), icon('🔬', -80, 60, 'science', size=110)],
+            hl({'countries': ['ATA']}, '#9ee7ff', 'Antarctic', fillOpacity=0.35, neon='#9ee7ff'), year(1959, '1959', light=True), char('penguin', 'science', say='Science only!')],
           cam=at_(-90, 0, 1.3, bearing=10),
           src=[src('The 1959 Antarctic Treaty set Antarctica aside as a scientific preserve.', TC, 'set aside Antarctica as a scientific preserve, established freedom of scientific investigation')]),
     ],
@@ -318,7 +318,7 @@ save('niihau', meta(
         S("Her family, the Robinsons, still own it today, and outsiders are not allowed in.", [icon('🚷', 21.9, -160.15, 'outsiders', size=170), tilt('outsiders', deg=34, until=3.5)],
           cam=at_(21.9, -160.15, 360),
           src=[src('Off-limits except the Robinson family and relatives.', NIH, "off-limits to all outsiders except the Robinson family and their relatives")]),
-        S("In the 2020 census, only 84 people lived there.", [cnt('84', '84', size=220), scatter({'circle': {'lat': 21.9, 'lon': -160.15, 'km': 6}}, '🏠', 'people', count=8, size=60)],
+        S("In the 2020 census, only 84 people lived there.", [cnt('84', '84', size=220), scatter({'circle': {'lat': 21.9, 'lon': -160.15, 'km': 6}}, '🏠', 'people', count=4, size=64)],
           cam=at_(21.9, -160.15, 360),
           src=[src('Population 84 in 2020.', NIH, 'As of the 2020 census, the population had fallen to 84.')]),
         S("It's the only island where Hawaiian is still spoken as the main language.", [lab('ALOHA!', 21.95, -160.1, 'Hawaiian', style='note', size=70), icon('🗣️', 21.85, -160.2, 'spoken', size=170)],
@@ -371,7 +371,7 @@ save('point_nemo', meta(
           cam=at_(-48.8, -123.4, 3.5),
           src=[src('Sometimes the closest humans are astronauts on the ISS.', PI, 'sometimes the closest human beings are astronauts aboard the International Space Station when it passes overhead')]),
         S("It's also a spacecraft cemetery. Old satellites and space stations are sent to crash here, far from everyone.", [ping(*NEMO, 0.05, color='#ff3b3b'), lab('POINT NEMO', NEMO[0], NEMO[1], 0.05, style='pill', bg='#c1121f', size=46, dy=110), 
-            scatter({'circle': {'lat': NEMO[0], 'lon': NEMO[1], 'km': 700}}, '🛰️', 'cemetery', count=10, size=56, stagger=0.06), stamp('SPACECRAFT CEMETERY', 'cemetery', size=70)],
+            scatter({'circle': {'lat': NEMO[0], 'lon': NEMO[1], 'km': 700}}, '🛰️', 'cemetery', count=5, size=64, stagger=0.12), stamp('SPACECRAFT CEMETERY', 'cemetery', size=70)],
           cam=at_(-48, -123, 2.6, bearing=5),
           src=[src('Spacecraft are made to fall there on re-entry.', PI, "The wider area is also known as a 'spacecraft cemetery', because hundreds of decommissioned satellites, space stations, and other spacecraft have been made to fall there upon re-entering the atmosphere")]),
         S("And one day, the International Space Station itself is planned to end up here, in 2031.", [ping(*NEMO, 0.05, color='#ff3b3b'), lab('POINT NEMO', NEMO[0], NEMO[1], 0.05, style='pill', bg='#c1121f', size=46, dy=110), year(2031, '2031', light=True), icon('🛰️', -48.9, -123.4, 'Station', size=150), shake('end')],

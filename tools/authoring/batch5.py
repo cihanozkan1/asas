@@ -86,7 +86,7 @@ save('darien_gap', meta(
           cam=at_(8.8, -78.2, 8),
           src=[src('Vehicles must be shipped by cargo vessel to get around the gap.', 'Pan-American_Highway', 'vehicles must be shipped by cargo vessel to bridge this section')]),
         S("In between is the Darién Gap: swamps, mountains and thick rainforest.", [
-            blob({'circle': {'lat': 7.9, 'lon': -77.3, 'km': 60}}, '#16a34a', '#4ade80', 'Darién', fillOpacity=0.4), slam('DARIÉN GAP', 8.6, -77.3, 'Darién', size=70),
+            hl({'admin1s': ['Darién', 'Emberá', 'Kuna Yala'], 'country': 'PAN'}, '#16a34a', 'Darién', fillOpacity=0.5, neon='#4ade80'), hl({'admin1': 'Chocó', 'country': 'COL'}, '#16a34a', 'Darién', fillOpacity=0.5, neon='#4ade80'), slam('DARIÉN GAP', 8.6, -77.3, 'Darién', size=70),
             icon('🌴', 7.7, -77.6, 'rainforest', size=110), icon('⛰️', 8.0, -77.9, 'mountains', size=100), char('jungle_explorer', 'swamps')],
           cam=at_(7.9, -77.3, 14), tr='flash',
           src=[src('Colombian side: Atrato delta marshland; Panamanian side: mountainous rainforest.', DG, "the Colombian side dominated primarily by the river delta of the Atrato River, which creates a flat marshland at least 80 km (50 mi) wide")]),
@@ -99,7 +99,7 @@ save('darien_gap', meta(
           style='dark',
           src=[src('Law enforcement and medical support are nonexistent; violent crime is rampant.', DG, 'law enforcement and medical support are nonexistent, resulting in rampant violent crime')]),
         S("Still, in 2023, more than 520,000 people crossed it on foot.", [
-            cnt('520,000+', '520,000', size=170), scatter({'circle': {'lat': 7.9, 'lon': -77.3, 'km': 45}}, '🚶', 'crossed', count=16, size=48, stagger=0.05)],
+            cnt('520,000+', '520,000', size=170), scatter({'admin1s': ['Darién', 'Emberá'], 'country': 'PAN'}, '🚶', 'crossed', count=5, size=64, stagger=0.12)],
           cam=at_(7.9, -77.3, 14, bearing=3),
           src=[src('More than 520,000 people crossed in 2023.', DG, 'In 2023, more than 520,000 individuals passed through the gap')]),
         S("That's more than double the year before. The shortest gap on the road, and the most dangerous.", [
@@ -125,12 +125,12 @@ save('spain_borders', meta(
             hook("SPAIN'S *STRANGEST* BORDERS", at=0.05, until='planet'), hl('ESP', 'flag:es', 'Spain', fillOpacity=0.85)],
           cam=fit('ESP', pad=0.85, bearing=-3), no_claim=True),
         S("First, Llívia. A Spanish town completely surrounded by France.", [
-            ping(*LLI, 'Llívia', color='#ff3b3b'), hl({'circle': {'lat': LLI[0], 'lon': LLI[1], 'km': 3}}, 'flag:es', 'Llívia', neon='#ffd60a'),
+            ping(*LLI, 'Llívia', color='#ff3b3b'), flag('es', LLI[0] + 0.012, LLI[1], 'Llívia', size=110),
             hl('FRA', '#9fb8ff', 'France', fillOpacity=0.55), slam('LLÍVIA', 42.482, 1.975, 'Llívia', size=70)],
           cam=at_(42.46, 1.975, 1100),
           src=[src('Llívia is a Spanish exclave surrounded by France.', 'Llívia', 'It is a Spanish exclave surrounded by the French département of Pyrénées-Orientales.')]),
         S("In 1659, Spain gave France the villages of this area. But Llívia was a town, not a village, so it stayed Spanish.", [
-            year(1659, '1659'), hl({'circle': {'lat': LLI[0], 'lon': LLI[1], 'km': 3}}, '#ffd60a', 'Llívia', fillOpacity=0.35, neon='#ffd60a'), lab('Llívia', LLI[0], LLI[1], 'Llívia', style='pill', bg='#c1121f', size=48),
+            year(1659, '1659'), ping(*LLI, 'Llívia', color='#ffd60a'), lab('Llívia', LLI[0], LLI[1], 'Llívia', style='pill', bg='#c1121f', size=48),
             note('TOWN ≠ VILLAGE', 42.49, 1.975, 'town', size=58), char('spanish_tercio', 'Llívia', say='Still ours!', flip=True, screen=(0.72, 0.6))],
           cam=at_(42.46, 1.975, 1300), era='history', tr='film', style='satellite',
           src=[src('The 1659 Treaty of the Pyrenees transferred only villages; Llívia was a town.', 'Llívia', "Because of a technicality in the Treaty of the Pyrenees, signed in 1659, that transferred only 'villages' in the Pyrenees to France, Llívia, which was a 'town', remains under Spanish control.")]),
@@ -149,7 +149,7 @@ save('spain_borders', meta(
           cam=at_(35.172, -4.3003, 3500),
           src=[src('Its border with Morocco is 85 m long.', 'Peñón_de_Vélez_de_la_Gomera', 'Its border with Morocco is 85 m (279 ft) long.')]),
         S("It became a border by accident: in 1930, a storm washed sand into the channel and joined the island to Africa.", [
-            year(1930, '1930'), icon('⛈️', 35.176, -4.296, 'storm', size=120), ring(35.1722, -4.3003, 'island', r=70), shake('storm')],
+            year(1930, '1930'), icon('⛈️', 35.176, -4.296, 'storm', size=120), ping(35.1722, -4.3003, 'island', color='#ffd60a'), shake('storm')],
           cam=at_(35.172, -4.3003, 3500), era='history', tr='film', style='satellite',
           src=[src('In 1930 a storm washed sand into the channel, forming a tombolo.', 'Peñón_de_Vélez_de_la_Gomera', 'In 1930, when a huge thunderstorm washed large quantities of sand into the short channel between the island and the African continent.')]),
         S("It's now the shortest land border in the whole world.", [
@@ -217,29 +217,29 @@ save('tibet_planes', meta(
         S("Look at flights over Asia, and you'll notice a giant empty hole right here.", [
             hook("WHY PLANES *AVOID* TIBET", at=0.05, until='Asia'),
             *[plane(p, 'flights', drawDur=2.4) for p in [[(28.6, 77.2), (22.3, 114.2)], [(25.3, 55.4), (39.9, 116.4)], [(41.3, 69.2), (13.7, 100.5)]]],
-            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 800}}, '#ff3b3b', '#ff3b3b', 'hole', fillOpacity=0.25)],
+            hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#ff3b3b', 'hole', fillOpacity=0.25)],
           cam=at_(32, 90, 2.0), no_claim=True),
         S("This is the Tibetan Plateau, the Roof of the World.", [
-            slam('TIBET', 33.5, 88, 'Tibetan', size=90), blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 'Roof', fillOpacity=0.25)],
+            slam('TIBET', 33.5, 88, 'Tibetan', size=90), hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 'Roof', fillOpacity=0.25)],
           cam=at_(32, 88, 2.8),
           src=[src('It is often called the Roof of the World.', 'Tibetan_Plateau', "often referred to as 'the Roof of the World'")]),
         S("It's the largest and highest plateau on Earth, about 2,500 kilometers wide.", [
-            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 'largest', fillOpacity=0.25),
+            hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 'largest', fillOpacity=0.25),
             stamp('LARGEST & HIGHEST', 'largest', size=78, screen=[0.5, 0.45]), meas((33, 76), (32, 101), '2,500 km', 'wide')],
           cam=at_(32, 88, 2.6),
           src=[src('The world\'s largest and highest plateau; about 2,500 km east to west.', 'Tibetan_Plateau', "It is the world's largest and highest plateau above sea level, with an area of 2,500,000 square kilometres")]),
         S("Its average height is about 4,500 meters.", [
-            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 0.05, fillOpacity=0.2), bars([('Plateau', 4500, '4,500 m', '#2de2e6'), ('Safe air', 3000, '3,000 m', '#4ade80')], 'height', orient='v', shape='mountain', height=360)],
+            hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 0.05, fillOpacity=0.2), bars([('Plateau', 4500, '4,500 m', '#2de2e6'), ('Safe air', 3000, '3,000 m', '#4ade80')], 'height', orient='v', shape='mountain', height=360)],
           src=[src('The plateau averages over 4,500 m.', 'Tibetan_Plateau', 'With an average elevation exceeding 4,500 metres (14,800 ft)')]),
         S("If a plane loses cabin pressure, the oxygen masks last only about 12 to 22 minutes.", [
-            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 0.05, fillOpacity=0.2), char('pilot', 'plane', say='Masks on!'), clock([('masks', '12:00'), ('minutes', '12:22')], screen=(0.72, 0.33), size=220, label='12–22 min')],
+            hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 0.05, fillOpacity=0.2), char('pilot', 'plane', say='Masks on!'), clock([('masks', '12:00'), ('minutes', '12:22')], screen=(0.72, 0.33), size=220, label='12–22 min')],
           src=[src('Masks typically last 12 to 22 minutes.', MF, 'typically burn for somewhere between 12 and 22 minutes, depending on the aircraft')]),
         S("So pilots must quickly dive to 10,000 feet, where people can breathe on their own.", [
-            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 0.05, fillOpacity=0.2), plane([(35, 80), (33, 88), (31, 96)], 'dive', rid='p2'), cnt('10,000 ft', '10,000', size=170), arrow((34, 86), (30, 86), 'dive', color='#ff5a5f')],
+            hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 0.05, fillOpacity=0.2), plane([(35, 80), (33, 88), (31, 96)], 'dive', rid='p2'), cnt('10,000 ft', '10,000', size=170), arrow((34, 86), (30, 86), 'dive', color='#ff5a5f')],
           cam=at_(32, 88, 3.0),
           src=[src('Pilots dive to 10,000 feet where humans can breathe unaided.', MF, 'the aircraft dives to 10,000 feet — the altitude where humans can breathe unaided')]),
         S("But over Tibet, the ground itself is higher than that. There's nowhere to go down.", [
-            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 750}}, '#2de2e6', '#2de2e6', 0.05, fillOpacity=0.2), tilt('ground', deg=40, until=4), stamp('NO WAY DOWN', 'nowhere', size=84), shake('nowhere')],
+            hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 0.05, fillOpacity=0.2), tilt('ground', deg=40, until=4), stamp('NO WAY DOWN', 'nowhere', size=84), shake('nowhere')],
           cam=at_(31, 86, 4.0),
           src=[src('The plateau floor sits around 14,800 ft, above the 10,000 ft safety level.', MF, "The plateau's valley floors sit at around 14,800 feet")]),
         S("Airports are rare and far apart, and strong winds turn the air into a washing machine.", [
@@ -248,7 +248,7 @@ save('tibet_planes', meta(
           src=[src('Airports are rare, far apart and at extreme elevations.', MF, 'Airports are rare, far apart, and themselves perched at extreme elevations.'),
                src('Winds of 100–200 km/h create severe turbulence.', MF, 'the atmosphere downstream turns into a washing machine')]),
         S("So it's not a no-fly zone. It's just a place where an emergency has no safe ending.", [
-            blob({'circle': {'lat': TIB[0], 'lon': TIB[1], 'km': 800}}, '#ff3b3b', '#ff3b3b', 'emergency', fillOpacity=0.3), stamp('NO SAFE ENDING', 'safe', size=84)],
+            hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#ff3b3b', 'emergency', fillOpacity=0.3), stamp('NO SAFE ENDING', 'safe', size=84)],
           cam=at_(32, 90, 2.0),
           src=[src('There is no regulation designating Tibet as a no-fly zone.', MF, "There is no regulation designating Tibet as a no-fly zone.")]),
     ],
@@ -309,7 +309,7 @@ save('shelterbelt', meta(
     [
         S("In the 1930s, the US built a wall from Canada to Texas. Not of stone, but of trees.", [
             hook('A WALL OF *TREES*', at=0.05, until='Texas'),
-            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 'wall', fillOpacity=0.55, soft=True, rim='#4ade80', hold=1)],
+            route([(48.9, -100.0), (41.0, -99.8), (33.5, -99.5)], 'wall', color='#16a34a', width=30, drawDur=1.4, glow=True), scatter(box(-101.5, 32, -98.5, 48.5), '🌳', 'Not', count=7, size=58, stagger=0.1, along=[(48.6, -100.0), (41.0, -99.8), (33.8, -99.5)])],
           cam=at_(40, -99, 2.6),
           src=[src('A 100-mile-wide zone from the Canadian border in North Dakota to Texas.', SB, 'a 100-mile (160-kilometre) wide zone from the Canadian border in North Dakota to the Brazos River in Texas')]),
         S("Why? Because of the Dust Bowl, when giant dust storms blew the farmland away.", [
@@ -321,24 +321,24 @@ save('shelterbelt', meta(
           era='history',
           src=[src('Started in 1934 by President Franklin D. Roosevelt.', SB, '1934')]),
         S("The idea: rows of trees slow down the wind, and keep moisture in the soil.", [
-            tilt('rows', deg=40, until=4), scatter(box(-101, 34, -99, 47), '🌳', 'idea', count=18, size=56, stagger=0.05), flow([(40, -106), (40, -101.8)], 'wind', color='#e5e7eb', width=9)],
+            tilt('rows', deg=40, until=4), scatter(box(-101, 34, -99, 47), '🌳', 'idea', count=5, size=64, stagger=0.12, along=[(41.5, -100.2), (38.5, -100.2)]), flow([(40, -106), (40, -101.8)], 'wind', color='#e5e7eb', width=9)],
           cam=at_(40, -100, 5),
           src=[src('Windbreaks reduce wind velocity and evaporation.', SB, 'reduce wind velocity and lessen evaporation of moisture from the soil')]),
         S("By 1942, they had planted 220 million trees.", [
-            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 0.05, fillOpacity=0.45, soft=True, rim='#4ade80'), cnt('220,000,000', '220', size=130, color='#4ade80'), timeline([('By', '1934', 'Start'), ('1942', '1942', '220M trees')], screen=(0.5, 0.26), width=700)],
+            route([(48.9, -100.0), (41.0, -99.8), (33.5, -99.5)], 0.05, color='#16a34a', width=30, drawDur=0.4, glow=True), cnt('220,000,000', '220', size=130, color='#4ade80'), timeline([('By', '1934', 'Start'), ('1942', '1942', '220M trees')], screen=(0.5, 0.26), width=700)],
           cam=at_(40, -99, 2.8),
           src=[src('220 million trees by 1942.', SB, '220 million trees had been planted, covering 18,600 square miles')]),
         S("That's 30,233 separate shelterbelts, covering 18,600 square miles.", [
-            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 0.05, fillOpacity=0.45, soft=True, rim='#4ade80'), cnt_steps([('30,233', '30,233'), ('18,600', '18,600 mi²')], size=150), scatter(box(-101.5, 32, -98.5, 48.5), '🌲', 'shelterbelts', count=22, size=48, stagger=0.04)],
+            route([(48.9, -100.0), (41.0, -99.8), (33.5, -99.5)], 0.05, color='#16a34a', width=30, drawDur=0.4, glow=True), cnt_steps([('30,233', '30,233'), ('18,600', '18,600 mi²')], size=150), scatter(box(-101.5, 32, -98.5, 48.5), '🌳', 'shelterbelts', count=7, size=58, stagger=0.1, along=[(48.6, -100.0), (41.0, -99.8), (33.8, -99.5)])],
           src=[src('30,233 shelterbelts were planted.', SB, '30,233 shelterbelts had been planted'),
                src('Covering 18,600 square miles.', SB, 'covering 18,600 square miles (48,000 km2)')]),
         S("It stretched from the Canadian border in North Dakota, all the way to the Brazos River in Texas.", [
-            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 0.05, fillOpacity=0.45, soft=True, rim='#4ade80'), ping(48.9, -100, 'Canadian', color='#ffd60a'), ping(33.5, -99.5, 'Brazos', color='#ffd60a'), dot('Canada border', 48.9, -100, 'Canadian', dy=-56), dot('Brazos River', 33.5, -99.5, 'Brazos', dy=56),
+            route([(48.9, -100.0), (41.0, -99.8), (33.5, -99.5)], 0.05, color='#16a34a', width=30, drawDur=0.4, glow=True), ping(48.9, -100, 'Canadian', color='#ffd60a'), ping(33.5, -99.5, 'Brazos', color='#ffd60a'), dot('Canada border', 48.9, -100, 'Canadian', dy=-56), dot('Brazos River', 33.5, -99.5, 'Brazos', dy=56),
             route([(48.9, -100), (41, -99.8), (33.5, -99.5)], 'stretched', color='#4ade80', width=8, drawDur=1.4, arrowHead=True)],
           cam=at_(41, -99, 2.5),
           src=[src('From the Canadian border in North Dakota to the Brazos River in Texas.', SB, 'from the Canadian border in North Dakota to the Brazos River in Texas')]),
         S("Experts later called it the largest government effort ever focused on an environmental problem in the US.", [
-            hl(box(-101.5, 31.5, -98.5, 49), '#16a34a', 0.05, fillOpacity=0.45, soft=True, rim='#4ade80'), stamp('BIGGEST EVER', 'largest', size=90), scatter(box(-101.5, 32, -98.5, 48.5), '🌳', 'Experts', count=14, size=56, stagger=0.04)],
+            route([(48.9, -100.0), (41.0, -99.8), (33.5, -99.5)], 0.05, color='#16a34a', width=30, drawDur=0.4, glow=True), stamp('BIGGEST EVER', 'largest', size=90), scatter(box(-101.5, 32, -98.5, 48.5), '🌳', 'Experts', count=7, size=58, stagger=0.1, along=[(48.6, -100.0), (41.0, -99.8), (33.8, -99.5)])],
           cam=at_(40, -99, 2.6, bearing=3), tr='flash',
           src=[src('Called the largest and most-focused government effort to address an environmental problem (as of 2007).', SB, 'the largest and most-focused effort of the [U.S.] government to address an environmental problem')]),
     ],
@@ -417,19 +417,19 @@ save('wallace_line', meta(
           cam=at_(-4, 116, 2.8), era='history',
           src=[src('Wallace noticed the division in land mammals and birds.', WL, 'Wallace noticed this clear division in both land mammals and birds during his travels through the East Indies in the 19th century.')]),
         S("West of the line, you find Asian animals, like apes, elephants and monkeys.", [
-            blob({'circle': {'lat': -1, 'lon': 106, 'km': 900}}, '#f59e0b', '#fbbf24', 'West', fillOpacity=0.35), scatter(box(100, -8, 114, 4), '🐒', 'apes', count=6, size=70), scatter(box(100, -7, 113, 3), '🐘', 'elephants', count=4, size=76, seed=5), lab('ASIA', 5, 106, 'Asian', style='pill', bg='#d97706', size=52)],
+            hl({'admin1s': ['Aceh', 'Sumatera Utara', 'Sumatera Barat', 'Riau', 'Jambi', 'Sumatera Selatan', 'Bengkulu', 'Lampung', 'Bangka-Belitung', 'Kepulauan Riau', 'Banten', 'Jakarta Raya', 'Jawa Barat', 'Jawa Tengah', 'Yogyakarta', 'Jawa Timur', 'Bali', 'Kalimantan Barat', 'Kalimantan Tengah', 'Kalimantan Selatan', 'Kalimantan Timur'], 'country': 'IDN'}, '#f59e0b', 'West', fillOpacity=0.55), hl({'countries': ['MYS', 'BRN']}, '#f59e0b', 'West', fillOpacity=0.55), icon('🦧', 0.8, 113.8, 'apes', size=96), icon('🐘', -0.3, 101.8, 'elephants', size=96), icon('🐒', -7.4, 110.2, 'monkeys', size=90), lab('ASIA', 5, 106, 'Asian', style='pill', bg='#d97706', size=52)],
           cam=at_(-2, 112, 2.6),
           src=[src('West of the line: Asian fauna such as apes, elephants and monkeys.', WL, 'apes, elephants')]),
         S("East of the line, the animals are Australian, like marsupials.", [
-            blob({'circle': {'lat': -5, 'lon': 128, 'km': 1000}}, '#16a34a', '#4ade80', 'East', fillOpacity=0.35), scatter(box(118, -9, 138, 0), '🦘', 'marsupials', count=6, size=70), lab('AUSTRALIA', -3, 128, 'Australian', style='pill', bg='#16a34a', size=52)],
+            hl({'admin1s': ['Nusa Tenggara Barat', 'Nusa Tenggara Timur', 'Sulawesi Utara', 'Sulawesi Tengah', 'Sulawesi Selatan', 'Sulawesi Tenggara', 'Sulawesi Barat', 'Gorontalo', 'Maluku', 'Maluku Utara', 'Papua', 'Papua Barat'], 'country': 'IDN'}, '#16a34a', 'East', fillOpacity=0.55), hl({'countries': ['PNG', 'TLS', 'AUS']}, '#16a34a', 'East', fillOpacity=0.45), icon('🦘', -16.5, 133, 'marsupials', size=96), icon('🐨', -5.5, 142.5, 'marsupials', size=90), lab('AUSTRALIA', -3, 128, 'Australian', style='pill', bg='#16a34a', size=52)],
           cam=at_(-4, 124, 2.6),
           src=[src('East of the line: Australasian species such as marsupials.', WL, 'marsupials')]),
         S("Why? Deep water. Even in the Ice Age, when seas dropped 120 meters, the two sides never joined.", [
-            tilt('water', deg=38, until=4.5), cnt('−120 m', '120', size=170, color='#5ec8ff'), blob({'circle': {'lat': -8.5, 'lon': 115.85, 'km': 40}}, '#1d4ed8', '#5ec8ff', 'Deep', fillOpacity=0.5)],
+            tilt('water', deg=38, until=4.5), cnt('−120 m', '120', size=170, color='#5ec8ff'), route([(-7.2, 115.75), (-8.3, 115.85), (-9.3, 115.8)], 'Deep', color='#5ec8ff', width=14, flow=True, drawDur=0.8), lab('LOMBOK STRAIT', -8.1, 117.2, 'Deep', style='pill', bg='#1d4ed8', size=40)],
           cam=at_(-8.5, 116, 8), tr='flash',
           src=[src('Even when sea level dropped 120 m, the islands never united Asia with Australia.', WL, 'islands became connected, but never uniting Asia with Australia')]),
         S("Bali sits on the Asian shelf, Lombok on the other side. For over 50 million years, deep water kept the two worlds apart.", [
-            blob({'circle': {'lat': -1, 'lon': 106, 'km': 900}}, '#f59e0b', '#fbbf24', 'Asian', fillOpacity=0.35), blob({'circle': {'lat': -5, 'lon': 128, 'km': 1000}}, '#16a34a', '#4ade80', 'other', fillOpacity=0.35),
+            hl({'admin1s': ['Aceh', 'Sumatera Utara', 'Sumatera Barat', 'Riau', 'Jambi', 'Sumatera Selatan', 'Bengkulu', 'Lampung', 'Bangka-Belitung', 'Kepulauan Riau', 'Banten', 'Jakarta Raya', 'Jawa Barat', 'Jawa Tengah', 'Yogyakarta', 'Jawa Timur', 'Bali', 'Kalimantan Barat', 'Kalimantan Tengah', 'Kalimantan Selatan', 'Kalimantan Timur'], 'country': 'IDN'}, '#f59e0b', 'Asian', fillOpacity=0.55), hl({'countries': ['MYS', 'BRN']}, '#f59e0b', 'Asian', fillOpacity=0.55), hl({'admin1s': ['Nusa Tenggara Barat', 'Nusa Tenggara Timur', 'Sulawesi Utara', 'Sulawesi Tengah', 'Sulawesi Selatan', 'Sulawesi Tenggara', 'Sulawesi Barat', 'Gorontalo', 'Maluku', 'Maluku Utara', 'Papua', 'Papua Barat'], 'country': 'IDN'}, '#16a34a', 'other', fillOpacity=0.55), hl({'countries': ['PNG', 'TLS', 'AUS']}, '#16a34a', 'other', fillOpacity=0.45),
             cnt('50,000,000 years', '50', size=120), lab('ASIAN SIDE', -2, 108, 'Asian', style='pill', bg='#d97706', size=48, fixed=True), lab('AUSTRALIAN SIDE', -6, 128, 'other', style='pill', bg='#16a34a', size=48, fixed=True)],
           cam=at_(-5, 118, 2.3),
           src=[src('Deep water between the Sunda and Sahul shelves separated the fauna for over 50 million years.', WL, 'for over 50 million years, deep water between those two large continental shelf areas created a barrier that kept the flora and fauna of Australia separated from those of Asia.')]),

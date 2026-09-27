@@ -240,18 +240,14 @@
           "fillOpacity": 0.5
         },
         {
-          "type": "scatter",
-          "target": {
-            "circle": {
-              "lat": 57.5,
-              "lon": -6.5,
-              "km": 150
-            }
-          },
-          "icon": "🏝️",
-          "count": 6,
-          "size": 54,
-          "at": "smaller"
+          "type": "label",
+          "text": "+ 6,000 smaller islands",
+          "lat": 58.5,
+          "lon": -9.5,
+          "at": "smaller",
+          "style": "pill",
+          "bg": "#0f766e",
+          "size": 38
         }
       ],
       "camera": {

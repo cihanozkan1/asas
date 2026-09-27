@@ -273,12 +273,12 @@
       "text": "The rest is desert. South of Cairo, it almost never rains.",
       "show": [
         {
-          "type": "scatter",
-          "target": "EGY",
-          "icon": "🏜️",
-          "count": 12,
-          "size": 76,
-          "seed": 5,
+          "type": "label",
+          "text": "SAHARA DESERT",
+          "style": "map",
+          "lat": 25.5,
+          "lon": 27.5,
+          "size": 60,
           "at": "desert"
         },
         {
@@ -465,11 +465,30 @@
             "geojson": "nile_valley.geojson"
           },
           "icon": "🌾",
-          "count": 10,
-          "size": 62,
+          "count": 5,
+          "size": 66,
           "minDist": 0.05,
           "at": "soil",
-          "hold": 1
+          "hold": 1,
+          "stagger": 0.12,
+          "along": [
+            [
+              29.9,
+              31.2
+            ],
+            [
+              27.5,
+              30.85
+            ],
+            [
+              26.2,
+              32.2
+            ],
+            [
+              24.6,
+              32.9
+            ]
+          ]
         },
         {
           "type": "icon",
@@ -556,10 +575,10 @@
           "anim": "slam"
         },
         {
-          "type": "ring",
+          "type": "ping",
           "lat": 23.97,
           "lon": 32.88,
-          "r": 60,
+          "color": "#ffd60a",
           "at": "Dam"
         },
         {
@@ -802,10 +821,10 @@
           "anim": "slam"
         },
         {
-          "type": "ring",
+          "type": "ping",
           "lat": 11.21,
           "lon": 35.09,
-          "r": 60,
+          "color": "#ffd60a",
           "at": "Grand"
         },
         {

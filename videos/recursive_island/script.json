@@ -73,10 +73,10 @@
           "size": 58
         },
         {
-          "type": "ring",
+          "type": "ping",
           "lat": 14.0096,
           "lon": 120.9966,
-          "r": 50,
+          "color": "#ffd60a",
           "at": "island"
         }
       ],
@@ -98,21 +98,6 @@
       "era": "now",
       "text": "That lake, Main Crater Lake, is on an island too: Volcano Island.",
       "show": [
-        {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": 14.008,
-              "lon": 120.998,
-              "km": 0.9
-            }
-          },
-          "fill": "#5ec8ff",
-          "at": "Crater",
-          "soft": true,
-          "rim": "#ffffff",
-          "fillOpacity": 0.35
-        },
         {
           "type": "label",
           "text": "Main Crater Lake",
@@ -160,21 +145,6 @@
           "dot": true,
           "dy": -50,
           "size": 44
-        },
-        {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": 13.95,
-              "lon": 121.0,
-              "km": 12
-            }
-          },
-          "fill": "#1d4ed8",
-          "at": "lake",
-          "soft": true,
-          "rim": "#5ec8ff",
-          "fillOpacity": 0.25
         }
       ],
       "camera": {

@@ -101,10 +101,11 @@
           "type": "scatter",
           "target": "CAN",
           "icon": "❄️",
-          "count": 16,
+          "count": 5,
           "minLat": 58,
-          "size": 64,
-          "at": "nobody"
+          "size": 70,
+          "at": "nobody",
+          "stagger": 0.1
         },
         {
           "type": "label",
@@ -227,11 +228,12 @@
           "type": "scatter",
           "target": "CAN",
           "icon": "🏠",
-          "count": 20,
+          "count": 6,
           "maxLat": 50,
-          "size": 62,
+          "size": 70,
           "at": "Canadians",
-          "hold": 2
+          "hold": 2,
+          "stagger": 0.1
         },
         {
           "type": "label",
@@ -564,10 +566,10 @@
           "at": "Middle"
         },
         {
-          "type": "ring",
+          "type": "ping",
           "lat": 41.685,
           "lon": -82.684,
-          "r": 46,
+          "color": "#ffd60a",
           "at": "Middle"
         }
       ],
@@ -633,11 +635,12 @@
           "type": "scatter",
           "target": "CAN",
           "icon": "🧊",
-          "count": 18,
+          "count": 5,
           "minLat": 60,
-          "size": 66,
+          "size": 70,
           "seed": 3,
-          "at": "permafrost"
+          "at": "permafrost",
+          "stagger": 0.1
         },
         {
           "type": "label",
@@ -679,12 +682,13 @@
           "type": "scatter",
           "target": "CAN",
           "icon": "🪨",
-          "count": 16,
+          "count": 5,
           "minLat": 47,
           "maxLat": 60,
-          "size": 66,
+          "size": 70,
           "seed": 11,
-          "at": "rock"
+          "at": "rock",
+          "stagger": 0.1
         },
         {
           "type": "label",

@@ -368,10 +368,10 @@
             }
           },
           "icon": "🛰️",
-          "count": 10,
-          "size": 56,
+          "count": 5,
+          "size": 64,
           "at": "cemetery",
-          "stagger": 0.06
+          "stagger": 0.12
         },
         {
           "type": "stamp",

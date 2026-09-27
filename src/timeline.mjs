@@ -228,32 +228,45 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     let deficit = MIN_ON - (el.end - el.start);
     if (deficit <= 0) continue;
     const sc = scenes[el.scene];
-    const pull = Math.max(0, Math.min(deficit, 1.0, el.start - sc.start - 0.05));
+    // at most a beat (0.3 s) before its word, and never before the element named just before it,
+    // so things listed in the narration appear in the same order and rhythm as they are spoken
+    const before = elements.filter((o) => o !== el && o.scene === el.scene && o.start < el.start && !INSTANT.has(o.type)).map((o) => o.start);
+    const floor = Math.max(sc.start + 0.05, before.length ? Math.max(...before) + 0.25 : -Infinity);
+    const pull = Math.max(0, Math.min(deficit, 0.3, el.start - floor));
     el.start -= pull;
     if (el.steps) el.start = Math.min(el.start, el.steps[0].t - 0.05);
     deficit -= pull;
-    const end = el.screen ? el.end + deficit : Math.min(el.end + deficit, sc.end + 0.8);
+    // map things may run into the next scene only while the view stays the same (no new camera,
+    // or the same camera); otherwise they'd float over an unrelated map
+    const nx = scenes[el.scene + 1];
+    const same = (a, b) => !b || (a && b && !a.fit && !b.fit && Math.abs((a.lat ?? 0) - (b.lat ?? 0)) < 0.5 && Math.abs((a.lon ?? 0) - (b.lon ?? 0)) < 0.5 && Math.abs(Math.log((a.zoom || 1) / (b.zoom || 1))) < 0.35);
+    const cap = nx && same(sc.camera, nx.camera) && nx.era === sc.era ? nx.end : sc.end + 0.8;
+    const end = el.screen ? el.end + deficit : Math.min(el.end + deficit, cap);
     el.end = Math.min(Math.max(el.end, end), narration.duration);
   }
 
-  // No dead air: inside a scene, whenever nothing is on screen for more than ~1.4 s, the next
-  // element of that scene comes in early instead of waiting for its word.
-  const visibleAt = (t) => elements.some((e) => !INSTANT.has(e.type) && e.type !== 'title' && e.type !== 'year' && e.start <= t && e.end >= t);
+  // No dead air: when nothing is on screen for more than ~1.2 s inside a scene, the last thing
+  // shown (in this scene, else the previous one) stays up until the next element arrives.
+  // Nothing is ever pulled in front of its word.
+  const visibleAt = (t) => elements.some((e) => !INSTANT.has(e.type) && e.type !== 'title' && e.start <= t && e.end >= t);
   scenes.forEach((sc, si) => {
     for (let guard = 0; guard < 12; guard++) {
-      let gapStart = null;
+      let gapStart = null, gapEnd = null;
       for (let t = sc.start + 0.2; t < sc.end; t += 0.1) {
-        if (visibleAt(t)) { gapStart = null; continue; }
+        if (visibleAt(t)) { if (gapStart != null && t - gapStart >= 1.2) { gapEnd = t; break; } gapStart = null; continue; }
         if (gapStart == null) gapStart = t;
-        if (t - gapStart < 1.4) continue;
-        break;
       }
       if (gapStart == null) break;
-      const next = elements.filter((e) => e.scene === si && !INSTANT.has(e.type) && e.type !== 'title' && e.start > gapStart).sort((a, b) => a.start - b.start)[0];
-      if (!next || next.start - gapStart > 3.0) break;
-      const to = Math.max(sc.start + 0.25, gapStart);
-      next.start = to;
-      if (next.steps) next.steps = next.steps.map((st, k) => (k === 0 ? { ...st, t: Math.min(st.t, to + 0.05) } : st));
+      if (gapEnd == null) gapEnd = sc.end;
+      if (gapEnd - gapStart < 1.2) break;
+      const prev = elements
+        .filter((e) => !INSTANT.has(e.type) && e.type !== 'title' && e.type !== 'character' && !e.screen && !e._until && e.end <= gapStart + 0.05 && e.scene >= si - 1 && e.scene <= si)
+        .sort((a, b) => b.end - a.end);
+      if (!prev.length) break;
+      const lastEnd = prev[0].end;
+      let moved = false;
+      for (const e of prev) if (lastEnd - e.end < 0.6) { e.end = gapEnd + 0.05; moved = true; }
+      if (!moved) break;
     }
   });
 

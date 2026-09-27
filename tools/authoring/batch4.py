@@ -19,12 +19,12 @@ save('indonesia_capital', meta(
           cam=at_(-6.8, 108.5, 9, bearing=-3),
           src=[src('Jakarta lies on the northwestern coast of Java.', 'Jakarta', 'It lies on the northwestern coast of Java, borders the provinces of West Java and Banten, and faces the Java Sea to the north.')]),
         S("Greater Jakarta is one of the most crowded urban areas on Earth, with over 40 million people.", [
-            cnt('40M+', '40', size=210), scatter({'circle': {'lat': -6.35, 'lon': 106.85, 'km': 45}}, '🏙️', 'crowded', count=12, size=56, stagger=0.05), pill('Greater Jakarta', 'Greater')],
+            cnt('40M+', '40', size=210), hl({'admin1s': ['Jakarta Raya', 'Banten', 'Jawa Barat'], 'country': 'IDN'}, '#ff5a5f', 'crowded', fillOpacity=0.35), pill('Greater Jakarta', 'Greater')],
           cam=at_(-6.3, 106.85, 45),
           src=[src('Greater Jakarta has a population of over 40 million.', 'Jakarta', 'Greater Jakarta is the most populous urban area in the world with a population of over 40 million')]),
         S("So why would anyone leave such a huge city?", [q(-6.2, 106.85, 'why')], style='dark', no_claim=True),
         S("Because Jakarta is sinking. Parts of the city lie below sea level.", [
-            hl({'circle': {'lat': -6.12, 'lon': 106.85, 'km': 9}}, '#1d4ed8', 'sinking', fillOpacity=0.6, soft=True, rim='#5ec8ff', reveal={'lat': -6.12, 'lon': 106.85}),
+            hl({'admin1': 'Jakarta Raya', 'country': 'IDN'}, '#1d4ed8', 'sinking', fillOpacity=0.55),
             stamp('SINKING', 'sinking', size=100), icon('🌊', -6.08, 106.8, 'sea', size=120), shake('sinking')],
           cam=at_(-6.15, 106.85, 70),
           src=[src('Parts of Jakarta lie below sea level.', 'Jakarta', 'Much of Jakarta lies on an alluvial plain, with elevations ranging from below sea level to about 50 metres (160 feet).'),
@@ -61,17 +61,17 @@ save('japan_islands', meta(
     ['japan', 'islands', '14125 islands', 'honshu', 'hokkaido', 'kyushu', 'shikoku', 'island country', 'geography', 'maps', 'learn', 'fun facts']),
     [
         S("For decades, Japan said it had 6,852 islands.", [
-            hl('JPN', 'flag:jp', 'Japan', fillOpacity=0.85), cnt('6,852', '6,852', size=200), scatter('JPN', '🏝️', 'islands', count=10, size=54, stagger=0.05)],
+            hl('JPN', 'flag:jp', 'Japan', fillOpacity=0.85), cnt('6,852', '6,852', size=200)],
           cam=fit('JPN', pad=0.9, bearing=-4),
           src=[src('A 1987 Japan Coast Guard survey counted 6,852 islands.', 'List_of_islands_of_Japan', 'According to a survey conducted by the Japan Coast Guard in 1987, the number of islands in Japan was 6,852.')]),
         S("But in 2023, they counted again, and the number more than doubled, to 14,125.", [
             year(2023, '2023', light=True), cnt_steps([('counted', '6,852'), ('14,125', '14,125')], size=200),
-            scatter('JPN', '🏝️', 'doubled', count=22, size=48, stagger=0.04, seed=7), punch('doubled')],
+            punch('doubled')],
           src=[src('Japan is an island country of 14,125 islands.', 'List_of_islands_of_Japan', 'Japan is an island country of 14,125 islands, of which approximately 260 are inhabited.')]),
         S("So where did 7,000 new islands come from?", [q(36, 138, 'where')], style='dark', no_claim=True),
         S("Nothing new appeared. Better surveys and digital maps simply found more islands, with a coastline of at least 100 meters.", [
             char('japanese_surveyor', 'surveys', name='Surveyor'), icon('🛰️', 40, 145, 'digital', size=120), cnt('100 m', '100', size=180),
-            ring(34.4, 132.4, 'coastline', r=70)],
+            ping(34.4, 132.4, 'coastline', color='#ffd60a')],
           cam=at_(34.2, 132.8, 16, bearing=-3), tr='flash',
           src=[src('The increase came from better surveying and digital mapping; the criterion is a coastline of 100 m or more.', 'List_of_islands_of_Japan',
                    'advances in surveying technology and the detailed representation of topographic features through digital mapping ... a coastline of 100 meters or more')]),
@@ -133,7 +133,7 @@ save('italy_microstates', meta(
           era='history',
           src=[src('San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862.', 'San_Marino', 'San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862.')]),
         S("The second country is even smaller. Vatican City, just 0.49 square kilometers, the smallest country in the world.", [
-            hl('VAT', '#ffd60a', 'Vatican', neon='#ffd60a', hold=1), dot('Vatican City', *VAT, 'Vatican', dy=-60), ring(*VAT, 'smaller', r=48),
+            hl('VAT', '#ffd60a', 'Vatican', neon='#ffd60a', hold=1), dot('Vatican City', *VAT, 'Vatican', dy=-60),
             cnt('0.49 km²', '0.49', size=160), dot('Rome', 41.89, 12.51, 'smallest', dy=52, size=38)],
           cam=at_(41.9, 12.47, 260, bearing=3), tr='flash',
           src=[src('Vatican City is 0.49 km², the smallest country by area and population.', 'Vatican_City', 'the smallest country in the world both by area and by population ... 0.49 km2 (0.19 sq mi)')]),
@@ -141,7 +141,7 @@ save('italy_microstates', meta(
             cnt('882', '882', size=210), char('pope', 'people', name='Vatican City')],
           src=[src('Population about 882 (2024).', 'Vatican_City', 'a population of about 882 in 2024')]),
         S("Popes once ruled the Papal States, across central Italy. But in 1870, the new Kingdom of Italy took them.", [
-            hl({'circle': {'lat': 42.7, 'lon': 12.6, 'km': 150}}, '#f5d76e', 'Papal', soft=True, rim='#ffd60a', fillOpacity=0.7),
+            hl({'admin1s': ['Roma', 'Latina', 'Frosinone', 'Viterbo', 'Rieti', 'Perugia', 'Terni', 'Ancona', 'Macerata', 'Ascoli Piceno', 'Fermo', 'Pesaro e Urbino', 'Bologna', 'Ferrara', 'Ravenna', 'Forlì-Cesena', 'Rimini'], 'country': 'ITA'}, '#d4a017', 'Papal', fillOpacity=0.7),
             lab('Papal States', 43.0, 12.6, 'Papal', style='serif', size=58), year(1870, '1870'), shake('took')],
           cam=at_(42.6, 12.6, 5.5), era='history', tr='film',
           src=[src('The popes ruled the Papal States until the Kingdom of Italy seized them (1870).', 'Vatican_City', 'ruled the Papal States, which covered a large portion of the Italian Peninsula, for more than a thousand years until the mid-19th century, when all the territory belonging to the papacy was seized by the newly created Kingdom of Italy')]),
@@ -187,7 +187,7 @@ save('hormuz', meta(
           cam=at_(26.55, 56.55, 45, bearing=-6),
           src=[src('Each lane is 2 nautical miles (3.7 km) wide.', 'Strait_of_Hormuz', 'each lane being 2 nautical miles (3.7 km) wide, with the two lanes separated by a similarly wide "median"')]),
         S("And between the two lanes sits a buffer zone, just as wide.", [
-            hl({'circle': {'lat': 26.55, 'lon': 56.6, 'km': 3}}, '#ff5a5f', 'buffer', soft=True, rim='#ff5a5f', fillOpacity=0.45), note('BUFFER', 26.7, 56.75, 'buffer', size=58)],
+            route([(26.45, 56.3), (26.6, 56.55), (26.72, 56.8)], 'buffer', color='#ff5a5f', width=16, drawDur=0.8), note('BUFFER', 26.7, 56.75, 'buffer', size=58)],
           src=[src('The two lanes are separated by a median of similar width.', 'Strait_of_Hormuz', 'with the two lanes separated by a similarly wide "median"')]),
         S("So why does this tiny strait matter so much?", [q(26.6, 56.4, 'why')], style='dark', no_claim=True),
         S("Because for countries like Qatar, Bahrain, Kuwait and Iraq, it's the only sea route to the open ocean.", [
@@ -264,7 +264,7 @@ save('kaliningrad', meta(
           src=[src('Lithuanian independence (1990) and the USSR\'s dissolution (1991) isolated Kaliningrad.', K, 'The independence of Lithuania in 1990 and full dissolution of the Soviet Union in 1991 isolated Kaliningrad from the rest of Russia')]),
         S("Today, about one million people live there. And only 65 kilometers of Poland, the Suwalki Gap, separate it from Russia's ally Belarus.", [
             hl(KO, '#c1121f', 'Today', fillOpacity=0.6, neon='#ff3b3b'), cnt('1M', 'million', size=200), hl('BLR', 'flag:by', 'Belarus', fillOpacity=0.8),
-            meas((54.36, 22.79), (53.95, 23.51), '65 km', 'Suwalki'), blob({'circle': {'lat': 54.15, 'lon': 23.15, 'km': 38}}, '#ffd60a', '#ffd60a', 'Gap', fillOpacity=0.35)],
+            meas((54.36, 22.79), (53.95, 23.51), '65 km', 'Suwalki')],
           cam=at_(54.3, 22.6, 8.5, bearing=-3),
           src=[src('Population roughly one million (2021 census).', K, 'Kaliningrad Oblast had a population of roughly one million in the 2021 Russian census.'),
                src('Only 65 km of Polish territory separates the two areas.', 'Suwa%C5%82ki_Gap', 'only 65 km (40 mi) of Polish territory separates two areas of the rival Collective Security Treaty Organisation (CSTO) and the Union State')]),

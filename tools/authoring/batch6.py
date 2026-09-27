@@ -342,7 +342,7 @@ save('centralia', meta(
           cam=at_(41, -77.5, 6),
           src=[src('A coal mine fire has burned beneath the borough since 1962.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
         S("This is Centralia. Under it, a coal mine fire started, and it's still burning today.", [
-            slam('CENTRALIA', 40.812, -76.341, 'Centralia', size=70), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 1.2}}, '🔥', 'burning', count=10, size=64, stagger=0.08), char('coal_miner', 'coal')],
+            slam('CENTRALIA', 40.812, -76.341, 'Centralia', size=70), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 1.2}}, '🔥', 'burning', count=4, size=72, stagger=0.15), char('coal_miner', 'coal')],
           cam=at_(40.804, -76.341, 400, bearing=-3),
           src=[src('A coal mine fire has burned beneath the borough since 1962.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
         S("Experts think it could keep burning for another 250 years.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), cnt('250 years', '250', size=180, color='#ff5a2a'), tilt('burning', deg=40, until=3.5)],
@@ -352,7 +352,7 @@ save('centralia', meta(
           cam=at_(40.804, -76.341, 450), era='history', tr='film', style='satellite',
           src=[src('1,012 residents by 1980.', CE, 'By 1980, it had 1,012 residents.')]),
         S("Then, in 1992, the state condemned every single building in town.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), year(1992, '1992'), stamp('CONDEMNED', 'condemned', size=90), shake('condemned'),
-            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏚️', 'building', count=12, size=58, stagger=0.05)],
+            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏚️', 'building', count=4, size=64, stagger=0.12)],
           era='history', style='satellite',
           src=[src('In 1992 the governor invoked eminent domain on all property, condemning all buildings.', CE, 'invoked eminent domain on all property in the borough, condemning all the buildings within')]),
         S("In 2013, the last seven residents were allowed to stay, but only until the end of their lives.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), 
@@ -368,7 +368,7 @@ save('centralia', meta(
           cam=at_(40.8, -76.345, 700),
           src=[src('In April 2020 the owners covered the graffiti highway with mounds of dirt.', CE, 'the property\'s current owners made the decision to cover over the graffiti on the highway section of old Route 61. Several hundred mounds of dirt were laid over the area')]),
         S("Today, Centralia is a ghost town, sitting on top of a fire that nobody can put out.", [
-            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 1.2}}, '🔥', 'fire', count=12, size=66, stagger=0.06), stamp('GHOST TOWN', 'ghost', size=90)],
+            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 1.2}}, '🔥', 'fire', count=4, size=72, stagger=0.15), stamp('GHOST TOWN', 'ghost', size=90)],
           cam=at_(40.804, -76.341, 350, bearing=3),
           src=[src('Only five residents remain while the fire still burns.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
     ],

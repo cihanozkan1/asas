@@ -257,19 +257,25 @@
       "text": "And between the two lanes sits a buffer zone, just as wide.",
       "show": [
         {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": 26.55,
-              "lon": 56.6,
-              "km": 3
-            }
-          },
-          "fill": "#ff5a5f",
+          "type": "route",
+          "points": [
+            [
+              26.45,
+              56.3
+            ],
+            [
+              26.6,
+              56.55
+            ],
+            [
+              26.72,
+              56.8
+            ]
+          ],
+          "color": "#ff5a5f",
+          "width": 16,
           "at": "buffer",
-          "soft": true,
-          "rim": "#ff5a5f",
-          "fillOpacity": 0.45
+          "drawDur": 0.8
         },
         {
           "type": "label",

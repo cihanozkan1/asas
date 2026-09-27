@@ -26,7 +26,7 @@ save('northwest_angle', meta(
           src=[src('It stems from a 1783 mapping mistake.', 'Northwest_Angle', "The region's existence stems from a 1783 mapping mistake.")]),
         S("The negotiators of the Treaty of Paris, including Benjamin Franklin, used a map that got the Mississippi River and this lake wrong.", [
             hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), char('franklin', 'Benjamin', name='Benjamin Franklin'), icon('🗺️', 47.8, -92.0, 'map', size=150),
-            blob({'circle': {'lat': 49.05, 'lon': -94.85, 'km': 32}}, '#5ec8ff', '#1d4ed8', 'lake', fillOpacity=0.55, hold=2),
+            
             route([(47.24, -95.21), (47.45, -94.9), (47.3, -94.2), (46.4, -94.3), (45.6, -94.2), (44.98, -93.27)], 'Mississippi', color='#5ec8ff', width=7, drawDur=1.2, hold=2),
             lab('Lake of the Woods', 49.45, -94.3, 'lake', style='serif', size=48)],
           cam=at_(47.8, -94.8, 6), era='history', tr='film',
@@ -85,7 +85,7 @@ save('point_roberts', meta(
         S("But this perfectly straight line cut right across the peninsula, leaving its tip on the American side.", [
             route([(49.0, -123.3), (49.0, -122.8)], 'line', rhumb=True, color='#ffd60a', width=7, drawDur=0.8),
             lab('CANADA', 49.03, -123.07, 'perfectly', style='pill', bg='#d52b1e', size=46), lab('USA', 48.975, -123.06, 'tip', style='pill', bg='#1d4ed8', size=46),
-            hl({'circle': {'lat': 48.975, 'lon': -123.06, 'km': 2.2}}, '#1d4ed8', 'tip', fillOpacity=0.35, reveal={'lat': 48.975, 'lon': -123.06})],
+            hl({'box': [-123.1, 48.955, -123.0, 49.0]}, '#1d4ed8', 'tip', fillOpacity=0.5)],
           cam=at_(49.0, -123.05, 140),
           src=[src('The 49th parallel left the southern peninsula tip on the US side.', 'Point_Roberts,_Washington', 'leaving this southern peninsula on the American side')]),
         S("To reach the rest of the USA by land, you drive about 40 kilometers through Canada.", [
@@ -99,7 +99,7 @@ save('point_roberts', meta(
           src=[src('Students in grade 4 and above commute to Blaine, crossing the border four times.', 'Point_Roberts,_Washington',
                    'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
         S("Today, about 1,191 people live in this American island on land.", [
-            hl({'circle': {'lat': 48.975, 'lon': -123.06, 'km': 2.2}}, '#1d4ed8', 0.05, fillOpacity=0.35), lab('POINT ROBERTS', 48.99, -123.06, 0.05, style='map', size=54),
+            hl({'box': [-123.1, 48.955, -123.0, 49.0]}, '#1d4ed8', 0.05, fillOpacity=0.5), lab('POINT ROBERTS', 48.99, -123.06, 0.05, style='map', size=54),
             cnt('1,191', '1,191', size=180), pill('people (2020)', '1,191'), ping(*PR, 'American', color='#ffd60a')],
           cam=at_(48.99, -123.05, 150, bearing=-4), tr='flash',
           src=[src('Population 1,191 (2020 census).', 'Point_Roberts,_Washington', 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
@@ -127,7 +127,7 @@ save('australia', meta(
           src=[src('73% live in major coastal urban centres.', 'Geography_of_Australia', 'with 73% inhabiting major coastal urban centers')]),
         S("So why is the middle almost empty?", [q(-25, 134, 'why'), hl(AUS, '#e76f51', 0.05, fillOpacity=0.85)], cam=at_(-26, 134, 2.7), style='dark', no_claim=True),
         S("Water. 80 percent of the land gets less than 600 millimeters of rain a year, and half gets less than 300.", [
-            scatter(AUS, '🏜️', 'rain', count=14, size=64), cnt_steps([('80', '80%'), ('half', '50%')], size=180),
+            hl({'admin1s': ['Northern Territory', 'South Australia', 'Western Australia'], 'country': 'AUS'}, '#c2703d', 'rain', fillOpacity=0.55), lab('OUTBACK', -24, 131, 'rain', style='map', size=64), cnt_steps([('80', '80%'), ('half', '50%')], size=180),
             pill('< 600 mm rain', 'rain', bg='#b45309')],
           cam=at_(-26, 134, 2.7),
           src=[src('80% of the land gets <600 mm of rain a year, 50% gets <300 mm.', 'Geography_of_Australia',
@@ -231,7 +231,7 @@ save('panama_canal', meta(
             ship(CANAL, 'trip', 'canalroute', emblem='#1d4ed8', drawDur=3.0), cnt_steps([('trip', '22,500 km'), ('9,500', '9,500 km')], size=160)],
           cam={'follow': 'canalroute', 'zoom': 1.2, 'zoomTo': 0.95},
           src=[src('Through the canal the voyage is roughly 9,500 km.', 'Panama_Canal', 'ships now transit roughly 9,500 kilometers through the canal')]),
-        S("Around 14,000 ships pass through every year, and by 2012, more than 815,000 ships had used it.", [cnt('14,000', '14,000', size=190), pill('ships per year', 'ships'), scatter({'circle': {'lat': 9.1, 'lon': -79.7, 'km': 60}}, '🚢', 'pass', count=10, size=54)],
+        S("Around 14,000 ships pass through every year, and by 2012, more than 815,000 ships had used it.", [cnt('14,000', '14,000', size=190), pill('ships per year', 'ships'), scatter({'circle': {'lat': 9.1, 'lon': -79.7, 'km': 60}}, '🚢', 'pass', count=4, size=70, stagger=0.15, along=[(9.36, -79.92), (9.2, -79.83), (9.05, -79.66), (8.9, -79.53)])],
           cam=at_(9.1, -79.7, 16),
           src=[src('About 14,702 transits a year; over 815,000 by 2012.', 'Panama_Canal', 'The canal handles approximately 14,702 vessel transits yearly, with over 815,000 ships having passed through by 2012')]),
         S("The United States ran the canal for most of the century, but in 1999, Panama finally took control.", [

@@ -644,21 +644,6 @@
           ],
           "label": "65 km",
           "at": "Suwalki"
-        },
-        {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": 54.15,
-              "lon": 23.15,
-              "km": 38
-            }
-          },
-          "fill": "#ffd60a",
-          "at": "Gap",
-          "soft": true,
-          "rim": "#ffd60a",
-          "fillOpacity": 0.35
         }
       ],
       "camera": {

@@ -387,17 +387,28 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 7.9,
-              "lon": -77.3,
-              "km": 60
-            }
+            "admin1s": [
+              "Darién",
+              "Emberá",
+              "Kuna Yala"
+            ],
+            "country": "PAN"
           },
           "fill": "#16a34a",
           "at": "Darién",
-          "soft": true,
-          "rim": "#4ade80",
-          "fillOpacity": 0.4
+          "fillOpacity": 0.5,
+          "neon": "#4ade80"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Chocó",
+            "country": "COL"
+          },
+          "fill": "#16a34a",
+          "at": "Darién",
+          "fillOpacity": 0.5,
+          "neon": "#4ade80"
         },
         {
           "type": "label",
@@ -550,17 +561,17 @@
         {
           "type": "scatter",
           "target": {
-            "circle": {
-              "lat": 7.9,
-              "lon": -77.3,
-              "km": 45
-            }
+            "admin1s": [
+              "Darién",
+              "Emberá"
+            ],
+            "country": "PAN"
           },
           "icon": "🚶",
-          "count": 16,
-          "size": 48,
+          "count": 5,
+          "size": 64,
           "at": "crossed",
-          "stagger": 0.05
+          "stagger": 0.12
         }
       ],
       "camera": {

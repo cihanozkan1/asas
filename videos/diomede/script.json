@@ -253,21 +253,21 @@
       "text": "In winter, an ice bridge usually forms between them. But crossing it is prohibited.",
       "show": [
         {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": 65.77,
-              "lon": -168.99,
-              "km": 5
-            }
-          },
-          "fill": "#e0f2fe",
+          "type": "route",
+          "points": [
+            [
+              65.78,
+              -169.05
+            ],
+            [
+              65.77,
+              -168.93
+            ]
+          ],
+          "color": "#e0f2fe",
+          "width": 18,
           "at": "ice",
-          "fillOpacity": 0.55,
-          "reveal": {
-            "lat": 65.77,
-            "lon": -168.99
-          }
+          "drawDur": 0.8
         },
         {
           "type": "icon",

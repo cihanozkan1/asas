@@ -45,15 +45,6 @@
             }
           ],
           "size": 200
-        },
-        {
-          "type": "scatter",
-          "target": "JPN",
-          "icon": "🏝️",
-          "count": 10,
-          "size": 54,
-          "at": "islands",
-          "stagger": 0.05
         }
       ],
       "camera": {
@@ -94,16 +85,6 @@
             }
           ],
           "size": 200
-        },
-        {
-          "type": "scatter",
-          "target": "JPN",
-          "icon": "🏝️",
-          "count": 22,
-          "size": 48,
-          "at": "doubled",
-          "stagger": 0.04,
-          "seed": 7
         },
         {
           "type": "punch",
@@ -165,10 +146,10 @@
           "size": 180
         },
         {
-          "type": "ring",
+          "type": "ping",
           "lat": 34.4,
           "lon": 132.4,
-          "r": 70,
+          "color": "#ffd60a",
           "at": "coastline"
         }
       ],

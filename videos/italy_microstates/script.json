@@ -342,13 +342,6 @@
           "size": 44
         },
         {
-          "type": "ring",
-          "lat": 41.903,
-          "lon": 12.453,
-          "r": 48,
-          "at": "smaller"
-        },
-        {
           "type": "counter",
           "steps": [
             {
@@ -424,16 +417,29 @@
         {
           "type": "highlight",
           "target": {
-            "circle": {
-              "lat": 42.7,
-              "lon": 12.6,
-              "km": 150
-            }
+            "admin1s": [
+              "Roma",
+              "Latina",
+              "Frosinone",
+              "Viterbo",
+              "Rieti",
+              "Perugia",
+              "Terni",
+              "Ancona",
+              "Macerata",
+              "Ascoli Piceno",
+              "Fermo",
+              "Pesaro e Urbino",
+              "Bologna",
+              "Ferrara",
+              "Ravenna",
+              "Forlì-Cesena",
+              "Rimini"
+            ],
+            "country": "ITA"
           },
-          "fill": "#f5d76e",
+          "fill": "#d4a017",
           "at": "Papal",
-          "soft": true,
-          "rim": "#ffd60a",
           "fillOpacity": 0.7
         },
         {

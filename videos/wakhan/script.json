@@ -484,10 +484,11 @@
           "type": "scatter",
           "target": "AFG",
           "icon": "🏔️",
-          "count": 6,
-          "size": 60,
+          "count": 3,
+          "size": 70,
           "at": "Pamir",
-          "minLat": 36.6
+          "minLat": 36.6,
+          "stagger": 0.15
         },
         {
           "type": "label",

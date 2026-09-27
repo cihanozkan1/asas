@@ -50,7 +50,7 @@ save('alaska', meta(
                src('William Seward, US Secretary of State, negotiated the purchase.', 'Alaska_Purchase', 'William H. Seward, U.S. Secretary of State, negotiated with Russian diplomat Eduard de Stoeckl')]),
         S("But in 1896, the Klondike Gold Rush began next door, and the frozen land suddenly looked like a bargain.", [
             year(1896, '1896', light=True), ping(64.06, -139.43, 'Klondike', color='#ffd60a'), dot('Klondike', 64.06, -139.43, 'Klondike'),
-            scatter(AK, '💰', 'bargain', count=12, size=60), hl(AK, 'flag:us', 'bargain')],
+            scatter(AK, '💰', 'bargain', count=5, size=72, stagger=0.12), hl(AK, 'flag:us', 'bargain')],
           cam=fit(AK, pad=0.9, bearing=-4), tr='flash',
           src=[src('Alaska stayed sparsely populated until the Klondike Gold Rush began in 1896.', 'Alaska_Purchase',
                    'Alaska remained sparsely populated until the Klondike Gold Rush began in 1896')]),
@@ -133,7 +133,7 @@ save('lesotho', meta(
             cnt('3', 'three', size=220), note('only 3!', -33.5, 27, 'three', size=66), pill('San Marino + Vatican City', 'San', bg='#1d4ed8')],
           src=[src('One of three such states, with Vatican City and San Marino.', 'Lesotho', "the largest of the world's three independent states completely surrounded by the territory of another country")]),
         S("And it's the only country on Earth that lies entirely above 1,000 meters. Even its lowest point is 1,400 meters high.", [
-            cnt('1,000 m+', '1,000', size=150), scatter(LSO, '⛰️', 'above', count=8, size=62),
+            cnt('1,000 m+', '1,000', size=150), scatter(LSO, '⛰️', 'above', count=4, size=70, stagger=0.12),
             pill('lowest point: 1,400 m', 'meters', bg='#1d4ed8')],
           cam=fit(LSO, pad=0.85),
           src=[src('The only independent state entirely above 1,000 m; its lowest point is 1,400 m.', 'Lesotho',
@@ -212,7 +212,7 @@ save('wakhan', meta(
           src=[src('The Anglo-Russian Convention of 1907 formally delineated control in Afghanistan, Persia and Tibet.', 'Great_Game',
                    'the Anglo-Russian Convention of 1907, which "created an alliance between Britain and Russia, and formally delineated control in Afghanistan, Persia, and Tibet."')]),
         S("Today, about 18,000 people live there, high in the Pamir mountains.", [
-            cnt('18,000', '18,000', size=170), pill('people', '18,000'), scatter(AFG, '🏔️', 'Pamir', count=6, size=60, minLat=36.6),
+            cnt('18,000', '18,000', size=170), pill('people', '18,000'), scatter(AFG, '🏔️', 'Pamir', count=3, size=70, minLat=36.6, stagger=0.15),
             slam('PAMIR', 37.8, 74.2, 'Pamir', size=76)],
           cam=at_(37.0, 73.2, 6.5, bearing=-4), tr='flash',
           src=[src('About 18,000 residents (2024); the northern section is also called the Pamir.', 'Wakhan_Corridor', 'As of 2024, the district has an estimated population of 18,000 residents')]),
