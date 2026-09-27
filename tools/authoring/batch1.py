@@ -235,7 +235,7 @@ save('gambia', meta(
             hl(SEN, 'flag:sn', 'Senegal', fillOpacity=0.85), ping(13.45, -16.58, 'coast', color='#5ec8ff')],
           cam=fit(SEN, pad=0.9),
           src=[src('Senegal surrounds it except for its Atlantic coast.', 'The_Gambia', 'Senegal completely surrounds the country except for "the western part, which is bordered by the Atlantic Ocean."')]),
-        S("With just 11,300 square kilometers, it's it's about 320 kilometers long, but only 10 to 50 kilometers wide.", [
+        S("With just 11,300 square kilometers, it's about 320 kilometers long, but only 10 to 50 kilometers wide.", [
             meas((13.3, -16.8), (13.3, -13.8), '320 km', '320'), cnt('10–50 km', 'wide', size=150)],
           cam=fit(GMB, pad=0.8),
           src=[src('Area 11,300 km²; about 320 km long and 10–50 km wide.', 'The_Gambia', 'with an area of 11,300 square kilometers ... approximately 320 km in length but only 10-50 km wide')]),

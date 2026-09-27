@@ -24,9 +24,21 @@ def pedestal_row(img):
     while y > h * 0.8 and (spans[y] == 0 or spans[y] > legs * 1.3):
         y -= 1
     base = h - 1 - y
-    if base < h * 0.025 or base > h * 0.2:
-        return None
-    return y + 1
+    if h * 0.025 <= base <= h * 0.2:
+        return y + 1
+    # fallback: a flat disc as wide as the figure; walk up until the rows get clearly narrower
+    yb = h - 1
+    while yb > 0 and spans[yb] == 0:
+        yb -= 1
+    lo = int(h * 0.82)
+    y = lo + int(np.argmax(spans[lo:]))
+    bottom = spans[y]
+    while y > h * 0.75 and spans[y] >= bottom * 0.72:
+        y -= 1
+    base = yb - y
+    if h * 0.03 <= base <= h * 0.2 and spans[max(0, y - 12)] < bottom * 0.62:
+        return y + 1
+    return None
 
 
 def main(paths, dry):

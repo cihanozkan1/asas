@@ -18,6 +18,8 @@ export function sfxEvents(tl) {
       add(s.start - 0.35, 'glitch', 0.7);
       add(s.start - 0.3, 'whoosh', 0.8);
     } else if (s.transition === 'flash') add(s.start - 0.1, 'whoosh', 0.8);
+    else if (s.transition === 'zoom' || s.transition === 'slide') add(s.start - 0.15, 'whoosh', 0.45);
+    else if (s.transition === 'glitch') add(s.start - 0.1, 'glitch', 0.5);
     else if (i > 0 && s.camera) add(s.start - 0.15, 'whoosh', 0.35);
   });
   if (tl.scenes[0]?.camera) add(0, 'whoosh', 0.6);
@@ -57,7 +59,7 @@ export function sfxEvents(tl) {
         break;
       case 'ghost': add(t + (el.delay ?? 0.3), 'whoosh', 0.5); break;
       case 'ping': add(t, 'select', 0.4); break;
-      case 'counter': for (const st of el.steps) add(st.t, 'pop2', 0.55); break;
+      case 'counter': el.steps.forEach((st, i) => { add(st.t, 'pop2', 0.55); if (i === 0 && /\d/.test(String(st.value)) && !/^(1[0-9]|20)\d\d(\b|:)/.test(String(st.value))) add(Math.max(st.t, el.start) + 0.9, 'ding', 0.35); }); break;
       case 'shake': add(t, 'boom', 0.9); add(t, 'thud', 0.6); break;
       case 'punch': add(t, 'knock', 0.5); break;
       case 'title': add(t, 'swish', 0.55); add(t + 0.3, 'thud', 0.6); break;
