@@ -156,8 +156,8 @@
         {
           "type": "flag",
           "code": "ca",
-          "lat": 58,
-          "lon": -110,
+          "lat": 52,
+          "lon": -108,
           "size": 90,
           "at": "links"
         },

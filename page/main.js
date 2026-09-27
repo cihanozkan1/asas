@@ -555,7 +555,7 @@ async function init(tl) {
     const a = rectOf(ob);
     if (!a) continue;
     for (const m of tl.elements) {
-      if (m === ob || !m._node || !isMovable(m) || m.start > ob.start - 0.1 || m.end < ob.start + 0.3) continue;
+      if (m === ob || !m._node || !(isMovable(m) || (m.screen && ob.screen && m.type !== 'character' && m.type !== 'counter')) || m.start > ob.start - 0.1 || m.end < ob.start + 0.3) continue;
       const b = rectOf(m);
       if (b && inter(a, b) > 0.12 * Math.min(area(a), area(b))) m.end = Math.max(m.start + 1.5, ob.start + 0.1);
     }

@@ -21,7 +21,7 @@ save('greenland_iceland', meta(
           cam=at_(64, -45, 3.0), era='history', tr='film',
           src=[src('Erik the Red named it Greenland to attract settlers.', 'Greenland', 'which he called Greenland, as he said people would be attracted there if it had a favourable name')]),
         S("The sagas say he called it Greenland, because people would be attracted there if it had a nice name.", [
-            hl('GRL', '#8b5e34', 0.05, fillOpacity=0.5), note('GREAT MARKETING', 70.5, -40, 'nice', size=58), ship([(64.1, -21.9), (64, -30), (62, -42), (61, -45.5)], 'attracted', 'erik', emblem='#b91c1c')],
+            hl('GRL', '#8b5e34', 0.05, fillOpacity=0.5), note('GREAT MARKETING', 75, -42, 'nice', size=58), ship([(64.1, -21.9), (64, -30), (62, -42), (61, -45.5)], 'attracted', 'erik', emblem='#b91c1c')],
           cam=at_(64, -35, 2.6), era='history',
           src=[src('Erik: people would be attracted if it had a favourable name.', 'Greenland', 'as he said people would be attracted there if it had a favourable name')]),
         S("And Iceland? Its name comes from Flóki, a Viking who climbed a mountain after a harsh winter, and saw an ice cap.", [
@@ -153,7 +153,7 @@ save('recursive_island', meta(
         S("Volcano Island sits in another lake: Taal Lake.", [dot('Taal Lake', 13.95, 121.02, 'Taal', dy=-50)],
           cam=at_(13.95, 121.0, 60),
           src=[src('Volcano Island lies in Taal Lake.', VPA, 'one of only a few islands in a lake on an island in a lake on an island in the world')]),
-        S("And Taal Lake is on a bigger island: Luzon, in the Philippines.", [hl('PHL', 'flag:ph', 'Luzon', fillOpacity=0.7), dot('Luzon', 15.8, 121, 'Luzon', dy=-50)],
+        S("And Taal Lake is on a bigger island: Luzon, in the Philippines.", [hl('PHL', 'flag:ph', 'Luzon', fillOpacity=0.7), dot('Luzon', 15.8, 121, 'Luzon', dy=50)],
           cam=at_(14.5, 121, 6),
           src=[src('Taal Lake is on Luzon.', VPA, 'one of only a few islands in a lake on an island in a lake on an island in the world')]),
         S("An island, in a lake, on an island, in a lake, on an island. One of only a few in the world.", [

@@ -695,8 +695,8 @@
           "text": "CANADIAN SHIELD",
           "style": "pill",
           "bg": "#6b7280",
-          "lat": 58,
-          "lon": -95,
+          "lat": 61,
+          "lon": -100,
           "size": 50,
           "at": "Shield"
         },
@@ -770,7 +770,7 @@
           "dot": true,
           "lat": 42.31,
           "lon": -83.03,
-          "dy": 46,
+          "dy": -46,
           "size": 42,
           "at": "Windsor"
         },

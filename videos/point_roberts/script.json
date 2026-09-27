@@ -312,7 +312,8 @@
           "at": "Canada",
           "dot": true,
           "dy": 50,
-          "size": 44
+          "size": 44,
+          "dx": -110
         },
         {
           "type": "counter",

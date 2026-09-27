@@ -90,7 +90,7 @@ save('point_roberts', meta(
           src=[src('The 49th parallel left the southern peninsula tip on the US side.', 'Point_Roberts,_Washington', 'leaving this southern peninsula on the American side')]),
         S("To reach the rest of the USA by land, you drive about 40 kilometers through Canada.", [
             mover_icon([(48.975, -123.06), (49.005, -123.08), (49.07, -123.02), (49.08, -122.85), (49.0, -122.76), (48.993, -122.75)], 'drive', '🚗', size=90),
-            dot('Blaine, USA', 48.993, -122.75, 'Canada', dy=50), cnt('40 km', '40', size=160)],
+            dot('Blaine, USA', 48.993, -122.75, 'Canada', dy=50, dx=-110), cnt('40 km', '40', size=160)],
           cam=at_(49.03, -122.92, 70),
           src=[src('Residents travel about 25 mi (40 km) through Canada.', 'Point_Roberts,_Washington', 'traveling "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
         S("Older kids go to school in Blaine, so they cross the border four times on every round trip.", [
@@ -168,7 +168,7 @@ save('bolivia_navy', meta(
           cam=fit(BOL, pad=0.9, bearing=-3),
           src=[src('Bolivia is landlocked but has a navy of about 5,000 personnel (2018).', 'Bolivian_Navy', 'As of 2018, the force comprised "approximately 5,000 personnel."')]),
         S("It patrols Lake Titicaca, the highest navigable lake in the world, and the rivers of the Amazon.", [
-            ping(*TITI, 'Titicaca', color='#5ec8ff'), dot('Lake Titicaca', *TITI, 'Titicaca', dy=-50), mover_icon([(-16.45, -68.95), (-16.2, -69.15), (-15.95, -69.45)], 'patrols', '🚤', size=90)],
+            ping(*TITI, 'Titicaca', color='#5ec8ff'), dot('Lake Titicaca', *TITI, 'Titicaca', dy=-120), mover_icon([(-16.45, -68.95), (-16.2, -69.15), (-15.95, -69.45)], 'patrols', '🚤', size=90)],
           cam=at_(-16.0, -69.3, 14),
           src=[src('It operates on Lake Titicaca, the highest navigable lake, and Amazon tributaries.', 'Bolivian_Navy', 'Lake Titicaca, described as "the highest navigable lake in the world," and patrols Amazon tributaries')]),
         S("So why does a landlocked country need a navy?", [q(-17, -65, 'why')], cam=fit(BOL, pad=0.9), style='dark', no_claim=True),
@@ -209,7 +209,7 @@ save('panama_canal', meta(
     ['panama canal', 'panama', 'cape horn', 'ships', 'shipping', 'gatun lake', 'locks', 'new york', 'san francisco', 'geography', 'history', 'maps', 'learn']),
     [
         S("Before 1914, a ship sailing from New York to San Francisco had to go all the way around South America, past Cape Horn at the very bottom.", [
-            ship(AROUND, 'sailing', 'horn', drawDur=4.2), dot('New York', *NY, 'New', dy=-46), dot('San Francisco', *SF, 'San', dy=0, dx=150)],
+            ship(AROUND, 'sailing', 'horn', drawDur=4.2), dot('New York', *NY, 'New', dy=-46), dot('San Francisco', *SF, 'San', dy=60, dx=150)],
           cam={'follow': 'horn', 'zoom': 1.6, 'zoomTo': 0.95},
           src=[src('Around Cape Horn the voyage is about 22,500 km.', 'Panama_Canal', 'Instead of traveling approximately 22,500 kilometers around South America\'s Cape Horn')]),
         S("That's about 22,500 kilometers.", [cnt('22,500 km', '22,500', size=170), ping(-56.3, -67.3, 'about', color='#ff3b3b'), dot('Cape Horn', -56.3, -67.3, 'kilometers', dy=46)],

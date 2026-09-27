@@ -178,7 +178,7 @@
           "lon": 121,
           "at": "Luzon",
           "dot": true,
-          "dy": -50,
+          "dy": 50,
           "size": 44
         }
       ],

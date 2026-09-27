@@ -15,7 +15,7 @@ save('walk_world', meta(
             hook('THE LONGEST *WALK* ON EARTH', at=0.05, until='plane'), q(0, 20, 'plane')],
           cam=at_(10, 30, 1.0), no_claim=True),
         S("It starts here, at the southern tip of Africa, in Cape Town.", [
-            ping(-33.92, 18.42, 'Cape', color='#ffd60a', hold=1), dot('Cape Town', -33.92, 18.42, 'Cape', dy=-56), flag('za', -30, 24, 'Africa', size=120)],
+            ping(-33.92, 18.42, 'Cape', color='#ffd60a', hold=1), dot('Cape Town', -33.92, 18.42, 'Cape', dy=56), flag('za', -30, 24, 'Africa', size=120)],
           cam=at_(-30, 22, 3.2),
           src=[src('The route starts in Cape Town, South Africa.', BM, 'from Cape Town, South Africa to Magadan, Russia')]),
         S("And it ends on the other side of the world, in Magadan, in the far east of Russia.", [
@@ -71,7 +71,7 @@ save('darien_gap', meta(
           cam=at_(10, -95, 0.8),
           src=[src('The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.', 'Pan-American_Highway', 'from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina')]),
         S("It's the Pan-American Highway, and it links 14 countries.", [
-            cnt('14', '14', size=200), *[flag(c, la, lo, 'links', size=90) for c, la, lo in [('ca', 58, -110), ('us', 40, -100), ('mx', 23, -102), ('pe', -9, -75), ('cl', -30, -71), ('ar', -38, -65)]]],
+            cnt('14', '14', size=200), *[flag(c, la, lo, 'links', size=90) for c, la, lo in [('ca', 52, -108), ('us', 40, -100), ('mx', 23, -102), ('pe', -9, -75), ('cl', -30, -71), ('ar', -38, -65)]]],
           cam=at_(10, -95, 0.8),
           src=[src('The highway links 14 nations.', 'Pan-American_Highway', 'The system links 14 nations')]),
         S("But there is one place where the road simply stops.", [ping(*YAV, 'stops', color='#ff3b3b'), stamp('ROAD ENDS', 'stops', size=90)],
@@ -125,7 +125,7 @@ save('spain_borders', meta(
             hook("SPAIN'S *STRANGEST* BORDERS", at=0.05, until='planet'), hl('ESP', 'flag:es', 'Spain', fillOpacity=0.85)],
           cam=fit('ESP', pad=0.85, bearing=-3), no_claim=True),
         S("First, Llívia. A Spanish town completely surrounded by France.", [
-            ping(*LLI, 'Llívia', color='#ff3b3b'), flag('es', LLI[0] + 0.012, LLI[1], 'Llívia', size=110),
+            ping(*LLI, 'Llívia', color='#ff3b3b'), flag('es', LLI[0] - 0.014, LLI[1], 'Llívia', size=110),
             hl('FRA', '#9fb8ff', 'France', fillOpacity=0.55), slam('LLÍVIA', 42.482, 1.975, 'Llívia', size=70)],
           cam=at_(42.46, 1.975, 1100),
           src=[src('Llívia is a Spanish exclave surrounded by France.', 'Llívia', 'It is a Spanish exclave surrounded by the French département of Pyrénées-Orientales.')]),

@@ -308,7 +308,7 @@
           "name": "Portugal",
           "flip": true,
           "screen": [
-            0.66,
+            0.76,
             0.6
           ],
           "at": "Portugal",
@@ -569,10 +569,9 @@
           "type": "character",
           "name": "Cabral",
           "screen": [
-            0.72,
+            0.25,
             0.6
           ],
-          "flip": true,
           "at": "Cabral",
           "image": "cabral"
         },
@@ -584,7 +583,8 @@
           "lon": -28,
           "size": 50,
           "rotate": -8,
-          "at": "India"
+          "at": "India",
+          "dy": -150
         }
       ],
       "sources": [
