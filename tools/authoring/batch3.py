@@ -85,7 +85,7 @@ save('istanbul', meta(
           era='history',
           src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
         S("In 1453, the Ottomans conquered it after a 55 day siege. And in 1930, it was officially renamed Istanbul.", [
-            year(1453, '1453'), char('sultan', 'Ottomans', name='Mehmed II'), shake('conquered'), lab('Istanbul', 41.03, 29.0, '1930', style='serif', size=68, anim='slam')],
+            year(1453, '1453', until='1930'), year(1930, '1930'), char('sultan', 'Ottomans', name='Mehmed II', until='1930', screen=(0.26, 0.58)), shake('conquered'), lab('Istanbul', 41.03, 29.0, '1930', style='serif', size=68, anim='slam')],
           era='history',
           src=[src('Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege." ... officially renamed Istanbul in 1930')]),
         S("Today, three bridges and a railway tunnel under the strait connect Europe and Asia.", [

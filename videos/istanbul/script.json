@@ -347,17 +347,24 @@
         {
           "type": "year",
           "value": "1453",
-          "at": "1453"
+          "at": "1453",
+          "until": "1930"
+        },
+        {
+          "type": "year",
+          "value": "1930",
+          "at": "1930"
         },
         {
           "type": "character",
           "image": "sultan",
           "screen": [
-            0.25,
-            0.6
+            0.26,
+            0.58
           ],
           "at": "Ottomans",
-          "name": "Mehmed II"
+          "name": "Mehmed II",
+          "until": "1930"
         },
         {
           "type": "shake",

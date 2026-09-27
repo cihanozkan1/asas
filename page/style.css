@@ -363,3 +363,4 @@ html, body {
 .kit-paper .label.map { background: rgba(255,255,255,.95); color: #111 !important; padding: 4px 20px 8px; border-radius: 30px; text-shadow: none; box-shadow: 0 10px 24px rgba(0,0,0,.35); }
 .kit-outline .label.map { color: transparent !important; -webkit-text-stroke: 2.5px #fff; text-shadow: none; filter: drop-shadow(0 0 8px var(--kit)); font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: .05em; }
 .title.hook { box-sizing: border-box; }
+.character.figure .nametag { font-size: 30px; padding: 4px 14px; }

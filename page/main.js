@@ -1394,7 +1394,7 @@ function buildUi() {
         break;
       }
       case 'character': {
-        const sz = el.size || (el.image ? 380 : 300);
+        const sz = el.size || (el.image ? 440 : 300);
         const bodyHtml = el.image
           ? `<img class="body figure" src="/assets/characters/${el.image}.png" style="height:${sz}px;display:block;margin:0 auto">`
           : `<div class="body" style="width:${sz}px;height:${sz * 1.2}px">${characterSvg(el).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`)}</div>`;
