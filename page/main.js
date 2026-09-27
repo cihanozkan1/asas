@@ -348,6 +348,8 @@ function fitCamera(features, mode, pad, override = {}) {
 async function init(tl) {
   state.tl = tl;
   const cfg = tl.config;
+  tl.elements.forEach((e, i) => { e._i = i; });
+  state.bursts = [];
   $('stage').className = `kit-${tl.kit?.kit || 'classic'}`;
   $('stage').style.setProperty('--kit', tl.kit?.accent || '#ffd60a');
   state.mode = tl.preset.projection; // 'globe' | 'flat'
@@ -1478,7 +1480,32 @@ function clampToSafe(x, y, w, h) {
   return [Math.min(Math.max(x, x0), Math.max(x0, x1)), Math.min(Math.max(y, y0), Math.max(y0, y1))];
 }
 
+// ---- per-kit motion: screen cards enter differently in each UI kit
+const KIT_CARDS = new Set(['counter', 'year', 'stat', 'bars', 'timeline', 'clock', 'pill']);
+const BURST = new Set(['counter', 'stamp', 'stat']);
+function kitEntrance(a) {
+  const kit = state.tl.kit?.kit || 'classic';
+  const r = { dx: 0, dy: 0, sc: 1, rot: 0, clip: null, blur: 0, op: 1 };
+  if (kit === 'block') {
+    const u = clamp01(a / 0.45);
+    r.dy = (1 - ease.outBack(u)) * 110; r.rot = (1 - ease.outCubic(u)) * -5;
+  } else if (kit === 'neon') {
+    r.op = a < 0.45 ? ([1, 0.2, 1, 1, 0.35, 1, 1, 1][Math.floor(a * 18) % 8]) * clamp01(a / 0.08) : 1;
+  } else if (kit === 'paper') {
+    const u = clamp01(a / 0.5);
+    r.sc = 0.75 + 0.25 * ease.outBack(u); r.rot = (1 - ease.outCubic(u)) * 7; r.dy = (1 - ease.outCubic(u)) * -50;
+  } else if (kit === 'news') {
+    const u = ease.outCubic(clamp01(a / 0.4));
+    r.clip = u < 1 ? `inset(-20% ${(1 - u) * 100}% -20% -20%)` : null; r.dx = (1 - u) * -24;
+  } else if (kit === 'outline') {
+    const u = ease.outCubic(clamp01(a / 0.5));
+    r.sc = 1.35 - 0.35 * u; r.blur = (1 - u) * 10; r.op = clamp01(u * 1.4);
+  }
+  return r;
+}
+
 function updateUi(t) {
+  state.bursts = [];
   const placed = [];
   for (const el of state.tl.elements) {
     if (!el._node) continue;
@@ -1545,8 +1572,11 @@ function updateUi(t) {
     // update text content first so the measured size matches this frame
     if (el.type === 'counter') {
       let v = el.steps[0].value, since = el.start;
-      for (const st of el.steps) if (t >= st.t) { v = st.value; since = st.t; }
-      inner.textContent = String(v);
+      let k = 0;
+      el.steps.forEach((st, i) => { if (t >= st.t) { v = st.value; since = st.t; k = i; } });
+      // numbers roll up when they first appear (not years like "1971: 6")
+      const rolls = k === 0 && !/^(1[0-9]|20)\d\d(\b|:)/.test(String(v)) && /\d/.test(String(v));
+      inner.textContent = rolls ? countUp(v, clamp01((t - el.start) / 0.9)) : String(v);
       el._since = since;
     } else if (el.type === 'label' && el.typewriter) {
       const words = String(el.text).split(' ');
@@ -1561,7 +1591,7 @@ function updateUi(t) {
       inner.querySelector('.v').textContent = countUp(el.value, clamp01(life.age / 0.9));
     }
     // big cards shrink to fit the width instead of running off screen
-    if (['counter', 'stamp', 'year', 'title'].includes(el.type)) {
+    if (['counter', 'stamp', 'year'].includes(el.type)) {
       if (el._fs == null) el._fs = parseFloat(inner.style.fontSize) || 0;
       if (el._fs) {
         inner.style.fontSize = el._fs + 'px';
@@ -1756,6 +1786,13 @@ function updateUi(t) {
       }
     }
     scale *= fit;
+    if (el.screen && KIT_CARDS.has(el.type === 'label' ? (el.style === 'pill' ? 'pill' : '') : el.type)) {
+      const k = kitEntrance(life.age);
+      scale *= k.sc; rot += k.rot; opacity *= k.op; x += k.dx; y += k.dy;
+      inner.style.clipPath = k.clip || '';
+      inner.style.filter = k.blur > 0.2 ? `blur(${k.blur}px)` : '';
+    }
+    if (el.screen && BURST.has(el.type) && life.age < 0.9) state.bursts.push({ x, y, w: w * scale, h: h * scale, age: life.age, seed: el._i ?? 0 });
     placed.push({ el, node, inner, x, y, w, h, scale, rot, opacity });
   }
   // Overlap offsets are solved once per element when it appears (init pre-pass) and then kept,
@@ -1871,10 +1908,15 @@ function updateCaptions(t) {
 
 // ---------------------------------------------------------------- fx
 
+function hash01(n) {
+  const x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+  return x - Math.floor(x);
+}
+
 function updateFx(t) {
   const fx = $('fx');
   let html = '';
-  let blur = 0;
+  let blur = 0, zoom = 0, shift = 0;
   for (const s of state.tl.scenes) {
     const tr = s.transition;
     if (!tr) continue;
@@ -1893,6 +1935,52 @@ function updateFx(t) {
       html += `<div class="flash" style="opacity:${0.35 * Math.sin(Math.PI * u)}"></div><div style="position:absolute;top:0;bottom:0;left:${x - 14}px;width:28px;background:#fff;box-shadow:0 0 40px 18px rgba(255,255,255,.8)"></div>`;
     } else if (tr === 'fade' && d > -0.3 && d < 0.3) {
       html += `<div class="black" style="opacity:${1 - Math.abs(d) / 0.3}"></div>`;
+    } else if (tr === 'zoom' && d > -0.18 && d < 0.3) {
+      const a = Math.sin(Math.PI * clamp01((d + 0.18) / 0.48));
+      zoom = Math.max(zoom, a);
+      blur = Math.max(blur, 7 * a);
+    } else if (tr === 'glitch' && d > -0.12 && d < 0.26) {
+      const u = clamp01((d + 0.12) / 0.38), a = Math.sin(Math.PI * u);
+      const f = Math.floor(t * 30);
+      for (let k = 0; k < 6; k++) {
+        const r = hash01(f * 13 + k * 7), top = r * H, hh = 20 + hash01(f + k * 31) * 90, off = (hash01(f * 3 + k) - 0.5) * 120 * a;
+        html += `<div style="position:absolute;left:0;right:0;top:${top}px;height:${hh}px;transform:translateX(${off}px);background:${k % 2 ? 'rgba(255,0,110,.28)' : 'rgba(0,229,255,.28)'};mix-blend-mode:screen"></div>`;
+      }
+      shift = 10 * a;
+    } else if (tr === 'slide' && d > -0.2 && d < 0.3) {
+      const u = clamp01((d + 0.2) / 0.5);
+      const x = (1 - ease.inOutCubic(u)) * W * 1.1 - W * 0.05;
+      html += `<div style="position:absolute;top:0;bottom:0;left:${x}px;width:${W * 0.18}px;background:var(--kit);opacity:${0.9 * Math.sin(Math.PI * u)};transform:skewX(-12deg)"></div>`;
+    }
+  }
+  // sparks when a number or stamp lands
+  const kitC = state.tl.kit?.accent || '#ffd60a';
+  for (const b of state.bursts || []) {
+    const u = clamp01(b.age / 0.8);
+    if (u >= 1) continue;
+    for (let k = 0; k < 16; k++) {
+      const ang = hash01(b.seed * 97 + k) * Math.PI * 2, sp = 0.6 + hash01(b.seed * 31 + k * 5);
+      const dist = ease.outCubic(u) * (Math.max(b.w, 200) * 0.55 + 90) * sp;
+      const px = b.x + Math.cos(ang) * dist, py = b.y + Math.sin(ang) * dist * 0.7;
+      const sz = (k % 3 ? 10 : 16) * (1 - u);
+      html += `<div style="position:absolute;left:${px - sz / 2}px;top:${py - sz / 2}px;width:${sz}px;height:${sz}px;border-radius:${k % 4 ? 50 : 2}%;background:${k % 3 ? kitC : '#fff'};opacity:${1 - u};box-shadow:0 0 12px ${kitC}"></div>`;
+    }
+  }
+  // ambient layer: soft vignette, film grain, and era/kit specific atmosphere
+  const mixA = styleAt(t);
+  html += `<div class="amb-vig"></div><div class="amb-grain" style="background-position:${hash01(Math.floor(t * 24)) * 256}px ${hash01(Math.floor(t * 24) + 9) * 256}px"></div>`;
+  if (mixA.vin > 0.05) {
+    for (let k = 0; k < 14; k++) {
+      const px = (hash01(k * 11) * W + t * (8 + hash01(k) * 14)) % W, py = (hash01(k * 17) * H - t * (5 + hash01(k * 3) * 10) + H * 10) % H;
+      const sz = 3 + hash01(k * 5) * 5;
+      html += `<div style="position:absolute;left:${px}px;top:${py}px;width:${sz}px;height:${sz}px;border-radius:50%;background:rgba(255,236,190,${0.35 * mixA.vin});filter:blur(1px)"></div>`;
+    }
+    html += `<div class="amb-leak" style="opacity:${mixA.vin * (0.25 + 0.15 * Math.sin(t * 1.3))}"></div>`;
+  } else if ((state.tl.kit?.kit) === 'neon') {
+    html += `<div class="amb-scan"></div>`;
+    for (let k = 0; k < 18; k++) {
+      const px = hash01(k * 23) * W, py = (hash01(k * 29) * H - t * (10 + hash01(k) * 20) + H * 10) % H;
+      html += `<div style="position:absolute;left:${px}px;top:${py}px;width:4px;height:4px;border-radius:50%;background:${kitC};opacity:${0.25 + 0.25 * Math.sin(t * 2 + k)};box-shadow:0 0 10px ${kitC}"></div>`;
     }
   }
   for (const el of state.tl.elements) {
@@ -1902,12 +1990,18 @@ function updateFx(t) {
     }
   }
   fx.innerHTML = html;
-  const f = blur > 0.2 ? `blur(${blur}px)` : 'none';
-  for (const id of ['raster', 'vector', 'marks']) $(id).style.filter = f;
+  // per-kit colour grade on the map, plus transition blur
+  const GRADE = { block: 'contrast(1.07) saturate(1.12)', news: 'contrast(1.06) saturate(0.92)', neon: 'saturate(1.18) contrast(1.05)', outline: 'contrast(1.1) brightness(0.96)', paper: 'saturate(1.06) brightness(1.03)' };
+  const g = GRADE[state.tl.kit?.kit] || '';
+  const f = [g, blur > 0.2 ? `blur(${blur}px)` : ''].filter(Boolean).join(' ') || 'none';
+  $('raster').style.filter = f;
+  for (const id of ['vector', 'marks']) $(id).style.filter = blur > 0.2 ? `blur(${blur}px)` : 'none';
+  $('ui').style.transform = shift ? `translateX(${shift}px)` : '';
   // tilt: the map layers lean back like a 3D table (CSS); UI labels stay upright and are
   // re-positioned with the same maths in tiltPoint()
   const T = state.tilt;
-  const tf = T ? `perspective(${TILT_P}px) rotateX(${T.deg}deg) scale(${T.s})` : 'none';
+  const zs = 1 + 0.07 * zoom;
+  const tf = T ? `perspective(${TILT_P}px) rotateX(${T.deg}deg) scale(${T.s * zs})` : zoom > 0.01 ? `scale(${zs})` : 'none';
   for (const id of ['space', 'raster', 'vector', 'paper', 'marks']) {
     const n = $(id);
     n.style.transformOrigin = `50% ${TILT_OY * 100}%`;

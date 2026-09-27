@@ -285,20 +285,22 @@
           "fillOpacity": 0.6
         },
         {
-          "type": "flag",
-          "code": "it",
-          "lat": 44.3,
-          "lon": 11.9,
-          "size": 110,
-          "at": "two"
+          "type": "label",
+          "text": "Kingdom of Italy",
+          "lat": 43.3,
+          "lon": 11.3,
+          "at": "two",
+          "style": "serif",
+          "size": 48
         },
         {
-          "type": "flag",
-          "code": "sm",
-          "lat": 44.3,
-          "lon": 13.0,
-          "size": 110,
-          "at": "two"
+          "type": "label",
+          "text": "San Marino",
+          "lat": 44.05,
+          "lon": 12.9,
+          "at": "two",
+          "style": "serif",
+          "size": 48
         },
         {
           "type": "icon",

@@ -505,36 +505,6 @@
           "lon": -63,
           "size": 50,
           "at": "Spanish"
-        },
-        {
-          "type": "flag",
-          "code": "pt",
-          "screen": [
-            0.5,
-            0.52
-          ],
-          "size": 130,
-          "at": "east",
-          "moveTo": {
-            "lat": 8,
-            "lon": -28
-          },
-          "moveAt": "Portuguese"
-        },
-        {
-          "type": "flag",
-          "code": "es",
-          "screen": [
-            0.5,
-            0.52
-          ],
-          "size": 130,
-          "at": "west",
-          "moveTo": {
-            "lat": 8,
-            "lon": -64
-          },
-          "moveAt": "Spanish"
         }
       ],
       "sources": [
@@ -647,12 +617,13 @@
           "at": "claimed"
         },
         {
-          "type": "flag",
-          "code": "pt",
-          "pin": true,
-          "lat": -16.45,
-          "lon": -39.06,
-          "size": 120,
+          "type": "label",
+          "text": "PORTUGAL",
+          "style": "pill",
+          "bg": "#16a34a",
+          "lat": -14.5,
+          "lon": -37,
+          "size": 46,
           "at": "claimed"
         },
         {

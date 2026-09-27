@@ -58,12 +58,12 @@ save('market_island', meta(
             hook('THE WEIRDEST *BORDER*', at=0.05, until='world'), hl('SWE', 'flag:se', 'Baltic', fillOpacity=0.6), hl('FIN', 'flag:fi', 'Baltic', fillOpacity=0.6), ping(*MK, 'island', color='#ff3b3b')],
           cam=at_(61, 19.5, 5), no_claim=True),
         S("It's called Märket, and since 1809 it has been split between Sweden and Finland.", [
-            year(1809, '1809'), vs(('se', 'Sweden'), ('fi', 'Finland'), 'split', screen=[0.5, 0.32])],
+            year(1809, '1809'), pill('SWEDEN', 'Sweden', bg='#1d4ed8', screen=(0.3, 0.33)), pill('FINLAND (Russian Empire)', 'Finland', bg='#7c3aed', screen=(0.62, 0.38), size=40)],
           cam=at_(60.3, 19.13, 40),
           src=[src('The island was divided in 1809 by the Treaty of Fredrikshamn.', 'Märket', 'Märket has been divided between the two countries since the Treaty of Fredrikshamn of 1809 defined the border between Sweden and Grand Duchy of Finland as going through the middle of the island.')]),
         S("In 1885, Finland built a lighthouse on its highest point. But that spot was on the Swedish half.", [
             year(1885, '1885'), char('lighthouse_keeper', 'lighthouse', say='Wrong half!', screen=(0.25, 0.62)),
-            hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 'Swedish', fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, 'flag:fi', 'Finland', fillOpacity=0.9),
+            hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 'Swedish', fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, '#8b7fb8', 'Finland', fillOpacity=0.9),
             route(BOLD, 'built', rhumb=True, color='#ffffff', width=7, dashed=True, dash=[14, 10], drawDur=0.8), icon('🗼', *LH, 'lighthouse', size=110)],
           cam=at_(60.3009, 19.1318, 14500), era='history', tr='film', style='vintage',
           src=[src('In 1885 the lighthouse was built on the Swedish portion of the island.', 'Märket', 'However, the location selected was within the Swedish portion of the island.')]),
@@ -157,7 +157,7 @@ save('uae_emirates', meta(
           cam=at_(24.4, 54.6, 19),
           src=[src('The UAE consists of seven emirates.', AE, 'The United Arab Emirates consists of seven emirates')]),
         S("Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah and Fujairah.", [
-            *[lab(f'{k + 1}. {lbl}', at=w, style='pill', bg=c, size=46, screen=[0.27, 0.11 + k * 0.052], fixed=True) for k, (lbl, w, c) in enumerate([('Abu Dhabi', 'Abu', '#ef4444'), ('Dubai', 'Dubai', '#f59e0b'), ('Sharjah', 'Sharjah', '#10b981'), ('Ajman', 'Ajman', '#3b82f6'), ('Umm Al Quwain', 'Umm', '#8b5cf6'), ('Ras Al Khaimah', 'Ras', '#ec4899'), ('Fujairah', 'Fujairah', '#14b8a6')])],
+            *[lab(f'{k + 1}. {lbl}', at=w, style='pill', bg=c, size=46, screen=[0.27, 0.235 + k * 0.052], fixed=True) for k, (lbl, w, c) in enumerate([('Abu Dhabi', 'Abu', '#ef4444'), ('Dubai', 'Dubai', '#f59e0b'), ('Sharjah', 'Sharjah', '#10b981'), ('Ajman', 'Ajman', '#3b82f6'), ('Umm Al Quwain', 'Umm', '#8b5cf6'), ('Ras Al Khaimah', 'Ras', '#ec4899'), ('Fujairah', 'Fujairah', '#14b8a6')])],
             *[hl({'admin1': n, 'country': 'ARE'}, c, w, fillOpacity=0.95, neon='#ffffff') for (n, c), w in zip(EM, ['Abu', 'Dubai', 'Sharjah', 'Ajman', 'Umm', 'Ras', 'Fujairah'])]],
           cam=at_(24.6, 55.0, 22),
           src=[src('The seven emirates.', AE, 'Abu Dhabi, Ajman, Dubai, Fujairah, Ras Al Khaimah, Sharjah, and Umm Al Quwain')]),

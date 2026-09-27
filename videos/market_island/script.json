@@ -82,20 +82,28 @@
           "at": "1809"
         },
         {
-          "type": "vs",
-          "left": {
-            "flag": "se",
-            "label": "Sweden"
-          },
-          "right": {
-            "flag": "fi",
-            "label": "Finland"
-          },
-          "at": "split",
+          "type": "label",
+          "text": "SWEDEN",
+          "at": "Sweden",
+          "style": "pill",
+          "bg": "#1d4ed8",
           "screen": [
-            0.5,
-            0.32
-          ]
+            0.3,
+            0.33
+          ],
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "FINLAND (Russian Empire)",
+          "at": "Finland",
+          "style": "pill",
+          "bg": "#7c3aed",
+          "screen": [
+            0.62,
+            0.38
+          ],
+          "size": 40
         }
       ],
       "camera": {
@@ -144,7 +152,7 @@
           "target": {
             "geojson": "finland_old.geojson"
           },
-          "fill": "flag:fi",
+          "fill": "#8b7fb8",
           "at": "Finland",
           "fillOpacity": 0.9
         },

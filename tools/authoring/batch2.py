@@ -79,7 +79,7 @@ save('point_roberts', meta(
         S("So why is it American?", [q(PR[0], PR[1], 'why')], cam=at_(49.0, -123.0, 90), style='dark', no_claim=True),
         S("In 1846, the Oregon Treaty set the border between the US and British Canada along the 49th parallel.", [
             year(1846, '1846'), route([(49, -125), (49, -120)], '49th', rhumb=True, color='#ffd60a', width=7, drawDur=1.3, hold=1),
-            flag('gb', 49.6, -122.0, 'British', size=110), flag('us', 48.3, -122.0, 'US', size=110)],
+            lab('BRITISH', 49.5, -122.0, 'British', style='serif', size=56), lab('UNITED STATES', 48.5, -122.0, 'US', style='serif', size=52)],
           cam=at_(49.0, -122.5, 12), era='history', tr='film',
           src=[src('The 1846 Oregon Treaty fixed the boundary at the 49th parallel.', 'Point_Roberts,_Washington', 'the 1846 Oregon Treaty, which established "the 49th parallel would define the boundary between their respective territories"')]),
         S("But this perfectly straight line cut right across the peninsula, leaving its tip on the American side.", [

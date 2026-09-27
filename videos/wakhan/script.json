@@ -194,6 +194,22 @@
           "at": "1800s"
         },
         {
+          "type": "label",
+          "text": "CENTRAL ASIA",
+          "lat": 41,
+          "lon": 66,
+          "at": "Central",
+          "style": "serif",
+          "size": 58
+        },
+        {
+          "type": "highlight",
+          "target": "AFG",
+          "fill": "#8b5e34",
+          "at": "Central",
+          "fillOpacity": 0.45
+        },
+        {
           "type": "highlight",
           "target": {
             "countries": [
@@ -268,9 +284,9 @@
         }
       ],
       "camera": {
-        "lat": 36,
+        "lat": 40,
         "lon": 70,
-        "zoom": 2.2
+        "zoom": 2.0
       },
       "transition": "film",
       "sources": [

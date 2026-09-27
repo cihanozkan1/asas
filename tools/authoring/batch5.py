@@ -131,7 +131,7 @@ save('spain_borders', meta(
           src=[src('Llívia is a Spanish exclave surrounded by France.', 'Llívia', 'It is a Spanish exclave surrounded by the French département of Pyrénées-Orientales.')]),
         S("In 1659, Spain gave France the villages of this area. But Llívia was a town, not a village, so it stayed Spanish.", [
             year(1659, '1659'), hl({'circle': {'lat': LLI[0], 'lon': LLI[1], 'km': 3}}, '#ffd60a', 'Llívia', fillOpacity=0.35, neon='#ffd60a'), lab('Llívia', LLI[0], LLI[1], 'Llívia', style='pill', bg='#c1121f', size=48),
-            note('TOWN ≠ VILLAGE', 42.49, 1.975, 'town', size=58), char('spanish_guard', 'Llívia', say='Still ours!', flip=True, screen=(0.72, 0.6))],
+            note('TOWN ≠ VILLAGE', 42.49, 1.975, 'town', size=58), char('spanish_tercio', 'Llívia', say='Still ours!', flip=True, screen=(0.72, 0.6))],
           cam=at_(42.46, 1.975, 1300), era='history', tr='film', style='satellite',
           src=[src('The 1659 Treaty of the Pyrenees transferred only villages; Llívia was a town.', 'Llívia', "Because of a technicality in the Treaty of the Pyrenees, signed in 1659, that transferred only 'villages' in the Pyrenees to France, Llívia, which was a 'town', remains under Spanish control.")]),
         S("Next, Pheasant Island. It's Spanish for six months, and French for the other six.", [
@@ -145,7 +145,7 @@ save('spain_borders', meta(
           cam=at_(35.8, -4.1, 11),
           src=[src('Ceuta and Melilla are the EU\'s only land borders with Africa.', 'Ceuta', 'an autonomous city of Spain on the North African coast')]),
         S("And the tiny Peñón de Vélez de la Gomera has a border with Morocco only 85 meters long.", [
-            ping(*PEN, 'Peñón', color='#ff3b3b'), dot('Peñón de Vélez', *PEN, 'Peñón', dy=-56), cnt('85 m', '85', size=200), char('spanish_guard', 'Morocco')],
+            ping(*PEN, 'Peñón', color='#ff3b3b'), dot('Peñón de Vélez', *PEN, 'Peñón', dy=-56), cnt('85 m', '85', size=200), char('spanish_soldier', 'Morocco')],
           cam=at_(35.172, -4.3003, 3500),
           src=[src('Its border with Morocco is 85 m long.', 'Peñón_de_Vélez_de_la_Gomera', 'Its border with Morocco is 85 m (279 ft) long.')]),
         S("It became a border by accident: in 1930, a storm washed sand into the channel and joined the island to Africa.", [

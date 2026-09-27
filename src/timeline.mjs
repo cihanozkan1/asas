@@ -61,6 +61,14 @@ export function buildCaptions(scenes, cfg) {
 }
 
 export async function buildTimeline({ script, cfg, preset, narration, videoDir, assets, guides }) {
+  // per-video UI kit (counter/stamp/label/card look), so the videos don't all share one design
+  let kit = { kit: 'classic', accent: '#ffd60a' };
+  try {
+    const kits = JSON.parse(fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'config', 'kits.json'), 'utf8'));
+    kit = { ...kit, ...(kits[path.basename(videoDir)] || {}) };
+  } catch {}
+  kit = { ...kit, ...(script.ui || {}) };
+
   const targets = {};
   const targetKey = async (t) => {
     const spec = await resolveTargetSpec(t, videoDir);
@@ -93,7 +101,9 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     // flat palettes only have 1:10M vector data: very close shots switch to satellite imagery
     if (src.camera) lastZoom = src.camera.fit || src.camera.follow ? 0 : src.camera.zoom ?? 0;
     if (!src.style && lastZoom >= 60 && cfg.palettes?.[sc.style]) sc.style = 'satellite';
-    sc.transition = src.transition || null;
+    // scenes without an explicit transition get the kit's own one every other cut
+    const KIT_TR = { classic: 'zoom', block: 'zoom', neon: 'glitch', paper: 'slide', news: 'slide', outline: 'zoom' };
+    sc.transition = src.transition || (i > 0 && i % 2 === 0 ? KIT_TR[kit.kit] || null : null);
     const sceneDur = sc.end - sc.start;
     // camera
     if (src.camera) {
@@ -228,7 +238,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
 
   // No dead air: inside a scene, whenever nothing is on screen for more than ~1.4 s, the next
   // element of that scene comes in early instead of waiting for its word.
-  const visibleAt = (t) => elements.some((e) => !INSTANT.has(e.type) && e.type !== 'title' && e.start <= t && e.end >= t);
+  const visibleAt = (t) => elements.some((e) => !INSTANT.has(e.type) && e.type !== 'title' && e.type !== 'year' && e.start <= t && e.end >= t);
   scenes.forEach((sc, si) => {
     for (let guard = 0; guard < 12; guard++) {
       let gapStart = null;
@@ -240,7 +250,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
       }
       if (gapStart == null) break;
       const next = elements.filter((e) => e.scene === si && !INSTANT.has(e.type) && e.type !== 'title' && e.start > gapStart).sort((a, b) => a.start - b.start)[0];
-      if (!next) break;
+      if (!next || next.start - gapStart > 3.0) break;
       const to = Math.max(sc.start + 0.25, gapStart);
       next.start = to;
       if (next.steps) next.steps = next.steps.map((st, k) => (k === 0 ? { ...st, t: Math.min(st.t, to + 0.05) } : st));
@@ -326,14 +336,6 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
 
   const outTargets = {};
   for (const [k, spec] of Object.entries(targets)) outTargets[shortKey(k)] = spec;
-
-  // per-video UI kit (counter/stamp/label/card look), so the videos don't all share one design
-  let kit = { kit: 'classic', accent: '#ffd60a' };
-  try {
-    const kits = JSON.parse(fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'config', 'kits.json'), 'utf8'));
-    kit = { ...kit, ...(kits[path.basename(videoDir)] || {}) };
-  } catch {}
-  kit = { ...kit, ...(script.ui || {}) };
 
   return {
     kit,

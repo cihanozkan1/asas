@@ -163,7 +163,7 @@
         },
         {
           "type": "character",
-          "image": "spanish_guard",
+          "image": "spanish_tercio",
           "screen": [
             0.72,
             0.6
@@ -341,7 +341,7 @@
         },
         {
           "type": "character",
-          "image": "spanish_guard",
+          "image": "spanish_soldier",
           "screen": [
             0.25,
             0.6

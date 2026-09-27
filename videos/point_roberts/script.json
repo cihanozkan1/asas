@@ -155,20 +155,22 @@
           "hold": 1
         },
         {
-          "type": "flag",
-          "code": "gb",
-          "lat": 49.6,
+          "type": "label",
+          "text": "BRITISH",
+          "lat": 49.5,
           "lon": -122.0,
-          "size": 110,
-          "at": "British"
+          "at": "British",
+          "style": "serif",
+          "size": 56
         },
         {
-          "type": "flag",
-          "code": "us",
-          "lat": 48.3,
+          "type": "label",
+          "text": "UNITED STATES",
+          "lat": 48.5,
           "lon": -122.0,
-          "size": 110,
-          "at": "US"
+          "at": "US",
+          "style": "serif",
+          "size": 52
         }
       ],
       "camera": {

@@ -188,11 +188,12 @@ save('wakhan', meta(
           src=[src('It separates Tajikistan from Pakistan and borders China.', 'Wakhan_Corridor', 'separates "the Badakhshan Mountainous Autonomous Region in Tajikistan from Khyber Pakhtunkhwa in Pakistan" and borders China')]),
         S("So why does it exist?", [q(37.0, 73.2, 'why'), hl(AFG, '#d62828', 0.05, fillOpacity=0.9)], cam=at_(36, 70, 3.5), style='dark', no_claim=True),
         S("In the 1800s, two empires were competing for Central Asia in what's called the Great Game: the Russian Empire in the north, and British India in the south.", [
-            year('1800s', '1800s'), hl({'countries': ['TJK', 'UZB', 'TKM', 'KGZ', 'KAZ']}, '#b3202a', 'Russian', fillOpacity=0.8, hold=2),
+            year('1800s', '1800s'), lab('CENTRAL ASIA', 41, 66, 'Central', style='serif', size=58), hl(AFG, '#8b5e34', 'Central', fillOpacity=0.45),
+            hl({'countries': ['TJK', 'UZB', 'TKM', 'KGZ', 'KAZ']}, '#b3202a', 'Russian', fillOpacity=0.8, hold=2),
             hl({'countries': ['PAK', 'IND']}, '#e9a1a1', 'British', fillOpacity=0.8, hold=2),
             lab('Russian Empire', 42, 66, 'Russian', style='serif', size=56), lab('British India', 27, 72, 'British', style='serif', size=56),
             arrow((44, 68), (38.5, 71), 'north', color='#b3202a'), arrow((27, 73), (34.5, 72), 'south', color='#c95a5a')],
-          cam=at_(36, 70, 2.2), era='history', tr='film',
+          cam=at_(40, 70, 2.0), era='history', tr='film',
           src=[src('The corridor emerged from Great Game rivalry between the Russian Empire and British India.', 'Wakhan_Corridor', 'The corridor emerged from Great Game rivalry between empires'),
                src('The Great Game was the 19th-century British–Russian rivalry over Central Asia.', 'Great_Game', 'a rivalry between the 19th-century British and Russian empires over influence in Central Asia')]),
         S("Neither side wanted a shared border with the other. So they left this thin strip of mountains to Afghanistan, as a buffer between the two empires.", [

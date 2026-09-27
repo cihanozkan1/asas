@@ -12,7 +12,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'assets', 'characters')
 STYLE = ('cute chibi 3D clay figurine, {desc}, big head, small body, full body standing, facing viewer, '
-         'centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail')
+         'centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail')
 
 def generate(desc, seed, size=1024):
     prompt = STYLE.format(desc=desc)
@@ -62,6 +62,11 @@ def main():
         print('exists', path); return
     img, prompt = generate(a.desc, a.seed)
     cut = cutout(img)
+    from strip_pedestal import pedestal_row
+    base = pedestal_row(cut)
+    if base:  # the model often adds a display stand under the feet
+        cut = cut.crop((0, 0, cut.width, base))
+        cut = cut.crop(cut.getbbox())
     # keep file sizes sane: max 700px tall
     if cut.height > 700:
         cut = cut.resize((round(cut.width * 700 / cut.height), 700), Image.LANCZOS)

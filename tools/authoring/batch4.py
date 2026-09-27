@@ -129,7 +129,7 @@ save('italy_microstates', meta(
           cam=at_(43.93, 12.45, 70), era='history',
           src=[src('San Marino sheltered Garibaldi, who let it remain independent.', 'San_Marino', 'San Marino served as a refuge for many people persecuted because of their support for unification, including Giuseppe Garibaldi and his wife Anita. Garibaldi allowed San Marino to remain independent.')]),
         S("In 1862, the two countries signed a Convention of Friendship.", [
-            year(1862, '1862'), hl('SMR', '#8b5e34', 0.05, fillOpacity=0.6), flag('it', 44.3, 11.9, 'two', size=110), flag('sm', 44.3, 13.0, 'two', size=110), icon('🤝', 43.7, 12.45, 'Friendship', size=120)],
+            year(1862, '1862'), hl('SMR', '#8b5e34', 0.05, fillOpacity=0.6), lab('Kingdom of Italy', 43.3, 11.3, 'two', style='serif', size=48), lab('San Marino', 44.05, 12.9, 'two', style='serif', size=48), icon('🤝', 43.7, 12.45, 'Friendship', size=120)],
           era='history',
           src=[src('San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862.', 'San_Marino', 'San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862.')]),
         S("The second country is even smaller. Vatican City, just 0.49 square kilometers, the smallest country in the world.", [

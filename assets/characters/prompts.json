@@ -5,18 +5,18 @@
     "source": "pollinations.ai (flux)"
   },
   "pope": {
-    "prompt": "cute chibi 3D clay figurine, Pope Alexander VI, friendly old man with kind eyes, tall white papal mitre with gold trim, white robes with red cape, gold cross necklace, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 21,
+    "prompt": "cute chibi 3D clay figurine, Pope Alexander VI 1490s, stout older man, clean-shaven face, no beard, white papal robe, red velvet mozzetta cape, red camauro cap, gold cross necklace, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "king_spain": {
-    "prompt": "cute chibi 3D clay figurine, Spanish king 1490s, golden crown, red velvet royal robe with white ermine collar, brown beard, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 11,
+    "prompt": "cute chibi 3D clay figurine, King Ferdinand II of Aragon 1490s, clean-shaven face, no beard, shoulder-length brown bob haircut, golden crown, red velvet royal robe with white ermine collar, gold chain, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "king_portugal": {
-    "prompt": "cute chibi 3D clay figurine, Portuguese king 1490s, golden crown, dark brown hair and dark beard, green velvet royal robe with white ermine collar, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 9,
+    "prompt": "cute chibi 3D clay figurine, King John II of Portugal 1490s, adult man, dark hair, full dark beard, golden crown, dark green velvet royal robe with ermine collar, holding a sceptre, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "columbus": {
@@ -40,8 +40,8 @@
     "source": "pollinations.ai (flux)"
   },
   "pharaoh": {
-    "prompt": "cute chibi 3D clay figurine, ancient Egyptian pharaoh with brown skin, blue and gold striped royal headdress, golden collar necklace, white kilt, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 13,
+    "prompt": "cute chibi 3D clay figurine, ancient Egyptian pharaoh man, blue and gold striped nemes headdress with cobra, false beard, golden broad collar, white linen kilt, holding crook and flail, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "egypt_farmer": {
@@ -50,18 +50,18 @@
     "source": "pollinations.ai (flux)"
   },
   "engineer": {
-    "prompt": "cute chibi 3D clay figurine, construction engineer, yellow hard hat, orange high visibility vest, holding blueprints, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 11,
+    "prompt": "cute chibi 3D clay figurine, 1960s Egyptian construction engineer, white safari shirt, beige trousers, white hard hat, holding rolled blueprints, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "seward": {
-    "prompt": "cute chibi 3D clay figurine, William Seward, 1860s American statesman, grey hair, big nose, black frock coat, white shirt, bow tie, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 11,
+    "prompt": "cute chibi 3D clay figurine, William Seward 1867, 65 year old American statesman, clean-shaven, messy grey hair, large nose, black frock coat, white shirt, black bow tie, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "tsar": {
-    "prompt": "cute chibi 3D clay figurine, Russian Tsar Alexander II, 1860s, military uniform with epaulettes and medals, big mustache and sideburns, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 11,
+    "prompt": "cute chibi 3D clay figurine, Russian Tsar Alexander II 1860s, balding head, large bushy mustache joined to thick mutton chop sideburns, clean-shaven chin, dark green military uniform with gold epaulettes and medals, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "sailor": {
@@ -70,13 +70,13 @@
     "source": "pollinations.ai (flux)"
   },
   "soldier_bolivia": {
-    "prompt": "cute chibi 3D clay figurine, 19th century Bolivian soldier, kepi hat, blue uniform with red trim, rifle, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 11,
+    "prompt": "cute chibi 3D clay figurine, Bolivian Colorados soldier 1879, red uniform coat, white trousers, red kepi cap, rifle with bayonet, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "soldier_chile": {
-    "prompt": "cute chibi 3D clay figurine, 19th century Chilean soldier, kepi hat, dark blue uniform, rifle, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 11,
+    "prompt": "cute chibi 3D clay figurine, Chilean soldier 1879 War of the Pacific, dark blue uniform coat, red trousers, red and blue kepi cap, rifle with bayonet, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "fisherman": {
@@ -95,8 +95,8 @@
     "source": "pollinations.ai (flux)"
   },
   "queen_liliuokalani": {
-    "prompt": "cute chibi 3D clay figurine, Hawaiian Queen Liliuokalani 1890s, dark hair up, elegant black Victorian dress, flower lei, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 11,
+    "prompt": "cute chibi 3D clay figurine, Hawaiian Queen Liliuokalani 1893, dark hair up in a bun, elegant black Victorian high-collar dress, brooch, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "ship_captain_arab": {
@@ -105,7 +105,7 @@
     "source": "pollinations.ai (flux)"
   },
   "moshoeshoe": {
-    "prompt": "cute chibi 3D clay figurine, King Moshoeshoe I of Lesotho, African man, beard, Basotho conical woven straw hat mokorotlo, leopard skin cloak, holding a spear, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "prompt": "cute chibi 3D clay figurine, King Moshoeshoe I of the Basotho 1820s, African man about 35 years old, short black beard, leopard skin cloak, holding a spear and a round cowhide shield, no hat, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
     "seed": 23,
     "source": "pollinations.ai (flux)"
   },
@@ -115,8 +115,8 @@
     "source": "pollinations.ai (flux)"
   },
   "garibaldi": {
-    "prompt": "cute chibi 3D clay figurine, Giuseppe Garibaldi, Italian general, red shirt, grey beard, round pillbox cap, grey cloak, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 8,
+    "prompt": "cute chibi 3D clay figurine, Giuseppe Garibaldi 1860, reddish-brown beard with grey, long hair, no glasses, bright red shirt, grey South American poncho over shoulders, small round embroidered cap, holding a sabre, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "british_officer": {
@@ -130,18 +130,18 @@
     "source": "pollinations.ai (flux)"
   },
   "jakarta_resident": {
-    "prompt": "cute chibi 3D clay figurine, Indonesian man with batik shirt, holding an umbrella, standing in water up to ankles, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 3,
+    "prompt": "cute chibi 3D clay figurine, Indonesian man with batik shirt, holding an umbrella, standing in water up to the ankles, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "japanese_surveyor": {
-    "prompt": "cute chibi 3D clay figurine, Japanese man surveyor, small head proportion, khaki work uniform, safety helmet, holding a map and theodolite, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 21,
+    "prompt": "cute chibi 3D clay figurine, Japanese man surveyor, khaki work uniform, white safety helmet, holding a tablet computer, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "tanker_captain": {
-    "prompt": "cute chibi 3D clay figurine, oil tanker ship captain, white uniform, captain hat, binoculars, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 9,
+    "prompt": "cute chibi 3D clay figurine, oil tanker ship captain, white uniform, white captain hat, binoculars, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "us_marine": {
@@ -150,8 +150,8 @@
     "source": "pollinations.ai (flux)"
   },
   "businessman": {
-    "prompt": "cute chibi 3D clay figurine, 1890s American businessman, black top hat, black suit, mustache, pocket watch, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 5,
+    "prompt": "cute chibi 3D clay figurine, 1890s American businessman, black top hat, black frock coat, mustache, pocket watch chain, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "turkish_merchant": {
@@ -160,13 +160,13 @@
     "source": "pollinations.ai (flux)"
   },
   "sultan": {
-    "prompt": "cute chibi 3D clay figurine, Ottoman Sultan Mehmed II 1453, large white turban, red kaftan with gold, beard, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 5,
+    "prompt": "cute chibi 3D clay figurine, young Ottoman Sultan Mehmed II at age 21 in 1453, young man, short dark brown beard, dark mustache, dark eyebrows, slightly hooked nose, large round white Ottoman turban with small red top, green and gold brocade kaftan with fur collar, holding a curved sword, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "inuit_kid": {
-    "prompt": "cute chibi 3D clay figurine, Inuit child in a warm fur parka with hood, smiling, mittens, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 5,
+    "prompt": "cute chibi 3D clay figurine, Inupiat child in a fur-trimmed parka with hood, round face, smiling, mittens, no animal ears, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "swiss_hiker": {
@@ -175,18 +175,18 @@
     "source": "pollinations.ai (flux)"
   },
   "teutonic_knight": {
-    "prompt": "cute chibi 3D clay figurine, smiling medieval knight, bare head, blond hair, NO helmet, white tunic with a large black cross on the chest, brown boots, holding a sword, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 41,
+    "prompt": "cute chibi 3D clay figurine, medieval Teutonic Order knight 13th century, adult man, chainmail armour, white surcoat with a large black cross on the chest, white cloak, holding a sword and shield with black cross, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "prussian_king": {
-    "prompt": "cute chibi 3D clay figurine, adult king man Frederick I of Prussia, mustache, long brown curly baroque wig, golden crown, red ermine royal mantle, holding scepter, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 32,
+    "prompt": "cute chibi 3D clay figurine, King Frederick I of Prussia 1701, adult man in his forties, long dark curly baroque wig, golden crown, red velvet royal mantle with white ermine, holding a sceptre, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "soviet_soldier": {
-    "prompt": "cute chibi 3D clay figurine, 1945 Soviet Red Army soldier, green uniform, pilotka cap with red star, rifle, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 5,
+    "prompt": "cute chibi 3D clay figurine, 1945 Soviet Red Army soldier, khaki gymnastyorka tunic, khaki pilotka side cap with red star, PPSh submachine gun, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "oman_sailor": {
@@ -195,18 +195,18 @@
     "source": "pollinations.ai (flux)"
   },
   "backpacker": {
-    "prompt": "cute chibi 3D clay figurine, long-distance walker man with big hiking backpack, cap, beard, walking stick, hiking boots, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 51,
+    "prompt": "cute chibi 3D clay figurine, long-distance walker man with big hiking backpack, cap, short beard, walking stick, hiking boots, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "jungle_explorer": {
-    "prompt": "cute chibi 3D clay figurine, jungle explorer man, safari hat, khaki shirt, machete, muddy boots, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 52,
+    "prompt": "cute chibi 3D clay figurine, jungle explorer man, khaki safari hat, khaki shirt, machete, muddy boots, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "fdr": {
-    "prompt": "cute chibi 3D clay figurine, US President Franklin D. Roosevelt 1930s, round glasses, grey suit, cigarette holder, smiling, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 53,
+    "prompt": "cute chibi 3D clay figurine, US President Franklin D. Roosevelt 1934, pince-nez glasses without arms, dark grey suit, holding a cigarette holder, smiling, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "dustbowl_farmer": {
@@ -220,33 +220,33 @@
     "source": "pollinations.ai (flux)"
   },
   "alfred_wallace": {
-    "prompt": "cute chibi 3D clay figurine, Victorian naturalist Alfred Russel Wallace, long white beard, round glasses, holding a butterfly net, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 56,
+    "prompt": "cute chibi 3D clay figurine, young Victorian naturalist Alfred Russel Wallace at age 36, dark brown hair, full dark brown beard, small round glasses, khaki field jacket, holding a butterfly net, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "lighthouse_keeper": {
-    "prompt": "cute chibi 3D clay figurine, old lighthouse keeper, yellow raincoat, sou'wester hat, white beard, holding a lantern, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 57,
+    "prompt": "cute chibi 3D clay figurine, old lighthouse keeper 1880s, yellow oilskin raincoat, sou'wester hat, white beard, holding an oil lantern, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "dutch_farmer": {
-    "prompt": "cute chibi 3D clay figurine, Dutch farmer girl, traditional white cap, wooden clogs, holding tulips, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 58,
+    "prompt": "cute chibi 3D clay figurine, Dutch woman in modern clothes riding style, red coat, holding a bunch of red tulips, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "coal_miner": {
-    "prompt": "cute chibi 3D clay figurine, coal miner man, hard hat with headlamp, dirty face, overalls, pickaxe, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 59,
+    "prompt": "cute chibi 3D clay figurine, coal miner man, hard hat with headlamp, dirty face, denim overalls, holding a pickaxe, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "viking_erik": {
-    "prompt": "cute chibi 3D clay figurine, Viking explorer Erik the Red, red beard, fur cloak, horned-free iron helmet, holding a map, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 60,
+    "prompt": "cute chibi 3D clay figurine, Viking explorer Erik the Red, long red hair and red beard, simple round iron helmet without horns, no horns, brown wool tunic, fur cloak, holding an axe, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   },
   "storm_chaser": {
-    "prompt": "cute chibi 3D clay figurine, storm chaser woman, rain jacket, holding a camera, windblown hair, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 61,
+    "prompt": "cute chibi 3D clay figurine, storm chaser woman, blue rain jacket, holding a camera, windblown brown hair, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "penguin": {
@@ -255,8 +255,8 @@
     "source": "pollinations.ai (flux)"
   },
   "astronaut": {
-    "prompt": "cute chibi 3D clay figurine, astronaut in white space suit, helmet visor up, waving, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 63,
+    "prompt": "cute chibi 3D clay figurine, astronaut in white NASA-style space suit, helmet visor up showing friendly face, waving, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 31,
     "source": "pollinations.ai (flux)"
   },
   "spanish_guard": {
@@ -277,6 +277,16 @@
   "party_kid": {
     "prompt": "cute chibi 3D clay figurine, child celebrating New Year, party hat, holding a sparkler, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
     "seed": 67,
+    "source": "pollinations.ai (flux)"
+  },
+  "spanish_tercio": {
+    "prompt": "cute chibi 3D clay figurine, 17th century Spanish tercio soldier 1650s, steel morion helmet, steel breastplate, red sash, puffy sleeves, holding a long pike, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
+    "source": "pollinations.ai (flux)"
+  },
+  "spanish_soldier": {
+    "prompt": "cute chibi 3D clay figurine, modern Spanish army soldier, green camouflage uniform, helmet, small Spanish flag patch on the shoulder, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 23,
     "source": "pollinations.ai (flux)"
   }
 }
