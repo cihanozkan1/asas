@@ -40,8 +40,8 @@
     "source": "pollinations.ai (flux)"
   },
   "pharaoh": {
-    "prompt": "cute chibi 3D clay figurine, ancient Egyptian pharaoh man, blue and gold striped nemes headdress with cobra, false beard, golden broad collar, white linen kilt, holding crook and flail, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 23,
+    "prompt": "cute chibi 3D clay figurine, ancient Egyptian pharaoh, classic striped blue and gold nemes head cloth falling to the shoulders, golden cobra on forehead, braided false beard, wide golden collar, white linen kilt, holding crook and flail crossed on chest, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 101,
     "source": "pollinations.ai (flux)"
   },
   "egypt_farmer": {
@@ -185,8 +185,8 @@
     "source": "pollinations.ai (flux)"
   },
   "soviet_soldier": {
-    "prompt": "cute chibi 3D clay figurine, 1945 Soviet Red Army soldier, khaki gymnastyorka tunic, khaki pilotka side cap with red star, PPSh submachine gun, big head, small body, full body standing, facing viewer, centered, no pedestal, no base, plain light grey studio background, soft studio lighting, toy photography, high detail",
-    "seed": 23,
+    "prompt": "cute chibi 3D clay figurine, male Soviet Red Army infantry soldier 1945, olive khaki tunic, olive green side cap pilotka with small red star, no peaked cap, holding a PPSh submachine gun, boots, big head, small body, full body standing, facing viewer, centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail",
+    "seed": 101,
     "source": "pollinations.ai (flux)"
   },
   "oman_sailor": {
