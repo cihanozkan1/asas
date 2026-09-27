@@ -263,7 +263,7 @@ save('kaliningrad', meta(
           cam=fit(KO, 'LTU', pad=0.7), tr='flash',
           src=[src('Lithuanian independence (1990) and the USSR\'s dissolution (1991) isolated Kaliningrad.', K, 'The independence of Lithuania in 1990 and full dissolution of the Soviet Union in 1991 isolated Kaliningrad from the rest of Russia')]),
         S("Today, about one million people live there. And only 65 kilometers of Poland, the Suwalki Gap, separate it from Russia's ally Belarus.", [
-            cnt('1M', 'million', size=200), hl('BLR', 'flag:by', 'Belarus', fillOpacity=0.8),
+            hl(KO, '#c1121f', 'Today', fillOpacity=0.6, neon='#ff3b3b'), cnt('1M', 'million', size=200), hl('BLR', 'flag:by', 'Belarus', fillOpacity=0.8),
             meas((54.36, 22.79), (53.95, 23.51), '65 km', 'Suwalki'), blob({'circle': {'lat': 54.15, 'lon': 23.15, 'km': 38}}, '#ffd60a', '#ffd60a', 'Gap', fillOpacity=0.35)],
           cam=at_(54.3, 22.6, 8.5, bearing=-3),
           src=[src('Population roughly one million (2021 census).', K, 'Kaliningrad Oblast had a population of roughly one million in the 2021 Russian census.'),

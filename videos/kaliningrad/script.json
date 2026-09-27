@@ -605,6 +605,17 @@
       "text": "Today, about one million people live there. And only 65 kilometers of Poland, the Suwalki Gap, separate it from Russia's ally Belarus.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "admin1": "Kaliningrad",
+            "country": "RUS"
+          },
+          "fill": "#c1121f",
+          "at": "Today",
+          "fillOpacity": 0.6,
+          "neon": "#ff3b3b"
+        },
+        {
           "type": "counter",
           "steps": [
             {
