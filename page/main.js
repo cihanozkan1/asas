@@ -750,7 +750,7 @@ function drawVector(t, proj, view, mix) {
   // flat "infographic" basemaps (dark, atlas, neon...) from config.palettes
   for (const [name, a] of Object.entries(mix.pal)) {
     if (a <= 0.001) continue;
-    drawPalette(ctx, path, view, land, borders, box, state.tl.config.palettes[name], a * (1 - 0.9 * (state.vinClose || 0)));
+    drawPalette(ctx, path, view, land, borders, box, state.tl.config.palettes[name], a * (1 - 0.9 * (state.palClose || 0)));
   }
   if (mix.sat > 0.001) {
     ctx.globalAlpha = mix.sat * state.tl.config.satellite.borderAlpha;
@@ -2067,7 +2067,7 @@ function updateFx(t) {
       html += `<div class="film" style="opacity:${a}"><div class="strip" style="left:0;background-position:center ${off}px"></div><div class="strip" style="right:0;background-position:center ${off}px"></div></div>`;
       blur = Math.max(blur, 10 * a);
     } else if (tr === 'flash' && d > -0.05 && d < 0.3) {
-      html += `<div class="flash" style="opacity:${0.85 * (1 - clamp01((d + 0.05) / 0.35))}"></div>`;
+      html += `<div class="flash" style="opacity:${0.45 * (1 - clamp01((d + 0.05) / 0.35))}"></div>`;
     } else if (tr === 'wipe' && d > -0.25 && d < 0.35) {
       const u = clamp01((d + 0.25) / 0.6);
       const x = -60 + u * (W + 120);
@@ -2213,12 +2213,17 @@ function frame(t) {
   });
   // close-up history shots: the vector coastlines are too coarse for a tiny island or town, so the
   // real imagery shows through in old-map colours instead of a blobby polygon
-  const z = clamp01((view.k / state.baseK - 20) / 25);
+  // only where sharp detail imagery covers the view: the 8k base is just a blur this close
+  const sharp = state.tl.flatClose ? 0 : Math.min(1, Math.max(0, ...boxMix) * 1.5);
+  const zoomNow = view.k / state.baseK;
+  const z = clamp01((zoomNow - 20) / 25) * sharp;      // old map: coastlines get blobby early
+  const zp = clamp01((zoomNow - 80) / 80) * sharp;     // flat maps: only when shapes are really coarse
   state.vinClose = z;
+  state.palClose = zp;
   const tints = [[mix.vin * z, [0.86, 0.79, 0.62], [0.56, 0.69, 0.67]]];
   for (const [name, a] of Object.entries(mix.pal)) {
     const P = state.tl.config.palettes[name];
-    if (a > 0.001) tints.push([a * z, rgb01(P.land), rgb01(P.sea)]);
+    if (a > 0.001) tints.push([a * zp, rgb01(P.land), rgb01(P.sea)]);
   }
   const close = tints.reduce((acc, t) => acc + t[0], 0);
   const avg = (k) => [0, 1, 2].map((c) => tints.reduce((acc, t) => acc + t[0] * t[k][c], 0) / (close || 1));

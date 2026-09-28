@@ -223,7 +223,7 @@ save('oklahoma_panhandle', meta(
           cam=at_(36.7, -101.5, 9), era='history',
           src=[src('The strip had no state or territorial ownership and was called No Man\'s Land.', PH, "was left with no state or territorial ownership from 1850 until 1890. It was officially called the 'Public Land Strip' and was commonly referred to as 'No Man's Land.'")]),
         S("It stayed that way for 40 years, until 1890, when it finally became part of Oklahoma Territory.", [
-            timeline([('stayed', '1850', 'Given up'), ('1890', '1890', 'Oklahoma')], screen=(0.5, 0.25), width=760), hl(OKP, 'flag:us', 'Oklahoma', fillOpacity=0.8)],
+            timeline([('stayed', '1850', 'Given up'), ('1890', '1890', 'Oklahoma')], screen=(0.5, 0.54), width=760), hl(OKP, 'flag:us', 'Oklahoma', fillOpacity=0.8)],
           cam=at_(35.5, -98.5, 5), tr='flash',
           src=[src('The Organic Act of 1890 assigned it to Oklahoma Territory.', PH, 'The passage of the Organic Act in 1890 assigned Public Land Strip to the new Oklahoma Territory')]),
     ],
@@ -342,17 +342,17 @@ save('centralia', meta(
           cam=at_(41, -77.5, 6),
           src=[src('A coal mine fire has burned beneath the borough since 1962.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
         S("This is Centralia. Under it, a coal mine fire started, and it's still burning today.", [
-            slam('CENTRALIA', 40.812, -76.341, 'Centralia', size=70), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 1.2}}, '🔥', 'burning', count=4, size=72, stagger=0.15), char('coal_miner', 'coal')],
+            slam('CENTRALIA', 40.812, -76.341, 'Centralia', size=70), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 3}}, '🔥', 'burning', count=4, size=72, stagger=0.15), char('coal_miner', 'coal')],
           cam=at_(40.804, -76.341, 400, bearing=-3),
           src=[src('A coal mine fire has burned beneath the borough since 1962.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
         S("Experts think it could keep burning for another 250 years.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), cnt('250 years', '250', size=180, color='#ff5a2a'), tilt('burning', deg=40, until=3.5)],
           cam=at_(40.804, -76.341, 500),
           src=[src('It could burn for another 250 years.', CE, 'do so for another 250 years')]),
-        S("In 1980, about 1,000 people still lived here.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), year(1980, '1980'), cnt('~1,000', '1,000', size=170), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏠', 'lived', count=12, size=54, stagger=0.05)],
+        S("In 1980, about 1,000 people still lived here.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), year(1980, '1980'), cnt('~1,000', '1,000', size=170), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 2.2}}, '🏠', 'lived', count=5, size=60, stagger=0.1)],
           cam=at_(40.804, -76.341, 450), era='history', tr='film', style='satellite',
           src=[src('1,012 residents by 1980.', CE, 'By 1980, it had 1,012 residents.')]),
         S("Then, in 1992, the state condemned every single building in town.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), year(1992, '1992'), stamp('CONDEMNED', 'condemned', size=90), shake('condemned'),
-            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 0.8}}, '🏚️', 'building', count=4, size=64, stagger=0.12)],
+            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 2.2}}, '🏚️', 'building', count=4, size=64, stagger=0.12)],
           era='history', style='satellite',
           src=[src('In 1992 the governor invoked eminent domain on all property, condemning all buildings.', CE, 'invoked eminent domain on all property in the borough, condemning all the buildings within')]),
         S("In 2013, the last seven residents were allowed to stay, but only until the end of their lives.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), 
@@ -368,7 +368,7 @@ save('centralia', meta(
           cam=at_(40.8, -76.345, 700),
           src=[src('In April 2020 the owners covered the graffiti highway with mounds of dirt.', CE, 'the property\'s current owners made the decision to cover over the graffiti on the highway section of old Route 61. Several hundred mounds of dirt were laid over the area')]),
         S("Today, Centralia is a ghost town, sitting on top of a fire that nobody can put out.", [
-            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 1.2}}, '🔥', 'fire', count=4, size=72, stagger=0.15), stamp('GHOST TOWN', 'ghost', size=90)],
+            scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 3}}, '🔥', 'fire', count=4, size=72, stagger=0.15), stamp('GHOST TOWN', 'ghost', size=90)],
           cam=at_(40.804, -76.341, 350, bearing=3),
           src=[src('Only five residents remain while the fire still burns.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
     ],
@@ -413,3 +413,9 @@ save('gulf_stream', meta(
     ],
     keywords={'gulf': '#ff5a2a', 'stream': '#ff5a2a', 'warm': '#ff5a2a', 'europe': '#5ec8ff'},
     styles={'now': 'neon', 'history': 'vintage'}, captions={'theme': 'bebas'})
+
+# Märket close-ups are a schematic drawing: keep real imagery out from behind it
+_p = _o.path.join(ROOT, 'videos/market_island/script.json')
+_d = _j.load(open(_p))
+_d['flatClose'] = True
+_j.dump(_d, open(_p, 'w'), indent=2, ensure_ascii=False)

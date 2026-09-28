@@ -654,5 +654,6 @@
   "styles": {
     "now": "atlas",
     "history": "vintage"
-  }
+  },
+  "flatClose": true
 }

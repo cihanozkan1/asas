@@ -359,6 +359,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     preset,
     config: cfg,
     intro: script.intro || null,
+    flatClose: !!script.flatClose, // schematic close-ups: never show real imagery behind them
     guides: !!guides,
     assets,
     targets: outTargets,

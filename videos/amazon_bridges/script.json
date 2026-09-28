@@ -511,14 +511,6 @@
             "emblem": "#ffd60a"
           },
           "drawDur": 2.0
-        },
-        {
-          "type": "icon",
-          "icon": "⛴️",
-          "lat": -3.08,
-          "lon": -60.2,
-          "size": 100,
-          "at": "ferry"
         }
       ],
       "camera": {

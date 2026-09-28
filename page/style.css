@@ -362,8 +362,8 @@ html, body {
 
 /* ---------- charts v4: on-map stats, no boxed panel ---------- */
 .chart-h, .chart-v { position: relative; }
-.chart-h::before, .chart-v::before { content: ''; position: absolute; inset: -60px -80px; z-index: -1;
-  background: radial-gradient(closest-side, rgba(0,0,0,.55), rgba(0,0,0,0)); }
+.chart-h::before, .chart-v::before { content: ''; position: absolute; inset: -26px -34px; z-index: -1; border-radius: 30px;
+  background: rgba(10,14,26,.5); backdrop-filter: blur(6px); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
 .chart-h { display: flex; flex-direction: column; gap: 26px; }
 .chart-h .row { display: flex; align-items: center; gap: 24px; }
 .badge-c { flex: none; width: 104px; height: 104px; border-radius: 50%; overflow: hidden; border: 6px solid #fff;
