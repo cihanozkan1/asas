@@ -421,7 +421,7 @@ save('wallace_line', meta(
           cam=at_(-2, 112, 2.6),
           src=[src('West of the line: Asian fauna such as apes, elephants and monkeys.', WL, 'apes, elephants')]),
         S("East of the line, the animals are Australian, like marsupials.", [
-            hl({'admin1s': ['Nusa Tenggara Barat', 'Nusa Tenggara Timur', 'Sulawesi Utara', 'Sulawesi Tengah', 'Sulawesi Selatan', 'Sulawesi Tenggara', 'Sulawesi Barat', 'Gorontalo', 'Maluku', 'Maluku Utara', 'Papua', 'Papua Barat'], 'country': 'IDN'}, '#16a34a', 'East', fillOpacity=0.55), hl({'countries': ['PNG', 'TLS', 'AUS']}, '#16a34a', 'East', fillOpacity=0.45), icon('🦘', -16.5, 133, 'marsupials', size=96), icon('🐨', -5.5, 142.5, 'marsupials', size=90), lab('AUSTRALIA', -3, 128, 'Australian', style='pill', bg='#16a34a', size=52)],
+            hl({'admin1s': ['Nusa Tenggara Barat', 'Nusa Tenggara Timur', 'Sulawesi Utara', 'Sulawesi Tengah', 'Sulawesi Selatan', 'Sulawesi Tenggara', 'Sulawesi Barat', 'Gorontalo', 'Maluku', 'Maluku Utara', 'Papua', 'Papua Barat'], 'country': 'IDN'}, '#16a34a', 'East', fillOpacity=0.55), hl({'countries': ['PNG', 'TLS', 'AUS']}, '#16a34a', 'East', fillOpacity=0.45), icon('🦘', -16.5, 133, 'marsupials', size=96), lab('AUSTRALIA', -3, 128, 'Australian', style='pill', bg='#16a34a', size=52)],
           cam=at_(-4, 124, 2.6),
           src=[src('East of the line: Australasian species such as marsupials.', WL, 'marsupials')]),
         S("Why? Deep water. Even in the Ice Age, when seas dropped 120 meters, the two sides never joined.", [

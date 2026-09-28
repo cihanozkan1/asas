@@ -376,7 +376,7 @@
             }
           ],
           "orient": "v",
-          "at": "deep",
+          "at": "piles",
           "height": 360,
           "screen": [
             0.5,

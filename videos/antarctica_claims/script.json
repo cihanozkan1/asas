@@ -527,20 +527,20 @@
               -60
             ]
           },
-          "fill": "#ffffff",
+          "fill": "#0ea5e9",
           "at": "huge",
-          "fillOpacity": 0.85,
+          "fillOpacity": 0.6,
           "neon": "#9ee7ff"
         },
         {
           "type": "label",
           "text": "MARIE BYRD LAND",
-          "lat": -78,
+          "lat": -72,
           "lon": -120,
           "at": "Marie",
-          "style": "map",
-          "anim": "slam",
-          "size": 54
+          "style": "pill",
+          "bg": "#0369a1",
+          "size": 46
         },
         {
           "type": "counter",

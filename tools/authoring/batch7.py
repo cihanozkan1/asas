@@ -64,7 +64,7 @@ save('amazon_bridges', meta(
           src=[src('Waters rise 30 feet in the rainy season.', IFA, 'its waters rise 30 feet, causing 3-mile-wide crossings to grow by a factor of 10'),
                src('The water spreads 10, 15 or 20 km between shores.', LBV, 'the water spreads without obstacles to exceed 10, 15, or, in some stretches, 20 kilometers between the extreme shores')]),
         S("The riverbanks are soft mud, always eroding. In the 1990s, studies found a bridge's piles would need to go more than 100 meters deep.", [
-            flow(AMZ, 0.05, color='#5ec8ff', width=12, drawDur=0.6), bars([('Piles needed', 100, '100+ m', '#f97316'), ('Statue of Liberty', 93, '93 m', '#4ade80')], 'deep', orient='v', height=360, screen=[0.5, 0.33]), year(1990, '1990s')],
+            flow(AMZ, 0.05, color='#5ec8ff', width=12, drawDur=0.6), bars([('Piles needed', 100, '100+ m', '#f97316'), ('Statue of Liberty', 93, '93 m', '#4ade80')], 'piles', orient='v', height=360, screen=[0.5, 0.33]), year(1990, '1990s')],
           tr='flash',
           src=[src('The banks are soft, eroding sediment.', IFA, 'The river bank itself is also in a near-constant state of erosion due to how soft the sediment it consists of is'),
                src('Piles would need to go more than 100 m deep.', LBV, 'estimated that to reach competent ground the piles would have to descend more than 100 meters'),
@@ -246,7 +246,7 @@ save('antarctica_claims', meta(
           cam=at_(-90, -60, 1.5), tr='flash',
           src=[src('Argentine, Chilean and British claims overlap.', TC, 'There are overlaps among the territories claimed by Argentina, Chile, and the United Kingdom.')]),
         S("But one huge area is claimed by nobody: Marie Byrd Land. It's the largest unclaimed territory on Earth.", [
-            hl(wedge(-150, -90), '#ffffff', 'huge', fillOpacity=0.85, neon='#9ee7ff'), slam('MARIE BYRD LAND', -78, -120, 'Marie', size=54), cnt('1,610,000 km²', 'largest', size=110)],
+            hl(wedge(-150, -90), '#0ea5e9', 'huge', fillOpacity=0.6, neon='#9ee7ff'), lab('MARIE BYRD LAND', -72, -120, 'Marie', style='pill', bg='#0369a1', size=46), cnt('1,610,000 km²', 'largest', size=110)],
           cam=at_(-90, -120, 1.5),
           src=[src('Marie Byrd Land (1,610,000 km²) is the largest unclaimed territory on Earth.', 'Marie_Byrd_Land', 'Marie Byrd Land (MBL) is an unclaimed region of Antarctica. With an area of 1,610,000 km2 (620,000 sq mi), it is the largest unclaimed territory on Earth.')]),
         S("And since the Antarctic Treaty of 1959, the whole continent is set aside for science.", [

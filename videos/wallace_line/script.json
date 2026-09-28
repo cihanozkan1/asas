@@ -363,14 +363,6 @@
           "at": "marsupials"
         },
         {
-          "type": "icon",
-          "icon": "🐨",
-          "lat": -5.5,
-          "lon": 142.5,
-          "size": 90,
-          "at": "marsupials"
-        },
-        {
           "type": "label",
           "text": "AUSTRALIA",
           "lat": -3,
