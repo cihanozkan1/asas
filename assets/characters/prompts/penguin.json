@@ -1,0 +1,5 @@
+{
+ "desc": "emperor penguin",
+ "seed": 3,
+ "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+}

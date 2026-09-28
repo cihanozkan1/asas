@@ -1,0 +1,5 @@
+{
+ "desc": "Benjamin Franklin, bald top with long grey hair at the sides, small round glasses, brown 18th century coat",
+ "seed": 2,
+ "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+}

@@ -1,0 +1,5 @@
+{
+ "desc": "Viking explorer Erik the Red, long red hair and big red beard, simple round iron helmet, brown wool tunic, fur cloak, holding an axe",
+ "seed": 2,
+ "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+}

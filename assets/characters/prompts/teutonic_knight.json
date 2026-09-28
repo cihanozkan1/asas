@@ -1,0 +1,5 @@
+{
+ "desc": "medieval Teutonic Order knight, bareheaded with short brown hair and beard, long white surcoat with a big black cross on the chest, chainmail, white cape, holding a sword",
+ "seed": 2,
+ "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+}

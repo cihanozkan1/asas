@@ -1,0 +1,5 @@
+{
+ "desc": "long-distance walker man with big hiking backpack, cap, short beard, walking stick, hiking boots",
+ "seed": 2,
+ "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+}
