@@ -1822,6 +1822,7 @@ function updateUi(t) {
         opacity *= clamp01(life.age / 0.2);
         break;
       case 'bars': {
+        opacity *= clamp01(life.age / 0.3);
         const st = el.stagger ?? 0.22;
         if (el.orient === 'v') {
           inner.querySelectorAll('.col').forEach((col, i) => {

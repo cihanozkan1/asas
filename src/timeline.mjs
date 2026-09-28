@@ -317,9 +317,10 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     const [w, h] = box;
     const x = c.screen[0] * VW;
     let y = c.screen[1] * VH;
+    const yOrig = y;
     const live = placedCards.filter((p) => p.el.start < c.end - 0.05 && p.el.end > c.start + 0.05);
     for (const p of live) {
-      if (p.el.type === c.type && ['counter', 'stat', 'year', 'stamp', 'title'].includes(c.type) && Math.abs(p.y0 - y) < 40) p.el.end = Math.min(p.el.end, Math.max(p.el.start + 0.8, c.start - 0.1));
+      if (p.el.type === c.type && ['counter', 'stat', 'year', 'stamp', 'title'].includes(c.type) && Math.abs(p.y0 - yOrig) < 40) p.el.end = Math.min(p.el.end, Math.max(p.el.start + 0.8, c.start - 0.1));
     }
     const hits = (yy) => live.filter((p) => p.el.end > c.start + 0.05 && Math.abs(p.x - x) < (p.w + w) / 2 - 10 && Math.abs(p.y - yy) < (p.h + h) / 2 + 24);
     let hs = hits(y);
@@ -331,7 +332,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
       y = c.screen[1] * VH;
       for (const p of hits(y)) p.el.end = Math.min(p.el.end, Math.max(p.el.start + 0.8, c.start - 0.1));
     } else if (Math.abs(y - c.screen[1] * VH) > 1) c.screen = [c.screen[0], y / VH];
-    placedCards.push({ el: c, x, y, y0: c.screen[1] * VH, w, h });
+    placedCards.push({ el: c, x, y, y0: yOrig, w, h });
   }
 
   // Same key in consecutive scenes = one continuous element (no re-animation).
