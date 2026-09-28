@@ -17,7 +17,7 @@ save('northwest_angle', meta(
           cam=at_(49.1, -95.2, 26, bearing=-3),
           src=[src('The only place in the contiguous US north of the 49th parallel.', 'Northwest_Angle', 'the only place in the contiguous United States north of the 49th parallel')]),
         S("And if you want to drive there, you have to go through Canada.", [
-            hl(MB, 'flag:ca', 'Canada', fillOpacity=0.75), mover_icon([(48.905, -95.314), (48.99, -95.55), (49.2, -95.62), (49.33, -95.35), ANGLE], 'drive', '🚗', size=90),
+            hl(MB, '#d52b1e', 'Canada', fillOpacity=0.4), flag('ca', 49.6, -95.9, 'Canada', size=90), mover_icon([(48.905, -95.314), (48.99, -95.55), (49.2, -95.62), (49.33, -95.35), ANGLE], 'drive', '🚗', size=90),
             dot('Warroad', 48.905, -95.314, 'drive', dy=46, size=40)],
           src=[src('It can be reached by land only through Canada, or across Lake of the Woods.', 'Northwest_Angle', 'accessible only through Canada or by crossing Lake of the Woods')]),
         S("So how did this happen? A map mistake from 1783.", [
@@ -69,7 +69,7 @@ save('point_roberts', meta(
     [
         S("This little town is in the USA, but you can only drive there through Canada. Otherwise, you need a boat or a plane.", [
             ping(*PR, 'town', color='#ffd60a', hold=1), flag('us', 48.972, -123.03, 'USA', pin=True, size=110),
-            hl('CAN', 'flag:ca', 'Canada', fillOpacity=0.55)],
+            hl('CAN', '#d52b1e', 'Canada', fillOpacity=0.35), flag('ca', 49.06, -122.96, 'Canada', size=100)],
           cam=at_(49.0, -123.0, 120, bearing=-3),
           src=[src('Point Roberts is a US pene-exclave reachable by land only through Canada (or by boat/plane).', 'Point_Roberts,_Washington', 'a pene-exclave of the US state of Washington ... "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
         S("It's Point Roberts, on the tip of a Canadian peninsula just south of Vancouver.", [

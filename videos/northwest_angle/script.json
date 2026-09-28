@@ -109,9 +109,17 @@
             "admin1": "Manitoba",
             "country": "CAN"
           },
-          "fill": "flag:ca",
+          "fill": "#d52b1e",
           "at": "Canada",
-          "fillOpacity": 0.75
+          "fillOpacity": 0.4
+        },
+        {
+          "type": "flag",
+          "code": "ca",
+          "lat": 49.6,
+          "lon": -95.9,
+          "size": 90,
+          "at": "Canada"
         },
         {
           "type": "route",

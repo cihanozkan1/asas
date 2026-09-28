@@ -50,9 +50,17 @@
         {
           "type": "highlight",
           "target": "CAN",
-          "fill": "flag:ca",
+          "fill": "#d52b1e",
           "at": "Canada",
-          "fillOpacity": 0.55
+          "fillOpacity": 0.35
+        },
+        {
+          "type": "flag",
+          "code": "ca",
+          "lat": 49.06,
+          "lon": -122.96,
+          "size": 100,
+          "at": "Canada"
         }
       ],
       "camera": {

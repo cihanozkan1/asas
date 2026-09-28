@@ -102,22 +102,28 @@ vec3 imagery(float lon, float lat) {
   float openSea = openSeaAt(lon, lat);
   vec3 cs = sampleSoft(uBase, lon, lat);
   vec3 c = sampleEquirect(uBase, lon, lat);
+  float dW = 0.0;   // sharp detail imagery knows its own small islands: trust its colours there
   if (uDetailCount > 0) {
     vec4 d = sampleBox(uDetail0, uDetailBox0, lon, lat);
     c = mix(c, d.rgb, d.a * uDetailMix[0]);
+    dW = max(dW, d.a * uDetailMix[0]);
   }
   if (uDetailCount > 1) {
     vec4 d = sampleBox(uDetail1, uDetailBox1, lon, lat);
     c = mix(c, d.rgb, d.a * uDetailMix[1]);
+    dW = max(dW, d.a * uDetailMix[1]);
   }
   if (uDetailCount > 2) {
     vec4 d = sampleBox(uDetail2, uDetailBox2, lon, lat);
     c = mix(c, d.rgb, d.a * uDetailMix[2]);
+    dW = max(dW, d.a * uDetailMix[2]);
   }
   if (uDetailCount > 3) {
     vec4 d = sampleBox(uDetail3, uDetailBox3, lon, lat);
     c = mix(c, d.rgb, d.a * uDetailMix[3]);
+    dW = max(dW, d.a * uDetailMix[3]);
   }
+  openSea *= 1.0 - dW;
   vec3 g = uNoGrade > 0.5 ? c : grade(c, cs, openSea);
   if (uSepia > 0.0) {
     float l = dot(c, vec3(0.299, 0.587, 0.114));
