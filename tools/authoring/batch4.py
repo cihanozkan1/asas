@@ -141,8 +141,8 @@ save('italy_microstates', meta(
             cnt('882', '882', size=210), pill('people', 'people', bg='#b45309')],
           src=[src('Population about 882 (2024).', 'Vatican_City', 'a population of about 882 in 2024')]),
         S("Popes once ruled the Papal States, across central Italy. But in 1870, the new Kingdom of Italy took them.", [
-            hl({'admin1s': ['Roma', 'Latina', 'Frosinone', 'Viterbo', 'Rieti', 'Perugia', 'Terni', 'Ancona', 'Macerata', 'Ascoli Piceno', 'Fermo', 'Pesaro e Urbino', 'Bologna', 'Ferrara', 'Ravenna', 'Forlì-Cesena', 'Rimini'], 'country': 'ITA'}, '#d4a017', 'Papal', fillOpacity=0.7),
-            lab('Papal States', 43.0, 12.6, 'Papal', style='serif', size=58), year(1870, '1870'), shake('took')],
+            hl({'admin1s': ['Roma', 'Latina', 'Frosinone', 'Viterbo', 'Rieti', 'Perugia', 'Terni', 'Ancona', 'Macerata', 'Ascoli Piceno', 'Fermo', 'Pesaro e Urbino', 'Bologna', 'Ferrara', 'Ravenna', 'Forlì-Cesena', 'Rimini'], 'country': 'ITA'}, '#d4a017', 'Papal', fillOpacity=0.7, until='them'),
+            lab('Papal States', 43.0, 12.6, 'Papal', style='serif', size=58, until='them'), year(1870, '1870'), shake('took')],
           cam=at_(42.6, 12.6, 5.5), era='history', tr='film',
           src=[src('The popes ruled the Papal States until the Kingdom of Italy seized them (1870).', 'Vatican_City', 'ruled the Papal States, which covered a large portion of the Italian Peninsula, for more than a thousand years until the mid-19th century, when all the territory belonging to the papacy was seized by the newly created Kingdom of Italy')]),
         S("It wasn't until 1929, with the Lateran Treaty, that Vatican City became its own country.", [

@@ -442,7 +442,8 @@
           },
           "fill": "#d4a017",
           "at": "Papal",
-          "fillOpacity": 0.7
+          "fillOpacity": 0.7,
+          "until": "them"
         },
         {
           "type": "label",
@@ -451,7 +452,8 @@
           "lon": 12.6,
           "at": "Papal",
           "style": "serif",
-          "size": 58
+          "size": 58,
+          "until": "them"
         },
         {
           "type": "year",
