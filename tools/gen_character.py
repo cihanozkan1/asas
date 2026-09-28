@@ -11,8 +11,10 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'assets', 'characters')
-STYLE = ('cute chibi 3D clay figurine, {desc}, big head, small body, full body standing, facing viewer, '
-         'centered, standing directly on the floor, no pedestal, no stand, no base, no display base, plain light grey studio background, soft studio lighting, toy photography, high detail')
+# v2: flat 2D cartoon (mobile strategy game style) like the reference channels, not clay toys
+STYLE = ('cute chibi cartoon mascot sticker of {desc}, standing upright, full body from head to feet, very big head and tiny body, '
+         'flat vector art, thick clean dark outline, simple cel shading, bright colors, cartoon game icon style, '
+         'facing viewer, centered, isolated on plain white background, no text, no ground, no shadow')
 
 def generate(desc, seed, size=1024):
     prompt = STYLE.format(desc=desc)
@@ -71,10 +73,9 @@ def main():
     if cut.height > 700:
         cut = cut.resize((round(cut.width * 700 / cut.height), 700), Image.LANCZOS)
     cut.save(path, optimize=True)
-    log = os.path.join(OUT, 'prompts.json')
-    data = json.load(open(log)) if os.path.exists(log) else {}
-    data[a.id] = {'prompt': prompt, 'seed': a.seed, 'source': 'pollinations.ai (flux)'}
-    json.dump(data, open(log, 'w'), indent=2)
+    # one small file per character, so parallel runs never clobber a shared log
+    os.makedirs(os.path.join(OUT, 'prompts'), exist_ok=True)
+    json.dump({'prompt': prompt, 'seed': a.seed, 'source': 'pollinations.ai (flux)'}, open(os.path.join(OUT, 'prompts', a.id + '.json'), 'w'), indent=2)
     print('saved', path, cut.size)
 
 if __name__ == '__main__':

@@ -225,7 +225,7 @@ function culled(index, box, type) {
 // Evenly spread points inside the target: a regular grid of candidates, then farthest-point
 // sampling so icons form a tidy, balanced pattern instead of random clumps.
 // `along` ([[lat,lon],...]) instead places them at equal steps along a path (a row / a wall).
-function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, along = null) {
+function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, along = null, landOnly = false) {
   if (along && along.length > 1) {
     const P = along.map(([la, lo]) => [lo, la]);
     const seg = [0];
@@ -246,6 +246,13 @@ function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, alon
   s = Math.max(s, minLat);
   nn = Math.min(nn, maxLat);
   const span = e >= w ? e - w : e + 360 - w;
+  // houses, trees, people... must stand on land, not in the sea next to a small island
+  let onLand = () => true;
+  if (landOnly && state.geo?.cull?.land10) {
+    const parts = state.geo.cull.land10.filter(({ box }) => box[2] >= w - 1 && box[0] <= w + span + 1 && box[3] >= s - 1 && box[1] <= nn + 1);
+    const lf = { type: 'Feature', geometry: { type: 'MultiPolygon', coordinates: parts.map((x) => x.part) } };
+    onLand = (p) => parts.length > 0 && geoContains(lf, p);
+  }
   const cands = [];
   for (let g = 24; g <= 96 && cands.length < n * 6; g += 12) {
     cands.length = 0;
@@ -253,7 +260,7 @@ function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, alon
     for (let row = 0, lat = s + step / 2; lat < nn; lat += step * 0.866, row++) {
       for (let lon = w + (row % 2 ? step : step / 2); lon < w + span; lon += step) {
         const p = [lon > 180 ? lon - 360 : lon, lat];
-        if (feats.some((f) => geoContains(f, p))) cands.push(p);
+        if (feats.some((f) => geoContains(f, p)) && onLand(p)) cands.push(p);
       }
     }
   }
@@ -431,7 +438,7 @@ async function init(tl) {
 
   // per-element geometry
   for (const el of tl.elements) {
-    if (el.type === 'scatter') el._pts = scatterPoints(state.targets[el.target] || [], el.count || 12, el.seed || 7, el.minDist ?? 0.25, el.minLat ?? -90, el.maxLat ?? 90, el.along);
+    if (el.type === 'scatter') el._pts = scatterPoints(state.targets[el.target] || [], el.count || 12, el.seed || 7, el.minDist ?? 0.25, el.minLat ?? -90, el.maxLat ?? 90, el.along, el.water ? false : !WATER_ICONS.test(el.icon || ''));
     if (el.type === 'ghost') {
       el._fc = { type: 'FeatureCollection', features: state.targets[el.target] };
       el._c = geoCentroid(el._fc);
@@ -498,7 +505,7 @@ async function init(tl) {
   await document.fonts.ready;
   await Promise.all(
     ['600 40px Montserrat', '700 40px Montserrat', '800 40px Montserrat', '900 40px Montserrat',
-      '400 40px "Playfair Display"', '700 40px "Playfair Display"', '400 40px "Permanent Marker"'].map((f) => document.fonts.load(f)),
+      '400 40px "Playfair Display"', '700 40px "Playfair Display"'].map((f) => document.fonts.load(f)),
   );
   // layout pre-pass: for each group of elements appearing together, solve overlaps once
   state.layoutOnly = true;
@@ -663,6 +670,9 @@ function styleAt(t) {
 
 // ---------------------------------------------------------------- timing helpers
 
+const WATER_ICONS = /🚢|⛴|🛥|🚤|⛵|🐋|🐳|🐟|🐠|🦈|🛰|🌊|🧊|🐧/u;
+const KIT_COLORS = ['#ffd60a', '#4ade80', '#5ec8ff', '#ff6b6b'];
+
 function lifeOf(el, t, inDur = 0.35, outDur = 0.4) {
   if (t < el.start || t > el.end) return null;
   const a = clamp01((t - el.start) / inDur);
@@ -686,7 +696,8 @@ function drawVector(t, proj, view, mix) {
   const V = state.tl.config.vintage;
 
   if (mix.vin > 0.001) {
-    ctx.globalAlpha = mix.vin;
+    const fillA = mix.vin * (1 - 0.9 * (state.vinClose || 0));
+    ctx.globalAlpha = fillA;
     ctx.fillStyle = V.sea;
     if (view.mode === 'globe') {
       ctx.beginPath();
@@ -699,17 +710,18 @@ function drawVector(t, proj, view, mix) {
     path(land);
     ctx.strokeStyle = V.coastGlow;
     ctx.lineWidth = 22;
-    ctx.globalAlpha = mix.vin * 0.35;
+    ctx.globalAlpha = mix.vin * 0.35 * (1 - (state.vinClose || 0));
     ctx.stroke();
     ctx.lineWidth = 9;
-    ctx.globalAlpha = mix.vin * 0.5;
+    ctx.globalAlpha = mix.vin * 0.5 * (1 - (state.vinClose || 0));
     ctx.stroke();
     ctx.restore();
-    ctx.globalAlpha = mix.vin;
+    ctx.globalAlpha = fillA;
     ctx.beginPath();
     path(land);
     ctx.fillStyle = V.land;
     ctx.fill();
+    ctx.globalAlpha = mix.vin * (1 - (state.vinClose || 0));
     ctx.strokeStyle = V.coast;
     ctx.lineWidth = 1.6;
     ctx.stroke();
@@ -1434,22 +1446,28 @@ function buildUi() {
         html = `<div class="inner title ${el.hook ? 'hook' : ''}" style="font-size:${el.size || 72}px;width:${el.width || W - 140}px;${el.accent ? `--accent:${el.accent}` : ''}">${esc(el.text).replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/\n/g, '<br>')}</div>`;
         break;
       case 'bars': {
+        // No boxed panel: stats sit on the map like the reference channels do (big numbers,
+        // flag badges, a thin proportional bar), with a soft shadow pool behind for contrast.
         const max = Math.max(...el.items.map((it) => it.value));
+        const badge = (it, i) => it.flag
+          ? `<span class="badge-c"><img src="${flagUrl(it.flag)}"></span>`
+          : it.icon ? `<span class="badge-c emo">${it.icon}</span>` : `<span class="badge-c dot" style="background:${it.color || KIT_COLORS[i % KIT_COLORS.length]}"></span>`;
         if (el.orient === 'v') {
           const hMax = el.height || 420;
-          html = `<div class="inner vbars">${el.items
-            .map((it) => {
-              const h = Math.max(8, (it.value / max) * hMax);
+          html = `<div class="inner chart-v">${el.items
+            .map((it, i) => {
+              const h = Math.max(10, (it.value / max) * hMax);
+              const col = it.color || KIT_COLORS[i % KIT_COLORS.length];
               const shape = el.shape === 'mountain'
-                ? `<svg class="shape" viewBox="0 0 200 100" preserveAspectRatio="none" style="height:${h}px"><polygon points="0,100 100,0 200,100" fill="${it.color || '#ffd60a'}"/><polygon points="100,0 128,28 112,24 100,36 88,24 72,28" fill="#fff" opacity=".9"/></svg>`
-                : `<div class="shape" style="height:${h}px;background:${it.color || '#ffd60a'};border-radius:14px 14px 4px 4px"></div>`;
-              return `<div class="col"><div class="val" data-v="${esc(it.display ?? it.value)}"></div><div class="grow" style="height:${h}px;display:flex;align-items:flex-end;overflow:hidden">${shape}</div><div class="lab">${it.flag ? `<img src="${flagUrl(it.flag)}" style="width:54px;height:40px;border-radius:5px;vertical-align:middle;margin-right:8px">` : ''}${esc(it.label)}</div></div>`;
+                ? `<svg class="shape" viewBox="0 0 200 100" preserveAspectRatio="none" style="height:${h}px"><defs><linearGradient id="mg${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}"/><stop offset="1" stop-color="${col}" stop-opacity=".75"/></linearGradient></defs><polygon points="0,100 100,0 200,100" fill="url(#mg${i})"/><polygon points="100,0 128,28 112,24 100,36 88,24 72,28" fill="#fff" opacity=".95"/></svg>`
+                : `<div class="shape col-bar" style="height:${h}px;--c:${col}">${it.icon ? `<span class="top-emo">${it.icon}</span>` : ''}</div>`;
+              return `<div class="col"><div class="val" data-v="${esc(it.display ?? it.value)}"></div><div class="grow" style="height:${h}px">${shape}</div><div class="lab">${it.flag ? `<img src="${flagUrl(it.flag)}">` : ''}${esc(it.label)}</div></div>`;
             })
-            .join('')}</div>`;
+            .join('')}<div class="ground"></div></div>`;
         } else {
-          const tw = el.trackWidth || 600;
-          html = `<div class="inner bars" style="--lw:${el.labelWidth || 250}px">${el.items
-            .map((it) => `<div class="row"><div class="lab">${it.flag ? `<img src="${flagUrl(it.flag)}">` : ''}${esc(it.label)}</div><div class="track" style="width:${tw}px"><div class="bar" data-w="${(it.value / max) * (tw - 150)}" style="background:${it.color || '#ffd60a'};width:0"></div><div class="val" data-v="${esc(it.display ?? it.value)}"></div></div></div>`)
+          const tw = el.trackWidth || 640;
+          html = `<div class="inner chart-h">${el.items
+            .map((it, i) => `<div class="row">${badge(it, i)}<div class="txt"><div class="lab">${esc(it.label)}</div><div class="val" data-v="${esc(it.display ?? it.value)}"></div><div class="track" style="width:${tw}px"><div class="bar" data-w="${Math.max(0.03, it.value / max) * tw}" style="--c:${it.color || KIT_COLORS[i % KIT_COLORS.length]};width:0"></div></div></div></div>`)
             .join('')}</div>`;
         }
         break;
@@ -1476,7 +1494,7 @@ function buildUi() {
         break;
       }
       case 'character': {
-        const sz = el.size || (el.image ? 440 : 300);
+        const sz = el.size || (el.image ? 390 : 300);
         const bodyHtml = el.image
           ? `<img class="body figure" src="/assets/characters/${el.image}.png" style="height:${sz}px;display:block;margin:0 auto">`
           : `<div class="body" style="width:${sz}px;height:${sz * 1.2}px">${characterSvg(el).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`)}</div>`;
@@ -1750,6 +1768,8 @@ function updateUi(t) {
         }
         const bub = inner.querySelector('.bubble');
         if (bub) {
+          // bubble goes toward the middle of the screen so it never runs off the edge
+          bub.classList.toggle('left', el.bubbleSide === 'left' || (el.bubbleSide !== 'right' && (el.screen?.[0] ?? 0.5) > 0.55));
           const bu = clamp01((life.age - 0.3) / 0.25);
           bub.style.opacity = String(bu);
           bub.style.transform = `scale(${ease.outBack(bu)})`;
@@ -1785,27 +1805,26 @@ function updateUi(t) {
         opacity *= clamp01(life.age / 0.2);
         break;
       case 'bars': {
-        scale = 0.9 + 0.1 * ease.outBack(life.in);
-        const st = el.stagger ?? 0.18;
+        const st = el.stagger ?? 0.22;
         if (el.orient === 'v') {
           inner.querySelectorAll('.col').forEach((col, i) => {
-            const u = ease.outCubic(clamp01((life.age - 0.15 - i * st) / 0.8));
-            col.querySelector('.shape').style.transform = `translateY(${(1 - u) * 100}%)`;
+            const u = ease.outCubic(clamp01((life.age - 0.1 - i * st) / 0.8));
+            col.querySelector('.shape').style.transform = `scaleY(${u})`;
             const v = col.querySelector('.val');
             v.textContent = countUp(v.dataset.v, u);
             v.style.opacity = String(clamp01(u * 3));
+            col.querySelector('.lab').style.opacity = String(clamp01((life.age - i * st) / 0.25));
           });
         } else {
           inner.querySelectorAll('.row').forEach((row, i) => {
+            const a = clamp01((life.age - i * st) / 0.3);
+            row.style.opacity = String(a);
+            row.style.transform = `translateX(${(1 - ease.outCubic(a)) * -40}px)`;
             const u = ease.outCubic(clamp01((life.age - 0.15 - i * st) / 0.8));
             const bar = row.querySelector('.bar');
-            const bw = Number(bar.dataset.w) * u;
-            bar.style.width = `${bw}px`;
+            bar.style.width = `${Number(bar.dataset.w) * u}px`;
             const v = row.querySelector('.val');
-            v.style.left = `${bw + 14}px`;
             v.textContent = countUp(v.dataset.v, u);
-            v.style.opacity = String(clamp01(u * 3));
-            row.style.opacity = String(clamp01((life.age - i * st) / 0.2));
           });
         }
         break;
@@ -1947,7 +1966,8 @@ function resolveOverlaps(items, canMove = isMovable) {
   // a character's speech bubble sits above its box: add it as an extra obstacle
   for (const p of items) {
     if (p.el.type !== 'character' || !p.el.say || p.opacity <= 0.02) continue;
-    boxes.push({ p: { x: p.x, y: p.y - p.h / 2 - 70 }, movable: false, w: Math.max(p.w, 360), h: 150 });
+    const left = p.el.bubbleSide === 'left' || (p.el.bubbleSide !== 'right' && (p.el.screen?.[0] ?? 0.5) > 0.55);
+    boxes.push({ p: { x: p.x + (left ? -1 : 1) * (p.w * 0.34 + 200), y: p.y - p.h * 0.3 }, movable: false, w: 400, h: 150 });
   }
   const pad = 14;
   for (let it = 0; it < 14; it++) {
@@ -2060,7 +2080,7 @@ function updateFx(t) {
   }
   // sparks when a number or stamp lands
   const kitC = state.tl.kit?.accent || '#ffd60a';
-  for (const b of state.bursts || []) {
+  for (const b of []) {
     const u = clamp01(b.age / 0.8);
     if (u >= 1) continue;
     for (let k = 0; k < 16; k++) {
@@ -2073,21 +2093,7 @@ function updateFx(t) {
   }
   // ambient layer: soft vignette, film grain, and era/kit specific atmosphere
   const mixA = styleAt(t);
-  html += `<div class="amb-vig"></div><div class="amb-grain" style="background-position:${hash01(Math.floor(t * 24)) * 256}px ${hash01(Math.floor(t * 24) + 9) * 256}px"></div>`;
-  if (mixA.vin > 0.05) {
-    for (let k = 0; k < 14; k++) {
-      const px = (hash01(k * 11) * W + t * (8 + hash01(k) * 14)) % W, py = (hash01(k * 17) * H - t * (5 + hash01(k * 3) * 10) + H * 10) % H;
-      const sz = 3 + hash01(k * 5) * 5;
-      html += `<div style="position:absolute;left:${px}px;top:${py}px;width:${sz}px;height:${sz}px;border-radius:50%;background:rgba(255,236,190,${0.35 * mixA.vin});filter:blur(1px)"></div>`;
-    }
-    html += `<div class="amb-leak" style="opacity:${mixA.vin * (0.25 + 0.15 * Math.sin(t * 1.3))}"></div>`;
-  } else if ((state.tl.kit?.kit) === 'neon') {
-    html += `<div class="amb-scan"></div>`;
-    for (let k = 0; k < 18; k++) {
-      const px = hash01(k * 23) * W, py = (hash01(k * 29) * H - t * (10 + hash01(k) * 20) + H * 10) % H;
-      html += `<div style="position:absolute;left:${px}px;top:${py}px;width:4px;height:4px;border-radius:50%;background:${kitC};opacity:${0.25 + 0.25 * Math.sin(t * 2 + k)};box-shadow:0 0 10px ${kitC}"></div>`;
-    }
-  }
+  html += `<div class="amb-vig"></div>`;
   for (const el of state.tl.elements) {
     if (el.type === 'stamp' || el.vignette) {
       const life = lifeOf(el, t, 0.2, 0.25);
@@ -2124,7 +2130,8 @@ function computeTilt(t) {
     const life = lifeOf(el, t, 0.9, 0.7);
     if (life) deg = Math.max(deg, (el.deg ?? 38) * ease.inOutCubic(life.in) * ease.inOutCubic(life.out));
   }
-  state.tilt = deg > 0.05 ? { deg, s: 1 + deg / 70 } : null;
+  // 3D table tilt left an empty band above the map: disabled, the map always fills the frame
+  state.tilt = null && deg;
 }
 
 // where a point of the flat map ends up on screen once the map layers are tilted
@@ -2190,7 +2197,12 @@ function frame(t) {
     const wPx = (e - w) * view.k * (state.mode === 'globe' ? cl : 1), hPx = ((n - s) * view.k) / (state.mode === 'globe' ? 1 : cl);
     return Math.max(detailMix, 0) * clamp01((Math.min(wPx / W, hPx / H) - 0.2) / 0.25);
   });
-  if (!state.layoutOnly) state.raster.draw(view, { alpha: mix.sat, atmo: state.mode === 'globe' ? 1 : 0, detailMix: boxMix });
+  // close-up history shots: the vector coastlines are too coarse for a tiny island or town, so the
+  // real imagery shows through in old-map colours instead of a blobby polygon
+  const close = clamp01((view.k / state.baseK - 20) / 25) * mix.vin;
+  state.vinClose = close;
+  const rAlpha = Math.min(1, mix.sat + close);
+  if (!state.layoutOnly) state.raster.draw(view, { alpha: rAlpha, atmo: state.mode === 'globe' ? 1 : 0, detailMix: boxMix, sepia: rAlpha > 0 ? close / rAlpha : 0 });
   $('space').style.display = state.mode === 'globe' ? 'block' : 'none';
   $('paper').style.display = mix.vin > 0.001 ? 'block' : 'none';
   $('paper').style.opacity = String(mix.vin * state.tl.config.vintage.paper);

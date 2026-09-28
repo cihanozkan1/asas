@@ -1,165 +1,194 @@
-// Sound-effect track: every visual event in the timeline gets a matching sound.
-// Each UI kit has its own sound palette (clicks and wood for "block", synth blips for "neon",
-// paper and cards for "paper"...), history scenes switch to paper/page sounds, and every event
-// picks one of several variants with a small pitch/volume change, so no two videos sound alike
-// and repeated events don't sound copy-pasted.
+// Sound-effect track. Soft, short, synthesized sounds (plus a real page-turn for history)
+// that follow what is on screen: a gentle pop when something is placed, an airy whoosh on
+// camera moves, typewriter ticks for years, a soft bell when a number lands, a low thud for
+// stamps. Nothing is long, harsh or noisy, events are thinned so they never pile up, and the
+// track is ducked under the narration at mix time (src/audio.mjs).
+// Each video gets its own tuning (base pitch / brightness) so the videos don't sound identical.
 import path from 'node:path';
 import { ROOT, SAMPLE_RATE, decodeAudio, writeWav } from './util.mjs';
 
+const SR = SAMPLE_RATE;
 const DIR = path.join(ROOT, 'assets/sfx');
-const cache = new Map();
-async function load(name) {
-  if (!cache.has(name)) {
-    const file = name.includes('/') ? name : name + '.ogg';
-    cache.set(name, await decodeAudio(path.join(DIR, file)));
-  }
-  return cache.get(name);
+const fileCache = new Map();
+async function loadFile(name) {
+  if (!fileCache.has(name)) fileCache.set(name, await decodeAudio(path.join(DIR, name)));
+  return fileCache.get(name);
 }
-
-const seq = (pre, from, to, pad = 0, suf = '') => Array.from({ length: to - from + 1 }, (_, i) => `k/${pre}${String(from + i).padStart(pad, '0')}${suf}.ogg`);
-const K = {
-  click: seq('click_', 1, 5, 3), select: seq('select_', 1, 8, 3), maximize: seq('maximize_', 1, 9, 3), minimize: seq('minimize_', 1, 5, 3),
-  glass: seq('glass_', 1, 6, 3), toggle: seq('toggle_', 1, 4, 3), switch: seq('switch_', 1, 7, 3), confirm: seq('confirmation_', 1, 4, 3),
-  drop: seq('drop_', 1, 4, 3), scroll: seq('scroll_', 1, 5, 3), open: seq('open_', 1, 4, 3), pluck: seq('pluck_', 1, 2, 3), tick: ['k/tick_001.ogg', 'k/tick_002.ogg', 'k/tick_004.ogg'],
-  punch: seq('impactPunch_medium_', 0, 4, 3), wood: seq('impactWood_heavy_', 0, 4, 3), plank: seq('impactPlank_medium_', 0, 4, 3), soft: seq('impactSoft_heavy_', 0, 4, 3),
-  glassHit: seq('impactGlass_heavy_', 0, 4, 3), metal: seq('impactMetal_heavy_', 0, 4, 3), plate: seq('impactPlate_medium_', 0, 4, 3), light: seq('impactGeneric_light_', 0, 4, 3),
-  pep: seq('pepSound', 1, 5), tones: ['k/twoTone1.ogg', 'k/twoTone2.ogg', 'k/threeTone1.ogg', 'k/threeTone2.ogg'], phaser: seq('phaserUp', 1, 5), power: seq('powerUp', 1, 6),
-  force: seq('forceField_', 0, 4, 3), sciMetal: seq('impactMetal_', 0, 4, 3), computer: seq('computerNoise_', 0, 3, 3),
-  flip: seq('bookFlip', 1, 3), place: seq('bookPlace', 1, 3), cloth: seq('cloth', 1, 4), card: seq('card-place-', 1, 4), slide: seq('card-slide-', 1, 8),
-  chip: seq('chip-lay-', 1, 3), chips: seq('chips-stack-', 1, 4), uiClick: seq('click', 1, 5), roll: seq('rollover', 1, 6),
-  whoosh: ['k/whoosh_a.ogg', 'k/whoosh_b.ogg', 'k/whoosh_c.ogg', 'k/whoosh_d.ogg'], sub: ['k/sub_a.ogg', 'k/sub_b.ogg'],
-};
-
-// role -> candidate clips, per kit
-const PALETTES = {
-  classic: { appear: K.click, place: K.drop, select: K.select, fill: K.maximize, swish: ['k/whoosh_d.ogg'], whoosh: ['k/whoosh_a.ogg', 'k/whoosh_d.ogg'], tick: K.tick, hit: K.punch, count: K.switch, ding: K.confirm },
-  block: { appear: K.roll, place: K.card, select: K.toggle, fill: K.slide, swish: ['k/whoosh_b.ogg'], whoosh: ['k/whoosh_b.ogg', 'k/whoosh_a.ogg'], tick: K.chip, hit: K.wood, count: K.chip, ding: K.chips },
-  neon: { appear: K.pep, place: K.tones, select: K.pep, fill: K.phaser, swish: ['k/whoosh_b.ogg', 'k/whoosh_d.ogg'], whoosh: ['k/whoosh_b.ogg', 'k/whoosh_d.ogg'], tick: K.computer, hit: K.force, count: K.pep, ding: K.power },
-  paper: { appear: K.card, place: K.place, select: K.pluck, fill: K.cloth, swish: K.slide, whoosh: ['k/whoosh_c.ogg', 'k/whoosh_a.ogg'], tick: K.tick, hit: K.soft, count: K.card, ding: K.glass },
-  news: { appear: K.uiClick, place: K.open, select: K.select, fill: K.scroll, swish: ['k/whoosh_a.ogg'], whoosh: ['k/whoosh_a.ogg', 'k/whoosh_b.ogg'], tick: K.tick, hit: K.metal, count: K.switch, ding: ['k/bong_001.ogg', ...K.confirm] },
-  outline: { appear: K.glass, place: K.drop, select: K.glass, fill: K.minimize, swish: ['k/whoosh_d.ogg'], whoosh: ['k/whoosh_d.ogg', 'k/whoosh_c.ogg'], tick: K.tick, hit: K.glassHit, count: K.light, ding: K.glass },
-};
-// history scenes: pages, paper and cloth whatever the kit
-const HISTORY = { fill: K.cloth, whoosh: ['k/whoosh_c.ogg'], swish: K.slide, appear: K.card, place: K.place, hit: K.soft, tick: K.tick };
-// fixed one-offs (original clips)
-const FIXED = { question: 'question', glitch: 'glitch', waves: 'waves', boom: 'boom', flip: null };
 
 function hash(n) {
   const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453;
   return x - Math.floor(x);
 }
+function strHash(s) {
+  let h = 2166136261;
+  for (const c of String(s)) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return (h >>> 0) / 4294967296;
+}
+
+// ---- synth voices (all return Float32Array at SR) ----
+const env = (i, n, a, d) => Math.min(1, i / Math.max(1, a * SR)) * Math.exp(-(i / SR) / d) * (i < n ? 1 : 0);
+
+function pop(f0 = 700, bright = 1) {
+  // bubble-like pop: fast downward pitch glide, soft attack, ~90 ms
+  const n = Math.round(0.12 * SR), out = new Float32Array(n);
+  let ph = 0;
+  for (let i = 0; i < n; i++) {
+    const t = i / SR, f = f0 * (1 + 0.9 * Math.exp(-t / 0.012));
+    ph += (2 * Math.PI * f) / SR;
+    out[i] = (Math.sin(ph) + 0.18 * bright * Math.sin(2 * ph)) * env(i, n, 0.002, 0.03);
+  }
+  return out;
+}
+function tick(f0 = 2200) {
+  // small wooden tick (typewriter / clock), ~40 ms
+  const n = Math.round(0.05 * SR), out = new Float32Array(n);
+  for (let i = 0; i < n; i++) {
+    const t = i / SR;
+    out[i] = (Math.sin(2 * Math.PI * f0 * t) * 0.6 + Math.sin(2 * Math.PI * f0 * 1.51 * t) * 0.3) * env(i, n, 0.0005, 0.008);
+  }
+  return out;
+}
+function bell(f0 = 1046, dur = 0.9) {
+  // soft marimba/bell: a few inharmonic partials with fast-decaying highs
+  const n = Math.round(dur * SR), out = new Float32Array(n);
+  const P = [[1, 1, 0.35], [2.0, 0.35, 0.18], [3.01, 0.12, 0.09], [4.2, 0.05, 0.05]];
+  for (let i = 0; i < n; i++) {
+    const t = i / SR;
+    let s = 0;
+    for (const [m, a, d] of P) s += a * Math.sin(2 * Math.PI * f0 * m * t) * Math.exp(-t / d);
+    out[i] = s * Math.min(1, i / (0.003 * SR)) * 0.8;
+  }
+  return out;
+}
+function whoosh(dur = 0.45, bright = 1, seed = 1) {
+  // airy swell: noise through a resonant band-pass sweeping up then down, smooth envelope
+  const n = Math.round(dur * SR), out = new Float32Array(n);
+  let s = (seed * 9301 + 49297) % 233280, lp = 0, bp = 0, lp2 = 0;
+  const rnd = () => ((s = (s * 9301 + 49297) % 233280) / 233280) * 2 - 1;
+  for (let i = 0; i < n; i++) {
+    const u = i / n;
+    const fc = (300 + 1500 * bright * Math.sin(Math.PI * Math.min(1, u * 1.15))) / SR;
+    const g = 2 * Math.sin(Math.PI * fc), q = 0.55;
+    const x = rnd();
+    lp += g * bp;
+    const hp = x - lp - q * bp;
+    bp += g * hp;
+    lp2 += 0.25 * (bp - lp2);
+    const e = Math.pow(Math.sin(Math.PI * Math.min(1, u)), 1.6);
+    out[i] = lp2 * e * 1.6;
+  }
+  return out;
+}
+function thud(f0 = 70) {
+  // soft low thud for stamps / big reveals, ~300 ms, no rumble tail
+  const n = Math.round(0.32 * SR), out = new Float32Array(n);
+  let ph = 0;
+  for (let i = 0; i < n; i++) {
+    const t = i / SR, f = f0 * (1 + 1.2 * Math.exp(-t / 0.03));
+    ph += (2 * Math.PI * f) / SR;
+    out[i] = Math.sin(ph) * env(i, n, 0.002, 0.08);
+  }
+  return out;
+}
+function rise(dur = 0.35, f0 = 500) {
+  // tiny upward "ping" for question marks / emphasis
+  const n = Math.round(dur * SR), out = new Float32Array(n);
+  let ph = 0;
+  for (let i = 0; i < n; i++) {
+    const t = i / SR, f = f0 * (1 + 0.6 * (t / dur));
+    ph += (2 * Math.PI * f) / SR;
+    out[i] = Math.sin(ph) * env(i, n, 0.01, 0.12);
+  }
+  return out;
+}
+
+// relative loudness of each role (the whole track is scaled again at mix time)
+const GAIN = { pop: 0.32, tick: 0.18, bell: 0.2, whoosh: 0.28, thud: 0.38, rise: 0.16, page: 0.35 };
 
 export function sfxEvents(tl) {
-  const kit = tl.kit?.kit || 'classic';
-  const P = PALETTES[kit] || PALETTES.classic;
-  const eraAt = (t) => {
-    const s = tl.scenes.find((sc) => t >= sc.start - 0.05 && t < sc.end + 0.05);
-    return s?.era || 'now';
-  };
+  const tune = strHash(JSON.stringify(tl.kit || '') + tl.duration.toFixed(2));
   const ev = [];
-  const add = (t, role, vol = 1) => {
-    t = Math.max(0, t);
-    if (FIXED[role] !== undefined) {
-      if (FIXED[role]) ev.push({ t, name: FIXED[role], vol, rate: 1 });
-      else ev.push({ t, name: K.flip[Math.floor(hash(t * 7) * K.flip.length)], vol, rate: 1 });
-      return;
-    }
-    const list = (eraAt(t) === 'history' && HISTORY[role]) || P[role] || PALETTES.classic[role];
-    const h = hash(t * 1000 + role.length * 17);
-    ev.push({ t, name: list[Math.floor(h * list.length)], vol: vol * (0.85 + 0.3 * hash(t * 31)), rate: 0.94 + 0.12 * hash(t * 53) });
-  };
+  const add = (t, role, vol = 1) => ev.push({ t: Math.max(0, t), role, vol });
   tl.scenes.forEach((s, i) => {
-    if (s.transition === 'film') { add(s.start - 0.35, 'glitch', 0.5); add(s.start - 0.3, 'flip', 0.9); add(s.start - 0.25, 'whoosh', 0.6); }
-    else if (s.transition === 'flash') add(s.start - 0.1, 'whoosh', 0.8);
-    else if (s.transition === 'zoom' || s.transition === 'slide') add(s.start - 0.15, 'whoosh', 0.55);
-    else if (s.transition === 'glitch') add(s.start - 0.1, 'glitch', 0.5);
-    else if (i > 0 && s.camera) add(s.start - 0.15, 'whoosh', 0.4);
-    if (s.era === 'history' && i > 0 && tl.scenes[i - 1].era !== 'history' && s.transition !== 'film') add(s.start - 0.1, 'flip', 0.8);
+    if (i === 0) return;
+    const prev = tl.scenes[i - 1];
+    if (s.era === 'history' && prev.era !== 'history') add(s.start - 0.15, 'page', 1);
+    else if (s.era !== 'history' && prev.era === 'history') add(s.start - 0.2, 'whoosh', 0.8);
+    else if (s.transition || s.camera) add(s.start - 0.2, 'whoosh', s.transition ? 0.7 : 0.5);
   });
-  if (tl.scenes[0]?.camera) add(0, 'whoosh', 0.6);
+  if (tl.scenes[0]?.camera) add(0.1, 'whoosh', 0.7);
   for (const el of tl.elements) {
     const t = el.start;
     switch (el.type) {
-      case 'highlight':
-        add(t, 'fill', 0.45);
-        for (const m of el.morph || []) add(m.t, 'fill', 0.45);
-        break;
-      case 'label':
-        if (el.anim === 'slam') { add(t, 'swish', 0.5); add(t + 0.3, 'hit', 0.5); }
-        else add(t, el.style === 'map' || el.style === 'note' ? 'swish' : 'appear', 0.5);
-        break;
-      case 'flag':
-        add(t, 'place', 0.6);
-        if (el.moveAt != null) add(el.moveAt, 'swish', 0.45);
-        break;
-      case 'icon': add(t, 'place', 0.55); break;
-      case 'badge': add(t, 'appear', 0.5); break;
-      case 'character':
-        add(t, 'place', 0.6);
-        if (el.say) add(t + 0.3, 'select', 0.45);
-        break;
-      case 'scatter':
-        for (let i = 0; i < Math.min(el.count || 5, 8); i++) add(t + i * (el.stagger ?? 0.09), 'appear', 0.3);
-        break;
-      case 'question': add(t, 'question', 0.6); break;
-      case 'year': String(el.value).split('').forEach((_, i) => add(t + i * (0.45 / String(el.value).length), 'tick', 0.55)); break;
-      case 'stat': add(t + 0.9, 'ding', 0.5); break;
-      case 'stamp': add(t, 'hit', 0.9); add(t, 'boom', 0.25); break;
-      case 'arrow': case 'line': case 'measure': add(t, 'swish', 0.45); break;
-      case 'route':
-        add(t, 'swish', 0.45);
-        if (el.mover?.kind === 'ship') add(t, 'waves', 0.35);
-        break;
+      case 'highlight': add(t, 'whoosh', 0.35); break;
+      case 'label': add(t, el.anim === 'slam' ? 'thud' : 'pop', el.anim === 'slam' ? 0.45 : 0.55); break;
+      case 'flag': case 'icon': case 'badge': case 'character': add(t, 'pop', 0.8); break;
+      case 'scatter': for (let i = 0; i < Math.min(el.count || 4, 5); i++) add(t + i * (el.stagger ?? 0.1), 'pop', 0.45); break;
+      case 'question': add(t, 'rise', 1); break;
+      case 'year': String(el.value).split('').forEach((_, i) => add(t + i * (0.45 / String(el.value).length), 'tick', 1)); break;
+      case 'stat': add(t + 0.9, 'bell', 0.8); break;
+      case 'stamp': add(t, 'thud', 1); break;
+      case 'arrow': case 'line': case 'measure': case 'route': add(t, 'whoosh', 0.4); break;
       case 'ghost': add(t + (el.delay ?? 0.3), 'whoosh', 0.5); break;
-      case 'ping': add(t, 'select', 0.45); break;
-      case 'counter':
-        el.steps.forEach((st, i) => {
-          add(Math.max(st.t, el.start), 'count', 0.6);
-          if (i === 0 && /\d/.test(String(st.value)) && !/^(1[0-9]|20)\d\d(\b|:)/.test(String(st.value))) add(Math.max(st.t, el.start) + 0.9, 'ding', 0.4);
-        });
+      case 'ping': add(t, 'pop', 0.5); break;
+      case 'counter': {
+        const st = el.steps[0];
+        const rolls = /\d/.test(String(st.value)) && !/^(1[0-9]|20)\d\d(\b|:)/.test(String(st.value));
+        add(Math.max(st.t, el.start), 'pop', 0.7);
+        if (rolls) add(Math.max(st.t, el.start) + 0.9, 'bell', 0.9);
+        el.steps.slice(1).forEach((s2) => add(s2.t, 'tick', 1));
         break;
-      case 'shake': add(t, 'boom', 0.8); add(t, 'hit', 0.6); break;
-      case 'punch': add(t, 'hit', 0.5); break;
-      case 'title': add(t, 'swish', 0.55); add(t + 0.3, 'hit', 0.6); break;
-      case 'bars': el.items.forEach((_, i) => add(t + 0.15 + i * (el.stagger ?? 0.18), 'swish', 0.35)); add(t + 0.95 + el.items.length * (el.stagger ?? 0.18), 'ding', 0.45); break;
-      case 'vs': add(t, 'whoosh', 0.6); add(t + 0.4, 'hit', 0.8); break;
-      case 'timeline': for (const e of el.events) add(e.t, 'count', 0.5); break;
-      case 'clock': for (const st of el.steps) { add(st.t, 'tick', 0.6); add(st.t + 0.45, 'tick', 0.5); } break;
-      case 'tilt': add(t, 'whoosh', 0.45); break;
+      }
+      case 'title': add(t, 'whoosh', 0.6); break;
+      case 'bars': el.items.forEach((_, i) => add(t + 0.15 + i * (el.stagger ?? 0.22), 'pop', 0.55)); add(t + 1.0 + el.items.length * (el.stagger ?? 0.22), 'bell', 0.7); break;
+      case 'vs': add(t, 'whoosh', 0.6); add(t + 0.4, 'thud', 0.6); break;
+      case 'timeline': for (const e of el.events) add(e.t, 'pop', 0.55); break;
+      case 'clock': add(t, 'tick', 1); break;
       default: break;
     }
   }
-  return ev.sort((a, b) => a.t - b.t);
+  ev.sort((a, b) => a.t - b.t);
+  // thin out: the same role never repeats within 0.11 s, and never more than 3 sounds in 0.4 s
+  const out = [];
+  for (const e of ev) {
+    if (out.some((o) => o.role === e.role && e.t - o.t < 0.11)) continue;
+    if (out.filter((o) => e.t - o.t < 0.4).length >= 3 && e.role !== 'page') continue;
+    out.push(e);
+  }
+  return out.map((e, i) => ({ ...e, tune, var: hash(e.t * 97 + i) }));
+}
+
+async function voiceFor(e) {
+  // per-video tuning: base pitch within about +-3 semitones, brightness 0.7-1.3
+  const k = Math.pow(2, (e.tune - 0.5) * 0.5), v = 1 + (e.var - 0.5) * 0.08, b = 0.7 + e.tune * 0.6;
+  switch (e.role) {
+    case 'pop': return pop(640 * k * v, b);
+    case 'tick': return tick(2100 * k * v);
+    case 'bell': return bell(988 * k, 0.9);
+    case 'whoosh': return whoosh(0.38 + e.var * 0.14, b, Math.floor(e.var * 1000) + 1);
+    case 'thud': return thud(68 * k);
+    case 'rise': return rise(0.32, 520 * k);
+    case 'page': return loadFile(`k/bookFlip${1 + Math.floor(e.var * 3)}.ogg`);
+    default: return new Float32Array(1);
+  }
 }
 
 export async function buildSfxTrack(tl, out, volume = 0.5) {
-  const n = Math.ceil((tl.duration + 2) * SAMPLE_RATE);
+  const n = Math.ceil((tl.duration + 2) * SR);
   const buf = new Float32Array(n);
   const events = sfxEvents(tl);
-  // very quiet room-tone/air bed so the gaps between sounds are never dead silent;
-  // darker for history-heavy videos, brighter for neon ones
-  const kit = tl.kit?.kit || 'classic';
-  const cut = { neon: 0.12, news: 0.08, block: 0.08, outline: 0.1, paper: 0.05, classic: 0.06 }[kit] ?? 0.06;
-  let lp = 0, lp2 = 0, seed = 12345;
-  const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff) * 2 - 1;
-  for (let i = 0; i < n; i++) {
-    lp += cut * (rnd() - lp);
-    lp2 += 0.02 * (lp - lp2);
-    const tt = i / SAMPLE_RATE;
-    const env = Math.min(1, tt / 1.5) * Math.min(1, Math.max(0, tl.duration + 0.5 - tt) / 1.5);
-    buf[i] += lp2 * 0.22 * env * (0.8 + 0.2 * Math.sin(tt * 0.7));
-  }
   for (const e of events) {
-    const clip = await load(e.name);
-    const o = Math.round(e.t * SAMPLE_RATE);
-    const g = e.vol * volume;
-    const rate = e.rate || 1;
-    const len = Math.floor(clip.length / rate);
+    const clip = await voiceFor(e);
+    const o = Math.round(e.t * SR);
+    const g = e.vol * (GAIN[e.role] ?? 0.3) * volume * 2;
+    const len = Math.min(clip.length, Math.round(1.2 * SR));
     for (let i = 0; i < len && o + i < n; i++) {
-      const x = i * rate, k = Math.floor(x), f = x - k;
-      buf[o + i] += ((clip[k] || 0) * (1 - f) + (clip[k + 1] || 0) * f) * g;
+      const fade = i > len - 480 ? (len - i) / 480 : 1;
+      buf[o + i] += clip[i] * g * fade;
     }
   }
+  // gentle soft-clip so stacked sounds can never spike
+  for (let i = 0; i < n; i++) buf[i] = Math.tanh(buf[i] * 1.2) / 1.2;
   writeWav(out, buf);
   return events.length;
 }
