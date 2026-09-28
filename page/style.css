@@ -394,3 +394,8 @@ html, body {
   text-shadow: 0 6px 18px rgba(0,0,0,.75); letter-spacing: .03em; border-bottom: 10px solid var(--kit); padding: 0 .15em; }
 .kit-outline .title.hook em, .kit-neon .title.hook em { color: var(--kit); }
 #fx .amb-vig { background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 60%, rgba(0,0,0,.22) 100%); }
+
+/* bubble above the head (used when two characters talk at the same time) */
+.bubble.top { left: 50%; right: auto; bottom: 100%; transform-origin: 50% 100%; translate: -50% -14px; max-width: 320px; }
+.bubble.top::before { left: calc(50% - 18px); bottom: -30px; width: 36px; height: 30px; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.bubble.top::after { left: calc(50% - 13px); bottom: -22px; width: 26px; height: 22px; clip-path: polygon(0 0, 100% 0, 50% 100%); }

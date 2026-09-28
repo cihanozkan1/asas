@@ -1783,7 +1783,10 @@ function updateUi(t) {
         const bub = inner.querySelector('.bubble');
         if (bub) {
           // bubble goes toward the middle of the screen so it never runs off the edge
-          bub.classList.toggle('left', el.bubbleSide === 'left' || (el.bubbleSide !== 'right' && (el.screen?.[0] ?? 0.5) > 0.55));
+          // two talking characters at once: bubbles go above the heads so they never meet in the middle
+          if (el._pair == null) el._pair = state.tl.elements.some((o) => o !== el && o.type === 'character' && o.say && o.start < el.end && o.end > el.start);
+          bub.classList.toggle('top', el._pair);
+          bub.classList.toggle('left', !el._pair && (el.bubbleSide === 'left' || (el.bubbleSide !== 'right' && (el.screen?.[0] ?? 0.5) > 0.55)));
           const bu = clamp01((life.age - 0.3) / 0.25);
           bub.style.opacity = String(bu);
           bub.style.transform = `scale(${ease.outBack(bu)})`;
@@ -1981,7 +1984,8 @@ function resolveOverlaps(items, canMove = isMovable) {
   for (const p of items) {
     if (p.el.type !== 'character' || !p.el.say || p.opacity <= 0.02) continue;
     const left = p.el.bubbleSide === 'left' || (p.el.bubbleSide !== 'right' && (p.el.screen?.[0] ?? 0.5) > 0.55);
-    boxes.push({ p: { x: p.x + (left ? -1 : 1) * (p.w * 0.34 + 200), y: p.y - p.h * 0.3 }, movable: false, w: 400, h: 150 });
+    if (p.el._pair) boxes.push({ p: { x: p.x, y: p.y - p.h / 2 - 70 }, movable: false, w: 380, h: 140 });
+    else boxes.push({ p: { x: p.x + (left ? -1 : 1) * (p.w * 0.34 + 200), y: p.y - p.h * 0.3 }, movable: false, w: 400, h: 150 });
   }
   const pad = 14;
   for (let it = 0; it < 14; it++) {
