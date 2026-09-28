@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { ROOT, readJson } from './util.mjs';
 import { ensureAdmin1 } from '../tools/fetch-data.mjs';
+import { histFeature } from './historical.mjs';
 
 const require = createRequire(import.meta.url);
 const countries = require('i18n-iso-countries');
@@ -85,6 +86,7 @@ export async function resolveTargetSpec(t, videoDir) {
     const feature = { type: 'Feature', properties: {}, geometry: { type: 'MultiPolygon', coordinates: polys } };
     return { type: 'feature', feature };
   }
+  if (t.hist) return { type: 'feature', feature: await histFeature(t) };
   if (t.circle) return { type: 'circle', lat: t.circle.lat, lon: t.circle.lon, km: t.circle.km };
   if (t.box) {
     // lon/lat rectangle [west, south, east, north], edges densified so parallels stay parallels;

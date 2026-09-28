@@ -132,7 +132,7 @@ save('doubly_landlocked', meta(
                src('Area about 160 km².', 'Liechtenstein', '160.50 km2 (61.97 sq mi)')]),
         S("But Liechtenstein wasn't always like this. Before 1918, its neighbor was Austria-Hungary, which had a coast on the Adriatic Sea.", [
             year(1918, '1918'), ping(45.65, 13.78, 'Adriatic', color='#5ec8ff'), dot('Trieste', 45.65, 13.78, 'Adriatic', dy=46),
-            hl({'countries': ['AUT', 'HUN', 'CZE', 'SVK', 'SVN', 'HRV', 'BIH']}, '#c9a227', 'Austria-Hungary', fillOpacity=0.6), lab('Austria-Hungary', 47.8, 15.5, 'Austria-Hungary', style='serif', size=58), route([(47.14, 9.52), (46.6, 11.5), (45.65, 13.78)], 'coast', color='#1d4ed8', width=7)],
+            hl({'hist': 1914, 'name': 'Austro-Hungarian Empire'}, '#c9a227', 'Austria-Hungary', fillOpacity=0.6), lab('Austria-Hungary', 47.8, 15.5, 'Austria-Hungary', style='serif', size=58), route([(47.14, 9.52), (46.6, 11.5), (45.65, 13.78)], 'coast', color='#1d4ed8', width=7)],
           cam=at_(46.8, 12.5, 5.5), era='history', tr='film',
           src=[src('Before 1918 it had sea access via Austria-Hungary on the Adriatic.', 'Landlocked_country', 'Before this event, it had access to the Adriatic coastline through the Austro-Hungarian Empire.')]),
         S("When the empire broke up that year, Austria lost its coast, and Liechtenstein became doubly landlocked.", [

@@ -286,7 +286,10 @@
         },
         {
           "type": "highlight",
-          "target": "RUS",
+          "target": {
+            "hist": 1815,
+            "name": "Russian Empire"
+          },
           "fill": "#8a1c1c",
           "at": 0.1,
           "fillOpacity": 0.85
@@ -327,7 +330,10 @@
         },
         {
           "type": "highlight",
-          "target": "CAN",
+          "target": {
+            "hist": 1815,
+            "name": "Canada"
+          },
           "fill": "#c8102e",
           "at": "Britain",
           "fillOpacity": 0.55,

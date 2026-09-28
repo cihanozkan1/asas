@@ -226,8 +226,8 @@
         {
           "type": "highlight",
           "target": {
-            "admin1": "Minnesota",
-            "country": "USA"
+            "hist": 1783,
+            "name": "United States of America"
           },
           "fill": "#b08968",
           "at": 0.05,
@@ -236,11 +236,11 @@
         {
           "type": "highlight",
           "target": {
-            "admin1s": [
-              "Manitoba",
-              "Ontario"
-            ],
-            "country": "CAN"
+            "hist": 1783,
+            "names": [
+              "Quebec",
+              "Rupert's Land"
+            ]
           },
           "fill": "#c9a27e",
           "at": 0.05,
@@ -339,8 +339,8 @@
         {
           "type": "highlight",
           "target": {
-            "admin1": "Minnesota",
-            "country": "USA"
+            "hist": 1783,
+            "name": "United States of America"
           },
           "fill": "#b08968",
           "at": 0.05,
@@ -349,11 +349,11 @@
         {
           "type": "highlight",
           "target": {
-            "admin1s": [
-              "Manitoba",
-              "Ontario"
-            ],
-            "country": "CAN"
+            "hist": 1783,
+            "names": [
+              "Quebec",
+              "Rupert's Land"
+            ]
           },
           "fill": "#c9a27e",
           "at": 0.05,
@@ -435,8 +435,8 @@
         {
           "type": "highlight",
           "target": {
-            "admin1": "Minnesota",
-            "country": "USA"
+            "hist": 1783,
+            "name": "United States of America"
           },
           "fill": "#b08968",
           "at": 0.05,
@@ -445,11 +445,11 @@
         {
           "type": "highlight",
           "target": {
-            "admin1s": [
-              "Manitoba",
-              "Ontario"
-            ],
-            "country": "CAN"
+            "hist": 1783,
+            "names": [
+              "Quebec",
+              "Rupert's Land"
+            ]
           },
           "fill": "#c9a27e",
           "at": 0.05,

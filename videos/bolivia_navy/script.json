@@ -174,15 +174,11 @@
         {
           "type": "highlight",
           "target": {
-            "admin1": "Antofagasta",
-            "country": "CHL"
+            "hist": 1880,
+            "name": "Bolivia"
           },
           "fill": "flag:bo",
-          "at": "here",
-          "reveal": {
-            "lat": -22.5,
-            "lon": -68
-          }
+          "at": 0.05
         },
         {
           "type": "ping",
@@ -190,12 +186,6 @@
           "lon": -70.4,
           "color": "#ffd60a",
           "at": "coast"
-        },
-        {
-          "type": "highlight",
-          "target": "BOL",
-          "fill": "flag:bo",
-          "at": 0.05
         }
       ],
       "camera": {
@@ -273,14 +263,20 @@
       "show": [
         {
           "type": "highlight",
-          "target": "PER",
+          "target": {
+            "hist": 1880,
+            "name": "Peru"
+          },
           "fill": "flag:pe",
           "at": "Peru",
           "fillOpacity": 0.8
         },
         {
           "type": "highlight",
-          "target": "CHL",
+          "target": {
+            "hist": 1880,
+            "name": "Chile"
+          },
           "fill": "flag:cl",
           "at": "Chile",
           "fillOpacity": 0.8

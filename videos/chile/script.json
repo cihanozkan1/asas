@@ -314,13 +314,19 @@
         },
         {
           "type": "highlight",
-          "target": "BOL",
+          "target": {
+            "hist": 1880,
+            "name": "Bolivia"
+          },
           "fill": "#f4a261",
           "at": "Bolivia"
         },
         {
           "type": "highlight",
-          "target": "PER",
+          "target": {
+            "hist": 1880,
+            "name": "Peru"
+          },
           "fill": "#e9c46a",
           "at": "Peru"
         },

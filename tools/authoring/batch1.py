@@ -30,13 +30,13 @@ save('alaska', meta(
           cam=at_(63, -175, 0.9), style='dark', no_claim=True),
         S("Russia had just lost the Crimean War against Britain, France and the Ottoman Empire, and money was tight.", [
             year(1856, 'Crimean'), icon('⚔️', 45, 34, 'Crimean', size=140), icon('💸', 55, 45, 'money', size=130),
-            hl('RUS', '#8a1c1c', 0.1, fillOpacity=0.85)],
+            hl({'hist': 1815, 'name': 'Russian Empire'}, '#8a1c1c', 0.1, fillOpacity=0.85)],
           cam=at_(55, 60, 0.75), era='history', tr='film',
           src=[src('Russia sold after defeat in the Crimean War and under financial pressure.', 'Alaska_Purchase',
                    'After suffering defeat in the Crimean War, Russia recognized that defending this distant territory would be difficult ... Financial pressures from the war also motivated the sale.'),
                src('Crimean War 1853–1856: Russia vs the Ottoman Empire, France, the UK and Sardinia; Russia sued for peace.', 'Crimean_War', 'The conflict lasted from October 1853 to March 1856 ... Russia ultimately sued for peace')]),
         S("And Alaska was far away and hard to defend, especially against Britain, right next door in Canada.", [
-            hl(AK, '#8a1c1c', 'Alaska', fillOpacity=0.85), hl('CAN', '#c8102e', 'Britain', fillOpacity=0.55, pattern='hatch'),
+            hl(AK, '#8a1c1c', 'Alaska', fillOpacity=0.85), hl({'hist': 1815, 'name': 'Canada'}, '#c8102e', 'Britain', fillOpacity=0.55, pattern='hatch'),
             lab('British', 58, -105, 'Britain', style='serif', size=58), arrow((57, -110), (62, -140), 'defend', color='#c8102e')],
           cam=fit(AK, 'CAN', pad=0.9), era='history',
           src=[src('Alaska was hard to defend, particularly against Britain from neighboring Canada.', 'Alaska_Purchase',
@@ -92,7 +92,7 @@ save('chile', meta(
           cam=fit(CHL, pad=0.9),
           src=[src('The Pacific Ocean lies to the west.', 'Chile', 'a narrow strip of land between the Andes Mountains and the Pacific Ocean')]),
         S("But Chile also grew north. From 1879 to 1884, in the War of the Pacific, it fought and defeated Bolivia and Peru.", [
-            year(1879, 'War'), hl('BOL', '#f4a261', 'Bolivia'), hl('PER', '#e9c46a', 'Peru'),
+            year(1879, 'War'), hl({'hist': 1880, 'name': 'Bolivia'}, '#f4a261', 'Bolivia'), hl({'hist': 1880, 'name': 'Peru'}, '#e9c46a', 'Peru'),
             char('soldier_chile', 'Chile', name='Chile'), char('soldier_bolivia', 'Bolivia', screen=(0.74, 0.6), name='Bolivia', flip=True),
             shake('defeated')],
           cam=at_(-20, -68, 3.2), era='history', tr='film',
@@ -188,12 +188,12 @@ save('wakhan', meta(
           src=[src('It separates Tajikistan from Pakistan and borders China.', 'Wakhan_Corridor', 'separates "the Badakhshan Mountainous Autonomous Region in Tajikistan from Khyber Pakhtunkhwa in Pakistan" and borders China')]),
         S("So why does it exist?", [q(37.0, 73.2, 'why'), hl(AFG, '#d62828', 0.05, fillOpacity=0.9)], cam=at_(36, 70, 3.5), style='dark', no_claim=True),
         S("In the 1800s, two empires were competing for Central Asia in what's called the Great Game: the Russian Empire in the north, and British India in the south.", [
-            year('1800s', '1800s'), lab('CENTRAL ASIA', 41, 66, 'Central', style='serif', size=58), hl(AFG, '#8b5e34', 'Central', fillOpacity=0.45),
-            hl({'countries': ['TJK', 'UZB', 'TKM', 'KGZ', 'KAZ']}, '#b3202a', 'Russian', fillOpacity=0.8, hold=2),
-            hl({'countries': ['PAK', 'IND']}, '#e9a1a1', 'British', fillOpacity=0.8, hold=2),
+            year('1800s', '1800s'), lab('CENTRAL ASIA', 41, 66, 'Central', style='serif', size=58), hl({'hist': 1880, 'name': 'Afghanistan'}, '#8b5e34', 'Central', fillOpacity=0.45),
+            hl({'hist': 1880, 'name': 'Russian Empire'}, '#b3202a', 'Russian', fillOpacity=0.8, hold=2),
+            hl({'hist': 1880, 'name': 'British Raj'}, '#e9a1a1', 'British', fillOpacity=0.8, hold=2),
             lab('Russian Empire', 46.5, 67, 'Russian', style='serif', size=56), lab('British India', 27, 72, 'British', style='serif', size=56),
             arrow((44, 68), (38.5, 71), 'north', color='#b3202a'), arrow((27, 73), (34.5, 72), 'south', color='#c95a5a')],
-          cam=at_(40, 70, 2.0), era='history', tr='film',
+          cam=at_(40, 70, 2.0), era='history', tr='film', histYear=1880,
           src=[src('The corridor emerged from Great Game rivalry between the Russian Empire and British India.', 'Wakhan_Corridor', 'The corridor emerged from Great Game rivalry between empires'),
                src('The Great Game was the 19th-century British–Russian rivalry over Central Asia.', 'Great_Game', 'a rivalry between the 19th-century British and Russian empires over influence in Central Asia')]),
         S("Neither side wanted a shared border with the other. So they left this thin strip of mountains to Afghanistan, as a buffer between the two empires.", [
@@ -206,7 +206,7 @@ save('wakhan', meta(
           src=[src('1873 agreement (Russia border), 1893 Durand Line (British India), 1895 Pamir Boundary Commission.', 'Wakhan_Corridor',
                    'An 1873 agreement made the Panj and Pamir Rivers the Afghanistan-Russia border, while the "Durand Line Agreement of 1893 ... along with the 1895 Pamir Boundary Commission protocols')]),
         S("The rivalry only ended in 1907, when Britain and Russia signed a convention dividing their influence in Afghanistan, Persia and Tibet.", [
-            year(1907, '1907'), hl({'countries': ['AFG', 'IRN']}, '#6b7280', 'convention', fillOpacity=0.6, pattern='hatch'), hl({'admin1': 'Xizang', 'country': 'CHN'}, '#6b7280', 'convention', fillOpacity=0.6, pattern='hatch'),
+            year(1907, '1907'), hl({'hist': 1914, 'names': ['Afghanistan', 'Persia']}, '#6b7280', 'convention', fillOpacity=0.6, pattern='hatch'), hl({'hist': 1914, 'name': 'Tibet'}, '#6b7280', 'convention', fillOpacity=0.6, pattern='hatch'),
             lab('Persia', 32.5, 54, 'Persia', style='serif', size=54), lab('Tibet', 31.5, 88, 'Tibet', style='serif', size=54)],
           cam=at_(34, 72, 1.6), era='history',
           src=[src('The Anglo-Russian Convention of 1907 formally delineated control in Afghanistan, Persia and Tibet.', 'Great_Game',

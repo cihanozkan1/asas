@@ -141,7 +141,7 @@ save('italy_microstates', meta(
             cnt('882', '882', size=210), pill('people', 'people', bg='#b45309')],
           src=[src('Population about 882 (2024).', 'Vatican_City', 'a population of about 882 in 2024')]),
         S("Popes once ruled the Papal States, across central Italy. But in 1870, the new Kingdom of Italy took them.", [
-            hl({'admin1s': ['Roma', 'Latina', 'Frosinone', 'Viterbo', 'Rieti', 'Perugia', 'Terni', 'Ancona', 'Macerata', 'Ascoli Piceno', 'Fermo', 'Pesaro e Urbino', 'Bologna', 'Ferrara', 'Ravenna', 'Forlì-Cesena', 'Rimini'], 'country': 'ITA'}, '#d4a017', 'Papal', fillOpacity=0.7, until='them'),
+            hl({'hist': 1815, 'name': 'Papal States'}, '#d4a017', 'Papal', fillOpacity=0.7, until='them'),
             lab('Papal States', 43.0, 12.6, 'Papal', style='serif', size=58, until='them'), year(1870, '1870'), shake('took')],
           cam=at_(42.6, 12.6, 5.5), era='history', tr='film',
           src=[src('The popes ruled the Papal States until the Kingdom of Italy seized them (1870).', 'Vatican_City', 'ruled the Papal States, which covered a large portion of the Italian Peninsula, for more than a thousand years until the mid-19th century, when all the territory belonging to the papacy was seized by the newly created Kingdom of Italy')]),
@@ -244,7 +244,7 @@ save('kaliningrad', meta(
           era='history',
           src=[src('Frederick I was crowned King in Prussia in Königsberg in 1701.', 'Kaliningrad', 'Frederick I of Prussia ... crowned King in Prussia in Königsberg, 1701')]),
         S("Then, in April 1945, the Soviet army captured the city.", [
-            year(1945, '1945'), hl({'admin1s': ['Warmian-Masurian'], 'country': 'POL'}, '#8b5e34', 'Then', fillOpacity=0.4), hl(KO, '#8b5e34', 'Then', fillOpacity=0.4), char('soviet_soldier', 'Soviet', name='Red Army'), arrow((54.6, 23.5), (54.72, 20.7), 'captured', color='#c1121f'), shake('captured')],
+            year(1945, '1945'), hl({'hist': 1920, 'name': 'East Prussia'}, '#8b5e34', 'Then', fillOpacity=0.5), char('soviet_soldier', 'Soviet', name='Red Army'), arrow((54.6, 23.5), (54.72, 20.7), 'captured', color='#c1121f'), shake('captured')],
           cam=at_(54.3, 21.2, 14), era='history',
           src=[src('The Soviet Union captured the city on 9 April 1945.', 'Kaliningrad', 'it was then captured by the Soviet Union on 9 April 1945')]),
         S("After the war, East Prussia was split. The north went to the Soviet Union, the south went to Poland.", [

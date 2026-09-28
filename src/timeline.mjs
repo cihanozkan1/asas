@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { resolveTargetSpec, flagExists, iconUrl } from './geo.mjs';
 import { normWord } from './util.mjs';
+import { histYearFor, histBorders } from './historical.mjs';
 
 const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12], bars: [0.5, 0.3], vs: [0.5, 0.27], timeline: [0.5, 0.24], clock: [0.5, 0.3] };
 
@@ -91,6 +92,22 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     words: n.words,
     era: script.scenes[i].era || 'now',
   }));
+
+  // history scenes draw the borders of their own time (the year told in the scene, else the last
+  // one told); a scene can pin it with "histYear"
+  let lastHist = null;
+  const histUrls = {};
+  for (let i = 0; i < scenes.length; i++) {
+    const src = script.scenes[i];
+    if (scenes[i].era !== 'history') continue;
+    const yr = (src.show || []).find((e) => e.type === 'year');
+    const h = src.histYear ?? (yr ? histYearFor(yr.value) : null) ?? lastHist;
+    if (!h) continue;
+    lastHist = h;
+    scenes[i].histYear = h;
+    if (!histUrls[h]) histUrls[h] = await histBorders(h);
+  }
+  assets.hist = histUrls;
 
   const elements = [];
   let lastZoom = 0;
@@ -240,7 +257,9 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     // or the same camera); otherwise they'd float over an unrelated map
     const nx = scenes[el.scene + 1];
     const same = (a, b) => !b || (a && b && !a.fit && !b.fit && Math.abs((a.lat ?? 0) - (b.lat ?? 0)) < 0.5 && Math.abs((a.lon ?? 0) - (b.lon ?? 0)) < 0.5 && Math.abs(Math.log((a.zoom || 1) / (b.zoom || 1))) < 0.35);
-    const cap = nx && same(sc.camera, nx.camera) && nx.era === sc.era ? nx.end : sc.end + 0.8;
+    // points, names and icons belong to what is being said: they leave when the narration moves on
+    const POINTY = new Set(['ping', 'label', 'icon', 'flag', 'question', 'scatter', 'badge', 'measure']);
+    const cap = POINTY.has(el.type) ? sc.end + 0.15 : nx && same(sc.camera, nx.camera) && nx.era === sc.era ? nx.end : sc.end + 0.8;
     const end = el.screen ? el.end + deficit : Math.min(el.end + deficit, cap);
     el.end = Math.min(Math.max(el.end, end), narration.duration);
   }

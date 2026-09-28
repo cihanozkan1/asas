@@ -399,3 +399,50 @@ html, body {
 .bubble.top { left: 50%; right: auto; bottom: 100%; transform-origin: 50% 100%; translate: -50% -14px; max-width: 320px; }
 .bubble.top::before { left: calc(50% - 18px); bottom: -30px; width: 36px; height: 30px; clip-path: polygon(0 0, 100% 0, 50% 100%); }
 .bubble.top::after { left: calc(50% - 13px); bottom: -22px; width: 26px; height: 22px; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+
+/* ---------- v6: name tags sit under the feet; each kit has its own lettering ---------- */
+.character .nametag, .character.figure .nametag { top: calc(100% + 10px); bottom: auto; font-size: 30px; }
+.kit-classic .character .nametag { font-family: 'Montserrat', sans-serif; font-weight: 800; background: #fff; color: #111; border-radius: 999px; padding: 4px 20px; }
+.kit-block .character .nametag { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: .06em;
+  background: #111; color: #fff; border-radius: 2px; border-bottom: 6px solid var(--kit); padding: 4px 18px 2px; box-shadow: 0 6px 0 rgba(0,0,0,.3); }
+.kit-neon .character .nametag { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 40px; letter-spacing: .1em; background: none; box-shadow: none;
+  color: #fff; text-shadow: 0 0 8px var(--kit), 0 0 22px var(--kit); }
+.kit-paper .character .nametag { font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; background: var(--kit); color: #fff; border-radius: 0;
+  padding: 4px 30px; clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%); box-shadow: none; }
+.kit-news .character .nametag { font-family: 'Oswald', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; background: rgba(12,12,18,.92);
+  color: #fff; border-radius: 0; border-left: 10px solid var(--kit); padding: 4px 18px; }
+.kit-outline .character .nametag { font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; font-size: 24px;
+  background: rgba(0,0,0,.35); color: #fff; border: 2px solid #fff; border-radius: 0; padding: 6px 16px; box-shadow: none; }
+/* history scenes: engraved name on a parchment label, whatever the kit */
+.character.era-history .nametag { font-family: 'Playfair Display', serif !important; font-weight: 700 !important; font-style: normal !important; text-transform: none !important;
+  letter-spacing: .02em !important; font-size: 32px !important; color: #3a2a18 !important; text-shadow: none !important;
+  background: linear-gradient(#f4e6c4, #e2cf9f) !important; border: 2px solid #7a5a32 !important; border-radius: 4px !important; clip-path: none !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,.35) !important; padding: 2px 18px !important; }
+
+/* measurements: a dimension label, not a name pill */
+.dim { font-family: 'Oswald', sans-serif; font-weight: 700; color: #fff; white-space: nowrap; letter-spacing: .02em; line-height: 1;
+  padding: 6px 12px 6px 14px; border-left: 6px solid var(--dc, #fff); background: linear-gradient(90deg, rgba(8,10,16,.78), rgba(8,10,16,.25));
+  text-shadow: 0 2px 6px rgba(0,0,0,.6); }
+.kit-block .dim { font-family: 'Anton', sans-serif; font-weight: 400; background: var(--kit); color: #111; border-left: 0; text-shadow: none; padding: 4px 14px; }
+.kit-neon .dim { font-family: 'Bebas Neue', sans-serif; font-weight: 400; background: none; border-left: 0; font-size: 1.2em;
+  text-shadow: 0 0 8px var(--kit), 0 0 20px var(--kit); }
+.kit-paper .dim { font-family: 'Playfair Display', serif; font-style: italic; background: rgba(255,255,255,.92); color: #222; border-left: 0; border-radius: 30px;
+  text-shadow: none; padding: 4px 18px; }
+.kit-outline .dim { background: none; border: 3px solid #fff; border-left-width: 3px; }
+
+/* place names next to a map marker: lettering follows the kit */
+.label.place { font-size: 0.9em; }
+.kit-classic .label.place { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+.kit-block .label.place { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; background: #111; color: #fff;
+  padding: 2px 12px 3px; border-bottom: 5px solid var(--kit); text-shadow: none; -webkit-text-stroke: 0; }
+.kit-neon .label.place { font-family: 'Bebas Neue', sans-serif; font-weight: 400; letter-spacing: .1em; font-size: 1.1em; -webkit-text-stroke: 0;
+  text-shadow: 0 0 6px var(--kit), 0 0 16px var(--kit), 0 2px 4px rgba(0,0,0,.8); }
+.kit-paper .label.place { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1d1d1f; background: rgba(255,255,255,.94); border-radius: 30px;
+  padding: 3px 14px; text-shadow: none; -webkit-text-stroke: 0; box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+.kit-news .label.place { font-family: 'Oswald', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; background: rgba(12,12,18,.88);
+  padding: 2px 12px; border-left: 6px solid var(--kit); text-shadow: none; -webkit-text-stroke: 0; }
+.kit-outline .label.place { font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; font-size: .75em; }
+/* history scenes: names are inked on the old map */
+.label.era-history.place, .label.era-history:not(.pill):not(.note):not(.map):not(.serif) { font-family: 'Playfair Display', serif !important; font-style: italic;
+  font-weight: 700 !important; color: #3b2a17 !important; background: none !important; border: 0 !important; text-transform: none !important;
+  letter-spacing: .01em !important; -webkit-text-stroke: 0 !important; text-shadow: 0 0 6px rgba(245,232,200,.95), 0 0 2px rgba(245,232,200,.95) !important; }

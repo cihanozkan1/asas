@@ -344,15 +344,8 @@
         {
           "type": "highlight",
           "target": {
-            "countries": [
-              "AUT",
-              "HUN",
-              "CZE",
-              "SVK",
-              "SVN",
-              "HRV",
-              "BIH"
-            ]
+            "hist": 1914,
+            "name": "Austro-Hungarian Empire"
           },
           "fill": "#c9a227",
           "at": "Austria-Hungary",

@@ -338,24 +338,12 @@
         {
           "type": "highlight",
           "target": {
-            "admin1s": [
-              "Warmian-Masurian"
-            ],
-            "country": "POL"
+            "hist": 1920,
+            "name": "East Prussia"
           },
           "fill": "#8b5e34",
           "at": "Then",
-          "fillOpacity": 0.4
-        },
-        {
-          "type": "highlight",
-          "target": {
-            "admin1": "Kaliningrad",
-            "country": "RUS"
-          },
-          "fill": "#8b5e34",
-          "at": "Then",
-          "fillOpacity": 0.4
+          "fillOpacity": 0.5
         },
         {
           "type": "character",

@@ -204,7 +204,10 @@
         },
         {
           "type": "highlight",
-          "target": "AFG",
+          "target": {
+            "hist": 1880,
+            "name": "Afghanistan"
+          },
           "fill": "#8b5e34",
           "at": "Central",
           "fillOpacity": 0.45
@@ -212,13 +215,8 @@
         {
           "type": "highlight",
           "target": {
-            "countries": [
-              "TJK",
-              "UZB",
-              "TKM",
-              "KGZ",
-              "KAZ"
-            ]
+            "hist": 1880,
+            "name": "Russian Empire"
           },
           "fill": "#b3202a",
           "at": "Russian",
@@ -228,10 +226,8 @@
         {
           "type": "highlight",
           "target": {
-            "countries": [
-              "PAK",
-              "IND"
-            ]
+            "hist": 1880,
+            "name": "British Raj"
           },
           "fill": "#e9a1a1",
           "at": "British",
@@ -300,7 +296,8 @@
           "url": "https://en.wikipedia.org/wiki/Great_Game",
           "quote": "a rivalry between the 19th-century British and Russian empires over influence in Central Asia"
         }
-      ]
+      ],
+      "histYear": 1880
     },
     {
       "era": "history",
@@ -401,9 +398,10 @@
         {
           "type": "highlight",
           "target": {
-            "countries": [
-              "AFG",
-              "IRN"
+            "hist": 1914,
+            "names": [
+              "Afghanistan",
+              "Persia"
             ]
           },
           "fill": "#6b7280",
@@ -414,8 +412,8 @@
         {
           "type": "highlight",
           "target": {
-            "admin1": "Xizang",
-            "country": "CHN"
+            "hist": 1914,
+            "name": "Tibet"
           },
           "fill": "#6b7280",
           "at": "convention",

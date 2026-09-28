@@ -726,7 +726,10 @@
         },
         {
           "type": "highlight",
-          "target": "BRA",
+          "target": {
+            "hist": 1783,
+            "name": "Viceroyalty of Brazil"
+          },
           "fill": "#1f7a3a",
           "fillOpacity": 0.85,
           "reveal": {

@@ -419,26 +419,8 @@
         {
           "type": "highlight",
           "target": {
-            "admin1s": [
-              "Roma",
-              "Latina",
-              "Frosinone",
-              "Viterbo",
-              "Rieti",
-              "Perugia",
-              "Terni",
-              "Ancona",
-              "Macerata",
-              "Ascoli Piceno",
-              "Fermo",
-              "Pesaro e Urbino",
-              "Bologna",
-              "Ferrara",
-              "Ravenna",
-              "Forlì-Cesena",
-              "Rimini"
-            ],
-            "country": "ITA"
+            "hist": 1815,
+            "name": "Papal States"
           },
           "fill": "#d4a017",
           "at": "Papal",

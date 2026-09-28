@@ -294,14 +294,13 @@ export function characterSvg(spec) {
 </svg>`;
 }
 
-// Caravel: sails carry an emblem (cross colour) and the mast flies a pennant.
+// Sailing ship: sails carry a coloured band and the mast flies a pennant.
 export function shipSvg(spec = {}) {
   const hull = spec.hull || '#6e4322';
   const sail = spec.sail || '#f3ead2';
   const emblem = spec.emblem || '#c1121f';
-  const cross = spec.cross === 'saltire'
-    ? `<path d="M-14 -14 L14 14 M14 -14 L-14 14" stroke="${emblem}" stroke-width="7"/>`
-    : `<path d="M0 -16 V16 M-14 0 H14" stroke="${emblem}" stroke-width="7"/>`;
+  // neutral sails: a coloured band, no religious or national symbol
+  const cross = `<path d="M-22 -4 Q0 -8 22 -4 L22 5 Q0 1 -22 5Z" fill="${emblem}" opacity=".85"/>`;
   return `<svg viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
   <defs>
     <linearGradient id="hull" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8a5a32"/><stop offset="1" stop-color="${hull}"/></linearGradient>

@@ -25,7 +25,7 @@ save('northwest_angle', meta(
           cam=at_(48, -95, 7), style='vintage', era='history',
           src=[src('It stems from a 1783 mapping mistake.', 'Northwest_Angle', "The region's existence stems from a 1783 mapping mistake.")]),
         S("The negotiators of the Treaty of Paris, including Benjamin Franklin, used a map that got the Mississippi River and this lake wrong.", [
-            hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), char('franklin', 'Benjamin', name='Benjamin Franklin'),
+            hl({'hist': 1783, 'name': 'United States of America'}, '#b08968', 0.05, fillOpacity=0.45), hl({'hist': 1783, 'names': ['Quebec', "Rupert's Land"]}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), char('franklin', 'Benjamin', name='Benjamin Franklin'),
             
             route([(47.24, -95.21), (47.45, -94.9), (47.3, -94.2), (46.4, -94.3), (45.6, -94.2), (44.98, -93.27)], 'Mississippi', color='#5ec8ff', width=7, drawDur=1.2, hold=2),
             lab('Lake of the Woods', 49.45, -94.3, 'lake', style='serif', size=48)],
@@ -33,14 +33,14 @@ save('northwest_angle', meta(
           src=[src("Negotiators incl. Benjamin Franklin relied on John Mitchell's inaccurate map.", 'Northwest_Angle',
                    "Negotiators of the Canada-U.S. border, including Benjamin Franklin, relied on John Mitchell's colonial map, which contained critical inaccuracies.")]),
         S("The treaty said the border runs to the lake's northwesternmost point, and then west to the Mississippi.", [
-            hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50),
+            hl({'hist': 1783, 'name': 'United States of America'}, '#b08968', 0.05, fillOpacity=0.45), hl({'hist': 1783, 'names': ['Quebec', "Rupert's Land"]}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50),
             route([(48.7, -93.5), (49.2, -94.5), (49.38, -95.15)], 'northwesternmost', color='#c1121f', width=7, drawDur=1.2, hold=1),
             ping(49.38, -95.15, 'point', color='#c1121f'), arrow((49.38, -95.3), (49.38, -97.5), 'west', color='#c1121f')],
           era='history',
           src=[src('The treaty set the boundary through the lake to its "northwesternmost point," then westward to the Mississippi.', 'Northwest_Angle',
                    'The Treaty of Paris consequently set the boundary to run through the lake to its "northwesternmost point," then westward to the Mississippi.')]),
         S("But the Mississippi actually starts far to the south, at Lake Itasca. The line could never reach it.", [
-            hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), ping(47.24, -95.21, 'Itasca', color='#5ec8ff'), dot('Lake Itasca', 47.24, -95.21, 'Itasca', dy=48),
+            hl({'hist': 1783, 'name': 'United States of America'}, '#b08968', 0.05, fillOpacity=0.45), hl({'hist': 1783, 'names': ['Quebec', "Rupert's Land"]}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), ping(47.24, -95.21, 'Itasca', color='#5ec8ff'), dot('Lake Itasca', 47.24, -95.21, 'Itasca', dy=48),
             arrow((49.2, -97.3), (47.5, -95.5), 'south', color='#5ec8ff'), note('???', 48.3, -96.4, 'never', size=80)],
           cam=at_(48.0, -95.3, 6), era='history',
           src=[src("The Mississippi's actual source, Lake Itasca, lies south of Lake of the Woods.", 'Northwest_Angle',
@@ -173,7 +173,7 @@ save('bolivia_navy', meta(
           src=[src('It operates on Lake Titicaca, the highest navigable lake, and Amazon tributaries.', 'Bolivian_Navy', 'Lake Titicaca, described as "the highest navigable lake in the world," and patrols Amazon tributaries')]),
         S("So why does a landlocked country need a navy?", [q(-17, -65, 'why')], cam=fit(BOL, pad=0.9), style='dark', no_claim=True),
         S("Because until the 1880s, Bolivia had its own coast on the Pacific Ocean, right here.", [
-            hl(ANTO, 'flag:bo', 'here', reveal={'lat': -22.5, 'lon': -68}), ping(-23.65, -70.4, 'coast', color='#ffd60a'), hl(BOL, 'flag:bo', 0.05)],
+            hl({'hist': 1880, 'name': 'Bolivia'}, 'flag:bo', 0.05), ping(-23.65, -70.4, 'coast', color='#ffd60a')],
           cam=fit(BOL, ANTO, pad=0.9), era='history', tr='film',
           src=[src('Bolivia ceded its coastal Litoral Department to Chile.', 'War_of_the_Pacific', 'Bolivia ceded its coastal Litoral Department to Chile, making it landlocked')]),
         S("In 1879, Bolivia raised a tax on a Chilean mining company, breaking an earlier treaty, and it started the War of the Pacific.", [
@@ -182,7 +182,7 @@ save('bolivia_navy', meta(
           src=[src("Bolivia's 10 cents per quintal tax on the Chilean company CSFA triggered the war (1879–1884).", 'War_of_the_Pacific',
                    'Bolivia imposed a controversial "10 cents per quintal tax" on the Chilean mining company CSFA, violating the 1874 boundary treaty ... 1 March 1879 – 4 April 1884')]),
         S("Peru fought alongside Bolivia, but after five years of war, Chile won.", [
-            hl('PER', 'flag:pe', 'Peru', fillOpacity=0.8), hl('CHL', 'flag:cl', 'Chile', fillOpacity=0.8),
+            hl({'hist': 1880, 'name': 'Peru'}, 'flag:pe', 'Peru', fillOpacity=0.8), hl({'hist': 1880, 'name': 'Chile'}, 'flag:cl', 'Chile', fillOpacity=0.8),
             char('soldier_chile', 'Chile', name='Chile'), char('soldier_bolivia', 'Bolivia', screen=(0.74, 0.6), name='Bolivia', flip=True)],
           cam=at_(-20, -68, 2.6), era='history',
           src=[src('Chile fought an alliance of Bolivia and Peru and emerged victorious.', 'War_of_the_Pacific', 'between Chile against an alliance of Bolivia and Peru ... Chile emerged victorious')]),

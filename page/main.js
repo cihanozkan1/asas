@@ -408,6 +408,9 @@ async function init(tl) {
     loadImg(tl.assets.earth),
   ]);
   state.geo = prepareGeo(c50, c10, l50, l10);
+  // borders of the past, one set per year used by the history scenes
+  state.hist = {};
+  for (const [y, url] of Object.entries(tl.assets.hist || {})) state.hist[y] = await loadJson(url);
 
   state.raster = new Raster($('raster'));
   const rs = cfg.video.rasterScale;
@@ -566,6 +569,18 @@ async function init(tl) {
     };
     const keep = cost(x0), flip = cost(1 - x0);
     ch.screen[0] = flip < keep * 0.6 ? 1 - x0 : x0;
+  }
+  // an icon already on the map that a later ping would sit under makes room for it
+  for (const pg of tl.elements) {
+    if (pg.type !== 'ping') continue;
+    frame(Math.min(pg.start + 0.1, pg.end - 0.05));
+    const pp = project(pg);
+    if (!pp) continue;
+    for (const m of tl.elements) {
+      if (m.type !== 'icon' || !m._node || m.start > pg.start - 0.1 || m.end < pg.start + 0.3) continue;
+      const b = rectOf(m);
+      if (b && pp[0] > b.left - 30 && pp[0] < b.right + 30 && pp[1] > b.top - 30 && pp[1] < b.bottom + 30) m.end = Math.max(m.start + 1.5, pg.start + 0.1);
+    }
   }
   // an older map label/icon that a later card, stamp or character would cover leaves as it arrives
   const area = (r) => r.width * r.height;
@@ -740,7 +755,9 @@ function drawVector(t, proj, view, mix) {
     ctx.lineWidth = 1.6;
     ctx.stroke();
     ctx.beginPath();
-    path(borders);
+    const sceneNow = state.tl.scenes.find((sc) => t >= sc.start - 0.3 && t < sc.end) || state.tl.scenes.at(-1);
+    const hb = sceneNow?.histYear && state.hist[sceneNow.histYear];
+    path(hb || borders);
     ctx.setLineDash([6, 5]);
     ctx.strokeStyle = V.border;
     ctx.lineWidth = 1.4;
@@ -1058,7 +1075,95 @@ function project(pt) {
   return p;
 }
 
+// Map markers: each UI kit has its own shape, so not every video uses the same yellow dot.
+const MARKER = { classic: 'ripple', block: 'pin', neon: 'diamond', paper: 'tack', news: 'bracket', outline: 'crosshair' };
+function markerColor(c) {
+  const kit = state.tl.kit?.accent;
+  return !c || /^#ffd60a$/i.test(c) ? kit || '#ffd60a' : c;
+}
+function drawMarker(ctx, p, color, life, k, reach) {
+  const style = state.tl.scenes && styleAt(state.time || 0).vin > 0.5 ? 'tack' : MARKER[state.tl.kit?.kit] || 'ripple';
+  const inU = ease.outBack(clamp01(life.age / 0.35));
+  const [x, y] = p;
+  ctx.save();
+  ctx.globalAlpha = life.out;
+  ctx.lineJoin = 'round';
+  if (style === 'ripple') {
+    for (let n = 0; n < 2; n++) {
+      const ph = (life.age * 0.9 + n * 0.5) % 1;
+      ctx.globalAlpha = life.out * (1 - ph) * 0.8;
+      ctx.strokeStyle = color; ctx.lineWidth = 4 * k;
+      ctx.beginPath(); ctx.arc(x, y, (14 + ph * reach) * k, 0, Math.PI * 2); ctx.stroke();
+    }
+    ctx.globalAlpha = life.out;
+    ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 8;
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x, y, 12 * k * inU, 0, Math.PI * 2); ctx.fill();
+    ctx.shadowBlur = 0; ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 7.5 * k * inU, 0, Math.PI * 2); ctx.fill();
+  } else if (style === 'pin') {
+    const drop = (1 - ease.outCubic(clamp01(life.age / 0.35))) * 60 * k;
+    const s = 30 * k;
+    ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.beginPath(); ctx.ellipse(x, y, 10 * k, 4 * k, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.translate(x, y - drop);
+    ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 3;
+    ctx.fillStyle = color; ctx.strokeStyle = '#111'; ctx.lineWidth = 3 * k;
+    ctx.beginPath(); ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-s * 0.2, -s * 0.6, -s * 0.62, -s * 0.9, -s * 0.62, -s * 1.3);
+    ctx.arc(0, -s * 1.3, s * 0.62, Math.PI, 0);
+    ctx.bezierCurveTo(s * 0.62, -s * 0.9, s * 0.2, -s * 0.6, 0, 0);
+    ctx.fill(); ctx.shadowBlur = 0; ctx.stroke();
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(0, -s * 1.3, s * 0.25, 0, Math.PI * 2); ctx.fill();
+  } else if (style === 'diamond') {
+    const ph = (life.age * 1.1) % 1;
+    ctx.strokeStyle = color; ctx.lineWidth = 3 * k; ctx.shadowColor = color; ctx.shadowBlur = 18;
+    const r0 = (16 + ph * reach * 0.8) * k;
+    ctx.globalAlpha = life.out * (1 - ph);
+    ctx.beginPath(); ctx.moveTo(x, y - r0); ctx.lineTo(x + r0, y); ctx.lineTo(x, y + r0); ctx.lineTo(x - r0, y); ctx.closePath(); ctx.stroke();
+    ctx.globalAlpha = life.out;
+    const r1 = 13 * k * inU;
+    ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(x, y - r1); ctx.lineTo(x + r1, y); ctx.lineTo(x, y + r1); ctx.lineTo(x - r1, y); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x, y, 3.5 * k, 0, Math.PI * 2); ctx.fill();
+  } else if (style === 'tack') {
+    const s = 22 * k * inU;
+    ctx.strokeStyle = '#3b2b1a'; ctx.lineWidth = 3 * k;
+    ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + s * 0.5, y - s * 1.1); ctx.stroke();
+    ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 6; ctx.shadowOffsetY = 3;
+    const g = ctx.createRadialGradient(x + s * 0.4, y - s * 1.4, 1, x + s * 0.5, y - s * 1.2, s * 0.7);
+    g.addColorStop(0, '#fff'); g.addColorStop(0.35, color); g.addColorStop(1, '#00000088');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x + s * 0.5, y - s * 1.2, s * 0.62, 0, Math.PI * 2); ctx.fill();
+  } else if (style === 'bracket') {
+    const r = (22 + 8 * Math.sin(life.age * 5)) * k * inU, L = 12 * k;
+    ctx.strokeStyle = color; ctx.lineWidth = 4 * k; ctx.lineCap = 'square';
+    for (const [sx, sy] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+      ctx.beginPath(); ctx.moveTo(x + sx * r, y + sy * (r - L)); ctx.lineTo(x + sx * r, y + sy * r); ctx.lineTo(x + sx * (r - L), y + sy * r); ctx.stroke();
+    }
+    ctx.fillStyle = color; ctx.fillRect(x - 5 * k, y - 5 * k, 10 * k, 10 * k);
+  } else {
+    const r = 20 * k * inU, rot = life.age * 0.8;
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 3 * k; ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 6;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke();
+    for (let n = 0; n < 4; n++) {
+      const a = rot + (n * Math.PI) / 2;
+      ctx.beginPath(); ctx.moveTo(x + Math.cos(a) * r * 0.55, y + Math.sin(a) * r * 0.55); ctx.lineTo(x + Math.cos(a) * r * 1.45, y + Math.sin(a) * r * 1.45); ctx.stroke();
+    }
+    ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, 5 * k, 0, Math.PI * 2); ctx.fill();
+  }
+  ctx.restore();
+}
+
+function markerPoints(t) {
+  const out = [];
+  for (const el of state.tl.elements) {
+    const isDot = el.type === 'label' && el.dot && el.lat != null;
+    if (el.type !== 'ping' && !isDot) continue;
+    if (t < el.start - 0.05 || t > el.end) continue;
+    const p = project(el);
+    if (p) out.push([p[0], p[1], isDot ? 40 : 90]);
+  }
+  return out;
+}
+
 function drawMarks(t) {
+  state.time = t;
   const ctx = $('marks').getContext('2d');
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, W, H);
@@ -1067,30 +1172,7 @@ function drawMarks(t) {
     const life = lifeOf(el, t, 0.3, 0.3);
     const p = life && project(el);
     if (!p) continue;
-    const color = el.color || '#ff3b3b';
-    ctx.save();
-    ctx.globalAlpha = life.out;
-    for (let k = 0; k < 2; k++) {
-      const ph = (life.age * 0.9 + k * 0.5) % 1;
-      ctx.globalAlpha = life.out * (1 - ph) * 0.9;
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 5;
-      ctx.beginPath();
-      ctx.arc(p[0], p[1], 14 + ph * (el.r ?? 70), 0, Math.PI * 2);
-      ctx.stroke();
-    }
-    ctx.globalAlpha = life.out;
-    ctx.shadowColor = color;
-    ctx.shadowBlur = 24;
-    ctx.fillStyle = '#fff';
-    ctx.beginPath();
-    ctx.arc(p[0], p[1], 11 * ease.outBack(clamp01(life.age / 0.3)), 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(p[0], p[1], 7 * ease.outBack(clamp01(life.age / 0.3)), 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
+    drawMarker(ctx, p, markerColor(el.color), life, 1, el.r ?? 70);
   }
   for (const el of state.tl.elements) {
     if (el.type !== 'flag' || !el.moveTo || !el._arc) continue;
@@ -1119,25 +1201,7 @@ function drawMarks(t) {
     const life = lifeOf(el, t, 0.3, 0.4);
     const p = life && project(el);
     if (!p) continue;
-    const u = ease.outBack(clamp01(life.age / 0.3));
-    const pulse = 1 + 0.5 * ((life.age * 1.2) % 1);
-    ctx.save();
-    ctx.globalAlpha = life.out;
-    ctx.fillStyle = el.dotColor || el.color || '#ffd60a';
-    ctx.globalAlpha = life.out * 0.35 * (1 - ((life.age * 1.2) % 1));
-    ctx.beginPath();
-    ctx.arc(p[0], p[1], 11 * pulse * 1.6, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.globalAlpha = life.out;
-    ctx.shadowColor = 'rgba(0,0,0,.6)';
-    ctx.shadowBlur = 6;
-    ctx.beginPath();
-    ctx.arc(p[0], p[1], 10 * u, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.lineWidth = 3.5;
-    ctx.strokeStyle = '#fff';
-    ctx.stroke();
-    ctx.restore();
+    drawMarker(ctx, p, markerColor(el.dotColor || el.color), life, 0.62, 40);
   }
   for (const el of state.tl.elements) {
     if (!['arrow', 'line', 'ring', 'route', 'measure'].includes(el.type)) continue;
@@ -1427,7 +1491,7 @@ function buildUi() {
     let html = null;
     switch (el.type) {
       case 'label':
-        html = `<div class="inner label ${el.style || ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `background:${el.bg};` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${esc(el.text)}</div>`;
+        html = `<div class="inner label ${el.style || ''} ${el.dot ? 'place' : ''} ${state.tl.scenes[el.scene]?.style === 'vintage' ? 'era-history' : ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `background:${el.bg};` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${esc(el.text)}</div>`;
         break;
       case 'flag': {
         const w = el.size || 150;
@@ -1512,7 +1576,8 @@ function buildUi() {
         const bodyHtml = el.image
           ? `<img class="body figure" src="/assets/characters/${el.image}.png" style="height:${sz}px;display:block;margin:0 auto">`
           : `<div class="body" style="width:${sz}px;height:${sz * 1.2}px">${characterSvg(el).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`)}</div>`;
-        html = `<div class="inner character ${el.image ? 'figure' : ''}" style="${el.image ? '' : `width:${sz}px`}">
+        const era = state.tl.scenes[el.scene]?.era === 'history' ? 'era-history' : '';
+        html = `<div class="inner character ${el.image ? 'figure' : ''} ${era}" style="${el.image ? '' : `width:${sz}px`}">
           ${bodyHtml}
           ${el.name ? `<div class="nametag">${esc(el.name)}</div>` : ''}
           ${el.say ? `<div class="bubble ${el.think ? 'think' : ''} ${el.bubbleSide === 'left' ? 'left' : ''}"><span>${esc(el.say)}</span></div>` : ''}
@@ -1534,7 +1599,7 @@ function buildUi() {
         html = `<div class="inner counter" style="font-size:${el.size || 170}px;color:${el.color || '#ffd60a'}"></div>`;
         break;
       case 'measure':
-        html = `<div class="inner label pill" style="font-size:${el.size || 44}px;background:${el.bg || 'rgba(0,0,0,.72)'}">${esc(el.label || '')}</div>`;
+        html = `<div class="inner dim" style="font-size:${el.size || 44}px;--dc:${el.color || '#ffffff'}">${esc(el.label || '')}</div>`;
         break;
       case 'scatter':
         html = `<div class="inner scatter">${el._pts.map(() => `<img src="${el.src}" style="width:${el.size || 70}px;height:${el.size || 70}px">`).join('')}</div>`;
@@ -1619,6 +1684,7 @@ function kitEntrance(a) {
 }
 
 function updateUi(t) {
+  state.time = t;
   state.bursts = [];
   const placed = [];
   for (const el of state.tl.elements) {
@@ -1809,12 +1875,16 @@ function updateUi(t) {
       }
       case 'measure': {
         if (el.countUp !== false) inner.textContent = countUp(el.label || '', el._head.u);
-        let deg = (el._head.ang * 180) / Math.PI;
-        if (deg > 90) deg -= 180;
-        if (deg < -90) deg += 180;
-        rot = el.labelRotate === false ? 0 : deg;
+        // text always stays horizontal, set beside the line (never along it)
+        rot = 0;
+        const ang = el._head.ang;
+        let nx = -Math.sin(ang), ny = Math.cos(ang);
+        if (Math.abs(nx) >= Math.abs(ny)) { if ((x > W / 2) === (nx > 0)) { nx = -nx; ny = -ny; } }
+        else if (ny > 0) { nx = -nx; ny = -ny; }
+        const off = Math.abs(nx) * (w / 2 + 30) + Math.abs(ny) * (h / 2 + 24);
+        x += nx * off;
+        y += ny * off + (el.labelDy ?? 0);
         scale = ease.outBack(clamp01((life.age - 0.4) / 0.3));
-        y += el.labelDy ?? -46;
         break;
       }
       case 'counter':
@@ -1944,7 +2014,8 @@ function updateUi(t) {
       const sz = el.size || 70, x = parseFloat(img.style.left) + sz / 2, y = parseFloat(img.style.top) + sz / 2;
       el._clear = el._clear || [];
       if (el._clear[i] == null) {
-        el._clear[i] = !placed.some((p) => p.opacity > 0.3 && p.el.type !== 'route' && Math.abs(p.x - x) < (p.w * p.scale + sz) / 2 && Math.abs(p.y - y) < (p.h * p.scale + sz) / 2);
+        el._clear[i] = !placed.some((p) => p.opacity > 0.3 && p.el.type !== 'route' && Math.abs(p.x - x) < (p.w * p.scale + sz) / 2 && Math.abs(p.y - y) < (p.h * p.scale + sz) / 2)
+          && !markerPoints(t).some((m) => Math.abs(m[0] - x) < (m[2] + sz) / 2 && Math.abs(m[1] - y) < (m[2] + sz) / 2);
       }
       if (!el._clear[i]) img.style.opacity = '0';
     });
@@ -1981,6 +2052,8 @@ function resolveOverlaps(items, canMove = isMovable) {
     });
   const cap = { p: { x: W / 2, y: H * C.y + C.size * 0.6 }, movable: false, w: W * 0.8, h: C.size * 1.5 };
   boxes.push(cap);
+  // marked points (pings, city dots) are never covered by an icon or a label
+  for (const m of markerPoints(state.time ?? 0)) boxes.push({ p: { x: m[0], y: m[1] }, movable: false, w: m[2], h: m[2], marker: true });
   // a character's speech bubble sits above its box: add it as an extra obstacle
   for (const p of items) {
     if (p.el.type !== 'character' || !p.el.say || p.opacity <= 0.02) continue;
@@ -1995,6 +2068,11 @@ function resolveOverlaps(items, canMove = isMovable) {
       for (let j = i + 1; j < boxes.length; j++) {
         const a = boxes[i], b = boxes[j];
         if (!a.movable && !b.movable) continue;
+        // a label may sit next to its own dot, but no icon may sit on any marked point
+        if ((a.marker && b.p.el?.type === 'label') || (b.marker && a.p.el?.type === 'label')) {
+          const lab = a.marker ? b : a, mk = a.marker ? a : b;
+          if (Math.abs(lab.p.x - mk.p.x) > (lab.w + 20) / 2 || Math.abs(lab.p.y - mk.p.y) > (lab.h + 20) / 2) continue;
+        }
         const ox = (a.w + b.w) / 2 + pad - Math.abs(a.p.x - b.p.x);
         const oy = (a.h + b.h) / 2 + pad - Math.abs(a.p.y - b.p.y);
         if (ox <= 0 || oy <= 0) continue;
