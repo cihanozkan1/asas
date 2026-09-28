@@ -139,17 +139,19 @@
         {
           "type": "highlight",
           "target": {
-            "box": [
-              -104,
-              31,
-              -90,
-              47
-            ]
+            "admin1s": [
+              "Texas",
+              "Oklahoma",
+              "Kansas",
+              "Nebraska",
+              "South Dakota",
+              "Iowa"
+            ],
+            "country": "USA"
           },
           "fill": "#ff5a5f",
           "at": "borders",
-          "fillOpacity": 0.3,
-          "soft": true
+          "fillOpacity": 0.35
         },
         {
           "type": "route",

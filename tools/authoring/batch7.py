@@ -102,7 +102,7 @@ save('tornado_alley', meta(
             bars([('USA', 1200, '1,200', '#ff5a5f', 'us'), ('Canada', 62, '62', '#5ec8ff', 'ca')], 'Canada', screen=[0.5, 0.3], labelWidth=220)],
           src=[src('Canada averages 62 per year.', 'Tornado', 'followed by Canada, averaging 62 reported per year')]),
         S("Tornado Alley has no official borders, but it can stretch from central Texas, all the way up to the Canadian Prairies.", [
-            hl(box(-104, 31, -90, 47), '#ff5a5f', 'borders', fillOpacity=0.3, soft=True), route([(31, -99), (38, -98), (45, -98), (52, -104)], 'stretch', color='#ff5a5f', width=9, drawDur=1.6, arrowHead=True), dot('Central Texas', 31, -99, 'Texas', dy=52), dot('Canadian Prairies', 52, -104, 'Prairies', dy=-52)],
+            hl({'admin1s': ['Texas', 'Oklahoma', 'Kansas', 'Nebraska', 'South Dakota', 'Iowa'], 'country': 'USA'}, '#ff5a5f', 'borders', fillOpacity=0.35), route([(31, -99), (38, -98), (45, -98), (52, -104)], 'stretch', color='#ff5a5f', width=9, drawDur=1.6, arrowHead=True), dot('Central Texas', 31, -99, 'Texas', dy=52), dot('Canadian Prairies', 52, -104, 'Prairies', dy=-52)],
           cam=at_(41, -99, 2.0),
           src=[src('It can reach from central Texas to the Canadian Prairies.', TA, 'Tornado Alley can also be defined as an area reaching from central Texas to the Canadian Prairies and from eastern Colorado to western Ohio')]),
         S("Most of them hit here, in the middle of the country. It's called Tornado Alley.", [
