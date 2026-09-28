@@ -2055,7 +2055,7 @@ function updateFx(t) {
     } else if (tr === 'slide' && d > -0.2 && d < 0.3) {
       const u = clamp01((d + 0.2) / 0.5);
       const x = (1 - ease.inOutCubic(u)) * W * 1.1 - W * 0.05;
-      html += `<div style="position:absolute;top:0;bottom:0;left:${x}px;width:${W * 0.18}px;background:var(--kit);opacity:${0.9 * Math.sin(Math.PI * u)};transform:skewX(-12deg)"></div>`;
+      html += `<div style="position:absolute;top:0;bottom:0;left:${x}px;width:${W * 0.1}px;background:var(--kit);opacity:${0.45 * Math.sin(Math.PI * u)};transform:skewX(-12deg);filter:blur(18px)"></div>`;
     }
   }
   // sparks when a number or stamp lands

@@ -313,11 +313,11 @@ save('shelterbelt', meta(
           cam=at_(40, -99, 2.6),
           src=[src('A 100-mile-wide zone from the Canadian border in North Dakota to Texas.', SB, 'a 100-mile (160-kilometre) wide zone from the Canadian border in North Dakota to the Brazos River in Texas')]),
         S("Why? Because of the Dust Bowl, when giant dust storms blew the farmland away.", [
-            icon('🌪️', 37, -101, 'dust', size=150), icon('🌪️', 40, -97, 'storms', size=120), char('dustbowl_farmer', 'farmland', say='Where did my soil go?'), shake('blew')],
+            icon('🌪️', 37, -101, 'dust', size=150), icon('🌪️', 34.5, -99, 'storms', size=120), char('dustbowl_farmer', 'farmland', say='Where did my soil go?'), shake('blew')],
           cam=at_(38, -100, 3.2), era='history', tr='film',
           src=[src('The project was a response to the Dust Bowl dust storms.', SB, 'reduce wind velocity and lessen evaporation of moisture from the soil')]),
         S("So in 1934, President Franklin D. Roosevelt launched the Great Plains Shelterbelt.", [
-            hl(box(-104, 31.5, -96, 49), '#b45309', 'Great', fillOpacity=0.35, soft=True), lab('GREAT PLAINS', 41, -100, 'Great', size=50), year(1934, '1934'), char('fdr', 'Roosevelt', name='F. D. Roosevelt', say='Plant trees!')],
+            hl({'admin1s': ['North Dakota', 'South Dakota', 'Nebraska', 'Kansas', 'Oklahoma'], 'country': 'USA'}, '#b45309', 'Great', fillOpacity=0.4), lab('GREAT PLAINS', 41, -100, 'Great', size=50), year(1934, '1934'), char('fdr', 'Roosevelt', name='F. D. Roosevelt', say='Plant trees!')],
           era='history',
           src=[src('Started in 1934 by President Franklin D. Roosevelt.', SB, '1934')]),
         S("The idea: rows of trees slow down the wind, and keep moisture in the soil.", [

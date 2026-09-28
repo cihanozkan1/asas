@@ -125,8 +125,8 @@
         {
           "type": "icon",
           "icon": "🌪️",
-          "lat": 40,
-          "lon": -97,
+          "lat": 34.5,
+          "lon": -99,
           "size": 120,
           "at": "storms"
         },
@@ -166,17 +166,18 @@
         {
           "type": "highlight",
           "target": {
-            "box": [
-              -104,
-              31.5,
-              -96,
-              49
-            ]
+            "admin1s": [
+              "North Dakota",
+              "South Dakota",
+              "Nebraska",
+              "Kansas",
+              "Oklahoma"
+            ],
+            "country": "USA"
           },
           "fill": "#b45309",
           "at": "Great",
-          "fillOpacity": 0.35,
-          "soft": true
+          "fillOpacity": 0.4
         },
         {
           "type": "label",
