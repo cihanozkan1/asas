@@ -35,7 +35,7 @@ save('suez_ever_given', meta(
           cam=at_(25, 45, 0.9),
           src=[src('The canal avoids the long route around southern Africa.', 'Suez_Canal', 'vessels avoid the lengthy route around southern Africa')]),
         S("The canal cuts the trip from the Arabian Sea to London by about 8,900 kilometers.", [
-            cnt('−8,900 km', '8,900', size=150, color='#4ade80'), dot('London', 51.5, -0.12, 'London', dy=-46)],
+            cnt('8,900 km', '8,900', size=150, color='#4ade80'), pill('shorter', '8,900', bg='#16a34a'), dot('London', 51.5, -0.12, 'London', dy=-46)],
           cam=at_(25, 30, 0.9),
           src=[src('It shortens the Arabian Sea–London journey by about 8,900 km.', 'Suez_Canal', 'The journey "from the Arabian Sea to London" is reduced "by approximately 8,900 km (5,500 mi),"')]),
         S("After six days, dredgers and tugboats finally freed the ship.", [
@@ -89,9 +89,9 @@ save('istanbul', meta(
           era='history',
           src=[src('Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege." ... officially renamed Istanbul in 1930')]),
         S("Today, three bridges and a railway tunnel under the strait connect Europe and Asia.", [
-            cnt('3 + 1', 'three', size=180), icon('🌉', 41.05, 29.03, 'bridges', size=100), icon('🌉', 41.09, 29.06, 'bridges', size=90), icon('🌉', 41.2, 29.11, 'bridges', size=90),
-            icon('🚆', 41.01, 29.0, 'tunnel', size=90)],
-          cam=at_(41.1, 29.05, 40, bearing=-6), tr='flash',
+            cnt('3 + 1', 'three', size=180), icon('🌉', 41.05, 29.03, 'bridges', size=80), icon('🌉', 41.09, 29.06, 'bridges', size=80), icon('🌉', 41.2, 29.11, 'bridges', size=80),
+            icon('🚆', 41.005, 29.0, 'tunnel', size=80)],
+          cam=at_(41.1, 29.06, 230, bearing=-6), tr='flash',
           src=[src('Three bridges (1973, 1988, 2016) and the Marmaray rail tunnel (2013).', 'Bosporus', 'three major bridges ... plus the Marmaray railway tunnel that opened in 2013')]),
     ],
     keywords={'istanbul': '#ff5a5f', 'europe': '#5ec8ff', 'asia': '#ffd60a', 'bosphorus': '#5ec8ff', 'constantinople': '#ffd60a'},
@@ -132,7 +132,7 @@ save('doubly_landlocked', meta(
                src('Area about 160 km².', 'Liechtenstein', '160.50 km2 (61.97 sq mi)')]),
         S("But Liechtenstein wasn't always like this. Before 1918, its neighbor was Austria-Hungary, which had a coast on the Adriatic Sea.", [
             year(1918, '1918'), ping(45.65, 13.78, 'Adriatic', color='#5ec8ff'), dot('Trieste', 45.65, 13.78, 'Adriatic', dy=46),
-            hl({'countries': ['AUT', 'HUN', 'CZE', 'SVK', 'SVN', 'HRV', 'BIH']}, '#c9a227', 'Austria-Hungary', soft=True, rim='#8a6d1a', fillOpacity=0.55), lab('Austria-Hungary', 47.8, 15.5, 'Austria-Hungary', style='serif', size=58), route([(47.14, 9.52), (46.6, 11.5), (45.65, 13.78)], 'coast', color='#1d4ed8', width=7)],
+            hl({'countries': ['AUT', 'HUN', 'CZE', 'SVK', 'SVN', 'HRV', 'BIH']}, '#c9a227', 'Austria-Hungary', fillOpacity=0.6), lab('Austria-Hungary', 47.8, 15.5, 'Austria-Hungary', style='serif', size=58), route([(47.14, 9.52), (46.6, 11.5), (45.65, 13.78)], 'coast', color='#1d4ed8', width=7)],
           cam=at_(46.8, 12.5, 5.5), era='history', tr='film',
           src=[src('Before 1918 it had sea access via Austria-Hungary on the Adriatic.', 'Landlocked_country', 'Before this event, it had access to the Adriatic coastline through the Austro-Hungarian Empire.')]),
         S("When the empire broke up that year, Austria lost its coast, and Liechtenstein became doubly landlocked.", [

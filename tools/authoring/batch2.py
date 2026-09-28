@@ -25,7 +25,7 @@ save('northwest_angle', meta(
           cam=at_(48, -95, 7), style='vintage', era='history',
           src=[src('It stems from a 1783 mapping mistake.', 'Northwest_Angle', "The region's existence stems from a 1783 mapping mistake.")]),
         S("The negotiators of the Treaty of Paris, including Benjamin Franklin, used a map that got the Mississippi River and this lake wrong.", [
-            hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), char('franklin', 'Benjamin', name='Benjamin Franklin'), icon('🗺️', 47.8, -92.0, 'map', size=150),
+            hl(MN, '#b08968', 0.05, fillOpacity=0.45), hl({'admin1s': ['Manitoba', 'Ontario'], 'country': 'CAN'}, '#c9a27e', 0.05, fillOpacity=0.3), lab('USA', 46.6, -96.8, 0.05, style='serif', size=58), lab('BRITISH', 50.2, -96.8, 0.05, style='serif', size=50), char('franklin', 'Benjamin', name='Benjamin Franklin'),
             
             route([(47.24, -95.21), (47.45, -94.9), (47.3, -94.2), (46.4, -94.3), (45.6, -94.2), (44.98, -93.27)], 'Mississippi', color='#5ec8ff', width=7, drawDur=1.2, hold=2),
             lab('Lake of the Woods', 49.45, -94.3, 'lake', style='serif', size=48)],
@@ -209,7 +209,7 @@ save('panama_canal', meta(
     ['panama canal', 'panama', 'cape horn', 'ships', 'shipping', 'gatun lake', 'locks', 'new york', 'san francisco', 'geography', 'history', 'maps', 'learn']),
     [
         S("Before 1914, a ship sailing from New York to San Francisco had to go all the way around South America, past Cape Horn at the very bottom.", [
-            ship(AROUND, 'sailing', 'horn', drawDur=4.2), dot('New York', *NY, 'New', dy=-46), dot('San Francisco', *SF, 'San', dy=60, dx=150)],
+            ship(AROUND, 'sailing', 'horn', drawDur=4.2), dot('New York', *NY, 'New', dy=-46), dot('San Francisco', *SF, 'San', dy=-50, dx=-40)],
           cam={'follow': 'horn', 'zoom': 1.6, 'zoomTo': 0.95},
           src=[src('Around Cape Horn the voyage is about 22,500 km.', 'Panama_Canal', 'Instead of traveling approximately 22,500 kilometers around South America\'s Cape Horn')]),
         S("That's about 22,500 kilometers.", [cnt('22,500 km', '22,500', size=170), ping(-56.3, -67.3, 'about', color='#ff3b3b'), dot('Cape Horn', -56.3, -67.3, 'kilometers', dy=46)],

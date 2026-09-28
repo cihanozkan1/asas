@@ -504,18 +504,18 @@
         },
         {
           "type": "icon",
-          "icon": "🌪️",
+          "icon": "💨",
           "lat": 34,
           "lon": 84,
-          "size": 170,
+          "size": 150,
           "at": "winds"
         },
         {
           "type": "icon",
-          "icon": "🌪️",
+          "icon": "💨",
           "lat": 31.5,
           "lon": 95,
-          "size": 160,
+          "size": 140,
           "at": "machine"
         },
         {

@@ -138,7 +138,7 @@ save('italy_microstates', meta(
           cam=at_(41.9, 12.47, 260, bearing=3), tr='flash',
           src=[src('Vatican City is 0.49 km², the smallest country by area and population.', 'Vatican_City', 'the smallest country in the world both by area and by population ... 0.49 km2 (0.19 sq mi)')]),
         S("Only about 882 people live there.", [
-            cnt('882', '882', size=210), char('pope', 'people', name='Vatican City')],
+            cnt('882', '882', size=210), pill('people', 'people', bg='#b45309')],
           src=[src('Population about 882 (2024).', 'Vatican_City', 'a population of about 882 in 2024')]),
         S("Popes once ruled the Papal States, across central Italy. But in 1870, the new Kingdom of Italy took them.", [
             hl({'admin1s': ['Roma', 'Latina', 'Frosinone', 'Viterbo', 'Rieti', 'Perugia', 'Terni', 'Ancona', 'Macerata', 'Ascoli Piceno', 'Fermo', 'Pesaro e Urbino', 'Bologna', 'Ferrara', 'Ravenna', 'Forlì-Cesena', 'Rimini'], 'country': 'ITA'}, '#d4a017', 'Papal', fillOpacity=0.7),

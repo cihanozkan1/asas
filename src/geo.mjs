@@ -34,6 +34,8 @@ function countrySpec(code) {
   if (/^\d{1,3}$/.test(s)) num = s.padStart(3, '0');
   else if (/^[A-Za-z]{3}$/.test(s)) num = countries.alpha3ToNumeric(s.toUpperCase());
   else if (/^[A-Za-z]{2}$/.test(s)) num = countries.alpha2ToNumeric(s.toUpperCase());
+  // Kazakhstan without the leased Baikonur area shows a round hole in the middle of it
+  if (num === '398') return { type: 'multi', items: [{ type: 'country', id: num }, { type: 'country', name: 'Baikonur' }] };
   if (num && a.ids.has(num)) return { type: 'country', id: num };
   const byName = a.names.get(s.toLowerCase());
   if (byName) return byName.id ? { type: 'country', id: byName.id } : { type: 'country', name: byName.properties.name };

@@ -191,7 +191,7 @@ save('wakhan', meta(
             year('1800s', '1800s'), lab('CENTRAL ASIA', 41, 66, 'Central', style='serif', size=58), hl(AFG, '#8b5e34', 'Central', fillOpacity=0.45),
             hl({'countries': ['TJK', 'UZB', 'TKM', 'KGZ', 'KAZ']}, '#b3202a', 'Russian', fillOpacity=0.8, hold=2),
             hl({'countries': ['PAK', 'IND']}, '#e9a1a1', 'British', fillOpacity=0.8, hold=2),
-            lab('Russian Empire', 42, 66, 'Russian', style='serif', size=56), lab('British India', 27, 72, 'British', style='serif', size=56),
+            lab('Russian Empire', 46.5, 67, 'Russian', style='serif', size=56), lab('British India', 27, 72, 'British', style='serif', size=56),
             arrow((44, 68), (38.5, 71), 'north', color='#b3202a'), arrow((27, 73), (34.5, 72), 'south', color='#c95a5a')],
           cam=at_(40, 70, 2.0), era='history', tr='film',
           src=[src('The corridor emerged from Great Game rivalry between the Russian Empire and British India.', 'Wakhan_Corridor', 'The corridor emerged from Great Game rivalry between empires'),

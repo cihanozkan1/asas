@@ -267,14 +267,6 @@
           "name": "Benjamin Franklin"
         },
         {
-          "type": "icon",
-          "icon": "🗺️",
-          "lat": 47.8,
-          "lon": -92.0,
-          "size": 150,
-          "at": "map"
-        },
-        {
           "type": "route",
           "points": [
             [

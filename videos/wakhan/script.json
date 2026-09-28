@@ -241,8 +241,8 @@
         {
           "type": "label",
           "text": "Russian Empire",
-          "lat": 42,
-          "lon": 66,
+          "lat": 46.5,
+          "lon": 67,
           "at": "Russian",
           "style": "serif",
           "size": 56

@@ -356,9 +356,7 @@
           },
           "fill": "#c9a227",
           "at": "Austria-Hungary",
-          "soft": true,
-          "rim": "#8a6d1a",
-          "fillOpacity": 0.55
+          "fillOpacity": 0.6
         },
         {
           "type": "label",

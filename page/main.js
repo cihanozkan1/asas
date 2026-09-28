@@ -1,6 +1,6 @@
 // Frame renderer. Everything on screen is a pure function of time t, so headless
 // Chrome can step through frames deterministically: GG.init(timeline) then GG.frame(t).
-import { geoPath, geoBounds, geoContains, geoCentroid, geoDistance, geoCircle, geoArea, geoInterpolate, geoRotation, geoGraticule10 } from 'd3-geo';
+import { geoPath, geoBounds, geoContains, geoCentroid, geoDistance, geoCircle, geoArea, geoInterpolate, geoRotation, geoGraticule10, geoEquirectangular } from 'd3-geo';
 import { feature as topoFeature, mesh as topoMesh } from 'topojson-client';
 import { Raster } from './raster.js';
 import { CameraPath, makeProjection, ease, clamp01 } from './camera.js';
@@ -413,6 +413,19 @@ async function init(tl) {
   const rs = cfg.video.rasterScale;
   state.raster.setScale(W, H, rs === 'auto' || rs == null ? (state.raster.software ? 0.6 : 1) : rs);
   state.raster.setBase(earth);
+  state.raster.noGrade = /night/.test(tl.assets.earth);
+  // land mask for the sea colour (open ocean never picks up JPEG blocks from the base image)
+  {
+    const lc = document.createElement('canvas');
+    lc.width = 4096; lc.height = 2048;
+    const lx = lc.getContext('2d');
+    lx.fillStyle = '#000'; lx.fillRect(0, 0, lc.width, lc.height);
+    const eq = geoEquirectangular().scale(lc.width / (2 * Math.PI)).translate([lc.width / 2, lc.height / 2]);
+    lx.fillStyle = '#fff';
+    lx.beginPath(); geoPath(eq, lx)(state.geo.land50); lx.fill();
+    lx.fillRect(0, eq([0, -60])[1], lc.width, lc.height); // Antarctica is not in land50 here: leave it to colour detection
+    state.raster.setLand(lc);
+  }
   for (const d of tl.assets.detail || []) state.raster.addDetail(d.mask === false ? await loadImg(d.url) : landMasked(await loadImg(d.url), d.bbox, state.geo.land10, earth), d.bbox);
 
   // targets
@@ -671,6 +684,7 @@ function styleAt(t) {
 // ---------------------------------------------------------------- timing helpers
 
 const WATER_ICONS = /🚢|⛴|🛥|🚤|⛵|🐋|🐳|🐟|🐠|🦈|🛰|🌊|🧊|🐧/u;
+const rgb01 = (c) => (hexRgb(c) || [51, 51, 56]).map((v) => v / 255);
 const KIT_COLORS = ['#ffd60a', '#4ade80', '#5ec8ff', '#ff6b6b'];
 
 function lifeOf(el, t, inDur = 0.35, outDur = 0.4) {
@@ -736,7 +750,7 @@ function drawVector(t, proj, view, mix) {
   // flat "infographic" basemaps (dark, atlas, neon...) from config.palettes
   for (const [name, a] of Object.entries(mix.pal)) {
     if (a <= 0.001) continue;
-    drawPalette(ctx, path, view, land, borders, box, state.tl.config.palettes[name], a);
+    drawPalette(ctx, path, view, land, borders, box, state.tl.config.palettes[name], a * (1 - 0.9 * (state.vinClose || 0)));
   }
   if (mix.sat > 0.001) {
     ctx.globalAlpha = mix.sat * state.tl.config.satellite.borderAlpha;
@@ -1874,9 +1888,9 @@ function updateUi(t) {
       default:
         if (el.anim === 'slam') {
           // arrives huge and settles into place
-          const u = ease.outCubic(clamp01(life.age / 0.45));
-          scale = 3.2 - 2.2 * u;
-          opacity *= clamp01(life.age / 0.15);
+          const u = ease.outCubic(clamp01(life.age / 0.3));
+          scale = 1.6 - 0.6 * u;
+          opacity *= clamp01(life.age / 0.12);
         } else if (el.anim === 'fade') {
           scale = 0.96 + 0.04 * ease.outCubic(life.in);
           opacity *= ease.outCubic(life.in);
@@ -1948,7 +1962,7 @@ function updateUi(t) {
 // Push overlapping on-screen texts apart. Screen-placed items (counters, stats, stamps,
 // characters) and the caption band are fixed obstacles; map labels/flags/icons move.
 // Displacement is recomputed from the anchors every frame, so it follows the camera smoothly.
-const MOVABLE = new Set(['label', 'flag', 'icon', 'badge', 'question', 'measure', 'year', 'stamp']);
+const MOVABLE = new Set(['label', 'flag', 'icon', 'badge', 'question', 'measure', 'stamp']);
 // screen cards are already stacked by the timeline; only map-anchored things get nudged
 const isMovable = (el) => MOVABLE.has(el.type) && !el.screen && !el.fixed;
 function resolveOverlaps(items, canMove = isMovable) {
@@ -2199,10 +2213,17 @@ function frame(t) {
   });
   // close-up history shots: the vector coastlines are too coarse for a tiny island or town, so the
   // real imagery shows through in old-map colours instead of a blobby polygon
-  const close = clamp01((view.k / state.baseK - 20) / 25) * mix.vin;
-  state.vinClose = close;
+  const z = clamp01((view.k / state.baseK - 20) / 25);
+  state.vinClose = z;
+  const tints = [[mix.vin * z, [0.86, 0.79, 0.62], [0.56, 0.69, 0.67]]];
+  for (const [name, a] of Object.entries(mix.pal)) {
+    const P = state.tl.config.palettes[name];
+    if (a > 0.001) tints.push([a * z, rgb01(P.land), rgb01(P.sea)]);
+  }
+  const close = tints.reduce((acc, t) => acc + t[0], 0);
+  const avg = (k) => [0, 1, 2].map((c) => tints.reduce((acc, t) => acc + t[0] * t[k][c], 0) / (close || 1));
   const rAlpha = Math.min(1, mix.sat + close);
-  if (!state.layoutOnly) state.raster.draw(view, { alpha: rAlpha, atmo: state.mode === 'globe' ? 1 : 0, detailMix: boxMix, sepia: rAlpha > 0 ? close / rAlpha : 0 });
+  if (!state.layoutOnly) state.raster.draw(view, { alpha: rAlpha, atmo: state.mode === 'globe' ? 1 : 0, detailMix: boxMix, sepia: rAlpha > 0 ? close / rAlpha : 0, tintLand: avg(1), tintSea: avg(2) });
   $('space').style.display = state.mode === 'globe' ? 'block' : 'none';
   $('paper').style.display = mix.vin > 0.001 ? 'block' : 'none';
   $('paper').style.opacity = String(mix.vin * state.tl.config.vintage.paper);

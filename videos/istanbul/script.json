@@ -408,7 +408,7 @@
           "icon": "🌉",
           "lat": 41.05,
           "lon": 29.03,
-          "size": 100,
+          "size": 80,
           "at": "bridges"
         },
         {
@@ -416,7 +416,7 @@
           "icon": "🌉",
           "lat": 41.09,
           "lon": 29.06,
-          "size": 90,
+          "size": 80,
           "at": "bridges"
         },
         {
@@ -424,22 +424,22 @@
           "icon": "🌉",
           "lat": 41.2,
           "lon": 29.11,
-          "size": 90,
+          "size": 80,
           "at": "bridges"
         },
         {
           "type": "icon",
           "icon": "🚆",
-          "lat": 41.01,
+          "lat": 41.005,
           "lon": 29.0,
-          "size": 90,
+          "size": 80,
           "at": "tunnel"
         }
       ],
       "camera": {
         "lat": 41.1,
-        "lon": 29.05,
-        "zoom": 40,
+        "lon": 29.06,
+        "zoom": 230,
         "bearing": -6
       },
       "transition": "flash",

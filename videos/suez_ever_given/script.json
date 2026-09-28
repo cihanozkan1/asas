@@ -448,11 +448,23 @@
           "steps": [
             {
               "at": "8,900",
-              "value": "−8,900 km"
+              "value": "8,900 km"
             }
           ],
           "size": 150,
           "color": "#4ade80"
+        },
+        {
+          "type": "label",
+          "text": "shorter",
+          "at": "8,900",
+          "style": "pill",
+          "bg": "#16a34a",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
         },
         {
           "type": "label",

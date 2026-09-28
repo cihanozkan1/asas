@@ -243,7 +243,7 @@ save('tibet_planes', meta(
           cam=at_(31, 86, 4.0),
           src=[src('The plateau floor sits around 14,800 ft, above the 10,000 ft safety level.', MF, "The plateau's valley floors sit at around 14,800 feet")]),
         S("Airports are rare and far apart, and strong winds turn the air into a washing machine.", [
-            icon('🛬', 29.3, 90.9, 'Airports', size=150), dot('Lhasa', 29.65, 91.1, 'Airports', dy=-80), icon('🌪️', 34, 84, 'winds', size=170), icon('🌪️', 31.5, 95, 'machine', size=160), shake('machine')],
+            icon('🛬', 29.3, 90.9, 'Airports', size=150), dot('Lhasa', 29.65, 91.1, 'Airports', dy=-80), icon('💨', 34, 84, 'winds', size=150), icon('💨', 31.5, 95, 'machine', size=140), shake('machine')],
           cam=at_(32, 89, 4.2),
           src=[src('Airports are rare, far apart and at extreme elevations.', MF, 'Airports are rare, far apart, and themselves perched at extreme elevations.'),
                src('Winds of 100–200 km/h create severe turbulence.', MF, 'the atmosphere downstream turns into a washing machine')]),

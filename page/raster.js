@@ -21,8 +21,13 @@ uniform int uMode;         // 0 globe, 1 flat mercator
 uniform float uAngle;      // post-projection rotation (radians, d3 projection.angle)
 uniform float uAlpha;      // overall opacity of the imagery
 uniform float uAtmo;       // atmosphere glow strength (globe)
-uniform float uSepia;      // 0..1: old-map tint for close-up history shots
+uniform float uSepia;      // 0..1: flat-map tint for close-up shots (old map, dark map...)
+uniform vec3 uTintLand;
+uniform vec3 uTintSea;
 uniform sampler2D uBase;
+uniform sampler2D uLand;     // land polygons rasterised (white = land), for open-sea detection
+uniform float uHasLand;
+uniform float uNoGrade;    // night-lights base: keep it as it is
 uniform vec2 uBaseSize;
 uniform int uDetailCount;
 uniform sampler2D uDetail0;
@@ -58,15 +63,20 @@ vec4 sampleBox(sampler2D tex, vec4 box, float lon, float lat) {
 
 // Map-like grade (reference channels use a bright, soft satellite look, not a dark photo):
 // water becomes a clear teal that keeps its bathymetry, land is lifted and slightly softened.
-vec3 grade(vec3 c, vec3 cs) {
+float gMag = 1.0;
+
+vec3 grade(vec3 c, vec3 cs, float openSea) {
   // cs: a blurrier sample, used for the sea tone so JPEG blocks in the ocean don't show
   float l = dot(c, vec3(0.299, 0.587, 0.114));
   float ls = dot(cs, vec3(0.299, 0.587, 0.114));
   float water = smoothstep(0.015, 0.08, c.b - max(c.r, c.g * 0.92)) * (1.0 - smoothstep(0.3, 0.5, l));
+  water = max(water, openSea);
   vec3 sea = mix(vec3(0.15, 0.38, 0.49), vec3(0.34, 0.64, 0.72), smoothstep(0.03, 0.3, ls * 1.5));
   vec3 land = pow(max(c, vec3(0.0)), vec3(0.8)) * 1.06;
   float ll = dot(land, vec3(0.299, 0.587, 0.114));
   land = mix(vec3(ll), land, 0.88);
+  // magnified far beyond the base image: bathymetry turns into JPEG blocks, so the sea goes flat
+  sea = mix(sea, vec3(0.2, 0.47, 0.57), smoothstep(0.7, 0.2, gMag));
   return mix(land, sea, water);
 }
 
@@ -76,11 +86,20 @@ vec3 sampleSoft(sampler2D tex, float lon, float lat) {
   dx.x -= round(dx.x); dy.x -= round(dy.x);
   uv.x = fract(uv.x);
   float m = max(length(dx), length(dy));
-  vec2 k = vec2(max(m * 6.0, 4.0 / 8192.0));
+  vec2 k = vec2(max(m * 16.0, 10.0 / 8192.0));
+  gMag = m * uBaseSize.x;   // base texels per screen pixel (< 1: magnified)
   return textureGrad(tex, uv, vec2(k.x, 0.0), vec2(0.0, k.y)).rgb;
 }
 
+float openSeaAt(float lon, float lat) {
+  if (uHasLand < 0.5) return 0.0;
+  vec2 uv = vec2(fract((lon + PI) / (2.0 * PI)), (PI * 0.5 - lat) / PI);
+  float landv = textureLod(uLand, uv, 1.5).r;   // blurred: coasts stay on colour detection
+  return 1.0 - smoothstep(0.0, 0.03, landv);
+}
+
 vec3 imagery(float lon, float lat) {
+  float openSea = openSeaAt(lon, lat);
   vec3 cs = sampleSoft(uBase, lon, lat);
   vec3 c = sampleEquirect(uBase, lon, lat);
   if (uDetailCount > 0) {
@@ -99,12 +118,12 @@ vec3 imagery(float lon, float lat) {
     vec4 d = sampleBox(uDetail3, uDetailBox3, lon, lat);
     c = mix(c, d.rgb, d.a * uDetailMix[3]);
   }
-  vec3 g = grade(c, cs);
+  vec3 g = uNoGrade > 0.5 ? c : grade(c, cs, openSea);
   if (uSepia > 0.0) {
     float l = dot(c, vec3(0.299, 0.587, 0.114));
     float water = smoothstep(0.015, 0.08, c.b - max(c.r, c.g * 0.92)) * (1.0 - smoothstep(0.3, 0.5, l));
-    vec3 land = vec3(0.86, 0.79, 0.62) * (0.62 + 0.6 * pow(l, 0.8));
-    vec3 sea = vec3(0.56, 0.69, 0.67) * (0.9 + 0.2 * l);
+    vec3 land = uTintLand * (0.62 + 0.6 * pow(l, 0.8));
+    vec3 sea = uTintSea * (0.9 + 0.2 * l);
     g = mix(g, mix(land, sea, water), uSepia);
   }
   return g;
@@ -176,7 +195,7 @@ export class Raster {
     gl.enableVertexAttribArray(loc);
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
     this.u = {};
-    for (const name of ['uAngle', 'uRes', 'uCenter', 'uK', 'uLon0', 'uLat0', 'uMercY0', 'uMode', 'uAlpha', 'uAtmo', 'uSepia', 'uBase', 'uBaseSize',
+    for (const name of ['uAngle', 'uRes', 'uCenter', 'uK', 'uLon0', 'uLat0', 'uMercY0', 'uMode', 'uAlpha', 'uAtmo', 'uSepia', 'uTintLand', 'uTintSea', 'uBase', 'uBaseSize', 'uLand', 'uHasLand', 'uNoGrade',
       'uDetailCount', 'uDetail0', 'uDetail1', 'uDetail2', 'uDetail3', 'uDetailBox0', 'uDetailBox1', 'uDetailBox2', 'uDetailBox3', 'uDetailMix']) {
       this.u[name] = gl.getUniformLocation(prog, name);
     }
@@ -222,6 +241,10 @@ export class Raster {
     this.base = this._texture(img, 0, true);
   }
 
+  setLand(canvas) {
+    this.land = this._texture(canvas, 6, true);
+  }
+
   addDetail(img, bboxDeg) {
     if (this.details.length >= MAX_DETAIL) return;
     const unit = 1 + this.details.length;
@@ -230,7 +253,7 @@ export class Raster {
     this.details.push({ ...t, unit, box: bboxDeg.map((v) => v * r) });
   }
 
-  draw(view, { alpha = 1, atmo = 1, detailMix = 1, sepia = 0 } = {}) {
+  draw(view, { alpha = 1, atmo = 1, detailMix = 1, sepia = 0, tintLand = null, tintSea = null } = {}) {
     const gl = this.gl;
     const { width, height } = this.canvas;
     gl.viewport(0, 0, width, height);
@@ -252,7 +275,12 @@ export class Raster {
     gl.uniform1f(u.uAlpha, alpha);
     gl.uniform1f(u.uAtmo, atmo);
     gl.uniform1f(u.uSepia, sepia || 0);
+    gl.uniform3f(u.uTintLand, ...(tintLand || [0.86, 0.79, 0.62]));
+    gl.uniform3f(u.uTintSea, ...(tintSea || [0.56, 0.69, 0.67]));
     gl.uniform1i(u.uBase, 0);
+    gl.uniform1i(u.uLand, this.land ? 6 : 0);
+    gl.uniform1f(u.uHasLand, this.land ? 1 : 0);
+    gl.uniform1f(u.uNoGrade, this.noGrade ? 1 : 0);
     gl.uniform2f(u.uBaseSize, this.base.w, this.base.h);
     gl.uniform1i(u.uDetailCount, this.details.length);
     // detailMix: one number, or one per box
