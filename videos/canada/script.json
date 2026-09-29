@@ -634,7 +634,7 @@
         {
           "type": "scatter",
           "target": "CAN",
-          "icon": "🧊",
+          "icon": "art:snowflake",
           "count": 5,
           "minLat": 60,
           "size": 70,

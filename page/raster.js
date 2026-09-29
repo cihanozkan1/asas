@@ -65,18 +65,24 @@ vec4 sampleBox(sampler2D tex, vec4 box, float lon, float lat) {
 // water becomes a clear teal that keeps its bathymetry, land is lifted and slightly softened.
 float gMag = 1.0;
 
-vec3 grade(vec3 c, vec3 cs, float openSea) {
+vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   // cs: a blurrier sample, used for the sea tone so JPEG blocks in the ocean don't show
-  float l = dot(c, vec3(0.299, 0.587, 0.114));
+  // cw: the colour water is detected on (the soft sample when the base is magnified, so rivers
+  // and coasts don't turn into blue JPEG squares)
+  float l = dot(cw, vec3(0.299, 0.587, 0.114));
   float ls = dot(cs, vec3(0.299, 0.587, 0.114));
-  float water = smoothstep(0.015, 0.08, c.b - max(c.r, c.g * 0.92)) * (1.0 - smoothstep(0.3, 0.5, l));
+  float water = smoothstep(0.015, 0.08, cw.b - max(cw.r, cw.g * 0.92)) * (1.0 - smoothstep(0.3, 0.5, l));
+  // sharp close-up imagery: deep river / lake water is almost black, not blue; count it as water
+  // unless it is green (forest), so it doesn't break up into dark squares
+  water = max(water, flatSea * smoothstep(0.16, 0.08, l) * smoothstep(-0.015, 0.01, cw.b - cw.g * 0.95));
   water = max(water, openSea);
   vec3 sea = mix(vec3(0.15, 0.38, 0.49), vec3(0.34, 0.64, 0.72), smoothstep(0.03, 0.3, ls * 1.5));
   vec3 land = pow(max(c, vec3(0.0)), vec3(0.8)) * 1.06;
   float ll = dot(land, vec3(0.299, 0.587, 0.114));
   land = mix(vec3(ll), land, 0.88);
   // magnified far beyond the base image: bathymetry turns into JPEG blocks, so the sea goes flat
-  sea = mix(sea, vec3(0.2, 0.47, 0.57), smoothstep(0.7, 0.2, gMag));
+  // (the same for sharp close-up imagery, whose dark river water is full of JPEG blocks)
+  sea = mix(sea, vec3(0.2, 0.47, 0.57), max(smoothstep(0.7, 0.2, gMag), flatSea));
   return mix(land, sea, water);
 }
 
@@ -124,7 +130,8 @@ vec3 imagery(float lon, float lat) {
     dW = max(dW, d.a * uDetailMix[3]);
   }
   openSea *= 1.0 - dW;
-  vec3 g = uNoGrade > 0.5 ? c : grade(c, cs, openSea);
+  vec3 cw = mix(c, cs, smoothstep(0.7, 0.2, gMag) * (1.0 - dW));
+  vec3 g = uNoGrade > 0.5 ? c : grade(c, cs, openSea, cw, dW);
   if (uSepia > 0.0) {
     float l = dot(c, vec3(0.299, 0.587, 0.114));
     float water = smoothstep(0.015, 0.08, c.b - max(c.r, c.g * 0.92)) * (1.0 - smoothstep(0.3, 0.5, l));

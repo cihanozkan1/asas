@@ -259,10 +259,11 @@
         },
         {
           "type": "icon",
-          "icon": "🏰",
+          "icon": "art:castle_teutonic",
           "lat": 54.81,
           "lon": 20.51,
-          "size": 130,
+          "size": 160,
+          "plain": true,
           "at": "castle"
         },
         {

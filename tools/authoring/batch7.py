@@ -43,6 +43,8 @@ save('greenland_iceland', meta(
 # ------------------------------------------------------------------ 20. AMAZON BRIDGES
 LBV = 'https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/'
 IFA = 'https://interestingfacts.com/fact/there-are-no-bridges-across-the-amazon-river/'
+# Rio Negro Bridge, Manaus (NE) to Iranduba (SW), 3.6 km across the river, centred on 3.122°S 60.079°W
+RNB = [(-3.1067, -60.0690), (-3.1400, -60.0908)]
 AMZ = [(-4.4, -73.2), (-3.7, -70.0), (-3.3, -64.7), (-3.1, -60.0), (-2.6, -56.7), (-2.0, -54.0), (-1.5, -52.5), (0.0, -50.0)]
 save('amazon_bridges', meta(
     'Why No Bridge Crosses the Amazon River 🌊🌴🤯',
@@ -74,17 +76,20 @@ save('amazon_bridges', meta(
           cam=at_(-3.1, -60.5, 6),
           src=[src('There are few roads on either side that need connecting.', IFA, 'there are few roads on either side of the Amazon that need to be connected')]),
         S("So people cross by boat. A ferry does the job, for a tiny fraction of the cost of a bridge.", [
-            ship([(-3.14, -60.1), (-3.2, -59.95)], 'boat', 'ferry', emblem='#ffd60a', drawDur=2.0, style='cargo')],
+            ship([(-3.14, -60.1), (-3.2, -59.95)], 'boat', 'ferry', emblem='#ffd60a', drawDur=2.0, style='ferry')],
           cam=at_(-3.15, -60.0, 60, bearing=-3),
           src=[src('Boats and ferries are the preferred way to cross.', IFA, 'boats and ferries are the preferred method of crossing the Amazon'),
                src('A ferry does it at negligible cost compared with a major civil work.', LBV, 'at negligible cost compared to any major civil work')]),
         S("The only big bridge nearby crosses the Rio Negro at Manaus. It opened in 2011, and it's 3,595 meters long.", [
-            ping(-3.11, -60.08, 'Manaus', color='#ffd60a'), dot('Rio Negro Bridge', -3.11, -60.08, 'Negro', dy=-56), cnt('3,595 m', '3,595', size=160)],
-          cam=at_(-3.1, -60.08, 120),
-          src=[src('The bridge over the Negro River opened in 2011 and spans 3,595 m.', LBV, 'to span 3,595 meters')]),
+            bridge(RNB[0], RNB[1], 'Negro', buildDur=1.4, towers=(0.62, 0.74)), pill('Rio Negro Bridge', 'Negro', bg='#111827', screen=(0.5, 0.2)),
+            dot('Manaus', -3.10, -60.03, 'Manaus', dy=-50, size=40), dot('Iranduba', -3.14, -60.115, 'opened', dy=50, size=38), cnt('3,595 m', '3,595', size=160)],
+          cam=at_(-3.122, -60.079, 800),
+          src=[src('The bridge over the Negro River opened in 2011 and spans 3,595 m.', LBV, 'to span 3,595 meters'),
+               src('The Rio Negro Bridge links Manaus with Iranduba; it is centred at 3.122°S 60.079°W and opened on 24 October 2011.', 'Rio_Negro_Bridge', 'The Rio Negro Bridge ... 3°7′19″S 60°04′46″W ... linking the city of Manaus with the small town of Iranduba')]),
     ],
     keywords={'amazon': '#5ec8ff', 'bridge': '#ffd60a', 'bridges': '#ffd60a', 'ferry': '#ffd60a'},
-    captions={'theme': 'classic'})
+    captions={'theme': 'classic'},
+    imagery=[{'bbox': [-60.2, -3.2, -59.95, -3.04], 'width': 3072}])
 
 # ------------------------------------------------------------------ 21. TORNADO ALLEY (chalk)
 TA = 'Tornado_Alley'
@@ -321,7 +326,7 @@ save('niihau', meta(
         S("In the 2020 census, only 84 people lived there.", [cnt('84', '84', size=220), scatter({'circle': {'lat': 21.9, 'lon': -160.15, 'km': 6}}, '🏠', 'people', count=4, size=64)],
           cam=at_(21.9, -160.15, 360),
           src=[src('Population 84 in 2020.', NIH, 'As of the 2020 census, the population had fallen to 84.')]),
-        S("It's the only island where Hawaiian is still spoken as the main language.", [lab('ALOHA!', 21.95, -160.1, 'Hawaiian', style='note', size=70), icon('🗣️', 21.85, -160.2, 'spoken', size=170)],
+        S("It's the only island where Hawaiian is still spoken as the main language.", [lab('ALOHA!', 21.95, -160.1, 'Hawaiian', style='note', size=70), art('speaking', 21.78, -160.28, 'spoken', size=150)],
           cam=at_(21.9, -160.15, 360), tr='flash',
           src=[src('The only island where Hawaiian is the primary language.', NIH, 'Niʻihau is the only island where Hawaiian is spoken as a primary language.')]),
         S("People get around on horses, and alcohol and cigarettes are banned.", [icon('🐎', 21.9, -160.12, 'horses', size=170), icon('🚭', 21.85, -160.2, 'cigarettes', size=170)],
@@ -367,14 +372,14 @@ save('point_nemo', meta(
           cam=at_(-48, -123, 3.0), tr='flash',
           src=[src('No regular marine or air traffic routes within 400 km.', PI, 'since no regular marine or air traffic routes are within 400 kilometres (250 mi)')]),
         S("So sometimes, the closest humans are astronauts on the International Space Station, flying overhead.", [ping(*NEMO, 0.05, color='#ff3b3b'), lab('POINT NEMO', NEMO[0], NEMO[1], 0.05, style='pill', bg='#c1121f', size=46, dy=110), 
-            char('astronaut', 'astronauts', say='Hello down there!'), icon('🛰️', -47, -121, 'Station', size=130), tilt('overhead', deg=40, until=3.5)],
+            char('astronaut', 'astronauts', say='Hello down there!'), art('iss', -47, -121, 'Station', size=190), tilt('overhead', deg=40, until=3.5)],
           cam=at_(-48.8, -123.4, 3.5),
           src=[src('Sometimes the closest humans are astronauts on the ISS.', PI, 'sometimes the closest human beings are astronauts aboard the International Space Station when it passes overhead')]),
         S("It's also a spacecraft cemetery. Old satellites and space stations are sent to crash here, far from everyone.", [ping(*NEMO, 0.05, color='#ff3b3b'), lab('POINT NEMO', NEMO[0], NEMO[1], 0.05, style='pill', bg='#c1121f', size=46, dy=110), 
             scatter({'circle': {'lat': NEMO[0], 'lon': NEMO[1], 'km': 700}}, '🛰️', 'cemetery', count=5, size=64, stagger=0.12), stamp('SPACECRAFT CEMETERY', 'cemetery', size=70)],
           cam=at_(-48, -123, 2.6, bearing=5),
           src=[src('Spacecraft are made to fall there on re-entry.', PI, "The wider area is also known as a 'spacecraft cemetery', because hundreds of decommissioned satellites, space stations, and other spacecraft have been made to fall there upon re-entering the atmosphere")]),
-        S("And one day, the International Space Station itself is planned to end up here, in 2031.", [ping(*NEMO, 0.05, color='#ff3b3b'), lab('POINT NEMO', NEMO[0], NEMO[1], 0.05, style='pill', bg='#c1121f', size=46, dy=110), year(2031, '2031', light=True), icon('🛰️', -48.9, -123.4, 'Station', size=150), shake('end')],
+        S("And one day, the International Space Station itself is planned to end up here, in 2031.", [ping(*NEMO, 0.05, color='#ff3b3b'), lab('POINT NEMO', NEMO[0], NEMO[1], 0.05, style='pill', bg='#c1121f', size=46, dy=110), year(2031, '2031', light=True), mover_icon([(-44.2, -131.5), (-47.2, -126.3), NEMO], 'Station', 'art:iss', size=170, color='#ff5a5f', drawDur=2.0), shake('end')],
           cam=at_(-48.9, -123.4, 3.0, bearing=-4),
           src=[src('The ISS is planned to crash near Point Nemo in 2031.', 'Point_Nemo', 'The International Space Station (ISS) is planned to crash into the ocean near Point Nemo in 2031.')]),
     ],

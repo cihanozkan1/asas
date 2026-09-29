@@ -413,49 +413,90 @@
         },
         {
           "type": "icon",
-          "icon": "🚆",
-          "lat": 35.93,
-          "lon": -5.66,
-          "size": 150,
-          "at": "rail"
+          "icon": "art:tunnel",
+          "lat": 36.063,
+          "lon": -5.72,
+          "size": 120,
+          "plain": true,
+          "at": "undersea"
+        },
+        {
+          "type": "icon",
+          "icon": "art:tunnel",
+          "lat": 35.817,
+          "lon": -5.745,
+          "size": 120,
+          "plain": true,
+          "at": "undersea"
         },
         {
           "type": "route",
           "points": [
             [
-              36.03,
-              -5.62
+              36.063,
+              -5.72
             ],
             [
-              35.97,
-              -5.65
+              35.99,
+              -5.722
             ],
             [
-              35.87,
-              -5.68
+              35.9,
+              -5.73
             ],
             [
-              35.78,
-              -5.8
+              35.817,
+              -5.745
             ]
           ],
           "color": "#ffd60a",
-          "width": 8,
-          "at": "undersea",
+          "width": 5,
+          "at": "rail",
           "dashed": true,
           "dash": [
-            16,
-            10
+            14,
+            12
           ],
-          "drawDur": 0.6
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "art:train",
+            "size": 120
+          },
+          "drawDur": 2.2
+        },
+        {
+          "type": "label",
+          "text": "Punta Paloma",
+          "lat": 36.063,
+          "lon": -5.72,
+          "at": "connect",
+          "dot": true,
+          "dy": -70,
+          "size": 34
+        },
+        {
+          "type": "label",
+          "text": "Malabata",
+          "lat": 35.817,
+          "lon": -5.745,
+          "at": "connect",
+          "dot": true,
+          "dy": 70,
+          "size": 34
         }
       ],
       "camera": {
-        "lat": 35.92,
-        "lon": -5.7,
+        "lat": 35.94,
+        "lon": -5.73,
         "zoom": 70
       },
       "sources": [
+        {
+          "claim": "The planned rail tunnel would link Punta Paloma near Tarifa (Spain) with Malabata near Tangier (Morocco).",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar_crossing",
+          "quote": "The tunnels would link Punta Paloma near Tarifa (Cádiz province, Spain) to Malabata near Tangier (Morocco)."
+        },
         {
           "claim": "In December 2003 both countries agreed to explore an undersea rail tunnel.",
           "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",

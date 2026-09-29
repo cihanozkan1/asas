@@ -336,10 +336,11 @@
         },
         {
           "type": "icon",
-          "icon": "🛰️",
+          "icon": "art:iss",
           "lat": -47,
           "lon": -121,
-          "size": 130,
+          "size": 190,
+          "plain": true,
           "at": "Station"
         },
         {
@@ -453,12 +454,36 @@
           "at": "2031"
         },
         {
-          "type": "icon",
-          "icon": "🛰️",
-          "lat": -48.9,
-          "lon": -123.4,
-          "size": 150,
-          "at": "Station"
+          "type": "route",
+          "points": [
+            [
+              -44.2,
+              -131.5
+            ],
+            [
+              -47.2,
+              -126.3
+            ],
+            [
+              -48.877,
+              -123.393
+            ]
+          ],
+          "color": "#ff5a5f",
+          "width": 5,
+          "at": "Station",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "art:iss",
+            "size": 170
+          },
+          "drawDur": 2.0
         },
         {
           "type": "shake",

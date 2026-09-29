@@ -459,10 +459,11 @@
         },
         {
           "type": "icon",
-          "icon": "🔥",
+          "icon": "art:lng_carrier",
           "lat": 25.3,
           "lon": 57.5,
-          "size": 110,
+          "size": 190,
+          "plain": true,
           "at": "gas"
         }
       ],

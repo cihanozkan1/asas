@@ -61,6 +61,10 @@ save('northwest_angle', meta(
 
 # ------------------------------------------------------------------ POINT ROBERTS
 PR = (48.975, -123.06)
+# the real road: north out of Point Roberts through Tsawwassen, around the top of Boundary Bay
+# (Hwy 17 / Hwy 99 through Delta and Surrey) and south to the Peace Arch crossing into Blaine
+PR_ROAD = [(48.975, -123.06), (49.002, -123.068), (49.04, -123.07), (49.085, -123.04), (49.115, -122.97),
+           (49.11, -122.88), (49.06, -122.80), (49.03, -122.775), (49.002, -122.757), (48.993, -122.75)]
 save('point_roberts', meta(
     "The US Town You Can Only Drive to Through Canada 🇺🇸🇨🇦🤯 Point Roberts",
     "Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, and older kids go to school in Blaine, crossing the border four times on every round trip 🤯",
@@ -89,12 +93,12 @@ save('point_roberts', meta(
           cam=at_(49.0, -123.05, 140),
           src=[src('The 49th parallel left the southern peninsula tip on the US side.', 'Point_Roberts,_Washington', 'leaving this southern peninsula on the American side')]),
         S("To reach the rest of the USA by land, you drive about 40 kilometers through Canada.", [
-            mover_icon([(48.975, -123.06), (49.005, -123.08), (49.07, -123.02), (49.08, -122.85), (49.0, -122.76), (48.993, -122.75)], 'drive', '🚗', size=90),
+            mover_icon(PR_ROAD, 'drive', '🚗', size=90),
             dot('Blaine, USA', 48.993, -122.75, 'Canada', dy=50, dx=-110), cnt('40 km', '40', size=160)],
           cam=at_(49.03, -122.92, 70),
           src=[src('Residents travel about 25 mi (40 km) through Canada.', 'Point_Roberts,_Washington', 'traveling "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
         S("Older kids go to school in Blaine, so they cross the border four times on every round trip.", [
-            mover_icon([(48.975, -123.06), (49.005, -123.08), (49.07, -123.02), (49.08, -122.85), (49.0, -122.76), (48.993, -122.75)], 'school', '🚌', size=90, drawDur=2.4),
+            mover_icon(PR_ROAD, 'school', '🚌', size=90, drawDur=2.4),
             cnt_steps([('school', '1'), ('cross', '2'), ('four', '4')], size=200)],
           src=[src('Students in grade 4 and above commute to Blaine, crossing the border four times.', 'Point_Roberts,_Washington',
                    'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
@@ -168,7 +172,7 @@ save('bolivia_navy', meta(
           cam=fit(BOL, pad=0.9, bearing=-3),
           src=[src('Bolivia is landlocked but has a navy of about 5,000 personnel (2018).', 'Bolivian_Navy', 'As of 2018, the force comprised "approximately 5,000 personnel."')]),
         S("It patrols Lake Titicaca, the highest navigable lake in the world, and the rivers of the Amazon.", [
-            ping(*TITI, 'Titicaca', color='#5ec8ff'), dot('Lake Titicaca', *TITI, 'Titicaca', dy=-120), mover_icon([(-16.45, -68.95), (-16.2, -69.15), (-15.95, -69.45)], 'patrols', '🚤', size=90)],
+            ping(*TITI, 'Titicaca', color='#5ec8ff'), dot('Lake Titicaca', *TITI, 'Titicaca', dy=-120), mover_icon([(-16.40, -68.72), (-16.22, -68.84), (-16.05, -69.2), (-15.85, -69.4)], 'patrols', 'art:speedboat', size=75)],
           cam=at_(-16.0, -69.3, 14),
           src=[src('It operates on Lake Titicaca, the highest navigable lake, and Amazon tributaries.', 'Bolivian_Navy', 'Lake Titicaca, described as "the highest navigable lake in the world," and patrols Amazon tributaries')]),
         S("So why does a landlocked country need a navy?", [q(-17, -65, 'why')], cam=fit(BOL, pad=0.9), style='dark', no_claim=True),
@@ -224,7 +228,7 @@ save('panama_canal', meta(
           src=[src('The canal is 82 km long.', 'Panama_Canal', 'The Panama Canal spans "82 kilometers (51 miles)"')]),
         S("Giant locks lift ships 26 meters up to Gatun Lake, a man-made lake created by damming a river, and then lower them back down on the other side.", [
             cnt('26 m', '26', size=190), ping(9.2, -79.9, 'Gatun', color='#5ec8ff'), dot('Gatun Lake', 9.2, -79.9, 'Gatun', dy=-48),
-            icon('🚢', 9.3, -79.95, 'lift', size=110), arrow((9.22, -80.05), (9.32, -80.05), 'lift', color='#4ade80'), arrow((8.98, -79.45), (8.9, -79.45), 'lower', color='#ff5a5f')],
+            art('canal_lock', 9.272, -79.921, 'lift', size=150), art('canal_lock', 9.017, -79.593, 'lower', size=150), arrow((9.22, -80.05), (9.32, -80.05), 'lift', color='#4ade80'), arrow((8.98, -79.45), (8.9, -79.45), 'lower', color='#ff5a5f')],
           cam=at_(9.13, -79.75, 50),
           src=[src('Ships are raised 26 m to Gatun Lake (an artificial lake made by damming the Chagres River) and lowered at the other end.', 'Panama_Canal', 'Vessels are raised 26 meters to Gatun Lake, an artificial freshwater body created by damming the Chagres River. The locks then lower ships at the opposite end.')]),
         S("Now the New York to San Francisco trip is only about 9,500 kilometers.", [

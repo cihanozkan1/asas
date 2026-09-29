@@ -108,7 +108,26 @@ export function flagExists(code) {
 }
 
 // "🏰" or "1f3f0" -> "/node_modules/@twemoji/svg/1f3f0.svg"
+// Every pictorial emoji is shown as a drawn illustration (assets/art, NVIDIA FLUX) instead of the
+// emoji font, so all 50 videos share one hand-made look. Scripts can also name art directly ("art:dam").
+export const EMOJI_ART = {
+  '⚔': 'swords', '💸': 'banknotes', '🧊': 'iceberg', '💰': 'money_bag', '📡': 'radar', '🐪': 'camel',
+  '☀': 'sun', '⚓': 'anchor', '⛏': 'pickaxe', '🌊': 'wave', '🗣': 'speaking', '❄': 'snowflake', '🏠': 'house',
+  '🪨': 'rock', '🌾': 'wheat', '❌': 'cross_mark', '🔥': 'fire', '🏚': 'ruined_house', '⛰': 'mountain',
+  '🏔': 'mountain', '🚗': 'car', '🌴': 'palm', '🐍': 'snake', '🦟': 'mosquito', '🚫': 'no_entry', '🚶': 'walker',
+  '🪖': 'soldier_helmet', '💧': 'water_drop', '⛵': 'felucca', '⚡': 'power_pylon', '⚠': 'warning', '🚆': 'train',
+  '👑': 'crown', '🕊': 'dove', '🚢': 'ship_cargo', '🛢': 'oil_barrel', '🏗': 'crane', '🚰': 'water_pump',
+  '🌧': 'rain_cloud', '🏰': 'castle_teutonic', '🤝': 'handshake', '🛰': 'satellite', '👥': 'people', '💻': 'laptop',
+  '💬': 'chat', '🗼': 'lighthouse', '🕳': 'drill_hole', '🎆': 'fireworks', '🚷': 'no_entry', '🐎': 'horse',
+  '🚭': 'no_smoking', '🎣': 'fishing_boat', '🚌': 'bus', '🌋': 'volcano', '🌳': 'tree', '🌪': 'tornado',
+  '⛈': 'storm_cloud', '🚜': 'excavator', '⛴': 'tugboat', '🛬': 'plane_landing', '💨': 'wind', '🏙': 'skyscrapers',
+  '🐄': 'cow', '🦜': 'cockatoo', '🐒': 'monkey', '🦘': 'kangaroo', '🦧': 'orangutan', '🐘': 'elephant',
+  '🏘': 'village', '🚤': 'speedboat', '✈': 'plane_top', '🛥': 'speedboat', '🚂': 'train', '🏭': 'crane',
+};
+
 export function iconUrl(icon) {
+  const bare = String(icon).replace(/\uFE0F/g, '');
+  if (EMOJI_ART[bare]) icon = 'art:' + EMOJI_ART[bare];
   // "art:house" -> a drawn illustration from assets/art (made for this project, not an emoji)
   if (String(icon).startsWith('art:')) {
     const name = String(icon).slice(4);

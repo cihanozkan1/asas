@@ -280,10 +280,11 @@
         },
         {
           "type": "icon",
-          "icon": "🗣️",
-          "lat": 21.85,
-          "lon": -160.2,
-          "size": 170,
+          "icon": "art:speaking",
+          "lat": 21.78,
+          "lon": -160.28,
+          "size": 150,
+          "plain": true,
           "at": "spoken"
         }
       ],

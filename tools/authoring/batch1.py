@@ -50,7 +50,7 @@ save('alaska', meta(
                src('William Seward, US Secretary of State, negotiated the purchase.', 'Alaska_Purchase', 'William H. Seward, U.S. Secretary of State, negotiated with Russian diplomat Eduard de Stoeckl')]),
         S("But in 1896, the Klondike Gold Rush began next door, and the frozen land suddenly looked like a bargain.", [
             year(1896, '1896', light=True), ping(64.06, -139.43, 'Klondike', color='#ffd60a'), dot('Klondike', 64.06, -139.43, 'Klondike'),
-            scatter(AK, '💰', 'bargain', count=5, size=72, stagger=0.12), hl(AK, 'flag:us', 'bargain')],
+            scatter(AK, 'art:gold_nugget', 'bargain', count=5, size=90, stagger=0.12), hl(AK, 'flag:us', 'bargain')],
           cam=fit(AK, pad=0.9, bearing=-4), tr='flash',
           src=[src('Alaska stayed sparsely populated until the Klondike Gold Rush began in 1896.', 'Alaska_Purchase',
                    'Alaska remained sparsely populated until the Klondike Gold Rush began in 1896')]),

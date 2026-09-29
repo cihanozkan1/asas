@@ -564,22 +564,23 @@
           "at": "1970"
         },
         {
+          "type": "icon",
+          "icon": "art:dam",
+          "lat": 23.9706,
+          "lon": 32.8778,
+          "size": 190,
+          "plain": true,
+          "at": "Aswan"
+        },
+        {
           "type": "label",
           "text": "Aswan High Dam",
-          "dot": true,
           "lat": 23.97,
           "lon": 32.88,
-          "dy": -52,
+          "dy": -125,
           "size": 48,
           "at": "Aswan",
           "anim": "slam"
-        },
-        {
-          "type": "ping",
-          "lat": 23.97,
-          "lon": 32.88,
-          "color": "#ffd60a",
-          "at": "Dam"
         },
         {
           "type": "character",
@@ -589,21 +590,6 @@
           ],
           "at": "tamed",
           "image": "engineer"
-        },
-        {
-          "type": "icon",
-          "icon": "⚡",
-          "lat": 24.5,
-          "lon": 33.8,
-          "size": 110,
-          "at": "water"
-        },
-        {
-          "type": "ping",
-          "lat": 23.97,
-          "lon": 32.88,
-          "color": "#5ec8ff",
-          "at": "Aswan"
         }
       ],
       "sources": [
@@ -611,6 +597,11 @@
           "claim": "The Aswan High Dam, completed in 1970, regulates the Nile's flow year-round.",
           "url": "https://en.wikipedia.org/wiki/Nile",
           "quote": "The Aswan High Dam, completed in 1970 ... now regulates water flow year-round"
+        },
+        {
+          "claim": "The Aswan High Dam (23.97°N, 32.88°E) was completed in 1970 to control flooding and store water for irrigation.",
+          "url": "https://en.wikipedia.org/wiki/Aswan_Dam",
+          "quote": "The High Dam, as-Sad al-'Aali, completed on 21 July 1970 ... to control flooding, increase water storage for irrigation, and generate hydroelectricity."
         }
       ]
     },
@@ -764,24 +755,39 @@
           "at": "2,500"
         },
         {
-          "type": "icon",
-          "icon": "⚠️",
-          "lat": 11.21,
-          "lon": 35.09,
-          "size": 130,
-          "at": "worries"
-        },
-        {
           "type": "shake",
           "at": "worries"
         },
         {
-          "type": "ping",
-          "lat": 11.21,
-          "lon": 35.09,
-          "color": "#ff3b3b",
+          "type": "icon",
+          "icon": "art:dam_arch",
+          "lat": 11.2153,
+          "lon": 35.0931,
+          "size": 180,
+          "plain": true,
           "at": 0.1,
           "hold": 1
+        },
+        {
+          "type": "label",
+          "text": "GERD",
+          "lat": 11.2153,
+          "lon": 35.0931,
+          "dy": -115,
+          "size": 48,
+          "style": "pill",
+          "bg": "#2a9d4b",
+          "at": "this",
+          "until": "2,500"
+        },
+        {
+          "type": "icon",
+          "icon": "art:warning",
+          "lat": 27.0,
+          "lon": 29.5,
+          "size": 150,
+          "plain": true,
+          "at": "worries"
         }
       ],
       "sources": [
@@ -789,6 +795,11 @@
           "claim": "Egypt lies over 2,500 km downstream of the GERD, on the Blue Nile in Ethiopia, and fears it will reduce available Nile water.",
           "url": "https://en.wikipedia.org/wiki/Grand_Ethiopian_Renaissance_Dam",
           "quote": "Egypt, situated over 2,500 kilometers downstream, fears the dam will reduce available Nile water."
+        },
+        {
+          "claim": "The Grand Ethiopian Renaissance Dam is a gravity dam on the Blue Nile in Ethiopia (11.22°N, 35.09°E).",
+          "url": "https://en.wikipedia.org/wiki/Grand_Ethiopian_Renaissance_Dam",
+          "quote": "is a gravity dam on the Blue Nile River in Ethiopia."
         }
       ]
     },

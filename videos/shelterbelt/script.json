@@ -116,18 +116,20 @@
       "show": [
         {
           "type": "icon",
-          "icon": "🌪️",
+          "icon": "art:dust_storm",
           "lat": 37,
           "lon": -101,
-          "size": 150,
+          "size": 200,
+          "plain": true,
           "at": "dust"
         },
         {
           "type": "icon",
-          "icon": "🌪️",
+          "icon": "art:dust_storm",
           "lat": 34.5,
           "lon": -99,
-          "size": 120,
+          "size": 160,
+          "plain": true,
           "at": "storms"
         },
         {

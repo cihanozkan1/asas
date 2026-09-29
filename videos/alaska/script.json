@@ -490,9 +490,9 @@
             "admin1": "Alaska",
             "country": "USA"
           },
-          "icon": "💰",
+          "icon": "art:gold_nugget",
           "count": 5,
-          "size": 72,
+          "size": 90,
           "at": "bargain",
           "stagger": 0.12
         },

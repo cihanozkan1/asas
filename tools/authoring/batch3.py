@@ -17,7 +17,7 @@ save('suez_ever_given', meta(
           cam=at_(30.3, 32.45, 55, bearing=-4),
           src=[src('The Ever Given blocked the canal 23–29 March 2021.', '2021_Suez_Canal_obstruction', 'The Ever Given container ship blocked Egypt\'s crucial waterway from 23–29 March 2021')]),
         S("It was the Ever Given, a container ship 400 meters long, wedged across the canal in a sandstorm.", [
-            slam('EVER GIVEN', 30.12, 32.58, 'Ever', size=70), cnt('400 m', '400', size=180), icon('🌪️', 30.2, 32.7, 'sandstorm', size=110)],
+            slam('EVER GIVEN', 30.12, 32.58, 'Ever', size=70), cnt('400 m', '400', size=180), art('dust_storm', 30.2, 32.7, 'sandstorm', size=170)],
           src=[src('The 400 m ship became wedged across the canal during a sandstorm.', '2021_Suez_Canal_obstruction', 'The 400-meter vessel became wedged across the canal during a sandstorm')]),
         S("About 369 ships got stuck waiting at both ends.", [
             scatter(Q_N, '🚢', 'ships', count=5, size=60, stagger=0.1), scatter(Q_S, '🚢', 'waiting', count=4, size=60, stagger=0.1, seed=3),

@@ -4,7 +4,7 @@ import { geoPath, geoBounds, geoContains, geoCentroid, geoDistance, geoCircle, g
 import { feature as topoFeature, mesh as topoMesh } from 'topojson-client';
 import { Raster } from './raster.js';
 import { CameraPath, makeProjection, ease, clamp01 } from './camera.js';
-import { characterSvg, shipSvg } from './sprites.js';
+import { characterSvg } from './sprites.js';
 
 const W = 1080;
 const H = 1920;
@@ -1460,7 +1460,18 @@ function drawRoute(ctx, el, life) {
     ctx.fill();
     ctx.restore();
   }
-  el._head = { x: head[0], y: head[1], ang, u };
+  el._head = { x: head[0], y: head[1], ang: headingOf(pts, el._head?.ang ?? ang), u };
+}
+
+// travel direction at the tip of a drawn path: measured over the last ~30 px (not the last tiny
+// segment, which can be zero-length or jitter), so a vehicle never snaps or faces the wrong way
+function headingOf(pts, prev) {
+  const [hx, hy] = pts[pts.length - 1];
+  for (let i = pts.length - 2; i >= 0; i--) {
+    const dx = hx - pts[i][0], dy = hy - pts[i][1];
+    if (Math.hypot(dx, dy) >= 30 || i === 0) return Math.hypot(dx, dy) > 2 ? Math.atan2(dy, dx) : prev;
+  }
+  return prev;
 }
 
 function drawMeasure(ctx, el, life) {
@@ -1697,8 +1708,8 @@ function buildUi() {
         const m = el.mover;
         const sz = m.size || 150;
         let inner = '';
-        if (m.kind === 'ship') inner = shipSvg(m).replace('<svg', `<svg width="${sz}" height="${sz * 0.92}"`);
-        else if (m.kind === 'character') inner = characterSvg(m).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`);
+        if (m.kind === 'character') inner = characterSvg(m).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`);
+        else if (m.src?.startsWith('/assets/art/')) inner = `<img src="${m.src}" style="width:${sz}px;height:auto">`;
         else inner = `<img src="${m.src}" style="width:${sz}px;height:${sz}px">`;
         html = `<div class="inner mover ${m.kind}"><div class="spr">${inner}</div></div>`;
         break;
@@ -1710,7 +1721,7 @@ function buildUi() {
         html = `<div class="inner dim" style="font-size:${el.size || 44}px;--dc:${el.color || '#ffffff'}">${esc(el.label || '')}</div>`;
         break;
       case 'scatter':
-        html = `<div class="inner scatter">${el._pts.map(() => `<img src="${el.src}" style="width:${el.size || 70}px;height:${el.size || 70}px">`).join('')}</div>`;
+        html = `<div class="inner scatter">${el._pts.map(() => `<img src="${el.src}" style="width:${el.size || 70}px;height:${el.src.startsWith('/assets/art/') ? 'auto' : (el.size || 70) + 'px'}">`).join('')}</div>`;
         break;
       default:
         continue;
@@ -1975,9 +1986,17 @@ function updateUi(t) {
         scale = ease.outBack(clamp01(life.age / 0.35));
         const spr = inner.querySelector('.spr');
         const goingLeft = Math.cos(el._head.ang) < 0;
-        if (m.kind === 'plane') rot = (el._head.ang * 180) / Math.PI + 45;
+        // every drawn vehicle faces right: mirror it when it travels left, and lean it (a little)
+        // into the slope of its path, so it always looks where it is going
+        const deg = (el._head.ang * 180) / Math.PI;
+        // (people walk upright, they never lean)
+        const lean = /walker/.test(m.src || '') ? 0 : Math.max(-28, Math.min(28, goingLeft ? 180 - (deg < 0 ? deg + 360 : deg) : deg));
+        // the drawn plane is seen from above with its nose up
+        if (m.kind === 'plane') rot = m.src?.startsWith('/assets/art/') ? deg + 90 : deg + 45;
         else if (m.kind === 'ship') {
           spr.style.transform = `scaleX(${goingLeft ? -1 : 1}) translateY(${Math.sin(t * 3.2) * 4}px) rotate(${Math.sin(t * 2.3) * 3}deg)`;
+        } else if (m.src?.startsWith('/assets/art/')) {
+          spr.style.transform = `scaleX(${goingLeft ? -1 : 1}) rotate(${lean}deg) translateY(${Math.sin(t * 12) * 1.5}px)`;
         } else if (m.kind === 'character') {
           spr.style.transform = `scaleX(${goingLeft ? -1 : 1}) translateY(${-Math.abs(Math.sin(t * 9)) * 10}px)`;
         }

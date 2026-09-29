@@ -53,6 +53,14 @@ def cutout(src, dst, max_side=420):
         sizes = ndimage.sum(a, lab, range(1, n + 1))
         keep = np.isin(lab, [i + 1 for i, s in enumerate(sizes) if s >= sizes.max() * 0.08])
         arr[..., 3] = np.where(keep, arr[..., 3], 0)
+        # the flat grey ground-shadow ellipse FLUX likes to add under objects: drop it
+        a = arr[..., 3] > 40
+        lab, n = ndimage.label(a)
+        H, W = a.shape
+        for i, s in enumerate(ndimage.find_objects(lab), 1):
+            h, w = s[0].stop - s[0].start, s[1].stop - s[1].start
+            if n > 1 and h < 0.22 * w and w > 0.2 * W and s[0].start > 0.55 * H:
+                arr[..., 3] = np.where(lab == i, 0, arr[..., 3])
     cut = Image.fromarray(arr)
     cut = cut.crop(cut.getbbox())
     cut.thumbnail((max_side, max_side), Image.LANCZOS)
@@ -77,7 +85,8 @@ def main():
     for s in [int(x) for x in a.seeds.split(',')]:
         f = os.path.join(RAW, f'{a.name}_{s}.png')
         if not os.path.exists(f):
-            open(f, 'wb').write(generate(STYLE.format(desc=a.desc), s, key))
+            data = generate(STYLE.format(desc=a.desc), s, key)  # nothing is written on failure
+            open(f, 'wb').write(data)
         print('ok', a.name, s)
 
 

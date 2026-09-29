@@ -509,7 +509,7 @@
             "kind": "ship",
             "size": 170,
             "emblem": "#ffd60a",
-            "style": "cargo"
+            "style": "ferry"
           },
           "drawDur": 2.0
         }
@@ -538,21 +538,53 @@
       "text": "The only big bridge nearby crosses the Rio Negro at Manaus. It opened in 2011, and it's 3,595 meters long.",
       "show": [
         {
-          "type": "ping",
-          "lat": -3.11,
-          "lon": -60.08,
-          "color": "#ffd60a",
-          "at": "Manaus"
+          "type": "bridge",
+          "from": [
+            -3.1067,
+            -60.069
+          ],
+          "to": [
+            -3.14,
+            -60.0908
+          ],
+          "at": "Negro",
+          "buildDur": 1.4,
+          "towers": [
+            0.62,
+            0.74
+          ]
         },
         {
           "type": "label",
           "text": "Rio Negro Bridge",
-          "lat": -3.11,
-          "lon": -60.08,
           "at": "Negro",
+          "style": "pill",
+          "bg": "#111827",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "Manaus",
+          "lat": -3.1,
+          "lon": -60.03,
+          "at": "Manaus",
           "dot": true,
-          "dy": -56,
-          "size": 44
+          "dy": -50,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Iranduba",
+          "lat": -3.14,
+          "lon": -60.115,
+          "at": "opened",
+          "dot": true,
+          "dy": 50,
+          "size": 38
         },
         {
           "type": "counter",
@@ -566,15 +598,20 @@
         }
       ],
       "camera": {
-        "lat": -3.1,
-        "lon": -60.08,
-        "zoom": 120
+        "lat": -3.122,
+        "lon": -60.079,
+        "zoom": 800
       },
       "sources": [
         {
           "claim": "The bridge over the Negro River opened in 2011 and spans 3,595 m.",
           "url": "https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/",
           "quote": "to span 3,595 meters"
+        },
+        {
+          "claim": "The Rio Negro Bridge links Manaus with Iranduba; it is centred at 3.122°S 60.079°W and opened on 24 October 2011.",
+          "url": "https://en.wikipedia.org/wiki/Rio_Negro_Bridge",
+          "quote": "The Rio Negro Bridge ... 3°7′19″S 60°04′46″W ... linking the city of Manaus with the small town of Iranduba"
         }
       ]
     }
@@ -589,5 +626,16 @@
         "ferry": "#ffd60a"
       }
     }
-  }
+  },
+  "imagery": [
+    {
+      "bbox": [
+        -60.2,
+        -3.2,
+        -59.95,
+        -3.04
+      ],
+      "width": 3072
+    }
+  ]
 }

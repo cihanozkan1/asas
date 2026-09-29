@@ -313,11 +313,21 @@
         },
         {
           "type": "icon",
-          "icon": "🚢",
-          "lat": 9.3,
-          "lon": -79.95,
-          "size": 110,
+          "icon": "art:canal_lock",
+          "lat": 9.272,
+          "lon": -79.921,
+          "size": 150,
+          "plain": true,
           "at": "lift"
+        },
+        {
+          "type": "icon",
+          "icon": "art:canal_lock",
+          "lat": 9.017,
+          "lon": -79.593,
+          "size": 150,
+          "plain": true,
+          "at": "lower"
         },
         {
           "type": "arrow",

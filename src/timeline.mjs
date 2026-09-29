@@ -178,6 +178,8 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           break;
         case 'icon':
           el.src = iconUrl(el.icon);
+          // a drawing needs no round badge; it is drawn a bit larger than the badge's emoji
+          if (el.src.startsWith('/assets/art/') && !raw.plain) { el.plain = true; el.size = Math.round((raw.size || 110) * 1.3); }
           break;
         case 'arrow':
         case 'line':
@@ -198,7 +200,9 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         case 'route':
           el.points = raw.points.map(toPt);
           if (raw.mover && raw.mover.icon) el.mover = { ...raw.mover, src: iconUrl(raw.mover.icon) };
-          if (raw.mover?.kind === 'plane') el.mover = { ...el.mover, src: iconUrl('✈️') };
+          // planes and ships are drawn illustrations (assets/art), all drawn facing right
+          if (raw.mover?.kind === 'plane') el.mover = { ...el.mover, src: iconUrl('art:plane_top') };
+          if (raw.mover?.kind === 'ship') el.mover = { ...el.mover, src: iconUrl('art:ship_' + (raw.mover.style || 'caravel')) };
           break;
         case 'measure':
           el.points = [toPt(raw.from), toPt(raw.to)];
@@ -212,6 +216,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         case 'scatter':
           el.target = shortKey(await targetKey(raw.target));
           el.src = iconUrl(raw.icon);
+          if (el.src.startsWith('/assets/art/') && !String(raw.icon).startsWith('art:')) el.size = Math.round((raw.size || 64) * 1.25);
           break;
         case 'dim':
           el.targets = [];

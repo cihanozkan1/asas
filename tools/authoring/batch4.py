@@ -119,7 +119,7 @@ save('italy_microstates', meta(
           src=[src('San Marino covers just over 61 km².', 'San_Marino', 'with a land area of just over 61 square kilometres (24 sq mi)'),
                src('Population 34,042 (2025).', 'San_Marino', 'a population of 34,042 as of 2025')]),
         S("And it claims to have been founded way back in the year 301.", [
-            year(301, '301'), hl('SMR', '#8b5e34', 0.05, fillOpacity=0.6), icon('🏰', SMR[0], SMR[1], 'founded', size=130), lab('San Marino', SMR[0] - 0.035, SMR[1], 0.05, style='serif', size=54)],
+            year(301, '301'), hl('SMR', '#8b5e34', 0.05, fillOpacity=0.6), art('san_marino_towers', SMR[0], SMR[1], 'founded', size=170), lab('San Marino', SMR[0] - 0.035, SMR[1], 0.05, style='serif', size=54)],
           cam=at_(43.94, 12.45, 200),
           era='history', tr='film',
           src=[src('San Marino claims to have been founded in AD 301.', 'San_Marino', 'San Marino claims to have been founded in AD 301')]),
@@ -196,7 +196,7 @@ save('hormuz', meta(
           cam={'follow': 'tanker', 'zoom': 6, 'zoomTo': 3.2},
           src=[src('It is the only maritime route for the UAE, Qatar, Bahrain, Kuwait and Iraq.', 'Strait_of_Hormuz', 'is also the only maritime route for several Gulf countries including the UAE, Qatar, Bahrain, Kuwait, and Iraq')]),
         S("Tankers also carry about 20 percent of the world's liquefied natural gas through here.", [
-            cnt('20%', '20', size=210), pill('of world LNG', 'gas', bg='#0f766e'), char('tanker_captain', 'Tankers', name='Tanker captain'), icon('🔥', 25.3, 57.5, 'gas', size=110)],
+            cnt('20%', '20', size=210), pill('of world LNG', 'gas', bg='#0f766e'), char('tanker_captain', 'Tankers', name='Tanker captain'), art('lng_carrier', 25.3, 57.5, 'gas', size=190)],
           cam=at_(26.3, 56.3, 6),
           src=[src('20% of the world\'s LNG passed through the strait.', 'Strait_of_Hormuz', '20% of the world\'s liquefied natural gas and 25% of seaborne oil trade passed through the Strait')]),
         S("That's why this 39 kilometer gap is one of the most important waterways on Earth.", [
@@ -235,7 +235,7 @@ save('kaliningrad', meta(
                src('Poland and Lithuania joined the EU on 1 May 2004.', '2004_enlargement_of_the_European_Union', 'The largest enlargement of the European Union ... took place on 1 May 2004.')]),
         S("So how did Russia end up with a piece of land in the middle of Europe?", [q(*KGD, 'how')], style='dark', no_claim=True),
         S("In 1255, German crusader knights, the Teutonic Order, built a castle here, and named it Königsberg.", [
-            year(1255, '1255'), hl(KO, '#8b5e34', 'German', fillOpacity=0.45), char('teutonic_knight', 'knights', name='Teutonic Knight'), icon('🏰', KGD[0] + 0.1, KGD[1], 'castle', size=130),
+            year(1255, '1255'), hl(KO, '#8b5e34', 'German', fillOpacity=0.45), char('teutonic_knight', 'knights', name='Teutonic Knight'), art('castle_teutonic', KGD[0] + 0.1, KGD[1], 'castle', size=160),
             lab('Königsberg', KGD[0] - 0.35, KGD[1], 'Königsberg', style='serif', size=60)],
           cam=at_(54.7, 20.5, 14), era='history', tr='film',
           src=[src('In 1255 the Teutonic Knights built the fortress of Königsberg.', 'Kaliningrad', 'During the conquest of the Sambians by the Teutonic Knights in 1255, Twangste was destroyed and replaced by a fortress named Königsberg')]),

@@ -448,4 +448,5 @@ html, body {
   letter-spacing: .01em !important; -webkit-text-stroke: 0 !important; text-shadow: 0 0 6px rgba(245,232,200,.95), 0 0 2px rgba(245,232,200,.95) !important; }
 
 /* drawn illustrations on the map: no badge, a soft contact shadow */
-.icon.art img { filter: drop-shadow(0 6px 8px rgba(0,0,0,.45)); }
+/* drawn art: a thin white sticker edge so it reads on any map colour, plus a soft shadow */
+.icon.art img { filter: drop-shadow(0 0 1.5px rgba(255,255,255,.9)) drop-shadow(0 6px 8px rgba(0,0,0,.45)); }
