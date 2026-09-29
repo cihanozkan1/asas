@@ -1,6 +1,6 @@
 # Map illustrations
 
-Flat 2D illustrations (vehicles, ships, landmarks, dams, bridges' neighbours, animals, weather, props)
+Flat 2D illustrations (vehicles, ships, landmarks, dams, animals, weather, props)
 generated with FLUX.1-dev (Black Forest Labs) through NVIDIA's hosted API (build.nvidia.com), cut out
 with rembg (isnet-general-use), specks and the ground-shadow ellipse removed, cropped, max 420 px.
 Prompt + seed for each image: `prompts/<name>.json`. Vehicles and ships are drawn facing right; the
