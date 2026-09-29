@@ -109,6 +109,12 @@ export function flagExists(code) {
 
 // "🏰" or "1f3f0" -> "/node_modules/@twemoji/svg/1f3f0.svg"
 export function iconUrl(icon) {
+  // "art:house" -> a drawn illustration from assets/art (made for this project, not an emoji)
+  if (String(icon).startsWith('art:')) {
+    const name = String(icon).slice(4);
+    if (!fs.existsSync(path.join(ROOT, 'assets/art', name + '.png'))) throw new Error('Çizim bulunamadı: ' + name);
+    return `/assets/art/${name}.png`;
+  }
   let code = icon;
   if (!/^[0-9a-f-]+$/i.test(icon)) {
     code = [...icon]

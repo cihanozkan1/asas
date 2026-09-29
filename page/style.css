@@ -446,3 +446,6 @@ html, body {
 .label.era-history.place, .label.era-history:not(.pill):not(.note):not(.map):not(.serif) { font-family: 'Playfair Display', serif !important; font-style: italic;
   font-weight: 700 !important; color: #3b2a17 !important; background: none !important; border: 0 !important; text-transform: none !important;
   letter-spacing: .01em !important; -webkit-text-stroke: 0 !important; text-shadow: 0 0 6px rgba(245,232,200,.95), 0 0 2px rgba(245,232,200,.95) !important; }
+
+/* drawn illustrations on the map: no badge, a soft contact shadow */
+.icon.art img { filter: drop-shadow(0 6px 8px rgba(0,0,0,.45)); }

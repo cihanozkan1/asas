@@ -53,6 +53,7 @@ save('suez_ever_given', meta(
 # ------------------------------------------------------------------ ISTANBUL
 IST = (41.03, 29.0)
 BOS = [(40.99, 28.99), (41.03, 29.01), (41.07, 29.05), (41.11, 29.06), (41.16, 29.08), (41.2, 29.12), (41.23, 29.14)]
+WALLS = [(40.9937, 28.9227), (41.0045, 28.9215), (41.0120, 28.9230), (41.0200, 28.9265), (41.0280, 28.9310), (41.0340, 28.9355), (41.0405, 28.9400), (41.0435, 28.9440)]
 save('istanbul', meta(
     'The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia',
     "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 It was the capital of the Roman, Byzantine and Ottoman empires, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
@@ -72,27 +73,34 @@ save('istanbul', meta(
           cam=at_(41.075, 29.05, 120),
           src=[src('31 km long; minimum width 700 m near Kandilli.', 'Bosporus', 'measures "31 km (17 nmi) long" with a minimum width of "700 m (0.38 nmi)" at its narrowest point near Kandilli')]),
         S("More than 15 million people live here, and about two thirds of them are on the European side.", [
-            slam('ISTANBUL', 41.2, 28.95, 'More', size=64), cnt('15M+', '15', size=190), pill('⅔ live in Europe', 'thirds', bg='#1d4ed8'),
-            scatter({'circle': {'lat': 41.06, 'lon': 28.9, 'km': 12}}, '🏠', 'European', count=4, size=56)],
-          cam=at_(41.05, 29.0, 40),
+            slam('ISTANBUL', 41.16, 28.98, 'More', size=64), cnt('15M+', '15', size=190), pill('⅔ live in Europe', 'thirds', bg='#1d4ed8'),
+            scatter({'circle': {'lat': 41.06, 'lon': 28.8, 'km': 30}}, 'art:house_ist', 'European', count=4, size=80, stagger=0.15, until='side', along=[(40.99, 28.80), (41.05, 28.84), (41.09, 28.90), (41.03, 28.95)])],
+          cam=at_(41.06, 28.97, 250),
           src=[src('Over 15 million inhabitants; about two-thirds live in Europe.', 'Istanbul', 'Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants')]),
         S("It was founded by Greek colonists as Byzantium, and in 330 it became Constantinople.", [
             year(330, '330'), lab('Byzantium', 41.1, 28.75, 'Byzantium', style='serif', size=60), lab('Constantinople', 40.95, 29.15, 'Constantinople', style='serif', size=56)],
           cam=at_(41.05, 29.0, 30), era='history', tr='film',
           src=[src('Founded as Byzantium (~660 BC); renamed Constantinople in 330 AD.', 'Istanbul', 'originally called Byzantium when Greek colonists established it around 660 BC. It became Constantinople in 330 AD under Constantine the Great')]),
         S("It was the capital of the Roman, Byzantine and Ottoman empires.", [
-            cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), icon('👑', 41.0, 28.95, 'capital', size=130)],
+            cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), art('hagia_sophia', 41.0086, 28.9802, 'capital', size=190), dot('Hagia Sophia', 41.0086, 28.9802, 'capital', dy=70, size=34)],
           era='history',
           src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
         S("In 1453, the Ottomans conquered it after a 55 day siege. And in 1930, it was officially renamed Istanbul.", [
-            year(1453, '1453', until='1930'), year(1930, '1930'), char('sultan', 'Ottomans', name='Mehmed II', until='1930', screen=(0.26, 0.58)), shake('conquered'), lab('Istanbul', 41.03, 29.0, '1930', style='serif', size=68, anim='slam')],
-          era='history',
-          src=[src('Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege." ... officially renamed Istanbul in 1930')]),
+            year(1453, '1453', until='1930'), year(1930, '1930'), char('sultan', 'Ottomans', name='Mehmed II', until='1930', screen=(0.74, 0.6)),
+            wall(WALLS, 'siege', buildDur=1.6, side=-1, width=16), lab('Theodosian Walls', 41.03, 28.915, 'siege', style='serif', size=40), shake('conquered'),
+            lab('Istanbul', 41.012, 28.968, '1930', style='serif', size=68, anim='slam')],
+          cam=at_(41.02, 28.955, 780), era='history',
+          src=[src('Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege." ... officially renamed Istanbul in 1930'),
+               src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae; the city fell in 1453 after a seven-week siege.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north ... The city fell on 29 May after a total of seven weeks of siege')]),
         S("Today, three bridges and a railway tunnel under the strait connect Europe and Asia.", [
-            cnt('3 + 1', 'three', size=180), icon('🌉', 41.05, 29.03, 'bridges', size=80), icon('🌉', 41.09, 29.06, 'bridges', size=80), icon('🌉', 41.2, 29.11, 'bridges', size=80),
-            icon('🚆', 41.005, 29.0, 'tunnel', size=80)],
-          cam=at_(41.1, 29.06, 230, bearing=-6), tr='flash',
-          src=[src('Three bridges (1973, 1988, 2016) and the Marmaray rail tunnel (2013).', 'Bosporus', 'three major bridges ... plus the Marmaray railway tunnel that opened in 2013')]),
+            cnt('3 + 1', 'three', size=180),
+            bridge((41.0479, 29.0262), (41.0426, 29.0424), 'three', buildDur=0.9), dot('15 July Martyrs Bridge · 1973', 41.0452, 29.0343, 'three', dy=-46, size=30),
+            bridge((41.0906, 29.0540), (41.0923, 29.0690), 'bridges', buildDur=0.9), dot('Fatih Sultan Mehmet Bridge · 1988', 41.0915, 29.0615, 'bridges', dy=-46, size=30),
+            bridge((41.2050, 29.0985), (41.2004, 29.1240), 'railway', buildDur=0.9, towers=(0.3, 0.7)), dot('Yavuz Sultan Selim Bridge · 2016', 41.2027, 29.1112, 'railway', dy=-46, size=30),
+            route([(41.0150, 28.9770), (41.0195, 28.9960), (41.0255, 29.0150)], 'tunnel', color='#f97316', width=8, dashed=True, dash=[14, 10], drawDur=1.0), dot('Marmaray tunnel · 2013', 41.0200, 28.9960, 'tunnel', dy=46, size=30)],
+          cam=fit({'box': [28.95, 40.995, 29.16, 41.215]}, pad=0.92, bearing=-6), tr='flash',
+          src=[src('Bridges: 15 July Martyrs (1973), Fatih Sultan Mehmet (1988), Yavuz Sultan Selim (2016); Marmaray undersea rail tunnel opened 2013.', 'Bosphorus',
+                   'the 1,074 m (3,524 ft) long 15th July Martyrs Bridge was completed in 1973 ... Fatih Sultan Mehmet (Bosporus II) Bridge ... was completed in 1988 ... the Yavuz Sultan Selim Bridge ... was completed in 2016 ... The Marmaray project, featuring a 13.7 km (8.5 mi) long undersea railway tunnel, opened on 29 October 2013')]),
     ],
     keywords={'istanbul': '#ff5a5f', 'europe': '#5ec8ff', 'asia': '#ffd60a', 'bosphorus': '#5ec8ff', 'constantinople': '#ffd60a'},
     imagery=[{'bbox': [28.55, 40.8, 29.45, 41.35], 'width': 4096}])

@@ -202,8 +202,8 @@
         {
           "type": "label",
           "text": "ISTANBUL",
-          "lat": 41.2,
-          "lon": 28.95,
+          "lat": 41.16,
+          "lon": 28.98,
           "at": "More",
           "style": "map",
           "anim": "slam",
@@ -236,20 +236,40 @@
           "target": {
             "circle": {
               "lat": 41.06,
-              "lon": 28.9,
-              "km": 12
+              "lon": 28.8,
+              "km": 30
             }
           },
-          "icon": "🏠",
+          "icon": "art:house_ist",
           "count": 4,
-          "size": 56,
-          "at": "European"
+          "size": 80,
+          "at": "European",
+          "stagger": 0.15,
+          "until": "side",
+          "along": [
+            [
+              40.99,
+              28.8
+            ],
+            [
+              41.05,
+              28.84
+            ],
+            [
+              41.09,
+              28.9
+            ],
+            [
+              41.03,
+              28.95
+            ]
+          ]
         }
       ],
       "camera": {
-        "lat": 41.05,
-        "lon": 29.0,
-        "zoom": 40
+        "lat": 41.06,
+        "lon": 28.97,
+        "zoom": 250
       },
       "sources": [
         {
@@ -325,11 +345,22 @@
         },
         {
           "type": "icon",
-          "icon": "👑",
-          "lat": 41.0,
-          "lon": 28.95,
-          "size": 130,
+          "icon": "art:hagia_sophia",
+          "lat": 41.0086,
+          "lon": 28.9802,
+          "size": 190,
+          "plain": true,
           "at": "capital"
+        },
+        {
+          "type": "label",
+          "text": "Hagia Sophia",
+          "lat": 41.0086,
+          "lon": 28.9802,
+          "at": "capital",
+          "dot": true,
+          "dy": 70,
+          "size": 34
         }
       ],
       "sources": [
@@ -359,12 +390,62 @@
           "type": "character",
           "image": "sultan",
           "screen": [
-            0.26,
-            0.58
+            0.74,
+            0.6
           ],
           "at": "Ottomans",
           "name": "Mehmed II",
           "until": "1930"
+        },
+        {
+          "type": "wall",
+          "points": [
+            [
+              40.9937,
+              28.9227
+            ],
+            [
+              41.0045,
+              28.9215
+            ],
+            [
+              41.012,
+              28.923
+            ],
+            [
+              41.02,
+              28.9265
+            ],
+            [
+              41.028,
+              28.931
+            ],
+            [
+              41.034,
+              28.9355
+            ],
+            [
+              41.0405,
+              28.94
+            ],
+            [
+              41.0435,
+              28.944
+            ]
+          ],
+          "at": "siege",
+          "buildDur": 1.6,
+          "side": -1,
+          "width": 16
+        },
+        {
+          "type": "label",
+          "text": "Theodosian Walls",
+          "lat": 41.03,
+          "lon": 28.915,
+          "at": "siege",
+          "style": "serif",
+          "size": 40
         },
         {
           "type": "shake",
@@ -373,19 +454,29 @@
         {
           "type": "label",
           "text": "Istanbul",
-          "lat": 41.03,
-          "lon": 29.0,
+          "lat": 41.012,
+          "lon": 28.968,
           "at": "1930",
           "style": "serif",
           "size": 68,
           "anim": "slam"
         }
       ],
+      "camera": {
+        "lat": 41.02,
+        "lon": 28.955,
+        "zoom": 780
+      },
       "sources": [
         {
           "claim": "Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930.",
           "url": "https://en.wikipedia.org/wiki/Istanbul",
           "quote": "The Ottomans conquered the city \"on 29 May 1453, after a 55-day siege.\" ... officially renamed Istanbul in 1930"
+        },
+        {
+          "claim": "The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae; the city fell in 1453 after a seven-week siege.",
+          "url": "https://en.wikipedia.org/wiki/Walls_of_Constantinople",
+          "quote": "the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north ... The city fell on 29 May after a total of seven weeks of siege"
         }
       ]
     },
@@ -404,50 +495,135 @@
           "size": 180
         },
         {
-          "type": "icon",
-          "icon": "🌉",
-          "lat": 41.05,
-          "lon": 29.03,
-          "size": 80,
-          "at": "bridges"
+          "type": "bridge",
+          "from": [
+            41.0479,
+            29.0262
+          ],
+          "to": [
+            41.0426,
+            29.0424
+          ],
+          "at": "three",
+          "buildDur": 0.9
         },
         {
-          "type": "icon",
-          "icon": "🌉",
-          "lat": 41.09,
-          "lon": 29.06,
-          "size": 80,
-          "at": "bridges"
+          "type": "label",
+          "text": "15 July Martyrs Bridge · 1973",
+          "lat": 41.0452,
+          "lon": 29.0343,
+          "at": "three",
+          "dot": true,
+          "dy": -46,
+          "size": 30
         },
         {
-          "type": "icon",
-          "icon": "🌉",
-          "lat": 41.2,
-          "lon": 29.11,
-          "size": 80,
-          "at": "bridges"
+          "type": "bridge",
+          "from": [
+            41.0906,
+            29.054
+          ],
+          "to": [
+            41.0923,
+            29.069
+          ],
+          "at": "bridges",
+          "buildDur": 0.9
         },
         {
-          "type": "icon",
-          "icon": "🚆",
-          "lat": 41.005,
-          "lon": 29.0,
-          "size": 80,
-          "at": "tunnel"
+          "type": "label",
+          "text": "Fatih Sultan Mehmet Bridge · 1988",
+          "lat": 41.0915,
+          "lon": 29.0615,
+          "at": "bridges",
+          "dot": true,
+          "dy": -46,
+          "size": 30
+        },
+        {
+          "type": "bridge",
+          "from": [
+            41.205,
+            29.0985
+          ],
+          "to": [
+            41.2004,
+            29.124
+          ],
+          "at": "railway",
+          "buildDur": 0.9,
+          "towers": [
+            0.3,
+            0.7
+          ]
+        },
+        {
+          "type": "label",
+          "text": "Yavuz Sultan Selim Bridge · 2016",
+          "lat": 41.2027,
+          "lon": 29.1112,
+          "at": "railway",
+          "dot": true,
+          "dy": -46,
+          "size": 30
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              41.015,
+              28.977
+            ],
+            [
+              41.0195,
+              28.996
+            ],
+            [
+              41.0255,
+              29.015
+            ]
+          ],
+          "color": "#f97316",
+          "width": 8,
+          "at": "tunnel",
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ],
+          "drawDur": 1.0
+        },
+        {
+          "type": "label",
+          "text": "Marmaray tunnel · 2013",
+          "lat": 41.02,
+          "lon": 28.996,
+          "at": "tunnel",
+          "dot": true,
+          "dy": 46,
+          "size": 30
         }
       ],
       "camera": {
-        "lat": 41.1,
-        "lon": 29.06,
-        "zoom": 230,
+        "fit": [
+          {
+            "box": [
+              28.95,
+              40.995,
+              29.16,
+              41.215
+            ]
+          }
+        ],
+        "pad": 0.92,
         "bearing": -6
       },
       "transition": "flash",
       "sources": [
         {
-          "claim": "Three bridges (1973, 1988, 2016) and the Marmaray rail tunnel (2013).",
-          "url": "https://en.wikipedia.org/wiki/Bosporus",
-          "quote": "three major bridges ... plus the Marmaray railway tunnel that opened in 2013"
+          "claim": "Bridges: 15 July Martyrs (1973), Fatih Sultan Mehmet (1988), Yavuz Sultan Selim (2016); Marmaray undersea rail tunnel opened 2013.",
+          "url": "https://en.wikipedia.org/wiki/Bosphorus",
+          "quote": "the 1,074 m (3,524 ft) long 15th July Martyrs Bridge was completed in 1973 ... Fatih Sultan Mehmet (Bosporus II) Bridge ... was completed in 1988 ... the Yavuz Sultan Selim Bridge ... was completed in 2016 ... The Marmaray project, featuring a 13.7 km (8.5 mi) long undersea railway tunnel, opened on 29 October 2013"
         }
       ]
     }

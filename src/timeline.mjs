@@ -203,6 +203,12 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         case 'measure':
           el.points = [toPt(raw.from), toPt(raw.to)];
           break;
+        case 'bridge':
+          el.points = [toPt(raw.from), toPt(raw.to)];
+          break;
+        case 'wall':
+          el.points = raw.points.map(toPt);
+          break;
         case 'scatter':
           el.target = shortKey(await targetKey(raw.target));
           el.src = iconUrl(raw.icon);

@@ -102,6 +102,21 @@ def route(points, at, color='#ffd60a', width=9, **kw):
     return _put({'type': 'route', 'points': [list(p) for p in points], 'color': color, 'width': width}, at, kw)
 
 
+def bridge(a, b, at, **kw):
+    """A suspension bridge drawn on the map at its real coordinates, from shore a to shore b."""
+    return _put({'type': 'bridge', 'from': list(a), 'to': list(b)}, at, kw)
+
+
+def wall(points, at, **kw):
+    """A fortified wall drawn along its real line (stone band, crenellations, towers)."""
+    return _put({'type': 'wall', 'points': [list(p) for p in points]}, at, kw)
+
+
+def art(name, lat, lon, at, size=150, **kw):
+    """A drawn illustration (assets/art/<name>.png) placed on the map, instead of an emoji."""
+    return _put({'type': 'icon', 'icon': 'art:' + name, 'lat': lat, 'lon': lon, 'size': size, 'plain': True}, at, kw)
+
+
 def ship(points, at, rid, emblem='#c1121f', style='caravel', **kw):
     # style: caravel (1400-1700), longship (Viking), steamer (1850-1950), cargo (modern), sailboat (modern yacht)
     return route(points, at, color='#ffffff', width=5, id=rid, dashed=True, dash=[14, 12], glow=False,

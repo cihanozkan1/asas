@@ -460,6 +460,9 @@ async function init(tl) {
       el._fc = { type: 'FeatureCollection', features: state.targets[el.target] };
       el._c = geoCentroid(el._fc);
     }
+    if (el.type === 'bridge' || el.type === 'wall') {
+      el._pts = densify(el.points, true);
+    }
     if (el.type === 'route' || el.type === 'measure') {
       const pts = el.type === 'route' && el.smooth !== false && !el.rhumb ? catmullRom(el.points) : el.points || [el.from, el.to];
       el._pts = densify(pts, el.rhumb);
@@ -1212,13 +1215,15 @@ function drawMarks(t) {
     drawMarker(ctx, p, markerColor(el.dotColor || el.color), life, 0.62, 40);
   }
   for (const el of state.tl.elements) {
-    if (!['arrow', 'line', 'ring', 'route', 'measure'].includes(el.type)) continue;
+    if (!['arrow', 'line', 'ring', 'route', 'measure', 'bridge', 'wall'].includes(el.type)) continue;
     const life = lifeOf(el, t, el.type === 'ring' ? 0.5 : 0.8, 0.25);
     if (!life) {
       el._head = null;
       continue;
     }
-    if (el.type === 'route') drawRoute(ctx, el, life);
+    if (el.type === 'bridge') drawBridge(ctx, el, life);
+    else if (el.type === 'wall') drawWall(ctx, el, life);
+    else if (el.type === 'route') drawRoute(ctx, el, life);
     else if (el.type === 'measure') drawMeasure(ctx, el, life);
     else if (el.type === 'ring') drawRing(ctx, el, life);
     else drawArrowOrLine(ctx, el, life);
@@ -1295,6 +1300,101 @@ function geoSlice(el, u0, u1) {
 function routeHeadGeo(el, t) {
   const pts = geoSlice(el, 0, Math.max(routeProgress(el, t), 1e-4));
   return pts[pts.length - 1];
+}
+
+// A suspension bridge seen from above: the deck is laid from one shore to the other, then the
+// two towers rise and the main cables swing between them. Drawn at the real coordinates.
+function drawBridge(ctx, el, life) {
+  const pts = screenPolyline(el._pts);
+  if (pts.length < 2) return;
+  const a = pts[0], b = pts[pts.length - 1];
+  const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+  if (len < 4) return;
+  const ux = (b[0] - a[0]) / len, uy = (b[1] - a[1]) / len, nx = -uy, ny = ux;
+  const u = ease.inOutCubic(clamp01(life.age / (el.buildDur ?? 1.0)));
+  const w = Math.max(6, Math.min(18, (el.width ?? 12)));
+  const deckCol = el.color || '#e5e7eb', edge = '#111827', accent = el.accent || '#dc2626';
+  const P = (t, o = 0) => [a[0] + ux * len * t + nx * o, a[1] + uy * len * t + ny * o];
+  ctx.save();
+  ctx.globalAlpha = life.out;
+  ctx.lineCap = 'butt';
+  // shadow on the water
+  ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.lineWidth = w + 8;
+  ctx.beginPath(); ctx.moveTo(...P(0, 4)); ctx.lineTo(...P(u, 4)); ctx.stroke();
+  // deck with dark edges and a centre line
+  ctx.strokeStyle = edge; ctx.lineWidth = w + 5;
+  ctx.beginPath(); ctx.moveTo(...P(0)); ctx.lineTo(...P(u)); ctx.stroke();
+  ctx.strokeStyle = deckCol; ctx.lineWidth = w;
+  ctx.beginPath(); ctx.moveTo(...P(0)); ctx.lineTo(...P(u)); ctx.stroke();
+  ctx.setLineDash([8, 8]); ctx.strokeStyle = '#facc15'; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(...P(0)); ctx.lineTo(...P(u)); ctx.stroke(); ctx.setLineDash([]);
+  // towers and cables once the deck is across
+  const v = ease.outBack(clamp01((life.age - (el.buildDur ?? 1.0) * 0.85) / 0.45));
+  if (v > 0) {
+    const t1 = el.towers?.[0] ?? 0.22, t2 = el.towers?.[1] ?? 0.78, half = (w / 2 + 7) * v;
+    ctx.lineCap = 'round';
+    // main cables: shore anchor -> tower -> sag in the middle -> tower -> shore anchor, both sides
+    for (const side of [-1, 1]) {
+      const o = side * (w / 2 + 2);
+      ctx.strokeStyle = accent; ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(...P(0, o)); ctx.lineTo(...P(t1, o * 1.9 * v));
+      const m = P((t1 + t2) / 2, o * 1.05), e = P(t2, o * 1.9 * v);
+      ctx.quadraticCurveTo(m[0], m[1], e[0], e[1]);
+      ctx.lineTo(...P(1, o));
+      ctx.stroke();
+    }
+    for (const t of [t1, t2]) {
+      const c = P(t);
+      ctx.fillStyle = edge;
+      ctx.save(); ctx.translate(c[0], c[1]); ctx.rotate(Math.atan2(uy, ux));
+      ctx.fillRect(-5, -half - 3, 10, (half + 3) * 2);
+      ctx.fillStyle = accent; ctx.fillRect(-3, -half - 1, 6, (half + 1) * 2);
+      ctx.restore();
+    }
+  }
+  ctx.restore();
+  el._head = { x: (a[0] + b[0]) / 2, y: (a[1] + b[1]) / 2, ang: Math.atan2(uy, ux), u };
+}
+
+// A fortified wall seen from above: a stone band with crenellations and round towers, built along its line.
+function drawWall(ctx, el, life) {
+  const all = screenPolyline(el._pts);
+  if (all.length < 2) return;
+  const u = ease.inOutCubic(clamp01(life.age / (el.buildDur ?? 1.4)));
+  const pts = partial(all, u).pts;
+  if (pts.length < 2) return;
+  const w = el.width ?? 10, stone = el.color || '#d6c7a1', edge = '#3f3524';
+  ctx.save();
+  ctx.globalAlpha = life.out;
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.lineWidth = w + 8; strokePoly(ctx, pts.map(([x, y]) => [x + 3, y + 3]));
+  ctx.strokeStyle = edge; ctx.lineWidth = w + 4; strokePoly(ctx, pts);
+  ctx.strokeStyle = stone; ctx.lineWidth = w; strokePoly(ctx, pts);
+  // crenellations: short teeth on the outer side, towers every ~70 px
+  let acc = 0, next = 0;
+  for (let i = 1; i < pts.length; i++) {
+    const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
+    const d = Math.hypot(x1 - x0, y1 - y0);
+    if (!d) continue;
+    const dx = (x1 - x0) / d, dy = (y1 - y0) / d, nx = -dy * (el.side ?? 1), ny = dx * (el.side ?? 1);
+    for (let s = 0; s < d; s += 12) {
+      const x = x0 + dx * s, y = y0 + dy * s;
+      ctx.fillStyle = edge;
+      ctx.fillRect(x + nx * (w / 2) - 3, y + ny * (w / 2) - 3, 6, 6);
+      if (acc + s >= next) {
+        // square tower astride the wall
+        const tw = w * 1.35;
+        ctx.save(); ctx.translate(x, y); ctx.rotate(Math.atan2(dy, dx));
+        ctx.fillStyle = stone; ctx.fillRect(-tw / 2, -tw / 2, tw, tw);
+        ctx.lineWidth = 3; ctx.strokeStyle = edge; ctx.strokeRect(-tw / 2, -tw / 2, tw, tw);
+        ctx.restore();
+        next += 56;
+      }
+    }
+    acc += d;
+  }
+  ctx.restore();
 }
 
 function drawRoute(ctx, el, life) {
@@ -1509,7 +1609,7 @@ function buildUi() {
       case 'icon':
         // icons sit on a round badge (like map markers), so they read as designed markers, not loose emoji
         html = el.plain
-          ? `<div class="inner icon"><img src="${el.src}" style="width:${el.size || 110}px;height:${el.size || 110}px"></div>`
+          ? `<div class="inner icon ${el.src.startsWith('/assets/art/') ? 'art' : ''}"><img src="${el.src}" style="width:${el.size || 110}px;height:${el.src.startsWith('/assets/art/') ? 'auto' : (el.size || 110) + 'px'}"></div>`
           : `<div class="inner icon badged" style="width:${(el.size || 110) * 1.25}px;height:${(el.size || 110) * 1.25}px"><img src="${el.src}" style="width:${(el.size || 110) * 0.78}px;height:${(el.size || 110) * 0.78}px"></div>`;
         break;
       case 'badge':

@@ -129,6 +129,8 @@ export function sfxEvents(tl) {
       case 'stat': add(t + 0.9, 'bell', 0.8); break;
       case 'stamp': add(t, 'thud', 1); break;
       case 'arrow': case 'line': case 'measure': case 'route': add(t, 'whoosh', 0.4); break;
+      case 'bridge': add(t, 'whoosh', 0.35); add(t + (el.buildDur ?? 1.0) * 0.9, 'pop', 0.7); break;
+      case 'wall': add(t, 'whoosh', 0.35); add(t + (el.buildDur ?? 1.4), 'thud', 0.5); break;
       case 'ghost': add(t + (el.delay ?? 0.3), 'whoosh', 0.5); break;
       case 'ping': add(t, 'pop', 0.5); break;
       case 'counter': {
