@@ -14,12 +14,16 @@ const state = {};
 
 // ---------------------------------------------------------------- loading
 
-function loadImg(url) {
+// a busy machine sometimes drops one request to the local server: retry a few times before failing
+function loadImg(url, tries = 4) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload = () => img.decode().then(() => resolve(img), () => resolve(img));
-    img.onerror = () => reject(new Error('image failed: ' + url));
+    img.onerror = () => {
+      if (tries <= 1) return reject(new Error('image failed: ' + url));
+      setTimeout(() => loadImg(url + (url.includes('?') ? '&' : '?') + 'r=' + tries, tries - 1).then(resolve, reject), 500);
+    };
     img.src = url;
   });
 }

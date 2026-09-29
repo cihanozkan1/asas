@@ -213,7 +213,7 @@ save('panama_canal', meta(
     ['panama canal', 'panama', 'cape horn', 'ships', 'shipping', 'gatun lake', 'locks', 'new york', 'san francisco', 'geography', 'history', 'maps', 'learn']),
     [
         S("Before 1914, a ship sailing from New York to San Francisco had to go all the way around South America, past Cape Horn at the very bottom.", [
-            ship(AROUND, 'sailing', 'horn', drawDur=4.2, style='steamer'), dot('New York', *NY, 'New', dy=-46), dot('San Francisco', *SF, 'San', dy=-50, dx=-40)],
+            ship(AROUND, 'sailing', 'horn', drawDur=8.0, hold=1, style='steamer'), dot('New York', *NY, 'New', dy=-46), dot('San Francisco', *SF, 'San', dy=-50, dx=-40)],
           cam={'follow': 'horn', 'zoom': 1.6, 'zoomTo': 0.95},
           src=[src('Around Cape Horn the voyage is about 22,500 km.', 'Panama_Canal', 'Instead of traveling approximately 22,500 kilometers around South America\'s Cape Horn')]),
         S("That's about 22,500 kilometers.", [cnt('22,500 km', '22,500', size=170), ping(-56.3, -67.3, 'about', color='#ff3b3b'), dot('Cape Horn', -56.3, -67.3, 'kilometers', dy=46)],
