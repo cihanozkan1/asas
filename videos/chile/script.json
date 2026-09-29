@@ -189,13 +189,13 @@
         {
           "type": "label",
           "text": "ANDES",
-          "lat": -27,
-          "lon": -67.5,
+          "lat": -25,
+          "lon": -65.5,
           "at": "Andes",
           "style": "map",
           "anim": "slam",
-          "size": 90,
-          "rotate": -80
+          "size": 70,
+          "rotate": -5
         },
         {
           "type": "icon",
@@ -253,13 +253,13 @@
         {
           "type": "label",
           "text": "PACIFIC OCEAN",
-          "lat": -32,
-          "lon": -84,
+          "lat": -34,
+          "lon": -86,
           "at": "Pacific",
           "style": "map",
           "anim": "slam",
-          "size": 80,
-          "rotate": -80
+          "size": 60,
+          "rotate": -4
         },
         {
           "type": "icon",

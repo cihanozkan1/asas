@@ -134,7 +134,7 @@ save('australia', meta(
                    '80% of the land area receives less than 600 mm (24 in) of annual rainfall and 50% less than 300 mm (12 in)')]),
         S("The Great Dividing Range runs almost 4,000 kilometers along the east coast, separating the rainy coast from the dry interior.", [
             route([(-11, 142.5), (-17, 145.3), (-23, 148), (-28, 152), (-33, 150.3), (-37, 148.5)], 'Great', color='#c8a46e', width=14, drawDur=1.6),
-            slam('GREAT DIVIDING RANGE', -24, 150, 'Range', size=54, rotate=-70), cnt('4,000 km', '4,000', size=150)],
+            slam('GREAT DIVIDING RANGE', -30, 150, 'Range', size=44, rotate=-3), cnt('4,000 km', '4,000', size=150)],
           cam=at_(-26, 146, 1.9),
           src=[src('The Great Dividing Range runs almost 4,000 km parallel to the east coast, separating coastal rainfall from interior dryness.', 'Geography_of_Australia',
                    'runs parallel to the east coast from the tip of the Cape York Peninsula in Queensland almost 4,000 km (2,500 mi) south')]),
@@ -209,7 +209,7 @@ save('panama_canal', meta(
     ['panama canal', 'panama', 'cape horn', 'ships', 'shipping', 'gatun lake', 'locks', 'new york', 'san francisco', 'geography', 'history', 'maps', 'learn']),
     [
         S("Before 1914, a ship sailing from New York to San Francisco had to go all the way around South America, past Cape Horn at the very bottom.", [
-            ship(AROUND, 'sailing', 'horn', drawDur=4.2), dot('New York', *NY, 'New', dy=-46), dot('San Francisco', *SF, 'San', dy=-50, dx=-40)],
+            ship(AROUND, 'sailing', 'horn', drawDur=4.2, style='steamer'), dot('New York', *NY, 'New', dy=-46), dot('San Francisco', *SF, 'San', dy=-50, dx=-40)],
           cam={'follow': 'horn', 'zoom': 1.6, 'zoomTo': 0.95},
           src=[src('Around Cape Horn the voyage is about 22,500 km.', 'Panama_Canal', 'Instead of traveling approximately 22,500 kilometers around South America\'s Cape Horn')]),
         S("That's about 22,500 kilometers.", [cnt('22,500 km', '22,500', size=170), ping(-56.3, -67.3, 'about', color='#ff3b3b'), dot('Cape Horn', -56.3, -67.3, 'kilometers', dy=46)],
@@ -228,10 +228,10 @@ save('panama_canal', meta(
           cam=at_(9.13, -79.75, 50),
           src=[src('Ships are raised 26 m to Gatun Lake (an artificial lake made by damming the Chagres River) and lowered at the other end.', 'Panama_Canal', 'Vessels are raised 26 meters to Gatun Lake, an artificial freshwater body created by damming the Chagres River. The locks then lower ships at the opposite end.')]),
         S("Now the New York to San Francisco trip is only about 9,500 kilometers.", [
-            ship(CANAL, 'trip', 'canalroute', emblem='#1d4ed8', drawDur=3.0), cnt_steps([('trip', '22,500 km'), ('9,500', '9,500 km')], size=160)],
+            ship(CANAL, 'trip', 'canalroute', emblem='#1d4ed8', drawDur=3.0, style='cargo'), cnt_steps([('trip', '22,500 km'), ('9,500', '9,500 km')], size=160)],
           cam={'follow': 'canalroute', 'zoom': 1.2, 'zoomTo': 0.95},
           src=[src('Through the canal the voyage is roughly 9,500 km.', 'Panama_Canal', 'ships now transit roughly 9,500 kilometers through the canal')]),
-        S("Around 14,000 ships pass through every year, and by 2012, more than 815,000 ships had used it.", [cnt('14,000', '14,000', size=190), pill('ships per year', 'ships'), scatter({'circle': {'lat': 9.1, 'lon': -79.7, 'km': 60}}, '🚢', 'pass', count=4, size=70, stagger=0.15, along=[(9.36, -79.92), (9.2, -79.83), (9.05, -79.66), (8.9, -79.53)])],
+        S("Around 14,000 ships pass through every year, and by 2012, more than 815,000 ships had used it.", [cnt_steps([('14,000', '14,000'), ('815,000', '815,000')], size=190), pill('ships per year', 'ships', until='2012'), pill('ships by 2012', '815,000', bg='#0f766e'), scatter({'circle': {'lat': 9.1, 'lon': -79.7, 'km': 60}}, '🚢', 'pass', count=4, size=70, stagger=0.15, along=[(9.36, -79.92), (9.2, -79.83), (9.05, -79.66), (8.9, -79.53)])],
           cam=at_(9.1, -79.7, 16),
           src=[src('About 14,702 transits a year; over 815,000 by 2012.', 'Panama_Canal', 'The canal handles approximately 14,702 vessel transits yearly, with over 815,000 ships having passed through by 2012')]),
         S("The United States ran the canal for most of the century, but in 1999, Panama finally took control.", [

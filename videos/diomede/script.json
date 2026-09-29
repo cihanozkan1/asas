@@ -32,16 +32,32 @@
         {
           "type": "highlight",
           "target": "RUS",
-          "fill": "flag:ru",
+          "fill": "#d62839",
           "at": "Russia",
-          "fillOpacity": 0.8
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "flag",
+          "code": "ru",
+          "lat": 66.2,
+          "lon": -174.5,
+          "size": 90,
+          "at": "Russia"
         },
         {
           "type": "highlight",
           "target": "USA",
-          "fill": "flag:us",
+          "fill": "#1d4ed8",
           "at": "United",
-          "fillOpacity": 0.8
+          "fillOpacity": 0.45
+        },
+        {
+          "type": "flag",
+          "code": "us",
+          "lat": 65.2,
+          "lon": -156,
+          "size": 90,
+          "at": "United"
         },
         {
           "type": "counter",

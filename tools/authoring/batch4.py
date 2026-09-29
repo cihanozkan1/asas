@@ -33,7 +33,7 @@ save('indonesia_capital', meta(
             icon('🚰', -6.18, 106.8, 'Pumping', size=110), arrow((-6.1, 106.9), (-6.25, 106.9), 'sink', color='#ff5a5f'), icon('🌧️', -6.12, 106.95, 'floods', size=110)],
           src=[src('Groundwater extraction contributes to subsidence and flood risk.', 'Jakarta', 'Land subsidence is a major driver of coastal-flood risk in northern Jakarta.')]),
         S("So in August 2019, President Joko Widodo announced a new capital, on the island of Borneo.", [
-            year(2019, '2019', light=True), ship([JKT, (-5.5, 110), (-3.5, 114), (-1.5, 116.9), NUS], 'Borneo', 'move', emblem='#e63946', drawDur=2.2),
+            year(2019, '2019', light=True), ship([JKT, (-5.5, 110), (-3.5, 114), (-1.5, 116.9), NUS], 'Borneo', 'move', emblem='#e63946', drawDur=2.2, style='cargo'),
             slam('BORNEO', 0.8, 114, 'Borneo', size=74)],
           cam=at_(-3.4, 111.5, 3.2, bearing=-3), tr='flash',
           src=[src('Joko Widodo announced the relocation in August 2019.', 'Nusantara_(city)', 'President Joko Widodo announced the relocation in August 2019'),
@@ -44,7 +44,7 @@ save('indonesia_capital', meta(
           src=[src('Nusantara is adjacent to the port city of Balikpapan.', 'Nusantara_(city)', 'adjacent to the port city of Balikpapan')]),
         S("Its name is Nusantara. Construction began in 2022, and it's estimated to cost about 35 billion dollars.", [
             ping(*NUS, 'Nusantara', color='#4ade80'), slam('NUSANTARA', NUS[0] + 0.25, NUS[1], 'Nusantara', size=62),
-            cnt_steps([('2022', '2022'), ('35', '$35B')], size=180), char('jakarta_resident', 'Construction', name='Moving day!')],
+            cnt_steps([('2022', '2022'), ('35', '$35B')], size=180), char('jakarta_resident', 'Construction', say='Moving day!')],
           cam=at_(-1.0, 116.6, 18, bearing=3),
           src=[src('Construction began in 2022.', 'Nusantara_(city)', 'Construction of the city began in 2022, starting with land clearing and creating access roads.'),
                src('Estimated at Rp 523 trillion (US$35 billion).', 'Nusantara_(city)', 'estimated to be worth Rp 523 trillion (US$35 billion)')]),
@@ -192,7 +192,7 @@ save('hormuz', meta(
         S("So why does this tiny strait matter so much?", [q(26.6, 56.4, 'why')], style='dark', no_claim=True),
         S("Because for countries like Qatar, Bahrain, Kuwait and Iraq, it's the only sea route to the open ocean.", [
             hl('QAT', 'flag:qa', 'Qatar', fillOpacity=0.85), hl('BHR', 'flag:bh', 'Bahrain', fillOpacity=0.85), hl('KWT', 'flag:kw', 'Kuwait', fillOpacity=0.85), hl('IRQ', 'flag:iq', 'Iraq', fillOpacity=0.85),
-            ship(GULF_OUT, 'only', 'tanker', emblem='#111827', drawDur=3.0), stamp('ONLY WAY OUT', 'open', size=80, screen=[0.5, 0.2])],
+            ship(GULF_OUT, 'only', 'tanker', emblem='#111827', drawDur=3.0, style='cargo'), stamp('ONLY WAY OUT', 'open', size=80, screen=[0.5, 0.2])],
           cam={'follow': 'tanker', 'zoom': 6, 'zoomTo': 3.2},
           src=[src('It is the only maritime route for the UAE, Qatar, Bahrain, Kuwait and Iraq.', 'Strait_of_Hormuz', 'is also the only maritime route for several Gulf countries including the UAE, Qatar, Bahrain, Kuwait, and Iraq')]),
         S("Tankers also carry about 20 percent of the world's liquefied natural gas through here.", [

@@ -319,13 +319,13 @@
         {
           "type": "label",
           "text": "GREAT DIVIDING RANGE",
-          "lat": -24,
+          "lat": -30,
           "lon": 150,
           "at": "Range",
           "style": "map",
           "anim": "slam",
-          "size": 54,
-          "rotate": -70
+          "size": 44,
+          "rotate": -3
         },
         {
           "type": "counter",

@@ -426,7 +426,8 @@ async function init(tl) {
     const eq = geoEquirectangular().scale(lc.width / (2 * Math.PI)).translate([lc.width / 2, lc.height / 2]);
     lx.fillStyle = '#fff';
     lx.beginPath(); geoPath(eq, lx)(state.geo.land50); lx.fill();
-    lx.fillRect(0, eq([0, -60])[1], lc.width, lc.height); // Antarctica is not in land50 here: leave it to colour detection
+    const ata = state.geo.byId.get('010');
+    if (ata) { lx.beginPath(); geoPath(eq, lx)(ata); lx.fill(); }
     state.raster.setLand(lc);
   }
   for (const d of tl.assets.detail || []) state.raster.addDetail(d.mask === false ? await loadImg(d.url) : landMasked(await loadImg(d.url), d.bbox, state.geo.land10, earth), d.bbox);
@@ -586,9 +587,16 @@ async function init(tl) {
   const area = (r) => r.width * r.height;
   for (const ob of tl.elements) {
     if (!ob._node || isMovable(ob) || ['route', 'scatter', 'measure'].includes(ob.type)) continue;
-    frame(Math.min(ob.start + 0.35, ob.end - 0.05));
-    const a = rectOf(ob);
+    frame(Math.min(ob.start + 0.6, ob.end - 0.05));
+    let a = rectOf(ob);
     if (!a) continue;
+    // a speaking character also claims the space of its speech bubble
+    const bub = ob.type === 'character' && ob._inner?.querySelector('.bubble');
+    if (bub) {
+      const r = bub.getBoundingClientRect();
+      if (r.width > 2) a = { left: Math.min(a.left, r.left), top: Math.min(a.top, r.top), right: Math.max(a.right, r.right), bottom: Math.max(a.bottom, r.bottom), width: 0, height: 0 };
+      a.width = a.right - a.left; a.height = a.bottom - a.top;
+    }
     for (const m of tl.elements) {
       if (m === ob || !m._node || !(isMovable(m) || (m.screen && ob.screen && m.type !== 'character' && m.type !== 'counter')) || m.start > ob.start - 0.1 || m.end < ob.start + 0.3) continue;
       const b = rectOf(m);
@@ -1765,7 +1773,9 @@ function updateUi(t) {
       let k = 0;
       el.steps.forEach((st, i) => { if (t >= st.t) { v = st.value; since = st.t; k = i; } });
       // numbers roll up when they first appear (not years like "1971: 6")
-      const rolls = k === 0 && !/^(1[0-9]|20)\d\d(\b|:)/.test(String(v)) && /\d/.test(String(v));
+      // small counts ("2", "#1", "3 + 1", "12") and years just appear; bigger numbers roll up
+      const small = (String(v).match(/\d/g) || []).length <= 2 || /\d\s?\+\s?\d/.test(String(v));
+      const rolls = k === 0 && !small && !/^(1[0-9]|20)\d\d(\b|:)/.test(String(v)) && /\d/.test(String(v));
       inner.textContent = rolls ? countUp(v, clamp01((t - el.start) / 0.9)) : String(v);
       el._since = since;
     } else if (el.type === 'label' && el.typewriter) {
@@ -1803,7 +1813,8 @@ function updateUi(t) {
     }
     let scale = 1;
     let opacity = life.out;
-    let rot = el.rotate || 0;
+    // text is never set vertically: a label may lean a little, never stand on its side
+    let rot = el.type === 'label' || el.type === 'stamp' ? Math.max(-12, Math.min(12, el.rotate || 0)) : el.rotate || 0;
     switch (el.type) {
       case 'year':
         opacity *= clamp01(life.age / 0.15);

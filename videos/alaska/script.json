@@ -293,6 +293,16 @@
           "fill": "#8a1c1c",
           "at": 0.1,
           "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "fill": "#8a1c1c",
+          "at": 0.1,
+          "fillOpacity": 0.85
         }
       ],
       "camera": {

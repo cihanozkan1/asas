@@ -334,7 +334,8 @@
           "mover": {
             "kind": "ship",
             "size": 170,
-            "emblem": "#e63946"
+            "emblem": "#e63946",
+            "style": "cargo"
           },
           "drawDur": 2.2
         },
@@ -469,7 +470,7 @@
             0.6
           ],
           "at": "Construction",
-          "name": "Moving day!"
+          "say": "Moving day!"
         }
       ],
       "camera": {

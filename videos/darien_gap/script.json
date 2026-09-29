@@ -354,7 +354,8 @@
           "mover": {
             "kind": "ship",
             "size": 170,
-            "emblem": "#ffd60a"
+            "emblem": "#ffd60a",
+            "style": "cargo"
           },
           "drawDur": 2.0
         },

@@ -82,7 +82,7 @@ save('darien_gap', meta(
           cam=at_(8.2, -77.2, 18, bearing=-3),
           src=[src('The highway breaks at Yaviza, Panama and resumes at Turbo, Colombia, roughly 106 km away.', DG, "The 'Gap' interrupts the Pan-American Highway, which breaks at Yaviza, Panama, and resumes at Turbo, Colombia, roughly 106 km (66 mi) away.")]),
         S("Drivers can't get through. Cars have to be shipped around it by boat.", [
-            ship([(8.95, -79.5), (9.6, -78.5), (9.7, -77.2), (8.7, -76.9), (8.09, -76.73)], 'shipped', 'car', emblem='#ffd60a', drawDur=2.0), icon('🚗', 9.1, -79.3, 'Cars', size=100)],
+            ship([(8.95, -79.5), (9.6, -78.5), (9.7, -77.2), (8.7, -76.9), (8.09, -76.73)], 'shipped', 'car', emblem='#ffd60a', drawDur=2.0, style='cargo'), icon('🚗', 9.1, -79.3, 'Cars', size=100)],
           cam=at_(8.8, -78.2, 8),
           src=[src('Vehicles must be shipped by cargo vessel to get around the gap.', 'Pan-American_Highway', 'vehicles must be shipped by cargo vessel to bridge this section')]),
         S("In between is the Darién Gap: swamps, mountains and thick rainforest.", [
@@ -243,7 +243,7 @@ save('tibet_planes', meta(
           cam=at_(31, 86, 4.0),
           src=[src('The plateau floor sits around 14,800 ft, above the 10,000 ft safety level.', MF, "The plateau's valley floors sit at around 14,800 feet")]),
         S("Airports are rare and far apart, and strong winds turn the air into a washing machine.", [
-            icon('🛬', 29.3, 90.9, 'Airports', size=150), dot('Lhasa', 29.65, 91.1, 'Airports', dy=-80), icon('💨', 34, 84, 'winds', size=150), icon('💨', 31.5, 95, 'machine', size=140), shake('machine')],
+            icon('🛬', 28.4, 89.6, 'Airports', size=130), dot('Lhasa', 29.65, 91.1, 'Airports', dy=-80), icon('💨', 34, 84, 'winds', size=150), icon('💨', 31.5, 95, 'machine', size=140), shake('machine')],
           cam=at_(32, 89, 4.2),
           src=[src('Airports are rare, far apart and at extreme elevations.', MF, 'Airports are rare, far apart, and themselves perched at extreme elevations.'),
                src('Winds of 100–200 km/h create severe turbulence.', MF, 'the atmosphere downstream turns into a washing machine')]),

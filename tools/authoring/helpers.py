@@ -102,9 +102,10 @@ def route(points, at, color='#ffd60a', width=9, **kw):
     return _put({'type': 'route', 'points': [list(p) for p in points], 'color': color, 'width': width}, at, kw)
 
 
-def ship(points, at, rid, emblem='#c1121f', **kw):
+def ship(points, at, rid, emblem='#c1121f', style='caravel', **kw):
+    # style: caravel (1400-1700), longship (Viking), steamer (1850-1950), cargo (modern), sailboat (modern yacht)
     return route(points, at, color='#ffffff', width=5, id=rid, dashed=True, dash=[14, 12], glow=False,
-                 mover={'kind': 'ship', 'size': 170, 'emblem': emblem}, **kw)
+                 mover={'kind': 'ship', 'size': 170, 'emblem': emblem, 'style': style}, **kw)
 
 
 def mover_icon(points, at, icon, rid=None, size=110, color='#ffffff', **kw):

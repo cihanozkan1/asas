@@ -202,7 +202,7 @@ save('oklahoma_panhandle', meta(
           cam=at_(36.7, -101.5, 11),
           src=[src('The strip is 166 miles long and 34 miles wide.', PH, '166 miles (267 km) long and 34 miles (55 km) wide')]),
         S("It has three counties, Cimarron, Texas and Beaver, and Oklahoma's highest point, Black Mesa.", [
-            *[lab(n, 36.75, lo, n, style='pill', bg='#111827', size=44, dy=d) for n, lo, d in [('Cimarron', -102.5, 80), ('Texas', -101.5, 80), ('Beaver', -100.3, 80)]], *[ping(36.75, lo, n, color='#ffd60a') for n, lo in [('Cimarron', -102.5), ('Texas', -101.5), ('Beaver', -100.5)]], icon('⛰️', 36.93, -102.95, 'Mesa', size=110), lab('Black Mesa', 36.93, -102.95, 'Mesa', style='pill', bg='#7c2d12', size=46, dy=-90, fixed=True)],
+            *[lab(n, 36.75, lo, n, style='pill', bg='#111827', size=44, dy=d) for n, lo, d in [('Cimarron', -102.5, 80), ('Texas', -101.5, -80), ('Beaver', -100.3, 80)]], *[ping(36.75, lo, n, color='#ffd60a') for n, lo in [('Cimarron', -102.5), ('Texas', -101.5), ('Beaver', -100.5)]], icon('⛰️', 36.93, -102.95, 'Mesa', size=110), lab('Black Mesa', 36.93, -102.95, 'Mesa', style='pill', bg='#7c2d12', size=46, dy=-90, fixed=True)],
           cam=at_(36.7, -101.5, 11),
           src=[src('Its counties are Cimarron, Texas and Beaver.', PH, 'Its constituent counties are, from west to east, Cimarron, Texas and Beaver.'),
                src('Black Mesa, Oklahoma\'s highest point, is in Cimarron County.', PH, 'Black mesa, the highest point in Oklahoma at 4,973 feet (1,516 m), is located in Cimarron County.')]),
@@ -254,15 +254,15 @@ save('longest_sail', meta(
                src('The computation took 10 minutes.', SMS, 'in just 10 minutes')]),
         S("It starts on the coast of Pakistan, and heads south, straight between Africa and Madagascar.", [
             ping(25.3, 66.6, 'Pakistan', color='#ffd60a'), hl('PAK', 'flag:pk', 'Pakistan', fillOpacity=0.8), hl('MDG', '#ff5a5f', 'Madagascar', fillOpacity=0.7),
-            ship(SAIL[:4], 'south', 'sail', emblem='#2de2e6', drawDur=3.0)],
+            ship(SAIL[:4], 'south', 'sail', emblem='#2de2e6', drawDur=3.0, style='sailboat')],
           cam={'follow': 'sail', 'zoom': 1.6, 'zoomTo': 1.2},
           src=[src('It runs from Pakistan through the passage between Madagascar and Africa.', SMS, 'runs from the Pakistan coast through the passage between Madagascar and Africa')]),
         S("Then it slips between South America and Antarctica.", [
-            ship(SAIL[3:7], 'slips', 'sail2', emblem='#2de2e6', drawDur=2.6), hl('ARG', '#5ec8ff', 'America', fillOpacity=0.6), hl('CHL', '#5ec8ff', 'America', fillOpacity=0.6), hl('ATA', '#e5e7eb', 'Antarctica', fillOpacity=0.5)],
+            ship(SAIL[3:7], 'slips', 'sail2', emblem='#2de2e6', drawDur=2.6, style='sailboat'), hl('ARG', '#5ec8ff', 'America', fillOpacity=0.6), hl('CHL', '#5ec8ff', 'America', fillOpacity=0.6), hl('ATA', '#e5e7eb', 'Antarctica', fillOpacity=0.5)],
           cam={'follow': 'sail2', 'zoom': 1.3, 'zoomTo': 1.1},
           src=[src('The route passes between Antarctica and Tierra del Fuego.', SMS, 'around to northeastern Russia')]),
         S("It crosses the whole Pacific Ocean, and finally reaches Kamchatka, in the far east of Russia.", [
-            ship(SAIL[6:], 'Pacific', 'sail3', emblem='#2de2e6', drawDur=3.0), ping(60, 164, 'Kamchatka', color='#ff5a5f'), hl('RUS', 'flag:ru', 'Russia', fillOpacity=0.6)],
+            ship(SAIL[6:], 'Pacific', 'sail3', emblem='#2de2e6', drawDur=3.0, style='sailboat'), ping(60, 164, 'Kamchatka', color='#ff5a5f'), hl('RUS', 'flag:ru', 'Russia', fillOpacity=0.6)],
           cam=at_(15, -165, 1.0),
           src=[src('It ends in northeastern Russia.', SMS, 'around to northeastern Russia')]),
         S("The whole trip is about 32,000 kilometers. One single straight line.", [

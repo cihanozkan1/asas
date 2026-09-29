@@ -31,7 +31,7 @@ save('suez_ever_given', meta(
             cnt('$9.6B', '9.6', size=200, color='#4ade80'), pill('per day', 'day', bg='#16a34a'), icon('💸', 30.8, 33.3, 'trade', size=130)],
           src=[src('An estimated $9.6 billion of trade per day.', '2021_Suez_Canal_obstruction', 'The obstruction tied up cargo valued at an estimated $9.6 billion daily')]),
         S("Without the canal, ships between Asia and Europe have to sail all the way around Africa.", [
-            ship(AROUND, 'around', 'africa', emblem='#1d4ed8', drawDur=3.2), ship(VIA_SUEZ, 'Asia', 'suez', drawDur=2.2)],
+            ship(AROUND, 'around', 'africa', emblem='#1d4ed8', drawDur=3.2, style='cargo'), ship(VIA_SUEZ, 'Asia', 'suez', drawDur=2.2, style='cargo')],
           cam=at_(25, 45, 0.9),
           src=[src('The canal avoids the long route around southern Africa.', 'Suez_Canal', 'vessels avoid the lengthy route around southern Africa')]),
         S("The canal cuts the trip from the Arabian Sea to London by about 8,900 kilometers.", [
@@ -156,7 +156,7 @@ save('diomede', meta(
     ['diomede islands', 'bering strait', 'russia', 'usa', 'alaska', 'international date line', 'tomorrow island', 'yesterday island', 'weird borders', 'geography', 'maps', 'learn']),
     [
         S("Russia and the United States are much closer than you think. In one place, only 3.8 kilometers apart.", [
-            hl('RUS', 'flag:ru', 'Russia', fillOpacity=0.8), hl('USA', 'flag:us', 'United', fillOpacity=0.8), cnt('3.8 km', '3.8', size=190)],
+            hl('RUS', '#d62839', 'Russia', fillOpacity=0.45), flag('ru', 66.2, -174.5, 'Russia', size=90), hl('USA', '#1d4ed8', 'United', fillOpacity=0.45), flag('us', 65.2, -156, 'United', size=90), cnt('3.8 km', '3.8', size=190)],
           cam=at_(65.8, -170, 3.2, bearing=-3),
           src=[src('At their closest points the two islands are about 3.8 km apart.', 'Diomede_Islands', 'At their closest points, the two islands are approximately 2.4 miles (3.8 km) away from each other.')]),
         S("Here in the Bering Strait, Big Diomede belongs to Russia, and Little Diomede belongs to Alaska.", [

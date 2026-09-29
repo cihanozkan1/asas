@@ -250,7 +250,8 @@
           "mover": {
             "kind": "ship",
             "size": 170,
-            "emblem": "#b91c1c"
+            "emblem": "#b91c1c",
+            "style": "longship"
           }
         }
       ],

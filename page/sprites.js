@@ -294,8 +294,72 @@ export function characterSvg(spec) {
 </svg>`;
 }
 
-// Sailing ship: sails carry a coloured band and the mast flies a pennant.
+// Ship styles by era: 'caravel' (1400-1700 sailing ship), 'longship' (Viking), 'steamer' (1850-1950),
+// 'cargo' (modern container ship / tanker / ferry), 'sailboat' (modern yacht).
 export function shipSvg(spec = {}) {
+  const st = spec.style || 'caravel';
+  if (st === 'longship') return longshipSvg(spec);
+  if (st === 'steamer') return steamerSvg(spec);
+  if (st === 'cargo') return cargoSvg(spec);
+  if (st === 'sailboat') return sailboatSvg(spec);
+  return caravelSvg(spec);
+}
+const WAKE = '<path d="M-6 204 Q20 196 40 206 T90 206 T140 206 T190 206 T246 204" stroke="#fff" stroke-width="4" fill="none" opacity=".8"/>';
+function longshipSvg(spec) {
+  const c = spec.emblem || '#b91c1c';
+  return `<svg viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <g stroke="${INK}" stroke-width="3" stroke-linejoin="round">
+    <path d="M120 40 V170" stroke-width="5"/>
+    <path d="M70 52 H170 L164 132 H76Z" fill="#f3ead2"/>
+    ${[0, 1, 2, 3].map((k) => `<path d="M${76 + k * 24} 52 H${88 + k * 24} L${86 + k * 24} 132 H${76 + k * 24}Z" fill="${c}" stroke="none"/>`).join('')}
+    <path d="M70 52 H170 L164 132 H76Z" fill="none"/>
+    <path d="M14 150 C40 170 80 176 120 176 C160 176 200 170 226 150 C222 180 196 200 120 200 C44 200 18 180 14 150Z" fill="#8a5a32"/>
+    <path d="M226 150 C236 132 236 112 224 100 C236 104 244 120 238 142" fill="#8a5a32"/>
+    <path d="M14 150 C4 132 6 114 16 104 C6 110 0 126 4 146" fill="#8a5a32"/>
+    ${[40, 70, 100, 130, 160, 190].map((x) => `<circle cx="${x}" cy="178" r="9" fill="#d9a441"/>`).join('')}
+  </g>${WAKE}</svg>`;
+}
+function steamerSvg(spec) {
+  const c = spec.emblem || '#b91c1c';
+  return `<svg viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <g stroke="${INK}" stroke-width="3" stroke-linejoin="round">
+    <path d="M92 64 H118 V122 H92Z M134 72 H158 V122 H134Z" fill="${c}"/>
+    <path d="M92 64 H118 V76 H92Z M134 72 H158 V84 H134Z" fill="#1f1612"/>
+    <path d="M60 122 H190 V150 H60Z" fill="#f3ead2"/>
+    ${[76, 100, 124, 148, 172].map((x) => `<rect x="${x - 5}" y="130" width="10" height="10" rx="3" fill="#7dd3fc"/>`).join('')}
+    <path d="M8 150 H232 L214 196 H30Z" fill="#1f2937"/>
+    <path d="M22 172 H220" stroke="#b91c1c" stroke-width="6"/>
+  </g>
+  <circle cx="98" cy="44" r="12" fill="#e5e7eb" opacity=".8"/><circle cx="110" cy="26" r="16" fill="#e5e7eb" opacity=".6"/>
+  ${WAKE}</svg>`;
+}
+function cargoSvg(spec) {
+  const cols = ['#ef4444', '#3b82f6', '#f59e0b', '#10b981', '#8b5cf6'];
+  const hull = spec.hull || '#1e3a8a';
+  return `<svg viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <g stroke="${INK}" stroke-width="3" stroke-linejoin="round">
+    <path d="M170 80 H206 V148 H170Z" fill="#f8fafc"/>
+    <path d="M176 90 H200 V100 H176Z" fill="#7dd3fc"/>
+    ${[0, 1, 2, 3, 4].map((k) => `<rect x="${26 + k * 28}" y="116" width="26" height="32" fill="${cols[k]}"/>`).join('')}
+    ${[0, 1, 2, 3].map((k) => `<rect x="${40 + k * 28}" y="92" width="26" height="24" fill="${cols[(k + 2) % 5]}"/>`).join('')}
+    <path d="M6 148 H234 L218 194 H24Z" fill="${hull}"/>
+    <path d="M18 176 H222" stroke="#b91c1c" stroke-width="7"/>
+  </g>${WAKE}</svg>`;
+}
+function sailboatSvg(spec) {
+  const c = spec.emblem || '#2de2e6';
+  return `<svg viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <g stroke="${INK}" stroke-width="3" stroke-linejoin="round">
+    <path d="M120 20 V160" stroke-width="5"/>
+    <path d="M124 26 L200 150 H124Z" fill="#f8fafc"/>
+    <path d="M116 44 L56 150 H116Z" fill="${c}"/>
+    <path d="M30 160 H214 C204 188 180 196 120 196 C62 196 40 188 30 160Z" fill="#f8fafc"/>
+    <path d="M40 176 H204" stroke="${c}" stroke-width="6"/>
+  </g>${WAKE}</svg>`;
+}
+
+// Sailing ship: sails carry a coloured band and the mast flies a pennant.
+function caravelSvg(spec = {}) {
   const hull = spec.hull || '#6e4322';
   const sail = spec.sail || '#f3ead2';
   const emblem = spec.emblem || '#c1121f';

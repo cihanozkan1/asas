@@ -231,7 +231,7 @@
           "style": "pill",
           "bg": "#111827",
           "size": 44,
-          "dy": 80
+          "dy": -80
         },
         {
           "type": "label",

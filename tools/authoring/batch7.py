@@ -21,7 +21,7 @@ save('greenland_iceland', meta(
           cam=at_(64, -45, 3.0), era='history', tr='film',
           src=[src('Erik the Red named it Greenland to attract settlers.', 'Greenland', 'which he called Greenland, as he said people would be attracted there if it had a favourable name')]),
         S("The sagas say he called it Greenland, because people would be attracted there if it had a nice name.", [
-            hl('GRL', '#8b5e34', 0.05, fillOpacity=0.5), note('GREAT MARKETING', 75, -42, 'nice', size=58), ship([(64.1, -21.9), (64, -30), (62, -42), (61, -45.5)], 'attracted', 'erik', emblem='#b91c1c')],
+            hl('GRL', '#8b5e34', 0.05, fillOpacity=0.5), note('GREAT MARKETING', 75, -42, 'nice', size=58), ship([(64.1, -21.9), (64, -30), (62, -42), (61, -45.5)], 'attracted', 'erik', emblem='#b91c1c', style='longship')],
           cam=at_(64, -35, 2.6), era='history',
           src=[src('Erik: people would be attracted if it had a favourable name.', 'Greenland', 'as he said people would be attracted there if it had a favourable name')]),
         S("And Iceland? Its name comes from Flóki, a Viking who climbed a mountain after a harsh winter, and saw an ice cap.", [
@@ -74,7 +74,7 @@ save('amazon_bridges', meta(
           cam=at_(-3.1, -60.5, 6),
           src=[src('There are few roads on either side that need connecting.', IFA, 'there are few roads on either side of the Amazon that need to be connected')]),
         S("So people cross by boat. A ferry does the job, for a tiny fraction of the cost of a bridge.", [
-            ship([(-3.14, -60.1), (-3.2, -59.95)], 'boat', 'ferry', emblem='#ffd60a', drawDur=2.0)],
+            ship([(-3.14, -60.1), (-3.2, -59.95)], 'boat', 'ferry', emblem='#ffd60a', drawDur=2.0, style='cargo')],
           cam=at_(-3.15, -60.0, 60, bearing=-3),
           src=[src('Boats and ferries are the preferred way to cross.', IFA, 'boats and ferries are the preferred method of crossing the Amazon'),
                src('A ferry does it at negligible cost compared with a major civil work.', LBV, 'at negligible cost compared to any major civil work')]),
@@ -360,7 +360,7 @@ save('point_nemo', meta(
           cam=at_(-48, -122, 1.3),
           src=[src('The nearest land is roughly 2,688 km away.', PI, 'which are each roughly 2,688 km (1,670 mi) away')]),
         S("Ducie Island, Motu Nui near Easter Island, and Maher Island next to Antarctica.", [
-            dot('Ducie Island', -24.67, -124.78, 'Ducie', dy=-50, size=38), dot('Motu Nui', -27.2, -109.45, 'Motu', dy=-50, size=38), dot('Maher Island', -72.9, -126.3, 'Maher', dy=50, size=38)],
+            dot('Ducie Island', -24.67, -124.78, 'Ducie', dy=-50, size=38), dot('Motu Nui', -27.2, -109.45, 'Motu', dy=50, size=38), dot('Maher Island', -72.9, -126.3, 'Maher', dy=50, size=38)],
           cam=at_(-48, -120, 1.3),
           src=[src('Nearest: Ducie Island, Motu Nui, Maher Island.', PI, 'They are Pandora Islet of the Ducie Island atoll (an island of the Pitcairn Islands) to the north; Motu Nui (adjacent to Easter Island) to the northeast; and Maher Island')]),
         S("No regular ships or planes pass within 400 kilometers.", [blob({'circle': {'lat': NEMO[0], 'lon': NEMO[1], 'km': 400}}, '#ff3b3b', '#ff3b3b', 'ships', fillOpacity=0.2), cnt('400 km', '400', size=170)],

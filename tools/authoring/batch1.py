@@ -30,7 +30,7 @@ save('alaska', meta(
           cam=at_(63, -175, 0.9), style='dark', no_claim=True),
         S("Russia had just lost the Crimean War against Britain, France and the Ottoman Empire, and money was tight.", [
             year(1856, 'Crimean'), icon('⚔️', 45, 34, 'Crimean', size=140), icon('💸', 55, 45, 'money', size=130),
-            hl({'hist': 1815, 'name': 'Russian Empire'}, '#8a1c1c', 0.1, fillOpacity=0.85)],
+            hl({'hist': 1815, 'name': 'Russian Empire'}, '#8a1c1c', 0.1, fillOpacity=0.85), hl(AK, '#8a1c1c', 0.1, fillOpacity=0.85)],
           cam=at_(55, 60, 0.75), era='history', tr='film',
           src=[src('Russia sold after defeat in the Crimean War and under financial pressure.', 'Alaska_Purchase',
                    'After suffering defeat in the Crimean War, Russia recognized that defending this distant territory would be difficult ... Financial pressures from the war also motivated the sale.'),
@@ -83,11 +83,11 @@ save('chile', meta(
           cam=fit(CHL, pad=0.9), style='dark', no_claim=True),
         S("First, look east. The Andes, some of the highest mountains on Earth, form a giant wall along the whole country.", [
             hl(CHL, '#d62828', 0.05, fillOpacity=0.55), route([(-18, -69.2), (-24, -68.2), (-30, -69.8), (-36, -70.4), (-41, -71.8), (-47, -72.9), (-52, -72.9)], 'east', color='#c8a46e', width=16, drawDur=1.4),
-            slam('ANDES', -27, -67.5, 'Andes', rotate=-80, size=90), icon('⛰️', -36, -64.5, 'wall', size=130)],
+            slam('ANDES', -25, -65.5, 'Andes', rotate=-5, size=70), icon('⛰️', -36, -64.5, 'wall', size=130)],
           cam=fit(CHL, pad=0.9),
           src=[src('Chile is a narrow strip between the Andes and the Pacific.', 'Chile', 'a narrow strip of land between the Andes Mountains and the Pacific Ocean')]),
         S("And to the west, there's nothing but the Pacific Ocean. So Chile is trapped in a narrow strip between the two.", [
-            hl(CHL, '#d62828', 0.05, fillOpacity=0.55), flow([(-30, -95), (-30, -76)], 'west', color='#5ec8ff', width=14, drawDur=0.8), slam('PACIFIC OCEAN', -32, -84, 'Pacific', rotate=-80, size=80), icon('🌊', -40, -82, 'Ocean', size=120),
+            hl(CHL, '#d62828', 0.05, fillOpacity=0.55), flow([(-30, -95), (-30, -76)], 'west', color='#5ec8ff', width=14, drawDur=0.8), slam('PACIFIC OCEAN', -34, -86, 'Pacific', rotate=-4, size=60), icon('🌊', -40, -82, 'Ocean', size=120),
             flow([(-30, -60), (-30, -69)], 'trapped', color='#c8a46e', width=14, drawDur=0.6)],
           cam=fit(CHL, pad=0.9),
           src=[src('The Pacific Ocean lies to the west.', 'Chile', 'a narrow strip of land between the Andes Mountains and the Pacific Ocean')]),
@@ -191,7 +191,7 @@ save('wakhan', meta(
             year('1800s', '1800s'), lab('CENTRAL ASIA', 41, 66, 'Central', style='serif', size=58), hl({'hist': 1880, 'name': 'Afghanistan'}, '#8b5e34', 'Central', fillOpacity=0.45),
             hl({'hist': 1880, 'name': 'Russian Empire'}, '#b3202a', 'Russian', fillOpacity=0.8, hold=2),
             hl({'hist': 1880, 'name': 'British Raj'}, '#e9a1a1', 'British', fillOpacity=0.8, hold=2),
-            lab('Russian Empire', 46.5, 67, 'Russian', style='serif', size=56), lab('British India', 27, 72, 'British', style='serif', size=56),
+            lab('Russian Empire', 52, 74, 'Russian', style='serif', size=56), lab('British India', 23, 78, 'British', style='serif', size=56),
             arrow((44, 68), (38.5, 71), 'north', color='#b3202a'), arrow((27, 73), (34.5, 72), 'south', color='#c95a5a')],
           cam=at_(40, 70, 2.0), era='history', tr='film', histYear=1880,
           src=[src('The corridor emerged from Great Game rivalry between the Russian Empire and British India.', 'Wakhan_Corridor', 'The corridor emerged from Great Game rivalry between empires'),

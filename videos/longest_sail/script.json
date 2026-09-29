@@ -374,7 +374,8 @@
           "mover": {
             "kind": "ship",
             "size": 170,
-            "emblem": "#2de2e6"
+            "emblem": "#2de2e6",
+            "style": "sailboat"
           },
           "drawDur": 3.0
         }
@@ -429,7 +430,8 @@
           "mover": {
             "kind": "ship",
             "size": 170,
-            "emblem": "#2de2e6"
+            "emblem": "#2de2e6",
+            "style": "sailboat"
           },
           "drawDur": 2.6
         },
@@ -517,7 +519,8 @@
           "mover": {
             "kind": "ship",
             "size": 170,
-            "emblem": "#2de2e6"
+            "emblem": "#2de2e6",
+            "style": "sailboat"
           },
           "drawDur": 3.0
         },
