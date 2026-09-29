@@ -1,5 +1,5 @@
 {
- "desc": "US President Franklin D. Roosevelt in 1934, smiling, small round glasses, dark grey suit and blue tie, grey hair combed back",
- "seed": 1,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "desc": "1930s American statesman, friendly older man, small round glasses, grey hair combed back, dark grey three-piece suit with blue tie",
+ "seed": 2,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

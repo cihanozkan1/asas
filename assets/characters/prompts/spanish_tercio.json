@@ -1,5 +1,5 @@
 {
  "desc": "17th century Spanish tercio soldier 1650s, steel morion helmet, steel breastplate, red sash, puffy sleeves, holding a long pike",
  "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

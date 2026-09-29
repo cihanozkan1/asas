@@ -1,5 +1,5 @@
 {
- "desc": "King Ferdinand II of Spain in the 1490s, clean-shaven young face, brown pageboy haircut, small golden crown, long red royal robe with ermine collar, shoes",
+ "desc": "Spanish king of the 1490s, clean-shaven young face, brown pageboy haircut, small golden crown, long red royal robe with white ermine collar",
  "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

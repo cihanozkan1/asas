@@ -1,5 +1,5 @@
 {
  "desc": "Soviet Red Army soldier of 1945, olive khaki tunic, olive side cap with a small red star, holding a submachine gun, boots",
- "seed": 3,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "seed": 2,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

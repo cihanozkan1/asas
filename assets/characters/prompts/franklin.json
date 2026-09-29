@@ -1,5 +1,5 @@
 {
- "desc": "Benjamin Franklin, bald top with long grey hair at the sides, small round glasses, brown 18th century coat",
+ "desc": "18th-century American gentleman scholar, bald top with long grey hair at the sides, small round spectacles, brown 18th-century coat and waistcoat, holding a rolled document",
  "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

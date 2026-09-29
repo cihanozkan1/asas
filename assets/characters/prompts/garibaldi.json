@@ -1,5 +1,5 @@
 {
  "desc": "Italian general Giuseppe Garibaldi, reddish-brown beard, simple red shirt, grey cloak, small round black cap, holding a sword",
- "seed": 5,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "seed": 2,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

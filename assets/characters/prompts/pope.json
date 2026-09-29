@@ -1,5 +1,5 @@
 {
  "desc": "Pope Alexander VI in the 1490s, stout older man, clean-shaven, white papal robe, red velvet short cape, red cap, gold cross necklace",
- "seed": 4,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "seed": 1,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

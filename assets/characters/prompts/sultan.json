@@ -1,5 +1,5 @@
 {
- "desc": "young Ottoman Sultan Mehmed II with a short black beard, a big round WHITE turban, a long red kaftan with gold trim down to the ankles, yellow shoes",
- "seed": 1,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "desc": "young Ottoman Sultan Mehmed II the Conqueror: neat short black beard, a large white rounded Ottoman turban with a small red top, long ankle-length red silk kaftan with gold trim and a fur collar worn over a long white robe, long sleeves, fully covered and modest, yellow leather boots",
+ "seed": 2,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

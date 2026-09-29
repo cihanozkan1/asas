@@ -1,5 +1,5 @@
 {
  "desc": "Alpine hiker with Tyrolean hat with feather, lederhosen, backpack, walking stick",
  "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

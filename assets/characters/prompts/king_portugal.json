@@ -1,5 +1,5 @@
 {
  "desc": "King John II of Portugal 1490s, adult man, dark hair, full dark beard, golden crown, dark green velvet royal robe with ermine collar, holding a sceptre",
- "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "seed": 1,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

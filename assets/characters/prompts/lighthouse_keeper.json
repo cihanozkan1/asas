@@ -1,5 +1,5 @@
 {
  "desc": "old lighthouse keeper 1880s, yellow oilskin raincoat, sou'wester hat, white beard, holding an oil lantern",
  "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

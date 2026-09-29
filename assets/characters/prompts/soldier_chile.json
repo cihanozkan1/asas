@@ -1,5 +1,5 @@
 {
- "desc": "Chilean infantry soldier in 1879, French style kepi cap, dark blue tunic, red trousers, holding a rifle",
+ "desc": "19th-century Chilean soldier in dress uniform, French-style kepi cap, dark blue tunic, red trousers, standing at attention, no weapon",
  "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

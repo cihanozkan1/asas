@@ -1,5 +1,5 @@
 {
  "desc": "friendly Egyptian farmer with brown skin and a smile, white turban, light blue galabeya robe, holding wheat",
- "seed": 1,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "seed": 2,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

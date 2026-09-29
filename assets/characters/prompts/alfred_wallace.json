@@ -1,5 +1,5 @@
 {
- "desc": "Victorian naturalist Alfred Russel Wallace, full dark brown beard, small round glasses, khaki field jacket, holding a butterfly net",
- "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "desc": "Victorian-era naturalist explorer in the 1850s, full dark brown beard, small round glasses, khaki field jacket, holding a butterfly net",
+ "seed": 1,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

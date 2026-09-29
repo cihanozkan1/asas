@@ -1,5 +1,5 @@
 {
- "desc": "Canadian lumberjack, red plaid flannel shirt, red knit toque hat, brown beard, jeans, boots, holding a steaming coffee mug",
+ "desc": "friendly Canadian woodsman with a brown beard, red checked flannel shirt, knitted winter hat, blue jeans, brown work boots, holding a mug of hot cocoa",
  "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

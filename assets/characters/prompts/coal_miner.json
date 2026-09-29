@@ -1,5 +1,5 @@
 {
  "desc": "coal miner man, hard hat with headlamp, dirty face, denim overalls, holding a pickaxe",
- "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "seed": 1,
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }

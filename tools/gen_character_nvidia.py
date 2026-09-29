@@ -17,8 +17,10 @@ STYLE = ('flat 2D vector cartoon character in the style of a polished educationa
 
 
 def generate(prompt, seed, key, size=(768, 1344)):
-    body = {'prompt': prompt, 'width': size[0], 'height': size[1], 'seed': seed, 'steps': 30, 'cfg_scale': 3.5, 'mode': 'base'}
     for model in MODELS:
+        body = {'prompt': prompt, 'width': size[0], 'height': size[1], 'seed': seed, 'steps': 30, 'cfg_scale': 3.5, 'mode': 'base'}
+        if 'klein' in model:  # the small model takes fewer options
+            body = {'prompt': prompt, 'width': 768, 'height': 1344, 'seed': seed, 'steps': 4}
         req = urllib.request.Request(f'https://ai.api.nvidia.com/v1/genai/{model}', data=json.dumps(body).encode(),
                                      headers={'Authorization': f'Bearer {key}', 'Accept': 'application/json', 'Content-Type': 'application/json'})
         for attempt in range(3):

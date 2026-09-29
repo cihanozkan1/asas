@@ -1,5 +1,5 @@
 {
- "desc": "Russian Emperor Alexander II in 1867, bald top, big bushy mustache joined to long sideburns, shaved chin, dark green military coat with gold epaulettes, white trousers, black boots",
+ "desc": "Russian Emperor Alexander II in 1867: balding head, big bushy moustache that joins long mutton-chop sideburns, clean-shaven chin, dark green Russian military tunic with gold epaulettes and a blue sash, dark trousers, black boots, hands empty",
  "seed": 2,
- "model": "stabilityai/sdxl-turbo (4 steps, local CPU)"
+ "model": "black-forest-labs/flux.1-dev (NVIDIA build.nvidia.com)"
 }
