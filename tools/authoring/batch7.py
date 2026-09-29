@@ -363,7 +363,7 @@ save('point_nemo', meta(
             dot('Ducie Island', -24.67, -124.78, 'Ducie', dy=-50, size=38), dot('Motu Nui', -27.2, -109.45, 'Motu', dy=50, size=38), dot('Maher Island', -72.9, -126.3, 'Maher', dy=50, size=38)],
           cam=at_(-48, -120, 1.3),
           src=[src('Nearest: Ducie Island, Motu Nui, Maher Island.', PI, 'They are Pandora Islet of the Ducie Island atoll (an island of the Pitcairn Islands) to the north; Motu Nui (adjacent to Easter Island) to the northeast; and Maher Island')]),
-        S("No regular ships or planes pass within 400 kilometers.", [blob({'circle': {'lat': NEMO[0], 'lon': NEMO[1], 'km': 400}}, '#ff3b3b', '#ff3b3b', 'ships', fillOpacity=0.2), cnt('400 km', '400', size=170)],
+        S("No regular ships or planes pass within 400 kilometers.", [meas(NEMO, (NEMO[0] + 3.6, NEMO[1]), '400 km', 'ships', color='#ff5a5f'), mover_icon([(NEMO[0] + 6.5, NEMO[1] - 14), (NEMO[0] + 6.5, NEMO[1] + 14)], 'planes', '🚢', size=80), cnt('400 km', '400', size=170)],
           cam=at_(-48, -123, 3.0), tr='flash',
           src=[src('No regular marine or air traffic routes within 400 km.', PI, 'since no regular marine or air traffic routes are within 400 kilometres (250 mi)')]),
         S("So sometimes, the closest humans are astronauts on the International Space Station, flying overhead.", [ping(*NEMO, 0.05, color='#ff3b3b'), lab('POINT NEMO', NEMO[0], NEMO[1], 0.05, style='pill', bg='#c1121f', size=46, dy=110), 

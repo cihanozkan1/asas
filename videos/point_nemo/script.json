@@ -237,19 +237,45 @@
       "text": "No regular ships or planes pass within 400 kilometers.",
       "show": [
         {
-          "type": "highlight",
-          "target": {
-            "circle": {
-              "lat": -48.877,
-              "lon": -123.393,
-              "km": 400
-            }
-          },
-          "fill": "#ff3b3b",
+          "type": "measure",
+          "from": [
+            -48.877,
+            -123.393
+          ],
+          "to": [
+            -45.277,
+            -123.393
+          ],
+          "label": "400 km",
           "at": "ships",
-          "soft": true,
-          "rim": "#ff3b3b",
-          "fillOpacity": 0.2
+          "color": "#ff5a5f"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              -42.377,
+              -137.393
+            ],
+            [
+              -42.377,
+              -109.393
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "planes",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "🚢",
+            "size": 80
+          }
         },
         {
           "type": "counter",
