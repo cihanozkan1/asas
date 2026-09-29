@@ -45,6 +45,8 @@ LBV = 'https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-th
 IFA = 'https://interestingfacts.com/fact/there-are-no-bridges-across-the-amazon-river/'
 # Rio Negro Bridge, Manaus (NE) to Iranduba (SW), 3.6 km across the river, centred on 3.122°S 60.079°W
 RNB = [(-3.1067, -60.0690), (-3.1400, -60.0908)]
+# car ferry across the Amazon from Manaus (Ceasa port) to the Careiro side
+FERRY = [(-3.131, -59.918), (-3.162, -59.896), (-3.193, -59.877)]
 AMZ = [(-4.4, -73.2), (-3.7, -70.0), (-3.3, -64.7), (-3.1, -60.0), (-2.6, -56.7), (-2.0, -54.0), (-1.5, -52.5), (0.0, -50.0)]
 save('amazon_bridges', meta(
     'Why No Bridge Crosses the Amazon River 🌊🌴🤯',
@@ -76,8 +78,8 @@ save('amazon_bridges', meta(
           cam=at_(-3.1, -60.5, 6),
           src=[src('There are few roads on either side that need connecting.', IFA, 'there are few roads on either side of the Amazon that need to be connected')]),
         S("So people cross by boat. A ferry does the job, for a tiny fraction of the cost of a bridge.", [
-            ship([(-3.14, -60.1), (-3.2, -59.95)], 'boat', 'ferry', emblem='#ffd60a', drawDur=2.0, style='ferry')],
-          cam=at_(-3.15, -60.0, 60, bearing=-3),
+            ship(FERRY, 'boat', 'ferry', emblem='#ffd60a', drawDur=3.2, style='ferry', until='bridge')],
+          cam=at_(-3.162, -59.912, 700, bearing=-3),
           src=[src('Boats and ferries are the preferred way to cross.', IFA, 'boats and ferries are the preferred method of crossing the Amazon'),
                src('A ferry does it at negligible cost compared with a major civil work.', LBV, 'at negligible cost compared to any major civil work')]),
         S("The only big bridge nearby crosses the Rio Negro at Manaus. It opened in 2011, and it's 3,595 meters long.", [
@@ -89,7 +91,7 @@ save('amazon_bridges', meta(
     ],
     keywords={'amazon': '#5ec8ff', 'bridge': '#ffd60a', 'bridges': '#ffd60a', 'ferry': '#ffd60a'},
     captions={'theme': 'classic'},
-    imagery=[{'bbox': [-60.2, -3.2, -59.95, -3.04], 'width': 3072}])
+    imagery=[{'bbox': [-60.2, -3.26, -59.8, -3.04], 'width': 4096}])
 
 # ------------------------------------------------------------------ 21. TORNADO ALLEY (chalk)
 TA = 'Tornado_Alley'
