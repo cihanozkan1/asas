@@ -23,6 +23,21 @@ CLAUDE.md'deki "60–100 sn" kuralının bile altında.
 
 Aşağıdaki liste 125 fark. Etki: ★★★ büyük · ★★ orta · ★ küçük. "Yok" = motorda hiç yok, "kısmen" = var ama zayıf.
 
+## Kapatma durumu (güncel)
+
+Aşağıdaki tablolardaki "bizde" sütunu analiz anının durumunu gösterir; kapatılanlar burada özetlenir.
+
+| grup | kapatıldı | kalan / kısmi |
+|---|---|---|
+| A. Kamera | sürekli drift + kayma, sahne içi ikinci hamle (`camera.then`, otomatik itme), rotayı takip eden kamera, eğimli kamera + gökyüzü, hareket bulanıklığı, kamera sarsıntısı | split-screen / ikinci pencere (inset) |
+| B. Harita çizimi | sınır çizerek açılış (`trace`), neon kenar, eğri yazı, dev kabartmalı ad, kalabalık, kutu/ışın/bulut, yeni paletler (light, blueprint, pastel, bw, kraft), bayrak dalgası, lazer/ateş/düğümlü rota | 3B ölçüm kutusu |
+| C. Anlatım / karakter | gemiye binip karaya çıkan karakter, yürüyen karakter, tepki yüzleri (8 ifade), avatar, el damgası, çene düşme yerine tepki emojisi | ülke yüzü yalnız temel ifadeler |
+| D. Efekt / geçiş | wipe/zoom/slide/glitch/blast/ice/rewind/ink, renk ayarları, parçacıklar, mercek parlaması, büyüteç | uçak süpürme ile fotoğraf açılışı |
+| E. B-roll | kendi ürettiğimiz (FLUX) B-roll kartları ve tam ekran; telifli hiçbir görüntü yok | — |
+| F. Zamanlama | her kesimde geçiş, tepki yüzü, itme; süre 58–100 sn hedefi (≥160 kelime) | metrik: `pan` düz vektör haritada faz korelasyonuyla zayıf ölçülür, eşik 1,5'e çekildi |
+| G. Konu | her videoya kaynaklı ek sahneler (Wikipedia alıntısıyla) | — |
+| H. Hat | Kokoro yerel TTS, Sentinel-2, kalite kapısı, storyboard üretici, skill'ler | ses analizi (Whisper) eklenmedi |
+
 ## A. Kamera (1–16)
 
 | # | referansta | bizde | etki |

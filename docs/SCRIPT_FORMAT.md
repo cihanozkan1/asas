@@ -47,7 +47,7 @@ Aynı öğe ardışık sahnelerde tekrar yazılırsa kesintisiz devam eder (yeni
 | `highlight` | `target`, `fill` (`"#e8742a"` veya `"flag:pl"` bayrak dolgusu), `fillOpacity`, `stroke`, `pattern: "hatch"` |
 | `label` | `text`, `lat`/`lon` veya `screen: [x,y]` (0–1), `size`, `style` (`""` kalın beyaz, `serif`, `tag`, `yellow`), `dx`, `dy` |
 | `flag` | `code` (flag-icons kodu, `eu` dahil), `lat`/`lon` veya `screen`, `size`, `pin` (direkli bayrak) |
-| `icon` | `icon` (emoji, ör. `"🏰"`), konum, `size` — Twemoji |
+| `icon` | `icon` (`"art:<ad>"` = `assets/art/<ad>.png`, bizim ürettiğimiz çizim; emoji yalnız `EMOJI_ART` eşlemesi varsa), konum, `size`. Eşlemesiz emoji derlemede hata verir (Twemoji kaldırıldı) |
 | `ring` | `lat`, `lon`, `r` — elle çizilmiş sarı daire |
 | `arrow` | `from`, `to` (`[lat, lon]`), `color`, `curve`, `width` |
 | `line` | `from`, `to`, `label` (ör. `"65 km"`), kesikli mesafe çizgisi |
@@ -62,4 +62,22 @@ Aynı öğe ardışık sahnelerde tekrar yazılırsa kesintisiz devam eder (yeni
 
 - Günün saati ifadesi yok (tonight, this morning, ...).
 - İddia içeren her sahnede kaynak var.
-- Hedef süre `video.targetSeconds` (varsayılan 55–95 sn); yaklaşık 175 kelime/dk.
+- Hedef süre `video.targetSeconds` (varsayılan 55–95 sn); yaklaşık 165 kelime/dk (Kokoro). Kalite kapısı `tools/ref/quality.py` her render sonunda çalışır.
+
+## Referans araç kutusu (page/extras.js; `tools/authoring/helpers.py` kısayolları)
+
+| type | açıklama |
+|---|---|
+| `highlight` + `trace: true` (`trace()`) | Ülke/bölge sınırı bir noktadan başlayıp etrafı çizilerek açılır, sonra dolgu gelir. `neon` ile parlak kenar |
+| `label` `style:'extrude'`, `anim:'giant'` (`giant()`) | Dev kabartmalı ad, haritaya küçülerek oturur |
+| `pathtext` | Yazı bir yol/kıyı boyunca eğri akar |
+| `crowd`, `pin`, `box` (`area()`), `beam`, `cloud`, `particles`, `flare`, `lens` | Kalabalık, iğne, kutu, ışın, bulut, parçacık (snow/rain/dust/embers/confetti), mercek parlaması, büyüteç |
+| `photo`, `avatar`, `react`, `link` | Üretilmiş B-roll kartı/tam ekran, sohbet avatarı, tepki yüzü (`art:emote_*`), bağlantı çizgisi |
+| `timebar`, `orbit`, `handstamp`, `grade` | Zaman çubuğu, yörünge ikonları, el ile damga, renk ayarı (bw/thermal/sepia/danger/cold/dusk) |
+| `route` (+`rider`, `mover`, `laser`, `nodes`, `follow` kamera) | Gemiye binen karakter (`rider_ship`), yürüyen karakter (`walker`), lazer/ateş/düğümlü rota |
+| `tilt` | Eğimli kamera + gökyüzü |
+| `camera.then` | Sahne içinde ikinci/üçüncü kamera hamlesi; yoksa uzun sahnelere otomatik itme eklenir (`camera.noPush`) |
+| `transition` | `film`, `flash`, `fade`, `wipe`, `zoom`, `slide`, `glitch`, `blast`, `ice`, `rewind`, `ink`; belirtilmeyen her kesime döngüyle zoom/slide/wipe |
+| palet | `dark atlas neon chalk light blueprint pastel bw kraft` |
+
+Otomatik: `enrich()` (helpers.save) cümleden tepki yüzü seçer (think/laugh/cry/angry/shock/cool); `tools/storyboard.py <id>` `videos/<id>/storyboard.md` üretir.
