@@ -450,3 +450,54 @@ html, body {
 /* drawn illustrations on the map: no badge, a soft contact shadow */
 /* drawn art: a thin white sticker edge so it reads on any map colour, plus a soft shadow */
 .icon.art img { filter: drop-shadow(0 0 1.5px rgba(255,255,255,.9)) drop-shadow(0 6px 8px rgba(0,0,0,.45)); }
+
+/* ---------- reference-toolbox elements (page/extras.js) ---------- */
+#under, #over { pointer-events: none; }
+.photo { position: relative; }
+.photo .ph { position: absolute; inset: 0; overflow: hidden; background: #111; }
+.photo .ph img { width: 100%; height: 100%; object-fit: cover; display: block; transform-origin: 50% 50%; }
+.photo.card { border: 14px solid #fff; border-bottom-width: 46px; box-shadow: 0 22px 44px rgba(0,0,0,.55); background: #fff; box-sizing: content-box; }
+.photo.card .ph { inset: 0; }
+.photo .cap-l { position: absolute; left: 0; right: 0; bottom: -40px; text-align: center; font: 700 26px 'Permanent Marker', cursive; color: #222; }
+.photo.full { width: 1080px; height: 1920px; }
+.photo.full::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.5) 100%); }
+.avatar { position: relative; }
+.avatar .frame { position: absolute; inset: 0; overflow: hidden; background: #dbe6ee; border: 6px solid #fff; box-shadow: 0 10px 24px rgba(0,0,0,.5); box-sizing: border-box; }
+.avatar.circle .frame { border-radius: 50%; }
+.avatar.hex .frame { clip-path: polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%); border: 0; box-shadow: none; background: #fff; padding: 6px; }
+.avatar.hex .frame img { clip-path: polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%); }
+.avatar .frame img { position: absolute; left: 50%; top: -6%; width: 150%; transform: translateX(-50%); }
+.avatar .an { position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%); background: #f59e0b; color: #fff; font: 800 26px Montserrat; padding: 2px 14px; border-radius: 10px; white-space: nowrap; text-shadow: 0 2px 3px rgba(0,0,0,.4); }
+.react img { display: block; filter: drop-shadow(0 8px 10px rgba(0,0,0,.5)); }
+.timebar { position: relative; height: 120px; color: #fff; font-family: Montserrat, sans-serif; }
+.timebar .tb-track { position: absolute; left: 0; right: 0; top: 56px; height: 8px; background: rgba(255,255,255,.35); border-radius: 4px; }
+.timebar .tb-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--kit, #5ec8ff); border-radius: 4px; box-shadow: 0 0 14px var(--kit, #5ec8ff); }
+.timebar .tb-knob { position: absolute; top: 50%; left: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; background: #fff; border: 6px solid var(--kit, #5ec8ff); box-shadow: 0 0 14px rgba(0,0,0,.5); }
+.timebar .tb-y { position: absolute; top: 74px; font-weight: 800; font-size: 34px; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
+.timebar .tb-y.a { left: 0; } .timebar .tb-y.b { right: 0; }
+.timebar .tb-l { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-weight: 900; font-size: 46px; text-shadow: 0 3px 8px rgba(0,0,0,.8); color: var(--kit, #5ec8ff); }
+.timebar .tb-c { position: absolute; left: 0; right: 0; top: 74px; text-align: center; font-weight: 800; font-size: 34px; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
+.orbit { position: relative; }
+.orbit .ring { position: absolute; inset: 0; border-radius: 50%; border: 3px solid rgba(255,255,255,.85); box-shadow: 0 0 12px rgba(0,0,0,.4); }
+.orbit .mid { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 62%; text-align: center; color: #fff; font: 900 50px/1.1 Montserrat; text-shadow: 0 3px 10px rgba(0,0,0,.8); }
+.orbit .it { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 8px; }
+.orbit .it i { width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,.5); flex: none; }
+.orbit .it b { color: #fff; font: 800 34px Montserrat; text-shadow: 0 2px 8px rgba(0,0,0,.85), 0 0 3px #000; white-space: nowrap; background: rgba(220,38,80,.9); padding: 2px 12px; border-radius: 10px; }
+.handstamp { position: relative; width: 760px; height: 420px; }
+.handstamp .hs-text { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%) rotate(-8deg); color: #e11d2e; border: 10px solid #e11d2e; border-radius: 14px; padding: 6px 30px; font: 400 96px Anton; letter-spacing: .04em; text-transform: uppercase; opacity: 0; white-space: nowrap; background: rgba(255,255,255,.12); }
+.handstamp .hs-hand { position: absolute; left: 50%; top: -60px; width: 360px; margin-left: -180px; filter: drop-shadow(0 16px 18px rgba(0,0,0,.5)); }
+.lens { position: relative; }
+.lens canvas { position: absolute; inset: 0; border-radius: 50%; }
+.lens .rim { position: absolute; inset: -14px; border-radius: 50%; border: 18px solid #6b4f2a; box-shadow: inset 0 0 40px rgba(255,255,255,.25), 0 16px 36px rgba(0,0,0,.55); background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.28), rgba(255,255,255,0) 45%); }
+.lens .handle { position: absolute; left: 82%; top: 84%; width: 46px; height: 320px; border-radius: 22px; background: linear-gradient(90deg, #3a2a14, #7a5a2e 40%, #3a2a14); transform: rotate(-42deg); transform-origin: 50% 0; box-shadow: 0 10px 20px rgba(0,0,0,.5); z-index: -1; }
+/* giant / extruded name labels */
+.label.extrude { -webkit-text-stroke: 0; color: #fff; text-shadow: 1px 1px 0 #1b2a4a, 2px 2px 0 #1b2a4a, 3px 3px 0 #1b2a4a, 4px 4px 0 #1b2a4a, 5px 5px 0 #1b2a4a, 6px 6px 0 #1b2a4a, 0 0 26px var(--kit, #5ec8ff), 0 10px 24px rgba(0,0,0,.6); letter-spacing: .01em; }
+.label .lw { display: inline-block; }
+/* speech without a bubble: bold yellow outlined words */
+.bubble.text { background: none; border: 0; box-shadow: none; padding: 0; color: #ffe600; -webkit-text-stroke: 8px #111; paint-order: stroke fill; font-weight: 900; }
+.bubble.text::before, .bubble.text::after { display: none; }
+.glyph { position: absolute; font: 900 64px Montserrat; color: #fff; -webkit-text-stroke: 8px #111; paint-order: stroke fill; text-shadow: 0 4px 10px rgba(0,0,0,.6); white-space: nowrap; }
+
+.hexw { filter: drop-shadow(0 0 18px var(--hc)) drop-shadow(0 8px 10px rgba(0,0,0,.45)); }
+.hexb { width: 100%; height: 100%; clip-path: polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0 50%); background: radial-gradient(circle at 35% 25%, color-mix(in srgb, var(--hc) 70%, #fff), var(--hc) 70%); display: flex; align-items: center; justify-content: center; border: 0; }
+#captions.theme-ref .cap { text-transform: none; letter-spacing: 0; }

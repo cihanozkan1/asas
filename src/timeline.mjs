@@ -4,8 +4,10 @@ import path from 'node:path';
 import { resolveTargetSpec, flagExists, iconUrl } from './geo.mjs';
 import { normWord } from './util.mjs';
 import { histYearFor, histBorders } from './historical.mjs';
+import { ROOT } from './util.mjs';
 
-const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12], bars: [0.5, 0.3], vs: [0.5, 0.27], timeline: [0.5, 0.24], clock: [0.5, 0.3] };
+const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12], bars: [0.5, 0.3], vs: [0.5, 0.27], timeline: [0.5, 0.24], clock: [0.5, 0.3], timebar: [0.5, 0.26], orbit: [0.5, 0.4], handstamp: [0.5, 0.33] };
+let LEAD = 0.08;   // seconds a word-timed element appears before its word (set from config.timing.lead)
 
 function toPt(p) {
   if (!p) return null;
@@ -31,7 +33,7 @@ function wordTime(scene, phrase, which = 'start') {
 function timeSpec(scene, spec, fallback) {
   if (spec == null) return fallback;
   if (typeof spec === 'number') return scene.start + spec;
-  if (typeof spec === 'string') return wordTime(scene, spec) - 0.08;
+  if (typeof spec === 'string') return wordTime(scene, spec) - LEAD;
   throw new Error('at/until: sayı veya kelime olmalı');
 }
 
@@ -62,6 +64,7 @@ export function buildCaptions(scenes, cfg) {
 }
 
 export async function buildTimeline({ script, cfg, preset, narration, videoDir, assets, guides }) {
+  LEAD = cfg.timing?.lead ?? 0.08;
   // per-video UI kit (counter/stamp/label/card look), so the videos don't all share one design
   let kit = { kit: 'classic', accent: '#ffd60a' };
   try {
@@ -137,6 +140,12 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         const p0 = toPt(r.points[0]);
         sc.camera = { lat: p0.lat, lon: p0.lon, zoom: c.zoom ?? 3, follow: c.follow, zoomTo: c.zoomTo, bearing: c.bearing };
       } else sc.camera = { lat: c.lat, lon: c.lon, zoom: c.zoom, bearing: c.bearing };
+      sc.cameraThen = [];
+      for (const th of c.then || []) {
+        const o = { t: timeSpec(sc, th.at, sc.start + 1), duration: th.duration, bearing: th.bearing, pad: th.pad };
+        if (th.fit) { o.fit = []; for (const tg of th.fit) o.fit.push(shortKey(await targetKey(tg))); } else { o.lat = th.lat; o.lon = th.lon; o.zoom = th.zoom; }
+        sc.cameraThen.push(o);
+      }
       sc.cameraDuration = c.duration ?? (i === 0 ? cfg.camera.introDuration : Math.min(cfg.camera.duration, Math.max(0.6, sceneDur * 0.8)));
       sc.cameraLead = c.lead ?? (i === 0 ? 0 : cfg.camera.lead);
     } else sc.camera = null;
@@ -201,6 +210,8 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           el.points = raw.points.map(toPt);
           if (raw.mover && raw.mover.icon) el.mover = { ...raw.mover, src: iconUrl(raw.mover.icon) };
           // planes and ships are drawn illustrations (assets/art), all drawn facing right
+          if (raw.mover?.image && !el.mover.src) el.mover = { ...raw.mover };
+          if (raw.rider) el.rider = { ...raw.rider, to: toPt(raw.rider.to) };
           if (raw.mover?.kind === 'plane') el.mover = { ...el.mover, src: iconUrl('art:plane_top') };
           if (raw.mover?.kind === 'ship') el.mover = { ...el.mover, src: iconUrl('art:ship_' + (raw.mover.style || 'caravel')) };
           break;
@@ -236,6 +247,43 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         case 'character':
           el.key = el.id ? `char|${el.id}` : null;
           el.seed = elements.length;
+          break;
+        case 'pathtext':
+          el.points = raw.points.map(toPt);
+          break;
+        case 'box':
+          el.from = toPt(raw.from);
+          el.to = toPt(raw.to);
+          break;
+        case 'crowd':
+          el.counts = (raw.counts || []).map((c) => ({ n: c.n, t: timeSpec(sc, c.at, sc.start) }));
+          el.red = (raw.red || []).map((c) => ({ n: c.n, t: timeSpec(sc, c.at, sc.start) }));
+          break;
+        case 'face':
+          el.target = shortKey(await targetKey(raw.target));
+          el.expr = (raw.expr || []).map((e) => ({ e: e.e, t: timeSpec(sc, e.at, sc.start) }));
+          if (raw.look) el.look = toPt(raw.look);
+          el.seed = elements.length;
+          break;
+        case 'pin':
+          if (raw.icon) el.src = iconUrl(raw.icon);
+          break;
+        case 'react':
+          el.src = iconUrl(raw.icon);
+          break;
+        case 'photo':
+          if (!fs.existsSync(path.join(ROOT, 'assets/broll', el.image + '.jpg'))) throw new Error(`Sahne ${i + 1}: assets/broll/${el.image}.jpg yok`);
+          if (el.kind === 'full' && !el.screen) el.screen = [0.5, 0.5];
+          if (el.kind !== 'full' && el.lat == null && !el.screen) el.screen = [0.5, 0.42];
+          break;
+        case 'avatar':
+          if (!fs.existsSync(path.join(ROOT, 'assets/characters', el.image + '.png'))) throw new Error(`Sahne ${i + 1}: karakter ${el.image} yok`);
+          el.seed = elements.length;
+          break;
+        case 'timebar':
+          break;
+        case 'lens':
+          if (el.lat == null && !el.screen) el.screen = [0.5, 0.4];
           break;
         default:
           break;

@@ -5,6 +5,7 @@ import { feature as topoFeature, mesh as topoMesh } from 'topojson-client';
 import { Raster } from './raster.js';
 import { CameraPath, makeProjection, ease, clamp01 } from './camera.js';
 import { characterSvg } from './sprites.js';
+import { makeExtras } from './extras.js';
 
 const W = 1080;
 const H = 1920;
@@ -399,7 +400,7 @@ async function init(tl) {
   state.mode = tl.preset.projection; // 'globe' | 'flat'
   state.baseK = W * cfg.layout.globeRadius;
 
-  for (const id of ['space', 'raster', 'vector', 'paper', 'marks']) {
+  for (const id of ['space', 'raster', 'vector', 'paper', 'marks', 'under', 'over']) {
     $(id).width = W;
     $(id).height = H;
   }
@@ -472,8 +473,21 @@ async function init(tl) {
       el._pts = densify(pts, el.rhumb);
       el._cum = [0];
       for (let i = 1; i < el._pts.length; i++) el._cum.push(el._cum[i - 1] + geoDistance(el._pts[i - 1], el._pts[i]));
+      if (el.type === 'route' && el.nodes) {
+        // fraction of the route at which each original waypoint sits
+        const tot = el._cum[el._cum.length - 1] || 1;
+        el._nodeU = el.points.map((p) => {
+          let bi = 0, bd = Infinity;
+          el._pts.forEach((q, i) => { const d = geoDistance([p.lon, p.lat], q); if (d < bd) { bd = d; bi = i; } });
+          return el._cum[bi] / tot;
+        });
+      }
     }
   }
+
+  // new-feature toolbox (page/extras.js)
+  state.X = makeExtras({ state, W, H, ease, clamp01, lifeOf, project, screenPolyline, densify, catmullRom, esc });
+  for (const el of tl.elements) state.X.prepare(el);
 
   // images for flags / icons
   state.images = {};
@@ -483,6 +497,11 @@ async function init(tl) {
     if (el.type === 'flag') wanted.add(flagUrl(el.code));
     if (el.src) wanted.add(el.src);
     if (el.mover?.src) wanted.add(el.mover.src);
+    if (el.type === 'photo') wanted.add(`/assets/broll/${el.image}.jpg`);
+    if (el.type === 'avatar') wanted.add(`/assets/characters/${el.image}.png`);
+    if (el.type === 'handstamp') wanted.add('/assets/art/hand_stamp.png');
+    if (el.mover?.image) wanted.add(`/assets/characters/${el.mover.image}.png`);
+    if (el.rider?.image) wanted.add(`/assets/characters/${el.rider.image}.png`);
   }
   await Promise.all([...wanted].map(async (u) => (state.images[u] = await loadImg(u))));
   state.flagCanvas = {};
@@ -502,6 +521,17 @@ async function init(tl) {
       target.bearing = s.camera.bearing ?? 0;
     }
     return { start: s.start, end: s.end, target, duration: s.cameraDuration, lead: s.cameraLead };
+  }).flatMap((shot, i) => {
+    // extra camera moves inside a scene (script: camera.then = [{at, lat, lon, zoom | fit, duration}])
+    const out = [shot];
+    for (const th of tl.scenes[i].cameraThen || []) {
+      let target;
+      if (th.fit) target = fitCamera(th.fit.flatMap((k) => state.targets[k]), mode, th.pad ?? 0.85, th);
+      else target = { lat: th.lat ?? shot.target?.lat, lon: th.lon ?? shot.target?.lon, zoom: th.zoom ?? shot.target?.zoom };
+      target.bearing = th.bearing ?? 0;
+      out.push({ start: th.t, end: shot.end, target, duration: th.duration ?? 1.1, lead: 0 });
+    }
+    return out;
   });
   const first = shots.find((s) => s.target)?.target || { lat: 20, lon: 0, zoom: 1 };
   const intro = tl.intro || {};
@@ -519,7 +549,7 @@ async function init(tl) {
     const kMin = Math.max((H - cy) / (my(introCam.lat) - my(-60)), cy / (my(80) - my(introCam.lat)));
     introCam.zoom = Math.max(introCam.zoom, kMin / state.baseK);
   }
-  state.camera = new CameraPath(shots, introCam, { W, baseK: state.baseK, drift: cfg.camera.drift });
+  state.camera = new CameraPath(shots, introCam, { W, baseK: state.baseK, drift: cfg.camera.drift, pan: cfg.camera.pan ?? 0, mode });
   state.sceneShots = shots;
 
   drawSpace();
@@ -821,9 +851,34 @@ function drawVector(t, proj, view, mix) {
 
 // Flat basemap in one colour palette. Optional per-country pastel fills (political atlas look)
 // and a neon glow on coasts/borders.
+function kraftCanvas(color) {
+  if (state.kraft) return state.kraft;
+  const c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  const x = c.getContext('2d');
+  x.fillStyle = color; x.fillRect(0, 0, W, H);
+  const r = rng(91);
+  for (let i = 0; i < 1400; i++) {
+    x.strokeStyle = `rgba(${r() < 0.5 ? '90,60,25' : '235,200,150'},${0.05 + r() * 0.09})`;
+    x.lineWidth = 0.6 + r() * 1.2;
+    const px = r() * W, py = r() * H, a = r() * Math.PI;
+    x.beginPath(); x.moveTo(px, py); x.lineTo(px + Math.cos(a) * (8 + r() * 26), py + Math.sin(a) * (8 + r() * 26)); x.stroke();
+  }
+  const g = x.createRadialGradient(W / 2, H / 2, H * 0.25, W / 2, H / 2, H * 0.75);
+  g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(70,40,10,.28)');
+  x.fillStyle = g; x.fillRect(0, 0, W, H);
+  return (state.kraft = c);
+}
+
 function drawPalette(ctx, path, view, land, borders, box, P, a) {
   ctx.save();
   ctx.globalAlpha = a;
+  if (P.solid) {
+    // no map at all: a flat sheet (kraft paper for infographic scenes)
+    ctx.drawImage(kraftCanvas(P.solid), 0, 0);
+    ctx.restore();
+    return;
+  }
   ctx.fillStyle = P.sea;
   if (view.mode === 'globe') {
     ctx.beginPath();
@@ -843,6 +898,16 @@ function drawPalette(ctx, path, view, land, borders, box, P, a) {
       path(geoGraticule10());
       ctx.strokeStyle = P.graticule;
       ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    if (P.grid) {
+      // blueprint grid that slides with the map
+      const c0 = state.proj([view.lon, view.lat]) || [W / 2, H / 2], g = P.grid;
+      ctx.strokeStyle = P.gridColor || 'rgba(255,255,255,.2)';
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      for (let x = ((c0[0] % g) + g) % g; x < W; x += g) { ctx.moveTo(x, 0); ctx.lineTo(x, H); }
+      for (let y = ((c0[1] % g) + g) % g; y < H; y += g) { ctx.moveTo(0, y); ctx.lineTo(W, y); }
       ctx.stroke();
     }
   }
@@ -981,6 +1046,43 @@ function drawSoftBlob(ctx, path, fc, el, st, alpha, t) {
   ctx.restore();
 }
 
+// outline of the given polygons as one growing stroke (all rings back to back, biggest first)
+function tracePath(ctx, feats, u, el) {
+  const rings = [];
+  for (const f of feats) {
+    const g = f.geometry;
+    if (!g) continue;
+    const polys = g.type === 'Polygon' ? [g.coordinates] : g.type === 'MultiPolygon' ? g.coordinates : [];
+    for (const poly of polys) {
+      let ring = poly[0];
+      if (!ring || ring.length < 4) continue;
+      // start at the point nearest to `traceFrom`, else the northernmost one
+      let k = 0, best = Infinity;
+      const from = el.traceFrom ? [el.traceFrom[1], el.traceFrom[0]] : null;
+      ring.forEach((c, i) => {
+        const d = from ? geoDistance(c, from) : -c[1];
+        if (d < best) { best = d; k = i; }
+      });
+      ring = [...ring.slice(k, -1), ...ring.slice(0, k + 1)];
+      const pl = screenPolyline(ring);
+      if (pl.length < 2) continue;
+      let len = 0;
+      for (let i = 1; i < pl.length; i++) len += Math.hypot(pl[i][0] - pl[i - 1][0], pl[i][1] - pl[i - 1][1]);
+      rings.push({ pl, len });
+    }
+  }
+  rings.sort((a, b) => b.len - a.len);
+  const total = rings.reduce((a, r) => a + r.len, 0) || 1;
+  let want = total * u;
+  for (const r of rings) {
+    if (want <= 0) break;
+    const f = Math.min(1, want / r.len);
+    const pts = f >= 1 ? r.pl : partial(r.pl, f).pts;
+    pts.forEach((p, i) => (i && !p.brk ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])));
+    want -= r.len;
+  }
+}
+
 function drawHighlight(ctx, path, el, life, mix, t) {
   const idx = state.targetIdx[el.target];
   const feats = state.box && idx.length
@@ -1016,11 +1118,13 @@ function drawHighlight(ctx, path, el, life, mix, t) {
     ctx.clip();
   }
 
+  // trace: the outline is drawn from one point around the shape, the fill follows
+  const tr = el.trace ? ease.inOutCubic(clamp01(life.age / (el.traceDur ?? 1.5))) : 1;
   // outer stroke (+glow): stroke at 2x then cover the inner half with the fill
   ctx.save();
   ctx.globalAlpha = alpha;
   ctx.beginPath();
-  path(fc);
+  if (tr < 1) tracePath(ctx, feats, tr, el); else path(fc);
   if (neon) {
     const pulse = 0.75 + 0.25 * Math.sin(t * 5);
     ctx.shadowColor = neon;
@@ -1041,7 +1145,7 @@ function drawHighlight(ctx, path, el, life, mix, t) {
   ctx.restore();
 
   ctx.save();
-  ctx.globalAlpha = alpha * (el.fillOpacity ?? (neon && !el.fill ? 0.38 : 0.92));
+  ctx.globalAlpha = alpha * (el.fillOpacity ?? (neon && !el.fill ? 0.38 : 0.92)) * (el.trace ? clamp01((tr - 0.7) / 0.3) : 1);
   ctx.beginPath();
   path(fc);
   if (neon && !st.fill) {
@@ -1055,10 +1159,36 @@ function drawHighlight(ctx, path, el, life, mix, t) {
     const bw = b[1][0] - b[0][0], bh = b[1][1] - b[0][1];
     const s = Math.max(bw / img.width, bh / img.height);
     const dw = img.width * s, dh = img.height * s;
-    ctx.drawImage(img, b[0][0] + (bw - dw) / 2, b[0][1] + (bh - dh) / 2, dw, dh);
+    if (el.wave) {
+      // waving cloth: the flag is cut into vertical strips that ride a travelling sine
+      const N = 56, x0 = b[0][0] + (bw - dw) / 2, y0 = b[0][1] + (bh - dh) / 2;
+      const amp = Math.min(dh, dw) * 0.028;
+      for (let i = 0; i < N; i++) {
+        const ph = i * 0.42 - t * 4.2, off = Math.sin(ph) * amp;
+        ctx.drawImage(img, (i * img.width) / N, 0, img.width / N + 1, img.height, x0 + (i * dw) / N, y0 + off, dw / N + 1.5, dh);
+        ctx.fillStyle = `rgba(${Math.cos(ph) > 0 ? '255,255,255' : '0,0,0'},${0.13 * Math.abs(Math.cos(ph))})`;
+        ctx.fillRect(x0 + (i * dw) / N, y0 + off, dw / N + 1.5, dh);
+      }
+    } else ctx.drawImage(img, b[0][0] + (bw - dw) / 2, b[0][1] + (bh - dh) / 2, dw, dh);
     // subtle shading so the flag reads as "on the map"
     ctx.fillStyle = 'rgba(0,0,0,0.08)';
     ctx.fillRect(b[0][0], b[0][1], bw, bh);
+  } else if (el.fillPct) {
+    // filled to a share of its height: a level rising inside the shape (21% -> 48% ...)
+    const fp = el.fillPct;
+    const main = state.targetMain[el.target] || fc;
+    const b = geoPath(state.proj).bounds(main);
+    const frac = fp.from + (fp.to - fp.from) * ease.inOutCubic(clamp01((life.age - 0.3) / (fp.dur ?? 1.4)));
+    ctx.globalAlpha *= 0.3;
+    ctx.fillStyle = fp.rest || '#3b2a14';
+    ctx.fill();
+    ctx.globalAlpha /= 0.3;
+    ctx.save();
+    ctx.clip();
+    ctx.fillStyle = st.fill || '#ffe600';
+    if (fp.axis === 'x') ctx.fillRect(b[0][0], b[0][1], (b[1][0] - b[0][0]) * frac, b[1][1] - b[0][1]);
+    else ctx.fillRect(b[0][0], b[1][1] - (b[1][1] - b[0][1]) * frac, b[1][0] - b[0][0], (b[1][1] - b[0][1]) * frac);
+    ctx.restore();
   } else {
     ctx.fillStyle = st.fill || '#f07a1a';
     ctx.fill();
@@ -1232,6 +1362,7 @@ function drawMarks(t) {
     else if (el.type === 'ring') drawRing(ctx, el, life);
     else drawArrowOrLine(ctx, el, life);
   }
+  state.X.drawGeo(ctx, t);
 }
 
 // points behind the globe are dropped; the next visible point starts a new run (q.brk) instead of a chord
@@ -1423,6 +1554,24 @@ function drawRoute(ctx, el, life) {
   ctx.strokeStyle = color;
   ctx.lineWidth = width;
   strokePoly(ctx, pts);
+  if (el.laser) {
+    // laser beam: white-hot core, coloured bloom
+    ctx.shadowColor = color; ctx.shadowBlur = 38;
+    ctx.strokeStyle = '#ffffff'; ctx.lineWidth = Math.max(2, width * 0.4);
+    strokePoly(ctx, pts);
+  }
+  if (el.fire) {
+    // burning seam: flickering orange strokes that jitter around the line
+    const f = Math.floor(state.t * 24);
+    ctx.shadowBlur = 24;
+    for (let k = 0; k < 3; k++) {
+      ctx.shadowColor = '#ff6a00';
+      ctx.strokeStyle = ['#ff3d00', '#ff9500', '#ffe066'][k];
+      ctx.lineWidth = width * (1.15 - k * 0.3);
+      const j = pts.map((p, i) => { const q = [p[0] + (hash01(f * 3 + i * 0.7 + k) - 0.5) * width * 0.9, p[1] + (hash01(f * 5 + i * 0.9 + k) - 0.5) * width * 0.9]; if (p.brk) q.brk = true; return q; });
+      strokePoly(ctx, j);
+    }
+  }
   if (el.flow) {
     // current / wind: bright dashes streaming along the line
     ctx.shadowBlur = 0;
@@ -1451,6 +1600,27 @@ function drawRoute(ctx, el, life) {
     ctx.closePath();
     ctx.fill();
     ctx.restore();
+  }
+  if (el.nodes && el._nodeU) {
+    // checkpoint dots along the way; each pulses once when the line reaches it
+    el.points.forEach((pt, i) => {
+      const nu = el._nodeU[i];
+      if (u < nu - 1e-3) return;
+      const q = project(pt);
+      if (!q) return;
+      const since = Math.max(0, (u - nu) * (el.drawDur ?? 3));
+      const rr = width * 0.9;
+      ctx.save();
+      ctx.globalAlpha = life.out;
+      ctx.fillStyle = '#fff'; ctx.shadowColor = color; ctx.shadowBlur = 14;
+      ctx.beginPath(); ctx.arc(q[0], q[1], rr, 0, Math.PI * 2); ctx.fill();
+      const ph = since / 0.9;
+      if (ph < 1) {
+        ctx.strokeStyle = color; ctx.lineWidth = 4; ctx.globalAlpha = life.out * (1 - ph);
+        ctx.beginPath(); ctx.arc(q[0], q[1], rr + ph * width * 5, 0, Math.PI * 2); ctx.stroke();
+      }
+      ctx.restore();
+    });
   }
   const head = pts[pts.length - 1];
   if (el.headDot !== false && !el.mover && u < 1) {
@@ -1614,7 +1784,7 @@ function buildUi() {
     let html = null;
     switch (el.type) {
       case 'label':
-        html = `<div class="inner label ${el.style || ''} ${el.dot ? 'place' : ''} ${state.tl.scenes[el.scene]?.style === 'vintage' ? 'era-history' : ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `background:${el.bg};` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${esc(el.text)}</div>`;
+        html = `<div class="inner label ${el.style || ''} ${el.dot ? 'place' : ''} ${state.tl.scenes[el.scene]?.style === 'vintage' ? 'era-history' : ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `background:${el.bg};` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${el.anim === 'wobble' ? [...String(el.text)].map((c) => `<span class="lw">${c === ' ' ? '&nbsp;' : esc(c)}</span>`).join('') : esc(el.text)}</div>`;
         break;
       case 'flag': {
         const w = el.size || 150;
@@ -1622,6 +1792,12 @@ function buildUi() {
         break;
       }
       case 'icon':
+        if (el.hex) {
+          // hexagon badge with a soft coloured glow (the reference's icon container)
+          const z = el.size || 110;
+          html = `<div class="inner icon hexw" style="--hc:${el.hex === true ? '#ff8a00' : el.hex};width:${z * 1.35}px;height:${z * 1.35}px"><div class="hexb"><img src="${el.src}" style="width:${z * 0.78}px;height:auto"></div></div>`;
+          break;
+        }
         // icons sit on a round badge (like map markers), so they read as designed markers, not loose emoji
         html = el.plain
           ? `<div class="inner icon ${el.src.startsWith('/assets/art/') ? 'art' : ''}"><img src="${el.src}" style="width:${el.size || 110}px;height:${el.src.startsWith('/assets/art/') ? 'auto' : (el.size || 110) + 'px'}"></div>`
@@ -1703,7 +1879,7 @@ function buildUi() {
         html = `<div class="inner character ${el.image ? 'figure' : ''} ${era}" style="${el.image ? '' : `width:${sz}px`}">
           ${bodyHtml}
           ${el.name ? `<div class="nametag">${esc(el.name)}</div>` : ''}
-          ${el.say ? `<div class="bubble ${el.think ? 'think' : ''} ${el.bubbleSide === 'left' ? 'left' : ''}"><span>${esc(el.say)}</span></div>` : ''}
+          ${el.say ? `<div class="bubble ${el.think ? 'think' : ''} ${el.sayStyle === 'text' ? 'text' : ''} ${el.bubbleSide === 'left' ? 'left' : ''}"><span>${esc(el.say)}</span></div>` : ''}
         </div>`;
         break;
       }
@@ -1712,10 +1888,12 @@ function buildUi() {
         const m = el.mover;
         const sz = m.size || 150;
         let inner = '';
-        if (m.kind === 'character') inner = characterSvg(m).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`);
+        if (m.image) inner = `<img src="/assets/characters/${m.image}.png" style="height:${sz}px;width:auto">`;
+        else if (m.kind === 'character') inner = characterSvg(m).replace('<svg', `<svg width="${sz}" height="${sz * 1.2}"`);
         else if (m.src?.startsWith('/assets/art/')) inner = `<img src="${m.src}" style="width:${sz}px;height:auto">`;
         else inner = `<img src="${m.src}" style="width:${sz}px;height:${sz}px">`;
-        html = `<div class="inner mover ${m.kind}"><div class="spr">${inner}</div></div>`;
+        const rider = el.rider ? `<img class="rider" src="/assets/characters/${el.rider.image}.png" style="position:absolute;left:50%;top:50%;height:${el.rider.size || 120}px;width:auto;pointer-events:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5))">` : '';
+        html = `<div class="inner mover ${m.kind}"><div class="spr">${inner}</div>${rider}</div>`;
         break;
       }
       case 'counter':
@@ -1725,10 +1903,12 @@ function buildUi() {
         html = `<div class="inner dim" style="font-size:${el.size || 44}px;--dc:${el.color || '#ffffff'}">${esc(el.label || '')}</div>`;
         break;
       case 'scatter':
+        if (el.glyph) { html = `<div class="inner scatter">${el._pts.map(() => `<span class="glyph" style="font-size:${el.size || 64}px">${esc(el.glyph)}</span>`).join('')}</div>`; break; }
         html = `<div class="inner scatter">${el._pts.map(() => `<img src="${el.src}" style="width:${el.size || 70}px;height:${el.src.startsWith('/assets/art/') ? 'auto' : (el.size || 70) + 'px'}">`).join('')}</div>`;
         break;
       default:
-        continue;
+        html = state.X.html(el);
+        if (html == null) continue;
     }
     const d = document.createElement('div');
     d.className = 'el';
@@ -1843,6 +2023,10 @@ function updateUi(t) {
         }
         if (!el._keep[i]) { img.style.opacity = '0'; return; }
         const sc = ease.outBack(u) * (1 + 0.04 * Math.sin(t * 3 + i));
+        if (el.glyph) {
+          img.style.cssText = `left:${q[0]}px;top:${q[1]}px;opacity:${life.out};transform:translate(-50%,-50%) scale(${sc}) rotate(${(hash01(i * 3.1) - 0.5) * 26}deg)`;
+          return;
+        }
         img.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;left:${q[0] - sz / 2}px;top:${q[1] - sz / 2}px;opacity:${life.out};transform:scale(${sc});filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))`;
       });
       continue;
@@ -1919,7 +2103,7 @@ function updateUi(t) {
     const sf = state.tl.config.safe;
     const fit = ['bars', 'vs', 'timeline'].includes(el.type) ? Math.min(1, (W * (1 - sf.left - sf.right)) / Math.max(w, 1)) : 1;
     if (el.type === 'character') y -= h / 2 - 10; // anchor at the feet
-    if (el.screen) [x, y] = clampToSafe(x, y, w * fit, h * fit);
+    if (el.screen && !(el.type === 'photo' && el.kind === 'full')) [x, y] = clampToSafe(x, y, w * fit, h * fit);
     else if (el.type === 'label' || el.type === 'flag') {
       // map labels stay on screen and out of the like/comment/share column
       const s = state.tl.config.safe;
@@ -1985,6 +2169,11 @@ function updateUi(t) {
         }
         break;
       }
+      case 'photo': case 'avatar': case 'react': case 'timebar': case 'orbit': case 'handstamp': case 'lens': {
+        const tw = state.X.anim(el, inner, life, t);
+        scale *= tw.scale; rot += tw.rot; opacity *= tw.opacity; x += tw.dx; y += tw.dy;
+        break;
+      }
       case 'route': {
         const m = el.mover;
         scale = ease.outBack(clamp01(life.age / 0.35));
@@ -1999,10 +2188,24 @@ function updateUi(t) {
         if (m.kind === 'plane') rot = m.src?.startsWith('/assets/art/') ? deg + 90 : deg + 45;
         else if (m.kind === 'ship') {
           spr.style.transform = `scaleX(${goingLeft ? -1 : 1}) translateY(${Math.sin(t * 3.2) * 4}px) rotate(${Math.sin(t * 2.3) * 3}deg)`;
-        } else if (m.src?.startsWith('/assets/art/')) {
+        } else if (m.src?.startsWith('/assets/art/') || m.image) {
           spr.style.transform = `scaleX(${goingLeft ? -1 : 1}) rotate(${lean}deg) translateY(${Math.sin(t * 12) * 1.5}px)`;
         } else if (m.kind === 'character') {
           spr.style.transform = `scaleX(${goingLeft ? -1 : 1}) translateY(${-Math.abs(Math.sin(t * 9)) * 10}px)`;
+        }
+        const rd = el.rider && inner.querySelector('.rider');
+        if (rd) {
+          // the passenger stands on deck, then jumps to the shore when the ship arrives
+          const arrive = el.drawDur ?? 3, j = clamp01((life.age - arrive) / 0.85);
+          const dest = j > 0 ? project(el.rider.to) : null;
+          let ox = 0, oy = -(m.size || 150) * 0.12 + Math.sin(t * 3.3) * 3;
+          if (dest) {
+            const e = ease.inOutSine(j);
+            ox = (dest[0] - x) * e;
+            oy = (dest[1] - y) * e - Math.sin(Math.PI * j) * 170 - (1 - e) * (m.size || 150) * 0.12;
+          }
+          const face = dest && dest[0] < x ? -1 : 1;
+          rd.style.transform = `translate(calc(-50% + ${ox}px), calc(-84% + ${oy}px)) scaleX(${face}) rotate(${Math.sin(j * Math.PI) * 14 * face}deg)`;
         }
         if (el._head.u >= 1 && m.hideAtEnd) opacity *= clamp01(1 - (life.age - (el.drawDur ?? 0)) / 0.3);
         break;
@@ -2099,6 +2302,15 @@ function updateUi(t) {
           const u = ease.outCubic(clamp01(life.age / 0.3));
           scale = 1.6 - 0.6 * u;
           opacity *= clamp01(life.age / 0.12);
+        } else if (el.anim === 'giant') {
+          // a huge name that shrinks down onto the map
+          const u = ease.outCubic(clamp01(life.age / 0.6));
+          scale = 1 + 3.4 * (1 - u);
+          opacity *= clamp01(life.age / 0.1);
+          inner.style.filter = u < 1 ? `blur(${(1 - u) * 9}px)` : '';
+        } else if (el.anim === 'wobble') {
+          scale = 0.9 * ease.outBack(life.in) + 0.1 * life.in;
+          inner.querySelectorAll('.lw').forEach((n, i) => { n.style.transform = `translateY(${Math.sin(t * 7 + i * 0.7) * 7}px) rotate(${Math.sin(t * 5 + i) * 6}deg)`; });
         } else if (el.anim === 'fade') {
           scale = 0.96 + 0.04 * ease.outCubic(life.in);
           opacity *= ease.outCubic(life.in);
@@ -2117,6 +2329,11 @@ function updateUi(t) {
         el._arc = [from, c, to, u];
         rot = Math.sin(u * Math.PI) * -10;
       }
+    }
+    if (el.fly) {
+      // arrives from beyond the frame edge
+      const a = ease.outCubic(clamp01(life.age / 0.5)), d = { left: [-1, 0], right: [1, 0], top: [0, -1], bottom: [0, 1] }[el.fly] || [0, 0];
+      x += d[0] * (1 - a) * W * 0.75; y += d[1] * (1 - a) * H * 0.5;
     }
     scale *= fit;
     if (el.screen && KIT_CARDS.has(el.type === 'label' ? (el.style === 'pill' ? 'pill' : '') : el.type)) {
@@ -2156,6 +2373,7 @@ function updateUi(t) {
   }
   for (const p of placed) {
     const { el, node, inner, scale, rot, opacity } = p;
+    el._scr = [p.x, p.y];
     if (el.type === 'flag' && el.pin) {
       node.style.transform = `translate(${p.x}px, ${p.y}px)`;
       inner.style.transform = `scale(${scale})`;
@@ -2177,7 +2395,7 @@ const isMovable = (el) => MOVABLE.has(el.type) && !el.screen && !el.fixed;
 function resolveOverlaps(items, canMove = isMovable) {
   const C = state.tl.config.captions;
   const boxes = items
-    .filter((p) => p.opacity > 0.02 && !(p.el.type === 'flag' && p.el.pin) && p.el.type !== 'route' && p.el.type !== 'scatter')
+    .filter((p) => p.opacity > 0.02 && !(p.el.type === 'flag' && p.el.pin) && p.el.type !== 'route' && p.el.type !== 'scatter' && !(p.el.type === 'photo' && p.el.kind === 'full'))
     .map((p) => {
       // axis-aligned box of the (possibly rotated) element
       const k = Math.max(p.scale, 0.6), r = ((p.rot || 0) * Math.PI) / 180;
@@ -2331,13 +2549,24 @@ function updateFx(t) {
       if (life) html += `<div class="vignette" style="opacity:${life.in * life.out}"></div>`;
     }
   }
+  const T0 = state.tilt;
+  if (T0) {
+    const y0 = tiltPoint(W / 2, 0)[1];
+    if (y0 > 0) html += `<div style="position:absolute;left:0;right:0;top:${y0 - 30}px;height:520px;background:linear-gradient(180deg, rgba(226,238,255,1) 0%, rgba(226,238,255,.75) 22%, rgba(226,238,255,.32) 55%, rgba(226,238,255,0) 100%)"></div>`;
+  }
+  $('stage').style.background = T0 ? 'linear-gradient(180deg,#2557c4 0%,#5f97ea 40%,#b4d2fa 70%,#e6f1ff 100%)' : '';
+  blur = Math.max(blur, state.camBlur || 0);
+  const xf = state.X.fxHtml(t);
+  html += xf.html;
+  blur = Math.max(blur, xf.blur);
   fx.innerHTML = html;
   // per-kit colour grade on the map, plus transition blur
   const GRADE = { block: 'contrast(1.07) saturate(1.12)', news: 'contrast(1.06) saturate(0.92)', neon: 'saturate(1.18) contrast(1.05)', outline: 'contrast(1.1) brightness(0.96)', paper: 'saturate(1.06) brightness(1.03)' };
   const g = GRADE[state.tl.kit?.kit] || '';
-  const f = [g, blur > 0.2 ? `blur(${blur}px)` : ''].filter(Boolean).join(' ') || 'none';
+  const xg = state.X.grade(t);
+  const f = [g, xg, blur > 0.2 ? `blur(${blur}px)` : ''].filter(Boolean).join(' ') || 'none';
   $('raster').style.filter = f;
-  for (const id of ['vector', 'marks']) $(id).style.filter = blur > 0.2 ? `blur(${blur}px)` : 'none';
+  for (const id of ['vector', 'marks']) $(id).style.filter = [xg, blur > 0.2 ? `blur(${blur}px)` : ''].filter(Boolean).join(' ') || 'none';
   $('ui').style.transform = shift ? `translateX(${shift}px)` : '';
   // tilt: the map layers lean back like a 3D table (CSS); UI labels stay upright and are
   // re-positioned with the same maths in tiltPoint()
@@ -2361,8 +2590,8 @@ function computeTilt(t) {
     const life = lifeOf(el, t, 0.9, 0.7);
     if (life) deg = Math.max(deg, (el.deg ?? 38) * ease.inOutCubic(life.in) * ease.inOutCubic(life.out));
   }
-  // 3D table tilt left an empty band above the map: disabled, the map always fills the frame
-  state.tilt = null && deg;
+  // the map leans back like a table; the band above the horizon becomes sky (see updateFx)
+  state.tilt = deg > 0.1 ? { deg, s: 1 + deg * 0.012 } : null;
 }
 
 // where a point of the flat map ends up on screen once the map layers are tilted
@@ -2417,6 +2646,13 @@ function frame(t) {
   view.cy += dy;
   state.view = view;
   state.proj = makeProjection(view);
+  {
+    // motion blur while the camera is flying fast (px/s of the previous centre + zoom rate)
+    const c0 = state.camera.at(Math.max(0, t - 0.05));
+    const q = state.proj([c0.lon, c0.lat]);
+    const sp = (q ? Math.hypot(q[0] - view.cx, q[1] - view.cy) : 0) / 0.05 + (Math.abs(Math.log(cam.zoom / c0.zoom)) / 0.05) * 500;
+    state.camBlur = Math.max(0, Math.min(1, (sp - 900) / 1400)) * 6;
+  }
   const mix = styleAt(t);
   const texelsPerPx = state.raster.base.w / (2 * Math.PI) / view.k;
   const detailMix = clamp01((1.2 - texelsPerPx) / 0.9);
@@ -2451,7 +2687,9 @@ function frame(t) {
   $('paper').style.opacity = String(mix.vin * state.tl.config.vintage.paper);
   if (!state.layoutOnly) drawVector(t, state.proj, view, mix);
   drawMarks(t);
+  state.X.drawUnder($('under').getContext('2d'), t);
   updateUi(t);
+  state.X.drawOver($('over').getContext('2d'), t);
   updateCaptions(t);
   updateFx(t);
   return true;

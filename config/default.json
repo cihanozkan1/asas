@@ -8,8 +8,8 @@
     "rasterScale": "auto",
     "tail": 0.8,
     "targetSeconds": [
-      40,
-      95
+      58,
+      100
     ]
   },
   "voice": {
@@ -43,8 +43,9 @@
     "duration": 1.3,
     "introDuration": 2.0,
     "lead": 0.15,
-    "drift": 0.025,
-    "sway": 1.6
+    "drift": 0.05,
+    "sway": 1.6,
+    "pan": 16
   },
   "captions": {
     "y": 0.655,
@@ -133,6 +134,50 @@
       "coast": "rgba(255,255,255,0.8)",
       "coastWidth": 2.2,
       "graticule": "rgba(255,255,255,0.07)"
+    },
+    "light": {
+      "sea": "#dde4ea",
+      "land": "#f7f8f9",
+      "border": "rgba(150,160,172,.75)",
+      "coast": "rgba(160,170,182,.9)",
+      "coastWidth": 1.6
+    },
+    "blueprint": {
+      "sea": "#143c74",
+      "land": "#1d59a6",
+      "border": "rgba(255,255,255,.55)",
+      "coast": "rgba(255,255,255,.85)",
+      "coastWidth": 2.2,
+      "grid": 64,
+      "gridColor": "rgba(255,255,255,.22)"
+    },
+    "pastel": {
+      "sea": "#69b4c8",
+      "land": "#f4e5bd",
+      "border": "rgba(255,255,255,.75)",
+      "coast": "rgba(255,255,255,.95)",
+      "coastWidth": 2.4,
+      "countries": [
+        "#f7d6c1",
+        "#c9e4c5",
+        "#f4e3a8",
+        "#cbd9f4",
+        "#e9c9e6",
+        "#bfe5e0"
+      ]
+    },
+    "bw": {
+      "sea": "#0d0d0f",
+      "land": "#d9d9dc",
+      "border": "rgba(60,60,64,.7)",
+      "coast": "rgba(30,30,34,.9)",
+      "coastWidth": 1.8
+    },
+    "kraft": {
+      "solid": "#c8a06a"
     }
+  },
+  "timing": {
+    "lead": 0.12
   }
 }

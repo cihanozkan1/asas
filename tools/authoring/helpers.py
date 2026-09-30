@@ -284,3 +284,114 @@ def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None, s
     with open(os.path.join(out, 'script.json'), 'w') as f:
         json.dump(d, f, indent=2, ensure_ascii=False)
     print('wrote', vid, len(scenes), 'scenes')
+
+
+# ---------------------------------------------------------------------------------------------
+# Reference-toolbox helpers (page/extras.js). Every one returns a `show` item.
+# ---------------------------------------------------------------------------------------------
+def trace(target, fill, at=None, neon=None, dur=1.4, **kw):
+    """Outline drawn around the shape from one point (traceFrom=[lat,lon]), fill follows."""
+    d = {'type': 'highlight', 'target': target, 'fill': fill, 'trace': True, 'traceDur': dur}
+    if neon:
+        d['neon'] = neon
+    return _put(d, at, kw)
+
+
+def giant(text, lat, lon, at, size=110, **kw):
+    """A huge extruded name that shrinks onto the map."""
+    return lab(text, lat, lon, at, style='extrude', anim='giant', size=size, **kw)
+
+
+def face(target, expr, at=None, scale=0.5, **kw):
+    """The country as a character. expr = [(word_or_sec, 'happy'|'angry'|'worried'|'surprised'|'sad'|'smug'|'talk'), ...]"""
+    return _put({'type': 'face', 'target': target, 'expr': [{'at': a, 'e': e} for a, e in expr], 'scale': scale}, at, kw)
+
+
+def pathtext(text, points, at, size=60, **kw):
+    return _put({'type': 'pathtext', 'text': text, 'points': [list(p) for p in points], 'size': size}, at, kw)
+
+
+def crowd(lat, lon, at, count=24, **kw):
+    return _put({'type': 'crowd', 'lat': lat, 'lon': lon, 'count': count}, at, kw)
+
+
+def pin(lat, lon, icon, at, **kw):
+    return _put({'type': 'pin', 'lat': lat, 'lon': lon, 'icon': icon}, at, kw)
+
+
+def box(a, b, at, **kw):
+    return _put({'type': 'box', 'from': list(a), 'to': list(b)}, at, kw)
+
+
+def beam(lat, lon, at, **kw):
+    return _put({'type': 'beam', 'lat': lat, 'lon': lon}, at, kw)
+
+
+def cloud(lat, lon, at, **kw):
+    return _put({'type': 'cloud', 'lat': lat, 'lon': lon}, at, kw)
+
+
+def particles(kind, at=None, **kw):
+    return _put({'type': 'particles', 'kind': kind}, at, kw)
+
+
+def flare(screen, at, **kw):
+    return _put({'type': 'flare', 'screen': list(screen)}, at, kw)
+
+
+def lens(at, screen=(0.5, 0.4), r=330, **kw):
+    return _put({'type': 'lens', 'screen': list(screen), 'r': r}, at, kw)
+
+
+def photo(image, at, kind='full', **kw):
+    return _put({'type': 'photo', 'image': image, 'kind': kind}, at, kw)
+
+
+def avatar(image, screen, at, name=None, **kw):
+    d = {'type': 'avatar', 'image': image, 'screen': list(screen)}
+    if name:
+        d['name'] = name
+    return _put(d, at, kw)
+
+
+def link(a, b, at, **kw):
+    return _put({'type': 'link', 'from': list(a), 'to': list(b)}, at, kw)
+
+
+def react(icon, screen, at, **kw):
+    return _put({'type': 'react', 'icon': icon, 'screen': list(screen), 'burst': True}, at, kw)
+
+
+def timebar(a, b, label, at, **kw):
+    return _put({'type': 'timebar', 'from': str(a), 'to': str(b), 'label': label}, at, kw)
+
+
+def orbit(items, text, at, **kw):
+    return _put({'type': 'orbit', 'items': list(items), 'text': text}, at, kw)
+
+
+def handstamp(text, at, **kw):
+    return _put({'type': 'handstamp', 'text': text}, at, kw)
+
+
+def grade(mode, at, **kw):
+    return _put({'type': 'grade', 'mode': mode}, at, kw)
+
+
+def tilt(at, deg=36, **kw):
+    return _put({'type': 'tilt', 'deg': deg}, at, kw)
+
+
+def rider_ship(points, at, rid, rider, to, style='caravel', **kw):
+    """A ship that carries a character; on arrival the character jumps to `to` (lat, lon)."""
+    d = ship(points, at, rid, style=style, **kw)
+    d['rider'] = {'image': rider, 'size': kw.pop('rider_size', 120), 'to': {'lat': to[0], 'lon': to[1]}}
+    return d
+
+
+def walker(points, at, image, rid=None, size=170, **kw):
+    """A character cut-out walking along a route (hops, flips toward its direction)."""
+    d = route(points, at, color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, mover={'kind': 'character', 'image': image, 'size': size}, **kw)
+    if rid:
+        d['id'] = rid
+    return d

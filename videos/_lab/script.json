@@ -1,0 +1,466 @@
+{
+ "id": "_lab",
+ "style": "geo",
+ "meta": {
+  "title": "Why is the lab so weird",
+  "description": "x",
+  "pinnedComment": [
+   "a",
+   "b"
+  ],
+  "tags": [
+   "t"
+  ]
+ },
+ "scenes": [
+  {
+   "era": "now",
+   "text": "Meet Brazil, the giant of South America.",
+   "noClaim": true,
+   "style": "light",
+   "camera": {
+    "fit": [
+     "BRA"
+    ],
+    "pad": 0.8
+   },
+   "show": [
+    {
+     "type": "highlight",
+     "target": "BRA",
+     "fill": "#2fbf4a",
+     "fillOpacity": 0.85,
+     "neon": "#7dffb0",
+     "trace": true,
+     "traceDur": 1.4,
+     "at": 0.2
+    },
+    {
+     "type": "label",
+     "text": "BRAZIL",
+     "lat": -10,
+     "lon": -52,
+     "style": "extrude",
+     "anim": "giant",
+     "size": 110,
+     "at": "Brazil"
+    },
+    {
+     "type": "face",
+     "target": "BRA",
+     "expr": [
+      {
+       "at": "giant",
+       "e": "happy"
+      }
+     ],
+     "scale": 0.5,
+     "at": "giant"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "Its neighbors are watching, and they are not happy.",
+   "noClaim": true,
+   "style": "pastel",
+   "camera": {
+    "fit": [
+     "BRA",
+     "ARG"
+    ],
+    "pad": 0.7,
+    "then": [
+     {
+      "at": "happy",
+      "lat": -14,
+      "lon": -58,
+      "zoom": 3.2,
+      "duration": 1.2
+     }
+    ]
+   },
+   "show": [
+    {
+     "type": "highlight",
+     "target": "ARG",
+     "fill": "flag:ar",
+     "wave": true,
+     "at": 0.1
+    },
+    {
+     "type": "highlight",
+     "target": "PER",
+     "fill": "flag:pe",
+     "wave": true,
+     "at": 0.3
+    },
+    {
+     "type": "face",
+     "target": "BRA",
+     "expr": [
+      {
+       "at": 0.1,
+       "e": "worried"
+      },
+      {
+       "at": "happy",
+       "e": "angry"
+      }
+     ],
+     "scale": 0.45
+    },
+    {
+     "type": "pathtext",
+     "text": "Amazon River",
+     "points": [
+      [
+       -3.4,
+       -70
+      ],
+      [
+       -3.1,
+       -63
+      ],
+      [
+       -2.6,
+       -57
+      ],
+      [
+       -1.5,
+       -52
+      ]
+     ],
+     "size": 58,
+     "color": "#fff",
+     "glow": "#38bdf8",
+     "at": "neighbors"
+    },
+    {
+     "type": "crowd",
+     "lat": -22,
+     "lon": -47,
+     "count": 24,
+     "cols": 8,
+     "size": 30,
+     "red": [
+      {
+       "at": "happy",
+       "n": 10
+      }
+     ],
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "Then the camera tilts and the weather turns.",
+   "noClaim": true,
+   "style": "satellite",
+   "camera": {
+    "lat": -14,
+    "lon": -52,
+    "zoom": 2.2
+   },
+   "show": [
+    {
+     "type": "tilt",
+     "deg": 36,
+     "at": 0.1,
+     "until": 4
+    },
+    {
+     "type": "cloud",
+     "lat": -12,
+     "lon": -55,
+     "count": 3,
+     "size": 340,
+     "rain": true,
+     "at": 0.4
+    },
+    {
+     "type": "particles",
+     "kind": "rain",
+     "density": 0.8,
+     "at": 0.5
+    },
+    {
+     "type": "beam",
+     "lat": -15.8,
+     "lon": -47.9,
+     "color": "#ffd60a",
+     "at": "weather"
+    },
+    {
+     "type": "pin",
+     "lat": -15.8,
+     "lon": -47.9,
+     "icon": "art:skull",
+     "at": "weather"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "Look closer, through the lens, at the capital.",
+   "noClaim": true,
+   "style": "satellite",
+   "camera": {
+    "lat": -15.8,
+    "lon": -47.9,
+    "zoom": 7
+   },
+   "show": [
+    {
+     "type": "lens",
+     "screen": [
+      0.5,
+      0.4
+     ],
+     "r": 330,
+     "mag": 2.0,
+     "at": 0.2,
+     "until": 3.5
+    },
+    {
+     "type": "box",
+     "from": [
+      -15.72,
+      -47.98
+     ],
+     "to": [
+      -15.88,
+      -47.8
+     ],
+     "label": "x",
+     "at": "capital"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "A ship arrives, and the captain jumps onto the shore.",
+   "noClaim": true,
+   "style": "satellite",
+   "camera": {
+    "lat": -23,
+    "lon": -43,
+    "zoom": 6
+   },
+   "show": [
+    {
+     "type": "route",
+     "id": "s1",
+     "points": [
+      [
+       -24.5,
+       -41.5
+      ],
+      [
+       -23.5,
+       -42.5
+      ],
+      [
+       -23.05,
+       -43.15
+      ]
+     ],
+     "color": "#ffffff",
+     "width": 5,
+     "dashed": true,
+     "dash": [
+      14,
+      12
+     ],
+     "glow": false,
+     "drawDur": 2.4,
+     "mover": {
+      "kind": "ship",
+      "size": 190,
+      "style": "cargo"
+     },
+     "rider": {
+      "image": "sultan",
+      "size": 120,
+      "to": {
+       "lat": -22.95,
+       "lon": -43.2
+      }
+     },
+     "at": 0.2,
+     "nodes": true
+    },
+    {
+     "type": "react",
+     "icon": "art:emote_shock",
+     "screen": [
+      0.72,
+      0.3
+     ],
+     "size": 190,
+     "burst": true,
+     "at": "jumps"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "Boom. The old map burns.",
+   "noClaim": true,
+   "style": "satellite",
+   "transition": "blast",
+   "camera": {
+    "lat": -10,
+    "lon": -55,
+    "zoom": 1.5
+   },
+   "show": [
+    {
+     "type": "grade",
+     "mode": "thermal",
+     "at": 0.2,
+     "until": 2.5
+    },
+    {
+     "type": "particles",
+     "kind": "embers",
+     "at": 0.3
+    },
+    {
+     "type": "route",
+     "points": [
+      [
+       -5,
+       -60
+      ],
+      [
+       -10,
+       -52
+      ],
+      [
+       -15,
+       -48
+      ]
+     ],
+     "color": "#ff7a18",
+     "fire": true,
+     "width": 10,
+     "drawDur": 1.6,
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "On the paper, everyone has a role.",
+   "noClaim": true,
+   "style": "kraft",
+   "transition": "ice",
+   "show": [
+    {
+     "type": "avatar",
+     "image": "sultan",
+     "screen": [
+      0.3,
+      0.28
+     ],
+     "size": 190,
+     "name": "King"
+    },
+    {
+     "type": "avatar",
+     "image": "tsar",
+     "screen": [
+      0.7,
+      0.34
+     ],
+     "size": 190,
+     "name": "Tsar",
+     "shape": "circle"
+    },
+    {
+     "type": "link",
+     "from": [
+      0.34,
+      0.32
+     ],
+     "to": [
+      0.66,
+      0.38
+     ],
+     "at": "role"
+    },
+    {
+     "type": "timebar",
+     "from": "1776",
+     "to": "1876",
+     "label": "100 years",
+     "at": 0.3
+    },
+    {
+     "type": "orbit",
+     "items": [
+      "United Kingdom",
+      "England",
+      "Great Britain"
+     ],
+     "text": "What is the difference?",
+     "radius": 300,
+     "screen": [
+      0.5,
+      0.62
+     ],
+     "at": "everyone"
+    },
+    {
+     "type": "handstamp",
+     "text": "FAILED",
+     "at": "paper",
+     "screen": [
+      0.5,
+      0.5
+     ],
+     "size": 110
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "And the forest keeps growing.",
+   "noClaim": true,
+   "style": "satellite",
+   "transition": "rewind",
+   "camera": {
+    "lat": -3,
+    "lon": -60,
+    "zoom": 4
+   },
+   "show": [
+    {
+     "type": "photo",
+     "image": "rainforest_mist",
+     "kind": "full",
+     "pan": "in",
+     "at": 0.1,
+     "until": 3
+    },
+    {
+     "type": "photo",
+     "image": "harbor_cranes",
+     "kind": "card",
+     "size": 520,
+     "rot": -5,
+     "from": "right",
+     "screen": [
+      0.5,
+      0.45
+     ],
+     "caption": "AI illustration",
+     "at": "keeps",
+     "until": 4
+    }
+   ]
+  }
+ ]
+}

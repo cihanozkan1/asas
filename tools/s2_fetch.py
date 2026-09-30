@@ -31,7 +31,7 @@ cat = Client.open('https://earth-search.aws.element84.com/v1')
 today = dt.date.today()
 search = cat.search(collections=['sentinel-2-l2a'], bbox=[W_, S_, E_, N_],
                     datetime=f'{today.year - 3}-01-01/{today.isoformat()}',
-                    query={'eo:cloud_cover': {'lt': 25}}, max_items=400)
+                    query={'eo:cloud_cover': {'lt': 25}}, max_items=1500)
 items = list(search.items())
 if not items:
     sys.exit('no Sentinel-2 scenes found for this box')
@@ -47,18 +47,21 @@ def footprint(it):
     except Exception:
         return np.zeros((G, G), bool)
 cands = sorted(items, key=lambda i: i.properties.get('eo:cloud_cover', 100) + 0.3 * i.properties.get('s2:nodata_pixel_percentage', 0))
+span = max(E_ - W_, N_ - S_)
+need_cover = 3 if span < 3 else 2
+cap = int(min(160, max_scenes * 3 + span * 8))
 cover = np.zeros((G, G), int)
 chosen = []
 for it in cands:
     fp = footprint(it)
     if not fp.any():
         continue
-    need = (cover < 3) & fp
-    if need.sum() < 0.03 * G * G and chosen:
+    need = (cover < need_cover) & fp
+    if need.sum() < 0.004 * G * G and chosen:
         continue
     chosen.append(it)
     cover += fp
-    if len(chosen) >= max_scenes * 3 or (cover >= 3).all():
+    if len(chosen) >= cap or (cover >= need_cover).all():
         break
 
 env = dict(GDAL_DISABLE_READDIR_ON_OPEN='EMPTY_DIR', AWS_NO_SIGN_REQUEST='YES', GDAL_HTTP_MULTIRANGE='YES',
@@ -79,7 +82,7 @@ with rasterio.Env(**env):
             print('skip', it.id, e, file=sys.stderr)
             continue
         ok = (rgb.sum(axis=0) > 0) & ~np.isin(scl, [0, 1, 3, 8, 9, 10])   # no data, defective, shadow, cloud
-        if ok.mean() < 0.02:
+        if not ok.any():
             continue
         stack.append(rgb)
         valid.append(ok)
@@ -101,5 +104,5 @@ if hole.any():                                      # only clouds there: use any
 img = np.clip(med, 0, 255)
 # TCI is a little flat for a screen: gentle contrast lift, colour kept
 img = np.clip((img / 255.0) ** 0.92 * 255.0 * 1.04, 0, 255).astype(np.uint8)
-Image.fromarray(np.moveaxis(img, 0, -1)).save(out, quality=90)
+Image.fromarray(np.moveaxis(img, 0, -1)).save(out, format='JPEG', quality=90)
 print(json.dumps({'scenes': len(stack), 'years': sorted(years), 'size': [width, height]}))

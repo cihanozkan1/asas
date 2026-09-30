@@ -10,6 +10,14 @@ export const ease = {
     return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
   },
   inOutSine: (t) => -(Math.cos(Math.PI * t) - 1) / 2,
+  inCubic: (t) => t * t * t,
+  outBounce: (t) => {
+    const n = 7.5625, d = 2.75;
+    if (t < 1 / d) return n * t * t;
+    if (t < 2 / d) return n * (t -= 1.5 / d) * t + 0.75;
+    if (t < 2.5 / d) return n * (t -= 2.25 / d) * t + 0.9375;
+    return n * (t -= 2.625 / d) * t + 0.984375;
+  },
 };
 
 export const clamp01 = (x) => Math.max(0, Math.min(1, x));
@@ -68,7 +76,18 @@ export class CameraPath {
     const drift = this.opts.drift;
     if (u >= 1) {
       const dt = t - (seg.t0 + seg.dur);
-      return { lat: seg.to.lat, lon: seg.to.lon, zoom: seg.to.zoom * Math.exp(drift * dt), bearing: seg.to.bearing ?? 0 };
+      // slow push-in plus a gentle slide, so the map never sits still (direction is fixed per shot)
+      const z = seg.to.zoom * Math.exp(drift * dt);
+      let lat = seg.to.lat, lon = seg.to.lon;
+      const pan = this.opts.pan || 0;
+      if (pan) {
+        const h = Math.sin((seg.t0 + 1.3) * 12.9898) * 43758.5453, ang = (h - Math.floor(h)) * Math.PI * 2;
+        const k = z * this.opts.baseK, px = pan * dt * Math.cos(ang), py = pan * dt * Math.sin(ang);
+        const cl = Math.max(0.2, Math.cos((seg.to.lat * Math.PI) / 180));
+        if (this.opts.mode === 'globe') { lon += ((px / k) * 180) / Math.PI / cl; lat += ((py / k) * 180) / Math.PI; }
+        else { lon += ((px / k) * 180) / Math.PI; lat += ((py / k) * 180 * cl) / Math.PI; }
+      }
+      return { lat, lon, zoom: z, bearing: seg.to.bearing ?? 0 };
     }
     const e = ease.inOutCubic(u);
     const interp = geoInterpolate([seg.from.lon, seg.from.lat], [seg.to.lon, seg.to.lat]);

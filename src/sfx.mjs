@@ -102,8 +102,16 @@ function rise(dur = 0.35, f0 = 500) {
   return out;
 }
 
+function rewind(dur = 0.8, bright = 1) {
+  // tape rewind: a whoosh played backwards, with a downward "wow" from a fast wobble
+  const w = whoosh(dur, bright, 7);
+  const out = new Float32Array(w.length);
+  for (let i = 0; i < w.length; i++) out[i] = w[w.length - 1 - i] * (0.75 + 0.25 * Math.sin((i / SR) * 80));
+  return out;
+}
+
 // relative loudness of each role (the whole track is scaled again at mix time)
-const GAIN = { pop: 0.32, tick: 0.18, bell: 0.2, whoosh: 0.28, thud: 0.38, rise: 0.16, page: 0.35 };
+const GAIN = { pop: 0.32, tick: 0.18, bell: 0.2, whoosh: 0.28, thud: 0.38, rise: 0.16, page: 0.35, rewind: 0.3 };
 
 export function sfxEvents(tl) {
   const tune = strHash(JSON.stringify(tl.kit || '') + tl.duration.toFixed(2));
@@ -114,6 +122,9 @@ export function sfxEvents(tl) {
     const prev = tl.scenes[i - 1];
     if (s.era === 'history' && prev.era !== 'history') add(s.start - 0.15, 'page', 1);
     else if (s.era !== 'history' && prev.era === 'history') add(s.start - 0.2, 'whoosh', 0.8);
+    else if (s.transition === 'rewind') add(s.start - 0.25, 'rewind', 1);
+    else if (s.transition === 'blast') { add(s.start - 0.1, 'thud', 1); add(s.start, 'whoosh', 0.7); }
+    else if (s.transition === 'ice') add(s.start - 0.2, 'bell', 0.7);
     else if (s.transition || s.camera) add(s.start - 0.2, 'whoosh', s.transition ? 0.7 : 0.5);
   });
   if (tl.scenes[0]?.camera) add(0.1, 'whoosh', 0.7);
@@ -132,6 +143,16 @@ export function sfxEvents(tl) {
       case 'bridge': add(t, 'whoosh', 0.35); add(t + (el.buildDur ?? 1.0) * 0.9, 'pop', 0.7); break;
       case 'wall': add(t, 'whoosh', 0.35); add(t + (el.buildDur ?? 1.4), 'thud', 0.5); break;
       case 'ghost': add(t + (el.delay ?? 0.3), 'whoosh', 0.5); break;
+      case 'react': add(t, 'pop', 0.9); add(t + 0.05, 'rise', 0.7); break;
+      case 'avatar': case 'pin': case 'face': case 'box': add(t, 'pop', 0.7); break;
+      case 'photo': add(t, 'whoosh', 0.5); break;
+      case 'lens': add(t, 'whoosh', 0.6); add(t + 0.45, 'pop', 0.6); break;
+      case 'handstamp': add(t + 0.42, 'thud', 1); break;
+      case 'crowd': for (let i = 0; i < 3; i++) add(t + 0.2 + i * 0.25, 'pop', 0.4); break;
+      case 'pathtext': add(t, 'whoosh', 0.35); break;
+      case 'timebar': add(t, 'whoosh', 0.4); add(t + 1.6, 'bell', 0.7); break;
+      case 'link': add(t, 'tick', 0.8); break;
+      case 'beam': add(t, 'rise', 0.6); break;
       case 'ping': add(t, 'pop', 0.5); break;
       case 'counter': {
         const st = el.steps[0];
@@ -170,6 +191,7 @@ async function voiceFor(e) {
     case 'whoosh': return whoosh(0.38 + e.var * 0.14, b, Math.floor(e.var * 1000) + 1);
     case 'thud': return thud(68 * k);
     case 'rise': return rise(0.32, 520 * k);
+    case 'rewind': return rewind(0.8, b);
     case 'page': return loadFile(`k/bookFlip${1 + Math.floor(e.var * 3)}.ogg`);
     default: return new Float32Array(1);
   }
