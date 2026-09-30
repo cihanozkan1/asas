@@ -3,7 +3,7 @@
   "style": "geo",
   "meta": {
     "title": "The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia",
-    "description": "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 It was the capital of the Roman, Byzantine and Ottoman empires, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
+    "description": "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 The Bosphorus is the only passage between the Black Sea and the Mediterranean, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
     "pinnedComment": [
       "One city, two continents 🤯🇹🇷",
       "Do you live on the European or the Asian side? 👇",
@@ -34,7 +34,7 @@
           "type": "highlight",
           "target": "TUR",
           "fill": "flag:tr",
-          "at": "Istanbul",
+          "at": 0.05,
           "fillOpacity": 0.7
         },
         {
@@ -42,7 +42,7 @@
           "lat": 41.03,
           "lon": 29.0,
           "color": "#ffd60a",
-          "at": "cities"
+          "at": "Istanbul"
         },
         {
           "type": "counter",
@@ -53,13 +53,33 @@
             }
           ],
           "size": 220
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.78,
+            0.3
+          ],
+          "burst": true,
+          "at": "continents",
+          "size": 170
         }
       ],
       "camera": {
         "lat": 39.5,
         "lon": 32,
-        "zoom": 2.6,
-        "bearing": -3
+        "zoom": 2.2,
+        "bearing": -3,
+        "then": [
+          {
+            "at": "Istanbul",
+            "lat": 41.03,
+            "lon": 29.0,
+            "zoom": 40,
+            "duration": 1.4
+          }
+        ]
       },
       "sources": [
         {
@@ -71,7 +91,73 @@
     },
     {
       "era": "now",
-      "text": "The Bosphorus Strait splits it in two: Europe on one side, and Asia on the other.",
+      "text": "One half is in Europe, the other half is in Asia.",
+      "show": [
+        {
+          "type": "box",
+          "from": [
+            40.95,
+            28.55
+          ],
+          "to": [
+            41.35,
+            28.99
+          ],
+          "at": "Europe",
+          "color": "#5ec8ff"
+        },
+        {
+          "type": "label",
+          "text": "EUROPE",
+          "lat": 41.14,
+          "lon": 28.78,
+          "at": "Europe",
+          "style": "extrude",
+          "anim": "giant",
+          "size": 80
+        },
+        {
+          "type": "box",
+          "from": [
+            40.8,
+            29.02
+          ],
+          "to": [
+            41.25,
+            29.45
+          ],
+          "at": "Asia",
+          "color": "#ffd60a"
+        },
+        {
+          "type": "label",
+          "text": "ASIA",
+          "lat": 41.0,
+          "lon": 29.24,
+          "at": "Asia",
+          "style": "extrude",
+          "anim": "giant",
+          "size": 80
+        }
+      ],
+      "camera": {
+        "lat": 41.06,
+        "lon": 29.0,
+        "zoom": 90,
+        "bearing": -6
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The Bosporus forms a continental boundary between Asia and Europe.",
+          "url": "https://en.wikipedia.org/wiki/Bosporus",
+          "quote": "forms one of the continental boundaries between Asia and Europe"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Between them flows the Bosphorus Strait. Ferries cross it all day long.",
       "show": [
         {
           "type": "route",
@@ -108,35 +194,81 @@
           "color": "#5ec8ff",
           "width": 10,
           "at": "Bosphorus",
-          "drawDur": 1.4,
-          "hold": 2
+          "drawDur": 1.6,
+          "laser": true,
+          "hold": 3
         },
         {
-          "type": "label",
-          "text": "EUROPE",
-          "lat": 41.15,
-          "lon": 28.8,
-          "at": "Europe",
-          "style": "map",
-          "anim": "slam",
-          "size": 80
+          "type": "route",
+          "points": [
+            [
+              41.014,
+              28.975
+            ],
+            [
+              41.017,
+              28.99
+            ],
+            [
+              41.02,
+              29.008
+            ],
+            [
+              41.023,
+              29.02
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "Ferries",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "id": "fer",
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "style": "ferry"
+          },
+          "drawDur": 2.8
         },
         {
-          "type": "label",
-          "text": "ASIA",
-          "lat": 41.0,
-          "lon": 29.25,
-          "at": "Asia",
-          "style": "map",
-          "anim": "slam",
-          "size": 80
+          "type": "pathtext",
+          "text": "Bosphorus Strait",
+          "points": [
+            [
+              41.03,
+              29.01
+            ],
+            [
+              41.07,
+              29.05
+            ],
+            [
+              41.11,
+              29.06
+            ],
+            [
+              41.16,
+              29.08
+            ],
+            [
+              41.2,
+              29.12
+            ]
+          ],
+          "size": 44,
+          "at": "Strait"
         }
       ],
       "camera": {
-        "lat": 41.08,
-        "lon": 29.05,
-        "zoom": 45,
-        "bearing": -6
+        "follow": "fer",
+        "zoom": 200,
+        "zoomTo": 110,
+        "duration": 1.0
       },
       "sources": [
         {
@@ -180,12 +312,41 @@
           "dot": true,
           "dy": 48,
           "size": 44
+        },
+        {
+          "type": "lens",
+          "screen": [
+            0.5,
+            0.4
+          ],
+          "r": 300,
+          "at": "700"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
-        "lat": 41.075,
-        "lon": 29.05,
-        "zoom": 120
+        "lat": 41.12,
+        "lon": 29.06,
+        "zoom": 60,
+        "then": [
+          {
+            "at": "narrowest",
+            "lat": 41.075,
+            "lon": 29.05,
+            "zoom": 300,
+            "duration": 1.1
+          }
+        ]
       },
       "sources": [
         {
@@ -199,16 +360,6 @@
       "era": "now",
       "text": "More than 15 million people live here, and about two thirds of them are on the European side.",
       "show": [
-        {
-          "type": "label",
-          "text": "ISTANBUL",
-          "lat": 41.16,
-          "lon": 28.98,
-          "at": "More",
-          "style": "map",
-          "anim": "slam",
-          "size": 64
-        },
         {
           "type": "counter",
           "steps": [
@@ -232,38 +383,21 @@
           "size": 46
         },
         {
-          "type": "scatter",
-          "target": {
-            "circle": {
-              "lat": 41.06,
-              "lon": 28.8,
-              "km": 30
+          "type": "crowd",
+          "lat": 41.06,
+          "lon": 28.86,
+          "count": 15,
+          "cols": 5,
+          "size": 34,
+          "color": "#5ec8ff",
+          "red": [
+            {
+              "at": "European",
+              "n": 10
             }
-          },
-          "icon": "art:house_ist",
-          "count": 4,
-          "size": 80,
-          "at": "European",
-          "stagger": 0.15,
-          "until": "side",
-          "along": [
-            [
-              40.99,
-              28.8
-            ],
-            [
-              41.05,
-              28.84
-            ],
-            [
-              41.09,
-              28.9
-            ],
-            [
-              41.03,
-              28.95
-            ]
-          ]
+          ],
+          "redColor": "#ffd60a",
+          "at": "million"
         }
       ],
       "camera": {
@@ -276,6 +410,122 @@
           "claim": "Over 15 million inhabitants; about two-thirds live in Europe.",
           "url": "https://en.wikipedia.org/wiki/Istanbul",
           "quote": "Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So why did such a huge city grow right here?",
+      "show": [
+        {
+          "type": "question",
+          "lat": 41.03,
+          "lon": 29.0,
+          "at": "why"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_think",
+          "screen": [
+            0.28,
+            0.3
+          ],
+          "burst": true,
+          "at": "why",
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": 41.03,
+        "lon": 29.0,
+        "zoom": 40
+      },
+      "style": "dark",
+      "transition": "flash",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Because the Bosphorus is the only passage between the Black Sea and the Mediterranean.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              43.0,
+              34.0
+            ],
+            [
+              41.6,
+              29.6
+            ],
+            [
+              41.2,
+              29.1
+            ],
+            [
+              41.0,
+              28.98
+            ],
+            [
+              40.6,
+              27.4
+            ],
+            [
+              39.6,
+              26.2
+            ],
+            [
+              37.5,
+              25.0
+            ],
+            [
+              35.5,
+              20.0
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 8,
+          "at": "passage",
+          "drawDur": 2.6,
+          "laser": true,
+          "id": "pass",
+          "mover": {
+            "kind": "ship",
+            "size": 150,
+            "style": "cargo"
+          }
+        },
+        {
+          "type": "label",
+          "text": "BLACK SEA",
+          "lat": 43.2,
+          "lon": 34.5,
+          "at": "Black",
+          "style": "map",
+          "size": 44
+        },
+        {
+          "type": "label",
+          "text": "MEDITERRANEAN",
+          "lat": 35.5,
+          "lon": 22.5,
+          "at": "Mediterranean",
+          "style": "map",
+          "size": 44
+        }
+      ],
+      "camera": {
+        "follow": "pass",
+        "zoom": 5,
+        "zoomTo": 3.2,
+        "duration": 1.0
+      },
+      "sources": [
+        {
+          "claim": "The Bosporus is the only passage between the Black Sea and the Mediterranean and has always been of great commercial and military importance.",
+          "url": "https://en.wikipedia.org/wiki/Bosporus",
+          "quote": "As part of the only passage between the Black Sea and the Mediterranean, the Bosporus has always been of great importance from a commercial and military point of view."
         }
       ]
     },
@@ -305,6 +555,13 @@
           "at": "Constantinople",
           "style": "serif",
           "size": 56
+        },
+        {
+          "type": "timebar",
+          "from": "660",
+          "to": "330",
+          "label": "BC → AD",
+          "at": "founded"
         }
       ],
       "camera": {
@@ -361,8 +618,22 @@
           "dot": true,
           "dy": 70,
           "size": 34
+        },
+        {
+          "type": "icon",
+          "icon": "art:crown",
+          "lat": 41.05,
+          "lon": 28.92,
+          "size": 110,
+          "plain": true,
+          "at": "Byzantine"
         }
       ],
+      "camera": {
+        "lat": 41.01,
+        "lon": 28.98,
+        "zoom": 60
+      },
       "sources": [
         {
           "claim": "Capital of the Roman, Byzantine, Latin and Ottoman empires.",
@@ -373,29 +644,12 @@
     },
     {
       "era": "history",
-      "text": "In 1453, the Ottomans conquered it after a 55 day siege. And in 1930, it was officially renamed Istanbul.",
+      "text": "In 1453, the Ottomans hit its walls with giant cannons, and after a 55 day siege they conquered it.",
       "show": [
         {
           "type": "year",
           "value": "1453",
-          "at": "1453",
-          "until": "1930"
-        },
-        {
-          "type": "year",
-          "value": "1930",
-          "at": "1930"
-        },
-        {
-          "type": "character",
-          "image": "sultan",
-          "screen": [
-            0.74,
-            0.6
-          ],
-          "at": "Ottomans",
-          "name": "Mehmed II",
-          "until": "1930"
+          "at": "1453"
         },
         {
           "type": "wall",
@@ -433,7 +687,7 @@
               28.944
             ]
           ],
-          "at": "siege",
+          "at": "walls",
           "buildDur": 1.6,
           "side": -1,
           "width": 16
@@ -448,18 +702,37 @@
           "size": 40
         },
         {
-          "type": "shake",
-          "at": "conquered"
+          "type": "icon",
+          "icon": "art:cannon",
+          "lat": 41.0,
+          "lon": 28.87,
+          "size": 150,
+          "plain": true,
+          "at": "cannons"
         },
         {
-          "type": "label",
-          "text": "Istanbul",
-          "lat": 41.012,
-          "lon": 28.968,
-          "at": "1930",
-          "style": "serif",
-          "size": 68,
-          "anim": "slam"
+          "type": "shake",
+          "at": "cannons"
+        },
+        {
+          "type": "character",
+          "image": "sultan",
+          "screen": [
+            0.74,
+            0.6
+          ],
+          "at": "conquered",
+          "name": "Mehmed II"
+        },
+        {
+          "type": "handstamp",
+          "text": "CONQUERED",
+          "at": "conquered",
+          "size": 84,
+          "screen": [
+            0.5,
+            0.34
+          ]
         }
       ],
       "camera": {
@@ -469,14 +742,66 @@
       },
       "sources": [
         {
-          "claim": "Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930.",
+          "claim": "Conquered on 29 May 1453 after a 55-day siege.",
           "url": "https://en.wikipedia.org/wiki/Istanbul",
-          "quote": "The Ottomans conquered the city \"on 29 May 1453, after a 55-day siege.\" ... officially renamed Istanbul in 1930"
+          "quote": "The Ottomans conquered the city \"on 29 May 1453, after a 55-day siege.\""
         },
         {
-          "claim": "The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae; the city fell in 1453 after a seven-week siege.",
+          "claim": "Mehmed II's cannons hurled massive stone balls at the walls.",
+          "url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople",
+          "quote": "His 27-foot-long (8.2 m) cannon was named \"Basilica\" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km)."
+        },
+        {
+          "claim": "The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.",
           "url": "https://en.wikipedia.org/wiki/Walls_of_Constantinople",
-          "quote": "the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north ... The city fell on 29 May after a total of seven weeks of siege"
+          "quote": "the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And in 1930, it was officially renamed Istanbul.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1930",
+          "at": "1930"
+        },
+        {
+          "type": "label",
+          "text": "ISTANBUL",
+          "lat": 41.012,
+          "lon": 28.968,
+          "at": "Istanbul",
+          "style": "extrude",
+          "anim": "giant",
+          "size": 90
+        },
+        {
+          "type": "particles",
+          "kind": "confetti",
+          "at": "renamed",
+          "density": 0.4
+        },
+        {
+          "type": "flare",
+          "screen": [
+            0.5,
+            0.35
+          ],
+          "at": "officially"
+        }
+      ],
+      "camera": {
+        "lat": 41.02,
+        "lon": 28.97,
+        "zoom": 90
+      },
+      "sources": [
+        {
+          "claim": "Officially renamed Istanbul in 1930.",
+          "url": "https://en.wikipedia.org/wiki/Istanbul",
+          "quote": "officially renamed Istanbul in 1930"
         }
       ]
     },
@@ -492,7 +817,11 @@
               "value": "3 + 1"
             }
           ],
-          "size": 180
+          "size": 180,
+          "screen": [
+            0.2,
+            0.1
+          ]
         },
         {
           "type": "bridge",
@@ -624,6 +953,80 @@
           "claim": "Bridges: 15 July Martyrs (1973), Fatih Sultan Mehmet (1988), Yavuz Sultan Selim (2016); Marmaray undersea rail tunnel opened 2013.",
           "url": "https://en.wikipedia.org/wiki/Bosphorus",
           "quote": "the 1,074 m (3,524 ft) long 15th July Martyrs Bridge was completed in 1973 ... Fatih Sultan Mehmet (Bosporus II) Bridge ... was completed in 1988 ... the Yavuz Sultan Selim Bridge ... was completed in 2016 ... The Marmaray project, featuring a 13.7 km (8.5 mi) long undersea railway tunnel, opened on 29 October 2013"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "sixty",
+              "value": "60 m"
+            }
+          ],
+          "size": 190,
+          "color": "#4ade80"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              41.015,
+              28.977
+            ],
+            [
+              41.0195,
+              28.996
+            ],
+            [
+              41.0255,
+              29.015
+            ]
+          ],
+          "color": "#f97316",
+          "width": 8,
+          "at": "train",
+          "id": "tun",
+          "mover": {
+            "kind": "icon",
+            "icon": "art:train",
+            "size": 100
+          },
+          "drawDur": 2.4
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.78,
+            0.3
+          ],
+          "burst": true,
+          "at": "underwater",
+          "size": 170
+        },
+        {
+          "type": "grade",
+          "mode": "cold",
+          "at": "underwater"
+        }
+      ],
+      "camera": {
+        "follow": "tun",
+        "zoom": 200,
+        "zoomTo": 140,
+        "duration": 0.9
+      },
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "The Marmaray tube was placed 60 metres below sea level.",
+          "url": "https://en.wikipedia.org/wiki/Marmaray",
+          "quote": "The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water"
         }
       ]
     }

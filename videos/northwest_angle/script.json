@@ -83,6 +83,17 @@
           "style": "map",
           "anim": "slam",
           "size": 64
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -582,6 +593,153 @@
           "claim": "Later treaties (Jay Treaty, Treaty of Ghent, 1818 Convention, Webster–Ashburton) clarified the boundary.",
           "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
           "quote": "Subsequent treaties (Jay Treaty, Treaty of Ghent, Anglo-American Convention of 1818, and Webster-Ashburton Treaty) gradually clarified the boundary, cementing the Angle's unusual status."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Even getting in is unusual. There's a single gravel road, and you check in with US Customs using a kiosk.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              48.905,
+              -95.314
+            ],
+            [
+              48.99,
+              -95.55
+            ],
+            [
+              49.2,
+              -95.62
+            ],
+            [
+              49.33,
+              -95.35
+            ],
+            [
+              49.34,
+              -95.07
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "gravel",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "icon",
+            "icon": "art:car",
+            "size": 90
+          },
+          "id": "gr",
+          "nodes": true,
+          "drawDur": 2.6
+        },
+        {
+          "type": "icon",
+          "icon": "art:laptop",
+          "lat": 49.34,
+          "lon": -95.03,
+          "size": 120,
+          "plain": true,
+          "at": "kiosk"
+        },
+        {
+          "type": "label",
+          "text": "Customs kiosk",
+          "lat": 49.34,
+          "lon": -95.03,
+          "at": "kiosk",
+          "dot": true,
+          "dy": -62,
+          "size": 34
+        }
+      ],
+      "camera": {
+        "follow": "gr",
+        "zoom": 40,
+        "zoomTo": 26,
+        "duration": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Travelers use the single gravel road and an iPad kiosk to contact US Customs.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "Travelers using the single gravel road into the Angle are instructed to use an iPad kiosk at Jim's Corner, Young's Bay Marina, or Carlson's Landing to contact U.S. Customs."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In 1997, because of fishing rules, some residents even suggested leaving the United States and joining Canada.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1997",
+          "light": true,
+          "at": "1997"
+        },
+        {
+          "type": "icon",
+          "icon": "art:fishing_boat",
+          "lat": 49.22,
+          "lon": -94.85,
+          "size": 150,
+          "plain": true,
+          "at": "fishing"
+        },
+        {
+          "type": "flag",
+          "code": "ca",
+          "lat": 49.62,
+          "lon": -95.0,
+          "size": 110,
+          "at": "joining",
+          "wave": true
+        },
+        {
+          "type": "arrow",
+          "from": [
+            49.36,
+            -95.08
+          ],
+          "to": [
+            49.62,
+            -95.0
+          ],
+          "color": "#ffd60a",
+          "at": "leaving"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "at": "suggested",
+          "size": 160
+        }
+      ],
+      "camera": {
+        "lat": 49.35,
+        "lon": -95.1,
+        "zoom": 34,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "In 1997, some residents suggested leaving the US and joining Canada because of fishing laws.",
+          "url": "https://en.wikipedia.org/wiki/Northwest_Angle",
+          "quote": "Because of laws restricting fishing, some residents of the Northwest Angle suggested leaving the United States and joining Canada in 1997."
         }
       ]
     },

@@ -48,6 +48,20 @@ save('indonesia_capital', meta(
           cam=at_(-1.0, 116.6, 18, bearing=3),
           src=[src('Construction began in 2022.', 'Nusantara_(city)', 'Construction of the city began in 2022, starting with land clearing and creating access roads.'),
                src('Estimated at Rp 523 trillion (US$35 billion).', 'Nusantara_(city)', 'estimated to be worth Rp 523 trillion (US$35 billion)')]),
+        S("That name is an old Javanese word meaning archipelago, or islands.", [
+            giant('NUSANTARA', -1.0, 116.6, 'name', size=90), scatter({'circle': {'lat': -1.0, 'lon': 116.7, 'km': 25}}, 'art:palm', 'islands', count=5, size=80, stagger=0.15)],
+          cam=at_(-1.0, 116.6, 30, bearing=-3),
+          src=[src('Nusantara is an Old Javanese-origin term meaning archipelago or islands.', 'Nusantara_(city)', 'Old Javanese-origin term, meaning "archipelago" or "islands"')]),
+        S("And it's designed to be green, with a goal of 80 percent of trips made by public transport, cycling or walking.", [
+            cnt('80%', '80', size=200, color='#4ade80'), art('tree', -1.0, 116.55, 'green', size=130), art('bus', -0.95, 116.75, 'public', size=110), art('walker', -1.05, 116.7, 'walking', size=110),
+            pill('public transport · bike · walk', 'cycling', bg='#15803d')],
+          cam=at_(-1.0, 116.65, 45, bearing=3),
+          src=[src('Nusantara is designed for sustainability, targeting 80% of mobility by public transport, cycling or walking.', 'Nusantara_(city)',
+                   'designed for sustainability targeting 80% of mobility to be supported by public transport, cycling, or walking')]),
+        S("On August 17, 2024, Indonesia celebrated its Independence Day in Nusantara for the first time.", [
+            year(2024, '2024', light=True), flag('id', -0.95, 116.7, 'Indonesia', size=130, wave=True), art('fireworks', -0.9, 116.55, 'celebrated', size=170), particles('confetti', 'celebrated', density=0.5)],
+          cam=at_(-1.0, 116.6, 40, bearing=-3), tr='flash',
+          src=[src('On 17 August 2024 Indonesia celebrated Independence Day in Nusantara for the first time.', 'Nusantara_(city)', 'On 17 August 2024, Indonesia officially celebrated its Independence Day for the first time in Nusantara.')]),
     ],
     keywords={'jakarta': '#ff5a5f', 'sinking': '#ff5a5f', 'nusantara': '#4ade80', 'borneo': '#4ade80', 'indonesia': '#ffd60a'},
     imagery=[{'bbox': [106.55, -6.45, 107.1, -5.95], 'width': 2400}])
@@ -75,6 +89,10 @@ save('japan_islands', meta(
           cam=at_(34.2, 132.8, 16, bearing=-3), tr='flash',
           src=[src('The increase came from better surveying and digital mapping; the criterion is a coastline of 100 m or more.', 'List_of_islands_of_Japan',
                    'advances in surveying technology and the detailed representation of topographic features through digital mapping ... a coastline of 100 meters or more')]),
+        S("Together, they stretch over 3,000 kilometers, from the Sea of Okhotsk to the East China Sea.", [
+            meas((45.4, 141.9), (24.5, 123.2), '3,000 km', '3,000'), lab('Sea of Okhotsk', 47.5, 146, 'Okhotsk', style='pill', bg='#1d4ed8', size=40), lab('East China Sea', 28, 124, 'East', style='pill', bg='#1d4ed8', size=40)],
+          cam=fit('JPN', pad=0.85, bearing=-4),
+          src=[src('Japan stretches over 3,000 km northeast-southwest from the Sea of Okhotsk to the East China Sea.', 'Japan', 'It stretches over 3000 km (1900 mi) northeast–southwest from the Sea of Okhotsk to the East China Sea.')]),
         S("And only about 260 of them have people living on them.", [
             cnt('260', '260', size=210), pill('inhabited', 'people', bg='#16a34a'), hl('JPN', '#16a34a', 'people', fillOpacity=0.6)],
           cam=fit('JPN', pad=0.9),
@@ -87,6 +105,15 @@ save('japan_islands', meta(
         S("And Honshu alone, home of Tokyo, holds over 80 percent of the population.", [
             cnt('80%+', '80', size=210), slam('HONSHU', 37.8, 139.5, 'Honshu', size=80), ping(35.68, 139.76, 'Tokyo', color='#ff3b3b'), dot('Tokyo', 35.68, 139.76, 'Tokyo', dy=50)],
           src=[src('Honshu has over 80% of the population and the capital Tokyo.', 'List_of_islands_of_Japan', 'Honshu – the largest island, with the capital Tokyo and over 80% of the population.')]),
+        S("Around 75 percent of the land is mountains and forest, so most of Japan is very hard to build on.", [
+            scatter('JPN', 'art:mountain', 'mountains', count=6, size=90, stagger=0.12), cnt('75%', '75', size=200), scatter('JPN', 'art:tree', 'forest', count=4, size=70, stagger=0.12, seed=4)],
+          cam=fit('JPN', pad=0.85, bearing=3),
+          src=[src('Around 75% of Japan\'s terrain is mountainous and heavily forested.', 'Japan', 'around 75% of its terrain is mountainous and heavily forested')]),
+        S("And because Japan sits on the Pacific Ring of Fire, it's prone to earthquakes, tsunamis and volcanoes.", [
+            art('volcano', 35.36, 138.73, 'volcanoes', size=170), art('wave', 38.3, 141.6, 'tsunamis', size=150), shake('earthquakes'), grade('danger', 'Ring', until='volcanoes'), pill('Pacific Ring of Fire', 'Ring', bg='#b91c1c')],
+          cam=at_(36, 139, 4.5, bearing=-3),
+          src=[src('Japan is prone to earthquakes, tsunamis and volcanic eruptions because of its location on the Pacific Ring of Fire.', 'Japan',
+                   'Japan is substantially prone to earthquakes, tsunami and volcanic eruptions because of its location along the Pacific Ring of Fire.')]),
         S("By area, Japan is the fourth largest island country on Earth, behind Indonesia, Madagascar and Papua New Guinea.", [
             hl('IDN', 'flag:id', 'Indonesia', fillOpacity=0.8), hl('MDG', 'flag:mg', 'Madagascar', fillOpacity=0.8), hl('PNG', 'flag:pg', 'Papua', fillOpacity=0.8), hl('JPN', 'flag:jp', 'Japan', fillOpacity=0.85),
             cnt_steps([('fourth', '#4')], size=200)],
@@ -123,6 +150,10 @@ save('italy_microstates', meta(
           cam=at_(43.94, 12.45, 200),
           era='history', tr='film',
           src=[src('San Marino claims to have been founded in AD 301.', 'San_Marino', 'San Marino claims to have been founded in AD 301')]),
+        S("That makes San Marino the oldest surviving sovereign state, and the oldest constitutional republic on Earth.", [
+            cnt('#1', 'oldest', size=210), art('crown', SMR[0], SMR[1] + 0.06, 'oldest', size=120), hl('SMR', 'flag:sm', 'oldest', fillOpacity=0.9, neon='#ffd60a')],
+          cam=at_(43.94, 12.45, 200, bearing=-3),
+          src=[src('San Marino is the oldest extant sovereign state and the oldest constitutional republic.', 'San_Marino', 'the oldest extant sovereign state, and the oldest constitutional republic')]),
         S("So how did it survive when Italy unified?", [q(43.5, 12.3, 'how')], cam=at_(43, 12.5, 6), style='dark', no_claim=True),
         S("San Marino had sheltered the unification hero Giuseppe Garibaldi. So Garibaldi let it stay independent.", [
             hl('SMR', '#8b5e34', 0.05, fillOpacity=0.6), lab('San Marino', SMR[0] - 0.1, SMR[1], 0.05, style='serif', size=54), char('garibaldi', 'Garibaldi', name='Garibaldi', say='Stay free!'), ping(*SMR, 'independent', color='#5ec8ff'), stamp('INDEPENDENT', 'independent', size=84, screen=[0.5, 0.2])],
@@ -140,6 +171,11 @@ save('italy_microstates', meta(
         S("Only about 882 people live there.", [
             cnt('882', '882', size=210), pill('people', 'people', bg='#b45309')],
           src=[src('Population about 882 (2024).', 'Vatican_City', 'a population of about 882 in 2024')]),
+        S("Its ruler is the pope, in a rare case of a monarchy where the ruler is not born into the job.", [
+            cnt('1', 'ruler', size=200), char('pope', 'pope', name='The Pope'), hl('VAT', '#ffd60a', 'monarchy', neon='#ffd60a')],
+          cam=at_(41.9, 12.47, 260, bearing=3),
+          src=[src('The pope holds legislative, executive and judicial power; a rare non-hereditary monarchy.', 'Vatican_City',
+                   'The pope exercises principal legislative, executive, and judicial power over the State of Vatican City, which is a rare case of a non-hereditary monarchy.')]),
         S("Popes once ruled the Papal States, across central Italy. But in 1870, the new Kingdom of Italy took them.", [
             hl({'hist': 1815, 'name': 'Papal States'}, '#d4a017', 'Papal', fillOpacity=0.7, until='them'),
             lab('Papal States', 43.0, 12.6, 'Papal', style='serif', size=58, until='them'), year(1870, '1870'), shake('took')],
@@ -180,6 +216,10 @@ save('hormuz', meta(
             hl('IRN', 'flag:ir', 'Iran', fillOpacity=0.8), hl('OMN', 'flag:om', 'Oman', fillOpacity=0.8), dot('Musandam', 26.2, 56.25, 'Musandam', dy=56)],
           cam=at_(26.5, 56.4, 12, bearing=-3),
           src=[src('It separates Iran from Oman\'s Musandam Peninsula.', 'Strait_of_Hormuz', 'The waterway separates Iran on the north from Oman\'s Musandam Peninsula on the south')]),
+        S("In 2018, about 21 million barrels of oil passed through it every single day.", [
+            cnt('21M', '21', size=210), pill('barrels per day', 'barrels', bg='#111827'), scatter({'circle': {'lat': 26.5, 'lon': 56.5, 'km': 30}}, 'art:oil_barrel', 'oil', count=5, size=90, stagger=0.12)],
+          cam=at_(26.55, 56.45, 26, bearing=3),
+          src=[src('In 2018, 21 million barrels a day passed through the strait.', 'Strait_of_Hormuz', 'In 2018, 21 million barrels a day passed through the strait, worth $1.2 billion in 2019 prices.')]),
         S("And the shipping lanes are tiny. Just two nautical miles wide, in each direction.", [
             route([(26.35, 56.85), (26.55, 56.55), (26.5, 56.2)], 'lanes', color='#ffd60a', width=7, drawDur=1.0),
             route([(26.45, 56.95), (26.65, 56.6), (26.62, 56.2)], 'direction', color='#5ec8ff', width=7, drawDur=1.0),
@@ -199,6 +239,11 @@ save('hormuz', meta(
             cnt('20%', '20', size=210), pill('of world LNG', 'gas', bg='#0f766e'), char('tanker_captain', 'Tankers', name='Tanker captain'), art('lng_carrier', 25.3, 57.5, 'gas', size=190)],
           cam=at_(26.3, 56.3, 6),
           src=[src('20% of the world\'s LNG passed through the strait.', 'Strait_of_Hormuz', '20% of the world\'s liquefied natural gas and 25% of seaborne oil trade passed through the Strait')]),
+        S("Even the name may come from a Persian phrase meaning Place of Dates, and from the 10th to the 17th century, the Kingdom of Ormus stood right here.", [
+            giant('HORMUZ', 27.3, 56.4, 'name', size=90), art('palm', 26.9, 56.0, 'Dates', size=130), year('10th–17th', 'Kingdom', light=True), art('crown', 27.0, 56.9, 'Ormus', size=110)],
+          cam=at_(26.8, 56.4, 12, bearing=-3), era='history',
+          src=[src('One theory says the name comes from the Persian Hur-Mogh, "Place of Dates".', 'Strait_of_Hormuz', 'One theory is the name derives from the local Persian language word Hur-Mogh هورمغ \'Place of Dates\''),
+               src('In the 10th–17th centuries AD, the Kingdom of Ormus was located here.', 'Strait_of_Hormuz', 'In the 10th–17th centuries AD, the Kingdom of Ormus was located here.')]),
         S("That's why this 39 kilometer gap is one of the most important waterways on Earth.", [
             ping(26.6, 56.4, 'gap', color='#ffd60a'), meas((26.52, 56.5), (26.84, 56.36), '39 km', 'gap'), punch('important')],
           cam=at_(26.6, 56.4, 18, bearing=4), tr='flash',

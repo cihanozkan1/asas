@@ -161,6 +161,17 @@
             0.23
           ],
           "size": 46
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "million"
         }
       ],
       "camera": {
@@ -489,6 +500,169 @@
           "claim": "Estimated at Rp 523 trillion (US$35 billion).",
           "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
           "quote": "estimated to be worth Rp 523 trillion (US$35 billion)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That name is an old Javanese word meaning archipelago, or islands.",
+      "show": [
+        {
+          "type": "label",
+          "text": "NUSANTARA",
+          "lat": -1.0,
+          "lon": 116.6,
+          "at": "name",
+          "style": "extrude",
+          "anim": "giant",
+          "size": 90
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": -1.0,
+              "lon": 116.7,
+              "km": 25
+            }
+          },
+          "icon": "art:palm",
+          "count": 5,
+          "size": 80,
+          "at": "islands",
+          "stagger": 0.15
+        }
+      ],
+      "camera": {
+        "lat": -1.0,
+        "lon": 116.6,
+        "zoom": 30,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Nusantara is an Old Javanese-origin term meaning archipelago or islands.",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "Old Javanese-origin term, meaning \"archipelago\" or \"islands\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And it's designed to be green, with a goal of 80 percent of trips made by public transport, cycling or walking.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "80",
+              "value": "80%"
+            }
+          ],
+          "size": 200,
+          "color": "#4ade80"
+        },
+        {
+          "type": "icon",
+          "icon": "art:tree",
+          "lat": -1.0,
+          "lon": 116.55,
+          "size": 130,
+          "plain": true,
+          "at": "green"
+        },
+        {
+          "type": "icon",
+          "icon": "art:bus",
+          "lat": -0.95,
+          "lon": 116.75,
+          "size": 110,
+          "plain": true,
+          "at": "public"
+        },
+        {
+          "type": "icon",
+          "icon": "art:walker",
+          "lat": -1.05,
+          "lon": 116.7,
+          "size": 110,
+          "plain": true,
+          "at": "walking"
+        },
+        {
+          "type": "label",
+          "text": "public transport · bike · walk",
+          "at": "cycling",
+          "style": "pill",
+          "bg": "#15803d",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": -1.0,
+        "lon": 116.65,
+        "zoom": 45,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Nusantara is designed for sustainability, targeting 80% of mobility by public transport, cycling or walking.",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "designed for sustainability targeting 80% of mobility to be supported by public transport, cycling, or walking"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "On August 17, 2024, Indonesia celebrated its Independence Day in Nusantara for the first time.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2024",
+          "light": true,
+          "at": "2024"
+        },
+        {
+          "type": "flag",
+          "code": "id",
+          "lat": -0.95,
+          "lon": 116.7,
+          "size": 130,
+          "at": "Indonesia",
+          "wave": true
+        },
+        {
+          "type": "icon",
+          "icon": "art:fireworks",
+          "lat": -0.9,
+          "lon": 116.55,
+          "size": 170,
+          "plain": true,
+          "at": "celebrated"
+        },
+        {
+          "type": "particles",
+          "kind": "confetti",
+          "at": "celebrated",
+          "density": 0.5
+        }
+      ],
+      "camera": {
+        "lat": -1.0,
+        "lon": 116.6,
+        "zoom": 40,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "On 17 August 2024 Indonesia celebrated Independence Day in Nusantara for the first time.",
+          "url": "https://en.wikipedia.org/wiki/Nusantara_(city)",
+          "quote": "On 17 August 2024, Indonesia officially celebrated its Independence Day for the first time in Nusantara."
         }
       ]
     }

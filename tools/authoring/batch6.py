@@ -16,6 +16,15 @@ save('chimborazo', meta(
             ping(*CH, 'Chimborazo', color='#ff5a5f'), dot('Chimborazo', *CH, 'Chimborazo', dy=-56), hl('ECU', 'flag:ec', 'Ecuador', fillOpacity=0.85), cnt('6,263 m', '6,263', size=170)],
           cam=at_(-1.5, -78.8, 2.2),
           src=[src('Chimborazo is 6,263 m high.', 'Chimborazo', 'With an elevation of 6,263 m (20,548 ft), Chimborazo is the highest mountain in Ecuador')]),
+        S("It's a volcano covered by glaciers, and it last erupted around the year 550.", [
+            art('volcano', *CH, 'volcano', size=190), particles('snow', 'glaciers', density=0.5), cnt('~550 AD', '550', size=150)],
+          cam=at_(-1.5, -78.8, 7),
+          src=[src('Chimborazo is a stratovolcano; the summit is covered by glaciers; last eruption around 550 AD.', 'Chimborazo',
+                   'a dominantly andesitic-dacitic stratovolcano ... the last time around 550 AD ± 150 years')]),
+        S("In 1802, the explorer Alexander von Humboldt climbed it to 5,875 meters, higher than any European in recorded history had gone.", [
+            year(1802, '1802'), cnt('5,875 m', '5,875', size=150), art('mountain', *CH, 'climbed', size=180), ping(*CH, 'Humboldt', color='#ffd60a')],
+          cam=at_(-1.5, -78.8, 7), tr='film',
+          src=[src('In 1802 Humboldt reached 5,875 m, higher than any European in recorded history.', 'Chimborazo', 'they reached a point at 5,875 m, higher than previously attained by any European in recorded history')]),
         S("Compared to Everest, it's more than two and a half kilometers lower.", [
             bars([('Everest', 8849, '8,849 m', '#ffd60a', 'np'), ('Chimborazo', 6263, '6,263 m', '#ff5a5f', 'ec')], 'lower', orient='v', shape='mountain', height=380)],
           style='neon',
@@ -33,6 +42,11 @@ save('chimborazo', meta(
             cnt('6,384.4 km', '6,384.4', size=150), tilt('summit', deg=36, until=3.5)],
           cam=at_(-1.5, -78.8, 6),
           src=[src('Its summit is 6,384.4 km from Earth\'s center.', 'Chimborazo', 'it is 6,384.4 km (3,967.1 mi) from the Earth\'s center')]),
+        S("In fact, its summit is widely reported to be the farthest point on Earth's surface from the center of the planet.", [
+            cnt('#1', 'farthest', size=220), stamp('FARTHEST FROM THE CENTER', 'farthest', size=64, screen=[0.5, 0.45]), ping(*CH, 'summit', color='#ff5a5f')],
+          cam=at_(-1.5, -78.8, 3.0),
+          src=[src('Chimborazo\'s summit is widely reported to be the farthest point on the surface from Earth\'s center.', 'Chimborazo',
+                   'the summit of Chimborazo is widely reported to be the farthest point on the surface from Earth\'s center')]),
         S("That's about 2.1 kilometers farther out than the top of Everest.", [
             ping(*CH, "That's", color='#ff5a5f'), dot('Chimborazo', *CH, "That's", dy=60), cnt('+2.1 km', '2.1', size=170, color='#ff5a5f'),
             stamp('CLOSEST TO SPACE', 'farther', size=78)],
@@ -61,6 +75,11 @@ save('market_island', meta(
             year(1809, '1809'), pill('SWEDEN', 'Sweden', bg='#1d4ed8', screen=(0.3, 0.33)), pill('FINLAND (Russian Empire)', 'Finland', bg='#7c3aed', screen=(0.62, 0.38), size=40)],
           cam=at_(60.3, 19.13, 40),
           src=[src('The island was divided in 1809 by the Treaty of Fredrikshamn.', 'Märket', 'Märket has been divided between the two countries since the Treaty of Fredrikshamn of 1809 defined the border between Sweden and Grand Duchy of Finland as going through the middle of the island.')]),
+        S("It's tiny, roughly 350 meters long and 150 meters wide, the smallest sea island shared by two countries.", [
+            cnt_steps([('350', '350 m'), ('150', '150 m')], size=160), pill('smallest shared sea island', 'smallest', bg='#7c3aed')],
+          cam=at_(60.3, 19.13, 40, bearing=-3),
+          src=[src('Märket is roughly 350 m long by 150 m wide.', 'Märket', 'roughly 350 metres (1,150 ft) long by 150 metres (490 ft) wide'),
+               src('It is the smallest sea island shared by two countries.', 'Märket', 'Märket is the smallest sea island shared by two countries')]),
         S("In 1885, Finland built a lighthouse on its highest point. But that spot was on the Swedish half.", [
             year(1885, '1885'), char('lighthouse_keeper', 'lighthouse', say='Wrong half!', screen=(0.25, 0.62)),
             hl({'geojson': 'sweden_old.geojson'}, 'flag:se', 'Swedish', fillOpacity=0.9), hl({'geojson': 'finland_old.geojson'}, '#8b7fb8', 'Finland', fillOpacity=0.9),
@@ -81,6 +100,12 @@ save('market_island', meta(
             route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1), vs(('se', 'Sweden'), ('fi', 'Finland'), 'same', screen=[0.5, 0.25]), cnt('=', 'area', size=150, screen=[0.5, 0.38])],
           cam=at_(60.3009, 19.1318, 14500), style='atlas',
           src=[src('No net transfer of territory occurred.', 'Märket', 'The adjustment was carried out such that no net transfer of territory occurred.')]),
+        S("The lighthouse is 14 meters tall, and since 1979 it has been fully automated.", [
+            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9),
+            route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1), icon('🗼', *LH, 'lighthouse', size=130), cnt('14 m', '14', size=170)],
+          cam=at_(60.3009, 19.1318, 14500, bearing=-3), style='atlas',
+          src=[src('The lighthouse is 14 m tall.', 'Märket', '14 metres (46 ft)'),
+               src('It has been automated since 1979.', 'Märket', 'The lighthouse has been automated since 1979')]),
         S("Today the border is marked by holes drilled into the rock, and it's inspected every 25 years.", [
             hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9),
             route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1),
@@ -113,6 +138,11 @@ save('gibraltar_bridge', meta(
             dot('Gibraltar 🇬🇧', 36.14, -5.35, 'British', dy=-54, size=40), dot('Ceuta 🇪🇸', 35.89, -5.32, 'Ceuta', dy=54, size=40), ping(36.14, -5.35, 'British', color='#ffd60a'), ping(35.89, -5.32, 'Ceuta', color='#ffd60a')],
           cam=at_(36.0, -5.4, 100),
           src=[src('North: Spain and Gibraltar; South: Morocco and Ceuta.', GIB, 'On the northern side of the Strait are Spain and Gibraltar (a British overseas territory in the Iberian Peninsula). On the southern side are Morocco and Ceuta (a Spanish autonomous city in northern Africa).')]),
+        S("Ferries cross between the two continents every day, in as little as 35 minutes.", [
+            route([(36.01, -5.6), (35.9, -5.7), (35.79, -5.8)], 'Ferries', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='fer', mover={'kind': 'ship', 'size': 150, 'style': 'ferry'}, drawDur=2.6),
+            cnt('35 min', '35', size=170), dot('Tarifa', 36.01, -5.6, 'Ferries', dy=-50, size=36), dot('Tangier', 35.79, -5.8, 'continents', dy=50, size=36)],
+          cam={'follow': 'fer', 'zoom': 70, 'zoomTo': 50, 'duration': 0.9},
+          src=[src('Ferries cross in as little as 35 minutes.', GIB, 'Ferries cross between the two continents every day in as little as 35 minutes.')]),
         S("So why is there no bridge? First, the water is deep. Between 300 and 900 meters.", [
             tilt('deep', deg=40, until=5), bars([('Strait depth', 900, '900 m', '#1d4ed8'), ('Eiffel Tower', 330, '330 m', '#9ca3af')], 'deep', orient='v', height=380, screen=[0.5, 0.33])],
           cam=at_(35.95, -5.55, 60),
@@ -125,6 +155,11 @@ save('gibraltar_bridge', meta(
         S("Lighter water flows in on the surface, while heavy, salty Mediterranean water flows out underneath.", [
             lab('SURFACE IN ➜', 36.04, -5.75, 'Lighter', style='pill', bg='#0ea5e9', size=42), lab('⬅ DEEP OUT', 35.86, -5.45, 'Mediterranean', style='pill', bg='#1e3a8a', size=42)],
           src=[src('Lighter surface water flows east; denser, saltier water flows west beneath.', GIB, 'A smaller amount of deeper, saltier and therefore denser waters continually flow westwards (the Mediterranean outflow), while a larger amount of surface waters with lower salinity and density continually flow eastwards')]),
+        S("And about 5.33 million years ago, the Atlantic reconnected with the Mediterranean right here, in the Zanclean flood.", [
+            cnt('5.33M years', '5.33', size=150), flow([(36.0, -6.6), (36.0, -5.6), (36.05, -4.7)], 'Atlantic', color='#5ec8ff', width=16, drawDur=1.4), lab('ZANCLEAN FLOOD', 36.35, -5.9, 'Zanclean', style='pill', bg='#1d4ed8', size=40)],
+          cam=at_(36.0, -5.6, 30), era='history', tr='film',
+          src=[src('About 5.33 million years ago the Atlantic–Mediterranean connection was re-established through the strait by the Zanclean flood.', GIB,
+                   'approximately 5.33 million years ago, the Atlantic–Mediterranean connection was completely reestablished through the Strait of Gibraltar by the Zanclean flood')]),
         S("Spain and Morocco started talking about a tunnel under the strait in the 1980s.", [
             year(1980, '1980s'), route([(36.03, -5.62), (35.97, -5.65), (35.87, -5.68), (35.78, -5.8)], 'tunnel', color='#ffd60a', width=8, dashed=True, dash=[16, 10], drawDur=1.6),
             vs(('es', 'Spain'), ('ma', 'Morocco'), 'Spain', screen=[0.5, 0.3])],
@@ -168,6 +203,10 @@ save('uae_emirates', meta(
             cnt_steps([('1971', '1971: 6'), ('1972', '1972: 7')], size=150), flag('ae', 24.2, 54.8, 'joined', size=150)],
           cam=at_(24.4, 54.6, 19), era='history', tr='film',
           src=[src('Six emirates joined on 2 December 1971; Ras Al Khaimah on 10 February 1972 (table).', AE, '2 December 1971')]),
+        S("Its first president was Sheikh Zayed, the ruler of Abu Dhabi, and he led the country from 1971 to 2004.", [
+            timebar(1971, 2004, 'First president', 'Zayed'), hl({'admin1': 'Abu Dhabi', 'country': 'ARE'}, '#ef4444', 'ruler', fillOpacity=0.85), flag('ae', 24.2, 54.8, 'first', size=140)],
+          cam=at_(24.2, 54.4, 12), era='history',
+          src=[src('Zayed bin Sultan Al Nahyan was ruler of Abu Dhabi and the first president (1971–2004).', 'United_Arab_Emirates', "Zayed bin Sultan Al Nahyan, ruler of Abu Dhabi and the country's first president (1971–2004)")]),
         S("Abu Dhabi is by far the largest emirate, and its city is the capital of the whole country.", [
             hl({'admin1': 'Abu Dhabi', 'country': 'ARE'}, 'flag:ae', 'largest', neon='#ffd60a'), cnt('67,340 km²', 'largest', size=130), ping(24.47, 54.37, 'capital', color='#ffd60a')],
           cam=at_(24.0, 54.2, 8), tr='flash',
@@ -178,6 +217,19 @@ save('uae_emirates', meta(
           cam=at_(25.1, 55.3, 30),
           src=[src('Dubai: 4,471,000 people (2024), vs Abu Dhabi 4,135,985 (table).', AE, '4,471,000 (2024)'),
                src('Dubai emirate covers 4,114 km² (table).', AE, '4,114')]),
+        S("The president is chosen by the Federal Supreme Council, made up of the seven ruling emirs.", [
+            *[hl({'admin1': n, 'country': 'ARE'}, c, 'seven', fillOpacity=0.95) for n, c in EM], cnt('7 emirs', 'seven', size=160), art('gavel', 24.45, 54.4, 'chosen', size=130)],
+          cam=at_(24.4, 54.6, 19),
+          src=[src('The Federal Supreme Council of the seven emirs appoints the federal president.', 'United_Arab_Emirates',
+                   'The Federal Supreme Council, made up of the seven ruling emirs, is the highest state authority. It jointly appoints one member as federal president')]),
+        S("Only about 11 percent of the people living in the UAE are native Emiratis, out of more than 11 million.", [
+            cnt('11%', '11', size=210), crowd(24.4, 54.6, 'Emiratis', count=45, cols=9, size=22, color='#ffffff', red=[{'at': 'Emiratis', 'n': 5}], redColor='#ef4444'), pill('native Emiratis', 'native', bg='#ef4444')],
+          cam=at_(24.4, 54.6, 19),
+          src=[src('Over 11 million people in 2024; only 11% are native Emiratis.', 'United_Arab_Emirates', 'In 2024, the UAE had an estimated population of over 11 million ... Only 11% of the population are native Emiratis')]),
+        S("It has the seventh-largest oil reserves in the world, and the seventh-largest natural gas reserves.", [
+            cnt('#7', 'seventh', size=210), art('oil_barrel', 24.0, 53.6, 'oil', size=150), art('fire', 24.6, 54.2, 'gas', size=120)],
+          cam=at_(24.2, 54.4, 16),
+          src=[src('The UAE has the world\'s seventh-largest oil reserves and seventh-largest natural gas reserves.', 'United_Arab_Emirates', "The UAE has the world's seventh-largest oil reserves and seventh-largest natural gas reserves")]),
         S("So Dubai isn't a country. It's one of seven pieces of one.", [
             *[hl({'admin1': n, 'country': 'ARE'}, c, 0.05, fillOpacity=0.95) for n, c in EM], stamp('1 OF 7', 'seven', size=100)],
           cam=at_(24.4, 54.6, 19, bearing=3),
@@ -209,6 +261,11 @@ save('oklahoma_panhandle', meta(
           cam=at_(36.7, -101.5, 11),
           src=[src('Its counties are Cimarron, Texas and Beaver.', PH, 'Its constituent counties are, from west to east, Cimarron, Texas and Beaver.'),
                src('Black Mesa, Oklahoma\'s highest point, is in Cimarron County.', PH, 'Black mesa, the highest point in Oklahoma at 4,973 feet (1,516 m), is located in Cimarron County.')]),
+        S("Today, about 28,700 people live in the Panhandle, and the town of Beaver hosts the World Cow Chip Throwing Championship.", [
+            cnt('28,729', '28,700', size=170), ping(36.81, -100.52, 'Beaver', color='#ffd60a'), dot('Beaver', 36.81, -100.52, 'Beaver', dy=-52, size=40), art('cow', 36.6, -100.9, 'Cow', size=130)],
+          cam=at_(36.75, -101.5, 11),
+          src=[src('28,729 residents in 2020.', PH, 'As of the 2020 United States census, the region has a population of 28,729'),
+               src('Beaver hosts the annual World Cow Chip Throwing Championship.', PH, 'Host to the annual World Cow Chip Throwing Championship')]),
         S("The answer is slavery. The Missouri Compromise banned slavery north of a line: 36 degrees 30 minutes.", [
             route([(36.5, -104), (36.5, -89)], 'line', rhumb=True, color='#ffd60a', width=7, dashed=True, dash=[16, 10], drawDur=1.2, hold=2), lab('36°30′ LINE', 37.2, -97, 'degrees', style='pill', size=58)],
           cam=at_(36.0, -99, 6.5), era='history', tr='film',
@@ -225,6 +282,11 @@ save('oklahoma_panhandle', meta(
             hl(box(-103, 36.5, -100, 37), '#f5d76e', 0.05, fillOpacity=0.85, neon='#ffd60a'), lab("NO MAN'S LAND", at='Man\'s', style='map', anim='slam', size=60, screen=[0.5, 0.32]), char('cowboy', 'nobody', say='Whose land is this?', screen=(0.74, 0.6))],
           cam=at_(36.7, -101.5, 9), era='history',
           src=[src('The strip had no state or territorial ownership and was called No Man\'s Land.', PH, "was left with no state or territorial ownership from 1850 until 1890. It was officially called the 'Public Land Strip' and was commonly referred to as 'No Man's Land.'")]),
+        S("Settlers there even organized their own government in 1886, and called it the Cimarron Territory.", [
+            year(1886, '1886'), lab('CIMARRON TERRITORY', 36.75, -101.5, 'Cimarron', style='map', anim='slam', size=50), hl(box(-103, 36.5, -100, 37), '#f5d76e', 'own', fillOpacity=0.85, neon='#ffd60a')],
+          cam=at_(36.7, -101.5, 9), era='history',
+          src=[src('By September 1886 they had organized a self-governing jurisdiction called the Cimarron Territory.', PH,
+                   'by September 1886 had organized a self-governing and self-policing jurisdiction, which they named the Cimarron Territory')]),
         S("It stayed that way for 40 years, until 1890, when it finally became part of Oklahoma Territory.", [
             timeline([('stayed', '1850', 'Given up'), ('1890', '1890', 'Oklahoma')], screen=(0.5, 0.54), width=760), hl(OKP, 'flag:us', 'Oklahoma', fillOpacity=0.8)],
           cam=at_(35.5, -98.5, 5), tr='flash',
@@ -250,6 +312,11 @@ save('longest_sail', meta(
             route(SAIL, 0.05, color='#2de2e6', width=4, dashed=True, dash=[10, 12], drawDur=0.6), year(2018, '2018', light=True), icon('💻', -10, 70, 'computer', size=130), char('scientist', 'scientists')],
           cam=at_(-10, 70, 1.3),
           src=[src('Verified by Rohan Chabukswar and Kushal Mukherjee (published 2018).', SMS, 'Rohan Chabukswar, a physicist at United Technologies Research Center Ireland, and Kushal Mukherjee, an engineer at IBM Research India')]),
+        S("To verify it, they used a branch and bound algorithm, a program that tests only a few possible paths at a time.", [
+            art('laptop', -10, 70, 'algorithm', size=150), pill('branch-and-bound algorithm', 'branch', bg='#2563eb'), route(SAIL, 0.05, color='#2de2e6', width=4, dashed=True, dash=[10, 12], drawDur=0.6)],
+          cam=at_(-10, 70, 1.3),
+          src=[src('They used the branch-and-bound algorithm, which tests only a few possibilities of the longest path at a time.', SMS,
+                   "the 'branch-and-bound' algorithm, a computer program that tests only a few possibilities of the longest path before tweaking the search again for the best possible line")]),
         S("It was first found by a Reddit user years earlier. The computer confirmed it in just 10 minutes.", [
             route(SAIL, 0.05, color='#2de2e6', width=4, dashed=True, dash=[10, 12], drawDur=0.6), clock([('first', '12:00'), ('minutes', '12:10')], screen=(0.5, 0.3), size=200, label='10 min'), icon('💬', -5, 60, 'Reddit', size=110)],
           cam=at_(-10, 70, 1.3),
@@ -272,6 +339,11 @@ save('longest_sail', meta(
             flow(SAIL, 'trip', color='#2de2e6', width=10, drawDur=2.0), cnt('32,090 km', '32,000', size=160)],
           cam=at_(-25, 20, 1.05),
           src=[src('The path is 19,940 miles (about 32,090 km) long.', SMS, 'This 19,940-mile trip runs from the Pakistan coast through the passage between Madagascar and Africa and around to northeastern Russia.')]),
+        S("But the scientists warn it was purely a math exercise, and the route doesn't ensure safe conditions for sailors.", [
+            art('warning', -30, 20, 'warn', size=140), stamp('MATH ONLY', 'math', size=90, screen=[0.5, 0.25]), route(SAIL, 0.05, color='#2de2e6', width=4, dashed=True, dash=[10, 12], drawDur=0.6)],
+          cam=at_(-25, 20, 1.05),
+          src=[src('The researchers warn that the analysis does not ensure safe conditions along the tracks, and that it was a purely mathematical exercise.', SMS,
+                   'the algorithm analysis does not ensure safe conditions along these tracks ... The problem was approached as a purely mathematical exercise')]),
         S("It looks curved on a map, but on a globe, it's perfectly straight.", [flow(SAIL, 'looks', color='#2de2e6', width=10, drawDur=1.4), stamp('STRAIGHT!', 'straight', size=100)],
           cam=at_(-30, -60, 1.05, bearing=5),
           src=[src('It is the longest straight-line sailable path on Earth.', SMS, 'the longest straight-line sailable path on Earth')]),
@@ -295,6 +367,15 @@ save('holland_netherlands', meta(
             hl('NLD', 'flag:nl', 'Netherlands', fillOpacity=0.85), cnt('12', '12', size=220)],
           cam=at_(52.2, 5.3, 24),
           src=[src('Holland: two of the country\'s twelve provinces.', NL, 'Holland comprises the provinces of North Holland and South Holland, representing two of the country\'s twelve provinces')]),
+        S("The name Netherlands literally means lower countries, because the land is so low and flat.", [
+            giant('LOWER COUNTRIES', 52.3, 5.3, 'lower', size=70), art('wave', 52.9, 4.6, 'low', size=120), hl('NLD', 'flag:nl', 'Netherlands', fillOpacity=0.6)],
+          cam=at_(52.2, 5.3, 24),
+          src=[src('Netherlands literally means "lower countries", in reference to its low elevation and flat topography.', 'Netherlands',
+                   "Netherlands literally means 'lower countries', in reference to its low elevation and flat topography")]),
+        S("About a quarter of the country, 26 percent, lies below sea level.", [
+            cnt('26%', '26', size=210), art('water_pump', 52.55, 5.0, 'below', size=120), tilt('below', deg=34, until=3.0)],
+          cam=at_(52.2, 5.3, 24),
+          src=[src('26% of the Netherlands is below sea level.', 'Netherlands', '26% of which is below sea level')]),
         S("Holland is only two of them: North Holland and South Holland.", [
             hl('NLD', '#e5e7eb', 'only', fillOpacity=0.7), hl(HOLL, '#f97316', 'two', neon='#ffd60a'),
             lab('North Holland', 52.6, 4.9, 'North', style='pill', bg='#f97316', size=40), lab('South Holland', 51.95, 4.5, 'South', style='pill', bg='#f97316', size=40)],
@@ -311,6 +392,12 @@ save('holland_netherlands', meta(
             char('dutch_farmer', 'cities')],
           cam=at_(52.15, 4.6, 45),
           src=[src('Holland contains Amsterdam, Rotterdam and The Hague.', NL, 'The main cities in Holland are Amsterdam, Rotterdam and The Hague.')]),
+        S("And Amsterdam is only the nominal capital. The national government actually sits in The Hague.", [
+            ping(52.37, 4.9, 'Amsterdam', color='#ffd60a'), ping(52.08, 4.31, 'Hague', color='#ff5a5f'), dot('Amsterdam', 52.37, 4.9, 'Amsterdam', dy=-52, size=40), dot('The Hague', 52.08, 4.31, 'Hague', dy=52, size=40),
+            art('gavel', 52.08, 4.31, 'government', size=110), art('crown', 52.37, 4.9, 'capital', size=90)],
+          cam=at_(52.2, 4.6, 55),
+          src=[src('Amsterdam is the nominal capital; the main national political institutions are in The Hague.', 'Netherlands',
+                   "Amsterdam is the country's most populous city and the nominal capital, though the primary national political institutions are in The Hague.")]),
         S("Rotterdam even has Europe's largest port. And with Utrecht, these cities form one giant metro area, the Randstad.", [
             hl(HOLL, '#f97316', 0.05, fillOpacity=0.45), icon('🚢', 51.95, 4.05, 'port', size=140), dot('Rotterdam', 51.92, 4.48, 'Rotterdam', dy=-52, size=40), hl({'admin1': 'Utrecht', 'country': 'NLD'}, '#ffd60a', 'Utrecht', fillOpacity=0.6), slam('RANDSTAD', 52.45, 4.3, 'Randstad', size=62)],
           cam=at_(52.15, 4.75, 32), tr='flash',
@@ -348,16 +435,29 @@ save('centralia', meta(
             slam('CENTRALIA', 40.812, -76.341, 'Centralia', size=70), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 3}}, '🔥', 'burning', count=4, size=72, stagger=0.15), char('coal_miner', 'coal')],
           cam=at_(40.804, -76.341, 400, bearing=-3),
           src=[src('A coal mine fire has burned beneath the borough since 1962.', CE, 'a coal mine fire burning beneath the borough since 1962')]),
+        S("It started in May 1962, when firefighters set the town dump on fire, as they had before. But this time, the fire wasn't fully put out.", [
+            year(1962, '1962', light=True), art('fire', CEN[0], CEN[1], 'fire', size=150), art('fire', CEN[0] + 0.001, CEN[1] - 0.002, 'dump', size=110), particles('embers', 'fire', density=0.6)],
+          cam=at_(40.804, -76.341, 600, bearing=3), era='history', style='satellite', tr='film',
+          src=[src('On 27 May 1962 firefighters set the dump on fire as in past years, but it was not fully extinguished.', CE,
+                   'On May 27, 1962, the firefighters, as they had in the past, set the dump on fire and let it burn for some time. Unlike in previous years, however, the fire was not fully extinguished.')]),
         S("Experts think it could keep burning for another 250 years.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), cnt('250 years', '250', size=180, color='#ff5a2a'), tilt('burning', deg=40, until=3.5)],
           cam=at_(40.804, -76.341, 500),
           src=[src('It could burn for another 250 years.', CE, 'do so for another 250 years')]),
         S("In 1980, about 1,000 people still lived here.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), year(1980, '1980'), cnt('~1,000', '1,000', size=170), scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 2.2}}, '🏠', 'lived', count=5, size=60, stagger=0.1)],
           cam=at_(40.804, -76.341, 450), era='history', tr='film', style='satellite',
           src=[src('1,012 residents by 1980.', CE, 'By 1980, it had 1,012 residents.')]),
+        S("In 1983, the US Congress set aside more than 42 million dollars to move the residents out.", [
+            year(1983, '1983'), cnt('$42M', '42', size=190, color='#4ade80'), art('banknotes', CEN[0], CEN[1], 'million', size=130), ping(*CEN, 'residents', color='#ff5a2a')],
+          cam=at_(40.804, -76.341, 450), era='history', style='satellite',
+          src=[src('In 1983 Congress allocated more than $42 million for relocation.', CE, 'In 1983, the U.S. Congress allocated more than $42 million for relocation efforts.')]),
         S("Then, in 1992, the state condemned every single building in town.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), year(1992, '1992'), stamp('CONDEMNED', 'condemned', size=90), shake('condemned'),
             scatter({'circle': {'lat': CEN[0], 'lon': CEN[1], 'km': 2.2}}, '🏚️', 'building', count=4, size=64, stagger=0.12)],
           era='history', style='satellite',
           src=[src('In 1992 the governor invoked eminent domain on all property, condemning all buildings.', CE, 'invoked eminent domain on all property in the borough, condemning all the buildings within')]),
+        S("In 2002, the US Postal Service even took away Centralia's ZIP code.", [
+            year(2002, '2002'), handstamp('ZIP CODE REMOVED', 'took', size=80, screen=[0.5, 0.34]), cnt('17927', 'ZIP', size=170)],
+          cam=at_(40.804, -76.341, 450),
+          src=[src('In 2002 the USPS discontinued Centralia\'s ZIP code, 17927.', CE, "In 2002, the U.S. Postal Service discontinued Centralia's ZIP code, 17927.")]),
         S("In 2013, the last seven residents were allowed to stay, but only until the end of their lives.", [ping(*CEN, 0.05, color='#ff5a2a'), lab('CENTRALIA', CEN[0], CEN[1], 0.05, style='pill', bg='#b91c1c', size=46, dy=120), 
             year(2013, '2013', light=True), cnt('7', 'seven', size=200)],
           cam=at_(40.804, -76.341, 450),
@@ -399,9 +499,23 @@ save('gulf_stream', meta(
             ping(25, -83, 'Gulf', color='#ff5a2a'), lab('WARM', 30, -76, 'warm', style='pill', bg='#ff5a2a', size=46)],
           cam=at_(33, -76, 2.8),
           src=[src('It originates in the Gulf of Mexico and flows along the US East Coast.', GS, 'originates in the Gulf of Mexico')]),
+        S("Europeans discovered it during Juan Ponce de León's expedition in 1512, and Spanish ships soon used it to travel faster.", [
+            year(1512, '1512'), ship([(25.5, -80.0), (28, -79.5), (31, -79.0), (35, -75.5)], 'Spanish', 'pdl', emblem='#c1121f', drawDur=2.2, style='caravel'), flag('es', 27.5, -82.5, 'Spanish', size=110, wave=True)],
+          cam=at_(30, -78, 3.6), era='history', tr='film',
+          src=[src('European discovery of the Gulf Stream dates to the 1512 expedition of Juan Ponce de León; Spanish ships then used it widely.', GS,
+                   'European discovery of the Gulf Stream dates to the 1512 expedition of Juan Ponce de León, after which it became widely used by Spanish ships.')]),
+        S("And in 1769, Benjamin Franklin charted it, but most British sea captains ignored his map.", [
+            year(1769, '1769'), char('franklin', 'Franklin', name='Benjamin Franklin', say='Use the current!'), flow(GSP[:6], 'charted', color='#ff5a2a', width=14, drawDur=1.6), stamp('IGNORED', 'ignored', size=92, screen=[0.5, 0.25])],
+          cam=at_(35, -68, 2.2), era='history',
+          src=[src('Franklin\'s Gulf Stream chart was printed in 1769 but mostly ignored by British sea captains.', GS,
+                   "Franklin's Gulf Stream chart was printed in 1769 in London, but it was mostly ignored by British sea captains.")]),
         S("It's about 100 kilometers wide, and up to 1,200 meters deep.", [cnt('100 km', '100', size=160), cnt_steps([('1,200', '1,200 m')], size=110, screen=[0.5, 0.23]), tilt('deep', deg=36, until=3.5)],
           cam=at_(35, -74, 4),
           src=[src('Typically 100 km wide and 800–1,200 m deep.', GS, '100 km (62 mi) wide and 800 to 1,200 m (2,600 to 3,900 ft) deep')]),
+        S("At its fastest, the current moves at about 2.5 meters per second.", [
+            cnt('2.5 m/s', '2.5', size=180), flow(GSP[:5], 'fastest', color='#ff5a2a', width=20, drawDur=0.8, flowSpeed=480)],
+          cam=at_(33, -75, 3.2),
+          src=[src('The maximum speed is typically about 2.5 m/s.', GS, 'The current velocity is fastest near the surface, with the maximum speed typically about 2.5 m/s (5.6 mph).')]),
         S("Through Florida, it moves 30 million cubic meters of water every second. More than all the rivers flowing into the Atlantic combined.", [
             bars([('Gulf Stream', 30, '30 Sv', '#ff5a2a'), ('All rivers', 0.6, '0.6 Sv', '#5ec8ff')], 'combined', screen=[0.5, 0.3], labelWidth=240)],
           cam=at_(26, -80, 5), tr='flash',

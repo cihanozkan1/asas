@@ -19,6 +19,11 @@ save('suez_ever_given', meta(
         S("It was the Ever Given, a container ship 400 meters long, wedged across the canal in a sandstorm.", [
             slam('EVER GIVEN', 30.12, 32.58, 'Ever', size=70), cnt('400 m', '400', size=180), art('dust_storm', 30.2, 32.7, 'sandstorm', size=170)],
           src=[src('The 400 m ship became wedged across the canal during a sandstorm.', '2021_Suez_Canal_obstruction', 'The 400-meter vessel became wedged across the canal during a sandstorm')]),
+        S("Strong winds of over 40 knots made the crew lose the ability to steer.", [
+            art('wind', 30.2, 32.75, 'winds', size=170), cnt('40 kn', '40', size=170), particles('dust', 'winds', density=0.5), shake('steer')],
+          cam=at_(30.1, 32.6, 70, bearing=3),
+          src=[src('Winds over 40 knots caused a loss of the ability to steer the ship.', '2021_Suez_Canal_obstruction',
+                   "Strong winds exceeding 40 kn (74 km/h; 46 mph) resulted in the 'loss of the ability to steer the ship'")]),
         S("About 369 ships got stuck waiting at both ends.", [
             scatter(Q_N, '🚢', 'ships', count=5, size=60, stagger=0.1), scatter(Q_S, '🚢', 'waiting', count=4, size=60, stagger=0.1, seed=3),
             cnt('369', '369', size=190)],
@@ -27,6 +32,11 @@ save('suez_ever_given', meta(
         S("Because roughly 12 percent of all world trade passes through this one canal.", [
             cnt('12%', '12', size=210), pill('of world trade', 'trade'), route([(31.26, 32.31), (30.6, 32.33), (29.95, 32.55)], 'canal', color='#5ec8ff', width=9, drawDur=1.0)],
           src=[src('Roughly 12% of worldwide trade.', '2021_Suez_Canal_obstruction', 'representing roughly 12% of worldwide trade')]),
+        S("About fifty ships travel through the canal every day.", [
+            ship([(31.26, 32.31), (30.6, 32.33), (29.95, 32.55)], 'fifty', 'st1', drawDur=2.0, style='cargo'), ship([(29.95, 32.56), (30.6, 32.34), (31.26, 32.32)], 'day', 'st2', drawDur=2.0, style='cargo', emblem='#1d4ed8'),
+            cnt('~50', 'fifty', size=190), pill('ships per day', 'day')],
+          cam=at_(30.6, 32.45, 14),
+          src=[src('By 2021 about fifty ships per day travelled through the canal.', '2021_Suez_Canal_obstruction', 'By 2021, about fifty ships per day travelled through the canal, representing about 12 percent of total global trade.')]),
         S("Every day it was blocked, an estimated 9.6 billion dollars of trade was held up.", [
             cnt('$9.6B', '9.6', size=200, color='#4ade80'), pill('per day', 'day', bg='#16a34a'), icon('💸', 30.8, 33.3, 'trade', size=130)],
           src=[src('An estimated $9.6 billion of trade per day.', '2021_Suez_Canal_obstruction', 'The obstruction tied up cargo valued at an estimated $9.6 billion daily')]),
@@ -34,6 +44,10 @@ save('suez_ever_given', meta(
             ship(AROUND, 'around', 'africa', emblem='#1d4ed8', drawDur=3.2, style='cargo'), ship(VIA_SUEZ, 'Asia', 'suez', drawDur=2.2, style='cargo')],
           cam=at_(25, 45, 0.9),
           src=[src('The canal avoids the long route around southern Africa.', 'Suez_Canal', 'vessels avoid the lengthy route around southern Africa')]),
+        S("And that detour can add up to two weeks to the journey.", [
+            cnt('+2 weeks', 'two', size=160, color='#ff5a5f'), art('anchor', -34.4, 18.4, 'detour', size=110)],
+          cam=at_(-10, 25, 0.85),
+          src=[src('Going around Africa can add up to two weeks to the journey.', '2021_Suez_Canal_obstruction', 'a trip which can add up to two weeks to journey time')]),
         S("The canal cuts the trip from the Arabian Sea to London by about 8,900 kilometers.", [
             cnt('8,900 km', '8,900', size=150, color='#4ade80'), pill('shorter', '8,900', bg='#16a34a'), dot('London', 51.5, -0.12, 'London', dy=-46)],
           cam=at_(25, 30, 0.9),
@@ -54,46 +68,68 @@ save('suez_ever_given', meta(
 IST = (41.03, 29.0)
 BOS = [(40.99, 28.99), (41.03, 29.01), (41.07, 29.05), (41.11, 29.06), (41.16, 29.08), (41.2, 29.12), (41.23, 29.14)]
 WALLS = [(40.9937, 28.9227), (41.0045, 28.9215), (41.0120, 28.9230), (41.0200, 28.9265), (41.0280, 28.9310), (41.0340, 28.9355), (41.0405, 28.9400), (41.0435, 28.9440)]
+FERRY = [(41.014, 28.975), (41.017, 28.99), (41.02, 29.008), (41.023, 29.02)]
 save('istanbul', meta(
     'The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia',
-    "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 It was the capital of the Roman, Byzantine and Ottoman empires, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
+    "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 The Bosphorus is the only passage between the Black Sea and the Mediterranean, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
     ["One city, two continents 🤯🇹🇷", "Do you live on the European or the Asian side? 👇", "Which city should we explain next? 🗺️"],
     ['istanbul', 'turkey', 'bosphorus', 'europe', 'asia', 'constantinople', 'byzantium', 'ottoman empire', 'transcontinental', 'geography', 'history', 'maps', 'learn']),
     [
         S("Istanbul is one of the very few cities in the world that sits on two continents at once.", [
-            hl('TUR', 'flag:tr', 'Istanbul', fillOpacity=0.7), ping(*IST, 'cities', color='#ffd60a'), cnt('2', 'two', size=220)],
-          cam=at_(39.5, 32, 2.6, bearing=-3),
+            hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7), ping(*IST, 'Istanbul', color='#ffd60a'), cnt('2', 'two', size=220), react('art:emote_shock', (0.78, 0.3), 'continents', size=170)],
+          cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'bearing': -3, 'then': [{'at': 'Istanbul', 'lat': 41.03, 'lon': 29.0, 'zoom': 40, 'duration': 1.4}]},
           src=[src('Istanbul straddles the Bosphorus between Europe and Asia.', 'Istanbul', 'straddles the Bosphorus ... between the Sea of Marmara and the Black Sea')]),
-        S("The Bosphorus Strait splits it in two: Europe on one side, and Asia on the other.", [
-            route(BOS, 'Bosphorus', color='#5ec8ff', width=10, drawDur=1.4, hold=2), slam('EUROPE', 41.15, 28.8, 'Europe', size=80), slam('ASIA', 41.0, 29.25, 'Asia', size=80)],
-          cam=at_(41.08, 29.05, 45, bearing=-6),
+        S("One half is in Europe, the other half is in Asia.", [
+            area((40.95, 28.55), (41.35, 28.99), 'Europe', color='#5ec8ff'), giant('EUROPE', 41.14, 28.78, 'Europe', size=80),
+            area((40.8, 29.02), (41.25, 29.45), 'Asia', color='#ffd60a'), giant('ASIA', 41.0, 29.24, 'Asia', size=80)],
+          cam=at_(41.06, 29.0, 90, bearing=-6), tr='flash',
+          src=[src('The Bosporus forms a continental boundary between Asia and Europe.', 'Bosporus', 'forms one of the continental boundaries between Asia and Europe')]),
+        S("Between them flows the Bosphorus Strait. Ferries cross it all day long.", [
+            route(BOS, 'Bosphorus', color='#5ec8ff', width=10, drawDur=1.6, laser=True, hold=3),
+            route(FERRY, 'Ferries', color='#ffffff', width=4, dashed=True, dash=[14, 12], glow=False, id='fer', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=2.8),
+            pathtext('Bosphorus Strait', BOS[1:6], 'Strait', size=44)],
+          cam={'follow': 'fer', 'zoom': 200, 'zoomTo': 110, 'duration': 1.0},
           src=[src('The Bosporus forms a continental boundary between Asia and Europe.', 'Bosporus', 'forms one of the continental boundaries between Asia and Europe')]),
         S("It's 31 kilometers long, and at its narrowest point it's only about 700 meters wide.", [
-            cnt_steps([('31', '31 km'), ('700', '700 m')], size=180), ping(41.075, 29.057, 'narrowest', color='#ffd60a'), dot('Kandilli', 41.075, 29.06, 'narrowest', dy=48)],
-          cam=at_(41.075, 29.05, 120),
+            cnt_steps([('31', '31 km'), ('700', '700 m')], size=180), ping(41.075, 29.057, 'narrowest', color='#ffd60a'), dot('Kandilli', 41.075, 29.06, 'narrowest', dy=48),
+            lens('700', screen=(0.5, 0.4), r=300)],
+          cam={'lat': 41.12, 'lon': 29.06, 'zoom': 60, 'then': [{'at': 'narrowest', 'lat': 41.075, 'lon': 29.05, 'zoom': 300, 'duration': 1.1}]},
           src=[src('31 km long; minimum width 700 m near Kandilli.', 'Bosporus', 'measures "31 km (17 nmi) long" with a minimum width of "700 m (0.38 nmi)" at its narrowest point near Kandilli')]),
         S("More than 15 million people live here, and about two thirds of them are on the European side.", [
-            slam('ISTANBUL', 41.16, 28.98, 'More', size=64), cnt('15M+', '15', size=190), pill('⅔ live in Europe', 'thirds', bg='#1d4ed8'),
-            scatter({'circle': {'lat': 41.06, 'lon': 28.8, 'km': 30}}, 'art:house_ist', 'European', count=4, size=80, stagger=0.15, until='side', along=[(40.99, 28.80), (41.05, 28.84), (41.09, 28.90), (41.03, 28.95)])],
+            cnt('15M+', '15', size=190), pill('⅔ live in Europe', 'thirds', bg='#1d4ed8'),
+            {'type': 'crowd', 'lat': 41.06, 'lon': 28.86, 'count': 15, 'cols': 5, 'size': 34, 'color': '#5ec8ff', 'red': [{'at': 'European', 'n': 10}], 'redColor': '#ffd60a', 'at': 'million'}],
           cam=at_(41.06, 28.97, 250),
           src=[src('Over 15 million inhabitants; about two-thirds live in Europe.', 'Istanbul', 'Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants')]),
+        S("So why did such a huge city grow right here?", [q(41.03, 29.0, 'why'), react('art:emote_think', (0.28, 0.3), 'why', size=170)],
+          cam=at_(41.03, 29.0, 40), style='dark', no_claim=True, tr='flash'),
+        S("Because the Bosphorus is the only passage between the Black Sea and the Mediterranean.", [
+            route([(43.0, 34.0), (41.6, 29.6), (41.2, 29.1), (41.0, 28.98), (40.6, 27.4), (39.6, 26.2), (37.5, 25.0), (35.5, 20.0)], 'passage', color='#ffd60a', width=8, drawDur=2.6, laser=True, id='pass', mover={'kind': 'ship', 'size': 150, 'style': 'cargo'}),
+            lab('BLACK SEA', 43.2, 34.5, 'Black', style='map', size=44), lab('MEDITERRANEAN', 35.5, 22.5, 'Mediterranean', style='map', size=44)],
+          cam={'follow': 'pass', 'zoom': 5, 'zoomTo': 3.2, 'duration': 1.0},
+          src=[src('The Bosporus is the only passage between the Black Sea and the Mediterranean and has always been of great commercial and military importance.', 'Bosporus', 'As part of the only passage between the Black Sea and the Mediterranean, the Bosporus has always been of great importance from a commercial and military point of view.')]),
         S("It was founded by Greek colonists as Byzantium, and in 330 it became Constantinople.", [
-            year(330, '330'), lab('Byzantium', 41.1, 28.75, 'Byzantium', style='serif', size=60), lab('Constantinople', 40.95, 29.15, 'Constantinople', style='serif', size=56)],
+            year(330, '330'), lab('Byzantium', 41.1, 28.75, 'Byzantium', style='serif', size=60), lab('Constantinople', 40.95, 29.15, 'Constantinople', style='serif', size=56),
+            timebar(660, 330, 'BC → AD', 'founded')],
           cam=at_(41.05, 29.0, 30), era='history', tr='film',
           src=[src('Founded as Byzantium (~660 BC); renamed Constantinople in 330 AD.', 'Istanbul', 'originally called Byzantium when Greek colonists established it around 660 BC. It became Constantinople in 330 AD under Constantine the Great')]),
         S("It was the capital of the Roman, Byzantine and Ottoman empires.", [
-            cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), art('hagia_sophia', 41.0086, 28.9802, 'capital', size=190), dot('Hagia Sophia', 41.0086, 28.9802, 'capital', dy=70, size=34)],
-          era='history',
+            cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), art('hagia_sophia', 41.0086, 28.9802, 'capital', size=190), dot('Hagia Sophia', 41.0086, 28.9802, 'capital', dy=70, size=34),
+            art('crown', 41.05, 28.92, 'Byzantine', size=110)],
+          era='history', cam=at_(41.01, 28.98, 60),
           src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
-        S("In 1453, the Ottomans conquered it after a 55 day siege. And in 1930, it was officially renamed Istanbul.", [
-            year(1453, '1453', until='1930'), year(1930, '1930'), char('sultan', 'Ottomans', name='Mehmed II', until='1930', screen=(0.74, 0.6)),
-            wall(WALLS, 'siege', buildDur=1.6, side=-1, width=16), lab('Theodosian Walls', 41.03, 28.915, 'siege', style='serif', size=40), shake('conquered'),
-            lab('Istanbul', 41.012, 28.968, '1930', style='serif', size=68, anim='slam')],
+        S("In 1453, the Ottomans hit its walls with giant cannons, and after a 55 day siege they conquered it.", [
+            year(1453, '1453'), wall(WALLS, 'walls', buildDur=1.6, side=-1, width=16), lab('Theodosian Walls', 41.03, 28.915, 'siege', style='serif', size=40),
+            art('cannon', 41.0, 28.87, 'cannons', size=150), shake('cannons'), char('sultan', 'conquered', name='Mehmed II', screen=(0.74, 0.6)), handstamp('CONQUERED', 'conquered', size=84, screen=[0.5, 0.34])],
           cam=at_(41.02, 28.955, 780), era='history',
-          src=[src('Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege." ... officially renamed Istanbul in 1930'),
-               src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae; the city fell in 1453 after a seven-week siege.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north ... The city fell on 29 May after a total of seven weeks of siege')]),
+          src=[src('Conquered on 29 May 1453 after a 55-day siege.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege."'),
+               src('Mehmed II\'s cannons hurled massive stone balls at the walls.', 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).'),
+               src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north')]),
+        S("And in 1930, it was officially renamed Istanbul.", [
+            year(1930, '1930'), giant('ISTANBUL', 41.012, 28.968, 'Istanbul', size=90), particles('confetti', 'renamed', density=0.4), flare((0.5, 0.35), 'officially')],
+          cam=at_(41.02, 28.97, 90), era='history',
+          src=[src('Officially renamed Istanbul in 1930.', 'Istanbul', 'officially renamed Istanbul in 1930')]),
         S("Today, three bridges and a railway tunnel under the strait connect Europe and Asia.", [
-            cnt('3 + 1', 'three', size=180),
+            cnt('3 + 1', 'three', size=180, screen=[0.2, 0.1]),
             bridge((41.0479, 29.0262), (41.0426, 29.0424), 'three', buildDur=0.9), dot('15 July Martyrs Bridge · 1973', 41.0452, 29.0343, 'three', dy=-46, size=30),
             bridge((41.0906, 29.0540), (41.0923, 29.0690), 'bridges', buildDur=0.9), dot('Fatih Sultan Mehmet Bridge · 1988', 41.0915, 29.0615, 'bridges', dy=-46, size=30),
             bridge((41.2050, 29.0985), (41.2004, 29.1240), 'railway', buildDur=0.9, towers=(0.3, 0.7)), dot('Yavuz Sultan Selim Bridge · 2016', 41.2027, 29.1112, 'railway', dy=-46, size=30),
@@ -101,6 +137,11 @@ save('istanbul', meta(
           cam=fit({'box': [28.95, 40.995, 29.16, 41.215]}, pad=0.92, bearing=-6), tr='flash',
           src=[src('Bridges: 15 July Martyrs (1973), Fatih Sultan Mehmet (1988), Yavuz Sultan Selim (2016); Marmaray undersea rail tunnel opened 2013.', 'Bosphorus',
                    'the 1,074 m (3,524 ft) long 15th July Martyrs Bridge was completed in 1973 ... Fatih Sultan Mehmet (Bosporus II) Bridge ... was completed in 1988 ... the Yavuz Sultan Selim Bridge ... was completed in 2016 ... The Marmaray project, featuring a 13.7 km (8.5 mi) long undersea railway tunnel, opened on 29 October 2013')]),
+        S("That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.", [
+            cnt('60 m', 'sixty', size=190, color='#4ade80'), route([(41.0150, 28.9770), (41.0195, 28.9960), (41.0255, 29.0150)], 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 100}, drawDur=2.4),
+            react('art:emote_cool', (0.78, 0.3), 'underwater', size=170), grade('cold', 'underwater')],
+          cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9}, style='dark',
+          src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
     ],
     keywords={'istanbul': '#ff5a5f', 'europe': '#5ec8ff', 'asia': '#ffd60a', 'bosphorus': '#5ec8ff', 'constantinople': '#ffd60a'},
     imagery=[{'bbox': [28.55, 40.8, 29.45, 41.35], 'width': 4096}])
@@ -116,6 +157,11 @@ save('doubly_landlocked', meta(
         S("44 countries in the world have no coast at all.", [cnt('44', '44', size=220), pill('landlocked countries', 'coast'), hl({'countries': ['BOL', 'PRY', 'MNG', 'KAZ', 'ETH', 'TCD', 'MLI', 'NER', 'AUT', 'CHE', 'HUN', 'CZE']}, '#e76f51', 'coast', fillOpacity=0.85)],
           cam=at_(20, 20, 0.55), style='dark',
           src=[src('As of 2026 there are 44 landlocked countries.', 'Landlocked_country', 'As of 2026, there are 44 landlocked countries total')]),
+        S("The biggest of them is Kazakhstan, and Africa has the most, with 16.", [
+            hl('KAZ', 'flag:kz', 'Kazakhstan', fillOpacity=0.85), cnt('16', '16', size=220), pill('landlocked in Africa', 'Africa', bg='#b45309')],
+          cam=at_(25, 40, 1.2), style='dark',
+          src=[src('Kazakhstan is the largest landlocked country by area.', 'Landlocked_country', "Kazakhstan is the world's largest landlocked country by area."),
+               src('Africa has the most landlocked countries, at 16.', 'Landlocked_country', 'Africa has the most landlocked countries, at 16, followed by Europe (14), Asia (12), and South America (2).')]),
         S("But only two are doubly landlocked. To reach the sea, you have to cross at least two borders.", [
             cnt('2', 'two', size=240), note('2 BORDERS!', 30, 50, 'borders', size=66)],
           style='dark',
@@ -138,6 +184,11 @@ save('doubly_landlocked', meta(
           cam=at_(47.2, 10.0, 14, bearing=-3),
           src=[src('Liechtenstein is bordered by Austria and Switzerland.', 'Landlocked_country', 'Liechtenstein (Western Europe, bordered by Austria and Switzerland)'),
                src('Area about 160 km².', 'Liechtenstein', '160.50 km2 (61.97 sq mi)')]),
+        S("It's the sixth smallest country in the world, and it even uses Swiss money.", [
+            cnt('#6', 'sixth', size=200), pill('smallest in the world', 'smallest', bg='#b45309'), art('banknotes', 47.14, 9.52, 'Swiss', size=130), flag('ch', 47.3, 9.1, 'Swiss', size=100, wave=True)],
+          cam=at_(47.15, 9.55, 30, bearing=-3),
+          src=[src('Liechtenstein is the sixth-smallest sovereign state by area.', 'Liechtenstein', 'Liechtenstein is the sixth-smallest sovereign state in the world by area.'),
+               src('It uses the Swiss franc (monetary union with Switzerland).', 'Liechtenstein', 'It has a customs union and a monetary union with Switzerland, with its usage of the Swiss franc.')]),
         S("But Liechtenstein wasn't always like this. Before 1918, its neighbor was Austria-Hungary, which had a coast on the Adriatic Sea.", [
             year(1918, '1918'), ping(45.65, 13.78, 'Adriatic', color='#5ec8ff'), dot('Trieste', 45.65, 13.78, 'Adriatic', dy=46),
             hl({'hist': 1914, 'name': 'Austro-Hungarian Empire'}, '#c9a227', 'Austria-Hungary', fillOpacity=0.6), lab('Austria-Hungary', 47.8, 15.5, 'Austria-Hungary', style='serif', size=58), route([(47.14, 9.52), (46.6, 11.5), (45.65, 13.78)], 'coast', color='#1d4ed8', width=7)],
@@ -189,6 +240,12 @@ save('diomede', meta(
         S("Little Diomede is home to a small Inupiat community of about 77 people.", [
             cnt('77', '77', size=210), char('inuit_kid', 'community'), ping(*LITTLE, 'Little', color='#5ec8ff')],
           src=[src('77 residents as of January 2023.', 'Diomede_Islands', 'Little Diomede supports a small Inupiat community of 77 residents as of January 2023')]),
+        S("Supplies come in by helicopter. And in the past, locals even carved a runway into the thick ice, so bush planes could land.", [
+            ping(*LITTLE, 'helicopter', color='#5ec8ff'), art('plane_landing', LITTLE[0] + 0.01, LITTLE[1] - 0.035, 'runway', size=150), dot('Heliport', LITTLE[0] - 0.004, LITTLE[1] + 0.004, 'helicopter', dy=56, size=34),
+            particles('snow', 'ice', density=0.5)],
+          cam=at_(65.76, -168.96, 340, bearing=-3),
+          src=[src('Little Diomede has a heliport with regular helicopter flights; locals once carved an ice runway for bush planes.', 'Little_Diomede_Island',
+                   'There is a heliport, the Diomede Heliport, with regular helicopter flights. In the past, locals carved a runway into the thick ice sheet so that bush planes could deliver vital products')]),
         S("But Big Diomede has no villagers at all. In 1948, the Soviets moved its people to the mainland, and today only the military is there.", [
             year(1948, '1948'), ping(*BIG, 'military', color='#ff5a5f'), icon('🪖', BIG[0] + 0.02, BIG[1], 'military', size=100)],
           era='history', tr='film',
@@ -215,6 +272,17 @@ save('hawaii', meta(
             arrow((33, -120), (23, -152), 'middle', color='#ffd60a')],
           cam=at_(28, -140, 1.2, bearing=-3),
           src=[src('Hawaii became a US state in 1959.', 'Overthrow_of_the_Hawaiian_Kingdom', 'eventually achieved statehood in 1959')]),
+        S("It lies about 3,200 kilometers southwest of the US mainland, and it's the only state that is an archipelago.", [
+            arrow((34, -120), (22, -156), 'southwest', color='#ffd60a'), cnt('3,200 km', '3,200', size=160), hl(HI, 'flag:us', 'archipelago', fillOpacity=0.85, neon='#ffd60a')],
+          cam=at_(27, -138, 1.3, bearing=-3),
+          src=[src('About 2,000 miles (3,200 km) southwest of the US mainland.', 'Hawaii', 'in the Pacific Ocean about 2,000 miles (3,200 km) southwest of the U.S. mainland'),
+               src('Hawaii is the only state that is an archipelago.', 'Hawaii', 'the only state not on the North American mainland, the only state that is an archipelago, the only state south of the Tropic of Cancer')]),
+        S("Its volcano Mauna Kea is even taller than Mount Everest, when you measure from its base on the ocean floor.", [
+            art('volcano', 19.82, -155.47, 'Mauna', size=190), cnt('10,200 m', 'taller', size=150), dot('Mauna Kea', 19.82, -155.47, 'Mauna', dy=-70, size=36),
+            react('art:emote_shock', (0.79, 0.3), 'taller', size=160)],
+          cam=at_(19.8, -155.5, 70, bearing=-3),
+          src=[src('Mauna Kea is taller than Everest measured from its base on the Pacific floor (about 10,200 m).', 'Hawaii',
+                   'it is taller than Mount Everest when measured from the base of the mountain, which is on the floor of the Pacific Ocean, rising about 33,500 feet (10,200 m)')]),
         S("So how did an island kingdom become an American state?", [q(21, -157, 'how')], cam=at_(20.6, -157.4, 15), style='dark', no_claim=True),
         S("In the 1890s, Hawaii was an independent kingdom, ruled by Queen Liliʻuokalani.", [
             char('queen_liliuokalani', 'Queen', name='Queen Liliʻuokalani'), hl(HI, '#b3202a', 'kingdom', fillOpacity=0.85), icon('👑', 20.3, -156.5, 'kingdom', size=110)],

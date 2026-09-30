@@ -133,6 +133,17 @@
           "dot": true,
           "dy": -52,
           "size": 44
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
         }
       ],
       "camera": {
@@ -250,6 +261,17 @@
           "count": 4,
           "size": 64,
           "at": "people"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -262,6 +284,50 @@
           "claim": "Population 84 in 2020.",
           "url": "https://en.wikipedia.org/wiki/Niihau",
           "quote": "As of the 2020 census, the population had fallen to 84."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "After the attack on Pearl Harbor in 1941, a Japanese pilot even crash-landed here, hoping to meet a rescue submarine.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1941",
+          "at": "1941"
+        },
+        {
+          "type": "icon",
+          "icon": "art:plane_landing",
+          "lat": 21.95,
+          "lon": -160.1,
+          "size": 170,
+          "plain": true,
+          "at": "crash-landed"
+        },
+        {
+          "type": "shake",
+          "at": "crash-landed"
+        },
+        {
+          "type": "ping",
+          "lat": 21.95,
+          "lon": -160.1,
+          "color": "#ff5a5f",
+          "at": "pilot"
+        }
+      ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 360
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "On 7 December 1941 a Japanese pilot whose Zero had been hit crash-landed on Niʻihau hoping to meet a rescue submarine.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "a Japanese pilot whose Zero had been hit crash-landed on the island hoping to rendezvous with a rescue submarine."
         }
       ]
     },
@@ -304,6 +370,56 @@
     },
     {
       "era": "now",
+      "text": "Niʻihau shell necklaces are famous, and a single lei can sell for thousands of dollars.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "thousands",
+              "value": "$1,000s"
+            }
+          ],
+          "size": 170,
+          "color": "#ffd60a"
+        },
+        {
+          "type": "icon",
+          "icon": "art:money_bag",
+          "lat": 21.85,
+          "lon": -160.1,
+          "size": 140,
+          "plain": true,
+          "at": "lei"
+        },
+        {
+          "type": "label",
+          "text": "Niʻihau shell lei",
+          "at": "necklaces",
+          "style": "pill",
+          "bg": "#0f766e",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 360
+      },
+      "sources": [
+        {
+          "claim": "A single intricate Niʻihau shell lei can sell for thousands of dollars.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "A single, intricate Niʻihau shell lei can sell for thousands of dollars."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "People get around on horses, and alcohol and cigarettes are banned.",
       "show": [
         {
@@ -338,6 +454,81 @@
           "claim": "Ban on alcohol and cigarettes.",
           "url": "https://en.wikipedia.org/wiki/Niihau",
           "quote": "The rules include a ban on alcohol and cigarettes."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "There are no paved roads and no telephone service, and the school has only 25 to 50 students.",
+      "show": [
+        {
+          "type": "stamp",
+          "text": "NO PAVED ROADS",
+          "size": 72,
+          "screen": [
+            0.5,
+            0.24
+          ],
+          "at": "roads"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "25",
+              "value": "25–50"
+            }
+          ],
+          "size": 160
+        },
+        {
+          "type": "label",
+          "text": "students",
+          "at": "students",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "icon",
+          "icon": "art:house",
+          "lat": 21.85,
+          "lon": -160.15,
+          "size": 120,
+          "plain": true,
+          "at": "school"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
+        }
+      ],
+      "camera": {
+        "lat": 21.9,
+        "lon": -160.15,
+        "zoom": 360
+      },
+      "sources": [
+        {
+          "claim": "No telephone service and no paved roads.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "Niʻihau has no telephone services and no paved roads."
+        },
+        {
+          "claim": "The number of students varies from 25 to 50.",
+          "url": "https://en.wikipedia.org/wiki/Niihau",
+          "quote": "The number of students varies from 25 to 50 since families often travel between Niʻihau and Kauaʻi."
         }
       ]
     },

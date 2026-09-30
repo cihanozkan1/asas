@@ -260,7 +260,51 @@ def box(w, s, e, n):
     return {'box': [w, s, e, n]}
 
 
+import re as _re
+
+# reaction faces chosen from the sentence itself (reference: a face pops up every 10-15 s)
+_REACT = [
+    ('art:emote_think', r'\b(why|how|what|which|who)\b.*\?'),
+    ('art:emote_laugh', r'\b(mocked|folly|funny|joke|silly|laugh|ridiculous)\b'),
+    ('art:emote_cry', r'\b(lost|closed|died|dead|sunk|sank|destroyed|collapsed|abandoned|forced)\b'),
+    ('art:emote_angry', r'\b(war|conquered|invaded|invasion|dispute|disputed|fight|fought|seized|attacked|claims?)\b'),
+    ('art:emote_shock', r'\b(only|just|more than|million|billion|biggest|largest|longest|highest|deepest|tallest|smallest|entire|whole|every)\b'),
+    ('art:emote_cool', r'\b(today|still|now|finally)\b'),
+]
+
+
+def enrich(scenes):
+    """Adds cheap, meaningful motion to older scripts: a reaction face every few scenes.
+    Skips scenes that already have one, are crowded, or have a character on screen."""
+    last = -9
+    flip = 0
+    for i, sc in enumerate(scenes):
+        show = sc.get('show', [])
+        if any(e.get('type') == 'react' for e in show):
+            last = i
+            continue
+        if i - last < 3 or len(show) >= 8 or any(e.get('type') in ('character', 'avatar', 'handstamp') for e in show):
+            continue
+        text = sc['text']
+        for icon, rx in _REACT:
+            m = _re.search(rx, text, _re.I)
+            if not m:
+                continue
+            hit = m.group(1) if m.groups() else m.group(0)
+            word = hit.split()[0] if icon != 'art:emote_think' else hit
+            word = _re.sub(r"[^\w']", '', word)
+            if not word:
+                continue
+            flip ^= 1
+            show.append({'type': 'react', 'icon': icon, 'screen': [0.79, 0.3] if flip else [0.21, 0.3], 'burst': True, 'size': 160, 'at': word})
+            sc['show'] = show
+            last = i
+            break
+    return scenes
+
+
 def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None, styles=None, earth=None, captions=None, config=None):
+    enrich(scenes)
     d = {'id': vid, 'style': style, 'meta': m, 'scenes': scenes}
     cfg = {}
     if keywords or captions:

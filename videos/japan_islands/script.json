@@ -89,6 +89,17 @@
         {
           "type": "punch",
           "at": "doubled"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "more"
         }
       ],
       "sources": [
@@ -170,6 +181,59 @@
     },
     {
       "era": "now",
+      "text": "Together, they stretch over 3,000 kilometers, from the Sea of Okhotsk to the East China Sea.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            45.4,
+            141.9
+          ],
+          "to": [
+            24.5,
+            123.2
+          ],
+          "label": "3,000 km",
+          "at": "3,000"
+        },
+        {
+          "type": "label",
+          "text": "Sea of Okhotsk",
+          "lat": 47.5,
+          "lon": 146,
+          "at": "Okhotsk",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "East China Sea",
+          "lat": 28,
+          "lon": 124,
+          "at": "East",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 40
+        }
+      ],
+      "camera": {
+        "fit": [
+          "JPN"
+        ],
+        "pad": 0.85,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "Japan stretches over 3,000 km northeast-southwest from the Sea of Okhotsk to the East China Sea.",
+          "url": "https://en.wikipedia.org/wiki/Japan",
+          "quote": "It stretches over 3000 km (1900 mi) northeast–southwest from the Sea of Okhotsk to the East China Sea."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "And only about 260 of them have people living on them.",
       "show": [
         {
@@ -200,6 +264,17 @@
           "fill": "#16a34a",
           "at": "people",
           "fillOpacity": 0.6
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -356,6 +431,114 @@
     },
     {
       "era": "now",
+      "text": "Around 75 percent of the land is mountains and forest, so most of Japan is very hard to build on.",
+      "show": [
+        {
+          "type": "scatter",
+          "target": "JPN",
+          "icon": "art:mountain",
+          "count": 6,
+          "size": 90,
+          "at": "mountains",
+          "stagger": 0.12
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "75",
+              "value": "75%"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "scatter",
+          "target": "JPN",
+          "icon": "art:tree",
+          "count": 4,
+          "size": 70,
+          "at": "forest",
+          "stagger": 0.12,
+          "seed": 4
+        }
+      ],
+      "camera": {
+        "fit": [
+          "JPN"
+        ],
+        "pad": 0.85,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Around 75% of Japan's terrain is mountainous and heavily forested.",
+          "url": "https://en.wikipedia.org/wiki/Japan",
+          "quote": "around 75% of its terrain is mountainous and heavily forested"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And because Japan sits on the Pacific Ring of Fire, it's prone to earthquakes, tsunamis and volcanoes.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "art:volcano",
+          "lat": 35.36,
+          "lon": 138.73,
+          "size": 170,
+          "plain": true,
+          "at": "volcanoes"
+        },
+        {
+          "type": "icon",
+          "icon": "art:wave",
+          "lat": 38.3,
+          "lon": 141.6,
+          "size": 150,
+          "plain": true,
+          "at": "tsunamis"
+        },
+        {
+          "type": "shake",
+          "at": "earthquakes"
+        },
+        {
+          "type": "grade",
+          "mode": "danger",
+          "at": "Ring",
+          "until": "volcanoes"
+        },
+        {
+          "type": "label",
+          "text": "Pacific Ring of Fire",
+          "at": "Ring",
+          "style": "pill",
+          "bg": "#b91c1c",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 36,
+        "lon": 139,
+        "zoom": 4.5,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Japan is prone to earthquakes, tsunamis and volcanic eruptions because of its location on the Pacific Ring of Fire.",
+          "url": "https://en.wikipedia.org/wiki/Japan",
+          "quote": "Japan is substantially prone to earthquakes, tsunami and volcanic eruptions because of its location along the Pacific Ring of Fire."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "By area, Japan is the fourth largest island country on Earth, behind Indonesia, Madagascar and Papua New Guinea.",
       "show": [
         {
@@ -395,6 +578,17 @@
             }
           ],
           "size": 200
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
         }
       ],
       "camera": {

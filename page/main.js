@@ -2651,7 +2651,7 @@ function frame(t) {
     const c0 = state.camera.at(Math.max(0, t - 0.05));
     const q = state.proj([c0.lon, c0.lat]);
     const sp = (q ? Math.hypot(q[0] - view.cx, q[1] - view.cy) : 0) / 0.05 + (Math.abs(Math.log(cam.zoom / c0.zoom)) / 0.05) * 500;
-    state.camBlur = Math.max(0, Math.min(1, (sp - 900) / 1400)) * 6;
+    state.camBlur = Math.max(0, Math.min(1, (sp - 1600) / 2400)) * 3.5;
   }
   const mix = styleAt(t);
   const texelsPerPx = state.raster.base.w / (2 * Math.PI) / view.k;

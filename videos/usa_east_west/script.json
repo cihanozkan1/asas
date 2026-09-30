@@ -187,6 +187,188 @@
       ]
     },
     {
+      "era": "now",
+      "text": "In Kansas, Dodge City sits exactly where this line meets the Arkansas River.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 37.75,
+          "lon": -100.02,
+          "color": "#ffd60a",
+          "at": "Dodge"
+        },
+        {
+          "type": "label",
+          "text": "Dodge City",
+          "lat": 37.75,
+          "lon": -100.02,
+          "at": "Dodge",
+          "dot": true,
+          "dy": -56,
+          "size": 40
+        },
+        {
+          "type": "icon",
+          "icon": "art:cow",
+          "lat": 37.4,
+          "lon": -99.6,
+          "size": 120,
+          "plain": true,
+          "at": "Kansas"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              42,
+              -100
+            ],
+            [
+              33,
+              -100
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 6,
+          "at": "line",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            18,
+            12
+          ],
+          "drawDur": 0.6
+        }
+      ],
+      "camera": {
+        "lat": 37.75,
+        "lon": -100.0,
+        "zoom": 14
+      },
+      "sources": [
+        {
+          "claim": "Dodge City lies exactly at the intersection of the Arkansas River and the 100th meridian.",
+          "url": "https://en.wikipedia.org/wiki/100th_meridian_west",
+          "quote": "Dodge City, Kansas lies exactly at the intersection of the Arkansas River and the 100th meridian."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The same line also crosses Canada, and several states of Mexico.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              58,
+              -100
+            ],
+            [
+              17,
+              -100
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 6,
+          "at": "same",
+          "rhumb": true,
+          "dashed": true,
+          "dash": [
+            18,
+            12
+          ],
+          "drawDur": 1.4
+        },
+        {
+          "type": "flag",
+          "code": "ca",
+          "lat": 52,
+          "lon": -100,
+          "size": 110,
+          "at": "Canada",
+          "wave": true
+        },
+        {
+          "type": "flag",
+          "code": "mx",
+          "lat": 24,
+          "lon": -100,
+          "size": 110,
+          "at": "Mexico",
+          "wave": true
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -100,
+        "zoom": 1.5
+      },
+      "sources": [
+        {
+          "claim": "The 100th meridian passes through Manitoba, the US Great Plains states and several Mexican states.",
+          "url": "https://en.wikipedia.org/wiki/100th_meridian_west",
+          "quote": "Manitoba"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Historically, people have often treated it as the rough border between the eastern and western United States.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -100
+            ],
+            [
+              26,
+              -100
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "border",
+          "rhumb": true,
+          "drawDur": 0.8
+        },
+        {
+          "type": "label",
+          "text": "EAST",
+          "lat": 40,
+          "lon": -90,
+          "at": "eastern",
+          "style": "pill",
+          "bg": "#16a34a",
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "WEST",
+          "lat": 40,
+          "lon": -110,
+          "at": "western",
+          "style": "pill",
+          "bg": "#d97706",
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 39,
+        "lon": -99,
+        "zoom": 2.4
+      },
+      "sources": [
+        {
+          "claim": "The meridian has often been taken as a rough boundary between the eastern and western US.",
+          "url": "https://en.wikipedia.org/wiki/100th_meridian_west",
+          "quote": "Historically, the meridian has often been taken as a rough boundary between the eastern and western United States."
+        }
+      ]
+    },
+    {
       "era": "history",
       "text": "In the 1870s, explorer John Wesley Powell noticed that rainfall changes a lot across this line.",
       "show": [
@@ -477,6 +659,17 @@
             0.25
           ],
           "width": 700
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "still"
         }
       ],
       "camera": {

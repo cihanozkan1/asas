@@ -109,6 +109,65 @@
     },
     {
       "era": "now",
+      "text": "It's the sixth largest country in the world, with about 7.7 million square kilometers of land.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "AUS",
+          "fill": "flag:au",
+          "at": 0.05,
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "sixth",
+              "value": "#6"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "label",
+          "text": "7.7M km²",
+          "at": "million",
+          "style": "pill",
+          "bg": "#0f766e",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
+        }
+      ],
+      "camera": {
+        "lat": -26,
+        "lon": 134,
+        "zoom": 2.7,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Sixth-largest country by land area: 7,688,287 km².",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "making it the sixth-largest country in the world by land area of jurisdiction, which comprises 7,688,287 km2"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "The big cities are all on the edges: Sydney, Melbourne, Brisbane, Perth and Adelaide.",
       "show": [
         {
@@ -281,6 +340,77 @@
     },
     {
       "era": "now",
+      "text": "That makes Australia the driest inhabited continent on Earth. Even its lowest point, the bed of Lake Eyre, is just 15 meters below sea level.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": -28.4,
+          "lon": 137.35,
+          "color": "#ffd60a",
+          "at": "lowest"
+        },
+        {
+          "type": "label",
+          "text": "Lake Eyre",
+          "lat": -28.4,
+          "lon": 137.35,
+          "at": "Lake",
+          "dot": true,
+          "dy": -50,
+          "size": 38
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "15",
+              "value": "-15 m"
+            }
+          ],
+          "size": 170,
+          "color": "#ff9f1c"
+        },
+        {
+          "type": "icon",
+          "icon": "art:sun",
+          "lat": -24.5,
+          "lon": 129.5,
+          "size": 150,
+          "plain": true,
+          "at": "driest"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_sweat",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "at": "driest",
+          "size": 160
+        }
+      ],
+      "camera": {
+        "lat": -27.5,
+        "lon": 135.5,
+        "zoom": 4.5
+      },
+      "sources": [
+        {
+          "claim": "Australia is the driest inhabited continent.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "As Australia is the driest inhabited continent, such droughts can limit the streamflow"
+        },
+        {
+          "claim": "The country's lowest point is on the bed of Lake Eyre, 15 m below sea level.",
+          "url": "https://en.wikipedia.org/wiki/Geography_of_Australia",
+          "quote": "the country's lowest point is found on the bed of the Lake Eyre (15 m (49 ft) below sea level)"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "The Great Dividing Range runs almost 4,000 kilometers along the east coast, separating the rainy coast from the dry interior.",
       "show": [
         {
@@ -424,6 +554,17 @@
         },
         {
           "type": "punch",
+          "at": "only"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
           "at": "only"
         }
       ],

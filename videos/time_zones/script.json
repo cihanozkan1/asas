@@ -152,6 +152,70 @@
     },
     {
       "era": "now",
+      "text": "In reality, clocks around the world range from UTC minus 12 to UTC plus 14, a gap of 26 hours.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "minus",
+              "value": "−12"
+            },
+            {
+              "at": "plus",
+              "value": "+14"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "label",
+          "text": "26 hours apart",
+          "at": "gap",
+          "style": "pill",
+          "bg": "#7c3aed",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "clock",
+          "steps": [
+            {
+              "at": "minus",
+              "time": "00:00"
+            },
+            {
+              "at": "plus",
+              "time": "02:00"
+            }
+          ],
+          "at": "minus",
+          "screen": [
+            0.5,
+            0.45
+          ],
+          "size": 190,
+          "label": "UTC−12 → UTC+14"
+        }
+      ],
+      "camera": {
+        "lat": 10,
+        "lon": 180,
+        "zoom": 1.0
+      },
+      "sources": [
+        {
+          "claim": "UTC offsets range from UTC−12:00 to UTC+14:00.",
+          "url": "https://en.wikipedia.org/wiki/Time_zone",
+          "quote": "The offsets range from UTC−12:00 to UTC+14:00"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "But look at China. It's huge, and it uses only one time zone.",
       "show": [
         {
@@ -176,6 +240,17 @@
           ],
           "size": 200,
           "label": "Beijing Time"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -419,6 +494,17 @@
           "style": "pill",
           "bg": "#1d4ed8",
           "size": 52
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "whole"
         }
       ],
       "camera": {

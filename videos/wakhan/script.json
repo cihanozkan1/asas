@@ -103,6 +103,17 @@
             }
           ],
           "size": 170
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -437,6 +448,17 @@
           "at": "Tibet",
           "style": "serif",
           "size": 54
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -449,6 +471,78 @@
           "claim": "The Anglo-Russian Convention of 1907 formally delineated control in Afghanistan, Persia and Tibet.",
           "url": "https://en.wikipedia.org/wiki/Great_Game",
           "quote": "the Anglo-Russian Convention of 1907, which \"created an alliance between Britain and Russia, and formally delineated control in Afghanistan, Persia, and Tibet.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "At its eastern tip, the corridor touches China along a 92 kilometer border, at a mountain pass almost 5,000 meters high.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "CHN",
+          "fill": "flag:cn",
+          "at": "China",
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "measure",
+          "from": [
+            36.85,
+            74.6
+          ],
+          "to": [
+            37.05,
+            74.35
+          ],
+          "label": "92 km border",
+          "at": "92",
+          "countUp": false
+        },
+        {
+          "type": "ping",
+          "lat": 37.0,
+          "lon": 74.5,
+          "color": "#ffd60a",
+          "at": "pass"
+        },
+        {
+          "type": "label",
+          "text": "Wakhjir Pass",
+          "lat": 37.0,
+          "lon": 74.5,
+          "at": "pass",
+          "dot": true,
+          "dy": -52,
+          "size": 34
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "5,000",
+              "value": "4,923 m"
+            }
+          ],
+          "size": 140
+        }
+      ],
+      "camera": {
+        "lat": 37.0,
+        "lon": 74.3,
+        "zoom": 22,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "The corridor forms a 92 km boundary with China.",
+          "url": "https://en.wikipedia.org/wiki/Wakhan_Corridor",
+          "quote": "forming the 92 km (57 mi) boundary between the two countries"
+        },
+        {
+          "claim": "The Wakhjir Pass is 4,923 m high.",
+          "url": "https://en.wikipedia.org/wiki/Wakhan_Corridor",
+          "quote": "The Wakhjir Pass is 4,923 m (16,152 ft) in elevation"
         }
       ]
     },

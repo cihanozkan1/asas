@@ -68,6 +68,17 @@
             }
           ],
           "size": 190
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -352,6 +363,57 @@
       ]
     },
     {
+      "era": "now",
+      "text": "Supplies come in by helicopter. And in the past, locals even carved a runway into the thick ice, so bush planes could land.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 65.755,
+          "lon": -168.93,
+          "color": "#5ec8ff",
+          "at": "helicopter"
+        },
+        {
+          "type": "icon",
+          "icon": "art:plane_landing",
+          "lat": 65.765,
+          "lon": -168.965,
+          "size": 150,
+          "plain": true,
+          "at": "runway"
+        },
+        {
+          "type": "label",
+          "text": "Heliport",
+          "lat": 65.75099999999999,
+          "lon": -168.92600000000002,
+          "at": "helicopter",
+          "dot": true,
+          "dy": 56,
+          "size": 34
+        },
+        {
+          "type": "particles",
+          "kind": "snow",
+          "at": "ice",
+          "density": 0.5
+        }
+      ],
+      "camera": {
+        "lat": 65.76,
+        "lon": -168.96,
+        "zoom": 340,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Little Diomede has a heliport with regular helicopter flights; locals once carved an ice runway for bush planes.",
+          "url": "https://en.wikipedia.org/wiki/Little_Diomede_Island",
+          "quote": "There is a heliport, the Diomede Heliport, with regular helicopter flights. In the past, locals carved a runway into the thick ice sheet so that bush planes could deliver vital products"
+        }
+      ]
+    },
+    {
       "era": "history",
       "text": "But Big Diomede has no villagers at all. In 1948, the Soviets moved its people to the mainland, and today only the military is there.",
       "show": [
@@ -374,6 +436,17 @@
           "lon": -169.05,
           "size": 100,
           "at": "military"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "transition": "film",

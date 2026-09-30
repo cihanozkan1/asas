@@ -43,12 +43,15 @@ export function autoDetailBoxes(script, cfg, { minZoom = 8, max = 4 } = {}) {
   const views = [];
   const addView = (lat, lon, zoom) => {
     const half = (((1 / (zoom * R)) * 180) / Math.PI / 2) * 1.35; // margin for drift/sway/punch
+    if (half * 2 > 8) return; // too wide for a Sentinel mosaic; Blue Marble is sharp enough
     const halfLat = half * aspect * Math.cos((lat * Math.PI) / 180);
     views.push({ zoom, span: half * 2, box: [lon - half, lat - halfLat, lon + half, lat + halfLat] });
   };
   script.scenes.forEach((s, i) => {
     const c = s.camera;
     if (!c || c.fit || c.follow || c.lat == null || !(c.zoom >= minZoom)) return;
+    // parchment / palette scenes never show satellite pixels
+    if (s.era === 'history' || s.style) return;
     addView(c.lat, c.lon, c.zoom);
     // the intro flies in from ~0.6x the first shot's zoom (page/main.js)
     if (i === 0 && c.zoom * 0.6 >= minZoom) addView(c.lat, c.lon, c.zoom * 0.6);

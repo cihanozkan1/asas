@@ -51,6 +51,18 @@ save('northwest_angle', meta(
           cam=at_(49.1, -95.3, 18),
           src=[src('Later treaties (Jay Treaty, Treaty of Ghent, 1818 Convention, Webster–Ashburton) clarified the boundary.', 'Northwest_Angle',
                    'Subsequent treaties (Jay Treaty, Treaty of Ghent, Anglo-American Convention of 1818, and Webster-Ashburton Treaty) gradually clarified the boundary, cementing the Angle\'s unusual status.')]),
+        S("Even getting in is unusual. There's a single gravel road, and you check in with US Customs using a kiosk.", [
+            mover_icon([(48.905, -95.314), (48.99, -95.55), (49.2, -95.62), (49.33, -95.35), ANGLE], 'gravel', 'art:car', size=90, id='gr', nodes=True, drawDur=2.6),
+            art('laptop', 49.34, -95.03, 'kiosk', size=120), dot('Customs kiosk', 49.34, -95.03, 'kiosk', dy=-62, size=34)],
+          cam={'follow': 'gr', 'zoom': 40, 'zoomTo': 26, 'duration': 0.9},
+          src=[src('Travelers use the single gravel road and an iPad kiosk to contact US Customs.', 'Northwest_Angle',
+                   "Travelers using the single gravel road into the Angle are instructed to use an iPad kiosk at Jim's Corner, Young's Bay Marina, or Carlson's Landing to contact U.S. Customs.")]),
+        S("In 1997, because of fishing rules, some residents even suggested leaving the United States and joining Canada.", [
+            year(1997, '1997', light=True), art('fishing_boat', 49.22, -94.85, 'fishing', size=150), flag('ca', 49.62, -95.0, 'joining', size=110, wave=True),
+            arrow((49.36, -95.08), (49.62, -95.0), 'leaving', color='#ffd60a'), react('art:emote_shock', (0.79, 0.3), 'suggested', size=160)],
+          cam=at_(49.35, -95.1, 34, bearing=-3),
+          src=[src('In 1997, some residents suggested leaving the US and joining Canada because of fishing laws.', 'Northwest_Angle',
+                   'Because of laws restricting fishing, some residents of the Northwest Angle suggested leaving the United States and joining Canada in 1997.')]),
         S("Today, only 149 people live there, and about 79 percent of the area is water.", [
             hl(MN, '#1d4ed8', 0.05, fillOpacity=0.4), ping(*ANGLE, 0.05, color='#ffd60a'), cnt('149', '149', size=200), pill('people (2020)', '149'), icon('🎣', 49.25, -94.85, 'water', size=110)],
           cam=at_(*ANGLE, 40, bearing=-4), tr='flash',
@@ -156,6 +168,11 @@ save('australia', meta(
             *[ping(la, lo, 'coast', color='#ffd60a') for _, la, lo in CITIES]],
           cam=at_(-26, 134, 2.7, bearing=-3),
           src=[src('Almost 80% of Australians live within 25 km of the coast.', 'Geography_of_Australia', 'Almost 80% of the Australian population live within 25 km (16 mi) of the coast')]),
+        S("It's the sixth largest country in the world, with about 7.7 million square kilometers of land.", [
+            hl(AUS, 'flag:au', 0.05, fillOpacity=0.85), cnt('#6', 'sixth', size=200), pill('7.7M km²', 'million', bg='#0f766e')],
+          cam=at_(-26, 134, 2.7, bearing=3),
+          src=[src('Sixth-largest country by land area: 7,688,287 km².', 'Geography_of_Australia',
+                   'making it the sixth-largest country in the world by land area of jurisdiction, which comprises 7,688,287 km2')]),
         S("The big cities are all on the edges: Sydney, Melbourne, Brisbane, Perth and Adelaide.", [
             *[dot(n, la, lo, n, dy=-46, size=40) for n, la, lo in CITIES], blob(AUS, '#2a2b2f', '#ffd60a', 0.05, softness=4, fillOpacity=0.0)],
           style='dark', cam=at_(-26, 134, 2.7),
@@ -167,6 +184,12 @@ save('australia', meta(
           cam=at_(-26, 134, 2.7),
           src=[src('80% of the land gets <600 mm of rain a year, 50% gets <300 mm.', 'Geography_of_Australia',
                    '80% of the land area receives less than 600 mm (24 in) of annual rainfall and 50% less than 300 mm (12 in)')]),
+        S("That makes Australia the driest inhabited continent on Earth. Even its lowest point, the bed of Lake Eyre, is just 15 meters below sea level.", [
+            ping(-28.4, 137.35, 'lowest', color='#ffd60a'), dot('Lake Eyre', -28.4, 137.35, 'Lake', dy=-50, size=38), cnt('-15 m', '15', size=170, color='#ff9f1c'),
+            art('sun', -24.5, 129.5, 'driest', size=150), react('art:emote_sweat', (0.79, 0.3), 'driest', size=160)],
+          cam=at_(-27.5, 135.5, 4.5),
+          src=[src('Australia is the driest inhabited continent.', 'Geography_of_Australia', 'As Australia is the driest inhabited continent, such droughts can limit the streamflow'),
+               src("The country's lowest point is on the bed of Lake Eyre, 15 m below sea level.", 'Geography_of_Australia', "the country's lowest point is found on the bed of the Lake Eyre (15 m (49 ft) below sea level)")]),
         S("The Great Dividing Range runs almost 4,000 kilometers along the east coast, separating the rainy coast from the dry interior.", [
             route([(-11, 142.5), (-17, 145.3), (-23, 148), (-28, 152), (-33, 150.3), (-37, 148.5)], 'Great', color='#c8a46e', width=14, drawDur=1.6),
             slam('GREAT DIVIDING RANGE', -30, 150, 'Range', size=44, rotate=-3), cnt('4,000 km', '4,000', size=150)],
@@ -226,6 +249,12 @@ save('bolivia_navy', meta(
             lab('Tarapacá', -20.2, -69.3, 'Tarapacá', style='serif', size=52), note('LANDLOCKED', -16, -63, 'coastline', size=64)],
           cam=fit(BOL, ANTO, pad=0.9), era='history',
           src=[src('Peru ceded Tarapacá; Bolivia lost its coast (confirmed by the 1904 treaty).', 'War_of_the_Pacific', '"Peru formally cedes the Tarapacá Department to Chile" ... In 1904, Chile and Bolivia signed the Treaty of Peace and Friendship')]),
+        S("Bolivia even took Chile to the International Court of Justice. But in 2018, the judges ruled that Chile has no obligation to negotiate a sea access for Bolivia.", [
+            year(2018, '2018', light=True), art('gavel', -23.65, -70.4, 'judges', size=150), handstamp('NO DEAL', 'ruled', size=90, screen=[0.5, 0.34]),
+            flag('bo', -17, -64, 'Bolivia', size=110, wave=True), flag('cl', -23.0, -70.3, 'Chile', size=100, wave=True)],
+          cam=fit(BOL, ANTO, pad=0.9), tr='flash',
+          src=[src('On 1 October 2018 the ICJ ruled Chile had no obligation to negotiate sovereign access to the Pacific for Bolivia.', 'Obligation_to_Negotiate_Access_to_the_Pacific_Ocean',
+                   'On 1 October 2018, a twelve-judge majority ruled that Chile did not have an obligation to negotiate with Bolivia towards an access to the Pacific Ocean')]),
         S("But Bolivia never gave up. Its navy partly exists to keep the dream of the sea alive, and every March 23, the country celebrates the Day of the Sea.", [
             cnt('23 March', 'March', size=150), pill('Día del Mar', 'Sea', bg='#1d4ed8'), icon('🌊', -22, -72, 'Sea', size=130), hl(BOL, 'flag:bo', 0.05)],
           cam=fit(BOL, ANTO, pad=0.9, bearing=-3), tr='flash',
@@ -262,6 +291,11 @@ save('panama_canal', meta(
             art('canal_lock', 9.272, -79.921, 'lift', size=150), art('canal_lock', 9.017, -79.593, 'lower', size=150), arrow((9.22, -80.05), (9.32, -80.05), 'lift', color='#4ade80'), arrow((8.98, -79.45), (8.9, -79.45), 'lower', color='#ff5a5f')],
           cam=at_(9.13, -79.75, 50),
           src=[src('Ships are raised 26 m to Gatun Lake (an artificial lake made by damming the Chagres River) and lowered at the other end.', 'Panama_Canal', 'Vessels are raised 26 meters to Gatun Lake, an artificial freshwater body created by damming the Chagres River. The locks then lower ships at the opposite end.')]),
+        S("The United States spent almost 500 million dollars building it, and about 5,600 workers died from disease and accidents.", [
+            cnt_steps([('500', '$500M'), ('5,600', '5,600')], size=170), art('banknotes', 9.35, -79.78, 'spent', size=140), art('skull', 9.0, -79.6, 'died', size=130)],
+          cam=at_(9.1, -79.75, 40, bearing=-3), style='dark',
+          src=[src('The US spent almost $500 million on construction.', 'Panama_Canal', 'The United States spent almost $500 million (roughly equivalent to $16.1 billion in 2025).'),
+               src('About 5,600 workers died from disease and accidents during US construction.', 'Panama_Canal', 'about 5,600 workers died from disease and accidents during the US construction phase')]),
         S("Now the New York to San Francisco trip is only about 9,500 kilometers.", [
             ship(CANAL, 'trip', 'canalroute', emblem='#1d4ed8', drawDur=3.0, style='cargo'), cnt_steps([('trip', '22,500 km'), ('9,500', '9,500 km')], size=160)],
           cam={'follow': 'canalroute', 'zoom': 1.2, 'zoomTo': 0.95},
@@ -269,6 +303,11 @@ save('panama_canal', meta(
         S("Around 14,000 ships pass through every year, and by 2012, more than 815,000 ships had used it.", [cnt_steps([('14,000', '14,000'), ('815,000', '815,000')], size=190), pill('ships per year', 'ships', until='2012'), pill('ships by 2012', '815,000', bg='#0f766e'), scatter({'circle': {'lat': 9.1, 'lon': -79.7, 'km': 60}}, '🚢', 'pass', count=4, size=70, stagger=0.15, along=[(9.36, -79.92), (9.2, -79.83), (9.05, -79.66), (8.9, -79.53)])],
           cam=at_(9.1, -79.7, 16),
           src=[src('About 14,702 transits a year; over 815,000 by 2012.', 'Panama_Canal', 'The canal handles approximately 14,702 vessel transits yearly, with over 815,000 ships having passed through by 2012')]),
+        S("And in 2016, a third, wider lane of locks began operating.", [
+            art('canal_lock', 9.272, -79.921, 'third', size=170), art('canal_lock', 9.017, -79.593, 'wider', size=170), year(2016, '2016', light=True), particles('confetti', 'operating', density=0.35)],
+          cam=at_(9.13, -79.75, 45),
+          src=[src('A third, wider lane of locks was built 2007–2016 and began commercial operation on 26 June 2016.', 'Panama_Canal',
+                   'A third, wider lane of locks was constructed between September 2007 and May 2016. The expanded waterway began commercial operation on 26 June 2016.')]),
         S("The United States ran the canal for most of the century, but in 1999, Panama finally took control.", [
             year(1999, '1999', light=True), hl({'geojson': 'canal_zone.geojson'}, 'flag:us', 'United', until='Panama'), lab('CANAL ZONE', 9.35, -79.5, 'United', style='pill', bg='#1d4ed8', size=44, until='Panama', fixed=True), hl('PAN', 'flag:pa', 'Panama')],
           cam=at_(9.1, -79.7, 55, bearing=-3),

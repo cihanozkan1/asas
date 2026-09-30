@@ -163,6 +163,173 @@
     },
     {
       "era": "history",
+      "text": "The drought and erosion affected 100 million acres, and about 3.5 million people moved out of the Plains states.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "North Dakota",
+              "South Dakota",
+              "Nebraska",
+              "Kansas",
+              "Oklahoma",
+              "Texas"
+            ],
+            "country": "USA"
+          },
+          "fill": "#b45309",
+          "at": "drought",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "100",
+              "value": "100M acres"
+            },
+            {
+              "at": "3.5",
+              "value": "3.5M people"
+            }
+          ],
+          "size": 150
+        },
+        {
+          "type": "arrow",
+          "from": [
+            37,
+            -100
+          ],
+          "to": [
+            37,
+            -118
+          ],
+          "color": "#ffd60a",
+          "at": "moved"
+        },
+        {
+          "type": "crowd",
+          "lat": 37.5,
+          "lon": -101,
+          "count": 18,
+          "at": "people",
+          "cols": 6,
+          "size": 28,
+          "color": "#ffffff"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "million"
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -102,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "The Dust Bowl affected 100 million acres.",
+          "url": "https://en.wikipedia.org/wiki/Dust_Bowl",
+          "quote": "The drought and erosion of the Dust Bowl affected 100 million acres (400,000 km2)"
+        },
+        {
+          "claim": "About 3.5 million people left the Plains states in 1930–1940.",
+          "url": "https://en.wikipedia.org/wiki/Dust_Bowl",
+          "quote": "Between 1930 and 1940, about 3.5 million people moved out of the Plains states."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "On Black Sunday, in April 1935, one giant storm blew dust all the way to New York and Washington, two days later.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1935",
+          "at": "1935"
+        },
+        {
+          "type": "icon",
+          "icon": "art:dust_storm",
+          "lat": 37,
+          "lon": -101,
+          "size": 210,
+          "plain": true,
+          "at": "storm"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              37,
+              -101
+            ],
+            [
+              39,
+              -90
+            ],
+            [
+              38.9,
+              -77.04
+            ]
+          ],
+          "color": "#b45309",
+          "width": 12,
+          "at": "dust",
+          "arrowHead": true,
+          "drawDur": 1.6,
+          "flow": true
+        },
+        {
+          "type": "label",
+          "text": "Washington",
+          "lat": 38.9,
+          "lon": -77.04,
+          "at": "Washington",
+          "dot": true,
+          "dy": 50,
+          "size": 38
+        },
+        {
+          "type": "label",
+          "text": "New York",
+          "lat": 40.7,
+          "lon": -74.0,
+          "at": "New",
+          "dot": true,
+          "dy": -50,
+          "size": 38
+        },
+        {
+          "type": "shake",
+          "at": "giant"
+        }
+      ],
+      "camera": {
+        "lat": 39,
+        "lon": -90,
+        "zoom": 2.4
+      },
+      "sources": [
+        {
+          "claim": "On 14 April 1935, \"Black Sunday\", a huge storm; two days later it reached cities including New York City and Washington, D.C.",
+          "url": "https://en.wikipedia.org/wiki/Dust_Bowl",
+          "quote": "Two days later, the same storm reached cities to the east, such as Cleveland, Buffalo, Boston, New York City, and Washington, D.C."
+        }
+      ]
+    },
+    {
+      "era": "history",
       "text": "So in 1934, President Franklin D. Roosevelt launched the Great Plains Shelterbelt.",
       "show": [
         {
@@ -339,6 +506,17 @@
             0.26
           ],
           "width": 700
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "million"
         }
       ],
       "camera": {
@@ -599,6 +777,17 @@
               -99.5
             ]
           ]
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
         }
       ],
       "camera": {

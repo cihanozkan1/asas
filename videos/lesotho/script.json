@@ -59,6 +59,17 @@
           "lon": 28.2,
           "color": "#ffd60a",
           "at": "whole"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "whole"
         }
       ],
       "camera": {
@@ -169,6 +180,77 @@
           "claim": "The only independent state entirely above 1,000 m; its lowest point is 1,400 m.",
           "url": "https://en.wikipedia.org/wiki/Lesotho",
           "quote": "the only independent state in the world that lies entirely above 1,000 metres ... its lowest point at 1,400 meters"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Its highest peak, Thabana Ntlenyana, stands 3,482 meters tall, the highest mountain in southern Africa.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "art:mountain",
+          "lat": -29.47,
+          "lon": 29.28,
+          "size": 180,
+          "plain": true,
+          "at": "Thabana"
+        },
+        {
+          "type": "ping",
+          "lat": -29.47,
+          "lon": 29.28,
+          "color": "#ffd60a",
+          "at": "Thabana"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "3,482",
+              "value": "3,482 m"
+            }
+          ],
+          "size": 150
+        },
+        {
+          "type": "label",
+          "text": "Thabana Ntlenyana",
+          "lat": -29.47,
+          "lon": 29.28,
+          "at": "Thabana",
+          "dot": true,
+          "dy": -52,
+          "size": 36
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "highest"
+        }
+      ],
+      "camera": {
+        "lat": -29.5,
+        "lon": 28.9,
+        "zoom": 14,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Thabana Ntlenyana stands 3,482 m tall.",
+          "url": "https://en.wikipedia.org/wiki/Thabana_Ntlenyana",
+          "quote": "It stands 3,482 metres (11,424 ft) tall within the Maloti Mountains"
+        },
+        {
+          "claim": "It is the highest mountain in southern Africa.",
+          "url": "https://en.wikipedia.org/wiki/Thabana_Ntlenyana",
+          "quote": "Thabana Ntlenyana is the highest mountain in southern Africa."
         }
       ]
     },
@@ -413,6 +495,99 @@
           "claim": "Independence on 4 October 1966 as the Kingdom of Lesotho.",
           "url": "https://en.wikipedia.org/wiki/Lesotho",
           "quote": "achieving independence on October 4, 1966"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And today, this mountain kingdom even sells its water to South Africa, through giant dams.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "art:dam",
+          "lat": -29.33,
+          "lon": 28.5,
+          "size": 170,
+          "plain": true,
+          "at": "sells"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              -29.33,
+              28.5
+            ],
+            [
+              -28.5,
+              28.3
+            ],
+            [
+              -27.5,
+              28.15
+            ],
+            [
+              -26.9,
+              28.1
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 12,
+          "at": "water",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.6
+        },
+        {
+          "type": "label",
+          "text": "Vaal River System",
+          "lat": -26.6,
+          "lon": 28.1,
+          "at": "South",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 40
+        },
+        {
+          "type": "icon",
+          "icon": "art:water_drop",
+          "lat": -28.2,
+          "lon": 28.6,
+          "size": 110,
+          "plain": true,
+          "at": "water"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "today"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "LSO",
+          "ZAF"
+        ],
+        "pad": 0.8,
+        "bearing": -3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The Lesotho Highlands Water Project delivers water to South Africa's Vaal River System in exchange for revenue.",
+          "url": "https://en.wikipedia.org/wiki/Lesotho_Highlands_Water_Project",
+          "quote": "provide Lesotho with a source of revenue in exchange for the provision of water to South Africa, as well as generate hydroelectricity for Lesotho"
+        },
+        {
+          "claim": "It delivers water to the Vaal River System in South Africa.",
+          "url": "https://en.wikipedia.org/wiki/Lesotho_Highlands_Water_Project",
+          "quote": "delivers water to the Vaal River System in South Africa"
         }
       ]
     }

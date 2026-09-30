@@ -32,11 +32,22 @@ save('walk_world', meta(
             bars([('This walk', 22387, '22,387 km', '#ffd60a'), ('Equator', 40075, '40,075 km', '#5ec8ff')], 'half', screen=[0.5, 0.3], labelWidth=240)],
           cam=at_(0, 60, 1.0),
           src=[src("Earth's equatorial circumference is 40,075 km.", 'Earth', '40075.017 km [equatorial]')]),
+        S("You'd also climb a total of 117,693 meters, the same as 13 round trips up and down Mount Everest.", [
+            art('mountain', 27.99, 86.93, 'Everest', size=200), dot('Mount Everest', 27.99, 86.93, 'Everest', dy=-76, size=38),
+            cnt_steps([('117,693', '117,693 m'), ('13', '13 × Everest')], size=150)],
+          cam=at_(27, 80, 2.8),
+          src=[src('The route climbs 117,693 m in total: 13 round trips up and down Everest.', BM,
+                   '... 117,693m (386,132ft) and descend 117,686m (386,109ft) – equivalent to 13 round trips up and down Everest')]),
         S("Through Africa, past Egypt, across Turkey and Russia, and all the way through Siberia.", [
             route(WALK, 'Through', color='#ffd60a', width=7, drawDur=3.0), ping(30.04, 31.24, 'Egypt', color='#5ec8ff'), ping(39.93, 32.86, 'Turkey', color='#5ec8ff'), ping(56.01, 92.87, 'Siberia', color='#5ec8ff'),
             hl('EGY', 'flag:eg', 'Egypt', fillOpacity=0.7), hl('TUR', 'flag:tr', 'Turkey', fillOpacity=0.7), hl('RUS', 'flag:ru', 'Russia', fillOpacity=0.5)],
           cam=at_(30, 50, 1.1),
           src=[src('The route passes through Egypt, Turkey and Russia.', 'https://explorersweb.com/the-longest-walk-in-the-world/', 'Cape Town, South Africa to Magadan, Russia')]),
+        S("Among those 16 countries are South Sudan and Syria, so this walk is a thought experiment, not a travel plan.", [
+            hl('SSD', 'flag:ss', 'South', fillOpacity=0.85), hl('SYR', 'flag:sy', 'Syria', fillOpacity=0.85), ping(4.85, 31.58, 'South', color='#ff5a5f'), ping(33.51, 36.28, 'Syria', color='#ff5a5f'),
+            stamp('NOT A TRAVEL PLAN', 'experiment', size=70, screen=[0.5, 0.22])],
+          cam=at_(18, 34, 2.3),
+          src=[src('The 16 countries include South Sudan, Syria and Georgia.', BM, 'You would have to travel through 16 countries including South Sudan, Syria and Georgia')]),
         S("Google Maps says it would take 4,492 hours of walking.", [
             cnt('4,492 h', '4,492', size=190), char('backpacker', 'walking', name='You', say='My feet!')],
           cam=at_(35, 80, 1.1),
@@ -164,6 +175,11 @@ save('spain_borders', meta(
             hl('FRA', '#9fb8ff', 'France', fillOpacity=0.55), slam('LLÍVIA', 42.482, 1.975, 'Llívia', size=70)],
           cam=at_(42.46, 1.975, 1100),
           src=[src('Llívia is a Spanish exclave surrounded by France.', 'Llívia', 'It is a Spanish exclave surrounded by the French département of Pyrénées-Orientales.')]),
+        S("Llívia covers only about 13 square kilometers, and a corridor 1.6 kilometers wide separates it from the rest of Spain.", [
+            cnt('13 km²', '13', size=170), meas((42.462, 1.99), (42.44, 2.05), '1.6 km', 'corridor', countUp=False), ping(*LLI, 'Llívia', color='#ff3b3b')],
+          cam=at_(42.46, 1.99, 900, bearing=-3),
+          src=[src('Llívia covers 12.9 km².', 'Llívia', 'Total 12.9 km2 (5.0 sq mi)'),
+               src('It is separated from the rest of Spain by a corridor about 1.6 km wide.', 'Llívia', 'Llívia is separated from the rest of Spain by a corridor approximately 1.6 km (1.0 mile) wide.')]),
         S("In 1659, Spain gave France the villages of this area. But Llívia was a town, not a village, so it stayed Spanish.", [
             year(1659, '1659'), ping(*LLI, 'Llívia', color='#ffd60a'), lab('Llívia', LLI[0], LLI[1], 'Llívia', style='pill', bg='#c1121f', size=48),
             note('TOWN ≠ VILLAGE', 42.49, 1.975, 'town', size=58), char('spanish_tercio', 'Llívia', say='Still ours!', flip=True, screen=(0.72, 0.6))],
@@ -174,6 +190,18 @@ save('spain_borders', meta(
             vs(('es', 'Feb–Jul'), ('fr', 'Aug–Jan'), 'six', screen=[0.5, 0.26])],
           cam=at_(43.3434, -1.7658, 6000, bearing=-3), tr='flash',
           src=[src('Alternating six-month sovereignty between Spain and France.', 'Pheasant_Island', 'For alternating periods of six months, it is officially under the governance of the naval commander of Hondarribia, Spain (1 February – 31 July) and of a French viceroy (1 August – 31 January).')]),
+        S("The island is just 200 meters long, uninhabited, and closed to visitors. It's a condominium, meaning shared rule by two countries, the world's smallest.", [
+            cnt('200 m', '200', size=180), stamp('NO ENTRY', 'closed', size=84, screen=[0.5, 0.25]), art('no_entry', *PHE, 'closed', size=120),
+            vs(('es', 'Spain'), ('fr', 'France'), 'shared', screen=[0.5, 0.3])],
+          cam=at_(43.3434, -1.7658, 7000, bearing=3),
+          src=[src('The island is about 200 m long and 40 m wide.', 'Pheasant_Island', 'approximately 200 metres (660 ft) long and 40 metres (130 ft) wide'),
+               src('It is uninhabited and closed to visitors.', 'Pheasant_Island', 'It is uninhabited, and access is forbidden, except very occasionally on heritage open days.'),
+               src('It is the world\'s smallest condominium under joint Spanish-French sovereignty.', 'Pheasant_Island', 'The island is a condominium, the world\'s smallest, under joint sovereignty of Spain and France')]),
+        S("And the treaty of 1659 was signed right here, on this tiny island, where King Louis the Fourteenth met his future wife.", [
+            year(1659, '1659'), ping(*PHE, 'here', color='#ffd60a'), art('crown', PHE[0] + 0.0008, PHE[1] + 0.001, 'King', size=130), art('handshake', PHE[0] - 0.0008, PHE[1], 'treaty', size=130)],
+          cam=at_(43.3434, -1.7658, 6500), era='history', style='satellite', tr='film',
+          src=[src('The Treaty of the Pyrenees was signed on the island.', 'Pheasant_Island', 'The most important historical event to have taken place on the island was the signing of the Treaty of the Pyrenees.'),
+               src('In 1659 Louis XIV met his future wife Maria Theresa of Spain there.', 'Pheasant_Island', '1659 – Louis XIV met his future wife Maria Theresa of Spain (1638–1683)')]),
         S("Then Spain crosses into Africa. Ceuta and Melilla are the EU's only land borders with Africa.", [
             hl('MAR', '#e8b4a0', 'Africa', fillOpacity=0.6), ping(*CEU, 'Ceuta', color='#ffd60a'), ping(*MEL, 'Melilla', color='#ffd60a'),
             dot('Ceuta', *CEU, 'Ceuta', dy=-56), dot('Melilla', *MEL, 'Melilla', dy=-56), flag('eu', 36.9, -3.8, 'EU', size=120)],
@@ -214,6 +242,22 @@ save('usa_east_west', meta(
             *[hl({'admin1': st, 'country': 'USA'}, '#ffd60a', st.split()[0], fillOpacity=0.28) for st in ['North Dakota', 'Nebraska', 'Kansas', 'Oklahoma', 'Texas']]],
           cam=at_(39, -99, 2.6),
           src=[src('The meridian crosses North Dakota, South Dakota, Nebraska, Kansas, Oklahoma and Texas.', '100th_meridian_west', 'North Dakota')]),
+        S("In Kansas, Dodge City sits exactly where this line meets the Arkansas River.", [
+            ping(37.75, -100.02, 'Dodge', color='#ffd60a'), dot('Dodge City', 37.75, -100.02, 'Dodge', dy=-56, size=40), art('cow', 37.4, -99.6, 'Kansas', size=120),
+            route([(42, -100), (33, -100)], 'line', rhumb=True, color='#ffd60a', width=6, dashed=True, dash=[18, 12], drawDur=0.6)],
+          cam=at_(37.75, -100.0, 14),
+          src=[src('Dodge City lies exactly at the intersection of the Arkansas River and the 100th meridian.', '100th_meridian_west', 'Dodge City, Kansas lies exactly at the intersection of the Arkansas River and the 100th meridian.')]),
+        S("The same line also crosses Canada, and several states of Mexico.", [
+            route([(58, -100), (17, -100)], 'same', rhumb=True, color='#ffd60a', width=6, dashed=True, dash=[18, 12], drawDur=1.4),
+            flag('ca', 52, -100, 'Canada', size=110, wave=True), flag('mx', 24, -100, 'Mexico', size=110, wave=True)],
+          cam=at_(38, -100, 1.5),
+          src=[src('The 100th meridian passes through Manitoba, the US Great Plains states and several Mexican states.', '100th_meridian_west',
+                   'Manitoba')]),
+        S("Historically, people have often treated it as the rough border between the eastern and western United States.", [
+            route([(49, -100), (26, -100)], 'border', rhumb=True, color='#ffd60a', width=7, drawDur=0.8), lab('EAST', 40, -90, 'eastern', style='pill', bg='#16a34a', size=46), lab('WEST', 40, -110, 'western', style='pill', bg='#d97706', size=46)],
+          cam=at_(39, -99, 2.4),
+          src=[src('The meridian has often been taken as a rough boundary between the eastern and western US.', '100th_meridian_west',
+                   'Historically, the meridian has often been taken as a rough boundary between the eastern and western United States.')]),
         S("In the 1870s, explorer John Wesley Powell noticed that rainfall changes a lot across this line.", [
             year(1870, '1870s'), icon('🌧️', 38, -92, 'rainfall', size=120), icon('☀️', 38, -110, 'rainfall', size=120)],
           era='history', tr='film',
@@ -258,6 +302,10 @@ save('tibet_planes', meta(
             slam('TIBET', 33.5, 88, 'Tibetan', size=90), hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 'Roof', fillOpacity=0.25)],
           cam=at_(32, 88, 2.8),
           src=[src('It is often called the Roof of the World.', 'Tibetan_Plateau', "often referred to as 'the Roof of the World'")]),
+        S("Flight maps show an empty hole over it, about the size of Western Europe.", [
+            hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#ff3b3b', 'hole', fillOpacity=0.3), ghost({'countries': ['PRT', 'ESP', 'FRA', 'GBR', 'IRL', 'BEL', 'NLD', 'DEU', 'CHE', 'AUT', 'ITA']}, (33, 90), 'Europe', fill='#2de2e6')],
+          cam=at_(32, 88, 2.2),
+          src=[src('The flight map has a hole the size of Western Europe over Tibet.', MF, 'a hole the size of Western Europe')]),
         S("It's the largest and highest plateau on Earth, about 2,500 kilometers wide.", [
             hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 'largest', fillOpacity=0.25),
             stamp('LARGEST & HIGHEST', 'largest', size=78, screen=[0.5, 0.45]), meas((33, 76), (32, 101), '2,500 km', 'wide')],
@@ -277,11 +325,20 @@ save('tibet_planes', meta(
             hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#2de2e6', 0.05, fillOpacity=0.2), tilt('ground', deg=40, until=4), stamp('NO WAY DOWN', 'nowhere', size=84), shake('nowhere')],
           cam=at_(31, 86, 4.0),
           src=[src('The plateau floor sits around 14,800 ft, above the 10,000 ft safety level.', MF, "The plateau's valley floors sit at around 14,800 feet")]),
+        S("Winds of 100 to 200 kilometers per hour slam into a 2,500 kilometer wall of rock, and create violent turbulence.", [
+            icon('💨', 34, 84, 'Winds', size=150), cnt('100–200 km/h', '100', size=130), meas((33, 76), (32, 101), '2,500 km wall', 'wall', countUp=False), shake('turbulence')],
+          cam=at_(32, 89, 3.4),
+          src=[src('Winds of 100–200 km/h slam into a 2,500 km wall of rock, causing clear-air turbulence.', MF, 'winds of 100–200 km/h slam into a 2,500-kilometre wall of rock')]),
         S("Airports are rare and far apart, and strong winds turn the air into a washing machine.", [
             icon('🛬', 28.4, 89.6, 'Airports', size=130), dot('Lhasa', 29.65, 91.1, 'Airports', dy=-80), icon('💨', 34, 84, 'winds', size=150), icon('💨', 31.5, 95, 'machine', size=140), shake('machine')],
           cam=at_(32, 89, 4.2),
           src=[src('Airports are rare, far apart and at extreme elevations.', MF, 'Airports are rare, far apart, and themselves perched at extreme elevations.'),
                src('Winds of 100–200 km/h create severe turbulence.', MF, 'the atmosphere downstream turns into a washing machine')]),
+        S("So planes take a detour, either north over Urumqi, or south over India.", [
+            plane([(41.3, 69.2), (43.9, 87.6), (39.9, 116.4)], 'north', rid='pn', drawDur=2.2), plane([(25.3, 55.4), (20, 78), (13.7, 100.5)], 'south', rid='ps', drawDur=2.2),
+            dot('Urumqi', 43.83, 87.6, 'Urumqi', dy=-48, size=38), dot('India', 22, 78, 'India', dy=48, size=38)],
+          cam=at_(32, 88, 2.0),
+          src=[src('Aircraft take a dog-leg north over Urumqi or south over India.', MF, 'a strange dog-leg north over Urumqi or south over India')]),
         S("So it's not a no-fly zone. It's just a place where an emergency has no safe ending.", [
             hl({'admin1s': ['Xizang', 'Qinghai'], 'country': 'CHN'}, '#ff3b3b', 'emergency', fillOpacity=0.3), stamp('NO SAFE ENDING', 'safe', size=84)],
           cam=at_(32, 90, 2.0),
@@ -301,6 +358,10 @@ save('time_zones', meta(
             hook('TIME ZONES ARE *CHAOS*', at=0.05, until='globe'),
             *[hl(box(-7.5 + 15 * k, -70, 7.5 + 15 * k, 75), c, 'stripes', fillOpacity=0.35) for k, c in [(-2, '#2de2e6'), (-1, '#ff5a5f'), (0, '#ffd60a'), (1, '#4ade80'), (2, '#a78bfa'), (3, '#2de2e6'), (4, '#ff5a5f')]]],
           cam=at_(25, 20, 1.0), no_claim=True),
+        S("In reality, clocks around the world range from UTC minus 12 to UTC plus 14, a gap of 26 hours.", [
+            cnt_steps([('minus', '−12'), ('plus', '+14')], size=200), pill('26 hours apart', 'gap', bg='#7c3aed'), clock([('minus', '00:00'), ('plus', '02:00')], screen=(0.5, 0.45), size=190, label='UTC−12 → UTC+14')],
+          cam=at_(10, 180, 1.0),
+          src=[src('UTC offsets range from UTC−12:00 to UTC+14:00.', 'Time_zone', 'The offsets range from UTC−12:00 to UTC+14:00')]),
         S("But look at China. It's huge, and it uses only one time zone.", [
             hl('CHN', 'flag:cn', 'China', fillOpacity=0.85), clock([('one', '12:00')], screen=(0.5, 0.3), size=200, label='Beijing Time')],
           cam=at_(35, 100, 1.8),
@@ -351,6 +412,17 @@ save('shelterbelt', meta(
             art('dust_storm', 37, -101, 'dust', size=200), art('dust_storm', 34.5, -99, 'storms', size=160), char('dustbowl_farmer', 'farmland', say='Where did my soil go?'), shake('blew')],
           cam=at_(38, -100, 3.2), era='history', tr='film',
           src=[src('The project was a response to the Dust Bowl dust storms.', SB, 'reduce wind velocity and lessen evaporation of moisture from the soil')]),
+        S("The drought and erosion affected 100 million acres, and about 3.5 million people moved out of the Plains states.", [
+            hl({'admin1s': ['North Dakota', 'South Dakota', 'Nebraska', 'Kansas', 'Oklahoma', 'Texas'], 'country': 'USA'}, '#b45309', 'drought', fillOpacity=0.5), cnt_steps([('100', '100M acres'), ('3.5', '3.5M people')], size=150), arrow((37, -100), (37, -118), 'moved', color='#ffd60a'), crowd(37.5, -101, 'people', count=18, cols=6, size=28, color='#ffffff')],
+          cam=at_(38, -102, 3.0), era='history',
+          src=[src('The Dust Bowl affected 100 million acres.', 'Dust_Bowl', 'The drought and erosion of the Dust Bowl affected 100 million acres (400,000 km2)'),
+               src('About 3.5 million people left the Plains states in 1930–1940.', 'Dust_Bowl', 'Between 1930 and 1940, about 3.5 million people moved out of the Plains states.')]),
+        S("On Black Sunday, in April 1935, one giant storm blew dust all the way to New York and Washington, two days later.", [
+            year(1935, '1935'), art('dust_storm', 37, -101, 'storm', size=210), route([(37, -101), (39, -90), (38.9, -77.04)], 'dust', color='#b45309', width=12, arrowHead=True, drawDur=1.6, flow=True),
+            dot('Washington', 38.9, -77.04, 'Washington', dy=50, size=38), dot('New York', 40.7, -74.0, 'New', dy=-50, size=38), shake('giant')],
+          cam=at_(39, -90, 2.4), era='history',
+          src=[src('On 14 April 1935, "Black Sunday", a huge storm; two days later it reached cities including New York City and Washington, D.C.', 'Dust_Bowl',
+                   'Two days later, the same storm reached cities to the east, such as Cleveland, Buffalo, Boston, New York City, and Washington, D.C.')]),
         S("So in 1934, President Franklin D. Roosevelt launched the Great Plains Shelterbelt.", [
             hl({'admin1s': ['North Dakota', 'South Dakota', 'Nebraska', 'Kansas', 'Oklahoma'], 'country': 'USA'}, '#b45309', 'Great', fillOpacity=0.4), lab('GREAT PLAINS', 41, -100, 'Great', size=50), year(1934, '1934'), char('fdr', 'Roosevelt', name='F. D. Roosevelt', say='Plant trees!')],
           era='history',
@@ -397,8 +469,18 @@ save('atlantic_tracks', meta(
         S("They're called the North Atlantic Tracks, and they keep planes separated over the ocean, where there's little radar.", [
             *[plane([(47 + d, -53), (50 + d, -40), (52 + d, -30), (53 + d, -20), (52 + d, -10)], 'Tracks', drawDur=3.2) for d in (-2, 2)], icon('📡', 45, -30, 'radar', size=110)],
           src=[src('They separate aircraft over the ocean where there is little radar coverage.', NAT, 'ensure that aircraft are separated over the ocean, where there is little radar coverage')]),
+        S("The tracks are named with letters. Westbound tracks start at A, and eastbound tracks count backwards from Z.", [
+            *[route([(47 + d, -53), (50 + d, -40), (52 + d, -30), (53 + d, -20), (52 + d, -10)], 'tracks', color='#2de2e6', width=5, drawDur=0.6, dashed=True, dash=[14, 10]) for d in (-2, 0, 2, 4)],
+            lab('TRACK A', 56.5, -34, 'Westbound', style='pill', bg='#2de2e6', size=42), lab('TRACK Z', 46.5, -34, 'eastbound', style='pill', bg='#ff5a5f', size=42)],
+          cam=at_(50, -32, 2.2),
+          src=[src('Westbound tracks are lettered A, B, C... (A northernmost); eastbound Z, Y, X...', NAT,
+                   'Westbound tracks...are indicated by the letters A, B, C, D etc...where A is the northernmost track. Eastbound tracks...are indicated by the letters Z, Y, X, W etc.')]),
         S("And here's the strange part: they're re-drawn twice every day.", [stamp('NEW ROUTES', 'twice', size=86), clock([('twice', '00:00'), ('day', '12:00')], screen=(0.5, 0.45), size=200)],
           src=[src('The tracks are created twice daily.', NAT, 'created twice daily to take account of the shifting of the winds aloft')]),
+        S("Planes on the tracks fly between 29,000 and 41,000 feet.", [
+            cnt_steps([('29,000', '29,000 ft'), ('41,000', '41,000 ft')], size=160), plane([(47, -53), (50, -40), (52, -30), (53, -20), (52, -10)], 'fly', drawDur=2.4)],
+          cam=at_(50, -32, 2.0),
+          src=[src('The routes are used between 29,000 and 41,000 ft.', NAT, 'The routes are used for aircraft operating between the altitudes of 29,000 and 41,000 ft (8,800 and 12,500 m) inclusive')]),
         S("Because they follow the jet stream, a river of wind about 30,000 feet up, blowing from west to east.", [
             flow([(40, -75), (45, -55), (50, -35), (52, -15), (50, 0)], 'jet', color='#a78bfa', width=16, drawDur=1.6, flowSpeed=260), slam('JET STREAM', 45, -50, 'jet', size=64)],
           cam=at_(48, -38, 1.9),
@@ -420,6 +502,12 @@ save('atlantic_tracks', meta(
             bars([('Before', 18, '18 h', '#ff5a5f'), ('Jet stream', 11.5, '11.5 h', '#4ade80')], 'cut', screen=[0.5, 0.33], labelWidth=240)],
           cam=at_(42, 170, 1.4), era='history', tr='film',
           src=[src('In 1952 Pan Am cut Tokyo–Honolulu from 18 to 11.5 hours using the jet stream.', JS, 'cut the trip time by over one-third, from 18 to 11.5 hours')]),
+        S("And since 2015, a new procedure has cut the gap between tracks in half, from 60 to 30 nautical miles.", [
+            year(2015, '2015'), cnt_steps([('60', '60 nm'), ('30', '30 nm')], size=170),
+            route([(49, -45), (53, -15)], 'gap', color='#2de2e6', width=5, drawDur=0.6, dashed=True, dash=[14, 10]), route([(50.5, -45), (54.5, -15)], 'gap', color='#2de2e6', width=5, drawDur=0.6, dashed=True, dash=[14, 10])],
+          cam=at_(51, -30, 3.2), era='now',
+          src=[src('In November 2015 reduced lateral separation halved the track spacing from 60 to 30 nautical miles.', NAT,
+                   'In November 2015, a new procedure allowing for reduced lateral separation minima (RLAT) was introduced. RLAT reduces the standard distance between NAT tracks from 60 to 30 nautical miles')]),
         S("In 2018 alone, about 500,000 flights used these moving highways.", [*[route([(47 + d, -53), (50 + d, -40), (52 + d, -30), (53 + d, -20), (52 + d, -10)], 'In', color='#2de2e6', width=5, drawDur=0.8, dashed=True, dash=[14, 10]) for d in (-2, 0, 2, 4)], *[plane([(47 + d, -53), (50 + d, -40), (52 + d, -30), (53 + d, -20), (52 + d, -10)], 'flights', drawDur=3.0) for d in (0, 4)], cnt('500,000', '500,000', size=180)],
           cam=at_(50, -32, 2.2),
           src=[src('500,000 flights went through the system in 2018.', NAT, '500,000 flights went through')]),
@@ -459,10 +547,24 @@ save('wallace_line', meta(
             hl({'admin1s': ['Nusa Tenggara Barat', 'Nusa Tenggara Timur', 'Sulawesi Utara', 'Sulawesi Tengah', 'Sulawesi Selatan', 'Sulawesi Tenggara', 'Sulawesi Barat', 'Gorontalo', 'Maluku', 'Maluku Utara', 'Papua', 'Papua Barat'], 'country': 'IDN'}, '#16a34a', 'East', fillOpacity=0.55), hl({'countries': ['PNG', 'TLS', 'AUS']}, '#16a34a', 'East', fillOpacity=0.45), icon('🦘', -16.5, 133, 'marsupials', size=96), lab('AUSTRALIA', -3, 128, 'Australian', style='pill', bg='#16a34a', size=52)],
           cam=at_(-4, 124, 2.6),
           src=[src('East of the line: Australasian species such as marsupials.', WL, 'marsupials')]),
+        S("There are a few exceptions, like macaques, pigs and tarsiers on Sulawesi.", [
+            ping(-2.0, 120.5, 'Sulawesi', color='#ffd60a'), dot('Sulawesi', -2.0, 120.5, 'Sulawesi', dy=-52, size=38), art('monkey', -1.2, 121.8, 'macaques', size=120), pill('exceptions', 'exceptions', bg='#7c3aed')],
+          cam=at_(-2, 120.5, 6, bearing=-3),
+          src=[src('Exceptions include macaques, pigs and tarsiers on Sulawesi.', WL, 'Exceptions to this include macaques, pigs, and tarsiers on Sulawesi.')]),
+        S("Plants follow the line less strictly than animals, because they can spread across the water in different ways.", [
+            route(WLINE, 'line', color='#ffd60a', width=7, dashed=True, dash=[18, 12], drawDur=0.6), art('palm', -6.5, 114, 'Plants', size=120), art('palm', -7.5, 118.5, 'water', size=120), pill('plants ≠ animals', 'less', bg='#15803d')],
+          cam=at_(-5.5, 117, 3.0),
+          src=[src('Flora do not follow the Wallace Line to the same extent as fauna.', WL, 'Flora do not follow the Wallace Line to the same extent as fauna, since their colonization events differ in their ability to spread across bodies of water.')]),
         S("Why? Deep water. Even in the Ice Age, when seas dropped 120 meters, the two sides never joined.", [
             tilt('water', deg=38, until=4.5), cnt('−120 m', '120', size=170, color='#5ec8ff'), route([(-7.2, 115.75), (-8.3, 115.85), (-9.3, 115.8)], 'Deep', color='#5ec8ff', width=14, flow=True, drawDur=0.8), lab('LOMBOK STRAIT', -8.1, 117.2, 'Deep', style='pill', bg='#1d4ed8', size=40)],
           cam=at_(-8.5, 116, 8), tr='flash',
           src=[src('Even when sea level dropped 120 m, the islands never united Asia with Australia.', WL, 'islands became connected, but never uniting Asia with Australia')]),
+        S("The Sunda Shelf links Borneo, Bali, Java and Sumatra to Asia, while the Sahul Shelf connects Australia to New Guinea.", [
+            hl({'admin1s': ['Bali', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Banten', 'Jakarta Raya', 'Yogyakarta', 'Aceh', 'Sumatera Utara', 'Sumatera Barat', 'Riau', 'Jambi', 'Sumatera Selatan', 'Bengkulu', 'Lampung', 'Kalimantan Barat', 'Kalimantan Tengah', 'Kalimantan Selatan', 'Kalimantan Timur'], 'country': 'IDN'}, '#f59e0b', 'Sunda', fillOpacity=0.55),
+            hl({'countries': ['AUS', 'PNG']}, '#16a34a', 'Sahul', fillOpacity=0.5), lab('SUNDA SHELF', 0, 108, 'Sunda', style='pill', bg='#d97706', size=46), lab('SAHUL SHELF', -10, 132, 'Sahul', style='pill', bg='#16a34a', size=46)],
+          cam=at_(-4, 120, 2.0),
+          src=[src('The Sunda Shelf links Borneo, Bali, Java and Sumatra to mainland Asia; the Sahul Shelf connects Australia to New Guinea.', WL,
+                   'The Sunda Shelf links Borneo, Bali, Java, and Sumatra underwater to the mainland of southeastern Asia, while the Sahul Shelf connects Australia to New Guinea and their adjacent islands.')]),
         S("Bali sits on the Asian shelf, Lombok on the other side. For over 50 million years, deep water kept the two worlds apart.", [
             hl({'admin1s': ['Aceh', 'Sumatera Utara', 'Sumatera Barat', 'Riau', 'Jambi', 'Sumatera Selatan', 'Bengkulu', 'Lampung', 'Bangka-Belitung', 'Kepulauan Riau', 'Banten', 'Jakarta Raya', 'Jawa Barat', 'Jawa Tengah', 'Yogyakarta', 'Jawa Timur', 'Bali', 'Kalimantan Barat', 'Kalimantan Tengah', 'Kalimantan Selatan', 'Kalimantan Timur'], 'country': 'IDN'}, '#f59e0b', 'Asian', fillOpacity=0.55), hl({'countries': ['MYS', 'BRN']}, '#f59e0b', 'Asian', fillOpacity=0.55), hl({'admin1s': ['Nusa Tenggara Barat', 'Nusa Tenggara Timur', 'Sulawesi Utara', 'Sulawesi Tengah', 'Sulawesi Selatan', 'Sulawesi Tenggara', 'Sulawesi Barat', 'Gorontalo', 'Maluku', 'Maluku Utara', 'Papua', 'Papua Barat'], 'country': 'IDN'}, '#16a34a', 'other', fillOpacity=0.55), hl({'countries': ['PNG', 'TLS', 'AUS']}, '#16a34a', 'other', fillOpacity=0.45),
             cnt('50,000,000 years', '50', size=120), lab('ASIAN SIDE', -2, 108, 'Asian', style='pill', bg='#d97706', size=48, fixed=True), lab('AUSTRALIAN SIDE', -6, 128, 'other', style='pill', bg='#16a34a', size=48, fixed=True)],

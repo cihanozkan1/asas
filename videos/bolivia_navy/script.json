@@ -136,6 +136,17 @@
             "icon": "art:speedboat",
             "size": 75
           }
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "highest"
         }
       ],
       "camera": {
@@ -250,6 +261,17 @@
         },
         {
           "type": "shake",
+          "at": "War"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_angry",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
           "at": "War"
         }
       ],
@@ -383,6 +405,73 @@
     },
     {
       "era": "now",
+      "text": "Bolivia even took Chile to the International Court of Justice. But in 2018, the judges ruled that Chile has no obligation to negotiate a sea access for Bolivia.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2018",
+          "light": true,
+          "at": "2018"
+        },
+        {
+          "type": "icon",
+          "icon": "art:gavel",
+          "lat": -23.65,
+          "lon": -70.4,
+          "size": 150,
+          "plain": true,
+          "at": "judges"
+        },
+        {
+          "type": "handstamp",
+          "text": "NO DEAL",
+          "at": "ruled",
+          "size": 90,
+          "screen": [
+            0.5,
+            0.34
+          ]
+        },
+        {
+          "type": "flag",
+          "code": "bo",
+          "lat": -17,
+          "lon": -64,
+          "size": 110,
+          "at": "Bolivia",
+          "wave": true
+        },
+        {
+          "type": "flag",
+          "code": "cl",
+          "lat": -23.0,
+          "lon": -70.3,
+          "size": 100,
+          "at": "Chile",
+          "wave": true
+        }
+      ],
+      "camera": {
+        "fit": [
+          "BOL",
+          {
+            "admin1": "Antofagasta",
+            "country": "CHL"
+          }
+        ],
+        "pad": 0.9
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "On 1 October 2018 the ICJ ruled Chile had no obligation to negotiate sovereign access to the Pacific for Bolivia.",
+          "url": "https://en.wikipedia.org/wiki/Obligation_to_Negotiate_Access_to_the_Pacific_Ocean",
+          "quote": "On 1 October 2018, a twelve-judge majority ruled that Chile did not have an obligation to negotiate with Bolivia towards an access to the Pacific Ocean"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "But Bolivia never gave up. Its navy partly exists to keep the dream of the sea alive, and every March 23, the country celebrates the Day of the Sea.",
       "show": [
         {
@@ -420,6 +509,17 @@
           "target": "BOL",
           "fill": "flag:bo",
           "at": 0.05
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "every"
         }
       ],
       "camera": {

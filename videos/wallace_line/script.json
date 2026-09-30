@@ -126,6 +126,17 @@
           ],
           "label": "35 km",
           "at": "kilometers"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -388,6 +399,149 @@
     },
     {
       "era": "now",
+      "text": "There are a few exceptions, like macaques, pigs and tarsiers on Sulawesi.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": -2.0,
+          "lon": 120.5,
+          "color": "#ffd60a",
+          "at": "Sulawesi"
+        },
+        {
+          "type": "label",
+          "text": "Sulawesi",
+          "lat": -2.0,
+          "lon": 120.5,
+          "at": "Sulawesi",
+          "dot": true,
+          "dy": -52,
+          "size": 38
+        },
+        {
+          "type": "icon",
+          "icon": "art:monkey",
+          "lat": -1.2,
+          "lon": 121.8,
+          "size": 120,
+          "plain": true,
+          "at": "macaques"
+        },
+        {
+          "type": "label",
+          "text": "exceptions",
+          "at": "exceptions",
+          "style": "pill",
+          "bg": "#7c3aed",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": -2,
+        "lon": 120.5,
+        "zoom": 6,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Exceptions include macaques, pigs and tarsiers on Sulawesi.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "Exceptions to this include macaques, pigs, and tarsiers on Sulawesi."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Plants follow the line less strictly than animals, because they can spread across the water in different ways.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              12,
+              121
+            ],
+            [
+              4.5,
+              119.5
+            ],
+            [
+              -1.5,
+              118.3
+            ],
+            [
+              -5.5,
+              117.2
+            ],
+            [
+              -8.1,
+              115.9
+            ],
+            [
+              -9.5,
+              115.8
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 7,
+          "at": "line",
+          "dashed": true,
+          "dash": [
+            18,
+            12
+          ],
+          "drawDur": 0.6
+        },
+        {
+          "type": "icon",
+          "icon": "art:palm",
+          "lat": -6.5,
+          "lon": 114,
+          "size": 120,
+          "plain": true,
+          "at": "Plants"
+        },
+        {
+          "type": "icon",
+          "icon": "art:palm",
+          "lat": -7.5,
+          "lon": 118.5,
+          "size": 120,
+          "plain": true,
+          "at": "water"
+        },
+        {
+          "type": "label",
+          "text": "plants ≠ animals",
+          "at": "less",
+          "style": "pill",
+          "bg": "#15803d",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": -5.5,
+        "lon": 117,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "Flora do not follow the Wallace Line to the same extent as fauna.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "Flora do not follow the Wallace Line to the same extent as fauna, since their colonization events differ in their ability to spread across bodies of water."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Why? Deep water. Even in the Ice Age, when seas dropped 120 meters, the two sides never joined.",
       "show": [
         {
@@ -438,6 +592,17 @@
           "style": "pill",
           "bg": "#1d4ed8",
           "size": 40
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_think",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Why"
         }
       ],
       "camera": {
@@ -451,6 +616,86 @@
           "claim": "Even when sea level dropped 120 m, the islands never united Asia with Australia.",
           "url": "https://en.wikipedia.org/wiki/Wallace_Line",
           "quote": "islands became connected, but never uniting Asia with Australia"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The Sunda Shelf links Borneo, Bali, Java and Sumatra to Asia, while the Sahul Shelf connects Australia to New Guinea.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Bali",
+              "Jawa Barat",
+              "Jawa Tengah",
+              "Jawa Timur",
+              "Banten",
+              "Jakarta Raya",
+              "Yogyakarta",
+              "Aceh",
+              "Sumatera Utara",
+              "Sumatera Barat",
+              "Riau",
+              "Jambi",
+              "Sumatera Selatan",
+              "Bengkulu",
+              "Lampung",
+              "Kalimantan Barat",
+              "Kalimantan Tengah",
+              "Kalimantan Selatan",
+              "Kalimantan Timur"
+            ],
+            "country": "IDN"
+          },
+          "fill": "#f59e0b",
+          "at": "Sunda",
+          "fillOpacity": 0.55
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "AUS",
+              "PNG"
+            ]
+          },
+          "fill": "#16a34a",
+          "at": "Sahul",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "label",
+          "text": "SUNDA SHELF",
+          "lat": 0,
+          "lon": 108,
+          "at": "Sunda",
+          "style": "pill",
+          "bg": "#d97706",
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "SAHUL SHELF",
+          "lat": -10,
+          "lon": 132,
+          "at": "Sahul",
+          "style": "pill",
+          "bg": "#16a34a",
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": -4,
+        "lon": 120,
+        "zoom": 2.0
+      },
+      "sources": [
+        {
+          "claim": "The Sunda Shelf links Borneo, Bali, Java and Sumatra to mainland Asia; the Sahul Shelf connects Australia to New Guinea.",
+          "url": "https://en.wikipedia.org/wiki/Wallace_Line",
+          "quote": "The Sunda Shelf links Borneo, Bali, Java, and Sumatra underwater to the mainland of southeastern Asia, while the Sahul Shelf connects Australia to New Guinea and their adjacent islands."
         }
       ]
     },

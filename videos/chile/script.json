@@ -63,6 +63,17 @@
           ],
           "label": "177 km",
           "at": "177"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -204,6 +215,17 @@
           "lon": -64.5,
           "size": 130,
           "at": "wall"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "highest"
         }
       ],
       "camera": {
@@ -417,6 +439,17 @@
           "typewriter": true,
           "size": 64,
           "rotate": -7
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cry",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "lost"
         }
       ],
       "sources": [
@@ -465,6 +498,89 @@
           "claim": "Chile expanded northward by almost one-third.",
           "url": "https://en.wikipedia.org/wiki/Chile",
           "quote": "Chile expanding its territory northward by almost one-third"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And the ribbon doesn't even stop there. Chile also claims about 1.25 million square kilometers of Antarctica.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "CHL",
+          "fill": "flag:cl",
+          "at": 0.05,
+          "fillOpacity": 0.8
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -90,
+              -90,
+              -53,
+              -60
+            ]
+          },
+          "fill": "#ff5a5f",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#ffd60a",
+          "at": "claims"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "million",
+              "value": "1.25M km²"
+            }
+          ],
+          "size": 150
+        },
+        {
+          "type": "label",
+          "text": "CHILEAN ANTARCTIC CLAIM",
+          "lat": -76,
+          "lon": -72,
+          "at": "Antarctica",
+          "style": "pill",
+          "bg": "#c1121f",
+          "size": 40
+        },
+        {
+          "type": "arrow",
+          "from": [
+            -56,
+            -70
+          ],
+          "to": [
+            -66,
+            -72
+          ],
+          "color": "#ffd60a",
+          "at": "stop"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "CHL",
+          {
+            "box": [
+              -90,
+              -90,
+              -53,
+              -60
+            ]
+          }
+        ],
+        "pad": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Chile claims about 1,250,000 km² of Antarctica.",
+          "url": "https://en.wikipedia.org/wiki/Chile",
+          "quote": "claims about 1,250,000 square kilometers (480,000 sq mi) of Antarctica"
         }
       ]
     },

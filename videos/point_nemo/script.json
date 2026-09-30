@@ -127,6 +127,53 @@
     },
     {
       "era": "now",
+      "text": "It's almost lifeless, because the South Pacific Gyre blocks nutrients from reaching the area.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": -48.877,
+          "lon": -123.393,
+          "color": "#ff3b3b",
+          "at": "lifeless"
+        },
+        {
+          "type": "stamp",
+          "text": "NO NUTRIENTS",
+          "size": 86,
+          "screen": [
+            0.5,
+            0.28
+          ],
+          "at": "nutrients"
+        },
+        {
+          "type": "label",
+          "text": "South Pacific Gyre",
+          "at": "Gyre",
+          "style": "pill",
+          "bg": "#0f766e",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": -47,
+        "lon": -123,
+        "zoom": 2.4
+      },
+      "sources": [
+        {
+          "claim": "Point Nemo is relatively lifeless because the South Pacific Gyre blocks nutrients.",
+          "url": "https://en.wikipedia.org/wiki/Point_Nemo",
+          "quote": "Point Nemo is relatively lifeless; its location within the South Pacific Gyre blocks nutrients from reaching the area, and being so far from land it gets little nutrient run-off from coastal waters."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "The nearest land is about 2,688 kilometers away, in three directions.",
       "show": [
         {
@@ -422,6 +469,46 @@
           "claim": "Spacecraft are made to fall there on re-entry.",
           "url": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
           "quote": "The wider area is also known as a 'spacecraft cemetery', because hundreds of decommissioned satellites, space stations, and other spacecraft have been made to fall there upon re-entering the atmosphere"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The area even shows up in fiction. In the 1928 story The Call of Cthulhu, H. P. Lovecraft placed his fictional city of R'lyeh here.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1928",
+          "light": true,
+          "at": "1928"
+        },
+        {
+          "type": "label",
+          "text": "R'LYEH",
+          "lat": -48.877,
+          "lon": -123.393,
+          "at": "fictional",
+          "style": "note",
+          "size": 70
+        },
+        {
+          "type": "grade",
+          "mode": "dusk",
+          "at": "fiction",
+          "until": "here"
+        }
+      ],
+      "camera": {
+        "lat": -48.8,
+        "lon": -123.4,
+        "zoom": 3.0,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "The area holds the location of the fictional city of R'lyeh in Lovecraft's 1928 story.",
+          "url": "https://en.wikipedia.org/wiki/Point_Nemo",
+          "quote": "The general area also plays a major role in the 1928 short story 'The Call of Cthulhu' by H. P. Lovecraft, as holding the location of the fictional city of R'lyeh"
         }
       ]
     },

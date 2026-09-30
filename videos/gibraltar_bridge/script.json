@@ -69,6 +69,17 @@
           "fill": "flag:ma",
           "at": "Africa",
           "fillOpacity": 0.7
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -180,6 +191,99 @@
           "claim": "North: Spain and Gibraltar; South: Morocco and Ceuta.",
           "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
           "quote": "On the northern side of the Strait are Spain and Gibraltar (a British overseas territory in the Iberian Peninsula). On the southern side are Morocco and Ceuta (a Spanish autonomous city in northern Africa)."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Ferries cross between the two continents every day, in as little as 35 minutes.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              36.01,
+              -5.6
+            ],
+            [
+              35.9,
+              -5.7
+            ],
+            [
+              35.79,
+              -5.8
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "Ferries",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "id": "fer",
+          "mover": {
+            "kind": "ship",
+            "size": 150,
+            "style": "ferry"
+          },
+          "drawDur": 2.6
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "35",
+              "value": "35 min"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "label",
+          "text": "Tarifa",
+          "lat": 36.01,
+          "lon": -5.6,
+          "at": "Ferries",
+          "dot": true,
+          "dy": -50,
+          "size": 36
+        },
+        {
+          "type": "label",
+          "text": "Tangier",
+          "lat": 35.79,
+          "lon": -5.8,
+          "at": "continents",
+          "dot": true,
+          "dy": 50,
+          "size": 36
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "every"
+        }
+      ],
+      "camera": {
+        "follow": "fer",
+        "zoom": 70,
+        "zoomTo": 50,
+        "duration": 0.9
+      },
+      "sources": [
+        {
+          "claim": "Ferries cross in as little as 35 minutes.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "Ferries cross between the two continents every day in as little as 35 minutes."
         }
       ]
     },
@@ -328,6 +432,79 @@
           "claim": "Lighter surface water flows east; denser, saltier water flows west beneath.",
           "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
           "quote": "A smaller amount of deeper, saltier and therefore denser waters continually flow westwards (the Mediterranean outflow), while a larger amount of surface waters with lower salinity and density continually flow eastwards"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And about 5.33 million years ago, the Atlantic reconnected with the Mediterranean right here, in the Zanclean flood.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "5.33",
+              "value": "5.33M years"
+            }
+          ],
+          "size": 150
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              36.0,
+              -6.6
+            ],
+            [
+              36.0,
+              -5.6
+            ],
+            [
+              36.05,
+              -4.7
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 16,
+          "at": "Atlantic",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.4
+        },
+        {
+          "type": "label",
+          "text": "ZANCLEAN FLOOD",
+          "lat": 36.35,
+          "lon": -5.9,
+          "at": "Zanclean",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 40
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "million"
+        }
+      ],
+      "camera": {
+        "lat": 36.0,
+        "lon": -5.6,
+        "zoom": 30
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "About 5.33 million years ago the Atlantic–Mediterranean connection was re-established through the strait by the Zanclean flood.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Gibraltar",
+          "quote": "approximately 5.33 million years ago, the Atlantic–Mediterranean connection was completely reestablished through the Strait of Gibraltar by the Zanclean flood"
         }
       ]
     },
@@ -527,6 +704,17 @@
             }
           ],
           "size": 150
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "More"
         }
       ],
       "camera": {

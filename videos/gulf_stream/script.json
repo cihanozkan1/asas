@@ -87,6 +87,17 @@
           "dot": true,
           "dy": -50,
           "size": 44
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_think",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "why"
         }
       ],
       "camera": {
@@ -217,6 +228,156 @@
       ]
     },
     {
+      "era": "history",
+      "text": "Europeans discovered it during Juan Ponce de León's expedition in 1512, and Spanish ships soon used it to travel faster.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1512",
+          "at": "1512"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              25.5,
+              -80.0
+            ],
+            [
+              28,
+              -79.5
+            ],
+            [
+              31,
+              -79.0
+            ],
+            [
+              35,
+              -75.5
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "Spanish",
+          "id": "pdl",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#c1121f",
+            "style": "caravel"
+          },
+          "drawDur": 2.2
+        },
+        {
+          "type": "flag",
+          "code": "es",
+          "lat": 27.5,
+          "lon": -82.5,
+          "size": 110,
+          "at": "Spanish",
+          "wave": true
+        }
+      ],
+      "camera": {
+        "lat": 30,
+        "lon": -78,
+        "zoom": 3.6
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "European discovery of the Gulf Stream dates to the 1512 expedition of Juan Ponce de León; Spanish ships then used it widely.",
+          "url": "https://en.wikipedia.org/wiki/Gulf_Stream",
+          "quote": "European discovery of the Gulf Stream dates to the 1512 expedition of Juan Ponce de León, after which it became widely used by Spanish ships."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And in 1769, Benjamin Franklin charted it, but most British sea captains ignored his map.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1769",
+          "at": "1769"
+        },
+        {
+          "type": "character",
+          "image": "franklin",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "Franklin",
+          "name": "Benjamin Franklin",
+          "say": "Use the current!"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              24.5,
+              -81.5
+            ],
+            [
+              27,
+              -79.8
+            ],
+            [
+              32,
+              -79
+            ],
+            [
+              35.3,
+              -75.2
+            ],
+            [
+              39,
+              -70
+            ],
+            [
+              41.5,
+              -60
+            ]
+          ],
+          "color": "#ff5a2a",
+          "width": 14,
+          "at": "charted",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.6
+        },
+        {
+          "type": "stamp",
+          "text": "IGNORED",
+          "size": 92,
+          "screen": [
+            0.5,
+            0.25
+          ],
+          "at": "ignored"
+        }
+      ],
+      "camera": {
+        "lat": 35,
+        "lon": -68,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "Franklin's Gulf Stream chart was printed in 1769 but mostly ignored by British sea captains.",
+          "url": "https://en.wikipedia.org/wiki/Gulf_Stream",
+          "quote": "Franklin's Gulf Stream chart was printed in 1769 in London, but it was mostly ignored by British sea captains."
+        }
+      ]
+    },
+    {
       "era": "now",
       "text": "It's about 100 kilometers wide, and up to 1,200 meters deep.",
       "show": [
@@ -266,6 +427,66 @@
     },
     {
       "era": "now",
+      "text": "At its fastest, the current moves at about 2.5 meters per second.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "2.5",
+              "value": "2.5 m/s"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              24.5,
+              -81.5
+            ],
+            [
+              27,
+              -79.8
+            ],
+            [
+              32,
+              -79
+            ],
+            [
+              35.3,
+              -75.2
+            ],
+            [
+              39,
+              -70
+            ]
+          ],
+          "color": "#ff5a2a",
+          "width": 20,
+          "at": "fastest",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 0.8,
+          "flowSpeed": 480
+        }
+      ],
+      "camera": {
+        "lat": 33,
+        "lon": -75,
+        "zoom": 3.2
+      },
+      "sources": [
+        {
+          "claim": "The maximum speed is typically about 2.5 m/s.",
+          "url": "https://en.wikipedia.org/wiki/Gulf_Stream",
+          "quote": "The current velocity is fastest near the surface, with the maximum speed typically about 2.5 m/s (5.6 mph)."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Through Florida, it moves 30 million cubic meters of water every second. More than all the rivers flowing into the Atlantic combined.",
       "show": [
         {
@@ -291,6 +512,17 @@
             0.3
           ],
           "labelWidth": 240
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "million"
         }
       ],
       "camera": {

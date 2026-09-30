@@ -129,6 +129,17 @@
             0.5,
             0.22
           ]
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
         }
       ],
       "camera": {
@@ -146,6 +157,71 @@
           "claim": "The ice sheet covers 81% of it.",
           "url": "https://en.wikipedia.org/wiki/Greenland",
           "quote": "covers 1,755,637 km2 (677,855 sq mi) (81%)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That ice is more than 3 kilometers thick, and if it all melted, the oceans would rise by about 7 meters.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "GRL",
+          "fill": "#38bdf8",
+          "at": "ice",
+          "fillOpacity": 0.6,
+          "neon": "#9ee7ff"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "thick",
+              "value": "3,488 m"
+            },
+            {
+              "at": "melted",
+              "value": "+7.4 m"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "icon",
+          "icon": "art:wave",
+          "lat": 66,
+          "lon": -52,
+          "size": 140,
+          "plain": true,
+          "at": "oceans"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "at": "melted",
+          "size": 160
+        }
+      ],
+      "camera": {
+        "lat": 72,
+        "lon": -40,
+        "zoom": 2.4
+      },
+      "sources": [
+        {
+          "claim": "The ice sheet is over 3,488 m thick at its maximum.",
+          "url": "https://en.wikipedia.org/wiki/Greenland_ice_sheet",
+          "quote": "over 3,488 m (11,444 ft) thick at its maximum"
+        },
+        {
+          "claim": "If it all melted, global sea level would rise by about 7.4 m.",
+          "url": "https://en.wikipedia.org/wiki/Greenland_ice_sheet",
+          "quote": "If all 2,900,000 cubic kilometres (696,000 cu mi) of the ice sheet were to melt, it would increase global sea levels by ~7.4 m (24 ft)"
         }
       ]
     },
@@ -320,6 +396,144 @@
     },
     {
       "era": "now",
+      "text": "Iceland sits right on the Mid-Atlantic Ridge, where two tectonic plates are moving away from each other.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              58,
+              -31
+            ],
+            [
+              62,
+              -25
+            ],
+            [
+              64.5,
+              -19
+            ],
+            [
+              66.2,
+              -17
+            ],
+            [
+              70,
+              -10
+            ]
+          ],
+          "color": "#ff5a2a",
+          "width": 10,
+          "at": "Ridge",
+          "drawDur": 1.4
+        },
+        {
+          "type": "icon",
+          "icon": "art:volcano",
+          "lat": 64.0,
+          "lon": -19.0,
+          "size": 150,
+          "plain": true,
+          "at": "plates"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            64.5,
+            -19
+          ],
+          "to": [
+            64.5,
+            -28
+          ],
+          "color": "#ffd60a",
+          "at": "moving"
+        },
+        {
+          "type": "arrow",
+          "from": [
+            64.5,
+            -19
+          ],
+          "to": [
+            64.5,
+            -10
+          ],
+          "color": "#ffd60a",
+          "at": "away"
+        }
+      ],
+      "camera": {
+        "lat": 64.5,
+        "lon": -19,
+        "zoom": 5
+      },
+      "sources": [
+        {
+          "claim": "Iceland sits on the Mid-Atlantic Ridge where the Eurasian and North American plates move apart.",
+          "url": "https://en.wikipedia.org/wiki/Iceland",
+          "quote": "The island sits directly on the Mid-Atlantic Ridge, where the Eurasian Plate and the North American Plate are moving away from each other."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Thanks to geothermal power, most people there enjoy cheap hot water, heating and electricity.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "ISL",
+          "fill": "#16a34a",
+          "at": "geothermal",
+          "fillOpacity": 0.85,
+          "neon": "#4ade80"
+        },
+        {
+          "type": "icon",
+          "icon": "art:fire",
+          "lat": 64.0,
+          "lon": -20.5,
+          "size": 140,
+          "plain": true,
+          "at": "geothermal"
+        },
+        {
+          "type": "icon",
+          "icon": "art:water_drop",
+          "lat": 65.2,
+          "lon": -18.0,
+          "size": 110,
+          "plain": true,
+          "at": "hot"
+        },
+        {
+          "type": "label",
+          "text": "cheap hot water + power",
+          "at": "cheap",
+          "style": "pill",
+          "bg": "#15803d",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 64.9,
+        "lon": -19,
+        "zoom": 7
+      },
+      "sources": [
+        {
+          "claim": "Geothermal power and hydroelectricity give most residents inexpensive hot water, heating and electricity.",
+          "url": "https://en.wikipedia.org/wiki/Iceland",
+          "quote": "With the widespread availability of geothermal power and the harnessing of many rivers and waterfalls for hydroelectricity, most residents have access to inexpensive hot water, heating, and electricity."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Today, lakes and glaciers cover only 14.3 percent of Iceland.",
       "show": [
         {
@@ -357,6 +571,17 @@
             0.3
           ],
           "labelWidth": 280
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {

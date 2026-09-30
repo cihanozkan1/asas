@@ -181,6 +181,17 @@
             10
           ],
           "hold": 2
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Every"
         }
       ],
       "camera": {
@@ -297,6 +308,180 @@
     },
     {
       "era": "now",
+      "text": "The tracks are named with letters. Westbound tracks start at A, and eastbound tracks count backwards from Z.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              45,
+              -53
+            ],
+            [
+              48,
+              -40
+            ],
+            [
+              50,
+              -30
+            ],
+            [
+              51,
+              -20
+            ],
+            [
+              50,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "tracks",
+          "drawDur": 0.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              47,
+              -53
+            ],
+            [
+              50,
+              -40
+            ],
+            [
+              52,
+              -30
+            ],
+            [
+              53,
+              -20
+            ],
+            [
+              52,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "tracks",
+          "drawDur": 0.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -53
+            ],
+            [
+              52,
+              -40
+            ],
+            [
+              54,
+              -30
+            ],
+            [
+              55,
+              -20
+            ],
+            [
+              54,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "tracks",
+          "drawDur": 0.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              51,
+              -53
+            ],
+            [
+              54,
+              -40
+            ],
+            [
+              56,
+              -30
+            ],
+            [
+              57,
+              -20
+            ],
+            [
+              56,
+              -10
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "tracks",
+          "drawDur": 0.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "label",
+          "text": "TRACK A",
+          "lat": 56.5,
+          "lon": -34,
+          "at": "Westbound",
+          "style": "pill",
+          "bg": "#2de2e6",
+          "size": 42
+        },
+        {
+          "type": "label",
+          "text": "TRACK Z",
+          "lat": 46.5,
+          "lon": -34,
+          "at": "eastbound",
+          "style": "pill",
+          "bg": "#ff5a5f",
+          "size": 42
+        }
+      ],
+      "camera": {
+        "lat": 50,
+        "lon": -32,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "Westbound tracks are lettered A, B, C... (A northernmost); eastbound Z, Y, X...",
+          "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
+          "quote": "Westbound tracks...are indicated by the letters A, B, C, D etc...where A is the northernmost track. Eastbound tracks...are indicated by the letters Z, Y, X, W etc."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "And here's the strange part: they're re-drawn twice every day.",
       "show": [
         {
@@ -327,6 +512,17 @@
             0.45
           ],
           "size": 200
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "every"
         }
       ],
       "sources": [
@@ -334,6 +530,77 @@
           "claim": "The tracks are created twice daily.",
           "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
           "quote": "created twice daily to take account of the shifting of the winds aloft"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Planes on the tracks fly between 29,000 and 41,000 feet.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "29,000",
+              "value": "29,000 ft"
+            },
+            {
+              "at": "41,000",
+              "value": "41,000 ft"
+            }
+          ],
+          "size": 160
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              47,
+              -53
+            ],
+            [
+              50,
+              -40
+            ],
+            [
+              52,
+              -30
+            ],
+            [
+              53,
+              -20
+            ],
+            [
+              52,
+              -10
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "fly",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 2.4
+        }
+      ],
+      "camera": {
+        "lat": 50,
+        "lon": -32,
+        "zoom": 2.0
+      },
+      "sources": [
+        {
+          "claim": "The routes are used between 29,000 and 41,000 ft.",
+          "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
+          "quote": "The routes are used for aircraft operating between the altitudes of 29,000 and 41,000 ft (8,800 and 12,500 m) inclusive"
         }
       ]
     },
@@ -765,6 +1032,87 @@
           "claim": "In 1952 Pan Am cut Tokyo–Honolulu from 18 to 11.5 hours using the jet stream.",
           "url": "https://en.wikipedia.org/wiki/Jet_stream",
           "quote": "cut the trip time by over one-third, from 18 to 11.5 hours"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And since 2015, a new procedure has cut the gap between tracks in half, from 60 to 30 nautical miles.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2015",
+          "at": "2015"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "60",
+              "value": "60 nm"
+            },
+            {
+              "at": "30",
+              "value": "30 nm"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49,
+              -45
+            ],
+            [
+              53,
+              -15
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "gap",
+          "drawDur": 0.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              50.5,
+              -45
+            ],
+            [
+              54.5,
+              -15
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 5,
+          "at": "gap",
+          "drawDur": 0.6,
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 51,
+        "lon": -30,
+        "zoom": 3.2
+      },
+      "sources": [
+        {
+          "claim": "In November 2015 reduced lateral separation halved the track spacing from 60 to 30 nautical miles.",
+          "url": "https://en.wikipedia.org/wiki/North_Atlantic_Tracks",
+          "quote": "In November 2015, a new procedure allowing for reduced lateral separation minima (RLAT) was introduced. RLAT reduces the standard distance between NAT tracks from 60 to 30 nautical miles"
         }
       ]
     },

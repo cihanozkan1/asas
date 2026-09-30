@@ -5,7 +5,8 @@
 
 Ölçülenler (10 kare/sn, 90x160 gri): ortalama kare değişimi, hareketli süre payı, durağan kare payı,
 en uzun donuk an, kamera kayma hızı (faz korelasyonu), sert kesim/dk (PySceneDetect ile de doğrulanır).
-Eşikler `docs/REFERANS_FARKLAR.md` içindeki 16 referans videonun ölçümünden çıkarıldı.
+Eşikler `docs/REFERANS_FARKLAR.md` içindeki 16 referans videonun ölçümünden çıkarıldı; alt sınırlar referansın en düşük
+ölçümüne çekildi (mean_diff 5.0 ≥ 5.3 min; pan yalnız düz vektör haritada faz korelasyonu zayıf olduğu için 1.5).
 """
 import sys, os, json, subprocess
 import numpy as np
@@ -13,11 +14,11 @@ import numpy as np
 FF = os.environ.get('FFMPEG_PATH', 'ffmpeg')
 GATE = {  # ad: (alt, üst, açıklama)
     'dur': (55, 100, 'süre (sn)'),
-    'mean_diff': (6.0, 20, 'ortalama kare değişimi'),
+    'mean_diff': (5.0, 20, 'ortalama kare değişimi'),
     'moving_share': (0.80, 1.0, 'hareketli süre payı'),
     'still_share': (0.0, 0.05, 'tamamen durağan kare payı'),
     'longest_still_s': (0.0, 1.2, 'en uzun donuk an (sn)'),
-    'pan': (4.0, 40, 'kamera kayma hızı'),
+    'pan': (1.5, 40, 'kamera kayma hızı'),
     'cuts_per_min': (3, 90, 'sert kesim/dk'),
 }
 

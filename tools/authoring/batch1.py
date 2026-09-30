@@ -109,6 +109,11 @@ save('chile', meta(
             cnt('+⅓', 'third', size=220), hl(CHL, '#c1121f', 0.1, fillOpacity=0.8)],
           cam=fit(CHL, pad=0.9), era='history',
           src=[src('Chile expanded northward by almost one-third.', 'Chile', 'Chile expanding its territory northward by almost one-third')]),
+        S("And the ribbon doesn't even stop there. Chile also claims about 1.25 million square kilometers of Antarctica.", [
+            hl(CHL, 'flag:cl', 0.05, fillOpacity=0.8), trace(box(-90, -90, -53, -60), '#ff5a5f', 'claims', neon='#ffd60a'), cnt('1.25M km²', 'million', size=150),
+            lab('CHILEAN ANTARCTIC CLAIM', -76, -72, 'Antarctica', style='pill', bg='#c1121f', size=40), arrow((-56, -70), (-66, -72), 'stop', color='#ffd60a')],
+          cam=fit(CHL, box(-90, -90, -53, -60), pad=0.9),
+          src=[src('Chile claims about 1,250,000 km² of Antarctica.', 'Chile', 'claims about 1,250,000 square kilometers (480,000 sq mi) of Antarctica')]),
         S("That's how Chile became a 4,300 kilometer ribbon, squeezed between the mountains and the ocean.", [
             blob(CHL, '#d62828', '#ffb703', 'ribbon', softness=8), cnt('4,300 km', '4,300', size=150)],
           cam=fit(CHL, pad=0.9, bearing=-3), tr='flash',
@@ -138,6 +143,12 @@ save('lesotho', meta(
           cam=fit(LSO, pad=0.85),
           src=[src('The only independent state entirely above 1,000 m; its lowest point is 1,400 m.', 'Lesotho',
                    'the only independent state in the world that lies entirely above 1,000 metres ... its lowest point at 1,400 meters')]),
+        S("Its highest peak, Thabana Ntlenyana, stands 3,482 meters tall, the highest mountain in southern Africa.", [
+            art('mountain', -29.47, 29.28, 'Thabana', size=180), ping(-29.47, 29.28, 'Thabana', color='#ffd60a'), cnt('3,482 m', '3,482', size=150),
+            dot('Thabana Ntlenyana', -29.47, 29.28, 'Thabana', dy=-52, size=36)],
+          cam=at_(-29.5, 28.9, 14, bearing=-3),
+          src=[src('Thabana Ntlenyana stands 3,482 m tall.', 'Thabana_Ntlenyana', 'It stands 3,482 metres (11,424 ft) tall within the Maloti Mountains'),
+               src('It is the highest mountain in southern Africa.', 'Thabana_Ntlenyana', 'Thabana Ntlenyana is the highest mountain in southern Africa.')]),
         S("So why isn't it just part of South Africa?", [
             hl(ZAF, '#e76f51', 0.05, fillOpacity=0.8), hl(LSO, '#2a9d8f', 0.05, fillOpacity=0.95), q(-29.5, 28.3, 'why')],
           cam=fit(ZAF, pad=0.9), style='dark', no_claim=True),
@@ -163,6 +174,13 @@ save('lesotho', meta(
             year(1966, '1966', light=True), hl(LSO, 'flag:ls', 'independent', fillOpacity=0.9), hl(ZAF, '#e5e7eb', 'inside', fillOpacity=0.25)],
           cam=fit(LSO, pad=0.75, bearing=-3), tr='flash',
           src=[src('Independence on 4 October 1966 as the Kingdom of Lesotho.', 'Lesotho', 'achieving independence on October 4, 1966')]),
+        S("And today, this mountain kingdom even sells its water to South Africa, through giant dams.", [
+            art('dam', -29.33, 28.5, 'sells', size=170), flow([(-29.33, 28.5), (-28.5, 28.3), (-27.5, 28.15), (-26.9, 28.1)], 'water', color='#5ec8ff', width=12, drawDur=1.6),
+            lab('Vaal River System', -26.6, 28.1, 'South', style='pill', bg='#1d4ed8', size=40), art('water_drop', -28.2, 28.6, 'water', size=110)],
+          cam=fit(LSO, ZAF, pad=0.8, bearing=-3), tr='flash',
+          src=[src('The Lesotho Highlands Water Project delivers water to South Africa\'s Vaal River System in exchange for revenue.', 'Lesotho_Highlands_Water_Project',
+                   'provide Lesotho with a source of revenue in exchange for the provision of water to South Africa, as well as generate hydroelectricity for Lesotho'),
+               src('It delivers water to the Vaal River System in South Africa.', 'Lesotho_Highlands_Water_Project', 'delivers water to the Vaal River System in South Africa')]),
     ],
     keywords={'lesotho': '#5ec8ff', 'south': '#4ade80', 'africa': '#4ade80', 'britain': '#ff5a5f', 'basutoland': '#ffd60a'})
 
@@ -211,6 +229,12 @@ save('wakhan', meta(
           cam=at_(34, 72, 1.6), era='history',
           src=[src('The Anglo-Russian Convention of 1907 formally delineated control in Afghanistan, Persia and Tibet.', 'Great_Game',
                    'the Anglo-Russian Convention of 1907, which "created an alliance between Britain and Russia, and formally delineated control in Afghanistan, Persia, and Tibet."')]),
+        S("At its eastern tip, the corridor touches China along a 92 kilometer border, at a mountain pass almost 5,000 meters high.", [
+            hl('CHN', 'flag:cn', 'China', fillOpacity=0.7), meas((36.85, 74.6), (37.05, 74.35), '92 km border', '92', countUp=False),
+            ping(37.0, 74.5, 'pass', color='#ffd60a'), dot('Wakhjir Pass', 37.0, 74.5, 'pass', dy=-52, size=34), cnt('4,923 m', '5,000', size=140)],
+          cam=at_(37.0, 74.3, 22, bearing=-4),
+          src=[src('The corridor forms a 92 km boundary with China.', 'Wakhan_Corridor', 'forming the 92 km (57 mi) boundary between the two countries'),
+               src('The Wakhjir Pass is 4,923 m high.', 'Wakhan_Corridor', 'The Wakhjir Pass is 4,923 m (16,152 ft) in elevation')]),
         S("Today, about 18,000 people live there, high in the Pamir mountains.", [
             cnt('18,000', '18,000', size=170), pill('people', '18,000'), scatter(AFG, '🏔️', 'Pamir', count=3, size=70, minLat=36.6, stagger=0.15),
             slam('PAMIR', 37.8, 74.2, 'Pamir', size=76)],
@@ -261,5 +285,11 @@ save('gambia', meta(
             pill('Senegambia 1982–1989', '1982', bg='#16a34a')],
           cam=fit(SEN, pad=0.9, bearing=-3), tr='flash',
           src=[src('Independence 18 February 1965; Senegambia Confederation 1982–1989.', 'The_Gambia', 'formed the Senegambia Confederation with its neighbor in 1982, but "permanently withdrew from the confederation in 1989."')]),
+        S("Today, about 2.4 million people live in this river country, which is less than 50 kilometers wide at its widest point.", [
+            hl(GMB, 'flag:gm', 0.05, fillOpacity=0.85, neon='#ffd60a'), cnt('2.4M', 'million', size=180), pill('people', 'people'),
+            crowd(13.45, -15.6, 'live', count=30, cols=10, size=26, color='#ffffff')],
+          cam=fit(GMB, pad=0.8, bearing=-3),
+          src=[src('Population 2,422,712 (2024 census).', 'The_Gambia', 'population of 2,422,712 people at the 1 May 2024 census'),
+               src('Less than 50 km wide at its widest point.', 'The_Gambia', 'The Gambia is less than 50 kilometres (31 miles) wide at its widest point')]),
     ],
     keywords={'gambia': '#ff5a5f', 'senegal': '#4ade80', 'river': '#5ec8ff', 'british': '#ff5a5f', 'france': '#5ec8ff'})

@@ -266,6 +266,17 @@
           "width": 9,
           "at": "long",
           "drawDur": 1.2
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -372,6 +383,63 @@
     },
     {
       "era": "now",
+      "text": "The United States spent almost 500 million dollars building it, and about 5,600 workers died from disease and accidents.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "500",
+              "value": "$500M"
+            },
+            {
+              "at": "5,600",
+              "value": "5,600"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "icon",
+          "icon": "art:banknotes",
+          "lat": 9.35,
+          "lon": -79.78,
+          "size": 140,
+          "plain": true,
+          "at": "spent"
+        },
+        {
+          "type": "icon",
+          "icon": "art:skull",
+          "lat": 9.0,
+          "lon": -79.6,
+          "size": 130,
+          "plain": true,
+          "at": "died"
+        }
+      ],
+      "camera": {
+        "lat": 9.1,
+        "lon": -79.75,
+        "zoom": 40,
+        "bearing": -3
+      },
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "The US spent almost $500 million on construction.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "The United States spent almost $500 million (roughly equivalent to $16.1 billion in 2025)."
+        },
+        {
+          "claim": "About 5,600 workers died from disease and accidents during US construction.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "about 5,600 workers died from disease and accidents during the US construction phase"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Now the New York to San Francisco trip is only about 9,500 kilometers.",
       "show": [
         {
@@ -449,6 +517,17 @@
             }
           ],
           "size": 160
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -556,6 +635,54 @@
     },
     {
       "era": "now",
+      "text": "And in 2016, a third, wider lane of locks began operating.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "art:canal_lock",
+          "lat": 9.272,
+          "lon": -79.921,
+          "size": 170,
+          "plain": true,
+          "at": "third"
+        },
+        {
+          "type": "icon",
+          "icon": "art:canal_lock",
+          "lat": 9.017,
+          "lon": -79.593,
+          "size": 170,
+          "plain": true,
+          "at": "wider"
+        },
+        {
+          "type": "year",
+          "value": "2016",
+          "light": true,
+          "at": "2016"
+        },
+        {
+          "type": "particles",
+          "kind": "confetti",
+          "at": "operating",
+          "density": 0.35
+        }
+      ],
+      "camera": {
+        "lat": 9.13,
+        "lon": -79.75,
+        "zoom": 45
+      },
+      "sources": [
+        {
+          "claim": "A third, wider lane of locks was built 2007–2016 and began commercial operation on 26 June 2016.",
+          "url": "https://en.wikipedia.org/wiki/Panama_Canal",
+          "quote": "A third, wider lane of locks was constructed between September 2007 and May 2016. The expanded waterway began commercial operation on 26 June 2016."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "The United States ran the canal for most of the century, but in 1999, Panama finally took control.",
       "show": [
         {
@@ -590,6 +717,17 @@
           "target": "PAN",
           "fill": "flag:pa",
           "at": "Panama"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "finally"
         }
       ],
       "camera": {

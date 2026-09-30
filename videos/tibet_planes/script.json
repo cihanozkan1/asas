@@ -189,6 +189,61 @@
     },
     {
       "era": "now",
+      "text": "Flight maps show an empty hole over it, about the size of Western Europe.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Xizang",
+              "Qinghai"
+            ],
+            "country": "CHN"
+          },
+          "fill": "#ff3b3b",
+          "at": "hole",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "ghost",
+          "target": {
+            "countries": [
+              "PRT",
+              "ESP",
+              "FRA",
+              "GBR",
+              "IRL",
+              "BEL",
+              "NLD",
+              "DEU",
+              "CHE",
+              "AUT",
+              "ITA"
+            ]
+          },
+          "to": {
+            "lat": 33,
+            "lon": 90
+          },
+          "fill": "#2de2e6",
+          "at": "Europe"
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 88,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "The flight map has a hole the size of Western Europe over Tibet.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "a hole the size of Western Europe"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "It's the largest and highest plateau on Earth, about 2,500 kilometers wide.",
       "show": [
         {
@@ -226,6 +281,17 @@
           ],
           "label": "2,500 km",
           "at": "wide"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
         }
       ],
       "camera": {
@@ -482,6 +548,60 @@
     },
     {
       "era": "now",
+      "text": "Winds of 100 to 200 kilometers per hour slam into a 2,500 kilometer wall of rock, and create violent turbulence.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "💨",
+          "lat": 34,
+          "lon": 84,
+          "size": 150,
+          "at": "Winds"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "100",
+              "value": "100–200 km/h"
+            }
+          ],
+          "size": 130
+        },
+        {
+          "type": "measure",
+          "from": [
+            33,
+            76
+          ],
+          "to": [
+            32,
+            101
+          ],
+          "label": "2,500 km wall",
+          "at": "wall",
+          "countUp": false
+        },
+        {
+          "type": "shake",
+          "at": "turbulence"
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 89,
+        "zoom": 3.4
+      },
+      "sources": [
+        {
+          "claim": "Winds of 100–200 km/h slam into a 2,500 km wall of rock, causing clear-air turbulence.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "winds of 100–200 km/h slam into a 2,500-kilometre wall of rock"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Airports are rare and far apart, and strong winds turn the air into a washing machine.",
       "show": [
         {
@@ -543,6 +663,108 @@
     },
     {
       "era": "now",
+      "text": "So planes take a detour, either north over Urumqi, or south over India.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              41.3,
+              69.2
+            ],
+            [
+              43.9,
+              87.6
+            ],
+            [
+              39.9,
+              116.4
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "north",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 2.2,
+          "id": "pn"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              25.3,
+              55.4
+            ],
+            [
+              20,
+              78
+            ],
+            [
+              13.7,
+              100.5
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 4,
+          "at": "south",
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "plane",
+            "size": 120
+          },
+          "drawDur": 2.2,
+          "id": "ps"
+        },
+        {
+          "type": "label",
+          "text": "Urumqi",
+          "lat": 43.83,
+          "lon": 87.6,
+          "at": "Urumqi",
+          "dot": true,
+          "dy": -48,
+          "size": 38
+        },
+        {
+          "type": "label",
+          "text": "India",
+          "lat": 22,
+          "lon": 78,
+          "at": "India",
+          "dot": true,
+          "dy": 48,
+          "size": 38
+        }
+      ],
+      "camera": {
+        "lat": 32,
+        "lon": 88,
+        "zoom": 2.0
+      },
+      "sources": [
+        {
+          "claim": "Aircraft take a dog-leg north over Urumqi or south over India.",
+          "url": "https://migflug.com/jetflights/why-airliners-dont-fly-over-tibet/",
+          "quote": "a strange dog-leg north over Urumqi or south over India"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "So it's not a no-fly zone. It's just a place where an emergency has no safe ending.",
       "show": [
         {
@@ -567,6 +789,17 @@
             0.33
           ],
           "at": "safe"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "just"
         }
       ],
       "camera": {

@@ -59,6 +59,17 @@
             }
           ],
           "size": 240
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "whole"
         }
       ],
       "camera": {
@@ -190,12 +201,69 @@
     },
     {
       "era": "now",
+      "text": "That makes San Marino the oldest surviving sovereign state, and the oldest constitutional republic on Earth.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "oldest",
+              "value": "#1"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "icon",
+          "icon": "art:crown",
+          "lat": 43.94,
+          "lon": 12.520000000000001,
+          "size": 120,
+          "plain": true,
+          "at": "oldest"
+        },
+        {
+          "type": "highlight",
+          "target": "SMR",
+          "fill": "flag:sm",
+          "at": "oldest",
+          "fillOpacity": 0.9,
+          "neon": "#ffd60a"
+        }
+      ],
+      "camera": {
+        "lat": 43.94,
+        "lon": 12.45,
+        "zoom": 200,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "San Marino is the oldest extant sovereign state and the oldest constitutional republic.",
+          "url": "https://en.wikipedia.org/wiki/San_Marino",
+          "quote": "the oldest extant sovereign state, and the oldest constitutional republic"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "So how did it survive when Italy unified?",
       "show": [
         {
           "type": "question",
           "lat": 43.5,
           "lon": 12.3,
+          "at": "how"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_think",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
           "at": "how"
         }
       ],
@@ -361,6 +429,17 @@
           "dot": true,
           "dy": 52,
           "size": 38
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "just"
         }
       ],
       "camera": {
@@ -410,6 +489,52 @@
           "claim": "Population about 882 (2024).",
           "url": "https://en.wikipedia.org/wiki/Vatican_City",
           "quote": "a population of about 882 in 2024"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Its ruler is the pope, in a rare case of a monarchy where the ruler is not born into the job.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "ruler",
+              "value": "1"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "character",
+          "image": "pope",
+          "screen": [
+            0.25,
+            0.6
+          ],
+          "at": "pope",
+          "name": "The Pope"
+        },
+        {
+          "type": "highlight",
+          "target": "VAT",
+          "fill": "#ffd60a",
+          "at": "monarchy",
+          "neon": "#ffd60a"
+        }
+      ],
+      "camera": {
+        "lat": 41.9,
+        "lon": 12.47,
+        "zoom": 260,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "The pope holds legislative, executive and judicial power; a rare non-hereditary monarchy.",
+          "url": "https://en.wikipedia.org/wiki/Vatican_City",
+          "quote": "The pope exercises principal legislative, executive, and judicial power over the State of Vatican City, which is a rare case of a non-hereditary monarchy."
         }
       ]
     },
@@ -554,6 +679,17 @@
           "dot": true,
           "dy": -50,
           "size": 44
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Only"
         }
       ],
       "camera": {

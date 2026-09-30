@@ -97,6 +97,17 @@
           ],
           "size": 220,
           "color": "#ff5a5f"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "more"
         }
       ],
       "camera": {
@@ -109,6 +120,86 @@
           "claim": "More than 6,400 km and no bridge connects its banks.",
           "url": "https://www.labrujulaverde.com/en/2026/05/no-bridge-crosses-the-amazon-the-longest-river-in-the-world-how-is-it-possible/",
           "quote": "along its more than 6,400 kilometers, no bridge connects its banks. Not a single one."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It carries about 223,700 cubic meters of water every second, and its basin covers almost 7 million square kilometers.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              -4.4,
+              -73.2
+            ],
+            [
+              -3.7,
+              -70.0
+            ],
+            [
+              -3.3,
+              -64.7
+            ],
+            [
+              -3.1,
+              -60.0
+            ],
+            [
+              -2.6,
+              -56.7
+            ],
+            [
+              -2.0,
+              -54.0
+            ],
+            [
+              -1.5,
+              -52.5
+            ],
+            [
+              0.0,
+              -50.0
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 14,
+          "at": "carries",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.6
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "223,700",
+              "value": "223,700 m³/s"
+            },
+            {
+              "at": "7",
+              "value": "7M km²"
+            }
+          ],
+          "size": 150
+        }
+      ],
+      "camera": {
+        "lat": -3,
+        "lon": -61,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "Average discharge 223,700 m³/s at the delta.",
+          "url": "https://en.wikipedia.org/wiki/Amazon_River",
+          "quote": "average 223,700 m3/s (7,900,000 cu ft/s)"
+        },
+        {
+          "claim": "The basin covers 6,925,674 km².",
+          "url": "https://en.wikipedia.org/wiki/Amazon_River",
+          "quote": "Basin size 6,925,674 km2"
         }
       ]
     },
@@ -387,6 +478,17 @@
           "type": "year",
           "value": "1990",
           "at": "1990s"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "more"
         }
       ],
       "transition": "flash",
@@ -476,6 +578,71 @@
           "claim": "There are few roads on either side that need connecting.",
           "url": "https://interestingfacts.com/fact/there-are-no-bridges-across-the-amazon-river/",
           "quote": "there are few roads on either side of the Amazon that need to be connected"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And at its mouth, the river is so wide that the estuary can reach 340 kilometers across.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            -0.4,
+            -51.5
+          ],
+          "to": [
+            -0.4,
+            -48.0
+          ],
+          "label": "340 km",
+          "at": "340",
+          "countUp": false
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "340",
+              "value": "340 km"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              -1.0,
+              -52.0
+            ],
+            [
+              0.0,
+              -50.0
+            ],
+            [
+              0.8,
+              -48.5
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 16,
+          "at": "mouth",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.2
+        }
+      ],
+      "camera": {
+        "lat": 0.0,
+        "lon": -50.0,
+        "zoom": 6
+      },
+      "sources": [
+        {
+          "claim": "The estuary is up to 340 km wide.",
+          "url": "https://en.wikipedia.org/wiki/Amazon_River",
+          "quote": "maximum 340 km (210 mi) (estuary)"
         }
       ]
     },
@@ -600,6 +767,17 @@
             }
           ],
           "size": 160
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {

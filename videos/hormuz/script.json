@@ -110,6 +110,17 @@
           ],
           "label": "39 km",
           "at": "narrowest"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -166,6 +177,62 @@
           "claim": "It separates Iran from Oman's Musandam Peninsula.",
           "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
           "quote": "The waterway separates Iran on the north from Oman's Musandam Peninsula on the south"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In 2018, about 21 million barrels of oil passed through it every single day.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "21",
+              "value": "21M"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "label",
+          "text": "barrels per day",
+          "at": "barrels",
+          "style": "pill",
+          "bg": "#111827",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "circle": {
+              "lat": 26.5,
+              "lon": 56.5,
+              "km": 30
+            }
+          },
+          "icon": "art:oil_barrel",
+          "count": 5,
+          "size": 90,
+          "at": "oil",
+          "stagger": 0.12
+        }
+      ],
+      "camera": {
+        "lat": 26.55,
+        "lon": 56.45,
+        "zoom": 26,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "In 2018, 21 million barrels a day passed through the strait.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "In 2018, 21 million barrels a day passed through the strait, worth $1.2 billion in 2019 prices."
         }
       ]
     },
@@ -236,6 +303,17 @@
             0.23
           ],
           "size": 46
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Just"
         }
       ],
       "camera": {
@@ -406,6 +484,17 @@
             0.2
           ],
           "at": "open"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -477,6 +566,64 @@
           "claim": "20% of the world's LNG passed through the strait.",
           "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
           "quote": "20% of the world's liquefied natural gas and 25% of seaborne oil trade passed through the Strait"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "Even the name may come from a Persian phrase meaning Place of Dates, and from the 10th to the 17th century, the Kingdom of Ormus stood right here.",
+      "show": [
+        {
+          "type": "label",
+          "text": "HORMUZ",
+          "lat": 27.3,
+          "lon": 56.4,
+          "at": "name",
+          "style": "extrude",
+          "anim": "giant",
+          "size": 90
+        },
+        {
+          "type": "icon",
+          "icon": "art:palm",
+          "lat": 26.9,
+          "lon": 56.0,
+          "size": 130,
+          "plain": true,
+          "at": "Dates"
+        },
+        {
+          "type": "year",
+          "value": "10th–17th",
+          "light": true,
+          "at": "Kingdom"
+        },
+        {
+          "type": "icon",
+          "icon": "art:crown",
+          "lat": 27.0,
+          "lon": 56.9,
+          "size": 110,
+          "plain": true,
+          "at": "Ormus"
+        }
+      ],
+      "camera": {
+        "lat": 26.8,
+        "lon": 56.4,
+        "zoom": 12,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "One theory says the name comes from the Persian Hur-Mogh, \"Place of Dates\".",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "One theory is the name derives from the local Persian language word Hur-Mogh هورمغ 'Place of Dates'"
+        },
+        {
+          "claim": "In the 10th–17th centuries AD, the Kingdom of Ormus was located here.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "In the 10th–17th centuries AD, the Kingdom of Ormus was located here."
         }
       ]
     },

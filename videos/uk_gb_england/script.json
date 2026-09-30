@@ -128,6 +128,92 @@
     },
     {
       "era": "now",
+      "text": "Their capitals are London for England, Edinburgh for Scotland, Cardiff for Wales, and Belfast for Northern Ireland.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 51.5,
+          "lon": -0.12,
+          "color": "#ffd60a",
+          "at": "London"
+        },
+        {
+          "type": "ping",
+          "lat": 55.95,
+          "lon": -3.19,
+          "color": "#ffd60a",
+          "at": "Edinburgh"
+        },
+        {
+          "type": "ping",
+          "lat": 51.48,
+          "lon": -3.18,
+          "color": "#ffd60a",
+          "at": "Cardiff"
+        },
+        {
+          "type": "ping",
+          "lat": 54.6,
+          "lon": -5.93,
+          "color": "#ffd60a",
+          "at": "Belfast"
+        },
+        {
+          "type": "label",
+          "text": "London",
+          "lat": 51.5,
+          "lon": -0.12,
+          "at": "London",
+          "dot": true,
+          "dy": 50,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Edinburgh",
+          "lat": 55.95,
+          "lon": -3.19,
+          "at": "Edinburgh",
+          "dot": true,
+          "dy": -50,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Cardiff",
+          "lat": 51.48,
+          "lon": -3.18,
+          "at": "Cardiff",
+          "dot": true,
+          "dy": 50,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "Belfast",
+          "lat": 54.6,
+          "lon": -5.93,
+          "at": "Belfast",
+          "dot": true,
+          "dy": -50,
+          "size": 40
+        }
+      ],
+      "camera": {
+        "lat": 54.0,
+        "lon": -3.5,
+        "zoom": 5.0
+      },
+      "sources": [
+        {
+          "claim": "London is the capital; Edinburgh, Cardiff and Belfast are the national capitals of Scotland, Wales and Northern Ireland.",
+          "url": "https://en.wikipedia.org/wiki/United_Kingdom",
+          "quote": "Edinburgh, Cardiff and Belfast are the national capitals of Scotland, Wales and Northern Ireland, respectively"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Great Britain is the name of the biggest island. It holds England, Scotland and Wales.",
       "show": [
         {
@@ -169,6 +255,17 @@
           "style": "map",
           "anim": "slam",
           "size": 60
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "biggest"
         }
       ],
       "camera": {
@@ -186,9 +283,76 @@
       ]
     },
     {
-      "era": "now",
-      "text": "Add Northern Ireland, and you get the United Kingdom. Its full name is the United Kingdom of Great Britain and Northern Ireland.",
+      "era": "history",
+      "text": "In 1707, England and Scotland joined into a single state, named Great Britain.",
       "show": [
+        {
+          "type": "year",
+          "value": "1707",
+          "at": "1707"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "England",
+            "country": "GBR"
+          },
+          "fill": "#6d28d9",
+          "at": "joined",
+          "fillOpacity": 0.75
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "Scotland",
+            "country": "GBR"
+          },
+          "fill": "#6d28d9",
+          "at": "joined",
+          "fillOpacity": 0.75
+        },
+        {
+          "type": "label",
+          "text": "GREAT BRITAIN",
+          "lat": 55.5,
+          "lon": -2.5,
+          "at": "Great",
+          "style": "serif",
+          "size": 56
+        }
+      ],
+      "camera": {
+        "lat": 54.5,
+        "lon": -3.5,
+        "zoom": 4.4
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The Acts of Union took effect on 1 May 1707, joining England and Scotland as Great Britain.",
+          "url": "https://en.wikipedia.org/wiki/Acts_of_Union_1707",
+          "quote": "politically joined the Kingdom of England and Kingdom of Scotland into a single 'political state' named Great Britain"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Add Northern Ireland, and you get the United Kingdom, home to over 69 million people. Its full name is the United Kingdom of Great Britain and Northern Ireland.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "69",
+              "value": "69M+"
+            }
+          ],
+          "size": 170,
+          "screen": [
+            0.5,
+            0.13
+          ]
+        },
         {
           "type": "highlight",
           "target": "GBR",
@@ -218,6 +382,75 @@
           "claim": "The UK is Great Britain plus Northern Ireland.",
           "url": "https://en.wikipedia.org/wiki/Terminology_of_the_British_Isles",
           "quote": "Great Britain plus Northern Ireland"
+        },
+        {
+          "claim": "Population over 69 million in 2024.",
+          "url": "https://en.wikipedia.org/wiki/United_Kingdom",
+          "quote": "population of over 69 million in 2024"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And in 1922, most of Ireland left the union, and only Northern Ireland stayed.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1922",
+          "at": "1922"
+        },
+        {
+          "type": "highlight",
+          "target": "IRL",
+          "fill": "flag:ie",
+          "at": "Ireland",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geonunit": "Northern Ireland",
+            "country": "GBR"
+          },
+          "fill": "#f59e0b",
+          "at": "stayed",
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "arrow",
+          "from": [
+            53.4,
+            -6.3
+          ],
+          "to": [
+            53.4,
+            -9.5
+          ],
+          "color": "#16a34a",
+          "at": "left"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
+        }
+      ],
+      "camera": {
+        "lat": 54.0,
+        "lon": -6.5,
+        "zoom": 6.0
+      },
+      "sources": [
+        {
+          "claim": "Most of Ireland seceded from the UK in 1922 as the Irish Free State.",
+          "url": "https://en.wikipedia.org/wiki/United_Kingdom",
+          "quote": "Most of Ireland seceded from the UK in 1922 as the Irish Free State"
         }
       ]
     },

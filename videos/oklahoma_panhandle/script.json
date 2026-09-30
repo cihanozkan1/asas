@@ -58,6 +58,17 @@
           "lat": 36.8,
           "lon": -101.5,
           "at": "handle"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_think",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Why"
         }
       ],
       "camera": {
@@ -305,6 +316,76 @@
       ]
     },
     {
+      "era": "now",
+      "text": "Today, about 28,700 people live in the Panhandle, and the town of Beaver hosts the World Cow Chip Throwing Championship.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "28,700",
+              "value": "28,729"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "ping",
+          "lat": 36.81,
+          "lon": -100.52,
+          "color": "#ffd60a",
+          "at": "Beaver"
+        },
+        {
+          "type": "label",
+          "text": "Beaver",
+          "lat": 36.81,
+          "lon": -100.52,
+          "at": "Beaver",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "icon",
+          "icon": "art:cow",
+          "lat": 36.6,
+          "lon": -100.9,
+          "size": 130,
+          "plain": true,
+          "at": "Cow"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Today"
+        }
+      ],
+      "camera": {
+        "lat": 36.75,
+        "lon": -101.5,
+        "zoom": 11
+      },
+      "sources": [
+        {
+          "claim": "28,729 residents in 2020.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "As of the 2020 United States census, the region has a population of 28,729"
+        },
+        {
+          "claim": "Beaver hosts the annual World Cow Chip Throwing Championship.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "Host to the annual World Cow Chip Throwing Championship"
+        }
+      ]
+    },
+    {
       "era": "history",
       "text": "The answer is slavery. The Missouri Compromise banned slavery north of a line: 36 degrees 30 minutes.",
       "show": [
@@ -521,6 +602,54 @@
       ]
     },
     {
+      "era": "history",
+      "text": "Settlers there even organized their own government in 1886, and called it the Cimarron Territory.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1886",
+          "at": "1886"
+        },
+        {
+          "type": "label",
+          "text": "CIMARRON TERRITORY",
+          "lat": 36.75,
+          "lon": -101.5,
+          "at": "Cimarron",
+          "style": "map",
+          "anim": "slam",
+          "size": 50
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -103,
+              36.5,
+              -100,
+              37
+            ]
+          },
+          "fill": "#f5d76e",
+          "at": "own",
+          "fillOpacity": 0.85,
+          "neon": "#ffd60a"
+        }
+      ],
+      "camera": {
+        "lat": 36.7,
+        "lon": -101.5,
+        "zoom": 9
+      },
+      "sources": [
+        {
+          "claim": "By September 1886 they had organized a self-governing jurisdiction called the Cimarron Territory.",
+          "url": "https://en.wikipedia.org/wiki/Oklahoma_panhandle",
+          "quote": "by September 1886 had organized a self-governing and self-policing jurisdiction, which they named the Cimarron Territory"
+        }
+      ]
+    },
+    {
       "era": "now",
       "text": "It stayed that way for 40 years, until 1890, when it finally became part of Oklahoma Territory.",
       "show": [
@@ -554,6 +683,17 @@
           "fill": "flag:us",
           "at": "Oklahoma",
           "fillOpacity": 0.8
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "finally"
         }
       ],
       "camera": {

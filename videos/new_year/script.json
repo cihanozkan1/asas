@@ -48,6 +48,17 @@
           "lat": 0,
           "lon": -170,
           "at": "last"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Every"
         }
       ],
       "camera": {
@@ -118,6 +129,129 @@
           "claim": "The Line Islands (Kiritimati) use UTC+14.",
           "url": "https://en.wikipedia.org/wiki/UTC+14:00",
           "quote": "the earliest time zone on Earth, meaning that areas in this zone are the first to see a new day, and therefore the first to enter a New Year"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Kiritimati is about 2,160 kilometers south of Honolulu, and its name is just how the Gilbertese language writes the word Christmas.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            21.3,
+            -157.9
+          ],
+          "to": [
+            1.87,
+            -157.4
+          ],
+          "label": "2,160 km",
+          "at": "2,160"
+        },
+        {
+          "type": "label",
+          "text": "Honolulu",
+          "lat": 21.3,
+          "lon": -157.9,
+          "at": "Honolulu",
+          "dot": true,
+          "dy": -50,
+          "size": 38
+        },
+        {
+          "type": "label",
+          "text": "Christmas → Kiritimati",
+          "at": "Christmas",
+          "style": "pill",
+          "bg": "#16a34a",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 11,
+        "lon": -158,
+        "zoom": 3.2
+      },
+      "sources": [
+        {
+          "claim": "Kiritimati is 2,160 km south of Honolulu.",
+          "url": "https://en.wikipedia.org/wiki/Kiritimati",
+          "quote": "2,160 km (1,340 mi) south of Honolulu"
+        },
+        {
+          "claim": "The name is the English word \"Christmas\" written in Gilbertese.",
+          "url": "https://en.wikipedia.org/wiki/Kiritimati",
+          "quote": "The name is derived from the English word \"Christmas\" written in Gilbertese according to its phonology"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's one of the largest atolls in the world by land area, and about 7,400 people live there.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "7,400",
+              "value": "7,369"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "icon",
+          "icon": "art:palm",
+          "lat": 1.87,
+          "lon": -157.4,
+          "size": 160,
+          "plain": true,
+          "at": "atolls"
+        },
+        {
+          "type": "label",
+          "text": "people (2020)",
+          "at": "live",
+          "style": "pill",
+          "bg": "#0f766e",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
+        }
+      ],
+      "camera": {
+        "lat": 1.87,
+        "lon": -157.4,
+        "zoom": 70
+      },
+      "sources": [
+        {
+          "claim": "One of the world's largest atolls by land area (312.38 km²).",
+          "url": "https://en.wikipedia.org/wiki/Kiritimati",
+          "quote": "Kiritimati is one of the world's largest atolls in terms of land area, consisting of about 312.38 km2 (120.61 sq mi)"
+        },
+        {
+          "claim": "Population 7,369 (2020 census).",
+          "url": "https://en.wikipedia.org/wiki/Kiritimati",
+          "quote": "7,369 (2020 census)"
         }
       ]
     },
@@ -328,6 +462,67 @@
           "claim": "Baker and Howland Islands (US nature reserves) use UTC−12, the last to enter the New Year.",
           "url": "https://en.wikipedia.org/wiki/UTC%E2%88%9212:00",
           "quote": "comprises the United States Minor Outlying Islands, specifically Baker Island and Howland Island (strict nature reserves belonging to the United States), as standard time"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Baker Island is only about 2 square kilometers, and only scientists and educators can get a permit to visit.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "2",
+              "value": "2.1 km²"
+            }
+          ],
+          "size": 160
+        },
+        {
+          "type": "stamp",
+          "text": "PERMIT ONLY",
+          "size": 86,
+          "screen": [
+            0.5,
+            0.27
+          ],
+          "at": "permit"
+        },
+        {
+          "type": "ping",
+          "lat": 0.19,
+          "lon": -176.48,
+          "color": "#ff5a5f",
+          "at": "Baker"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
+        }
+      ],
+      "camera": {
+        "lat": 0.2,
+        "lon": -176.48,
+        "zoom": 140
+      },
+      "sources": [
+        {
+          "claim": "Baker Island covers 2.1 km².",
+          "url": "https://en.wikipedia.org/wiki/Baker_Island",
+          "quote": "Covering an area of 0.81 sq mi (2.1 km2)"
+        },
+        {
+          "claim": "Access needs a special use permit, typically granted only to scientists and educators.",
+          "url": "https://en.wikipedia.org/wiki/Baker_Island",
+          "quote": "Public access to Baker Island is highly restricted and requires a special use permit issued by the U.S. Fish and Wildlife Service. Permits are typically granted only to scientists and educators."
         }
       ]
     },

@@ -128,6 +128,57 @@
       ]
     },
     {
+      "era": "history",
+      "text": "It started in May 1962, when firefighters set the town dump on fire, as they had before. But this time, the fire wasn't fully put out.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1962",
+          "light": true,
+          "at": "1962"
+        },
+        {
+          "type": "icon",
+          "icon": "art:fire",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "size": 150,
+          "plain": true,
+          "at": "fire"
+        },
+        {
+          "type": "icon",
+          "icon": "art:fire",
+          "lat": 40.805299999999995,
+          "lon": -76.3428,
+          "size": 110,
+          "plain": true,
+          "at": "dump"
+        },
+        {
+          "type": "particles",
+          "kind": "embers",
+          "at": "fire",
+          "density": 0.6
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 600,
+        "bearing": 3
+      },
+      "style": "satellite",
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "On 27 May 1962 firefighters set the dump on fire as in past years, but it was not fully extinguished.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "On May 27, 1962, the firefighters, as they had in the past, set the dump on fire and let it burn for some time. Unlike in previous years, however, the fire was not fully extinguished."
+        }
+      ]
+    },
+    {
       "era": "now",
       "text": "Experts think it could keep burning for another 250 years.",
       "show": [
@@ -231,6 +282,17 @@
           "size": 60,
           "at": "lived",
           "stagger": 0.1
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "still"
         }
       ],
       "camera": {
@@ -245,6 +307,57 @@
           "claim": "1,012 residents by 1980.",
           "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
           "quote": "By 1980, it had 1,012 residents."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1983, the US Congress set aside more than 42 million dollars to move the residents out.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1983",
+          "at": "1983"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "42",
+              "value": "$42M"
+            }
+          ],
+          "size": 190,
+          "color": "#4ade80"
+        },
+        {
+          "type": "icon",
+          "icon": "art:banknotes",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "size": 130,
+          "plain": true,
+          "at": "million"
+        },
+        {
+          "type": "ping",
+          "lat": 40.8043,
+          "lon": -76.3408,
+          "color": "#ff5a2a",
+          "at": "residents"
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 450
+      },
+      "style": "satellite",
+      "sources": [
+        {
+          "claim": "In 1983 Congress allocated more than $42 million for relocation.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "In 1983, the U.S. Congress allocated more than $42 million for relocation efforts."
         }
       ]
     },
@@ -316,6 +429,49 @@
     },
     {
       "era": "now",
+      "text": "In 2002, the US Postal Service even took away Centralia's ZIP code.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2002",
+          "at": "2002"
+        },
+        {
+          "type": "handstamp",
+          "text": "ZIP CODE REMOVED",
+          "at": "took",
+          "size": 80,
+          "screen": [
+            0.5,
+            0.34
+          ]
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "ZIP",
+              "value": "17927"
+            }
+          ],
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": 40.804,
+        "lon": -76.341,
+        "zoom": 450
+      },
+      "sources": [
+        {
+          "claim": "In 2002 the USPS discontinued Centralia's ZIP code, 17927.",
+          "url": "https://en.wikipedia.org/wiki/Centralia,_Pennsylvania",
+          "quote": "In 2002, the U.S. Postal Service discontinued Centralia's ZIP code, 17927."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "In 2013, the last seven residents were allowed to stay, but only until the end of their lives.",
       "show": [
         {
@@ -351,6 +507,17 @@
             }
           ],
           "size": 200
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -504,6 +671,17 @@
             0.33
           ],
           "at": "ghost"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Today"
         }
       ],
       "camera": {

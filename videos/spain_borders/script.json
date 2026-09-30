@@ -113,6 +113,72 @@
       ]
     },
     {
+      "era": "now",
+      "text": "Llívia covers only about 13 square kilometers, and a corridor 1.6 kilometers wide separates it from the rest of Spain.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "13",
+              "value": "13 km²"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "measure",
+          "from": [
+            42.462,
+            1.99
+          ],
+          "to": [
+            42.44,
+            2.05
+          ],
+          "label": "1.6 km",
+          "at": "corridor",
+          "countUp": false
+        },
+        {
+          "type": "ping",
+          "lat": 42.464,
+          "lon": 1.975,
+          "color": "#ff3b3b",
+          "at": "Llívia"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
+        }
+      ],
+      "camera": {
+        "lat": 42.46,
+        "lon": 1.99,
+        "zoom": 900,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Llívia covers 12.9 km².",
+          "url": "https://en.wikipedia.org/wiki/Llívia",
+          "quote": "Total 12.9 km2 (5.0 sq mi)"
+        },
+        {
+          "claim": "It is separated from the rest of Spain by a corridor about 1.6 km wide.",
+          "url": "https://en.wikipedia.org/wiki/Llívia",
+          "quote": "Llívia is separated from the rest of Spain by a corridor approximately 1.6 km (1.0 mile) wide."
+        }
+      ]
+    },
+    {
       "era": "history",
       "text": "In 1659, Spain gave France the villages of this area. But Llívia was a town, not a village, so it stayed Spanish.",
       "show": [
@@ -226,6 +292,146 @@
           "claim": "Alternating six-month sovereignty between Spain and France.",
           "url": "https://en.wikipedia.org/wiki/Pheasant_Island",
           "quote": "For alternating periods of six months, it is officially under the governance of the naval commander of Hondarribia, Spain (1 February – 31 July) and of a French viceroy (1 August – 31 January)."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The island is just 200 meters long, uninhabited, and closed to visitors. It's a condominium, meaning shared rule by two countries, the world's smallest.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "200",
+              "value": "200 m"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "stamp",
+          "text": "NO ENTRY",
+          "size": 84,
+          "screen": [
+            0.5,
+            0.25
+          ],
+          "at": "closed"
+        },
+        {
+          "type": "icon",
+          "icon": "art:no_entry",
+          "lat": 43.3434,
+          "lon": -1.7658,
+          "size": 120,
+          "plain": true,
+          "at": "closed"
+        },
+        {
+          "type": "vs",
+          "left": {
+            "flag": "es",
+            "label": "Spain"
+          },
+          "right": {
+            "flag": "fr",
+            "label": "France"
+          },
+          "at": "shared",
+          "screen": [
+            0.5,
+            0.3
+          ]
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cry",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "closed"
+        }
+      ],
+      "camera": {
+        "lat": 43.3434,
+        "lon": -1.7658,
+        "zoom": 7000,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "The island is about 200 m long and 40 m wide.",
+          "url": "https://en.wikipedia.org/wiki/Pheasant_Island",
+          "quote": "approximately 200 metres (660 ft) long and 40 metres (130 ft) wide"
+        },
+        {
+          "claim": "It is uninhabited and closed to visitors.",
+          "url": "https://en.wikipedia.org/wiki/Pheasant_Island",
+          "quote": "It is uninhabited, and access is forbidden, except very occasionally on heritage open days."
+        },
+        {
+          "claim": "It is the world's smallest condominium under joint Spanish-French sovereignty.",
+          "url": "https://en.wikipedia.org/wiki/Pheasant_Island",
+          "quote": "The island is a condominium, the world's smallest, under joint sovereignty of Spain and France"
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "And the treaty of 1659 was signed right here, on this tiny island, where King Louis the Fourteenth met his future wife.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1659",
+          "at": "1659"
+        },
+        {
+          "type": "ping",
+          "lat": 43.3434,
+          "lon": -1.7658,
+          "color": "#ffd60a",
+          "at": "here"
+        },
+        {
+          "type": "icon",
+          "icon": "art:crown",
+          "lat": 43.3442,
+          "lon": -1.7648000000000001,
+          "size": 130,
+          "plain": true,
+          "at": "King"
+        },
+        {
+          "type": "icon",
+          "icon": "art:handshake",
+          "lat": 43.342600000000004,
+          "lon": -1.7658,
+          "size": 130,
+          "plain": true,
+          "at": "treaty"
+        }
+      ],
+      "camera": {
+        "lat": 43.3434,
+        "lon": -1.7658,
+        "zoom": 6500
+      },
+      "style": "satellite",
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "The Treaty of the Pyrenees was signed on the island.",
+          "url": "https://en.wikipedia.org/wiki/Pheasant_Island",
+          "quote": "The most important historical event to have taken place on the island was the signing of the Treaty of the Pyrenees."
+        },
+        {
+          "claim": "In 1659 Louis XIV met his future wife Maria Theresa of Spain there.",
+          "url": "https://en.wikipedia.org/wiki/Pheasant_Island",
+          "quote": "1659 – Louis XIV met his future wife Maria Theresa of Spain (1638–1683)"
         }
       ]
     },
@@ -417,6 +623,17 @@
             }
           ],
           "size": 180
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "whole"
         }
       ],
       "camera": {

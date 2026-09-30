@@ -350,6 +350,17 @@
           ],
           "label": "106 km",
           "at": "kilometers"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -791,6 +802,17 @@
           "type": "grade",
           "mode": "danger",
           "at": 0.3
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Today"
         }
       ],
       "camera": {

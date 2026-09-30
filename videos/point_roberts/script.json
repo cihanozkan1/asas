@@ -80,6 +80,17 @@
           "size": 100,
           "at": "Canada",
           "wave": true
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -920,6 +931,17 @@
           "lon": -123.06,
           "color": "#ffd60a",
           "at": "American"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Today"
         }
       ],
       "camera": {

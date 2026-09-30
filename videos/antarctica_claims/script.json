@@ -49,6 +49,17 @@
           "lat": -80,
           "lon": 0,
           "at": "complicated"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_think",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Who"
         }
       ],
       "camera": {
@@ -57,6 +68,122 @@
         "zoom": 1.4
       },
       "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "It's the fifth largest continent, about 40 percent larger than Europe.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "40",
+              "value": "+40%"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "ghost",
+          "target": {
+            "countries": [
+              "PRT",
+              "ESP",
+              "FRA",
+              "GBR",
+              "IRL",
+              "BEL",
+              "NLD",
+              "DEU",
+              "CHE",
+              "AUT",
+              "ITA",
+              "POL",
+              "CZE",
+              "HUN",
+              "ROU",
+              "GRC",
+              "SWE",
+              "NOR",
+              "FIN",
+              "UKR"
+            ]
+          },
+          "to": {
+            "lat": -82,
+            "lon": 10
+          },
+          "fill": "#ffd60a",
+          "at": "Europe"
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 0,
+        "zoom": 1.4
+      },
+      "sources": [
+        {
+          "claim": "Antarctica is the fifth-largest continent, about 40% larger than Europe (14,200,000 km²).",
+          "url": "https://en.wikipedia.org/wiki/Antarctica",
+          "quote": "Antarctica is the fifth-largest continent, being about 40% larger than Europe, and has an area of 14,200,000 km2"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And the lowest temperature ever recorded on Earth, minus 89.2 degrees Celsius, was measured here.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "89.2",
+              "value": "−89.2 °C"
+            }
+          ],
+          "size": 180,
+          "color": "#9ee7ff"
+        },
+        {
+          "type": "ping",
+          "lat": -78.46,
+          "lon": 106.84,
+          "color": "#ffd60a",
+          "at": "measured"
+        },
+        {
+          "type": "label",
+          "text": "Vostok Station",
+          "lat": -78.46,
+          "lon": 106.84,
+          "at": "measured",
+          "dot": true,
+          "dy": -52,
+          "size": 36
+        },
+        {
+          "type": "icon",
+          "icon": "art:snowflake",
+          "lat": -74,
+          "lon": 100,
+          "size": 120,
+          "plain": true,
+          "at": "lowest"
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 100,
+        "zoom": 1.5
+      },
+      "sources": [
+        {
+          "claim": "The lowest natural air temperature ever recorded was −89.2 °C at Vostok Station on 21 July 1983.",
+          "url": "https://en.wikipedia.org/wiki/Antarctica",
+          "quote": "The lowest natural air temperature ever recorded on Earth was −89.2 °C (−128.6 °F) at the Russian Vostok Station in Antarctica on 21 July 1983."
+        }
+      ]
     },
     {
       "era": "now",
@@ -327,6 +454,17 @@
             }
           ],
           "size": 150
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_angry",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "claims"
         }
       ],
       "camera": {
@@ -551,6 +689,17 @@
             }
           ],
           "size": 110
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
         }
       ],
       "camera": {
@@ -563,6 +712,138 @@
           "claim": "Marie Byrd Land (1,610,000 km²) is the largest unclaimed territory on Earth.",
           "url": "https://en.wikipedia.org/wiki/Marie_Byrd_Land",
           "quote": "Marie Byrd Land (MBL) is an unclaimed region of Antarctica. With an area of 1,610,000 km2 (620,000 sq mi), it is the largest unclaimed territory on Earth."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "That treaty was opened for signature on December 1, 1959, and took effect in 1961.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "signature",
+              "value": "1959"
+            },
+            {
+              "at": "effect",
+              "value": "1961"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "countries": [
+              "ATA"
+            ]
+          },
+          "fill": "#9ee7ff",
+          "at": "treaty",
+          "fillOpacity": 0.35,
+          "neon": "#9ee7ff"
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 0,
+        "zoom": 1.3,
+        "bearing": -6
+      },
+      "sources": [
+        {
+          "claim": "The treaty was opened for signature on 1 December 1959 and entered into force on 23 June 1961.",
+          "url": "https://en.wikipedia.org/wiki/Antarctic_Treaty_System",
+          "quote": "The main treaty was opened for signature on 1 December 1959, and officially entered into force on 23 June 1961."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It bans nuclear testing, military operations, economic exploitation, and any new territorial claims.",
+      "show": [
+        {
+          "type": "stamp",
+          "text": "NO BOMBS · NO ARMIES · NO NEW CLAIMS",
+          "size": 62,
+          "screen": [
+            0.5,
+            0.26
+          ],
+          "at": "bans"
+        },
+        {
+          "type": "icon",
+          "icon": "art:no_entry",
+          "lat": -80,
+          "lon": 30,
+          "size": 150,
+          "plain": true,
+          "at": "military"
+        },
+        {
+          "type": "icon",
+          "icon": "art:soldier_helmet",
+          "lat": -76,
+          "lon": -40,
+          "size": 110,
+          "plain": true,
+          "at": "military"
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 0,
+        "zoom": 1.3,
+        "bearing": 6
+      },
+      "sources": [
+        {
+          "claim": "The treaty prohibits nuclear testing, military operations, economic exploitation and new territorial claims.",
+          "url": "https://en.wikipedia.org/wiki/Antarctic_Treaty_System",
+          "quote": "The treaty prohibits nuclear testing, military operations, economic exploitation, and the making of new territorial claims in Antarctica."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "As of 2024, 58 countries are parties to the treaty.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "58",
+              "value": "58"
+            }
+          ],
+          "size": 240
+        },
+        {
+          "type": "label",
+          "text": "countries signed on",
+          "at": "parties",
+          "style": "pill",
+          "bg": "#0369a1",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": -90,
+        "lon": 0,
+        "zoom": 1.3
+      },
+      "sources": [
+        {
+          "claim": "As of 2024 the treaty has 58 parties.",
+          "url": "https://en.wikipedia.org/wiki/Antarctic_Treaty_System",
+          "quote": "As of 2024, the treaty has 58 parties."
         }
       ]
     },

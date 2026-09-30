@@ -120,6 +120,67 @@
       ]
     },
     {
+      "era": "now",
+      "text": "It's tiny, roughly 350 meters long and 150 meters wide, the smallest sea island shared by two countries.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "350",
+              "value": "350 m"
+            },
+            {
+              "at": "150",
+              "value": "150 m"
+            }
+          ],
+          "size": 160
+        },
+        {
+          "type": "label",
+          "text": "smallest shared sea island",
+          "at": "smallest",
+          "style": "pill",
+          "bg": "#7c3aed",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "smallest"
+        }
+      ],
+      "camera": {
+        "lat": 60.3,
+        "lon": 19.13,
+        "zoom": 40,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Märket is roughly 350 m long by 150 m wide.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "roughly 350 metres (1,150 ft) long by 150 metres (490 ft) wide"
+        },
+        {
+          "claim": "It is the smallest sea island shared by two countries.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "Märket is the smallest sea island shared by two countries"
+        }
+      ]
+    },
+    {
       "era": "history",
       "text": "In 1885, Finland built a lighthouse on its highest point. But that spot was on the Swedish half.",
       "show": [
@@ -480,6 +541,17 @@
             0.5,
             0.38
           ]
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cry",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "lost"
         }
       ],
       "camera": {
@@ -493,6 +565,109 @@
           "claim": "No net transfer of territory occurred.",
           "url": "https://en.wikipedia.org/wiki/Märket",
           "quote": "The adjustment was carried out such that no net transfer of territory occurred."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The lighthouse is 14 meters tall, and since 1979 it has been fully automated.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "sweden_new.geojson"
+          },
+          "fill": "flag:se",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "finland_new.geojson"
+          },
+          "fill": "flag:fi",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              60.30158,
+              19.1318
+            ],
+            [
+              60.3013,
+              19.1318
+            ],
+            [
+              60.3013,
+              19.130699999999997
+            ],
+            [
+              60.3009,
+              19.130699999999997
+            ],
+            [
+              60.3009,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1318
+            ],
+            [
+              60.300219999999996,
+              19.1318
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 9,
+          "at": 0.05,
+          "rhumb": true,
+          "drawDur": 0.1
+        },
+        {
+          "type": "icon",
+          "icon": "🗼",
+          "lat": 60.3011,
+          "lon": 19.1311,
+          "size": 130,
+          "at": "lighthouse"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "14",
+              "value": "14 m"
+            }
+          ],
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": 60.3009,
+        "lon": 19.1318,
+        "zoom": 14500,
+        "bearing": -3
+      },
+      "style": "atlas",
+      "sources": [
+        {
+          "claim": "The lighthouse is 14 m tall.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "14 metres (46 ft)"
+        },
+        {
+          "claim": "It has been automated since 1979.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "The lighthouse has been automated since 1979"
         }
       ]
     },

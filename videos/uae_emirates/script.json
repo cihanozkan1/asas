@@ -390,6 +390,49 @@
       ]
     },
     {
+      "era": "history",
+      "text": "Its first president was Sheikh Zayed, the ruler of Abu Dhabi, and he led the country from 1971 to 2004.",
+      "show": [
+        {
+          "type": "timebar",
+          "from": "1971",
+          "to": "2004",
+          "label": "First president",
+          "at": "Zayed"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Abu Dhabi",
+            "country": "ARE"
+          },
+          "fill": "#ef4444",
+          "at": "ruler",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "flag",
+          "code": "ae",
+          "lat": 24.2,
+          "lon": 54.8,
+          "size": 140,
+          "at": "first"
+        }
+      ],
+      "camera": {
+        "lat": 24.2,
+        "lon": 54.4,
+        "zoom": 12
+      },
+      "sources": [
+        {
+          "claim": "Zayed bin Sultan Al Nahyan was ruler of Abu Dhabi and the first president (1971–2004).",
+          "url": "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+          "quote": "Zayed bin Sultan Al Nahyan, ruler of Abu Dhabi and the country's first president (1971–2004)"
+        }
+      ]
+    },
+    {
       "era": "now",
       "text": "Abu Dhabi is by far the largest emirate, and its city is the capital of the whole country.",
       "show": [
@@ -419,6 +462,17 @@
           "lon": 54.37,
           "color": "#ffd60a",
           "at": "capital"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
         }
       ],
       "camera": {
@@ -494,6 +548,227 @@
           "claim": "Dubai emirate covers 4,114 km² (table).",
           "url": "https://en.wikipedia.org/wiki/Emirates_of_the_United_Arab_Emirates",
           "quote": "4,114"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The president is chosen by the Federal Supreme Council, made up of the seven ruling emirs.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Abu Dhabi",
+            "country": "ARE"
+          },
+          "fill": "#ef4444",
+          "at": "seven",
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Dubay",
+            "country": "ARE"
+          },
+          "fill": "#f59e0b",
+          "at": "seven",
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Sharjah",
+            "country": "ARE"
+          },
+          "fill": "#10b981",
+          "at": "seven",
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Ajman",
+            "country": "ARE"
+          },
+          "fill": "#3b82f6",
+          "at": "seven",
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Umm Al Qaywayn",
+            "country": "ARE"
+          },
+          "fill": "#8b5cf6",
+          "at": "seven",
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Ras Al Khaymah",
+            "country": "ARE"
+          },
+          "fill": "#ec4899",
+          "at": "seven",
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Fujayrah",
+            "country": "ARE"
+          },
+          "fill": "#14b8a6",
+          "at": "seven",
+          "fillOpacity": 0.95
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "seven",
+              "value": "7 emirs"
+            }
+          ],
+          "size": 160
+        },
+        {
+          "type": "icon",
+          "icon": "art:gavel",
+          "lat": 24.45,
+          "lon": 54.4,
+          "size": 130,
+          "plain": true,
+          "at": "chosen"
+        }
+      ],
+      "camera": {
+        "lat": 24.4,
+        "lon": 54.6,
+        "zoom": 19
+      },
+      "sources": [
+        {
+          "claim": "The Federal Supreme Council of the seven emirs appoints the federal president.",
+          "url": "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+          "quote": "The Federal Supreme Council, made up of the seven ruling emirs, is the highest state authority. It jointly appoints one member as federal president"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Only about 11 percent of the people living in the UAE are native Emiratis, out of more than 11 million.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "11",
+              "value": "11%"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "crowd",
+          "lat": 24.4,
+          "lon": 54.6,
+          "count": 45,
+          "at": "Emiratis",
+          "cols": 9,
+          "size": 22,
+          "color": "#ffffff",
+          "red": [
+            {
+              "at": "Emiratis",
+              "n": 5
+            }
+          ],
+          "redColor": "#ef4444"
+        },
+        {
+          "type": "label",
+          "text": "native Emiratis",
+          "at": "native",
+          "style": "pill",
+          "bg": "#ef4444",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Only"
+        }
+      ],
+      "camera": {
+        "lat": 24.4,
+        "lon": 54.6,
+        "zoom": 19
+      },
+      "sources": [
+        {
+          "claim": "Over 11 million people in 2024; only 11% are native Emiratis.",
+          "url": "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+          "quote": "In 2024, the UAE had an estimated population of over 11 million ... Only 11% of the population are native Emiratis"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It has the seventh-largest oil reserves in the world, and the seventh-largest natural gas reserves.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "seventh",
+              "value": "#7"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "icon",
+          "icon": "art:oil_barrel",
+          "lat": 24.0,
+          "lon": 53.6,
+          "size": 150,
+          "plain": true,
+          "at": "oil"
+        },
+        {
+          "type": "icon",
+          "icon": "art:fire",
+          "lat": 24.6,
+          "lon": 54.2,
+          "size": 120,
+          "plain": true,
+          "at": "gas"
+        }
+      ],
+      "camera": {
+        "lat": 24.2,
+        "lon": 54.4,
+        "zoom": 16
+      },
+      "sources": [
+        {
+          "claim": "The UAE has the world's seventh-largest oil reserves and seventh-largest natural gas reserves.",
+          "url": "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+          "quote": "The UAE has the world's seventh-largest oil reserves and seventh-largest natural gas reserves"
         }
       ]
     },

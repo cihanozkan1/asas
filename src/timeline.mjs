@@ -123,7 +123,8 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     if (!src.style && lastZoom >= 60 && cfg.palettes?.[sc.style]) sc.style = 'satellite';
     // scenes without an explicit transition get the kit's own one every other cut
     const KIT_TR = { classic: 'zoom', block: 'zoom', neon: 'zoom', paper: 'zoom', news: 'zoom', outline: 'zoom' };
-    sc.transition = src.transition || (i > 0 && i % 2 === 0 ? KIT_TR[kit.kit] || null : null);
+    const CYCLE = ['zoom', 'slide', 'wipe', 'zoom', 'slide'];
+    sc.transition = src.transition || (i > 0 ? (i % 2 === 0 ? KIT_TR[kit.kit] || 'zoom' : CYCLE[(i >> 1) % CYCLE.length]) : null);
     const sceneDur = sc.end - sc.start;
     // camera
     if (src.camera) {
@@ -145,6 +146,11 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         const o = { t: timeSpec(sc, th.at, sc.start + 1), duration: th.duration, bearing: th.bearing, pad: th.pad };
         if (th.fit) { o.fit = []; for (const tg of th.fit) o.fit.push(shortKey(await targetKey(tg))); } else { o.lat = th.lat; o.lon = th.lon; o.zoom = th.zoom; }
         sc.cameraThen.push(o);
+      }
+      // long single-shot scenes get a second move mid-way (push in / ease back), like the reference's multi-zoom shots
+      if (!c.fit && !c.follow && !(c.then || []).length && c.lat != null && c.noPush !== true && c.zoom < 400 && cfg.camera.autoPush !== false && sceneDur >= 4.2) {
+        const back = i % 2 === 1 && c.zoom <= 200;
+        sc.cameraThen.push({ t: sc.start + sceneDur * 0.5, duration: 1.5, lat: c.lat, lon: c.lon, zoom: back ? c.zoom / 1.3 : c.zoom * 1.4, bearing: c.bearing });
       }
       sc.cameraDuration = c.duration ?? (i === 0 ? cfg.camera.introDuration : Math.min(cfg.camera.duration, Math.max(0.6, sceneDur * 0.8)));
       sc.cameraLead = c.lead ?? (i === 0 ? 0 : cfg.camera.lead);
@@ -301,7 +307,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
   const INSTANT = new Set(['shake', 'punch', 'tilt', 'dim']);
   for (const el of elements) {
     if (INSTANT.has(el.type) || (el._until && !el.screen) || el.type === 'title') continue;
-    let deficit = MIN_ON - (el.end - el.start);
+    let deficit = (el.type === 'react' ? 1.4 : MIN_ON) - (el.end - el.start);
     if (deficit <= 0) continue;
     const sc = scenes[el.scene];
     // at most a beat (0.3 s) before its word, and never before the element named just before it,
@@ -319,7 +325,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     // points, names and icons belong to what is being said: they leave when the narration moves on
     const POINTY = new Set(['ping', 'label', 'icon', 'flag', 'question', 'scatter', 'badge', 'measure']);
     const cap = POINTY.has(el.type) ? sc.end + 0.15 : nx && same(sc.camera, nx.camera) && nx.era === sc.era ? nx.end : sc.end + 0.8;
-    const end = el.screen ? el.end + deficit : Math.min(el.end + deficit, cap);
+    const end = el.type === 'react' ? Math.min(el.end + deficit, sc.end + 0.25) : el.screen ? el.end + deficit : Math.min(el.end + deficit, cap);
     el.end = Math.min(Math.max(el.end, end), narration.duration);
   }
 

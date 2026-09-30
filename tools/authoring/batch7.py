@@ -16,6 +16,11 @@ save('greenland_iceland', meta(
           cam=at_(72, -40, 2.2),
           src=[src('Greenland is the world\'s largest island.', 'Greenland', "It is the world's largest island"),
                src('The ice sheet covers 81% of it.', 'Greenland', 'covers 1,755,637 km2 (677,855 sq mi) (81%)')]),
+        S("That ice is more than 3 kilometers thick, and if it all melted, the oceans would rise by about 7 meters.", [
+            hl('GRL', '#38bdf8', 'ice', fillOpacity=0.6, neon='#9ee7ff'), cnt_steps([('thick', '3,488 m'), ('melted', '+7.4 m')], size=170), art('wave', 66, -52, 'oceans', size=140), react('art:emote_shock', (0.79, 0.3), 'melted', size=160)],
+          cam=at_(72, -40, 2.4),
+          src=[src('The ice sheet is over 3,488 m thick at its maximum.', 'Greenland_ice_sheet', 'over 3,488 m (11,444 ft) thick at its maximum'),
+               src('If it all melted, global sea level would rise by about 7.4 m.', 'Greenland_ice_sheet', 'If all 2,900,000 cubic kilometres (696,000 cu mi) of the ice sheet were to melt, it would increase global sea levels by ~7.4 m (24 ft)')]),
         S("So why call it green? It was a sales trick, by the Viking Erik the Red.", [
             hl('GRL', '#8b5e34', 0.05, fillOpacity=0.5), lab('Greenland', 72, -40, 0.05, style='serif', size=60), char('viking_erik', 'sales', name='Erik the Red', say='Come to Greenland!')],
           cam=at_(64, -45, 3.0), era='history', tr='film',
@@ -28,6 +33,17 @@ save('greenland_iceland', meta(
             hl('ISL', '#8b5e34', 'Iceland', fillOpacity=0.6), lab('Iceland', 66.9, -18.5, 'Iceland', style='serif', size=60), icon('🏔️', 65.5, -23, 'mountain', size=120), icon('🧊', 65, -18, 'ice', size=110)],
           cam=at_(64.9, -19, 6), era='history',
           src=[src('Flóki Vilgerðarson named it after seeing an ice cap.', 'Iceland', 'Flóki coined the name after he climbed a mountain, despondent after a harsh winter in present-day Vatnsfjörður, and saw an ice cap.')]),
+        S("Iceland sits right on the Mid-Atlantic Ridge, where two tectonic plates are moving away from each other.", [
+            route([(58, -31), (62, -25), (64.5, -19), (66.2, -17), (70, -10)], 'Ridge', color='#ff5a2a', width=10, drawDur=1.4), art('volcano', 64.0, -19.0, 'plates', size=150),
+            arrow((64.5, -19), (64.5, -28), 'moving', color='#ffd60a'), arrow((64.5, -19), (64.5, -10), 'away', color='#ffd60a')],
+          cam=at_(64.5, -19, 5),
+          src=[src('Iceland sits on the Mid-Atlantic Ridge where the Eurasian and North American plates move apart.', 'Iceland',
+                   'The island sits directly on the Mid-Atlantic Ridge, where the Eurasian Plate and the North American Plate are moving away from each other.')]),
+        S("Thanks to geothermal power, most people there enjoy cheap hot water, heating and electricity.", [
+            hl('ISL', '#16a34a', 'geothermal', fillOpacity=0.85, neon='#4ade80'), art('fire', 64.0, -20.5, 'geothermal', size=140), art('water_drop', 65.2, -18.0, 'hot', size=110), pill('cheap hot water + power', 'cheap', bg='#15803d')],
+          cam=at_(64.9, -19, 7),
+          src=[src('Geothermal power and hydroelectricity give most residents inexpensive hot water, heating and electricity.', 'Iceland',
+                   'With the widespread availability of geothermal power and the harnessing of many rivers and waterfalls for hydroelectricity, most residents have access to inexpensive hot water, heating, and electricity.')]),
         S("Today, lakes and glaciers cover only 14.3 percent of Iceland.", [
             lab('ICELAND', 66.3, -18, 0.05, style='pill', bg='#15803d', size=46), bars([('Greenland', 81, '81% ice', '#9ee7ff', 'gl'), ('Iceland', 14.3, '14.3%', '#4ade80', 'is')], 'cover', screen=[0.5, 0.3], labelWidth=280)],
           cam=at_(66, -30, 2.2), tr='flash',
@@ -58,6 +74,11 @@ save('amazon_bridges', meta(
             hook('ZERO *BRIDGES*', at=0.05, until='kilometers'), flow(AMZ, 'flows', color='#5ec8ff', width=12, drawDur=2.4, hold=1), cnt('0', 'single', size=220, color='#ff5a5f')],
           cam=at_(-3, -61, 3.0),
           src=[src('More than 6,400 km and no bridge connects its banks.', LBV, 'along its more than 6,400 kilometers, no bridge connects its banks. Not a single one.')]),
+        S("It carries about 223,700 cubic meters of water every second, and its basin covers almost 7 million square kilometers.", [
+            flow(AMZ, 'carries', color='#5ec8ff', width=14, drawDur=1.6), cnt_steps([('223,700', '223,700 m³/s'), ('7', '7M km²')], size=150)],
+          cam=at_(-3, -61, 3.0),
+          src=[src('Average discharge 223,700 m³/s at the delta.', 'Amazon_River', 'average 223,700 m3/s (7,900,000 cu ft/s)'),
+               src('The basin covers 6,925,674 km².', 'Amazon_River', 'Basin size 6,925,674 km2')]),
         S("Why? First, the river changes size. From December to May, heavy rains make it swell.", [
             flow(AMZ, 0.05, color='#5ec8ff', width=12, drawDur=0.6), tilt('swell', deg=38, until=4), hl({'admin1': 'Amazonas', 'country': 'BRA'}, '#1d4ed8', 'swell', fillOpacity=0.35)],
           cam=at_(-3.1, -60.5, 7),
@@ -77,6 +98,10 @@ save('amazon_bridges', meta(
             flow(AMZ, 0.05, color='#5ec8ff', width=12, drawDur=0.6), char('jungle_explorer', 'roads', say='Where is the road?')],
           cam=at_(-3.1, -60.5, 6),
           src=[src('There are few roads on either side that need connecting.', IFA, 'there are few roads on either side of the Amazon that need to be connected')]),
+        S("And at its mouth, the river is so wide that the estuary can reach 340 kilometers across.", [
+            meas((-0.4, -51.5), (-0.4, -48.0), '340 km', '340', countUp=False), cnt('340 km', '340', size=170), flow([(-1.0, -52.0), (0.0, -50.0), (0.8, -48.5)], 'mouth', color='#5ec8ff', width=16, drawDur=1.2)],
+          cam=at_(0.0, -50.0, 6),
+          src=[src('The estuary is up to 340 km wide.', 'Amazon_River', 'maximum 340 km (210 mi) (estuary)')]),
         S("So people cross by boat. A ferry does the job, for a tiny fraction of the cost of a bridge.", [
             ship(FERRY, 'boat', 'ferry', emblem='#ffd60a', drawDur=3.2, style='ferry', until='bridge')],
           cam=at_(-3.162, -59.912, 700, bearing=-3),
@@ -117,6 +142,10 @@ save('tornado_alley', meta(
             slam('TORNADO ALLEY', 38, -98, 'Alley', size=66)],
           cam=at_(38, -97, 3.0),
           src=[src('Tornado Alley covers the central US.', TA, 'The area common to most definitions extends from Arkansas, Illinois, Indiana, Iowa, Kansas, Minnesota, Missouri, Montana, Nebraska, North Dakota, Ohio, Oklahoma, South Dakota, Texas, Wisconsin')]),
+        S("Tornadoes are most common in spring, and least common in winter.", [
+            pill('SPRING: most', 'spring', bg='#16a34a'), pill('WINTER: least', 'winter', bg='#1d4ed8', screen=(0.5, 0.3)), art('snowflake', 41, -104, 'winter', size=120), art('tornado', 36, -98, 'spring', size=140)],
+          cam=at_(38, -97, 3.0),
+          src=[src('Tornadoes are most common in spring and least common in winter.', 'Tornado', 'Tornadoes are most common in spring and least common in winter')]),
         S("Warm, humid air flows up from the Gulf of Mexico.", [
             flow([(24, -92), (29, -95), (34, -97), (38, -97)], 'Warm', color='#ff5a2a', width=18, drawDur=1.6, hold=2), lab('WARM & HUMID', 26, -92, 'humid', style='pill', bg='#ff5a2a', size=44)],
           cam=at_(34, -97, 2.8),
@@ -130,6 +159,19 @@ save('tornado_alley', meta(
             icon('⛈️', 37, -98, 'collide', size=160), shake('collide'), tilt('supercells', deg=40, until=3.5), char('storm_chaser', 'supercells', say='Here it comes!')],
           cam=at_(37, -98, 5), tr='flash',
           src=[src('This creates an ideal environment for tornadoes within supercells.', TA, 'This creates an ideal environment for tornadoes to form within developed thunderstorms and supercells.')]),
+        S("The strongest tornadoes can reach wind speeds of more than 480 kilometers per hour.", [
+            art('tornado', 36, -98, 'strongest', size=200), cnt('480 km/h', '480', size=170), art('wind', 38, -102, 'wind', size=130), shake('reach')],
+          cam=at_(36.5, -98, 7),
+          src=[src('The strongest tornadoes can attain wind speeds of more than 480 km/h.', 'Tornado', 'can attain wind speeds of more than 480 kilometers per hour (300 mph)')]),
+        S("Luckily, about 80 percent of tornadoes in the US are the weakest kinds, called EF0 and EF1.", [
+            bars([('Weak (EF0–EF1)', 80, '80%', '#4ade80'), ('Stronger', 20, '20%', '#ff5a5f')], 'weakest', screen=[0.5, 0.3], labelWidth=260), art('tornado', 37, -97, 'Luckily', size=150)],
+          cam=at_(37, -97, 3.0),
+          src=[src('In the US, 80% of tornadoes are EF0 and EF1.', 'Tornado', 'In the United States, 80% of tornadoes are EF0 and EF1')]),
+        S("The widest tornado ever recorded hit El Reno, Oklahoma, in 2013, and it was 4.2 kilometers wide.", [
+            year(2013, '2013', light=True), ping(35.53, -98.05, 'Reno', color='#ff5a5f'), dot('El Reno', 35.53, -98.05, 'Reno', dy=-52, size=40), cnt('4.2 km', '4.2', size=180), meas((35.53, -98.1), (35.53, -98.0), '4.2 km wide', 'wide', countUp=False)],
+          cam=at_(35.53, -98.05, 40), tr='flash',
+          src=[src('On 31 May 2013 a tornado in El Reno, Oklahoma was about 4.2 km wide, the widest on record.', 'Tornado',
+                   'a tornado in El Reno, Oklahoma on May 31, 2013, was approximately 2.6 miles (4.2 km) wide, the widest on record')]),
         S("And there's no big east-west mountain range to keep these air masses apart. So they meet again and again.", [
             flow([(24, -92), (29, -95), (34, -97), (38, -97)], 'And', color='#ff5a2a', width=16, drawDur=1.0), flow([(52, -105), (46, -102), (41, -99)], 'And', color='#5ec8ff', width=16, drawDur=1.0),
             icon('⛈️', 39, -98, 'again', size=150), stamp('NO BARRIER', 'apart', size=86)],
@@ -160,9 +202,23 @@ save('recursive_island', meta(
         S("Volcano Island sits in another lake: Taal Lake.", [dot('Taal Lake', 13.95, 121.02, 'Taal', dy=-50)],
           cam=at_(13.95, 121.0, 60),
           src=[src('Volcano Island lies in Taal Lake.', VPA, 'one of only a few islands in a lake on an island in a lake on an island in the world')]),
+        S("Taal Volcano is only 311 meters high, but it's the second most active volcano in the Philippines.", [
+            art('volcano', 14.0, 120.995, 'volcano', size=190), cnt('311 m', '311', size=170), ping(14.0, 120.995, 'Taal', color='#ff5a2a')],
+          cam=at_(14.0, 120.995, 240, bearing=3),
+          src=[src('Taal is the second most active volcano in the country; elevation 311 m.', 'Taal_Volcano', 'the second most active volcano in the country ... Elevation 311 m (1,020 ft)')]),
+        S("And Taal Lake itself fills a giant crater, called a caldera, 25 to 30 kilometers wide.", [
+            meas((13.95, 120.85), (13.95, 121.12), '25–30 km', '25', countUp=False), lab('CALDERA', 14.05, 120.85, 'caldera', style='pill', bg='#7c2d12', size=44)],
+          cam=at_(13.98, 121.0, 55),
+          src=[src('Taal Lake lies within a 25–30 km caldera formed by explosive eruptions.', 'Taal_Volcano', 'Taal Lake lies within a 25–30 km (16–19 mi) caldera formed by explosive eruptions')]),
         S("And Taal Lake is on a bigger island: Luzon, in the Philippines.", [hl('PHL', 'flag:ph', 'Luzon', fillOpacity=0.7), dot('Luzon', 15.8, 121, 'Luzon', dy=50)],
           cam=at_(14.5, 121, 6),
           src=[src('Taal Lake is on Luzon.', VPA, 'one of only a few islands in a lake on an island in a lake on an island in the world')]),
+        S("Luzon is the largest island in the Philippines, home to the capital, Manila, and to more than half of all Filipinos.", [
+            ping(14.6, 120.98, 'Manila', color='#ffd60a'), dot('Manila', 14.6, 120.98, 'Manila', dy=-50, size=40), cnt('64.3M', 'half', size=170), pill('people on Luzon', 'Filipinos', bg='#1d4ed8')],
+          cam=at_(15.2, 121.0, 8),
+          src=[src('Luzon is the largest and most populous island in the Philippines.', 'Luzon', 'Luzon is the largest and most populous island in the Philippines.'),
+               src('Manila is on Luzon; 64.3 million people live there, more than half the national population.', 'Luzon',
+                   'Luzon has a population of 64.3 million as of 2024; this constitutes more than half of the total population of the Philippines.')]),
         S("An island, in a lake, on an island, in a lake, on an island. One of only a few in the world.", [
             timeline([('An', '1', 'Rock'), ('lake,', '2', 'Crater'), ('on', '3', 'Volcano'), ('in', '4', 'Taal'), ('world', '5', 'Luzon')], screen=(0.5, 0.25), width=940)],
           cam=at_(14.3, 121.0, 12), tr='flash',
@@ -195,16 +251,32 @@ save('uk_gb_england', meta(
             cnt('4', 'four', size=220)],
           cam=at_(54.5, -4, 4.4),
           src=[src('England is one of the four countries of the UK.', BT, 'England, Scotland, Wales and Northern Ireland are the four countries of the United Kingdom')]),
+        S("Their capitals are London for England, Edinburgh for Scotland, Cardiff for Wales, and Belfast for Northern Ireland.", [
+            *[ping(la, lo, w, color='#ffd60a') for la, lo, w in [(51.5, -0.12, 'London'), (55.95, -3.19, 'Edinburgh'), (51.48, -3.18, 'Cardiff'), (54.6, -5.93, 'Belfast')]],
+            *[dot(n, la, lo, w, dy=dy, size=40) for n, la, lo, w, dy in [('London', 51.5, -0.12, 'London', 50), ('Edinburgh', 55.95, -3.19, 'Edinburgh', -50), ('Cardiff', 51.48, -3.18, 'Cardiff', 50), ('Belfast', 54.6, -5.93, 'Belfast', -50)]]],
+          cam=at_(54.0, -3.5, 5.0),
+          src=[src('London is the capital; Edinburgh, Cardiff and Belfast are the national capitals of Scotland, Wales and Northern Ireland.', 'United_Kingdom',
+                   'Edinburgh, Cardiff and Belfast are the national capitals of Scotland, Wales and Northern Ireland, respectively')]),
         S("Great Britain is the name of the biggest island. It holds England, Scotland and Wales.", [
             hl(ENG, '#6d28d9', 'Great', fillOpacity=0.75), hl(SCO, '#6d28d9', 'Great', fillOpacity=0.75), hl(WAL, '#6d28d9', 'Great', fillOpacity=0.75),
             slam('GREAT BRITAIN', 55.5, -2.5, 'island', size=60)],
           cam=at_(54.5, -3.5, 4.4), tr='flash',
           src=[src('Great Britain is the largest island of the archipelago.', BT, 'the largest island of the archipelago')]),
-        S("Add Northern Ireland, and you get the United Kingdom. Its full name is the United Kingdom of Great Britain and Northern Ireland.", [
+        S("In 1707, England and Scotland joined into a single state, named Great Britain.", [
+            year(1707, '1707'), hl(ENG, '#6d28d9', 'joined', fillOpacity=0.75), hl(SCO, '#6d28d9', 'joined', fillOpacity=0.75), lab('GREAT BRITAIN', 55.5, -2.5, 'Great', style='serif', size=56)],
+          cam=at_(54.5, -3.5, 4.4), era='history', tr='film',
+          src=[src('The Acts of Union took effect on 1 May 1707, joining England and Scotland as Great Britain.', 'Acts_of_Union_1707',
+                   "politically joined the Kingdom of England and Kingdom of Scotland into a single 'political state' named Great Britain")]),
+        S("Add Northern Ireland, and you get the United Kingdom, home to over 69 million people. Its full name is the United Kingdom of Great Britain and Northern Ireland.", [
+            cnt('69M+', '69', size=170, screen=[0.5, 0.13]),
             hl('GBR', 'flag:gb', 'United', fillOpacity=0.9, neon='#ffd60a'),
             stamp('UNITED KINGDOM', 'full', size=76)],
           cam=at_(54.5, -4, 4.4),
-          src=[src('The UK is Great Britain plus Northern Ireland.', BT, 'Great Britain plus Northern Ireland')]),
+          src=[src('The UK is Great Britain plus Northern Ireland.', BT, 'Great Britain plus Northern Ireland'), src('Population over 69 million in 2024.', 'United_Kingdom', 'population of over 69 million in 2024')]),
+        S("And in 1922, most of Ireland left the union, and only Northern Ireland stayed.", [
+            year(1922, '1922'), hl('IRL', 'flag:ie', 'Ireland', fillOpacity=0.85), hl(NIR, '#f59e0b', 'stayed', fillOpacity=0.9), arrow((53.4, -6.3), (53.4, -9.5), 'left', color='#16a34a')],
+          cam=at_(54.0, -6.5, 6.0), era='history',
+          src=[src('Most of Ireland seceded from the UK in 1922 as the Irish Free State.', 'United_Kingdom', 'Most of Ireland seceded from the UK in 1922 as the Irish Free State')]),
         S("And the British Isles? That's Great Britain, the whole island of Ireland, and many smaller islands around them.", [
             hl('IRL', '#16a34a', 'Ireland', fillOpacity=0.7), hl('GBR', '#9ca3af', 'Great', fillOpacity=0.5), lab('+ 6,000 smaller islands', 58.5, -9.5, 'smaller', style='pill', bg='#0f766e', size=38)],
           cam=at_(54.5, -5, 3.6),
@@ -228,6 +300,15 @@ save('antarctica_claims', meta(
     [
         S("Who owns Antarctica? The answer is more complicated than you think.", [hook('WHO OWNS *ANTARCTICA*?', at=0.05, until='Antarctica'), q(-80, 0, 'complicated')],
           cam=at_(-90, 0, 1.4), no_claim=True),
+        S("It's the fifth largest continent, about 40 percent larger than Europe.", [
+            cnt('+40%', '40', size=200), ghost({'countries': ['PRT', 'ESP', 'FRA', 'GBR', 'IRL', 'BEL', 'NLD', 'DEU', 'CHE', 'AUT', 'ITA', 'POL', 'CZE', 'HUN', 'ROU', 'GRC', 'SWE', 'NOR', 'FIN', 'UKR']}, (-82, 10), 'Europe', fill='#ffd60a')],
+          cam=at_(-90, 0, 1.4),
+          src=[src('Antarctica is the fifth-largest continent, about 40% larger than Europe (14,200,000 km²).', 'Antarctica', 'Antarctica is the fifth-largest continent, being about 40% larger than Europe, and has an area of 14,200,000 km2')]),
+        S("And the lowest temperature ever recorded on Earth, minus 89.2 degrees Celsius, was measured here.", [
+            cnt('−89.2 °C', '89.2', size=180, color='#9ee7ff'), ping(-78.46, 106.84, 'measured', color='#ffd60a'), dot('Vostok Station', -78.46, 106.84, 'measured', dy=-52, size=36), art('snowflake', -74, 100, 'lowest', size=120)],
+          cam=at_(-90, 100, 1.5),
+          src=[src('The lowest natural air temperature ever recorded was −89.2 °C at Vostok Station on 21 July 1983.', 'Antarctica',
+                   'The lowest natural air temperature ever recorded on Earth was −89.2 °C (−128.6 °F) at the Russian Vostok Station in Antarctica on 21 July 1983.')]),
         S("Seven countries claim a piece of it.", [cnt('7', 'Seven', size=220),
             *[flag(c, la, lo, 'claim', size=90) for c, la, lo in [('ar', -70, -50), ('au', -72, 100), ('cl', -72, -80), ('fr', -68, 139), ('nz', -80, -170), ('no', -73, 20), ('gb', -76, -40)]]],
           cam=at_(-90, 0, 1.3),
@@ -256,6 +337,20 @@ save('antarctica_claims', meta(
             hl(wedge(-150, -90), '#0ea5e9', 'huge', fillOpacity=0.6, neon='#9ee7ff'), lab('MARIE BYRD LAND', -72, -120, 'Marie', style='pill', bg='#0369a1', size=46), cnt('1,610,000 km²', 'largest', size=110)],
           cam=at_(-90, -120, 1.5),
           src=[src('Marie Byrd Land (1,610,000 km²) is the largest unclaimed territory on Earth.', 'Marie_Byrd_Land', 'Marie Byrd Land (MBL) is an unclaimed region of Antarctica. With an area of 1,610,000 km2 (620,000 sq mi), it is the largest unclaimed territory on Earth.')]),
+        S("That treaty was opened for signature on December 1, 1959, and took effect in 1961.", [
+            cnt_steps([('signature', '1959'), ('effect', '1961')], size=200), hl({'countries': ['ATA']}, '#9ee7ff', 'treaty', fillOpacity=0.35, neon='#9ee7ff')],
+          cam=at_(-90, 0, 1.3, bearing=-6),
+          src=[src('The treaty was opened for signature on 1 December 1959 and entered into force on 23 June 1961.', 'Antarctic_Treaty_System',
+                   'The main treaty was opened for signature on 1 December 1959, and officially entered into force on 23 June 1961.')]),
+        S("It bans nuclear testing, military operations, economic exploitation, and any new territorial claims.", [
+            stamp('NO BOMBS · NO ARMIES · NO NEW CLAIMS', 'bans', size=62, screen=[0.5, 0.26]), art('no_entry', -80, 30, 'military', size=150), art('soldier_helmet', -76, -40, 'military', size=110)],
+          cam=at_(-90, 0, 1.3, bearing=6),
+          src=[src('The treaty prohibits nuclear testing, military operations, economic exploitation and new territorial claims.', 'Antarctic_Treaty_System',
+                   'The treaty prohibits nuclear testing, military operations, economic exploitation, and the making of new territorial claims in Antarctica.')]),
+        S("As of 2024, 58 countries are parties to the treaty.", [
+            cnt('58', '58', size=240), pill('countries signed on', 'parties', bg='#0369a1')],
+          cam=at_(-90, 0, 1.3),
+          src=[src('As of 2024 the treaty has 58 parties.', 'Antarctic_Treaty_System', 'As of 2024, the treaty has 58 parties.')]),
         S("And since the Antarctic Treaty of 1959, the whole continent is set aside for science.", [
             hl({'countries': ['ATA']}, '#9ee7ff', 'Antarctic', fillOpacity=0.35, neon='#9ee7ff'), year(1959, '1959', light=True), char('penguin', 'science', say='Science only!')],
           cam=at_(-90, 0, 1.3, bearing=10),
@@ -279,6 +374,16 @@ save('new_year', meta(
             ping(*KIR, 'first', color='#ffd60a'), dot('Kiritimati 🇰🇮', *KIR, 'Kiritimati', dy=-56), clock([('Kiritimati', '23:59'), ('Pacific', '00:00')], screen=(0.5, 0.22), size=180, label='UTC+14'), char('party_kid', 'first')],
           cam=at_(1.87, -157.4, 70),
           src=[src('The Line Islands (Kiritimati) use UTC+14.', 'UTC+14:00', 'the earliest time zone on Earth, meaning that areas in this zone are the first to see a new day, and therefore the first to enter a New Year')]),
+        S("Kiritimati is about 2,160 kilometers south of Honolulu, and its name is just how the Gilbertese language writes the word Christmas.", [
+            meas((21.3, -157.9), (1.87, -157.4), '2,160 km', '2,160'), dot('Honolulu', 21.3, -157.9, 'Honolulu', dy=-50, size=38), pill('Christmas → Kiritimati', 'Christmas', bg='#16a34a')],
+          cam=at_(11, -158, 3.2),
+          src=[src('Kiritimati is 2,160 km south of Honolulu.', 'Kiritimati', '2,160 km (1,340 mi) south of Honolulu'),
+               src('The name is the English word "Christmas" written in Gilbertese.', 'Kiritimati', 'The name is derived from the English word "Christmas" written in Gilbertese according to its phonology')]),
+        S("It's one of the largest atolls in the world by land area, and about 7,400 people live there.", [
+            cnt('7,369', '7,400', size=170), art('palm', 1.87, -157.4, 'atolls', size=160), pill('people (2020)', 'live', bg='#0f766e')],
+          cam=at_(1.87, -157.4, 70),
+          src=[src('One of the world\'s largest atolls by land area (312.38 km²).', 'Kiritimati', "Kiritimati is one of the world's largest atolls in terms of land area, consisting of about 312.38 km2 (120.61 sq mi)"),
+               src('Population 7,369 (2020 census).', 'Kiritimati', '7,369 (2020 census)')]),
         S("They use UTC plus 14, the earliest time zone on the planet.", [cnt('UTC+14', '14', size=170, color='#ffd60a')],
           src=[src('UTC+14 is the earliest time zone.', 'UTC+14:00', 'the earliest time zone on Earth')]),
         S("It wasn't always like that. At the end of 1994, Kiribati moved its eastern islands across the date line.", [
@@ -292,6 +397,12 @@ save('new_year', meta(
             ping(*BAK, 'Baker', color='#ff5a5f'), dot('Baker Is.', *BAK, 'Baker', dy=60), ping(0.807, -176.617, 'Howland', color='#ff5a5f'), dot('Howland Is.', 0.807, -176.617, 'Howland', dy=-60), clock([('last', '23:59'), ('nature', '00:00')], screen=(0.5, 0.22), size=180, label='UTC−12', night=True)],
           cam=at_(0.5, -176.55, 30), tr='flash',
           src=[src('Baker and Howland Islands (US nature reserves) use UTC−12, the last to enter the New Year.', 'UTC%E2%88%9212:00', 'comprises the United States Minor Outlying Islands, specifically Baker Island and Howland Island (strict nature reserves belonging to the United States), as standard time')]),
+        S("Baker Island is only about 2 square kilometers, and only scientists and educators can get a permit to visit.", [
+            cnt('2.1 km²', '2', size=160), stamp('PERMIT ONLY', 'permit', size=86, screen=[0.5, 0.27]), ping(*BAK, 'Baker', color='#ff5a5f')],
+          cam=at_(0.2, -176.48, 140),
+          src=[src('Baker Island covers 2.1 km².', 'Baker_Island', 'Covering an area of 0.81 sq mi (2.1 km2)'),
+               src('Access needs a special use permit, typically granted only to scientists and educators.', 'Baker_Island',
+                   'Public access to Baker Island is highly restricted and requires a special use permit issued by the U.S. Fish and Wildlife Service. Permits are typically granted only to scientists and educators.')]),
         S("So from the first New Year to the last, the party lasts 26 hours.", [
             bars([('UTC+14', 26, 'first', '#ffd60a'), ('UTC−12', 1, 'last', '#ff5a5f')], 'first', screen=[0.5, 0.3], labelWidth=200), cnt('26 h', '26', size=200)],
           cam=at_(0, -170, 1.0),
@@ -328,13 +439,27 @@ save('niihau', meta(
         S("In the 2020 census, only 84 people lived there.", [cnt('84', '84', size=220), scatter({'circle': {'lat': 21.9, 'lon': -160.15, 'km': 6}}, '🏠', 'people', count=4, size=64)],
           cam=at_(21.9, -160.15, 360),
           src=[src('Population 84 in 2020.', NIH, 'As of the 2020 census, the population had fallen to 84.')]),
+        S("After the attack on Pearl Harbor in 1941, a Japanese pilot even crash-landed here, hoping to meet a rescue submarine.", [
+            year(1941, '1941'), art('plane_landing', 21.95, -160.1, 'crash-landed', size=170), shake('crash-landed'), ping(21.95, -160.1, 'pilot', color='#ff5a5f')],
+          cam=at_(21.9, -160.15, 360), era='history', tr='film',
+          src=[src('On 7 December 1941 a Japanese pilot whose Zero had been hit crash-landed on Niʻihau hoping to meet a rescue submarine.', NIH,
+                   'a Japanese pilot whose Zero had been hit crash-landed on the island hoping to rendezvous with a rescue submarine.')]),
         S("It's the only island where Hawaiian is still spoken as the main language.", [lab('ALOHA!', 21.95, -160.1, 'Hawaiian', style='note', size=70), art('speaking', 21.78, -160.28, 'spoken', size=150)],
           cam=at_(21.9, -160.15, 360), tr='flash',
           src=[src('The only island where Hawaiian is the primary language.', NIH, 'Niʻihau is the only island where Hawaiian is spoken as a primary language.')]),
+        S("Niʻihau shell necklaces are famous, and a single lei can sell for thousands of dollars.", [
+            cnt('$1,000s', 'thousands', size=170, color='#ffd60a'), art('money_bag', 21.85, -160.1, 'lei', size=140), pill('Niʻihau shell lei', 'necklaces', bg='#0f766e')],
+          cam=at_(21.9, -160.15, 360),
+          src=[src('A single intricate Niʻihau shell lei can sell for thousands of dollars.', NIH, 'A single, intricate Niʻihau shell lei can sell for thousands of dollars.')]),
         S("People get around on horses, and alcohol and cigarettes are banned.", [icon('🐎', 21.9, -160.12, 'horses', size=170), icon('🚭', 21.85, -160.2, 'cigarettes', size=170)],
           cam=at_(21.9, -160.15, 360),
           src=[src('Horses are the main transport; alcohol and cigarettes are banned.', NIH, 'Horses are the main form of transportation; bicycles are also used.'),
                src('Ban on alcohol and cigarettes.', NIH, 'The rules include a ban on alcohol and cigarettes.')]),
+        S("There are no paved roads and no telephone service, and the school has only 25 to 50 students.", [
+            stamp('NO PAVED ROADS', 'roads', size=72, screen=[0.5, 0.24]), cnt('25–50', '25', size=160), pill('students', 'students', bg='#1d4ed8'), art('house', 21.85, -160.15, 'school', size=120)],
+          cam=at_(21.9, -160.15, 360),
+          src=[src('No telephone service and no paved roads.', NIH, 'Niʻihau has no telephone services and no paved roads.'),
+               src('The number of students varies from 25 to 50.', NIH, 'The number of students varies from 25 to 50 since families often travel between Niʻihau and Kauaʻi.')]),
         S("There's no running water and no power grid. Water comes from the rain, and electricity from the sun.", [
             icon('🌧️', 22.0, -160.1, 'rain', size=170), icon('☀️', 21.8, -160.2, 'sun', size=170), stamp('OFF GRID', 'grid', size=90)],
           cam=at_(21.9, -160.15, 360, bearing=3),
@@ -362,6 +487,11 @@ save('point_nemo', meta(
           cam=at_(-45, -123, 1.6),
           src=[src('Nemo is Latin for "nobody", a reference to Captain Nemo.', 'Point_Nemo', "Point Nemo, which is Latin for 'nobody' and a reference to Captain Nemo from Jules Verne's 1870 novel"),
                src('First identified by Hrvoje Lukatela in 1992.', 'Point_Nemo', 'Point Nemo was first identified by Croatian survey engineer Hrvoje Lukatela in 1992.')]),
+        S("It's almost lifeless, because the South Pacific Gyre blocks nutrients from reaching the area.", [
+            ping(*NEMO, 'lifeless', color='#ff3b3b'), stamp('NO NUTRIENTS', 'nutrients', size=86, screen=[0.5, 0.28]), pill('South Pacific Gyre', 'Gyre', bg='#0f766e')],
+          cam=at_(-47, -123, 2.4),
+          src=[src('Point Nemo is relatively lifeless because the South Pacific Gyre blocks nutrients.', 'Point_Nemo',
+                   'Point Nemo is relatively lifeless; its location within the South Pacific Gyre blocks nutrients from reaching the area, and being so far from land it gets little nutrient run-off from coastal waters.')]),
         S("The nearest land is about 2,688 kilometers away, in three directions.", [
             meas(NEMO, (-24.67, -124.78), '2,688 km', 'nearest'), meas(NEMO, (-27.2, -109.45), '2,688 km', 'three', countUp=False), meas(NEMO, (-72.9, -126.3), '2,688 km', 'directions', countUp=False)],
           cam=at_(-48, -122, 1.3),
@@ -381,6 +511,11 @@ save('point_nemo', meta(
             scatter({'circle': {'lat': NEMO[0], 'lon': NEMO[1], 'km': 700}}, '🛰️', 'cemetery', count=5, size=64, stagger=0.12), stamp('SPACECRAFT CEMETERY', 'cemetery', size=70)],
           cam=at_(-48, -123, 2.6, bearing=5),
           src=[src('Spacecraft are made to fall there on re-entry.', PI, "The wider area is also known as a 'spacecraft cemetery', because hundreds of decommissioned satellites, space stations, and other spacecraft have been made to fall there upon re-entering the atmosphere")]),
+        S("The area even shows up in fiction. In the 1928 story The Call of Cthulhu, H. P. Lovecraft placed his fictional city of R'lyeh here.", [
+            year(1928, '1928', light=True), lab("R'LYEH", NEMO[0], NEMO[1], 'fictional', style='note', size=70), grade('dusk', 'fiction', until='here')],
+          cam=at_(-48.8, -123.4, 3.0, bearing=3),
+          src=[src("The area holds the location of the fictional city of R'lyeh in Lovecraft's 1928 story.", 'Point_Nemo',
+                   "The general area also plays a major role in the 1928 short story 'The Call of Cthulhu' by H. P. Lovecraft, as holding the location of the fictional city of R'lyeh")]),
         S("And one day, the International Space Station itself is planned to end up here, in 2031.", [ping(*NEMO, 0.05, color='#ff3b3b'), lab('POINT NEMO', NEMO[0], NEMO[1], 0.05, style='pill', bg='#c1121f', size=46, dy=110), year(2031, '2031', light=True), mover_icon([(-44.2, -131.5), (-47.2, -126.3), NEMO], 'Station', 'art:iss', size=170, color='#ff5a5f', drawDur=2.0), shake('end')],
           cam=at_(-48.9, -123.4, 3.0, bearing=-4),
           src=[src('The ISS is planned to crash near Point Nemo in 2031.', 'Point_Nemo', 'The International Space Station (ISS) is planned to crash into the ocean near Point Nemo in 2031.')]),

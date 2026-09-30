@@ -69,6 +69,17 @@
             0.33
           ],
           "at": "closest"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "highest"
         }
       ],
       "camera": {
@@ -132,6 +143,99 @@
     },
     {
       "era": "now",
+      "text": "It's a volcano covered by glaciers, and it last erupted around the year 550.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "art:volcano",
+          "lat": -1.469,
+          "lon": -78.817,
+          "size": 190,
+          "plain": true,
+          "at": "volcano"
+        },
+        {
+          "type": "particles",
+          "kind": "snow",
+          "at": "glaciers",
+          "density": 0.5
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "550",
+              "value": "~550 AD"
+            }
+          ],
+          "size": 150
+        }
+      ],
+      "camera": {
+        "lat": -1.5,
+        "lon": -78.8,
+        "zoom": 7
+      },
+      "sources": [
+        {
+          "claim": "Chimborazo is a stratovolcano; the summit is covered by glaciers; last eruption around 550 AD.",
+          "url": "https://en.wikipedia.org/wiki/Chimborazo",
+          "quote": "a dominantly andesitic-dacitic stratovolcano ... the last time around 550 AD ± 150 years"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In 1802, the explorer Alexander von Humboldt climbed it to 5,875 meters, higher than any European in recorded history had gone.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1802",
+          "at": "1802"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "5,875",
+              "value": "5,875 m"
+            }
+          ],
+          "size": 150
+        },
+        {
+          "type": "icon",
+          "icon": "art:mountain",
+          "lat": -1.469,
+          "lon": -78.817,
+          "size": 180,
+          "plain": true,
+          "at": "climbed"
+        },
+        {
+          "type": "ping",
+          "lat": -1.469,
+          "lon": -78.817,
+          "color": "#ffd60a",
+          "at": "Humboldt"
+        }
+      ],
+      "camera": {
+        "lat": -1.5,
+        "lon": -78.8,
+        "zoom": 7
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "In 1802 Humboldt reached 5,875 m, higher than any European in recorded history.",
+          "url": "https://en.wikipedia.org/wiki/Chimborazo",
+          "quote": "they reached a point at 5,875 m, higher than previously attained by any European in recorded history"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Compared to Everest, it's more than two and a half kilometers lower.",
       "show": [
         {
@@ -156,6 +260,17 @@
           "at": "lower",
           "shape": "mountain",
           "height": 380
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "more"
         }
       ],
       "style": "neon",
@@ -269,6 +384,17 @@
           "label": "1°",
           "at": "degree",
           "countUp": false
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "just"
         }
       ],
       "camera": {
@@ -315,6 +441,51 @@
           "claim": "Its summit is 6,384.4 km from Earth's center.",
           "url": "https://en.wikipedia.org/wiki/Chimborazo",
           "quote": "it is 6,384.4 km (3,967.1 mi) from the Earth's center"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In fact, its summit is widely reported to be the farthest point on Earth's surface from the center of the planet.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "farthest",
+              "value": "#1"
+            }
+          ],
+          "size": 220
+        },
+        {
+          "type": "stamp",
+          "text": "FARTHEST FROM THE CENTER",
+          "size": 64,
+          "screen": [
+            0.5,
+            0.45
+          ],
+          "at": "farthest"
+        },
+        {
+          "type": "ping",
+          "lat": -1.469,
+          "lon": -78.817,
+          "color": "#ff5a5f",
+          "at": "summit"
+        }
+      ],
+      "camera": {
+        "lat": -1.5,
+        "lon": -78.8,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "Chimborazo's summit is widely reported to be the farthest point on the surface from Earth's center.",
+          "url": "https://en.wikipedia.org/wiki/Chimborazo",
+          "quote": "the summit of Chimborazo is widely reported to be the farthest point on the surface from Earth's center"
         }
       ]
     },

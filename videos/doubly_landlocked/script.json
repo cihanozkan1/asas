@@ -90,6 +90,70 @@
     },
     {
       "era": "now",
+      "text": "The biggest of them is Kazakhstan, and Africa has the most, with 16.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "KAZ",
+          "fill": "flag:kz",
+          "at": "Kazakhstan",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "16",
+              "value": "16"
+            }
+          ],
+          "size": 220
+        },
+        {
+          "type": "label",
+          "text": "landlocked in Africa",
+          "at": "Africa",
+          "style": "pill",
+          "bg": "#b45309",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "biggest"
+        }
+      ],
+      "camera": {
+        "lat": 25,
+        "lon": 40,
+        "zoom": 1.2
+      },
+      "style": "dark",
+      "sources": [
+        {
+          "claim": "Kazakhstan is the largest landlocked country by area.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "Kazakhstan is the world's largest landlocked country by area."
+        },
+        {
+          "claim": "Africa has the most landlocked countries, at 16.",
+          "url": "https://en.wikipedia.org/wiki/Landlocked_country",
+          "quote": "Africa has the most landlocked countries, at 16, followed by Europe (14), Asia (12), and South America (2)."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "But only two are doubly landlocked. To reach the sea, you have to cross at least two borders.",
       "show": [
         {
@@ -172,6 +236,17 @@
           "style": "map",
           "anim": "slam",
           "size": 70
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "Every"
         }
       ],
       "camera": {
@@ -312,6 +387,81 @@
           "claim": "Area about 160 km².",
           "url": "https://en.wikipedia.org/wiki/Liechtenstein",
           "quote": "160.50 km2 (61.97 sq mi)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's the sixth smallest country in the world, and it even uses Swiss money.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "sixth",
+              "value": "#6"
+            }
+          ],
+          "size": 200
+        },
+        {
+          "type": "label",
+          "text": "smallest in the world",
+          "at": "smallest",
+          "style": "pill",
+          "bg": "#b45309",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "icon",
+          "icon": "art:banknotes",
+          "lat": 47.14,
+          "lon": 9.52,
+          "size": 130,
+          "plain": true,
+          "at": "Swiss"
+        },
+        {
+          "type": "flag",
+          "code": "ch",
+          "lat": 47.3,
+          "lon": 9.1,
+          "size": 100,
+          "at": "Swiss",
+          "wave": true
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "smallest"
+        }
+      ],
+      "camera": {
+        "lat": 47.15,
+        "lon": 9.55,
+        "zoom": 30,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Liechtenstein is the sixth-smallest sovereign state by area.",
+          "url": "https://en.wikipedia.org/wiki/Liechtenstein",
+          "quote": "Liechtenstein is the sixth-smallest sovereign state in the world by area."
+        },
+        {
+          "claim": "It uses the Swiss franc (monetary union with Switzerland).",
+          "url": "https://en.wikipedia.org/wiki/Liechtenstein",
+          "quote": "It has a customs union and a monetary union with Switzerland, with its usage of the Swiss franc."
         }
       ]
     },

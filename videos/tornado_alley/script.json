@@ -78,6 +78,17 @@
           "size": 64,
           "at": "year",
           "stagger": 0.1
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "every"
         }
       ],
       "camera": {
@@ -313,6 +324,66 @@
     },
     {
       "era": "now",
+      "text": "Tornadoes are most common in spring, and least common in winter.",
+      "show": [
+        {
+          "type": "label",
+          "text": "SPRING: most",
+          "at": "spring",
+          "style": "pill",
+          "bg": "#16a34a",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "label",
+          "text": "WINTER: least",
+          "at": "winter",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "size": 46
+        },
+        {
+          "type": "icon",
+          "icon": "art:snowflake",
+          "lat": 41,
+          "lon": -104,
+          "size": 120,
+          "plain": true,
+          "at": "winter"
+        },
+        {
+          "type": "icon",
+          "icon": "art:tornado",
+          "lat": 36,
+          "lon": -98,
+          "size": 140,
+          "plain": true,
+          "at": "spring"
+        }
+      ],
+      "camera": {
+        "lat": 38,
+        "lon": -97,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "Tornadoes are most common in spring and least common in winter.",
+          "url": "https://en.wikipedia.org/wiki/Tornado",
+          "quote": "Tornadoes are most common in spring and least common in winter"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Warm, humid air flows up from the Gulf of Mexico.",
       "show": [
         {
@@ -487,6 +558,184 @@
           "claim": "This creates an ideal environment for tornadoes within supercells.",
           "url": "https://en.wikipedia.org/wiki/Tornado_Alley",
           "quote": "This creates an ideal environment for tornadoes to form within developed thunderstorms and supercells."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The strongest tornadoes can reach wind speeds of more than 480 kilometers per hour.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "art:tornado",
+          "lat": 36,
+          "lon": -98,
+          "size": 200,
+          "plain": true,
+          "at": "strongest"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "480",
+              "value": "480 km/h"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "icon",
+          "icon": "art:wind",
+          "lat": 38,
+          "lon": -102,
+          "size": 130,
+          "plain": true,
+          "at": "wind"
+        },
+        {
+          "type": "shake",
+          "at": "reach"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "more"
+        }
+      ],
+      "camera": {
+        "lat": 36.5,
+        "lon": -98,
+        "zoom": 7
+      },
+      "sources": [
+        {
+          "claim": "The strongest tornadoes can attain wind speeds of more than 480 km/h.",
+          "url": "https://en.wikipedia.org/wiki/Tornado",
+          "quote": "can attain wind speeds of more than 480 kilometers per hour (300 mph)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Luckily, about 80 percent of tornadoes in the US are the weakest kinds, called EF0 and EF1.",
+      "show": [
+        {
+          "type": "bars",
+          "items": [
+            {
+              "label": "Weak (EF0–EF1)",
+              "value": 80,
+              "display": "80%",
+              "color": "#4ade80"
+            },
+            {
+              "label": "Stronger",
+              "value": 20,
+              "display": "20%",
+              "color": "#ff5a5f"
+            }
+          ],
+          "orient": "h",
+          "at": "weakest",
+          "screen": [
+            0.5,
+            0.3
+          ],
+          "labelWidth": 260
+        },
+        {
+          "type": "icon",
+          "icon": "art:tornado",
+          "lat": 37,
+          "lon": -97,
+          "size": 150,
+          "plain": true,
+          "at": "Luckily"
+        }
+      ],
+      "camera": {
+        "lat": 37,
+        "lon": -97,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "In the US, 80% of tornadoes are EF0 and EF1.",
+          "url": "https://en.wikipedia.org/wiki/Tornado",
+          "quote": "In the United States, 80% of tornadoes are EF0 and EF1"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The widest tornado ever recorded hit El Reno, Oklahoma, in 2013, and it was 4.2 kilometers wide.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2013",
+          "light": true,
+          "at": "2013"
+        },
+        {
+          "type": "ping",
+          "lat": 35.53,
+          "lon": -98.05,
+          "color": "#ff5a5f",
+          "at": "Reno"
+        },
+        {
+          "type": "label",
+          "text": "El Reno",
+          "lat": 35.53,
+          "lon": -98.05,
+          "at": "Reno",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "4.2",
+              "value": "4.2 km"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "measure",
+          "from": [
+            35.53,
+            -98.1
+          ],
+          "to": [
+            35.53,
+            -98.0
+          ],
+          "label": "4.2 km wide",
+          "at": "wide",
+          "countUp": false
+        }
+      ],
+      "camera": {
+        "lat": 35.53,
+        "lon": -98.05,
+        "zoom": 40
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "On 31 May 2013 a tornado in El Reno, Oklahoma was about 4.2 km wide, the widest on record.",
+          "url": "https://en.wikipedia.org/wiki/Tornado",
+          "quote": "a tornado in El Reno, Oklahoma on May 31, 2013, was approximately 2.6 miles (4.2 km) wide, the widest on record"
         }
       ]
     },

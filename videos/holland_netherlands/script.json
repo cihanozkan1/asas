@@ -88,6 +88,17 @@
             }
           ],
           "size": 220
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "whole"
         }
       ],
       "camera": {
@@ -100,6 +111,93 @@
           "claim": "Holland: two of the country's twelve provinces.",
           "url": "https://en.wikipedia.org/wiki/Holland",
           "quote": "Holland comprises the provinces of North Holland and South Holland, representing two of the country's twelve provinces"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The name Netherlands literally means lower countries, because the land is so low and flat.",
+      "show": [
+        {
+          "type": "label",
+          "text": "LOWER COUNTRIES",
+          "lat": 52.3,
+          "lon": 5.3,
+          "at": "lower",
+          "style": "extrude",
+          "anim": "giant",
+          "size": 70
+        },
+        {
+          "type": "icon",
+          "icon": "art:wave",
+          "lat": 52.9,
+          "lon": 4.6,
+          "size": 120,
+          "plain": true,
+          "at": "low"
+        },
+        {
+          "type": "highlight",
+          "target": "NLD",
+          "fill": "flag:nl",
+          "at": "Netherlands",
+          "fillOpacity": 0.6
+        }
+      ],
+      "camera": {
+        "lat": 52.2,
+        "lon": 5.3,
+        "zoom": 24
+      },
+      "sources": [
+        {
+          "claim": "Netherlands literally means \"lower countries\", in reference to its low elevation and flat topography.",
+          "url": "https://en.wikipedia.org/wiki/Netherlands",
+          "quote": "Netherlands literally means 'lower countries', in reference to its low elevation and flat topography"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "About a quarter of the country, 26 percent, lies below sea level.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "26",
+              "value": "26%"
+            }
+          ],
+          "size": 210
+        },
+        {
+          "type": "icon",
+          "icon": "art:water_pump",
+          "lat": 52.55,
+          "lon": 5.0,
+          "size": 120,
+          "plain": true,
+          "at": "below"
+        },
+        {
+          "type": "tilt",
+          "deg": 34,
+          "at": "below",
+          "until": 3.0
+        }
+      ],
+      "camera": {
+        "lat": 52.2,
+        "lon": 5.3,
+        "zoom": 24
+      },
+      "sources": [
+        {
+          "claim": "26% of the Netherlands is below sea level.",
+          "url": "https://en.wikipedia.org/wiki/Netherlands",
+          "quote": "26% of which is below sea level"
         }
       ]
     },
@@ -146,6 +244,17 @@
           "style": "pill",
           "bg": "#f97316",
           "size": 40
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
         }
       ],
       "camera": {
@@ -323,6 +432,87 @@
     },
     {
       "era": "now",
+      "text": "And Amsterdam is only the nominal capital. The national government actually sits in The Hague.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 52.37,
+          "lon": 4.9,
+          "color": "#ffd60a",
+          "at": "Amsterdam"
+        },
+        {
+          "type": "ping",
+          "lat": 52.08,
+          "lon": 4.31,
+          "color": "#ff5a5f",
+          "at": "Hague"
+        },
+        {
+          "type": "label",
+          "text": "Amsterdam",
+          "lat": 52.37,
+          "lon": 4.9,
+          "at": "Amsterdam",
+          "dot": true,
+          "dy": -52,
+          "size": 40
+        },
+        {
+          "type": "label",
+          "text": "The Hague",
+          "lat": 52.08,
+          "lon": 4.31,
+          "at": "Hague",
+          "dot": true,
+          "dy": 52,
+          "size": 40
+        },
+        {
+          "type": "icon",
+          "icon": "art:gavel",
+          "lat": 52.08,
+          "lon": 4.31,
+          "size": 110,
+          "plain": true,
+          "at": "government"
+        },
+        {
+          "type": "icon",
+          "icon": "art:crown",
+          "lat": 52.37,
+          "lon": 4.9,
+          "size": 90,
+          "plain": true,
+          "at": "capital"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
+        }
+      ],
+      "camera": {
+        "lat": 52.2,
+        "lon": 4.6,
+        "zoom": 55
+      },
+      "sources": [
+        {
+          "claim": "Amsterdam is the nominal capital; the main national political institutions are in The Hague.",
+          "url": "https://en.wikipedia.org/wiki/Netherlands",
+          "quote": "Amsterdam is the country's most populous city and the nominal capital, though the primary national political institutions are in The Hague."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Rotterdam even has Europe's largest port. And with Utrecht, these cities form one giant metro area, the Randstad.",
       "show": [
         {
@@ -453,6 +643,17 @@
             0.33
           ],
           "at": "stop"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "whole"
         }
       ],
       "camera": {

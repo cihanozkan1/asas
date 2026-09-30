@@ -162,6 +162,104 @@
     },
     {
       "era": "now",
+      "text": "Taal Volcano is only 311 meters high, but it's the second most active volcano in the Philippines.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "art:volcano",
+          "lat": 14.0,
+          "lon": 120.995,
+          "size": 190,
+          "plain": true,
+          "at": "volcano"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "311",
+              "value": "311 m"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "ping",
+          "lat": 14.0,
+          "lon": 120.995,
+          "color": "#ff5a2a",
+          "at": "Taal"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "only"
+        }
+      ],
+      "camera": {
+        "lat": 14.0,
+        "lon": 120.995,
+        "zoom": 240,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Taal is the second most active volcano in the country; elevation 311 m.",
+          "url": "https://en.wikipedia.org/wiki/Taal_Volcano",
+          "quote": "the second most active volcano in the country ... Elevation 311 m (1,020 ft)"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "And Taal Lake itself fills a giant crater, called a caldera, 25 to 30 kilometers wide.",
+      "show": [
+        {
+          "type": "measure",
+          "from": [
+            13.95,
+            120.85
+          ],
+          "to": [
+            13.95,
+            121.12
+          ],
+          "label": "25–30 km",
+          "at": "25",
+          "countUp": false
+        },
+        {
+          "type": "label",
+          "text": "CALDERA",
+          "lat": 14.05,
+          "lon": 120.85,
+          "at": "caldera",
+          "style": "pill",
+          "bg": "#7c2d12",
+          "size": 44
+        }
+      ],
+      "camera": {
+        "lat": 13.98,
+        "lon": 121.0,
+        "zoom": 55
+      },
+      "sources": [
+        {
+          "claim": "Taal Lake lies within a 25–30 km caldera formed by explosive eruptions.",
+          "url": "https://en.wikipedia.org/wiki/Taal_Volcano",
+          "quote": "Taal Lake lies within a 25–30 km (16–19 mi) caldera formed by explosive eruptions"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "And Taal Lake is on a bigger island: Luzon, in the Philippines.",
       "show": [
         {
@@ -192,6 +290,79 @@
           "claim": "Taal Lake is on Luzon.",
           "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
           "quote": "one of only a few islands in a lake on an island in a lake on an island in the world"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Luzon is the largest island in the Philippines, home to the capital, Manila, and to more than half of all Filipinos.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 14.6,
+          "lon": 120.98,
+          "color": "#ffd60a",
+          "at": "Manila"
+        },
+        {
+          "type": "label",
+          "text": "Manila",
+          "lat": 14.6,
+          "lon": 120.98,
+          "at": "Manila",
+          "dot": true,
+          "dy": -50,
+          "size": 40
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "half",
+              "value": "64.3M"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "label",
+          "text": "people on Luzon",
+          "at": "Filipinos",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "largest"
+        }
+      ],
+      "camera": {
+        "lat": 15.2,
+        "lon": 121.0,
+        "zoom": 8
+      },
+      "sources": [
+        {
+          "claim": "Luzon is the largest and most populous island in the Philippines.",
+          "url": "https://en.wikipedia.org/wiki/Luzon",
+          "quote": "Luzon is the largest and most populous island in the Philippines."
+        },
+        {
+          "claim": "Manila is on Luzon; 64.3 million people live there, more than half the national population.",
+          "url": "https://en.wikipedia.org/wiki/Luzon",
+          "quote": "Luzon has a population of 64.3 million as of 2024; this constitutes more than half of the total population of the Philippines."
         }
       ]
     },

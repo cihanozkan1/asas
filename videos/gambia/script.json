@@ -57,6 +57,17 @@
             }
           ],
           "size": 170
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "smallest"
         }
       ],
       "camera": {
@@ -171,6 +182,17 @@
           "target": "SEN",
           "fill": "#3a3b40",
           "at": 0.05
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_think",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "why"
         }
       ],
       "camera": {
@@ -397,6 +419,82 @@
           "claim": "Independence 18 February 1965; Senegambia Confederation 1982–1989.",
           "url": "https://en.wikipedia.org/wiki/The_Gambia",
           "quote": "formed the Senegambia Confederation with its neighbor in 1982, but \"permanently withdrew from the confederation in 1989.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, about 2.4 million people live in this river country, which is less than 50 kilometers wide at its widest point.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "GMB",
+          "fill": "flag:gm",
+          "at": 0.05,
+          "fillOpacity": 0.85,
+          "neon": "#ffd60a"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "million",
+              "value": "2.4M"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "label",
+          "text": "people",
+          "at": "people",
+          "style": "pill",
+          "bg": "#e63946",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "crowd",
+          "lat": 13.45,
+          "lon": -15.6,
+          "count": 30,
+          "at": "live",
+          "cols": 10,
+          "size": 26,
+          "color": "#ffffff"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "million"
+        }
+      ],
+      "camera": {
+        "fit": [
+          "GMB"
+        ],
+        "pad": 0.8,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Population 2,422,712 (2024 census).",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "population of 2,422,712 people at the 1 May 2024 census"
+        },
+        {
+          "claim": "Less than 50 km wide at its widest point.",
+          "url": "https://en.wikipedia.org/wiki/The_Gambia",
+          "quote": "The Gambia is less than 50 kilometres (31 miles) wide at its widest point"
         }
       ]
     }
