@@ -519,6 +519,19 @@ export function makeExtras(S) {
     ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(p[0], p[1], rr * (el.stretch ?? 1), rr, el.rot ?? 0, 0, TAU); ctx.fill();
     ctx.restore();
   }
+  function drawDisc(ctx, el, life, t) {
+    const p = S.project({ lon: el.lon, lat: el.lat });
+    if (!p) return;
+    const k = state.view?.k || 1000;
+    const r = (el.km ? Math.max(20, (el.km / 6371) * k) : (el.r || 200)) * ease.outCubic(clamp01(life.age / 0.7));
+    ctx.save(); ctx.globalAlpha = life.out;
+    const col = el.color || '#5ec8ff';
+    ctx.fillStyle = col; ctx.globalAlpha = life.out * (el.alpha ?? 0.22);
+    ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, TAU); ctx.fill();
+    ctx.globalAlpha = life.out; ctx.strokeStyle = col; ctx.lineWidth = el.width || 5; ctx.shadowColor = col; ctx.shadowBlur = 16;
+    ctx.beginPath(); ctx.arc(p[0], p[1], r * (1 + 0.012 * Math.sin((t - el.start) * 5)), 0, TAU); ctx.stroke();
+    ctx.restore();
+  }
   function drawCrack(ctx, el, life) {
     const y0 = (el.y ?? 0.45) * H, prog = ease.outCubic(clamp01(life.age / 0.5)), grow = clamp01((life.age - 0.4) / 0.8);
     const n = 26, pts = [];
@@ -537,7 +550,7 @@ export function makeExtras(S) {
   function drawGeo(ctx, t) {
     for (const el of state.tl.elements) {
       const t0 = el.type;
-      if (!['pathtext', 'crowd', 'face', 'pin', 'box', 'beam', 'cloud', 'callout', 'ellipse', 'glow', 'crack'].includes(t0)) continue;
+      if (!['pathtext', 'crowd', 'face', 'pin', 'box', 'beam', 'cloud', 'callout', 'ellipse', 'glow', 'crack', 'disc'].includes(t0)) continue;
       const life = lifeOf(el, t, 0.3, 0.3);
       if (!life) continue;
       if (t0 === 'pathtext') drawPathText(ctx, el, life);
@@ -551,6 +564,7 @@ export function makeExtras(S) {
       else if (t0 === 'ellipse') drawEllipse(ctx, el, life);
       else if (t0 === 'glow') drawGlow(ctx, el, life, t);
       else if (t0 === 'crack') drawCrack(ctx, el, life);
+      else if (t0 === 'disc') drawDisc(ctx, el, life, t);
     }
   }
   function drawUnder(ctx, t) {
@@ -597,6 +611,8 @@ export function makeExtras(S) {
         const R = el.radius || 300;
         return `<div class="inner orbit" style="width:${R * 2}px;height:${R * 2}px"><div class="ring"></div><div class="mid">${esc(el.text || '')}</div>${(el.items || []).map((t) => `<div class="it"><i></i><b>${esc(t)}</b></div>`).join('')}</div>`;
       }
+      case 'tally':
+        return `<div class="inner tally">${(el.items || []).map((it) => `<div class="tr"><img src="/assets/art/${String(it.icon || '').replace('art:', '')}.png"><b data-v="${it.value}" data-p="${esc(it.prefix || '')}" data-s="${esc(it.suffix || '')}">0</b><span>${esc(it.label || '')}</span></div>`).join('')}</div>`;
       case 'handstamp':
         return `<div class="inner handstamp"><div class="hs-text" style="font-size:${el.size || 96}px">${esc(el.text)}</div><img class="hs-hand" src="/assets/art/hand_stamp.png"></div>`;
       case 'lens': {
@@ -650,6 +666,17 @@ export function makeExtras(S) {
         inner.querySelector('.tb-knob').style.left = `${u * 100}%`;
         const y0 = parseInt(el.from, 10), y1 = parseInt(el.to, 10);
         inner.querySelector('.tb-c').textContent = Number.isFinite(y0) && Number.isFinite(y1) ? String(Math.round(y0 + (y1 - y0) * u)) : '';
+        tw.scale = ease.outBack(life.in);
+        break;
+      }
+      case 'tally': {
+        inner.querySelectorAll('.tr').forEach((n, i) => {
+          const u = ease.outCubic(clamp01((life.age - 0.15 - i * (el.stagger ?? 0.35)) / 0.9));
+          const b = n.querySelector('b'), v = Number(b.dataset.v);
+          b.textContent = `${b.dataset.p}${Math.round(v * u).toLocaleString('en-US')}${b.dataset.s}`;
+          n.style.opacity = String(clamp01(u * 3));
+          n.style.transform = `translateX(${(1 - u) * -80}px)`;
+        });
         tw.scale = ease.outBack(life.in);
         break;
       }

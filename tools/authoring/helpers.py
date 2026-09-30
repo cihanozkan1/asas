@@ -283,7 +283,7 @@ def enrich(scenes):
         if any(e.get('type') == 'react' for e in show):
             last = i
             continue
-        if i - last < 3 or len(show) >= 8 or any(e.get('type') in ('character', 'avatar', 'handstamp') for e in show):
+        if i - last < 3 or len(show) >= 8 or any(e.get('type') in ('character', 'avatar', 'handstamp', 'tally') for e in show):
             continue
         text = sc['text']
         for icon, rx in _REACT:
@@ -460,3 +460,22 @@ def glow(lat, lon, at, km=None, r=None, color='#ff3b1f', **kw):
 def crack(at, y=0.45, **kw):
     """A black jagged crack opens across the screen (splits, civil wars, rifts)."""
     return _put({'type': 'crack', 'y': y}, at, kw)
+
+
+def disc(lat, lon, at, km=None, r=None, color='#5ec8ff', **kw):
+    """Translucent filled circle with a glowing rim (range circles, signal spheres, zones)."""
+    d = {'type': 'disc', 'lat': lat, 'lon': lon, 'color': color}
+    if km: d['km'] = km
+    if r: d['r'] = r
+    return _put(d, at, kw)
+
+
+def tally(items, at, **kw):
+    """Stack of rows that count up: items = [(art_name, label, value[, prefix, suffix])]."""
+    rows = []
+    for it in items:
+        d = {'icon': it[0], 'label': it[1], 'value': it[2]}
+        if len(it) > 3: d['prefix'] = it[3]
+        if len(it) > 4: d['suffix'] = it[4]
+        rows.append(d)
+    return _put({'type': 'tally', 'items': rows}, at, kw)

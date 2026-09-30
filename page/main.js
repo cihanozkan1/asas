@@ -2169,7 +2169,7 @@ function updateUi(t) {
         }
         break;
       }
-      case 'photo': case 'avatar': case 'react': case 'timebar': case 'orbit': case 'handstamp': case 'lens': {
+      case 'photo': case 'avatar': case 'react': case 'timebar': case 'orbit': case 'handstamp': case 'lens': case 'tally': {
         const tw = state.X.anim(el, inner, life, t);
         scale *= tw.scale; rot += tw.rot; opacity *= tw.opacity; x += tw.dx; y += tw.dy;
         break;

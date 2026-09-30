@@ -248,3 +248,26 @@ sert kesim 2,5–62/dk. Yani kamera hızı farkı sürüyor; motor zoom/kayma ar
 | 138 | Konunun üstünde çıkan rozetler (virüs türleri) | kısmen (`react`, `pin`) |
 | 139 | Sokak ızgarası neon çizimi (OpenStreetMap) | **yapılmaz**: ODbL lisansı, telif riski |
 | 140 | Şirket logoları (ör. Google) | **yapılmaz**: marka/telif riski |
+
+
+## Ek tur 2: 35 yeni referans video (toplam 75)
+
+Ölçüm (35 video): süre 60–106 sn, kare değişimi 5,7–13,7, hareketli pay %60–100, kamera kayma hızı 5–21, sert kesim 2–90/dk.
+İzlenen videoların kimlikleri `docs/referans_izlenenler.txt` içinde; aynı video tekrar indirilmez. Video dosyaları silindi (yer açmak için).
+
+| # | referansta | durum |
+|---|---|---|
+| 141 | Nicelik metaforu: dünya üstüne yüzlerce ikon (bebek, kahve, kola, bira, pizza) + "/sn" sayacı | var (`scatter` yüksek sayı + `cnt`) |
+| 142 | Alt alta sayarak artan istatistik satırları (e-posta, mesaj, tweet) | **eklendi** `tally()` |
+| 143 | Yarıçap çemberi / sinyal küresi: dolgulu yarı saydam daire (GPS üç çember kesişimi) | **eklendi** `disc()` |
+| 144 | Koyu uzay zemini üstünde ışıklı çizgi uydu/ikonlar ve formül metni (şematik sahne) | kısmen (neon palet + `disc` + `art`) |
+| 145 | Dünya kartı eğik durur, mavi ızgara zemin (tilted card) | yapılacak: sahne seçeneği `card` |
+| 146 | Başlıkta baş harfler vurgulanır (GPS = Global Positioning System), 3B kabartmalı yazı | yapılacak: `label anim:'letters'` |
+| 147 | Karakterli skeç sahnesi: uçak kabini arka planı + iki karakter konuşur | kısmen (karakter + balon var; üretilmiş arka plan gerekli) |
+| 148 | Ödül madalyası rozeti ülkenin üstünde (#1) | yapılacak: FLUX sanat `medal` |
+| 149 | Boy karşılaştırması silüeti (insan, penguen, Eyfel) | kısmen (`bars shape`) |
+| 150 | Üzeri çarpı/yasak işareti olan nesne ("köprü yok") | var (`art:no_entry` üst üste) |
+| 151 | Kamera haritadan çekilip fotoğraf/belge kartına geçer (eğik harita belgesi) | kısmen (`photo` kartı var; kendi ürettiğimiz belge sanatı gerekli) |
+| 152 | Çapraz dilimli wipe ile ikinci görüntü açılır | yapılacak: geçiş `slice` |
+| 153 | Bölgelere konuşma balonlu karakter ("I'm from Brooklyn") | var (`char ... say=`) |
+| 154 | Gerçek fotoğraf, drone ve arşiv görüntüleri, gerçek kişi portreleri, marka logoları | **yapılmaz**: telif/kişilik hakkı riski; yerine kendi ürettiğimiz çizimler |

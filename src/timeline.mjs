@@ -6,7 +6,7 @@ import { normWord } from './util.mjs';
 import { histYearFor, histBorders } from './historical.mjs';
 import { ROOT } from './util.mjs';
 
-const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12], bars: [0.5, 0.3], vs: [0.5, 0.27], timeline: [0.5, 0.24], clock: [0.5, 0.3], timebar: [0.5, 0.26], orbit: [0.5, 0.4], handstamp: [0.5, 0.33] };
+const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12], bars: [0.5, 0.3], vs: [0.5, 0.27], timeline: [0.5, 0.24], clock: [0.5, 0.3], timebar: [0.5, 0.26], orbit: [0.5, 0.4], handstamp: [0.5, 0.33], tally: [0.5, 0.26] };
 let LEAD = 0.08;   // seconds a word-timed element appears before its word (set from config.timing.lead)
 
 function toPt(p) {
