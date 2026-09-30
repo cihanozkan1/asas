@@ -227,6 +227,11 @@ save('recursive_island', meta(
             year(2020, '2020', light=True), icon('🌋', 14.0, 120.995, 'erupted', size=150), shake('erupted'), stamp('LAKE GONE', 'disappeared', size=86, screen=[0.5, 0.5])],
           cam=at_(14.0, 120.995, 300),
           src=[src('After the January 2020 eruption, the water in Main Crater Lake had disappeared.', VPA, 'the water in Main Crater Lake had disappeared')]),
+        S("Vulcan Point is a small rocky island that was once covered with vegetation, and it survived the 2020 eruption.", [
+            art('volcano', 14.0, 120.995, 'survived', size=170), ping(*VP, 'island', color='#4ade80'), art('tree', 14.01, 121.0, 'vegetation', size=110)],
+          cam=at_(14.01, 121.0, 1500, bearing=-3),
+          src=[src('Vulcan Point is a small rocky island in Main Crater Lake, once covered with vegetation, which survived the 2020 eruption.', VPA,
+                   'a small rocky island inside of Main Crater Lake which was once covered with vegetation before the 2020 eruption, which it survived')]),
         S("But typhoon rains later filled it up again, and the little island came back.", [icon('🌧️', 14.02, 121.0, 'rains', size=120), ping(*VP, 'island', color='#4ade80')],
           cam=at_(14.01, 121.0, 1500, bearing=3),
           src=[src('Typhoons let rain re-accumulate and reform Main Crater Lake.', VPA, 'a series of typhoons allowed rain to re-accumulate and reform Main Crater Lake')]),

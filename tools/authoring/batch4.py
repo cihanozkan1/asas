@@ -244,6 +244,11 @@ save('hormuz', meta(
           cam=at_(26.8, 56.4, 12, bearing=-3), era='history',
           src=[src('One theory says the name comes from the Persian Hur-Mogh, "Place of Dates".', 'Strait_of_Hormuz', 'One theory is the name derives from the local Persian language word Hur-Mogh هورمغ \'Place of Dates\''),
                src('In the 10th–17th centuries AD, the Kingdom of Ormus was located here.', 'Strait_of_Hormuz', 'In the 10th–17th centuries AD, the Kingdom of Ormus was located here.')]),
+        S("By 1972, the strait was completely covered by the combined territorial waters of Iran and Oman.", [
+            year(1972, '1972', light=True), hl('IRN', 'flag:ir', 'Iran', fillOpacity=0.5), hl('OMN', 'flag:om', 'Oman', fillOpacity=0.5), disc(26.6, 56.4, 'combined', km=60, color='#ffd60a')],
+          cam=at_(26.6, 56.4, 18),
+          src=[src('By 1972 the strait was completely closed by the combined territorial waters of Iran and Oman.', 'Strait_of_Hormuz',
+                   "by 1972, the Strait of Hormuz was completely 'closed' by the combined territorial waters of Iran and Oman")]),
         S("That's why this 39 kilometer gap is one of the most important waterways on Earth.", [
             ping(26.6, 56.4, 'gap', color='#ffd60a'), meas((26.52, 56.5), (26.84, 56.36), '39 km', 'gap'), punch('important')],
           cam=at_(26.6, 56.4, 18, bearing=4), tr='flash',

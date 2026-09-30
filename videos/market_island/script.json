@@ -673,6 +673,113 @@
     },
     {
       "era": "now",
+      "text": "The island is only about 3.3 hectares, and the ownership of the coastline didn't change either.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "sweden_new.geojson"
+          },
+          "fill": "flag:se",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "geojson": "finland_new.geojson"
+          },
+          "fill": "flag:fi",
+          "at": 0.05,
+          "fillOpacity": 0.9
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              60.30158,
+              19.1318
+            ],
+            [
+              60.3013,
+              19.1318
+            ],
+            [
+              60.3013,
+              19.130699999999997
+            ],
+            [
+              60.3009,
+              19.130699999999997
+            ],
+            [
+              60.3009,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1328
+            ],
+            [
+              60.3005,
+              19.1318
+            ],
+            [
+              60.300219999999996,
+              19.1318
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 9,
+          "at": 0.05,
+          "rhumb": true,
+          "drawDur": 0.1
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "3.3",
+              "value": "3.3 ha"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "label",
+          "text": "coastline unchanged",
+          "at": "coastline",
+          "style": "pill",
+          "bg": "#0f766e",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 60.3009,
+        "lon": 19.1318,
+        "zoom": 14500,
+        "bearing": 3
+      },
+      "style": "atlas",
+      "sources": [
+        {
+          "claim": "The island has an area of about 3.3 hectares.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "an area of about 3.3 hectares (8.2 acres)"
+        },
+        {
+          "claim": "No net transfer of territory, and the ownership of the coastline was unchanged.",
+          "url": "https://en.wikipedia.org/wiki/Märket",
+          "quote": "The adjustment was carried out such that no net transfer of territory occurred, and the ownership of the coastline was unchanged"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Today the border is marked by holes drilled into the rock, and it's inspected every 25 years.",
       "show": [
         {

@@ -469,6 +469,50 @@
     },
     {
       "era": "now",
+      "text": "Vulcan Point is a small rocky island that was once covered with vegetation, and it survived the 2020 eruption.",
+      "show": [
+        {
+          "type": "icon",
+          "icon": "art:volcano",
+          "lat": 14.0,
+          "lon": 120.995,
+          "size": 170,
+          "plain": true,
+          "at": "survived"
+        },
+        {
+          "type": "ping",
+          "lat": 14.0096,
+          "lon": 120.9966,
+          "color": "#4ade80",
+          "at": "island"
+        },
+        {
+          "type": "icon",
+          "icon": "art:tree",
+          "lat": 14.01,
+          "lon": 121.0,
+          "size": 110,
+          "plain": true,
+          "at": "vegetation"
+        }
+      ],
+      "camera": {
+        "lat": 14.01,
+        "lon": 121.0,
+        "zoom": 1500,
+        "bearing": -3
+      },
+      "sources": [
+        {
+          "claim": "Vulcan Point is a small rocky island in Main Crater Lake, once covered with vegetation, which survived the 2020 eruption.",
+          "url": "https://en.wikipedia.org/wiki/Vulcan_Point",
+          "quote": "a small rocky island inside of Main Crater Lake which was once covered with vegetation before the 2020 eruption, which it survived"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "But typhoon rains later filled it up again, and the little island came back.",
       "show": [
         {

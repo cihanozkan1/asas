@@ -615,6 +615,79 @@
     },
     {
       "era": "now",
+      "text": "As the Atlantic circulation weakens, the Gulf Stream is expected to slow down, but it will not collapse.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              41.5,
+              -60
+            ],
+            [
+              45,
+              -45
+            ],
+            [
+              50,
+              -30
+            ],
+            [
+              55,
+              -15
+            ],
+            [
+              60,
+              -5
+            ],
+            [
+              65,
+              5
+            ]
+          ],
+          "color": "#ff5a2a",
+          "width": 14,
+          "at": "slow",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.4,
+          "flowSpeed": 120
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "collapse",
+              "value": "not collapse"
+            }
+          ],
+          "size": 120
+        },
+        {
+          "type": "icon",
+          "icon": "art:warning",
+          "lat": 50,
+          "lon": -40,
+          "size": 120,
+          "plain": true,
+          "at": "weakens"
+        }
+      ],
+      "camera": {
+        "lat": 50,
+        "lon": -35,
+        "zoom": 2.2
+      },
+      "sources": [
+        {
+          "claim": "The Gulf Stream is expected to slow as the AMOC weakens, but not collapse.",
+          "url": "https://en.wikipedia.org/wiki/Gulf_Stream",
+          "quote": "While the Gulf Stream is expected to slow down as the Atlantic meridional overturning circulation (AMOC) weakens, it will not collapse."
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "That's why towns on Norway's coast can thrive so close to the Arctic.",
       "show": [
         {

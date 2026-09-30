@@ -466,6 +466,65 @@
       ]
     },
     {
+      "era": "now",
+      "text": "The Rhine forms its entire western border, and it's an Alpine country, full of mountains.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              47.05,
+              9.52
+            ],
+            [
+              47.2,
+              9.5
+            ],
+            [
+              47.27,
+              9.52
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 10,
+          "at": "Rhine",
+          "drawDur": 1.0
+        },
+        {
+          "type": "icon",
+          "icon": "art:mountain",
+          "lat": 47.12,
+          "lon": 9.57,
+          "size": 150,
+          "plain": true,
+          "at": "Alpine"
+        },
+        {
+          "type": "label",
+          "text": "RHINE",
+          "lat": 47.15,
+          "lon": 9.45,
+          "at": "Rhine",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "size": 40
+        }
+      ],
+      "camera": {
+        "lat": 47.15,
+        "lon": 9.55,
+        "zoom": 30,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "The Rhine forms the entire western border of Liechtenstein; it is mountainous.",
+          "url": "https://en.wikipedia.org/wiki/Liechtenstein",
+          "quote": "The Rhine forms the entire western border of Liechtenstein ... An Alpine country, Liechtenstein is mountainous"
+        }
+      ]
+    },
+    {
       "era": "history",
       "text": "But Liechtenstein wasn't always like this. Before 1918, its neighbor was Austria-Hungary, which had a coast on the Adriatic Sea.",
       "show": [
@@ -569,6 +628,17 @@
         {
           "type": "shake",
           "at": "broke"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cry",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "lost"
         }
       ],
       "sources": [

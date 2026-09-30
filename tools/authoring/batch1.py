@@ -54,6 +54,11 @@ save('alaska', meta(
           cam=fit(AK, pad=0.9, bearing=-4), tr='flash',
           src=[src('Alaska stayed sparsely populated until the Klondike Gold Rush began in 1896.', 'Alaska_Purchase',
                    'Alaska remained sparsely populated until the Klondike Gold Rush began in 1896')]),
+        S("Alaska also has a longer coastline than all the other US states combined, and more than 409,000 natural lakes.", [
+            hl(AK, 'flag:us', 0.05, fillOpacity=0.6), cnt('409,000', '409,000', size=170, color='#5ec8ff'), art('water_drop', 62, -150, 'lakes', size=120), art('wave', 58, -165, 'coastline', size=130)],
+          cam=fit(AK, pad=0.9, bearing=3),
+          src=[src('Alaska has a longer coastline than all the other US states combined.', 'Alaska', 'Alaska has a longer coastline than all the other U.S. states combined.'),
+               src('More than 409,000 natural lakes of at least one hectare.', 'Alaska', 'Alaska has more than 409,000 natural lakes at least one hectare or bigger')]),
         S("Today, Alaska is more than twice the size of Texas. All for about two cents an acre.", [
             ghost({'admin1': 'Texas', 'country': 'USA'}, (63.5, -152), 'Texas', fill='#f4a261'),
             lab('Texas', 61, -152, 'Texas', style='pill', bg='#e76f51', size=44), cnt('2¢', 'two', color='#4ade80')],

@@ -459,6 +459,56 @@
       ]
     },
     {
+      "era": "history",
+      "text": "In the 1970s, former residents of Big Diomede even walked across the ice to trade and share information.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1970",
+          "at": "1970s"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              65.78,
+              -169.05
+            ],
+            [
+              65.77,
+              -168.93
+            ]
+          ],
+          "color": "#e0f2fe",
+          "width": 16,
+          "at": "walked",
+          "drawDur": 1.4
+        },
+        {
+          "type": "character",
+          "image": "inuit_kid",
+          "screen": [
+            0.3,
+            0.6
+          ],
+          "at": "walked"
+        }
+      ],
+      "camera": {
+        "lat": 65.77,
+        "lon": -168.99,
+        "zoom": 300
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "In the 1970s former inhabitants of Big Diomede walked across the Bering Strait to trade and exchange information.",
+          "url": "https://en.wikipedia.org/wiki/Little_Diomede_Island",
+          "quote": "There were sporadic contacts during the 1970s with former inhabitants of Big Diomede who walked across the Bering Strait to trade and exchange information"
+        }
+      ]
+    },
+    {
       "era": "now",
       "text": "So from Little Diomede, you can look across the water and see tomorrow.",
       "show": [

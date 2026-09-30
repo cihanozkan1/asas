@@ -549,6 +549,84 @@
     },
     {
       "era": "now",
+      "text": "Alaska also has a longer coastline than all the other US states combined, and more than 409,000 natural lakes.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Alaska",
+            "country": "USA"
+          },
+          "fill": "flag:us",
+          "at": 0.05,
+          "fillOpacity": 0.6
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "409,000",
+              "value": "409,000"
+            }
+          ],
+          "size": 170,
+          "color": "#5ec8ff"
+        },
+        {
+          "type": "icon",
+          "icon": "art:water_drop",
+          "lat": 62,
+          "lon": -150,
+          "size": 120,
+          "plain": true,
+          "at": "lakes"
+        },
+        {
+          "type": "icon",
+          "icon": "art:wave",
+          "lat": 58,
+          "lon": -165,
+          "size": 130,
+          "plain": true,
+          "at": "coastline"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.79,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "more"
+        }
+      ],
+      "camera": {
+        "fit": [
+          {
+            "admin1": "Alaska",
+            "country": "USA"
+          }
+        ],
+        "pad": 0.9,
+        "bearing": 3
+      },
+      "sources": [
+        {
+          "claim": "Alaska has a longer coastline than all the other US states combined.",
+          "url": "https://en.wikipedia.org/wiki/Alaska",
+          "quote": "Alaska has a longer coastline than all the other U.S. states combined."
+        },
+        {
+          "claim": "More than 409,000 natural lakes of at least one hectare.",
+          "url": "https://en.wikipedia.org/wiki/Alaska",
+          "quote": "Alaska has more than 409,000 natural lakes at least one hectare or bigger"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Today, Alaska is more than twice the size of Texas. All for about two cents an acre.",
       "show": [
         {
@@ -584,17 +662,6 @@
           ],
           "size": 180,
           "color": "#4ade80"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "more"
         }
       ],
       "camera": {

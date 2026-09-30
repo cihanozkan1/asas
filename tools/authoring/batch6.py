@@ -106,6 +106,12 @@ save('market_island', meta(
           cam=at_(60.3009, 19.1318, 14500, bearing=-3), style='atlas',
           src=[src('The lighthouse is 14 m tall.', 'Märket', '14 metres (46 ft)'),
                src('It has been automated since 1979.', 'Märket', 'The lighthouse has been automated since 1979')]),
+        S("The island is only about 3.3 hectares, and the ownership of the coastline didn't change either.", [
+            hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9),
+            route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1), cnt('3.3 ha', '3.3', size=170), pill('coastline unchanged', 'coastline', bg='#0f766e')],
+          cam=at_(60.3009, 19.1318, 14500, bearing=3), style='atlas',
+          src=[src('The island has an area of about 3.3 hectares.', 'Märket', 'an area of about 3.3 hectares (8.2 acres)'),
+               src('No net transfer of territory, and the ownership of the coastline was unchanged.', 'Märket', 'The adjustment was carried out such that no net transfer of territory occurred, and the ownership of the coastline was unchanged')]),
         S("Today the border is marked by holes drilled into the rock, and it's inspected every 25 years.", [
             hl({'geojson': 'sweden_new.geojson'}, 'flag:se', 0.05, fillOpacity=0.9), hl({'geojson': 'finland_new.geojson'}, 'flag:fi', 0.05, fillOpacity=0.9),
             route(BNEW, 0.05, rhumb=True, color='#ffd60a', width=9, drawDur=0.1),
@@ -524,6 +530,11 @@ save('gulf_stream', meta(
             flow(GSP[5:], 'crosses', color='#ff5a2a', width=18, drawDur=2.0), hl('GBR', '#ff5a2a', 'Europe', fillOpacity=0.35), hl('NOR', '#ff5a2a', 'Europe', fillOpacity=0.35), hl('IRL', '#ff5a2a', 'Europe', fillOpacity=0.35)],
           cam=at_(55, -20, 1.8),
           src=[src('Northwest Europe is warmer than other areas of similar latitude partly because of the North Atlantic Current.', GS, 'the climate of Northwest Europe is warmer than other areas of similar latitude at least partially because of the strong North Atlantic Current')]),
+        S("As the Atlantic circulation weakens, the Gulf Stream is expected to slow down, but it will not collapse.", [
+            flow(GSP[5:], 'slow', color='#ff5a2a', width=14, drawDur=1.4, flowSpeed=120), cnt('not collapse', 'collapse', size=120), art('warning', 50, -40, 'weakens', size=120)],
+          cam=at_(50, -35, 2.2),
+          src=[src('The Gulf Stream is expected to slow as the AMOC weakens, but not collapse.', GS,
+                   'While the Gulf Stream is expected to slow down as the Atlantic meridional overturning circulation (AMOC) weakens, it will not collapse.')]),
         S("That's why towns on Norway's coast can thrive so close to the Arctic.", [ping(69.65, 18.96, 'Norway', color='#ffd60a'), dot('Tromsø', 69.65, 18.96, 'Norway', dy=-52), icon('🏘️', 67, 14, 'towns', size=110)],
           cam=at_(66, 10, 3.0, bearing=3),
           src=[src('The warming is dramatic along Norway\'s coast.', GS, 'North Atlantic Current')]),

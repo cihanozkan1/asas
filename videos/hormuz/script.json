@@ -629,6 +629,52 @@
     },
     {
       "era": "now",
+      "text": "By 1972, the strait was completely covered by the combined territorial waters of Iran and Oman.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1972",
+          "light": true,
+          "at": "1972"
+        },
+        {
+          "type": "highlight",
+          "target": "IRN",
+          "fill": "flag:ir",
+          "at": "Iran",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "highlight",
+          "target": "OMN",
+          "fill": "flag:om",
+          "at": "Oman",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "disc",
+          "lat": 26.6,
+          "lon": 56.4,
+          "color": "#ffd60a",
+          "km": 60,
+          "at": "combined"
+        }
+      ],
+      "camera": {
+        "lat": 26.6,
+        "lon": 56.4,
+        "zoom": 18
+      },
+      "sources": [
+        {
+          "claim": "By 1972 the strait was completely closed by the combined territorial waters of Iran and Oman.",
+          "url": "https://en.wikipedia.org/wiki/Strait_of_Hormuz",
+          "quote": "by 1972, the Strait of Hormuz was completely 'closed' by the combined territorial waters of Iran and Oman"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "That's why this 39 kilometer gap is one of the most important waterways on Earth.",
       "show": [
         {

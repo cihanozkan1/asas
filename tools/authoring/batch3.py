@@ -189,6 +189,10 @@ save('doubly_landlocked', meta(
           cam=at_(47.15, 9.55, 30, bearing=-3),
           src=[src('Liechtenstein is the sixth-smallest sovereign state by area.', 'Liechtenstein', 'Liechtenstein is the sixth-smallest sovereign state in the world by area.'),
                src('It uses the Swiss franc (monetary union with Switzerland).', 'Liechtenstein', 'It has a customs union and a monetary union with Switzerland, with its usage of the Swiss franc.')]),
+        S("The Rhine forms its entire western border, and it's an Alpine country, full of mountains.", [
+            route([(47.05, 9.52), (47.2, 9.5), (47.27, 9.52)], 'Rhine', color='#5ec8ff', width=10, drawDur=1.0), art('mountain', 47.12, 9.57, 'Alpine', size=150), lab('RHINE', 47.15, 9.45, 'Rhine', style='pill', bg='#1d4ed8', size=40)],
+          cam=at_(47.15, 9.55, 30, bearing=3),
+          src=[src('The Rhine forms the entire western border of Liechtenstein; it is mountainous.', 'Liechtenstein', 'The Rhine forms the entire western border of Liechtenstein ... An Alpine country, Liechtenstein is mountainous')]),
         S("But Liechtenstein wasn't always like this. Before 1918, its neighbor was Austria-Hungary, which had a coast on the Adriatic Sea.", [
             year(1918, '1918'), ping(45.65, 13.78, 'Adriatic', color='#5ec8ff'), dot('Trieste', 45.65, 13.78, 'Adriatic', dy=46),
             hl({'hist': 1914, 'name': 'Austro-Hungarian Empire'}, '#c9a227', 'Austria-Hungary', fillOpacity=0.6), lab('Austria-Hungary', 47.8, 15.5, 'Austria-Hungary', style='serif', size=58), route([(47.14, 9.52), (46.6, 11.5), (45.65, 13.78)], 'coast', color='#1d4ed8', width=7)],
@@ -250,6 +254,11 @@ save('diomede', meta(
             year(1948, '1948'), ping(*BIG, 'military', color='#ff5a5f'), icon('🪖', BIG[0] + 0.02, BIG[1], 'military', size=100)],
           era='history', tr='film',
           src=[src('In 1948 the Soviet government relocated its inhabitants; only military units remain.', 'Diomede_Islands', 'the Soviet government relocated indigenous inhabitants to mainland Russia in 1948 and established a military base there')]),
+        S("In the 1970s, former residents of Big Diomede even walked across the ice to trade and share information.", [
+            year(1970, '1970s'), route([(65.78, -169.05), (65.77, -168.93)], 'walked', color='#e0f2fe', width=16, drawDur=1.4), char('inuit_kid', 'walked', screen=(0.3, 0.6))],
+          cam=at_(65.77, -168.99, 300), era='history', tr='film',
+          src=[src('In the 1970s former inhabitants of Big Diomede walked across the Bering Strait to trade and exchange information.', 'Little_Diomede_Island',
+                   'There were sporadic contacts during the 1970s with former inhabitants of Big Diomede who walked across the Bering Strait to trade and exchange information')]),
         S("So from Little Diomede, you can look across the water and see tomorrow.", [
             ping(*LITTLE, 'Little', color='#5ec8ff'), arrow(LITTLE, BIG, 'look', color='#ffd60a'), note('TOMORROW', 65.83, -169.05, 'tomorrow', size=66)],
           cam=at_(65.77, -168.99, 300, bearing=3), tr='flash',

@@ -446,6 +446,90 @@
       ]
     },
     {
+      "era": "now",
+      "text": "At over 7,000 kilometers, the Nile is the longest river in the world, and it flows north into the Mediterranean Sea.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              4.85,
+              31.6
+            ],
+            [
+              9.5,
+              31.7
+            ],
+            [
+              15.6,
+              32.5
+            ],
+            [
+              19.5,
+              30.4
+            ],
+            [
+              24.1,
+              32.9
+            ],
+            [
+              25.7,
+              32.6
+            ],
+            [
+              30.04,
+              31.24
+            ],
+            [
+              31.5,
+              31.0
+            ]
+          ],
+          "color": "#5ec8ff",
+          "width": 10,
+          "at": "Nile",
+          "drawDur": 2.2
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "7,000",
+              "value": "7,088 km"
+            }
+          ],
+          "size": 160
+        },
+        {
+          "type": "label",
+          "text": "Mediterranean",
+          "lat": 32.0,
+          "lon": 30.5,
+          "at": "Mediterranean",
+          "dot": true,
+          "dy": -50,
+          "size": 38
+        }
+      ],
+      "camera": {
+        "lat": 20,
+        "lon": 31.5,
+        "zoom": 3.0
+      },
+      "sources": [
+        {
+          "claim": "The Nile is 7,088 km long, the longest river in the world.",
+          "url": "https://en.wikipedia.org/wiki/Nile",
+          "quote": "At 7,088 kilometers (4,404 mi) long, it is the longest river in the world"
+        },
+        {
+          "claim": "It is a north-flowing river that empties into the Mediterranean Sea.",
+          "url": "https://en.wikipedia.org/wiki/Nile",
+          "quote": "a major north-flowing river in northeast Africa which empties into the Mediterranean Sea"
+        }
+      ]
+    },
+    {
       "era": "history",
       "text": "Every year it flooded, leaving rich black soil along its banks.",
       "show": [
