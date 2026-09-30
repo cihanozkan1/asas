@@ -11,6 +11,7 @@
 //   --guides                draw the YouTube UI safe zones
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { ROOT, readJson, writeJson, deepMerge, log } from '../src/util.mjs';
 import { validateScript } from '../src/validate.mjs';
 import { buildNarration, mux } from '../src/audio.mjs';
@@ -141,6 +142,11 @@ async function main() {
     });
     fs.rmSync(silent);
     log('HAZIR:', path.relative(ROOT, final));
+    if (!args['no-quality']) {
+      // quality gate: measured against the reference channel (tools/ref/quality.py)
+      const q = spawnSync('python3', [path.join(ROOT, 'tools/ref/quality.py'), final, '--json', path.join(outDir, `quality.${style}.json`)], { encoding: 'utf8' });
+      log('kalite kapısı:\n' + (q.stdout || q.stderr).trim());
+    }
   }
 }
 
