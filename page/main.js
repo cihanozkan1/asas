@@ -1800,7 +1800,7 @@ function buildUi() {
         }
         // icons sit on a round badge (like map markers), so they read as designed markers, not loose emoji
         html = el.plain
-          ? `<div class="inner icon ${el.src.startsWith('/assets/art/') ? 'art' : ''}"><img src="${el.src}" style="width:${el.size || 110}px;height:${el.src.startsWith('/assets/art/') ? 'auto' : (el.size || 110) + 'px'}"></div>`
+          ? `<div class="inner icon ${el.src.startsWith('/assets/art/') ? 'art' : ''}"><img src="${el.src}" style="width:${el.size || 110}px;height:${el.src.startsWith('/assets/art/') || el.src.includes('/flags/') ? 'auto' : (el.size || 110) + 'px'}"></div>`
           : `<div class="inner icon badged" style="width:${(el.size || 110) * 1.25}px;height:${(el.size || 110) * 1.25}px"><img src="${el.src}" style="width:${(el.size || 110) * 0.78}px;height:${(el.size || 110) * 0.78}px"></div>`;
         break;
       case 'badge':

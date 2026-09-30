@@ -232,7 +232,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           break;
         case 'scatter':
           el.target = shortKey(await targetKey(raw.target));
-          el.src = iconUrl(raw.icon);
+          el.src = String(raw.icon).startsWith('flag:') ? `/node_modules/flag-icons/flags/4x3/${String(raw.icon).slice(5).toLowerCase()}.svg` : iconUrl(raw.icon);
           if (el.src.startsWith('/assets/art/') && !String(raw.icon).startsWith('art:')) el.size = Math.round((raw.size || 64) * 1.25);
           break;
         case 'dim':

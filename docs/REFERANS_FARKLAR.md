@@ -224,3 +224,27 @@ Aşağıdaki tablolardaki "bizde" sütunu analiz anının durumunu gösterir; ka
 **Gerekli mi?** Hayır, zorunlu bir anahtar veya repo yok. En çok işe yarayacak ek: OpenCV + PySceneDetect
 (kalite kapısı için) ve bir proje skill'i (`.claude/skills/referans-analiz`: kare tablosu → ölçüm → not → kıyas
 iş akışı). Gemini anahtarı isteğe bağlı: sadece bunu istersen toplu ve daha hızlı analiz sağlar.
+
+
+## Ek tur: 18 yeni referans video (toplam 40)
+
+Ölçüm (18 video): süre 63–168 sn, kare değişimi 5,3–11,2, hareketli pay %60–96, kamera kayma hızı **8–21** (bizde ≈2),
+sert kesim 2,5–62/dk. Yani kamera hızı farkı sürüyor; motor zoom/kayma artırıldı ama düz vektör haritada ölçüm zayıf kalıyor.
+
+| # | referansta | durum |
+|---|---|---|
+| 126 | Etiket, hedefe ince eğri çizgiyle bağlanır ("GREAT about the Great Lakes?") | **eklendi** `callout()` |
+| 127 | Elle çizilmiş sarı elips bölgeyi sarar | **eklendi** `ellipse()` |
+| 128 | Isı / enerji parlaması (El Niño sıcak su, göl vurgusu) | **eklendi** `glow()` |
+| 129 | Ülke ortadan çatlar (İç Savaş) | **eklendi** `crack()` (çatlak çizgisi; parçaların uçması yok) |
+| 130 | Bölgeye onlarca bayrak yayılır (sömürge yayılması) | **eklendi** `scatter(..., 'flag:us')` |
+| 131 | Rüzgâr akış çizgileri + yazı ("Trade winds") | var (`flow` + `pathtext`) |
+| 132 | Mavi ızgara zemin üstünde dünya kartı, alan kıyası (göl suyu kıtalara yayılır) | kısmen (`ghost`, blueprint paleti) |
+| 133 | Ölçek için insan figürü daire içinde (15 cm kalınlık) | kısmen (`avatar`) |
+| 134 | Kesikli çizgiyle yol çizimi ("Oldest Street") | var (`route` dashed) |
+| 135 | Yol sahnesinde sahne malzemeleri: tipi, bataklık, kaya, ağaç, tabela | yapılacak: FLUX ile sanat üretimi |
+| 136 | Mavi ızgara üstünde çizim/kesit sayfaları (makine, cımbız, şırınga) | yapılacak: üretilmiş B-roll |
+| 137 | Çerçeveli parşömen başlık kartı ("THE LEGEND OF …") | yapılacak `frame` |
+| 138 | Konunun üstünde çıkan rozetler (virüs türleri) | kısmen (`react`, `pin`) |
+| 139 | Sokak ızgarası neon çizimi (OpenStreetMap) | **yapılmaz**: ODbL lisansı, telif riski |
+| 140 | Şirket logoları (ör. Google) | **yapılmaz**: marka/telif riski |

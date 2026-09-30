@@ -458,11 +458,86 @@ export function makeExtras(S) {
     ctx.restore();
   }
 
+
+  // ------------------------------------------------------------------ callout / ellipse / glow / crack (from the 40-video review)
+  const FONT = "'Montserrat', sans-serif";
+  function drawCallout(ctx, el, life) {
+    const p = S.project({ lon: el.lon, lat: el.lat });
+    if (!p) return;
+    const u = ease.outCubic(clamp01(life.age / 0.6));
+    const q = [p[0] + (el.dx ?? 130), p[1] + (el.dy ?? -180)];
+    const m = [(p[0] + q[0]) / 2 + (el.curve ?? 34), (p[1] + q[1]) / 2 - 24];
+    ctx.save();
+    ctx.globalAlpha = life.out;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 4; ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 8;
+    ctx.beginPath();
+    for (let i = 0; i <= 24; i++) {
+      const t = (i / 24) * u, x = (1 - t) * (1 - t) * q[0] + 2 * t * (1 - t) * m[0] + t * t * p[0], y = (1 - t) * (1 - t) * q[1] + 2 * t * (1 - t) * m[1] + t * t * p[1];
+      if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+    }
+    ctx.stroke();
+    ctx.beginPath(); ctx.arc(p[0], p[1], 7 * u, 0, TAU); ctx.fillStyle = '#fff'; ctx.fill();
+    ctx.translate(q[0], q[1]); ctx.rotate(-0.06);
+    ctx.globalAlpha = life.out * clamp01(life.age / 0.25);
+    const size = el.size || 54, lines = String(el.text).split('\n');
+    ctx.textAlign = 'center'; ctx.lineJoin = 'round';
+    lines.forEach((ln, i) => {
+      const fs = i === 0 ? size : size * 0.62, y = -lines.length * size * 0.3 + i * size * 0.78;
+      ctx.font = `900 ${fs}px ${FONT}`;
+      ctx.lineWidth = fs * 0.16; ctx.strokeStyle = '#0b0b0b'; ctx.strokeText(ln, 0, y);
+      ctx.fillStyle = i === 0 ? (el.color || '#ffd60a') : '#ffffff'; ctx.fillText(ln, 0, y);
+    });
+    ctx.restore();
+  }
+  function drawEllipse(ctx, el, life) {
+    const p = S.project({ lon: el.lon, lat: el.lat });
+    if (!p) return;
+    const prog = ease.outCubic(clamp01(life.age / 0.8));
+    const rx = el.rx ?? 200, ry = el.ry ?? 140, rot = (el.rot ?? -0.25);
+    ctx.save(); ctx.globalAlpha = life.out; ctx.translate(p[0], p[1]); ctx.rotate(rot);
+    ctx.strokeStyle = el.color || '#ffd60a'; ctx.lineWidth = el.width || 6; ctx.lineCap = 'round'; ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 8;
+    ctx.beginPath();
+    const a0 = -Math.PI * 0.55, a1 = a0 + TAU * 1.06 * prog;
+    for (let a = a0; a <= a1; a += 0.04) {
+      const k = 1 + 0.03 * Math.sin(a * 2.7) + (a - a0) * 0.006, x = Math.cos(a) * rx * k, y = Math.sin(a) * ry * k;
+      if (a === a0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.stroke(); ctx.restore();
+  }
+  function drawGlow(ctx, el, life, t) {
+    const p = S.project({ lon: el.lon, lat: el.lat });
+    if (!p) return;
+    const k = state.view?.k || 1000;
+    const r = el.km ? Math.max(30, (el.km / 6371) * k) : (el.r || 160);
+    const pulse = 0.82 + 0.18 * Math.sin((t - el.start) * 4);
+    const c = el.color || '#ff3b1f', c2 = el.color2 || 'rgba(255,200,0,0)';
+    ctx.save(); ctx.globalCompositeOperation = 'screen'; ctx.globalAlpha = life.out * life.in * (el.alpha ?? 0.85) * pulse;
+    const rr = r * (0.6 + 0.4 * ease.outCubic(clamp01(life.age / 0.8)));
+    const g = ctx.createRadialGradient(p[0], p[1], 0, p[0], p[1], rr);
+    g.addColorStop(0, c); g.addColorStop(0.55, el.mid || 'rgba(255,120,0,.45)'); g.addColorStop(1, c2);
+    ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(p[0], p[1], rr * (el.stretch ?? 1), rr, el.rot ?? 0, 0, TAU); ctx.fill();
+    ctx.restore();
+  }
+  function drawCrack(ctx, el, life) {
+    const y0 = (el.y ?? 0.45) * H, prog = ease.outCubic(clamp01(life.age / 0.5)), grow = clamp01((life.age - 0.4) / 0.8);
+    const n = 26, pts = [];
+    for (let i = 0; i <= n; i++) { const r = Math.sin((i + (el.seed || 3)) * 91.7) * 43758.5; const j = (r - Math.floor(r) - 0.5); pts.push([(i / n) * W, y0 + j * 90 + (i % 2 ? 18 : -18)]); }
+    ctx.save(); ctx.globalAlpha = life.out; ctx.lineJoin = 'miter';
+    const upto = Math.floor(n * prog);
+    for (const [w, col] of [[10 + 46 * grow, '#ffffff'], [4 + 40 * grow, '#050505']]) {
+      ctx.strokeStyle = col; ctx.lineWidth = w; ctx.beginPath();
+      for (let i = 0; i <= upto; i++) { if (i) ctx.lineTo(pts[i][0], pts[i][1]); else ctx.moveTo(pts[i][0], pts[i][1]); }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
   // ------------------------------------------------------------------ hooks called by main.js
   function drawGeo(ctx, t) {
     for (const el of state.tl.elements) {
       const t0 = el.type;
-      if (!['pathtext', 'crowd', 'face', 'pin', 'box', 'beam', 'cloud'].includes(t0)) continue;
+      if (!['pathtext', 'crowd', 'face', 'pin', 'box', 'beam', 'cloud', 'callout', 'ellipse', 'glow', 'crack'].includes(t0)) continue;
       const life = lifeOf(el, t, 0.3, 0.3);
       if (!life) continue;
       if (t0 === 'pathtext') drawPathText(ctx, el, life);
@@ -472,6 +547,10 @@ export function makeExtras(S) {
       else if (t0 === 'box') drawBox(ctx, el, life);
       else if (t0 === 'beam') drawBeam(ctx, el, life, t);
       else if (t0 === 'cloud') drawClouds(ctx, el, life, t);
+      else if (t0 === 'callout') drawCallout(ctx, el, life);
+      else if (t0 === 'ellipse') drawEllipse(ctx, el, life);
+      else if (t0 === 'glow') drawGlow(ctx, el, life, t);
+      else if (t0 === 'crack') drawCrack(ctx, el, life);
     }
   }
   function drawUnder(ctx, t) {

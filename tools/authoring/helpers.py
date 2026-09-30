@@ -437,3 +437,26 @@ def walker(points, at, image, rid=None, size=170, **kw):
     if rid:
         d['id'] = rid
     return d
+
+
+def callout(text, lat, lon, at, dx=130, dy=-180, **kw):
+    """Yellow hand-lettered label on a curved leader line pointing at (lat, lon). Use \n for a smaller second line."""
+    return _put({'type': 'callout', 'text': text, 'lat': lat, 'lon': lon, 'dx': dx, 'dy': dy}, at, kw)
+
+
+def ellipse(lat, lon, at, rx=200, ry=140, **kw):
+    """Hand-drawn yellow ellipse drawn around an area."""
+    return _put({'type': 'ellipse', 'lat': lat, 'lon': lon, 'rx': rx, 'ry': ry}, at, kw)
+
+
+def glow(lat, lon, at, km=None, r=None, color='#ff3b1f', **kw):
+    """Soft pulsing heat / energy blob (heat maps, spreading warm water, fires)."""
+    d = {'type': 'glow', 'lat': lat, 'lon': lon, 'color': color}
+    if km: d['km'] = km
+    if r: d['r'] = r
+    return _put(d, at, kw)
+
+
+def crack(at, y=0.45, **kw):
+    """A black jagged crack opens across the screen (splits, civil wars, rifts)."""
+    return _put({'type': 'crack', 'y': y}, at, kw)
