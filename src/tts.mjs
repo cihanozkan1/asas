@@ -1,10 +1,12 @@
 // Text-to-speech with word timings.
 //  - edge: Microsoft Edge neural voices (msedge-tts), word boundaries from the service
+//  - kokoro: local Kokoro-82M (Apache-2.0), python helper tools/kokoro_tts.py; no third-party service
 //  - mock: silent audio with estimated timings (for layout tests without network)
 // Results are cached per (provider, voice, rate, pitch, text).
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { spawnSync } from 'node:child_process';
 import { ROOT, SAMPLE_RATE, decodeAudio, findContent, normWord, tmpDir, log } from './util.mjs';
 
 const CACHE = path.join(ROOT, 'cache/tts');
@@ -106,6 +108,31 @@ async function edgeSynth(text, voice) {
   return { audioFile: audioFilePath, bounds, dir };
 }
 
+// ---- kokoro (local) ----
+const KOKORO_RAW = path.join(ROOT, 'cache/tts_raw');
+const kokoroSpeed = (voice) => {
+  if (voice.speed) return voice.speed;
+  const m = String(voice.rate || '').match(/([+-]?\d+)%/);
+  return 1 + (m ? Number(m[1]) / 100 : 0) * 1.4;   // edge "+12%" (175 wpm) ~ kokoro 1.17
+};
+const kokoroKey = (text, voice) => cacheKey({ text, v: voice.name, s: kokoroSpeed(voice) });
+
+// Synthesises all texts that are not cached yet in ONE python run (the model loads once).
+export function prewarmKokoro(texts, voice) {
+  const todo = [...new Set(texts)].filter((t) => !fs.existsSync(path.join(KOKORO_RAW, kokoroKey(t, voice) + '.wav')));
+  if (!todo.length) return;
+  log(`Kokoro: ${todo.length} sahne seslendiriliyor (yerel model)...`);
+  const req = { voice: voice.name, speed: kokoroSpeed(voice), jobs: todo.map((t) => ({ key: kokoroKey(t, voice), text: t })) };
+  const r = spawnSync('python3', [path.join(ROOT, 'tools/kokoro_tts.py'), KOKORO_RAW], { input: JSON.stringify(req), encoding: 'utf8', maxBuffer: 1 << 26 });
+  if (r.status !== 0) throw new Error('Kokoro hatası: ' + (r.stderr || '').slice(-600));
+}
+
+async function kokoroSynth(text, voice) {
+  prewarmKokoro([text], voice);
+  const k = kokoroKey(text, voice);
+  return { audioFile: path.join(KOKORO_RAW, k + '.wav'), bounds: JSON.parse(fs.readFileSync(path.join(KOKORO_RAW, k + '.json'), 'utf8')), dir: null };
+}
+
 // Returns { samples: Float32Array (48k mono, trimmed), words: [{text,start,end}] relative to trimmed audio }
 export async function synthScene(text, voice, provider) {
   fs.mkdirSync(CACHE, { recursive: true });
@@ -127,9 +154,9 @@ export async function synthScene(text, voice, provider) {
     let lastErr;
     for (let attempt = 0; attempt < 4; attempt++) {
       try {
-        const { audioFile, bounds, dir } = await edgeSynth(text, voice);
+        const { audioFile, bounds, dir } = provider === 'kokoro' ? await kokoroSynth(text, voice) : await edgeSynth(text, voice);
         const raw = await decodeAudio(audioFile);
-        fs.rmSync(dir, { recursive: true, force: true });
+        if (dir) fs.rmSync(dir, { recursive: true, force: true });
         const [a, b] = findContent(raw, 0.008);
         const pad = Math.round(0.03 * SAMPLE_RATE);
         const s0 = Math.max(0, a - pad);

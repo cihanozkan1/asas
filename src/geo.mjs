@@ -134,14 +134,6 @@ export function iconUrl(icon) {
     if (!fs.existsSync(path.join(ROOT, 'assets/art', name + '.png'))) throw new Error('Çizim bulunamadı: ' + name);
     return `/assets/art/${name}.png`;
   }
-  let code = icon;
-  if (!/^[0-9a-f-]+$/i.test(icon)) {
-    code = [...icon]
-      .map((c) => c.codePointAt(0).toString(16))
-      .filter((c) => c !== 'fe0f')
-      .join('-');
-  }
-  const file = path.join(ROOT, 'node_modules/@twemoji/svg', `${code}.svg`);
-  if (!fs.existsSync(file)) throw new Error(`İkon bulunamadı: ${icon} (${code})`);
-  return `/node_modules/@twemoji/svg/${code}.svg`;
+  // no third-party emoji artwork (Twemoji is CC-BY): every picture is our own drawing
+  throw new Error(`Çizim yok: ${icon} - EMOJI_ART'a ekleyin veya art:<ad> kullanın`);
 }

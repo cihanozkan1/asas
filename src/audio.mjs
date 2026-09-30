@@ -2,11 +2,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { SAMPLE_RATE, writeWav, runFfmpeg, ROOT, log } from './util.mjs';
-import { synthScene } from './tts.mjs';
+import { synthScene, prewarmKokoro } from './tts.mjs';
 
 export async function buildNarration(script, cfg, provider, outWav) {
   const voice = { ...cfg.voice, ...(script.voice || {}) };
+  if (provider === 'kokoro') voice.name = (script.voice && script.voice.kokoroName) || cfg.voice.kokoroName || 'am_michael';
   const clips = [];
+  if (provider === 'kokoro') prewarmKokoro(script.scenes.map((s) => s.text), voice);
   for (let i = 0; i < script.scenes.length; i++) {
     const s = script.scenes[i];
     process.stdout.write(`\r[geo] seslendirme ${i + 1}/${script.scenes.length}   `);

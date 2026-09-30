@@ -13,8 +13,9 @@
     ]
   },
   "voice": {
-    "provider": "edge",
+    "provider": "kokoro",
     "name": "en-US-AndrewNeural",
+    "kokoroName": "am_michael",
     "rate": "+12%",
     "pitch": "+0Hz",
     "leadIn": 0.12,

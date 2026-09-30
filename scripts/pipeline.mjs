@@ -77,13 +77,15 @@ async function main() {
   const details = night ? [] : [...auto, ...(script.imagery || [])].sort(byCoarseness);
   for (const d of details) assets.detail.push(await ensureDetail(d));
 
-  const provider = args['mock-tts'] ? 'mock' : cfg.voice.provider;
+  const provider = args['mock-tts'] ? 'mock' : (args.tts || cfg.voice.provider);
   const narrationWav = path.join(outDir, `narration${provider === 'mock' ? '.mock' : ''}.wav`);
   const narration = await buildNarration(script, cfg, provider, narrationWav);
   log(`anlatım: ${narration.duration.toFixed(1)} sn (${provider}, ${narration.voice.name} ${narration.voice.rate})`);
 
   const hasChars = script.scenes.some((sc) => (sc.show || []).some((e) => e.type === 'character' && e.image));
-  const credits = [night ? 'Earth at night: NASA Black Marble (NASA Earth Observatory)' : BLUE_MARBLE_CREDIT, NE_CREDIT, ...(assets.detail.length ? [S2_CREDIT] : []), ...(hasChars ? ['Characters: AI-generated illustrations'] : [])];
+  const hasArt = JSON.stringify(script.scenes).includes('art:');
+  const hasHist = script.scenes.some((sc) => sc.era === 'history');
+  const credits = [night ? 'Earth at night: NASA Black Marble (NASA Earth Observatory)' : BLUE_MARBLE_CREDIT, NE_CREDIT, ...(assets.detail.length ? [S2_CREDIT] : []), ...(hasChars || hasArt ? ['Illustrations: AI-generated artwork'] : []), ...(hasHist ? ['Historical borders: aourednik/historical-basemaps (GPL-3.0)'] : [])];
   writeUploadText(script, path.join(outDir, `${script.id}.txt`), credits);
   writeSources(script, path.join(outDir, 'sources.md'));
 
