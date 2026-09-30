@@ -319,7 +319,8 @@ def pin(lat, lon, icon, at, **kw):
     return _put({'type': 'pin', 'lat': lat, 'lon': lon, 'icon': icon}, at, kw)
 
 
-def box(a, b, at, **kw):
+def area(a, b, at, **kw):
+    """Traced rectangle (buildings, a park) between two corners (lat, lon)."""
     return _put({'type': 'box', 'from': list(a), 'to': list(b)}, at, kw)
 
 
@@ -378,14 +379,11 @@ def grade(mode, at, **kw):
     return _put({'type': 'grade', 'mode': mode}, at, kw)
 
 
-def tilt(at, deg=36, **kw):
-    return _put({'type': 'tilt', 'deg': deg}, at, kw)
-
-
 def rider_ship(points, at, rid, rider, to, style='caravel', **kw):
     """A ship that carries a character; on arrival the character jumps to `to` (lat, lon)."""
+    rs = kw.pop('rider_size', 120)
     d = ship(points, at, rid, style=style, **kw)
-    d['rider'] = {'image': rider, 'size': kw.pop('rider_size', 120), 'to': {'lat': to[0], 'lon': to[1]}}
+    d['rider'] = {'image': rider, 'size': rs, 'to': {'lat': to[0], 'lon': to[1]}}
     return d
 
 

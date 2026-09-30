@@ -65,48 +65,79 @@ PR = (48.975, -123.06)
 # (Hwy 17 / Hwy 99 through Delta and Surrey) and south to the Peace Arch crossing into Blaine
 PR_ROAD = [(48.975, -123.06), (49.002, -123.068), (49.04, -123.07), (49.085, -123.04), (49.115, -122.97),
            (49.11, -122.88), (49.06, -122.80), (49.03, -122.775), (49.002, -122.757), (48.993, -122.75)]
+PRB = {'box': [-123.1, 48.955, -123.0, 49.0]}
+PRW = 'Point_Roberts,_Washington'
+BLAINE = (48.993, -122.75)
 save('point_roberts', meta(
     "The US Town You Can Only Drive to Through Canada 🇺🇸🇨🇦🤯 Point Roberts",
-    "Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, and older kids go to school in Blaine, crossing the border four times on every round trip 🤯",
+    "Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, older kids cross the border four times on every school trip, and when the border closed in 2020 the town lost about 80% of its business 🤯",
     ["Kids here cross an international border 4 times to go to school 🤯🚌", "Would you live in Point Roberts? 👇", "Which weird border should we explain next? 🗺️"],
     ['point roberts', 'washington', 'canada', 'usa', 'border', '49th parallel', 'oregon treaty', 'vancouver', 'exclave', 'weird borders', 'geography', 'maps', 'learn']),
     [
         S("This little town is in the USA, but you can only drive there through Canada. Otherwise, you need a boat or a plane.", [
-            ping(*PR, 'town', color='#ffd60a', hold=1), flag('us', 48.972, -123.03, 'USA', pin=True, size=110),
-            hl('CAN', '#d52b1e', 'Canada', fillOpacity=0.35), flag('ca', 49.06, -122.96, 'Canada', size=100)],
+            trace(PRB, '#1d4ed8', 'town', neon='#6aa5ff', fillOpacity=0.5), ping(*PR, 'town', color='#ffd60a', hold=1), flag('us', 48.972, -123.03, 'USA', pin=True, size=110, wave=True),
+            hl('CAN', '#d52b1e', 'Canada', fillOpacity=0.35), flag('ca', 49.06, -122.96, 'Canada', size=100, wave=True)],
           cam=at_(49.0, -123.0, 120, bearing=-3),
-          src=[src('Point Roberts is a US pene-exclave reachable by land only through Canada (or by boat/plane).', 'Point_Roberts,_Washington', 'a pene-exclave of the US state of Washington ... "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
+          src=[src('Point Roberts is a US pene-exclave reachable by land only through Canada (or by boat/plane).', PRW, 'a pene-exclave of the US state of Washington ... "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
         S("It's Point Roberts, on the tip of a Canadian peninsula just south of Vancouver.", [
-            slam('POINT ROBERTS', 48.955, -123.06, 'Point', size=66), dot('Vancouver', 49.25, -123.1, 'Vancouver', dy=-46)],
+            giant('POINT ROBERTS', 48.945, -123.06, 'Point', size=70), dot('Vancouver', 49.25, -123.1, 'Vancouver', dy=-46), pathtext('Tsawwassen peninsula', [(49.02, -123.13), (49.05, -123.07), (49.09, -123.03)], 'peninsula', size=40)],
           cam=at_(49.08, -123.05, 60),
-          src=[src('On the southern tip of the Tsawwassen peninsula, south of Vancouver.', 'Point_Roberts,_Washington', 'on the southernmost tip of the Tsawwassen peninsula, south of Vancouver, British Columbia, Canada')]),
-        S("So why is it American?", [q(PR[0], PR[1], 'why')], cam=at_(49.0, -123.0, 90), style='dark', no_claim=True),
+          src=[src('On the southern tip of the Tsawwassen peninsula, south of Vancouver.', PRW, 'on the southernmost tip of the Tsawwassen peninsula, south of Vancouver, British Columbia, Canada')]),
+        S("It was named in 1792 by the explorer George Vancouver, after his friend Henry Roberts.", [
+            year(1792, '1792', light=True),
+            rider_ship([(49.3, -124.1), (49.12, -123.5), (49.0, -123.16), (48.985, -123.09)], 'explorer', 'sea', 'british_officer', (48.984, -123.055), style='caravel', emblem='#c1121f', drawDur=2.6, rider_size=115),
+            react('art:emote_cool', (0.76, 0.3), 'Henry', size=170)],
+          era='history', tr='film', cam=at_(49.06, -123.3, 26),
+          src=[src('Point Roberts was named by George Vancouver after his friend Henry Roberts (1792 expedition).', PRW, 'Point Roberts acquired its present name from George Vancouver, who named it after his friend Henry Roberts')]),
+        S("So why is it American?", [q(PR[0], PR[1], 'why'), react('art:emote_think', (0.3, 0.32), 'why', size=170)], cam=at_(49.0, -123.0, 90), style='dark', no_claim=True, tr='flash'),
         S("In 1846, the Oregon Treaty set the border between the US and British Canada along the 49th parallel.", [
-            year(1846, '1846'), route([(49, -125), (49, -120)], '49th', rhumb=True, color='#ffd60a', width=7, drawDur=1.3, hold=1),
+            year(1846, '1846'), route([(49, -125), (49, -120)], '49th', rhumb=True, color='#ffd60a', width=7, drawDur=1.3, hold=1, laser=True),
             lab('BRITISH', 49.5, -122.0, 'British', style='serif', size=56), lab('UNITED STATES', 48.5, -122.0, 'US', style='serif', size=52)],
           cam=at_(49.0, -122.5, 12), era='history', tr='film',
-          src=[src('The 1846 Oregon Treaty fixed the boundary at the 49th parallel.', 'Point_Roberts,_Washington', 'the 1846 Oregon Treaty, which established "the 49th parallel would define the boundary between their respective territories"')]),
+          src=[src('The 1846 Oregon Treaty fixed the boundary at the 49th parallel.', PRW, 'the 1846 Oregon Treaty, which established "the 49th parallel would define the boundary between their respective territories"')]),
         S("But this perfectly straight line cut right across the peninsula, leaving its tip on the American side.", [
-            route([(49.0, -123.3), (49.0, -122.8)], 'line', rhumb=True, color='#ffd60a', width=7, drawDur=0.8),
+            route([(49.0, -123.3), (49.0, -122.8)], 'line', rhumb=True, color='#ffd60a', width=7, drawDur=0.8, laser=True),
             lab('CANADA', 49.03, -123.07, 'perfectly', style='pill', bg='#d52b1e', size=46), lab('USA', 48.975, -123.06, 'tip', style='pill', bg='#1d4ed8', size=46),
-            hl({'box': [-123.1, 48.955, -123.0, 49.0]}, '#1d4ed8', 'tip', fillOpacity=0.5)],
-          cam=at_(49.0, -123.05, 140),
-          src=[src('The 49th parallel left the southern peninsula tip on the US side.', 'Point_Roberts,_Washington', 'leaving this southern peninsula on the American side')]),
+            trace(PRB, '#1d4ed8', 'tip', neon='#6aa5ff', fillOpacity=0.5)],
+          cam=at_(49.0, -123.05, 140), tr='flash',
+          src=[src('The 49th parallel left the southern peninsula tip on the US side.', PRW, 'leaving this southern peninsula on the American side')]),
         S("To reach the rest of the USA by land, you drive about 40 kilometers through Canada.", [
-            mover_icon(PR_ROAD, 'drive', '🚗', size=90),
-            dot('Blaine, USA', 48.993, -122.75, 'Canada', dy=50, dx=-110), cnt('40 km', '40', size=160)],
-          cam=at_(49.03, -122.92, 70),
-          src=[src('Residents travel about 25 mi (40 km) through Canada.', 'Point_Roberts,_Washington', 'traveling "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
+            route(PR_ROAD, 'drive', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='road', mover={'kind': 'icon', 'icon': 'art:car', 'size': 90}, nodes=True, drawDur=3.6),
+            dot('Blaine, USA', *BLAINE, 'Canada', dy=50, dx=-110), cnt('40 km', '40', size=160)],
+          cam={'follow': 'road', 'zoom': 60, 'zoomTo': 24, 'duration': 1.0},
+          src=[src('Residents travel about 25 mi (40 km) through Canada.', PRW, 'traveling "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
         S("Older kids go to school in Blaine, so they cross the border four times on every round trip.", [
-            mover_icon(PR_ROAD, 'school', '🚌', size=90, drawDur=2.4),
-            cnt_steps([('school', '1'), ('cross', '2'), ('four', '4')], size=200)],
-          src=[src('Students in grade 4 and above commute to Blaine, crossing the border four times.', 'Point_Roberts,_Washington',
+            route(PR_ROAD, 'school', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='bus', mover={'kind': 'icon', 'icon': 'art:bus', 'size': 100}, nodes=True, drawDur=2.6),
+            cnt_steps([('school', '1'), ('cross', '2'), ('four', '4')], size=200), react('art:emote_sweat', (0.76, 0.28), 'four', size=160)],
+          cam={'follow': 'bus', 'zoom': 40, 'zoomTo': 24, 'duration': 0.9},
+          src=[src('Students in grade 4 and above commute to Blaine, crossing the border four times.', PRW,
                    'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
+        S("In March 2020, the border closed to non-essential travel, and the town lost about eighty percent of its business.", [
+            year('2020', 'March', light=True), handstamp('BORDER CLOSED', 'closed', size=92, screen=[0.5, 0.36]), grade('cold', 'March', until=5.5),
+            cnt('-80%', 'eighty', size=200, color='#ff5a5f'), react('art:emote_cry', (0.78, 0.3), 'lost', size=170)],
+          cam=at_(48.99, -123.05, 100, bearing=3), tr='flash',
+          src=[src('The border closed to non-essential travel in March 2020; Point Roberts lost 80 percent of its business.', PRW,
+                   'In 2020, a study found that Point Roberts had lost 80 percent of its business and hundreds of seasonal residents as a result of the pandemic and border shutdown.')]),
+        S("So a temporary passenger ferry carried people from Point Roberts to Blaine, over the water.", [
+            route([(48.985, -123.06), (48.965, -123.0), (48.945, -122.92), (48.96, -122.84), (48.985, -122.775)], 'ferry', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='ferry', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=3.0),
+            dot('Blaine', 48.99, -122.77, 'Blaine', dy=50, dx=-50)],
+          cam={'follow': 'ferry', 'zoom': 50, 'zoomTo': 28, 'duration': 1.0},
+          src=[src('A temporary passenger ferry ran from Point Roberts to Blaine.', PRW, 'A temporary passenger ferry service from Point Roberts to Blaine operated by the Port of Bellingham')]),
+        S("Today, Canadians drive in for cheaper American gas, alcohol and food.", [
+            scatter(PRB, 'art:beer_glass', 'alcohol', count=3, size=120, stagger=0.25), scatter(PRB, 'art:oil_barrel', 'gas', count=3, size=110, stagger=0.25),
+            flag('ca', 49.02, -123.0, 'Canadians', size=110, wave=True), particles('confetti', 'cheaper', density=0.4)],
+          cam=at_(48.98, -123.05, 110),
+          src=[src('Canadians visit Point Roberts for cheaper American gasoline, alcohol and food.', PRW, 'Canadians visit for cheaper American gasoline, alcohol, and food when the Canadian dollar is strong')]),
+        S("Forty times more Canadians have mailboxes in Point Roberts than the number of residents.", [
+            {'type': 'crowd', 'lat': 48.985, 'lon': -123.065, 'count': 40, 'cols': 10, 'size': 30, 'color': '#ffffff', 'red': [{'at': 'Canadians', 'n': 40}], 'redColor': '#e11d2e', 'at': 'Forty'},
+            cnt('40x', 'Forty', size=190, color='#ff5a5f')],
+          cam=at_(48.985, -123.05, 130),
+          src=[src('Forty times more Canadians have mailboxes in Point Roberts than there are residents.', PRW, 'Forty times more Canadians have mailboxes in Point Roberts than the number of residents')]),
         S("Today, about 1,191 people live in this American island on land.", [
-            hl({'box': [-123.1, 48.955, -123.0, 49.0]}, '#1d4ed8', 0.05, fillOpacity=0.5), lab('POINT ROBERTS', 48.99, -123.06, 0.05, style='map', size=54),
+            trace(PRB, '#1d4ed8', 0.05, neon='#6aa5ff', fillOpacity=0.5), lab('POINT ROBERTS', 48.99, -123.06, 0.05, style='map', size=54),
             cnt('1,191', '1,191', size=180), pill('people (2020)', '1,191'), ping(*PR, 'American', color='#ffd60a')],
           cam=at_(48.99, -123.05, 150, bearing=-4), tr='flash',
-          src=[src('Population 1,191 (2020 census).', 'Point_Roberts,_Washington', 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
+          src=[src('Population 1,191 (2020 census).', PRW, 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
     ],
     keywords={'canada': '#ff5a5f', 'usa': '#5ec8ff', 'american': '#5ec8ff', 'blaine': '#ffd60a', 'vancouver': '#ffd60a'},
     imagery=[{'bbox': [-123.35, 48.85, -122.6, 49.35], 'width': 4096}])

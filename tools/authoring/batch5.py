@@ -54,58 +54,93 @@ save('walk_world', meta(
     keywords={'cape': '#ffd60a', 'magadan': '#ff5a5f', 'walk': '#ffd60a', 'walking': '#ffd60a'},
     style='globe', captions={'theme': 'impact'})
 
-# ------------------------------------------------------------------ 2. DARIEN GAP
+# ------------------------------------------------------------------ 2. DARIEN GAP (storyboard: videos/darien_gap/storyboard.md)
 YAV, TUR = (8.18, -77.69), (8.09, -76.73)
 DG = 'Darién_Gap'
+PAH = 'Pan-American_Highway'
+GAP_PAN = {'admin1s': ['Darién', 'Emberá', 'Kuna Yala'], 'country': 'PAN'}
+GAP_COL = {'admin1': 'Chocó', 'country': 'COL'}
+HW_N = [(70.2, -148.4), (61.2, -149.9), (49.3, -123.1), (34, -118), (19.4, -99.1), (9.9, -84.1), (8.18, -77.69)]
+HW_S = [(8.09, -76.73), (4.6, -74.1), (-0.2, -78.5), (-12, -77), (-33.4, -70.6), (-54.8, -68.3)]
 save('darien_gap', meta(
     'The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱',
-    "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 Swamps, mountains and rainforest, deadly wildlife, flash floods and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
+    "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 A road was planned in 1971 and halted in 1974, and swamps, mountains, rainforest, deadly wildlife and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
     ["30,000 km of highway… and 106 km of jungle 🌴😱", "Would you ever try to cross the Darién Gap? 👇", "Which dangerous place should we cover next? 🗺️"],
     ['darien gap', 'pan-american highway', 'panama', 'colombia', 'jungle', 'rainforest', 'migration', 'dangerous places', 'geography', 'maps', 'learn']),
     [
         S("This road runs about 30,000 kilometers, from Alaska all the way to the tip of Argentina.", [
-            hook('THE ROAD WITH A *GAP*', at=0.05, until='kilometers'),
-            route([(70.2, -148.4), (61.2, -149.9), (49.3, -123.1), (34, -118), (19.4, -99.1), (9.9, -84.1), (8.18, -77.69)], 'road', color='#ffd60a', width=8, drawDur=2.2, hold=1),
-            route([(8.09, -76.73), (4.6, -74.1), (-0.2, -78.5), (-12, -77), (-33.4, -70.6), (-54.8, -68.3)], 'Argentina', color='#ffd60a', width=8, drawDur=1.6, hold=1),
+            route(HW_N, 0.05, id='hw1', color='#ffd60a', width=9, drawDur=3.3, hold=1, nodes=True),
+            route(HW_S, 'Argentina', color='#ffd60a', width=9, drawDur=1.5, hold=1),
             cnt('30,000 km', '30,000', size=170)],
-          cam=at_(10, -95, 0.8),
-          src=[src('The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.', 'Pan-American_Highway', 'from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina')]),
+          cam={'follow': 'hw1', 'zoom': 3.4, 'zoomTo': 1.0, 'duration': 0.8, 'then': [{'at': 'Argentina', 'lat': -22, 'lon': -68, 'zoom': 1.15, 'duration': 1.3}]},
+          src=[src('The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.', PAH, 'from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina')]),
         S("It's the Pan-American Highway, and it links 14 countries.", [
-            cnt('14', '14', size=200), *[flag(c, la, lo, 'links', size=90) for c, la, lo in [('ca', 52, -108), ('us', 40, -100), ('mx', 23, -102), ('pe', -9, -75), ('cl', -30, -71), ('ar', -38, -65)]]],
-          cam=at_(10, -95, 0.8),
-          src=[src('The highway links 14 nations.', 'Pan-American_Highway', 'The system links 14 nations')]),
-        S("But there is one place where the road simply stops.", [ping(*YAV, 'stops', color='#ff3b3b'), stamp('ROAD ENDS', 'stops', size=90)],
-          cam=at_(8.3, -77.4, 9), style='dark', no_claim=True),
+            pathtext('Pan-American Highway', [(41, -101), (28, -101), (19, -99), (10, -84)], 'Pan-American', size=54, glow='#ffd60a'),
+            cnt('14', '14', size=200), *[flag(c, la, lo, 'links', size=90, stagger=0) for c, la, lo in [('ca', 52, -108), ('us', 40, -100), ('mx', 23, -102), ('pe', -9, -75), ('cl', -30, -71), ('ar', -38, -65)]]],
+          cam=at_(8, -84, 1.5, bearing=-4),
+          src=[src('The highway links 14 countries.', PAH, 'The highway connects 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile, and Argentina.')]),
+        S("But there is one place where the road simply stops.", [
+            {'type': 'dim', 'except': ['PAN', 'COL'], 'amount': 0.9, 'color': '#000000', 'at': 0.1},
+            ping(*YAV, 'stops', color='#ff3b3b'), handstamp('ROAD ENDS', 'stops', size=88, screen=[0.5, 0.33]), shake('stops'),
+            photo('road_end_jungle', 'simply', kind='full', pan='in', until=2.6)],
+          cam=at_(8.3, -77.4, 6, duration=1.0), no_claim=True, tr='zoom'),
         S("It ends in Yaviza, Panama, and only starts again in Turbo, Colombia, about 106 kilometers away.", [
-            dot('Yaviza', *YAV, 'Yaviza', dy=-56), dot('Turbo', *TUR, 'Turbo', dy=-56), flag('pa', 8.9, -78.4, 'Panama', size=100), flag('co', 7.4, -76.2, 'Colombia', size=100),
+            dot('Yaviza', *YAV, 'Yaviza', dy=-56), dot('Turbo', *TUR, 'Turbo', dy=-56), flag('pa', 8.9, -78.4, 'Panama', size=100, wave=True), flag('co', 7.4, -76.2, 'Colombia', size=100),
             meas(YAV, TUR, '106 km', 'kilometers')],
-          cam=at_(8.2, -77.2, 18, bearing=-3),
+          cam=at_(8.2, -77.2, 18, bearing=-3, duration=1.5),
           src=[src('The highway breaks at Yaviza, Panama and resumes at Turbo, Colombia, roughly 106 km away.', DG, "The 'Gap' interrupts the Pan-American Highway, which breaks at Yaviza, Panama, and resumes at Turbo, Colombia, roughly 106 km (66 mi) away.")]),
         S("Drivers can't get through. Cars have to be shipped around it by boat.", [
-            ship([(8.95, -79.5), (9.6, -78.5), (9.7, -77.2), (8.7, -76.9), (8.09, -76.73)], 'shipped', 'car', emblem='#ffd60a', drawDur=2.0, style='cargo'), icon('🚗', 9.1, -79.3, 'Cars', size=100)],
-          cam=at_(8.8, -78.2, 8),
-          src=[src('Vehicles must be shipped by cargo vessel to get around the gap.', 'Pan-American_Highway', 'vehicles must be shipped by cargo vessel to bridge this section')]),
+            rider_ship([(8.95, -79.5), (9.6, -78.5), (9.7, -77.2), (8.7, -76.9), (8.09, -76.73)], 'shipped', 'car', 'jungle_explorer', (8.05, -76.68), style='cargo', emblem='#ffd60a', drawDur=2.4, rider_size=105),
+            react('art:emote_sweat', (0.74, 0.3), 'through', size=170)],
+          cam=at_(8.8, -78.0, 8, duration=1.2),
+          src=[src('Vehicles must be shipped by cargo vessel to get around the gap.', PAH, 'vehicles must be shipped by cargo vessel to bridge this section')]),
         S("In between is the Darién Gap: swamps, mountains and thick rainforest.", [
-            hl({'admin1s': ['Darién', 'Emberá', 'Kuna Yala'], 'country': 'PAN'}, '#16a34a', 'Darién', fillOpacity=0.5, neon='#4ade80'), hl({'admin1': 'Chocó', 'country': 'COL'}, '#16a34a', 'Darién', fillOpacity=0.5, neon='#4ade80'), slam('DARIÉN GAP', 8.6, -77.3, 'Darién', size=70),
-            icon('🌴', 7.7, -77.6, 'rainforest', size=110), icon('⛰️', 8.0, -77.9, 'mountains', size=100), char('jungle_explorer', 'swamps')],
-          cam=at_(7.9, -77.3, 14), tr='flash',
+            trace(GAP_PAN, '#16a34a', 'Darién', neon='#4ade80', fillOpacity=0.5), trace(GAP_COL, '#16a34a', 'Darién', neon='#4ade80', fillOpacity=0.5),
+            giant('DARIÉN GAP', 8.75, -77.3, 'Darién', size=84),
+            photo('swamp_canopy', 'swamps', kind='full', pan='out', until=2.2),
+            icon('🌴', 7.7, -77.6, 'rainforest', size=110), icon('⛰️', 8.0, -77.9, 'mountains', size=100)],
+          cam=at_(7.9, -77.3, 14, duration=1.2), tr='flash',
           src=[src('Colombian side: Atrato delta marshland; Panamanian side: mountainous rainforest.', DG, "the Colombian side dominated primarily by the river delta of the Atrato River, which creates a flat marshland at least 80 km (50 mi) wide")]),
-        S("It's full of venomous wildlife, diseases and flash floods.", [
-            tilt('venomous', deg=36, until=4), icon('🐍', 7.6, -77.1, 'venomous', size=110), icon('🦟', 8.1, -77.5, 'diseases', size=100), icon('🌊', 7.8, -77.8, 'floods', size=110)],
-          cam=at_(7.9, -77.3, 20),
-          src=[src('Dangers include venomous wildlife, diseases and flash floods.', DG, 'venomous and deadly wildlife, tropical insects, parasites and diseases, and frequent heavy rains and flash floods')]),
+        S("Heavy rain sends flash floods roaring through the jungle.", [
+            tilt(0.1, deg=34, until=3.4), cloud(8.0, -77.6, 0.2, count=3, size=330, rain=True), particles('rain', 0.3, density=0.7),
+            photo('flood_jungle_river', 'floods', kind='card', size=560, rot=4, screen=[0.5, 0.44], **{'from': 'left'}, until=2.6)],
+          cam=at_(7.9, -77.3, 20, duration=1.2),
+          src=[src('Rain in the Darién Gap produces flash floods.', DG, 'Rainfall in the Darién Gap produces flash floods that can carry sleepers to their deaths.')]),
+        S("A road was planned there in 1971, but it was halted in 1974 after environmentalists raised serious concerns.", [
+            year(1971, 1971, light=True), timebar(1971, 1974, '3 years', '1971', screen=[0.5, 0.36]), handstamp('HALTED', 'halted', size=104, screen=[0.5, 0.5])],
+          style='pastel', tr='film', cam=at_(8.3, -77.4, 6),
+          src=[src('Road planning began in 1971 with US funding and was halted in 1974 after environmentalists raised concerns.', DG, 'Planning began in 1971 with the help of US funding, but was halted in 1974 after multiple environmentalists expressed serious concerns.')]),
+        S("Then, in 1978, the United States blocked its support, to stop foot-and-mouth disease from spreading north.", [
+            year(1978, '1978', light=True), scatter(GAP_COL, 'art:cow', 'foot-and-mouth', count=3, size=110, stagger=0.2),
+            arrow((6.5, -76.6), (9.2, -77.9), 'spreading', color='#e11d2e', width=14)],
+          style='pastel', cam=at_(7.9, -77.3, 8),
+          src=[src('In 1978 the US Department of Agriculture blocked US support to prevent the spread of foot-and-mouth disease.', DG, 'US support was further blocked by the US Department of Agriculture in 1978, with the intention of preventing the spread of foot-and-mouth disease.')]),
+        S("In 1994, a United Nations agency warned that a road would cause extensive environmental damage.", [
+            year(1994, '1994', light=True), pill('UN WARNING', 'agency', bg='#1d4ed8', screen=(0.5, 0.36)),
+            icon('art:palm', 8.2, -77.4, 'damage', size=150, hex='#16a34a')],
+          style='pastel', cam=at_(8.0, -77.3, 10),
+          src=[src('In 1994 a UN agency reported that the road would cause extensive environmental damage.', DG, 'but by 1994, a United Nations agency reported that the road and the subsequent development would cause extensive environmental damage.')]),
+        S("Five Indigenous groups, about eight thousand people, fear a road would erode their cultures.", [
+            crowd(8.1, -77.6, 'Five', count=8, cols=4, size=60, color='#ffe0b0'), cnt('8,000', 'eight', size=170, color='#ffe0b0')],
+          style='pastel', cam=at_(8.0, -77.5, 12),
+          src=[src('Five tribes comprising 8,000 people have said a road could erode their cultures.', DG, 'The Embera-Wounaan and Guna are among five tribes, comprising 8,000 people, who have expressed concern that the road would potentially result in erosion of their cultures.')]),
+        S("Today the jungle is full of venomous wildlife and tropical diseases.", [
+            pin(7.6, -77.1, 'art:snake', 'venomous'), pin(8.1, -77.5, 'art:mosquito', 'diseases'), grade('danger', 0.3)],
+          cam=at_(7.9, -77.3, 20, duration=1.2), tr='flash',
+          src=[src('Dangers include venomous wildlife and tropical diseases.', DG, 'venomous and deadly wildlife, tropical insects, parasites and diseases, and frequent heavy rains and flash floods')]),
         S("And there's no police and no hospital, so violent crime is everywhere.", [
-            stamp('NO POLICE', 'police', size=86), icon('🚫', 8.0, -77.3, 'hospital', size=110), shake('violent')],
+            handstamp('NO POLICE', 'police', size=90, screen=[0.5, 0.33]), pin(8.0, -77.3, 'art:no_entry', 'hospital'), shake('violent'), grade('danger', 0.3)],
           style='dark',
           src=[src('Law enforcement and medical support are nonexistent; violent crime is rampant.', DG, 'law enforcement and medical support are nonexistent, resulting in rampant violent crime')]),
-        S("Still, in 2023, more than 520,000 people crossed it on foot.", [
-            cnt('520,000+', '520,000', size=170), scatter({'admin1s': ['Darién', 'Emberá'], 'country': 'PAN'}, '🚶', 'crossed', count=5, size=64, stagger=0.12)],
-          cam=at_(7.9, -77.3, 14, bearing=3),
-          src=[src('More than 520,000 people crossed in 2023.', DG, 'In 2023, more than 520,000 individuals passed through the gap')]),
-        S("That's more than double the year before. The shortest gap on the road, and the most dangerous.", [
-            bars([('2022', 240, 'less than half', '#5ec8ff'), ('2023', 520, '520,000+', '#ff5a5f')], 'double', screen=[0.5, 0.3], labelWidth=170)],
-          style='dark',
-          src=[src('2023 more than doubled the previous year.', DG, "more than doubling the previous year's number of crossings")]),
+        S("Still, in 2021, more than 130,000 people crossed it on foot. In 2022, about 250,000. And in 2023, more than 520,000.", [
+            cnt_steps([('2021', '130,000+'), ('2022', '250,000'), ('2023', '520,000+')], size=170, color='#ff5a5f'),
+            {'type': 'crowd', 'lat': 7.9, 'lon': -77.4, 'count': 52, 'cols': 13, 'size': 30, 'at': '2021', 'counts': [{'at': '2021', 'n': 13}, {'at': '2022', 'n': 25}, {'at': '2023', 'n': 52}], 'red': [{'at': '2023', 'n': 52}]}],
+          cam=at_(7.9, -77.4, 12, duration=1.0),
+          src=[src('Crossings: more than 130,000 in 2021, about 250,000 in 2022, more than 520,000 in 2023.', DG, 'In 2023, more than 520,000 individuals passed through the gap'),
+               src('The 2021 and 2022 crossings.', DG, 'more than 130,000')]),
+        S("The shortest gap on the road, and the most dangerous.", [
+            pin(7.95, -77.4, 'art:skull', 'shortest', size=120), react('art:emote_shock', (0.72, 0.3), 'dangerous', size=170)],
+          cam=at_(10, -80, 1.3, duration=1.6), style='dark', no_claim=True),
     ],
     keywords={'darién': '#4ade80', 'gap': '#4ade80', 'panama': '#5ec8ff', 'colombia': '#ffd60a', '520,000': '#ff5a5f'},
     captions={'theme': 'box'})

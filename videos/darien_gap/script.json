@@ -3,7 +3,7 @@
   "style": "geo",
   "meta": {
     "title": "The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱",
-    "description": "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 Swamps, mountains and rainforest, deadly wildlife, flash floods and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
+    "description": "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 A road was planned in 1971 and halted in 1974, and swamps, mountains, rainforest, deadly wildlife and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
     "pinnedComment": [
       "30,000 km of highway… and 106 km of jungle 🌴😱",
       "Would you ever try to cross the Darién Gap? 👇",
@@ -28,21 +28,6 @@
       "era": "now",
       "text": "This road runs about 30,000 kilometers, from Alaska all the way to the tip of Argentina.",
       "show": [
-        {
-          "type": "title",
-          "text": "THE ROAD WITH A *GAP*",
-          "hook": true,
-          "size": 110,
-          "anim": "slam",
-          "screen": [
-            0.5,
-            0.2
-          ],
-          "accent": "#ffd60a",
-          "width": 960,
-          "until": "kilometers",
-          "at": 0.05
-        },
         {
           "type": "route",
           "points": [
@@ -76,10 +61,12 @@
             ]
           ],
           "color": "#ffd60a",
-          "width": 8,
-          "at": "road",
-          "drawDur": 2.2,
-          "hold": 1
+          "width": 9,
+          "at": 0.05,
+          "id": "hw1",
+          "drawDur": 3.3,
+          "hold": 1,
+          "nodes": true
         },
         {
           "type": "route",
@@ -110,9 +97,9 @@
             ]
           ],
           "color": "#ffd60a",
-          "width": 8,
+          "width": 9,
           "at": "Argentina",
-          "drawDur": 1.6,
+          "drawDur": 1.5,
           "hold": 1
         },
         {
@@ -127,9 +114,19 @@
         }
       ],
       "camera": {
-        "lat": 10,
-        "lon": -95,
-        "zoom": 0.8
+        "follow": "hw1",
+        "zoom": 3.4,
+        "zoomTo": 1.0,
+        "duration": 0.8,
+        "then": [
+          {
+            "at": "Argentina",
+            "lat": -22,
+            "lon": -68,
+            "zoom": 1.15,
+            "duration": 1.3
+          }
+        ]
       },
       "sources": [
         {
@@ -143,6 +140,31 @@
       "era": "now",
       "text": "It's the Pan-American Highway, and it links 14 countries.",
       "show": [
+        {
+          "type": "pathtext",
+          "text": "Pan-American Highway",
+          "points": [
+            [
+              41,
+              -101
+            ],
+            [
+              28,
+              -101
+            ],
+            [
+              19,
+              -99
+            ],
+            [
+              10,
+              -84
+            ]
+          ],
+          "size": 54,
+          "at": "Pan-American",
+          "glow": "#ffd60a"
+        },
         {
           "type": "counter",
           "steps": [
@@ -159,7 +181,8 @@
           "lat": 52,
           "lon": -108,
           "size": 90,
-          "at": "links"
+          "at": "links",
+          "stagger": 0
         },
         {
           "type": "flag",
@@ -167,7 +190,8 @@
           "lat": 40,
           "lon": -100,
           "size": 90,
-          "at": "links"
+          "at": "links",
+          "stagger": 0
         },
         {
           "type": "flag",
@@ -175,7 +199,8 @@
           "lat": 23,
           "lon": -102,
           "size": 90,
-          "at": "links"
+          "at": "links",
+          "stagger": 0
         },
         {
           "type": "flag",
@@ -183,7 +208,8 @@
           "lat": -9,
           "lon": -75,
           "size": 90,
-          "at": "links"
+          "at": "links",
+          "stagger": 0
         },
         {
           "type": "flag",
@@ -191,7 +217,8 @@
           "lat": -30,
           "lon": -71,
           "size": 90,
-          "at": "links"
+          "at": "links",
+          "stagger": 0
         },
         {
           "type": "flag",
@@ -199,19 +226,21 @@
           "lat": -38,
           "lon": -65,
           "size": 90,
-          "at": "links"
+          "at": "links",
+          "stagger": 0
         }
       ],
       "camera": {
-        "lat": 10,
-        "lon": -95,
-        "zoom": 0.8
+        "lat": 8,
+        "lon": -84,
+        "zoom": 1.5,
+        "bearing": -4
       },
       "sources": [
         {
-          "claim": "The highway links 14 nations.",
+          "claim": "The highway links 14 countries.",
           "url": "https://en.wikipedia.org/wiki/Pan-American_Highway",
-          "quote": "The system links 14 nations"
+          "quote": "The highway connects 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile, and Argentina."
         }
       ]
     },
@@ -220,6 +249,16 @@
       "text": "But there is one place where the road simply stops.",
       "show": [
         {
+          "type": "dim",
+          "except": [
+            "PAN",
+            "COL"
+          ],
+          "amount": 0.9,
+          "color": "#000000",
+          "at": 0.1
+        },
+        {
           "type": "ping",
           "lat": 8.18,
           "lon": -77.69,
@@ -227,22 +266,35 @@
           "at": "stops"
         },
         {
-          "type": "stamp",
+          "type": "handstamp",
           "text": "ROAD ENDS",
-          "size": 90,
+          "at": "stops",
+          "size": 88,
           "screen": [
             0.5,
             0.33
-          ],
+          ]
+        },
+        {
+          "type": "shake",
           "at": "stops"
+        },
+        {
+          "type": "photo",
+          "image": "road_end_jungle",
+          "kind": "full",
+          "at": "simply",
+          "pan": "in",
+          "until": 2.6
         }
       ],
       "camera": {
         "lat": 8.3,
         "lon": -77.4,
-        "zoom": 9
+        "zoom": 6,
+        "duration": 1.0
       },
-      "style": "dark",
+      "transition": "zoom",
       "noClaim": true
     },
     {
@@ -275,7 +327,8 @@
           "lat": 8.9,
           "lon": -78.4,
           "size": 100,
-          "at": "Panama"
+          "at": "Panama",
+          "wave": true
         },
         {
           "type": "flag",
@@ -303,7 +356,8 @@
         "lat": 8.2,
         "lon": -77.2,
         "zoom": 18,
-        "bearing": -3
+        "bearing": -3,
+        "duration": 1.5
       },
       "sources": [
         {
@@ -357,21 +411,33 @@
             "emblem": "#ffd60a",
             "style": "cargo"
           },
-          "drawDur": 2.0
+          "drawDur": 2.4,
+          "rider": {
+            "image": "jungle_explorer",
+            "size": 105,
+            "to": {
+              "lat": 8.05,
+              "lon": -76.68
+            }
+          }
         },
         {
-          "type": "icon",
-          "icon": "🚗",
-          "lat": 9.1,
-          "lon": -79.3,
-          "size": 100,
-          "at": "Cars"
+          "type": "react",
+          "icon": "art:emote_sweat",
+          "screen": [
+            0.74,
+            0.3
+          ],
+          "burst": true,
+          "at": "through",
+          "size": 170
         }
       ],
       "camera": {
         "lat": 8.8,
-        "lon": -78.2,
-        "zoom": 8
+        "lon": -78.0,
+        "zoom": 8,
+        "duration": 1.2
       },
       "sources": [
         {
@@ -396,9 +462,11 @@
             "country": "PAN"
           },
           "fill": "#16a34a",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#4ade80",
           "at": "Darién",
-          "fillOpacity": 0.5,
-          "neon": "#4ade80"
+          "fillOpacity": 0.5
         },
         {
           "type": "highlight",
@@ -407,19 +475,29 @@
             "country": "COL"
           },
           "fill": "#16a34a",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#4ade80",
           "at": "Darién",
-          "fillOpacity": 0.5,
-          "neon": "#4ade80"
+          "fillOpacity": 0.5
         },
         {
           "type": "label",
           "text": "DARIÉN GAP",
-          "lat": 8.6,
+          "lat": 8.75,
           "lon": -77.3,
           "at": "Darién",
-          "style": "map",
-          "anim": "slam",
-          "size": 70
+          "style": "extrude",
+          "anim": "giant",
+          "size": 84
+        },
+        {
+          "type": "photo",
+          "image": "swamp_canopy",
+          "kind": "full",
+          "at": "swamps",
+          "pan": "out",
+          "until": 2.2
         },
         {
           "type": "icon",
@@ -436,21 +514,13 @@
           "lon": -77.9,
           "size": 100,
           "at": "mountains"
-        },
-        {
-          "type": "character",
-          "image": "jungle_explorer",
-          "screen": [
-            0.25,
-            0.6
-          ],
-          "at": "swamps"
         }
       ],
       "camera": {
         "lat": 7.9,
         "lon": -77.3,
-        "zoom": 14
+        "zoom": 14,
+        "duration": 1.2
       },
       "transition": "flash",
       "sources": [
@@ -463,47 +533,276 @@
     },
     {
       "era": "now",
-      "text": "It's full of venomous wildlife, diseases and flash floods.",
+      "text": "Heavy rain sends flash floods roaring through the jungle.",
       "show": [
         {
           "type": "tilt",
-          "deg": 36,
-          "at": "venomous",
-          "until": 4
+          "deg": 34,
+          "at": 0.1,
+          "until": 3.4
         },
         {
-          "type": "icon",
-          "icon": "🐍",
-          "lat": 7.6,
-          "lon": -77.1,
-          "size": 110,
-          "at": "venomous"
+          "type": "cloud",
+          "lat": 8.0,
+          "lon": -77.6,
+          "at": 0.2,
+          "count": 3,
+          "size": 330,
+          "rain": true
         },
         {
-          "type": "icon",
-          "icon": "🦟",
-          "lat": 8.1,
-          "lon": -77.5,
-          "size": 100,
-          "at": "diseases"
+          "type": "particles",
+          "kind": "rain",
+          "at": 0.3,
+          "density": 0.7
         },
         {
-          "type": "icon",
-          "icon": "🌊",
-          "lat": 7.8,
-          "lon": -77.8,
-          "size": 110,
-          "at": "floods"
+          "type": "photo",
+          "image": "flood_jungle_river",
+          "kind": "card",
+          "at": "floods",
+          "size": 560,
+          "rot": 4,
+          "screen": [
+            0.5,
+            0.44
+          ],
+          "from": "left",
+          "until": 2.6
         }
       ],
       "camera": {
         "lat": 7.9,
         "lon": -77.3,
-        "zoom": 20
+        "zoom": 20,
+        "duration": 1.2
       },
       "sources": [
         {
-          "claim": "Dangers include venomous wildlife, diseases and flash floods.",
+          "claim": "Rain in the Darién Gap produces flash floods.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "Rainfall in the Darién Gap produces flash floods that can carry sleepers to their deaths."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "A road was planned there in 1971, but it was halted in 1974 after environmentalists raised serious concerns.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1971",
+          "light": true,
+          "at": 1971
+        },
+        {
+          "type": "timebar",
+          "from": "1971",
+          "to": "1974",
+          "label": "3 years",
+          "at": "1971",
+          "screen": [
+            0.5,
+            0.36
+          ]
+        },
+        {
+          "type": "handstamp",
+          "text": "HALTED",
+          "at": "halted",
+          "size": 104,
+          "screen": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 8.3,
+        "lon": -77.4,
+        "zoom": 6
+      },
+      "style": "pastel",
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Road planning began in 1971 with US funding and was halted in 1974 after environmentalists raised concerns.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "Planning began in 1971 with the help of US funding, but was halted in 1974 after multiple environmentalists expressed serious concerns."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Then, in 1978, the United States blocked its support, to stop foot-and-mouth disease from spreading north.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1978",
+          "light": true,
+          "at": "1978"
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1": "Chocó",
+            "country": "COL"
+          },
+          "icon": "art:cow",
+          "count": 3,
+          "size": 110,
+          "at": "foot-and-mouth",
+          "stagger": 0.2
+        },
+        {
+          "type": "arrow",
+          "from": [
+            6.5,
+            -76.6
+          ],
+          "to": [
+            9.2,
+            -77.9
+          ],
+          "color": "#e11d2e",
+          "at": "spreading",
+          "width": 14
+        }
+      ],
+      "camera": {
+        "lat": 7.9,
+        "lon": -77.3,
+        "zoom": 8
+      },
+      "style": "pastel",
+      "sources": [
+        {
+          "claim": "In 1978 the US Department of Agriculture blocked US support to prevent the spread of foot-and-mouth disease.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "US support was further blocked by the US Department of Agriculture in 1978, with the intention of preventing the spread of foot-and-mouth disease."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In 1994, a United Nations agency warned that a road would cause extensive environmental damage.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1994",
+          "light": true,
+          "at": "1994"
+        },
+        {
+          "type": "label",
+          "text": "UN WARNING",
+          "at": "agency",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.36
+          ],
+          "size": 46
+        },
+        {
+          "type": "icon",
+          "icon": "art:palm",
+          "lat": 8.2,
+          "lon": -77.4,
+          "size": 150,
+          "at": "damage",
+          "hex": "#16a34a"
+        }
+      ],
+      "camera": {
+        "lat": 8.0,
+        "lon": -77.3,
+        "zoom": 10
+      },
+      "style": "pastel",
+      "sources": [
+        {
+          "claim": "In 1994 a UN agency reported that the road would cause extensive environmental damage.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "but by 1994, a United Nations agency reported that the road and the subsequent development would cause extensive environmental damage."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Five Indigenous groups, about eight thousand people, fear a road would erode their cultures.",
+      "show": [
+        {
+          "type": "crowd",
+          "lat": 8.1,
+          "lon": -77.6,
+          "count": 8,
+          "at": "Five",
+          "cols": 4,
+          "size": 60,
+          "color": "#ffe0b0"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "eight",
+              "value": "8,000"
+            }
+          ],
+          "size": 170,
+          "color": "#ffe0b0"
+        }
+      ],
+      "camera": {
+        "lat": 8.0,
+        "lon": -77.5,
+        "zoom": 12
+      },
+      "style": "pastel",
+      "sources": [
+        {
+          "claim": "Five tribes comprising 8,000 people have said a road could erode their cultures.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "The Embera-Wounaan and Guna are among five tribes, comprising 8,000 people, who have expressed concern that the road would potentially result in erosion of their cultures."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today the jungle is full of venomous wildlife and tropical diseases.",
+      "show": [
+        {
+          "type": "pin",
+          "lat": 7.6,
+          "lon": -77.1,
+          "icon": "art:snake",
+          "at": "venomous"
+        },
+        {
+          "type": "pin",
+          "lat": 8.1,
+          "lon": -77.5,
+          "icon": "art:mosquito",
+          "at": "diseases"
+        },
+        {
+          "type": "grade",
+          "mode": "danger",
+          "at": 0.3
+        }
+      ],
+      "camera": {
+        "lat": 7.9,
+        "lon": -77.3,
+        "zoom": 20,
+        "duration": 1.2
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "Dangers include venomous wildlife and tropical diseases.",
           "url": "https://en.wikipedia.org/wiki/Darién_Gap",
           "quote": "venomous and deadly wildlife, tropical insects, parasites and diseases, and frequent heavy rains and flash floods"
         }
@@ -514,26 +813,30 @@
       "text": "And there's no police and no hospital, so violent crime is everywhere.",
       "show": [
         {
-          "type": "stamp",
+          "type": "handstamp",
           "text": "NO POLICE",
-          "size": 86,
+          "at": "police",
+          "size": 90,
           "screen": [
             0.5,
             0.33
-          ],
-          "at": "police"
+          ]
         },
         {
-          "type": "icon",
-          "icon": "🚫",
+          "type": "pin",
           "lat": 8.0,
           "lon": -77.3,
-          "size": 110,
+          "icon": "art:no_entry",
           "at": "hospital"
         },
         {
           "type": "shake",
           "at": "violent"
+        },
+        {
+          "type": "grade",
+          "mode": "danger",
+          "at": 0.3
         }
       ],
       "style": "dark",
@@ -547,85 +850,108 @@
     },
     {
       "era": "now",
-      "text": "Still, in 2023, more than 520,000 people crossed it on foot.",
+      "text": "Still, in 2021, more than 130,000 people crossed it on foot. In 2022, about 250,000. And in 2023, more than 520,000.",
       "show": [
         {
           "type": "counter",
           "steps": [
             {
-              "at": "520,000",
+              "at": "2021",
+              "value": "130,000+"
+            },
+            {
+              "at": "2022",
+              "value": "250,000"
+            },
+            {
+              "at": "2023",
               "value": "520,000+"
             }
           ],
-          "size": 170
+          "size": 170,
+          "color": "#ff5a5f"
         },
         {
-          "type": "scatter",
-          "target": {
-            "admin1s": [
-              "Darién",
-              "Emberá"
-            ],
-            "country": "PAN"
-          },
-          "icon": "🚶",
-          "count": 5,
-          "size": 64,
-          "at": "crossed",
-          "stagger": 0.12
+          "type": "crowd",
+          "lat": 7.9,
+          "lon": -77.4,
+          "count": 52,
+          "cols": 13,
+          "size": 30,
+          "at": "2021",
+          "counts": [
+            {
+              "at": "2021",
+              "n": 13
+            },
+            {
+              "at": "2022",
+              "n": 25
+            },
+            {
+              "at": "2023",
+              "n": 52
+            }
+          ],
+          "red": [
+            {
+              "at": "2023",
+              "n": 52
+            }
+          ]
         }
       ],
       "camera": {
         "lat": 7.9,
-        "lon": -77.3,
-        "zoom": 14,
-        "bearing": 3
+        "lon": -77.4,
+        "zoom": 12,
+        "duration": 1.0
       },
       "sources": [
         {
-          "claim": "More than 520,000 people crossed in 2023.",
+          "claim": "Crossings: more than 130,000 in 2021, about 250,000 in 2022, more than 520,000 in 2023.",
           "url": "https://en.wikipedia.org/wiki/Darién_Gap",
           "quote": "In 2023, more than 520,000 individuals passed through the gap"
+        },
+        {
+          "claim": "The 2021 and 2022 crossings.",
+          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
+          "quote": "more than 130,000"
         }
       ]
     },
     {
       "era": "now",
-      "text": "That's more than double the year before. The shortest gap on the road, and the most dangerous.",
+      "text": "The shortest gap on the road, and the most dangerous.",
       "show": [
         {
-          "type": "bars",
-          "items": [
-            {
-              "label": "2022",
-              "value": 240,
-              "display": "less than half",
-              "color": "#5ec8ff"
-            },
-            {
-              "label": "2023",
-              "value": 520,
-              "display": "520,000+",
-              "color": "#ff5a5f"
-            }
-          ],
-          "orient": "h",
-          "at": "double",
+          "type": "pin",
+          "lat": 7.95,
+          "lon": -77.4,
+          "icon": "art:skull",
+          "at": "shortest",
+          "size": 120
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
           "screen": [
-            0.5,
+            0.72,
             0.3
           ],
-          "labelWidth": 170
+          "burst": true,
+          "at": "dangerous",
+          "size": 170
         }
       ],
+      "camera": {
+        "lat": 10,
+        "lon": -80,
+        "zoom": 1.3,
+        "duration": 1.6
+      },
       "style": "dark",
-      "sources": [
-        {
-          "claim": "2023 more than doubled the previous year.",
-          "url": "https://en.wikipedia.org/wiki/Darién_Gap",
-          "quote": "more than doubling the previous year's number of crossings"
-        }
-      ]
+      "noClaim": true
     }
   ],
   "config": {

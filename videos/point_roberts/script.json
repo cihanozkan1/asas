@@ -3,7 +3,7 @@
   "style": "geo",
   "meta": {
     "title": "The US Town You Can Only Drive to Through Canada 🇺🇸🇨🇦🤯 Point Roberts",
-    "description": "Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, and older kids go to school in Blaine, crossing the border four times on every round trip 🤯",
+    "description": "Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, older kids cross the border four times on every school trip, and when the border closed in 2020 the town lost about 80% of its business 🤯",
     "pinnedComment": [
       "Kids here cross an international border 4 times to go to school 🤯🚌",
       "Would you live in Point Roberts? 👇",
@@ -31,6 +31,23 @@
       "text": "This little town is in the USA, but you can only drive there through Canada. Otherwise, you need a boat or a plane.",
       "show": [
         {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -123.1,
+              48.955,
+              -123.0,
+              49.0
+            ]
+          },
+          "fill": "#1d4ed8",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#6aa5ff",
+          "at": "town",
+          "fillOpacity": 0.5
+        },
+        {
           "type": "ping",
           "lat": 48.975,
           "lon": -123.06,
@@ -45,7 +62,8 @@
           "lon": -123.03,
           "size": 110,
           "at": "USA",
-          "pin": true
+          "pin": true,
+          "wave": true
         },
         {
           "type": "highlight",
@@ -60,7 +78,8 @@
           "lat": 49.06,
           "lon": -122.96,
           "size": 100,
-          "at": "Canada"
+          "at": "Canada",
+          "wave": true
         }
       ],
       "camera": {
@@ -84,12 +103,12 @@
         {
           "type": "label",
           "text": "POINT ROBERTS",
-          "lat": 48.955,
+          "lat": 48.945,
           "lon": -123.06,
           "at": "Point",
-          "style": "map",
-          "anim": "slam",
-          "size": 66
+          "style": "extrude",
+          "anim": "giant",
+          "size": 70
         },
         {
           "type": "label",
@@ -100,6 +119,26 @@
           "dot": true,
           "dy": -46,
           "size": 44
+        },
+        {
+          "type": "pathtext",
+          "text": "Tsawwassen peninsula",
+          "points": [
+            [
+              49.02,
+              -123.13
+            ],
+            [
+              49.05,
+              -123.07
+            ],
+            [
+              49.09,
+              -123.03
+            ]
+          ],
+          "size": 40,
+          "at": "peninsula"
         }
       ],
       "camera": {
@@ -116,6 +155,88 @@
       ]
     },
     {
+      "era": "history",
+      "text": "It was named in 1792 by the explorer George Vancouver, after his friend Henry Roberts.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1792",
+          "light": true,
+          "at": "1792"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              49.3,
+              -124.1
+            ],
+            [
+              49.12,
+              -123.5
+            ],
+            [
+              49.0,
+              -123.16
+            ],
+            [
+              48.985,
+              -123.09
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "explorer",
+          "id": "sea",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "emblem": "#c1121f",
+            "style": "caravel"
+          },
+          "drawDur": 2.6,
+          "rider": {
+            "image": "british_officer",
+            "size": 115,
+            "to": {
+              "lat": 48.984,
+              "lon": -123.055
+            }
+          }
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cool",
+          "screen": [
+            0.76,
+            0.3
+          ],
+          "burst": true,
+          "at": "Henry",
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": 49.06,
+        "lon": -123.3,
+        "zoom": 26
+      },
+      "transition": "film",
+      "sources": [
+        {
+          "claim": "Point Roberts was named by George Vancouver after his friend Henry Roberts (1792 expedition).",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "Point Roberts acquired its present name from George Vancouver, who named it after his friend Henry Roberts"
+        }
+      ]
+    },
+    {
       "era": "now",
       "text": "So why is it American?",
       "show": [
@@ -124,6 +245,17 @@
           "lat": 48.975,
           "lon": -123.06,
           "at": "why"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_think",
+          "screen": [
+            0.3,
+            0.32
+          ],
+          "burst": true,
+          "at": "why",
+          "size": 170
         }
       ],
       "camera": {
@@ -132,6 +264,7 @@
         "zoom": 90
       },
       "style": "dark",
+      "transition": "flash",
       "noClaim": true
     },
     {
@@ -160,7 +293,8 @@
           "at": "49th",
           "rhumb": true,
           "drawDur": 1.3,
-          "hold": 1
+          "hold": 1,
+          "laser": true
         },
         {
           "type": "label",
@@ -215,7 +349,8 @@
           "width": 7,
           "at": "line",
           "rhumb": true,
-          "drawDur": 0.8
+          "drawDur": 0.8,
+          "laser": true
         },
         {
           "type": "label",
@@ -248,6 +383,9 @@
             ]
           },
           "fill": "#1d4ed8",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#6aa5ff",
           "at": "tip",
           "fillOpacity": 0.5
         }
@@ -257,6 +395,7 @@
         "lon": -123.05,
         "zoom": 140
       },
+      "transition": "flash",
       "sources": [
         {
           "claim": "The 49th parallel left the southern peninsula tip on the US side.",
@@ -322,11 +461,14 @@
             12
           ],
           "glow": false,
+          "id": "road",
           "mover": {
             "kind": "icon",
-            "icon": "🚗",
+            "icon": "art:car",
             "size": 90
-          }
+          },
+          "nodes": true,
+          "drawDur": 3.6
         },
         {
           "type": "label",
@@ -351,9 +493,10 @@
         }
       ],
       "camera": {
-        "lat": 49.03,
-        "lon": -122.92,
-        "zoom": 70
+        "follow": "road",
+        "zoom": 60,
+        "zoomTo": 24,
+        "duration": 1.0
       },
       "sources": [
         {
@@ -420,12 +563,14 @@
             12
           ],
           "glow": false,
+          "id": "bus",
           "mover": {
             "kind": "icon",
-            "icon": "🚌",
-            "size": 90
+            "icon": "art:bus",
+            "size": 100
           },
-          "drawDur": 2.4
+          "nodes": true,
+          "drawDur": 2.6
         },
         {
           "type": "counter",
@@ -444,13 +589,276 @@
             }
           ],
           "size": 200
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_sweat",
+          "screen": [
+            0.76,
+            0.28
+          ],
+          "burst": true,
+          "at": "four",
+          "size": 160
         }
       ],
+      "camera": {
+        "follow": "bus",
+        "zoom": 40,
+        "zoomTo": 24,
+        "duration": 0.9
+      },
       "sources": [
         {
           "claim": "Students in grade 4 and above commute to Blaine, crossing the border four times.",
           "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
           "quote": "Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to \"cross the US–Canada border four times, two on the trip to Blaine and two on the trip back.\""
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "In March 2020, the border closed to non-essential travel, and the town lost about eighty percent of its business.",
+      "show": [
+        {
+          "type": "year",
+          "value": "2020",
+          "light": true,
+          "at": "March"
+        },
+        {
+          "type": "handstamp",
+          "text": "BORDER CLOSED",
+          "at": "closed",
+          "size": 92,
+          "screen": [
+            0.5,
+            0.36
+          ]
+        },
+        {
+          "type": "grade",
+          "mode": "cold",
+          "at": "March",
+          "until": 5.5
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "eighty",
+              "value": "-80%"
+            }
+          ],
+          "size": 200,
+          "color": "#ff5a5f"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_cry",
+          "screen": [
+            0.78,
+            0.3
+          ],
+          "burst": true,
+          "at": "lost",
+          "size": 170
+        }
+      ],
+      "camera": {
+        "lat": 48.99,
+        "lon": -123.05,
+        "zoom": 100,
+        "bearing": 3
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The border closed to non-essential travel in March 2020; Point Roberts lost 80 percent of its business.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "In 2020, a study found that Point Roberts had lost 80 percent of its business and hundreds of seasonal residents as a result of the pandemic and border shutdown."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "So a temporary passenger ferry carried people from Point Roberts to Blaine, over the water.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              48.985,
+              -123.06
+            ],
+            [
+              48.965,
+              -123.0
+            ],
+            [
+              48.945,
+              -122.92
+            ],
+            [
+              48.96,
+              -122.84
+            ],
+            [
+              48.985,
+              -122.775
+            ]
+          ],
+          "color": "#ffffff",
+          "width": 5,
+          "at": "ferry",
+          "dashed": true,
+          "dash": [
+            14,
+            12
+          ],
+          "glow": false,
+          "id": "ferry",
+          "mover": {
+            "kind": "ship",
+            "size": 170,
+            "style": "ferry"
+          },
+          "drawDur": 3.0
+        },
+        {
+          "type": "label",
+          "text": "Blaine",
+          "lat": 48.99,
+          "lon": -122.77,
+          "at": "Blaine",
+          "dot": true,
+          "dy": 50,
+          "size": 44,
+          "dx": -50
+        }
+      ],
+      "camera": {
+        "follow": "ferry",
+        "zoom": 50,
+        "zoomTo": 28,
+        "duration": 1.0
+      },
+      "sources": [
+        {
+          "claim": "A temporary passenger ferry ran from Point Roberts to Blaine.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "A temporary passenger ferry service from Point Roberts to Blaine operated by the Port of Bellingham"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Today, Canadians drive in for cheaper American gas, alcohol and food.",
+      "show": [
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              -123.1,
+              48.955,
+              -123.0,
+              49.0
+            ]
+          },
+          "icon": "art:beer_glass",
+          "count": 3,
+          "size": 120,
+          "at": "alcohol",
+          "stagger": 0.25
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "box": [
+              -123.1,
+              48.955,
+              -123.0,
+              49.0
+            ]
+          },
+          "icon": "art:oil_barrel",
+          "count": 3,
+          "size": 110,
+          "at": "gas",
+          "stagger": 0.25
+        },
+        {
+          "type": "flag",
+          "code": "ca",
+          "lat": 49.02,
+          "lon": -123.0,
+          "size": 110,
+          "at": "Canadians",
+          "wave": true
+        },
+        {
+          "type": "particles",
+          "kind": "confetti",
+          "at": "cheaper",
+          "density": 0.4
+        }
+      ],
+      "camera": {
+        "lat": 48.98,
+        "lon": -123.05,
+        "zoom": 110
+      },
+      "sources": [
+        {
+          "claim": "Canadians visit Point Roberts for cheaper American gasoline, alcohol and food.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "Canadians visit for cheaper American gasoline, alcohol, and food when the Canadian dollar is strong"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "Forty times more Canadians have mailboxes in Point Roberts than the number of residents.",
+      "show": [
+        {
+          "type": "crowd",
+          "lat": 48.985,
+          "lon": -123.065,
+          "count": 40,
+          "cols": 10,
+          "size": 30,
+          "color": "#ffffff",
+          "red": [
+            {
+              "at": "Canadians",
+              "n": 40
+            }
+          ],
+          "redColor": "#e11d2e",
+          "at": "Forty"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "Forty",
+              "value": "40x"
+            }
+          ],
+          "size": 190,
+          "color": "#ff5a5f"
+        }
+      ],
+      "camera": {
+        "lat": 48.985,
+        "lon": -123.05,
+        "zoom": 130
+      },
+      "sources": [
+        {
+          "claim": "Forty times more Canadians have mailboxes in Point Roberts than there are residents.",
+          "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+          "quote": "Forty times more Canadians have mailboxes in Point Roberts than the number of residents"
         }
       ]
     },
@@ -469,6 +877,9 @@
             ]
           },
           "fill": "#1d4ed8",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#6aa5ff",
           "at": 0.05,
           "fillOpacity": 0.5
         },
