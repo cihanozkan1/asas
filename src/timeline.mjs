@@ -325,7 +325,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
   const MIN_ON = cfg.video.minOnScreen ?? 2.8;
   const INSTANT = new Set(['shake', 'punch', 'tilt', 'dim']);
   for (const el of elements) {
-    if (INSTANT.has(el.type) || (el._until && !el.screen) || el.type === 'title') continue;
+    if (INSTANT.has(el.type) || (el._until && !el.screen) || el.type === 'title' || el.type === 'clip') continue; // clips run exactly as long as their frames
     let deficit = (el.type === 'react' ? 1.4 : MIN_ON) - (el.end - el.start);
     if (deficit <= 0) continue;
     const sc = scenes[el.scene];

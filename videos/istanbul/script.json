@@ -1093,7 +1093,7 @@
           "type": "clip",
           "name": "emoji_bubbles",
           "size": 260,
-          "loop": false,
+          "loop": true,
           "speed": 1.0,
           "lat": 41.0195,
           "lon": 28.996,

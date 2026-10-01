@@ -101,7 +101,7 @@ if want('istanbul'):
             S("That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.", [
                 cnt('60 m', 'sixty', size=190, color='#4ade80'),
                 route(TUN, 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 100}, drawDur=2.4, check=False),
-                clip('emoji_bubbles', 'cross', 41.0195, 28.996, size=260), grade('cold', 'underwater')],
+                clip('emoji_bubbles', 'cross', 41.0195, 28.996, size=260, loop=True), grade('cold', 'underwater')],
               cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9},
               src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
             S("And that is the answer to one simple question:", [],
@@ -218,7 +218,7 @@ if want('hawaii'):
               src=[src('About 2,000 miles (3,200 km) southwest of the US mainland.', 'Hawaii', 'in the Pacific Ocean about 2,000 miles (3,200 km) southwest of the U.S. mainland'),
                    src('Hawaii is the only state that is an archipelago.', 'Hawaii', 'the only state not on the North American mainland, the only state that is an archipelago, the only state south of the Tropic of Cancer')]),
             S("Its volcano Mauna Kea is taller than Mount Everest, when you measure it from the ocean floor.", [
-                clip('emoji_volcano', 'Mauna', *MK, size=420), cnt('10,200 m', 'taller', size=150), dot('Mauna Kea', *MK, 'Mauna', dy=-110, size=36)],
+                clip('emoji_volcano', 'Mauna', *MK, size=420, loop=True), cnt('10,200 m', 'taller', size=150), dot('Mauna Kea', *MK, 'Mauna', dy=-110, size=36)],
               cam=at_(19.8, -155.5, 70, bearing=-3),
               src=[src('Mauna Kea is taller than Everest measured from its base on the Pacific floor (about 10,200 m).', 'Hawaii',
                        'it is taller than Mount Everest when measured from the base of the mountain, which is on the floor of the Pacific Ocean, rising about 33,500 feet (10,200 m)')]),
@@ -238,7 +238,7 @@ if want('hawaii'):
               cam=at_(21.4, -157.9, 30), era='history',
               src=[src('On 17 January 1893 the Committee of Safety, backed by 162 sailors and Marines from the USS Boston, overthrew the Queen.', 'Overthrow_of_the_Hawaiian_Kingdom',
                        'The "Committee of Safety," composed of foreign-born residents and Hawaiian-born individuals, led the overthrow ... deployed 162 sailors and Marines from the USS Boston')]),
-            S("She surrendered, to avoid bloodshed.", [char('queen_liliuokalani', 'surrendered', name='Queen Liliʻuokalani'), clip('emoji_white-flag', 0.05, *HNL, size=420)],
+            S("She surrendered, to avoid bloodshed.", [char('queen_liliuokalani', 'surrendered', name='Queen Liliʻuokalani'), clip('emoji_white-flag', 0.05, *HNL, size=420, loop=True)],
               era='history', cam=at_(21.35, -157.85, 60),
               src=[src('The Queen surrendered to avoid bloodshed.', 'Overthrow_of_the_Hawaiian_Kingdom', 'The Queen surrendered to avoid bloodshed.')]),
             S("In 1898, the United States annexed Hawaii. In 1900 it became a territory, and in 1959, it finally became a state.", [
@@ -355,7 +355,7 @@ if want('chimborazo'):
               src=[src('Chimborazo is 6,263 m high.', 'Chimborazo', 'With an elevation of 6,263 m (20,548 ft), Chimborazo is the highest mountain in Ecuador')]),
             S("It's a glacier-covered volcano, and it last erupted around the year 550 AD.", [
                 art('mountain', *CH, 'volcano', size=260), particles('snow', 'glacier', density=0.5),
-                clip('emoji_volcano', 'erupted', *CH, size=520), clip('emoji_fire', '550', *CH, size=360), cnt('~550 AD', '550', size=150)],
+                clip('emoji_volcano', 'erupted', *CH, size=520, loop=True), clip('emoji_fire', '550', *CH, size=360, loop=True), cnt('~550 AD', '550', size=150)],
               cam=at_(-1.5, -78.8, 7),
               src=[src('Chimborazo is a stratovolcano; the summit is covered by glaciers; last eruption around 550 AD.', 'Chimborazo',
                        'a dominantly andesitic-dacitic stratovolcano ... the last time around 550 AD ± 150 years')]),
@@ -376,7 +376,7 @@ if want('chimborazo'):
               cam=at_(-0.5, -78.8, 5),
               src=[src('It lies one degree south of the equator.', 'Chimborazo', 'Chimborazo is one degree south of the Equator')]),
             S("Its summit is 6,384.4 kilometers from the center of the Earth.", [
-                cnt('6,384.4 km', '6,384.4', size=150), clip('emoji_globe-showing-americas', 'center', -1.5, -78.8, size=300)],
+                cnt('6,384.4 km', '6,384.4', size=150), clip('emoji_globe-showing-americas', 'center', -1.5, -78.8, size=300, loop=True)],
               cam=at_(-1.5, -78.8, 6),
               src=[src("Its summit is 6,384.4 km from Earth's center.", 'Chimborazo', "it is 6,384.4 km (3,967.1 mi) from the Earth's center")]),
             S("In fact, its summit is widely reported to be the farthest point on Earth's surface from the center of the planet.", [
@@ -386,7 +386,7 @@ if want('chimborazo'):
                        "the summit of Chimborazo is widely reported to be the farthest point on the surface from Earth's center")]),
             S("That's about 2.1 kilometers farther out than the top of Everest, so Chimborazo wins.", [
                 ping(*CH, "That's", color='#ff5a5f'), dot('Chimborazo', *CH, "That's", dy=60), cnt('+2.1 km', '2.1', size=170, color='#ff5a5f'),
-                clip('emoji_rocket', 'farther', -1.5, -78.8, size=300)],
+                clip('emoji_rocket', 'farther', -1.5, -78.8, size=300, loop=True)],
               cam=at_(0, -78.8, 2.2),
               src=[src("About 2.1 km farther than Everest's summit.", 'Chimborazo', "it is 6,384.4 km (3,967.1 mi) from the Earth's center, 2.1 km (1.3 mi) farther than")]),
             S("So the next time someone asks:", [],
