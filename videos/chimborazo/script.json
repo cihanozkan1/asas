@@ -492,16 +492,6 @@
           "lat": -1.5,
           "lon": -78.8,
           "at": "farther"
-        },
-        {
-          "type": "stamp",
-          "text": "CLOSEST TO SPACE",
-          "size": 78,
-          "screen": [
-            0.5,
-            0.33
-          ],
-          "at": "farther"
         }
       ],
       "camera": {

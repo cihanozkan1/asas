@@ -239,7 +239,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           const man = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets/vfx/MANIFEST.json'), 'utf8'))[raw.name];
           if (!man) throw new Error(`Sahne ${i + 1}: VFX klibi yok: ${raw.name} (assets/vfx/MANIFEST.json)`);
           el.n = man.frames; el.fps = man.fps; el.ext = man.ext || 'webp'; el.ratio = raw.ratio ?? man.ratio ?? 0.5625;
-          if (!raw.loop) el.end = el.start + man.frames / (man.fps * (raw.speed || 1)); // plays once, then is gone
+          if (!raw.loop) el.end = Math.min(el.start + man.frames / (man.fps * (raw.speed || 1)), sc.end + 0.05); // plays once, then is gone; never leaks into the next scene
           break;
         }
         case 'dim':

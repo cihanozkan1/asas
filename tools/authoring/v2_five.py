@@ -74,7 +74,7 @@ if want('istanbul'):
             S("In 1453, Ottoman cannons pounded the five kilometer long Theodosian walls for fifty five days.", [
                 year(1453, '1453', screen=[0.25, 0.07]), wall(WALLS, 0.15, buildDur=1.2, side=-1, width=22),
                 art('cannon', 41.003, 28.903, 'cannons', size=150), art('cannon', 41.018, 28.906, 'pounded', size=150), art('cannon', 41.034, 28.913, 'Theodosian', size=150),
-                *volley(HIT, 0.9, 0.42, size=230), clip('emoji_fire', 3.2, *WALLS[4], size=220, loop=True), clip('emoji_fire', 3.5, *WALLS[2], size=200, loop=True),
+                *volley(HIT, 0.5, 0.45, size=230), clip('emoji_fire', 3.2, *WALLS[4], size=220, loop=True), clip('emoji_fire', 3.5, *WALLS[2], size=200, loop=True),
                 shake('cannons'), shake('pounded')],
               cam=at_(41.02, 28.93, 900), era='history',
               src=[src('Conquered on 29 May 1453 after a 55-day siege.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege."'),
@@ -101,7 +101,7 @@ if want('istanbul'):
             S("That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.", [
                 cnt('60 m', 'sixty', size=190, color='#4ade80'),
                 route(TUN, 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 100}, drawDur=2.4, check=False),
-                clip('emoji_bubbles', 'underwater', 41.0195, 28.996, size=260), grade('cold', 'underwater')],
+                clip('emoji_bubbles', 'cross', 41.0195, 28.996, size=260), grade('cold', 'underwater')],
               cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9},
               src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
             S("And that is the answer to one simple question:", [],
@@ -165,7 +165,7 @@ if want('point_roberts'):
                        'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
             S("In March 2020, the border closed, and the town lost about eighty percent of its business.", [
                 year('2020', 'March', light=True), handstamp('BORDER CLOSED', 'closed', size=92, screen=[0.5, 0.36]),
-                clip('emoji_police-car-light', 'closed', 49.0, -122.99, size=200, loop=True), grade('cold', 'March', until=5.5),
+                clip('emoji_police-car-light', 'closed', screen=[0.76, 0.46], size=230, loop=True), grade('cold', 'March', until=5.5),
                 cnt('-80%', 'eighty', size=200, color='#ff5a5f')],
               cam=at_(48.99, -123.05, 100, bearing=3), tr='flash',
               src=[src('The border closed to non-essential travel in March 2020; Point Roberts lost 80 percent of its business.', PRW,
@@ -238,7 +238,7 @@ if want('hawaii'):
               cam=at_(21.4, -157.9, 30), era='history',
               src=[src('On 17 January 1893 the Committee of Safety, backed by 162 sailors and Marines from the USS Boston, overthrew the Queen.', 'Overthrow_of_the_Hawaiian_Kingdom',
                        'The "Committee of Safety," composed of foreign-born residents and Hawaiian-born individuals, led the overthrow ... deployed 162 sailors and Marines from the USS Boston')]),
-            S("She surrendered, to avoid bloodshed.", [char('queen_liliuokalani', 'surrendered', name='Queen Liliʻuokalani'), clip('emoji_white-flag', 'surrendered', *HNL, size=420)],
+            S("She surrendered, to avoid bloodshed.", [char('queen_liliuokalani', 'surrendered', name='Queen Liliʻuokalani'), clip('emoji_white-flag', 0.05, *HNL, size=420)],
               era='history', cam=at_(21.35, -157.85, 60),
               src=[src('The Queen surrendered to avoid bloodshed.', 'Overthrow_of_the_Hawaiian_Kingdom', 'The Queen surrendered to avoid bloodshed.')]),
             S("In 1898, the United States annexed Hawaii. In 1900 it became a territory, and in 1959, it finally became a state.", [
@@ -386,7 +386,7 @@ if want('chimborazo'):
                        "the summit of Chimborazo is widely reported to be the farthest point on the surface from Earth's center")]),
             S("That's about 2.1 kilometers farther out than the top of Everest, so Chimborazo wins.", [
                 ping(*CH, "That's", color='#ff5a5f'), dot('Chimborazo', *CH, "That's", dy=60), cnt('+2.1 km', '2.1', size=170, color='#ff5a5f'),
-                clip('emoji_rocket', 'farther', -1.5, -78.8, size=300), stamp('CLOSEST TO SPACE', 'farther', size=78)],
+                clip('emoji_rocket', 'farther', -1.5, -78.8, size=300)],
               cam=at_(0, -78.8, 2.2),
               src=[src("About 2.1 km farther than Everest's summit.", 'Chimborazo', "it is 6,384.4 km (3,967.1 mi) from the Earth's center, 2.1 km (1.3 mi) farther than")]),
             S("So the next time someone asks:", [],

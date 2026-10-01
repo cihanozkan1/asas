@@ -373,7 +373,7 @@
           "speed": 1.0,
           "lat": 21.31,
           "lon": -157.86,
-          "at": "surrendered"
+          "at": 0.05
         }
       ],
       "camera": {

@@ -671,11 +671,13 @@
         {
           "type": "clip",
           "name": "emoji_police-car-light",
-          "size": 200,
+          "size": 230,
           "loop": true,
           "speed": 1.0,
-          "lat": 49.0,
-          "lon": -122.99,
+          "screen": [
+            0.76,
+            0.46
+          ],
           "at": "closed"
         },
         {
