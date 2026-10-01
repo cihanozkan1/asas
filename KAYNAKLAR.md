@@ -21,6 +21,10 @@
   > "William H. Seward, U.S. Secretary of State, negotiated with Russian diplomat Eduard de Stoeckl"
 - Alaska stayed sparsely populated until the Klondike Gold Rush began in 1896. — [Wikipedia: Alaska_Purchase](https://en.wikipedia.org/wiki/Alaska_Purchase)
   > "Alaska remained sparsely populated until the Klondike Gold Rush began in 1896"
+- Alaska has a longer coastline than all the other US states combined. — [Wikipedia: Alaska](https://en.wikipedia.org/wiki/Alaska)
+  > "Alaska has a longer coastline than all the other U.S. states combined."
+- More than 409,000 natural lakes of at least one hectare. — [Wikipedia: Alaska](https://en.wikipedia.org/wiki/Alaska)
+  > "Alaska has more than 409,000 natural lakes at least one hectare or bigger"
 - Alaska is more than twice the size of Texas. — [Wikipedia: Alaska](https://en.wikipedia.org/wiki/Alaska)
   > "more than twice the size of the second-largest U.S. state (Texas)"
 
@@ -39,6 +43,8 @@
   > "the driest non-polar desert in the world"
 - Chile expanded northward by almost one-third. — [Wikipedia: Chile](https://en.wikipedia.org/wiki/Chile)
   > "Chile expanding its territory northward by almost one-third"
+- Chile claims about 1,250,000 km² of Antarctica. — [Wikipedia: Chile](https://en.wikipedia.org/wiki/Chile)
+  > "claims about 1,250,000 square kilometers (480,000 sq mi) of Antarctica"
 - About 4,300 km long, between the Andes and the Pacific. — [Wikipedia: Chile](https://en.wikipedia.org/wiki/Chile)
   > "approximately 4,300 kilometers north to south"
 
@@ -49,6 +55,10 @@
   > "the largest of the world's three independent states completely surrounded by the territory of another country"
 - The only independent state entirely above 1,000 m; its lowest point is 1,400 m. — [Wikipedia: Lesotho](https://en.wikipedia.org/wiki/Lesotho)
   > "the only independent state in the world that lies entirely above 1,000 metres ... its lowest point at 1,400 meters"
+- Thabana Ntlenyana stands 3,482 m tall. — [Wikipedia: Thabana_Ntlenyana](https://en.wikipedia.org/wiki/Thabana_Ntlenyana)
+  > "It stands 3,482 metres (11,424 ft) tall within the Maloti Mountains"
+- It is the highest mountain in southern Africa. — [Wikipedia: Thabana_Ntlenyana](https://en.wikipedia.org/wiki/Thabana_Ntlenyana)
+  > "Thabana Ntlenyana is the highest mountain in southern Africa."
 - King Moshoeshoe I established the Basotho nation; Basutoland emerged under him in 1822. — [Wikipedia: Lesotho](https://en.wikipedia.org/wiki/Lesotho)
   > "Basutoland emerged as a single polity under King Moshoeshoe I in 1822"
 - Moshoeshoe sought British protection; Basutoland became a British protectorate in 1868. — [Wikipedia: Basutoland](https://en.wikipedia.org/wiki/Basutoland)
@@ -57,6 +67,10 @@
   > "the South African government made numerous overtures to take over the High Commission Territories, which included Basutoland. However these demands were refused by Britain"
 - Independence on 4 October 1966 as the Kingdom of Lesotho. — [Wikipedia: Lesotho](https://en.wikipedia.org/wiki/Lesotho)
   > "achieving independence on October 4, 1966"
+- The Lesotho Highlands Water Project delivers water to South Africa's Vaal River System in exchange for revenue. — [Wikipedia: Lesotho_Highlands_Water_Project](https://en.wikipedia.org/wiki/Lesotho_Highlands_Water_Project)
+  > "provide Lesotho with a source of revenue in exchange for the provision of water to South Africa, as well as generate hydroelectricity for Lesotho"
+- It delivers water to the Vaal River System in South Africa. — [Wikipedia: Lesotho_Highlands_Water_Project](https://en.wikipedia.org/wiki/Lesotho_Highlands_Water_Project)
+  > "delivers water to the Vaal River System in South Africa"
 
 ## 4. Why Afghanistan Has a Long Thin Arm 🇦🇫🤯 The Wakhan Corridor  (`wakhan`)
 - About 350 km long and 13–65 km wide. — [Wikipedia: Wakhan_Corridor](https://en.wikipedia.org/wiki/Wakhan_Corridor)
@@ -73,6 +87,10 @@
   > "An 1873 agreement made the Panj and Pamir Rivers the Afghanistan-Russia border, while the "Durand Line Agreement of 1893 ... along with the 1895 Pamir Boundary Commission protocols"
 - The Anglo-Russian Convention of 1907 formally delineated control in Afghanistan, Persia and Tibet. — [Wikipedia: Great_Game](https://en.wikipedia.org/wiki/Great_Game)
   > "the Anglo-Russian Convention of 1907, which "created an alliance between Britain and Russia, and formally delineated control in Afghanistan, Persia, and Tibet.""
+- The corridor forms a 92 km boundary with China. — [Wikipedia: Wakhan_Corridor](https://en.wikipedia.org/wiki/Wakhan_Corridor)
+  > "forming the 92 km (57 mi) boundary between the two countries"
+- The Wakhjir Pass is 4,923 m high. — [Wikipedia: Wakhan_Corridor](https://en.wikipedia.org/wiki/Wakhan_Corridor)
+  > "The Wakhjir Pass is 4,923 m (16,152 ft) in elevation"
 - About 18,000 residents (2024); the northern section is also called the Pamir. — [Wikipedia: Wakhan_Corridor](https://en.wikipedia.org/wiki/Wakhan_Corridor)
   > "As of 2024, the district has an estimated population of 18,000 residents"
 
@@ -91,6 +109,10 @@
   > "The 1889 Anglo-French agreement formally established boundaries, with "straight lines and arcs" giving Britain control of areas roughly 16 kilometers north and south of the river"
 - Independence 18 February 1965; Senegambia Confederation 1982–1989. — [Wikipedia: The_Gambia](https://en.wikipedia.org/wiki/The_Gambia)
   > "formed the Senegambia Confederation with its neighbor in 1982, but "permanently withdrew from the confederation in 1989.""
+- Population 2,422,712 (2024 census). — [Wikipedia: The_Gambia](https://en.wikipedia.org/wiki/The_Gambia)
+  > "population of 2,422,712 people at the 1 May 2024 census"
+- Less than 50 km wide at its widest point. — [Wikipedia: The_Gambia](https://en.wikipedia.org/wiki/The_Gambia)
+  > "The Gambia is less than 50 kilometres (31 miles) wide at its widest point"
 
 ## 6. Why This Piece of the USA Is Only Reachable Through Canada 🇺🇸🇨🇦🤯 Northwest Angle  (`northwest_angle`)
 - The only place in the contiguous US north of the 49th parallel. — [Wikipedia: Northwest_Angle](https://en.wikipedia.org/wiki/Northwest_Angle)
@@ -107,6 +129,10 @@
   > "the river's actual source—Lake Itasca—lies south of Lake of the Woods, not northwest"
 - Later treaties (Jay Treaty, Treaty of Ghent, 1818 Convention, Webster–Ashburton) clarified the boundary. — [Wikipedia: Northwest_Angle](https://en.wikipedia.org/wiki/Northwest_Angle)
   > "Subsequent treaties (Jay Treaty, Treaty of Ghent, Anglo-American Convention of 1818, and Webster-Ashburton Treaty) gradually clarified the boundary, cementing the Angle's unusual status."
+- Travelers use the single gravel road and an iPad kiosk to contact US Customs. — [Wikipedia: Northwest_Angle](https://en.wikipedia.org/wiki/Northwest_Angle)
+  > "Travelers using the single gravel road into the Angle are instructed to use an iPad kiosk at Jim's Corner, Young's Bay Marina, or Carlson's Landing to contact U.S. Customs."
+- In 1997, some residents suggested leaving the US and joining Canada because of fishing laws. — [Wikipedia: Northwest_Angle](https://en.wikipedia.org/wiki/Northwest_Angle)
+  > "Because of laws restricting fishing, some residents of the Northwest Angle suggested leaving the United States and joining Canada in 1997."
 - 149 residents in 2020; about 79% water. — [Wikipedia: Northwest_Angle](https://en.wikipedia.org/wiki/Northwest_Angle)
   > "With just 149 residents as of the 2020 census ... though about 79% is water"
 
@@ -115,6 +141,8 @@
   > "a pene-exclave of the US state of Washington ... "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane.""
 - On the southern tip of the Tsawwassen peninsula, south of Vancouver. — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
   > "on the southernmost tip of the Tsawwassen peninsula, south of Vancouver, British Columbia, Canada"
+- Point Roberts was named by George Vancouver after his friend Henry Roberts (1792 expedition). — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
+  > "Point Roberts acquired its present name from George Vancouver, who named it after his friend Henry Roberts"
 - The 1846 Oregon Treaty fixed the boundary at the 49th parallel. — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
   > "the 1846 Oregon Treaty, which established "the 49th parallel would define the boundary between their respective territories""
 - The 49th parallel left the southern peninsula tip on the US side. — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
@@ -123,16 +151,30 @@
   > "traveling "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane.""
 - Students in grade 4 and above commute to Blaine, crossing the border four times. — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
   > "Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back.""
+- The border closed to non-essential travel in March 2020; Point Roberts lost 80 percent of its business. — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
+  > "In 2020, a study found that Point Roberts had lost 80 percent of its business and hundreds of seasonal residents as a result of the pandemic and border shutdown."
+- A temporary passenger ferry ran from Point Roberts to Blaine. — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
+  > "A temporary passenger ferry service from Point Roberts to Blaine operated by the Port of Bellingham"
+- Canadians visit Point Roberts for cheaper American gasoline, alcohol and food. — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
+  > "Canadians visit for cheaper American gasoline, alcohol, and food when the Canadian dollar is strong"
+- Forty times more Canadians have mailboxes in Point Roberts than there are residents. — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
+  > "Forty times more Canadians have mailboxes in Point Roberts than the number of residents"
 - Population 1,191 (2020 census). — [Wikipedia: Point_Roberts,_Washington](https://en.wikipedia.org/wiki/Point_Roberts,_Washington)
   > "The 2020 census recorded 1,191 residents across 4.884 square miles of territory."
 
 ## 8. Why Almost Nobody Lives in the Middle of Australia 🇦🇺🤯  (`australia`)
 - Almost 80% of Australians live within 25 km of the coast. — [Wikipedia: Geography_of_Australia](https://en.wikipedia.org/wiki/Geography_of_Australia)
   > "Almost 80% of the Australian population live within 25 km (16 mi) of the coast"
+- Sixth-largest country by land area: 7,688,287 km². — [Wikipedia: Geography_of_Australia](https://en.wikipedia.org/wiki/Geography_of_Australia)
+  > "making it the sixth-largest country in the world by land area of jurisdiction, which comprises 7,688,287 km2"
 - 73% live in major coastal urban centres. — [Wikipedia: Geography_of_Australia](https://en.wikipedia.org/wiki/Geography_of_Australia)
   > "with 73% inhabiting major coastal urban centers"
 - 80% of the land gets <600 mm of rain a year, 50% gets <300 mm. — [Wikipedia: Geography_of_Australia](https://en.wikipedia.org/wiki/Geography_of_Australia)
   > "80% of the land area receives less than 600 mm (24 in) of annual rainfall and 50% less than 300 mm (12 in)"
+- Australia is the driest inhabited continent. — [Wikipedia: Geography_of_Australia](https://en.wikipedia.org/wiki/Geography_of_Australia)
+  > "As Australia is the driest inhabited continent, such droughts can limit the streamflow"
+- The country's lowest point is on the bed of Lake Eyre, 15 m below sea level. — [Wikipedia: Geography_of_Australia](https://en.wikipedia.org/wiki/Geography_of_Australia)
+  > "the country's lowest point is found on the bed of the Lake Eyre (15 m (49 ft) below sea level)"
 - The Great Dividing Range runs almost 4,000 km parallel to the east coast, separating coastal rainfall from interior dryness. — [Wikipedia: Geography_of_Australia](https://en.wikipedia.org/wiki/Geography_of_Australia)
   > "runs parallel to the east coast from the tip of the Cape York Peninsula in Queensland almost 4,000 km (2,500 mi) south"
 - The Outback is sparsely populated and semi-arid/desert. — [Wikipedia: Geography_of_Australia](https://en.wikipedia.org/wiki/Geography_of_Australia)
@@ -155,6 +197,8 @@
   > "between Chile against an alliance of Bolivia and Peru ... Chile emerged victorious"
 - Peru ceded Tarapacá; Bolivia lost its coast (confirmed by the 1904 treaty). — [Wikipedia: War_of_the_Pacific](https://en.wikipedia.org/wiki/War_of_the_Pacific)
   > ""Peru formally cedes the Tarapacá Department to Chile" ... In 1904, Chile and Bolivia signed the Treaty of Peace and Friendship"
+- On 1 October 2018 the ICJ ruled Chile had no obligation to negotiate sovereign access to the Pacific for Bolivia. — [Wikipedia: Obligation_to_Negotiate_Access_to_the_Pacific_Ocean](https://en.wikipedia.org/wiki/Obligation_to_Negotiate_Access_to_the_Pacific_Ocean)
+  > "On 1 October 2018, a twelve-judge majority ruled that Chile did not have an obligation to negotiate with Bolivia towards an access to the Pacific Ocean"
 - Bolivia marks Día del Mar every 23 March; the navy partly exists to keep hopes of a coast alive. — [Wikipedia: Bolivian_Navy](https://en.wikipedia.org/wiki/Bolivian_Navy)
   > "Bolivia commemorates its lost coast annually through "Día del Mar" (Day of the Sea) on March 23 ... the navy exists partly to preserve maritime consciousness and keep hopes of coastal recovery alive"
 
@@ -169,10 +213,16 @@
   > "The Panama Canal spans "82 kilometers (51 miles)""
 - Ships are raised 26 m to Gatun Lake (an artificial lake made by damming the Chagres River) and lowered at the other end. — [Wikipedia: Panama_Canal](https://en.wikipedia.org/wiki/Panama_Canal)
   > "Vessels are raised 26 meters to Gatun Lake, an artificial freshwater body created by damming the Chagres River. The locks then lower ships at the opposite end."
+- The US spent almost $500 million on construction. — [Wikipedia: Panama_Canal](https://en.wikipedia.org/wiki/Panama_Canal)
+  > "The United States spent almost $500 million (roughly equivalent to $16.1 billion in 2025)."
+- About 5,600 workers died from disease and accidents during US construction. — [Wikipedia: Panama_Canal](https://en.wikipedia.org/wiki/Panama_Canal)
+  > "about 5,600 workers died from disease and accidents during the US construction phase"
 - Through the canal the voyage is roughly 9,500 km. — [Wikipedia: Panama_Canal](https://en.wikipedia.org/wiki/Panama_Canal)
   > "ships now transit roughly 9,500 kilometers through the canal"
 - About 14,702 transits a year; over 815,000 by 2012. — [Wikipedia: Panama_Canal](https://en.wikipedia.org/wiki/Panama_Canal)
   > "The canal handles approximately 14,702 vessel transits yearly, with over 815,000 ships having passed through by 2012"
+- A third, wider lane of locks was built 2007–2016 and began commercial operation on 26 June 2016. — [Wikipedia: Panama_Canal](https://en.wikipedia.org/wiki/Panama_Canal)
+  > "A third, wider lane of locks was constructed between September 2007 and May 2016. The expanded waterway began commercial operation on 26 June 2016."
 - Panama took control in 1999 under the Torrijos–Carter Treaties. — [Wikipedia: Panama_Canal](https://en.wikipedia.org/wiki/Panama_Canal)
   > "the Panamanian government took control in 1999 following the Torrijos–Carter Treaties of 1977"
 
@@ -181,14 +231,20 @@
   > "The Ever Given container ship blocked Egypt's crucial waterway from 23–29 March 2021"
 - The 400 m ship became wedged across the canal during a sandstorm. — [Wikipedia: 2021_Suez_Canal_obstruction](https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction)
   > "The 400-meter vessel became wedged across the canal during a sandstorm"
+- Winds over 40 knots caused a loss of the ability to steer the ship. — [Wikipedia: 2021_Suez_Canal_obstruction](https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction)
+  > "Strong winds exceeding 40 kn (74 km/h; 46 mph) resulted in the 'loss of the ability to steer the ship'"
 - Approximately 369 ships queued. — [Wikipedia: 2021_Suez_Canal_obstruction](https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction)
   > "Approximately 369 ships queued to pass through"
 - Roughly 12% of worldwide trade. — [Wikipedia: 2021_Suez_Canal_obstruction](https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction)
   > "representing roughly 12% of worldwide trade"
+- By 2021 about fifty ships per day travelled through the canal. — [Wikipedia: 2021_Suez_Canal_obstruction](https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction)
+  > "By 2021, about fifty ships per day travelled through the canal, representing about 12 percent of total global trade."
 - An estimated $9.6 billion of trade per day. — [Wikipedia: 2021_Suez_Canal_obstruction](https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction)
   > "The obstruction tied up cargo valued at an estimated $9.6 billion daily"
 - The canal avoids the long route around southern Africa. — [Wikipedia: Suez_Canal](https://en.wikipedia.org/wiki/Suez_Canal)
   > "vessels avoid the lengthy route around southern Africa"
+- Going around Africa can add up to two weeks to the journey. — [Wikipedia: 2021_Suez_Canal_obstruction](https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction)
+  > "a trip which can add up to two weeks to journey time"
 - It shortens the Arabian Sea–London journey by about 8,900 km. — [Wikipedia: Suez_Canal](https://en.wikipedia.org/wiki/Suez_Canal)
   > "The journey "from the Arabian Sea to London" is reduced "by approximately 8,900 km (5,500 mi),""
 - Salvage teams freed the ship in six days with dredgers and tugboats. — [Wikipedia: 2021_Suez_Canal_obstruction](https://en.wikipedia.org/wiki/2021_Suez_Canal_obstruction)
@@ -201,24 +257,38 @@
   > "straddles the Bosphorus ... between the Sea of Marmara and the Black Sea"
 - The Bosporus forms a continental boundary between Asia and Europe. — [Wikipedia: Bosporus](https://en.wikipedia.org/wiki/Bosporus)
   > "forms one of the continental boundaries between Asia and Europe"
+- The Bosporus forms a continental boundary between Asia and Europe. — [Wikipedia: Bosporus](https://en.wikipedia.org/wiki/Bosporus)
+  > "forms one of the continental boundaries between Asia and Europe"
 - 31 km long; minimum width 700 m near Kandilli. — [Wikipedia: Bosporus](https://en.wikipedia.org/wiki/Bosporus)
   > "measures "31 km (17 nmi) long" with a minimum width of "700 m (0.38 nmi)" at its narrowest point near Kandilli"
 - Over 15 million inhabitants; about two-thirds live in Europe. — [Wikipedia: Istanbul](https://en.wikipedia.org/wiki/Istanbul)
   > "Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants"
+- The Bosporus is the only passage between the Black Sea and the Mediterranean and has always been of great commercial and military importance. — [Wikipedia: Bosporus](https://en.wikipedia.org/wiki/Bosporus)
+  > "As part of the only passage between the Black Sea and the Mediterranean, the Bosporus has always been of great importance from a commercial and military point of view."
 - Founded as Byzantium (~660 BC); renamed Constantinople in 330 AD. — [Wikipedia: Istanbul](https://en.wikipedia.org/wiki/Istanbul)
   > "originally called Byzantium when Greek colonists established it around 660 BC. It became Constantinople in 330 AD under Constantine the Great"
 - Capital of the Roman, Byzantine, Latin and Ottoman empires. — [Wikipedia: Istanbul](https://en.wikipedia.org/wiki/Istanbul)
   > "Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)"
-- Conquered on 29 May 1453 after a 55-day siege; renamed Istanbul in 1930. — [Wikipedia: Istanbul](https://en.wikipedia.org/wiki/Istanbul)
-  > "The Ottomans conquered the city "on 29 May 1453, after a 55-day siege." ... officially renamed Istanbul in 1930"
-- The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae; the city fell in 1453 after a seven-week siege. — [Wikipedia: Walls_of_Constantinople](https://en.wikipedia.org/wiki/Walls_of_Constantinople)
-  > "the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north ... The city fell on 29 May after a total of seven weeks of siege"
+- Conquered on 29 May 1453 after a 55-day siege. — [Wikipedia: Istanbul](https://en.wikipedia.org/wiki/Istanbul)
+  > "The Ottomans conquered the city "on 29 May 1453, after a 55-day siege.""
+- Mehmed II's cannons hurled massive stone balls at the walls. — [Wikipedia: Fall_of_Constantinople](https://en.wikipedia.org/wiki/Fall_of_Constantinople)
+  > "His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km)."
+- The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae. — [Wikipedia: Walls_of_Constantinople](https://en.wikipedia.org/wiki/Walls_of_Constantinople)
+  > "the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north"
+- Officially renamed Istanbul in 1930. — [Wikipedia: Istanbul](https://en.wikipedia.org/wiki/Istanbul)
+  > "officially renamed Istanbul in 1930"
 - Bridges: 15 July Martyrs (1973), Fatih Sultan Mehmet (1988), Yavuz Sultan Selim (2016); Marmaray undersea rail tunnel opened 2013. — [Wikipedia: Bosphorus](https://en.wikipedia.org/wiki/Bosphorus)
   > "the 1,074 m (3,524 ft) long 15th July Martyrs Bridge was completed in 1973 ... Fatih Sultan Mehmet (Bosporus II) Bridge ... was completed in 1988 ... the Yavuz Sultan Selim Bridge ... was completed in 2016 ... The Marmaray project, featuring a 13.7 km (8.5 mi) long undersea railway tunnel, opened on 29 October 2013"
+- The Marmaray tube was placed 60 metres below sea level. — [Wikipedia: Marmaray](https://en.wikipedia.org/wiki/Marmaray)
+  > "The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water"
 
 ## 13. The Only 2 Doubly Landlocked Countries 🇺🇿🇱🇮🤯  (`doubly_landlocked`)
 - As of 2026 there are 44 landlocked countries. — [Wikipedia: Landlocked_country](https://en.wikipedia.org/wiki/Landlocked_country)
   > "As of 2026, there are 44 landlocked countries total"
+- Kazakhstan is the largest landlocked country by area. — [Wikipedia: Landlocked_country](https://en.wikipedia.org/wiki/Landlocked_country)
+  > "Kazakhstan is the world's largest landlocked country by area."
+- Africa has the most landlocked countries, at 16. — [Wikipedia: Landlocked_country](https://en.wikipedia.org/wiki/Landlocked_country)
+  > "Africa has the most landlocked countries, at 16, followed by Europe (14), Asia (12), and South America (2)."
 - Doubly landlocked = surrounded only by landlocked countries; only two exist. — [Wikipedia: Landlocked_country](https://en.wikipedia.org/wiki/Landlocked_country)
   > "A country is "doubly landlocked" when it is surrounded entirely by landlocked countries (i.e. requiring the crossing of at least two national borders to reach a coastline)"
 - Uzbekistan is bordered by five landlocked neighbours. — [Wikipedia: Landlocked_country](https://en.wikipedia.org/wiki/Landlocked_country)
@@ -231,6 +301,12 @@
   > "Liechtenstein (Western Europe, bordered by Austria and Switzerland)"
 - Area about 160 km². — [Wikipedia: Liechtenstein](https://en.wikipedia.org/wiki/Liechtenstein)
   > "160.50 km2 (61.97 sq mi)"
+- Liechtenstein is the sixth-smallest sovereign state by area. — [Wikipedia: Liechtenstein](https://en.wikipedia.org/wiki/Liechtenstein)
+  > "Liechtenstein is the sixth-smallest sovereign state in the world by area."
+- It uses the Swiss franc (monetary union with Switzerland). — [Wikipedia: Liechtenstein](https://en.wikipedia.org/wiki/Liechtenstein)
+  > "It has a customs union and a monetary union with Switzerland, with its usage of the Swiss franc."
+- The Rhine forms the entire western border of Liechtenstein; it is mountainous. — [Wikipedia: Liechtenstein](https://en.wikipedia.org/wiki/Liechtenstein)
+  > "The Rhine forms the entire western border of Liechtenstein ... An Alpine country, Liechtenstein is mountainous"
 - Before 1918 it had sea access via Austria-Hungary on the Adriatic. — [Wikipedia: Landlocked_country](https://en.wikipedia.org/wiki/Landlocked_country)
   > "Before this event, it had access to the Adriatic coastline through the Austro-Hungarian Empire."
 - It became doubly landlocked in 1918 after Austria-Hungary dissolved. — [Wikipedia: Landlocked_country](https://en.wikipedia.org/wiki/Landlocked_country)
@@ -251,14 +327,24 @@
   > "An ice bridge usually spans the distance between the two islands in winter, though crossing between them is prohibited"
 - 77 residents as of January 2023. — [Wikipedia: Diomede_Islands](https://en.wikipedia.org/wiki/Diomede_Islands)
   > "Little Diomede supports a small Inupiat community of 77 residents as of January 2023"
+- Little Diomede has a heliport with regular helicopter flights; locals once carved an ice runway for bush planes. — [Wikipedia: Little_Diomede_Island](https://en.wikipedia.org/wiki/Little_Diomede_Island)
+  > "There is a heliport, the Diomede Heliport, with regular helicopter flights. In the past, locals carved a runway into the thick ice sheet so that bush planes could deliver vital products"
 - In 1948 the Soviet government relocated its inhabitants; only military units remain. — [Wikipedia: Diomede_Islands](https://en.wikipedia.org/wiki/Diomede_Islands)
   > "the Soviet government relocated indigenous inhabitants to mainland Russia in 1948 and established a military base there"
+- In the 1970s former inhabitants of Big Diomede walked across the Bering Strait to trade and exchange information. — [Wikipedia: Little_Diomede_Island](https://en.wikipedia.org/wiki/Little_Diomede_Island)
+  > "There were sporadic contacts during the 1970s with former inhabitants of Big Diomede who walked across the Bering Strait to trade and exchange information"
 - Big Diomede is ahead of Little Diomede across the Date Line, 3.8 km away. — [Wikipedia: Diomede_Islands](https://en.wikipedia.org/wiki/Diomede_Islands)
   > "Big Diomede is 21 hours ahead of Little Diomede (20 in summer)."
 
 ## 15. How Hawaii Became Part of the USA 🇺🇸🌺🤯  (`hawaii`)
 - Hawaii became a US state in 1959. — [Wikipedia: Overthrow_of_the_Hawaiian_Kingdom](https://en.wikipedia.org/wiki/Overthrow_of_the_Hawaiian_Kingdom)
   > "eventually achieved statehood in 1959"
+- About 2,000 miles (3,200 km) southwest of the US mainland. — [Wikipedia: Hawaii](https://en.wikipedia.org/wiki/Hawaii)
+  > "in the Pacific Ocean about 2,000 miles (3,200 km) southwest of the U.S. mainland"
+- Hawaii is the only state that is an archipelago. — [Wikipedia: Hawaii](https://en.wikipedia.org/wiki/Hawaii)
+  > "the only state not on the North American mainland, the only state that is an archipelago, the only state south of the Tropic of Cancer"
+- Mauna Kea is taller than Everest measured from its base on the Pacific floor (about 10,200 m). — [Wikipedia: Hawaii](https://en.wikipedia.org/wiki/Hawaii)
+  > "it is taller than Mount Everest when measured from the base of the mountain, which is on the floor of the Pacific Ocean, rising about 33,500 feet (10,200 m)"
 - Queen Liliʻuokalani was the monarch deposed in 1893. — [Wikipedia: Overthrow_of_the_Hawaiian_Kingdom](https://en.wikipedia.org/wiki/Overthrow_of_the_Hawaiian_Kingdom)
   > "Queen Liliʻuokalani was deposed during this coup d'état against the Hawaiian Kingdom."
 - Kamehameha I established the Hawaiian Kingdom in 1795. — [Wikipedia: Hawaiian_Kingdom](https://en.wikipedia.org/wiki/Hawaiian_Kingdom)
@@ -297,6 +383,12 @@
   > "Construction of the city began in 2022, starting with land clearing and creating access roads."
 - Estimated at Rp 523 trillion (US$35 billion). — [Wikipedia: Nusantara_(city)](https://en.wikipedia.org/wiki/Nusantara_(city))
   > "estimated to be worth Rp 523 trillion (US$35 billion)"
+- Nusantara is an Old Javanese-origin term meaning archipelago or islands. — [Wikipedia: Nusantara_(city)](https://en.wikipedia.org/wiki/Nusantara_(city))
+  > "Old Javanese-origin term, meaning "archipelago" or "islands""
+- Nusantara is designed for sustainability, targeting 80% of mobility by public transport, cycling or walking. — [Wikipedia: Nusantara_(city)](https://en.wikipedia.org/wiki/Nusantara_(city))
+  > "designed for sustainability targeting 80% of mobility to be supported by public transport, cycling, or walking"
+- On 17 August 2024 Indonesia celebrated Independence Day in Nusantara for the first time. — [Wikipedia: Nusantara_(city)](https://en.wikipedia.org/wiki/Nusantara_(city))
+  > "On 17 August 2024, Indonesia officially celebrated its Independence Day for the first time in Nusantara."
 
 ## 17. Japan Found 7,000 "New" Islands 🇯🇵🤯  (`japan_islands`)
 - A 1987 Japan Coast Guard survey counted 6,852 islands. — [Wikipedia: List_of_islands_of_Japan](https://en.wikipedia.org/wiki/List_of_islands_of_Japan)
@@ -305,12 +397,18 @@
   > "Japan is an island country of 14,125 islands, of which approximately 260 are inhabited."
 - The increase came from better surveying and digital mapping; the criterion is a coastline of 100 m or more. — [Wikipedia: List_of_islands_of_Japan](https://en.wikipedia.org/wiki/List_of_islands_of_Japan)
   > "advances in surveying technology and the detailed representation of topographic features through digital mapping ... a coastline of 100 meters or more"
+- Japan stretches over 3,000 km northeast-southwest from the Sea of Okhotsk to the East China Sea. — [Wikipedia: Japan](https://en.wikipedia.org/wiki/Japan)
+  > "It stretches over 3000 km (1900 mi) northeast–southwest from the Sea of Okhotsk to the East China Sea."
 - About 260 islands are inhabited. — [Wikipedia: List_of_islands_of_Japan](https://en.wikipedia.org/wiki/List_of_islands_of_Japan)
   > "of which approximately 260 are inhabited"
 - The four main islands are Hokkaido, Honshu, Kyushu and Shikoku. — [Wikipedia: List_of_islands_of_Japan](https://en.wikipedia.org/wiki/List_of_islands_of_Japan)
   > "Honshu – the largest island, with the capital Tokyo and over 80% of the population."
 - Honshu has over 80% of the population and the capital Tokyo. — [Wikipedia: List_of_islands_of_Japan](https://en.wikipedia.org/wiki/List_of_islands_of_Japan)
   > "Honshu – the largest island, with the capital Tokyo and over 80% of the population."
+- Around 75% of Japan's terrain is mountainous and heavily forested. — [Wikipedia: Japan](https://en.wikipedia.org/wiki/Japan)
+  > "around 75% of its terrain is mountainous and heavily forested"
+- Japan is prone to earthquakes, tsunamis and volcanic eruptions because of its location on the Pacific Ring of Fire. — [Wikipedia: Japan](https://en.wikipedia.org/wiki/Japan)
+  > "Japan is substantially prone to earthquakes, tsunami and volcanic eruptions because of its location along the Pacific Ring of Fire."
 - Island countries by area: Indonesia 1,904,569 km², Madagascar 587,041 km², Papua New Guinea 462,840 km², Japan 377,976 km². — [Wikipedia: List_of_island_countries](https://en.wikipedia.org/wiki/List_of_island_countries)
   > "Madagascar | One main island | 587,041 ... Papua New Guinea | Part of a larger island (New Guinea), and surrounding archipelago | 462,840 ... Japan | Four main islands and thousands of surrounding islands | 377,976"
 - Japan is the second-most-populous island country, behind Indonesia. — [Wikipedia: List_of_islands_of_Japan](https://en.wikipedia.org/wiki/List_of_islands_of_Japan)
@@ -325,6 +423,8 @@
   > "a population of 34,042 as of 2025"
 - San Marino claims to have been founded in AD 301. — [Wikipedia: San_Marino](https://en.wikipedia.org/wiki/San_Marino)
   > "San Marino claims to have been founded in AD 301"
+- San Marino is the oldest extant sovereign state and the oldest constitutional republic. — [Wikipedia: San_Marino](https://en.wikipedia.org/wiki/San_Marino)
+  > "the oldest extant sovereign state, and the oldest constitutional republic"
 - San Marino sheltered Garibaldi, who let it remain independent. — [Wikipedia: San_Marino](https://en.wikipedia.org/wiki/San_Marino)
   > "San Marino served as a refuge for many people persecuted because of their support for unification, including Giuseppe Garibaldi and his wife Anita. Garibaldi allowed San Marino to remain independent."
 - San Marino and the Kingdom of Italy signed a Convention of Friendship in 1862. — [Wikipedia: San_Marino](https://en.wikipedia.org/wiki/San_Marino)
@@ -333,6 +433,8 @@
   > "the smallest country in the world both by area and by population ... 0.49 km2 (0.19 sq mi)"
 - Population about 882 (2024). — [Wikipedia: Vatican_City](https://en.wikipedia.org/wiki/Vatican_City)
   > "a population of about 882 in 2024"
+- The pope holds legislative, executive and judicial power; a rare non-hereditary monarchy. — [Wikipedia: Vatican_City](https://en.wikipedia.org/wiki/Vatican_City)
+  > "The pope exercises principal legislative, executive, and judicial power over the State of Vatican City, which is a rare case of a non-hereditary monarchy."
 - The popes ruled the Papal States until the Kingdom of Italy seized them (1870). — [Wikipedia: Vatican_City](https://en.wikipedia.org/wiki/Vatican_City)
   > "ruled the Papal States, which covered a large portion of the Italian Peninsula, for more than a thousand years until the mid-19th century, when all the territory belonging to the papacy was seized by the newly created Kingdom of Italy"
 - Vatican City came into existence in 1929 via the Lateran Treaty. — [Wikipedia: Vatican_City](https://en.wikipedia.org/wiki/Vatican_City)
@@ -347,6 +449,8 @@
   > "with a width varying from about 60 mi (52 nmi; 97 km) to 24 mi (21 nmi; 39 km)"
 - It separates Iran from Oman's Musandam Peninsula. — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
   > "The waterway separates Iran on the north from Oman's Musandam Peninsula on the south"
+- In 2018, 21 million barrels a day passed through the strait. — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
+  > "In 2018, 21 million barrels a day passed through the strait, worth $1.2 billion in 2019 prices."
 - Each lane is 2 nautical miles (3.7 km) wide. — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
   > "each lane being 2 nautical miles (3.7 km) wide, with the two lanes separated by a similarly wide "median""
 - The two lanes are separated by a median of similar width. — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
@@ -355,6 +459,12 @@
   > "is also the only maritime route for several Gulf countries including the UAE, Qatar, Bahrain, Kuwait, and Iraq"
 - 20% of the world's LNG passed through the strait. — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
   > "20% of the world's liquefied natural gas and 25% of seaborne oil trade passed through the Strait"
+- One theory says the name comes from the Persian Hur-Mogh, "Place of Dates". — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
+  > "One theory is the name derives from the local Persian language word Hur-Mogh هورمغ 'Place of Dates'"
+- In the 10th–17th centuries AD, the Kingdom of Ormus was located here. — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
+  > "In the 10th–17th centuries AD, the Kingdom of Ormus was located here."
+- By 1972 the strait was completely closed by the combined territorial waters of Iran and Oman. — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
+  > "by 1972, the Strait of Hormuz was completely 'closed' by the combined territorial waters of Iran and Oman"
 - Width 39 km; carries 25% of seaborne oil. — [Wikipedia: Strait_of_Hormuz](https://en.wikipedia.org/wiki/Strait_of_Hormuz)
   > "with a width varying from about 60 mi (52 nmi; 97 km) to 24 mi (21 nmi; 39 km)"
 
@@ -458,6 +568,10 @@
   > "Average precipitation mm (inches) 24.8 (0.98)"
 - The Nile was the foundation of Ancient Egyptian civilization. — [Wikipedia: Nile](https://en.wikipedia.org/wiki/Nile)
   > "The Nile was the foundation of the Ancient Egyptian civilization, which relied on the river for nearly every aspect of life."
+- The Nile is 7,088 km long, the longest river in the world. — [Wikipedia: Nile](https://en.wikipedia.org/wiki/Nile)
+  > "At 7,088 kilometers (4,404 mi) long, it is the longest river in the world"
+- It is a north-flowing river that empties into the Mediterranean Sea. — [Wikipedia: Nile](https://en.wikipedia.org/wiki/Nile)
+  > "a major north-flowing river in northeast Africa which empties into the Mediterranean Sea"
 - The river's annual flooding deposited nutrient-rich silt along its banks. — [Wikipedia: Nile](https://en.wikipedia.org/wiki/Nile)
   > "annual flooding of the river deposited nutrient-rich silt along the riverbanks"
 - Ancient Egyptian civilization relied on the Nile for nearly every aspect of life. — [Wikipedia: Nile](https://en.wikipedia.org/wiki/Nile)

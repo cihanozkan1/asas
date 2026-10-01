@@ -8,6 +8,8 @@ Look at the USA at night 🌃 the East glows, the West is mostly dark. The line 
 
 Earth at night: NASA Black Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 The whole USA is split by one invisible line 🇺🇸🤯

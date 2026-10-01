@@ -8,7 +8,8 @@ Alaska is by far the biggest US state 🇺🇸 but until 1867 it belonged to Rus
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 Russia sold Alaska for 2 cents per acre 🤯🇷🇺🇺🇸

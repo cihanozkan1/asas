@@ -8,7 +8,8 @@ Chile 🇨🇱 is about 4,300 km long but on average only 177 km wide 📏 Why? 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A country 4,300 km long but only 177 km wide 🤯🇨🇱

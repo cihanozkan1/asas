@@ -8,7 +8,8 @@ The United States 🇺🇸 gets about 1,200 tornadoes a year, more than any othe
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 1,200 tornadoes a year 🌪️😳

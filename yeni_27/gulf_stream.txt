@@ -8,6 +8,8 @@ London 🇬🇧 is further north than most of Canada's big cities, so why is it 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A river in the ocean that heats up Europe 🌊🔥

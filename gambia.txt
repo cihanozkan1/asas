@@ -8,6 +8,8 @@ The Gambia 🇬🇲 is the smallest country on mainland Africa, and apart from i
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A country shaped like a river 🤯🇬🇲

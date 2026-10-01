@@ -8,8 +8,9 @@ The Northwest Angle in Minnesota 🇺🇸 is the only place in the contiguous Un
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A piece of the USA you can only drive to through Canada 🤯🇺🇸🇨🇦

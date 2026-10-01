@@ -9,7 +9,7 @@ What's the longest distance you could walk on Earth without getting on a plane? 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 22,387 km on foot. Would you try it? 🚶‍♂️🌍
@@ -25,14 +25,13 @@ TITLE
 The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱
 
 DESCRIPTION
-The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 Swamps, mountains and rainforest, deadly wildlife, flash floods and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱
+The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 A road was planned in 1971 and halted in 1974, and swamps, mountains, rainforest, deadly wildlife and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱
 
 #shorts #dariengap #panamericanhighway #panama #colombia
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 30,000 km of highway… and 106 km of jungle 🌴😱
@@ -54,8 +53,9 @@ Spain 🇪🇸 has some of the strangest borders in the world! Llívia is a Span
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 An island that switches country every 6 months 🤯🇪🇸🇫🇷
@@ -77,6 +77,8 @@ Look at the USA at night 🌃 the East glows, the West is mostly dark. The line 
 
 Earth at night: NASA Black Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 The whole USA is split by one invisible line 🇺🇸🤯
@@ -98,7 +100,7 @@ Look at a live flight map and you'll see an empty hole over Tibet ✈️ It's no
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 The 'Roof of the World' has no safe way down ✈️😱
@@ -120,6 +122,7 @@ Time zones should be neat 1-hour stripes, but the real map is chaos 🕒 China �
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 France has more time zones than Russia 🤯🇫🇷
@@ -141,7 +144,8 @@ In the 1930s the Great Plains 🇺🇸 were hit by the Dust Bowl: giant dust sto
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 220 million trees to stop the wind 🌳🤯
@@ -163,6 +167,8 @@ Planes crossing the North Atlantic ✈️ don't fly random routes. They follow t
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 The sky has highways that move every day ✈️🤯
@@ -184,8 +190,8 @@ Bali and Lombok 🇮🇩 are only about 35 km apart, but their animals are compl
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 35 km of water that animals never crossed 🤯🐒🦘
@@ -207,6 +213,7 @@ Everest 🇳🇵 is the highest mountain above sea level at 8,849 m, but it's no
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 The closest point to space is in Ecuador, not Nepal 🤯🇪🇨
@@ -228,8 +235,9 @@ Märket is a tiny rocky island in the Baltic Sea, split between Sweden 🇸🇪 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 They moved a border instead of a lighthouse 🤯🇸🇪🇫🇮
@@ -251,7 +259,9 @@ At the Strait of Gibraltar, Europe 🇪🇸 and Africa 🇲🇦 are only about 1
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 Only 14 km between Europe and Africa… and still no bridge 🤯🌉
@@ -273,7 +283,9 @@ Is Dubai a country? No! 🇦🇪 The United Arab Emirates is a federation of sev
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 Dubai is not a country 🤯🇦🇪
@@ -295,8 +307,8 @@ Why does Oklahoma 🇺🇸 have that long thin 'handle'? Blame the fight over sl
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A strip of land that belonged to nobody for 40 years 🤯🤠
@@ -318,7 +330,7 @@ What's the longest straight line you could sail without hitting land? ⛵ Scient
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 32,000 km in one straight line without touching land 🌊🤯
@@ -340,8 +352,8 @@ Holland and the Netherlands are not the same thing! 🇳🇱 The Netherlands has
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 Holland is only 2 of 12 provinces 🤯🇳🇱
@@ -363,8 +375,9 @@ Under Centralia, Pennsylvania 🇺🇸, a coal mine fire started in 1962, and it
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A fire that has been burning for 60+ years 🔥😱
@@ -386,6 +399,8 @@ London 🇬🇧 is further north than most of Canada's big cities, so why is it 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A river in the ocean that heats up Europe 🌊🔥
@@ -407,7 +422,8 @@ Greenland 🇬🇱 is covered by ice, and Iceland 🇮🇸 is surprisingly green
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 The world's oldest marketing trick? 😂❄️🌿
@@ -429,8 +445,8 @@ The Amazon 🇧🇷 flows for more than 6,400 km, and not a single bridge crosse
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 6,400 km of river… zero bridges 🤯🌉
@@ -452,7 +468,8 @@ The United States 🇺🇸 gets about 1,200 tornadoes a year, more than any othe
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 1,200 tornadoes a year 🌪️😳
@@ -474,7 +491,8 @@ Meet Vulcan Point 🇵🇭 It's an island in Main Crater Lake, which is on Volca
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 Island-ception 🤯🏝️
@@ -496,6 +514,8 @@ England, Great Britain and the United Kingdom are NOT the same thing 🇬🇧 En
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 England ≠ Great Britain ≠ UK 🤯🇬🇧
@@ -517,7 +537,7 @@ Antarctica ❄️ is bigger than you think, and seven countries claim a piece of
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 The biggest no-man's land on Earth is in Antarctica 🤯❄️
@@ -539,8 +559,8 @@ The first place on Earth to enter the New Year is Kiribati's Line Islands 🇰�
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 First and last New Year are only ~2,000 km apart 🤯🎆
@@ -562,7 +582,9 @@ Niʻihau 🏝️ is a Hawaiian island that almost nobody is allowed to visit. In
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 An island you can't visit in Hawaii 🚷🏝️
@@ -584,7 +606,7 @@ Point Nemo 🌊 is the spot in the ocean farthest from any land: about 2,688 km 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 The nearest humans are in SPACE 🚀😱

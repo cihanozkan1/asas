@@ -8,6 +8,8 @@ Afghanistan 🇦🇫 has a strange long arm reaching east: the Wakhan Corridor, 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A 13 km wide strip made so two empires would never touch 🤯🇦🇫

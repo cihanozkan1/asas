@@ -8,6 +8,8 @@ Planes crossing the North Atlantic ✈️ don't fly random routes. They follow t
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 The sky has highways that move every day ✈️🤯

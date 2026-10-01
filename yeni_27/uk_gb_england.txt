@@ -8,6 +8,8 @@ England, Great Britain and the United Kingdom are NOT the same thing 🇬🇧 En
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 England ≠ Great Britain ≠ UK 🤯🇬🇧

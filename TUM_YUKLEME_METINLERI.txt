@@ -9,7 +9,8 @@ Alaska is by far the biggest US state 🇺🇸 but until 1867 it belonged to Rus
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 Russia sold Alaska for 2 cents per acre 🤯🇷🇺🇺🇸
@@ -31,7 +32,8 @@ Chile 🇨🇱 is about 4,300 km long but on average only 177 km wide 📏 Why? 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A country 4,300 km long but only 177 km wide 🤯🇨🇱
@@ -53,7 +55,8 @@ Lesotho 🇱🇸 is a whole country completely surrounded by South Africa 🇿�
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A country completely inside another country 🤯🇱🇸
@@ -75,6 +78,8 @@ Afghanistan 🇦🇫 has a strange long arm reaching east: the Wakhan Corridor, 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A 13 km wide strip made so two empires would never touch 🤯🇦🇫
@@ -96,6 +101,8 @@ The Gambia 🇬🇲 is the smallest country on mainland Africa, and apart from i
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A country shaped like a river 🤯🇬🇲
@@ -117,8 +124,9 @@ The Northwest Angle in Minnesota 🇺🇸 is the only place in the contiguous Un
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A piece of the USA you can only drive to through Canada 🤯🇺🇸🇨🇦
@@ -134,13 +142,15 @@ TITLE
 The US Town You Can Only Drive to Through Canada 🇺🇸🇨🇦🤯 Point Roberts
 
 DESCRIPTION
-Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, and older kids go to school in Blaine, crossing the border four times on every round trip 🤯
+Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, older kids cross the border four times on every school trip, and when the border closed in 2020 the town lost about 80% of its business 🤯
 
 #shorts #pointroberts #washington #canada #usa
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 Kids here cross an international border 4 times to go to school 🤯🚌
@@ -162,6 +172,7 @@ Australia 🇦🇺 is a giant continent, but almost 80% of Australians live with
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 80% of Australians live near the coast 🤯🇦🇺
@@ -183,8 +194,8 @@ Bolivia 🇧🇴 is landlocked, yet it has a navy of about 5,000 personnel ⚓ p
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A navy with no sea 🤯🇧🇴⚓
@@ -206,7 +217,8 @@ Before 1914, a ship going from New York to San Francisco had to sail all the way
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 82 km of canal saves ships 13,000 km 🤯🚢
@@ -228,7 +240,8 @@ In March 2021 the 400-meter container ship Ever Given got stuck in the Suez Cana
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 One ship. Six days. $9.6 billion of trade a day stuck 🤯🚢
@@ -244,14 +257,15 @@ TITLE
 The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia
 
 DESCRIPTION
-Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 It was the capital of the Roman, Byzantine and Ottoman empires, and today three bridges and a railway tunnel under the strait connect the two continents 🤯
+Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 The Bosphorus is the only passage between the Black Sea and the Mediterranean, and today three bridges and a railway tunnel under the strait connect the two continents 🤯
 
 #shorts #istanbul #turkey #bosphorus #europe
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 One city, two continents 🤯🇹🇷
@@ -273,8 +287,9 @@ DESCRIPTION
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 Only 2 countries are 'doubly landlocked' 🤯🇺🇿🇱🇮
@@ -296,8 +311,9 @@ Russia 🇷🇺 and the United States 🇺🇸 are only 3.8 km apart! In the Ber
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 You can see tomorrow from yesterday here 🤯⏰🇷🇺🇺🇸
@@ -319,8 +335,9 @@ Hawaii 🌺 is a US state in the middle of the Pacific, but it used to be an ind
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A kingdom that became a US state 🤯🌺
@@ -342,8 +359,8 @@ Indonesia 🇮🇩 is building a brand-new capital city from scratch! Jakarta, o
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 A whole country is moving its capital 🤯🇮🇩
@@ -365,8 +382,7 @@ In 2023 Japan recounted its islands and the number jumped from 6,852 to 14,125 �
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 Japan 'found' 7,000 islands overnight 🤯🇯🇵🏝️
@@ -388,8 +404,9 @@ There are two whole countries inside Italy 🇮🇹 San Marino 🇸🇲 is only 
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 Two countries hiding inside Italy 🤯🇸🇲🇻🇦
@@ -411,8 +428,9 @@ The Strait of Hormuz is only about 39 km wide at its narrowest 🌊 but around 2
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A quarter of the world's seaborne oil squeezes through here 🤯🛢️
@@ -434,8 +452,9 @@ Russia is the biggest country on Earth 🇷🇺 But one piece of it isn't connec
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A piece of Russia inside the EU 🇷🇺🇪🇺🤯
@@ -457,7 +476,7 @@ Canada is the second biggest country in the world 🇨🇦 but almost nobody liv
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
 
 PINNED COMMENT
 Toronto is further south than Seattle 🤯🇨🇦
@@ -479,7 +498,8 @@ Brazil 🇧🇷 is the only country in the Americas that speaks Portuguese, whil
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 One line on a map decided the language of 200 million people 🤯🇧🇷
@@ -501,8 +521,9 @@ Egypt 🇪🇬 is home to more than 107 million people, but about 95% of them li
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Satellite imagery: Sentinel-2 cloudless 2016 - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016), CC BY 4.0
-Characters: AI-generated illustrations
+Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 Imagine 100+ million people living along ONE river 🤯🇪🇬

@@ -8,7 +8,8 @@ In the 1930s the Great Plains 🇺🇸 were hit by the Dust Bowl: giant dust sto
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 220 million trees to stop the wind 🌳🤯

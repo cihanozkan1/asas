@@ -8,7 +8,8 @@ Lesotho 🇱🇸 is a whole country completely surrounded by South Africa 🇿�
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 A country completely inside another country 🤯🇱🇸

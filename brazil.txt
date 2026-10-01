@@ -8,7 +8,8 @@ Brazil 🇧🇷 is the only country in the Americas that speaks Portuguese, whil
 
 Earth imagery: NASA Blue Marble (NASA Earth Observatory)
 Map data: Natural Earth
-Characters: AI-generated illustrations
+Illustrations: AI-generated artwork
+Historical borders: aourednik/historical-basemaps (GPL-3.0)
 
 PINNED COMMENT
 One line on a map decided the language of 200 million people 🤯🇧🇷
