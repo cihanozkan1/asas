@@ -154,8 +154,8 @@ save('darien_gap', meta(
             pin(7.95, -77.4, 'art:skull', 'shortest', size=120), react('art:emote_shock', (0.72, 0.3), 'dangerous', size=170)],
           cam=at_(10, -80, 1.3, duration=1.6), style='dark', no_claim=True),
         # loop: the last words lead into the first question; the last frame is the first frame
-        S("And that is the answer to the biggest question about this road:", [ping(*HW_N[0], 'answer', color='#ffd60a')],
-          cam=at_(HW_N[0][0], HW_N[0][1], 3.4, duration=1.8), no_claim=True),
+        S("And that is the answer to the biggest question about this road:", [],
+          cam=at_(HW_N[0][0], HW_N[0][1], 3.4, duration=1.8, loopIntro=True), no_claim=True),
     ],
     keywords={'darién': '#4ade80', 'gap': '#4ade80', 'panama': '#5ec8ff', 'colombia': '#ffd60a', '520,000': '#ff5a5f'},
     captions={'theme': 'box'})

@@ -964,20 +964,13 @@
     {
       "era": "now",
       "text": "And that is the answer to the biggest question about this road:",
-      "show": [
-        {
-          "type": "ping",
-          "lat": 70.2,
-          "lon": -148.4,
-          "color": "#ffd60a",
-          "at": "answer"
-        }
-      ],
+      "show": [],
       "camera": {
         "lat": 70.2,
         "lon": -148.4,
         "zoom": 3.4,
-        "duration": 1.8
+        "duration": 1.8,
+        "loopIntro": true
       },
       "noClaim": true
     }

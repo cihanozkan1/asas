@@ -1005,28 +1005,13 @@
     {
       "era": "now",
       "text": "And that is the answer to one simple question:",
-      "show": [
-        {
-          "type": "highlight",
-          "target": "TUR",
-          "fill": "flag:tr",
-          "at": 0.05,
-          "fillOpacity": 0.7
-        },
-        {
-          "type": "ping",
-          "lat": 41.03,
-          "lon": 29.0,
-          "color": "#ffd60a",
-          "at": "answer"
-        }
-      ],
+      "show": [],
       "camera": {
         "lat": 39.5,
         "lon": 32,
         "zoom": 2.2,
-        "bearing": -3,
-        "duration": 1.5
+        "duration": 1.6,
+        "loopIntro": true
       },
       "noClaim": true
     }

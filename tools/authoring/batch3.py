@@ -143,8 +143,8 @@ save('istanbul', meta(
           cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9}, style='dark',
           src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
         # loop: the last words lead into the first question; the last frame is the first frame
-        S("And that is the answer to one simple question:", [hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7), ping(*IST, 'answer', color='#ffd60a')],
-          cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'bearing': -3, 'duration': 1.5}, no_claim=True),
+        S("And that is the answer to one simple question:", [],
+          cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'duration': 1.6, 'loopIntro': True}, no_claim=True),
     ],
     keywords={'istanbul': '#ff5a5f', 'europe': '#5ec8ff', 'asia': '#ffd60a', 'bosphorus': '#5ec8ff', 'constantinople': '#ffd60a'},
     imagery=[{'bbox': [28.55, 40.8, 29.45, 41.35], 'width': 4096}])
@@ -323,8 +323,7 @@ save('hawaii', meta(
             year(1993, '1993', light=True), stamp('SORRY', 'apologized', size=110), ping(*HNL, 'overthrow', color='#ffd60a')],
           src=[src('In 1993 Congress passed the Apology Resolution, signed by President Clinton.', 'Overthrow_of_the_Hawaiian_Kingdom', 'In 1993, Congress passed the Apology Resolution, which President Clinton signed, formally apologizing for the U.S. role in the overthrow')]),
         # loop: the last words lead into the first question; the last frame is the first frame
-        S("And that is the real story behind one simple question:", [
-            hl(HI, 'flag:us', 0.05, hold=1), hl('USA', 'flag:us', 0.05, fillOpacity=0.6), arrow((33, -120), (23, -152), 'story', color='#ffd60a')],
-          cam=at_(28, -140, 1.2, bearing=-3, duration=1.5), no_claim=True),
+        S("And that is the real story behind one simple question:", [],
+          cam=at_(28, -140, 1.2, duration=1.6, loopIntro=True), no_claim=True),
     ],
     keywords={'hawaii': '#ff5a5f', 'united': '#5ec8ff', 'queen': '#ffd60a', 'marines': '#5ec8ff'})

@@ -581,6 +581,8 @@ async function init(tl) {
     const kMin = Math.max((H - cy) / (my(introCam.lat) - my(-60)), cy / (my(80) - my(introCam.lat)));
     introCam.zoom = Math.max(introCam.zoom, kMin / state.baseK);
   }
+  // loop scenes end on the very frame the video starts with (the fly-in's first view)
+  tl.scenes.forEach((sc, si) => { if (sc.camera?.loopIntro) { const sh = shots.find((x) => x.start === sc.start && x.target); if (sh) sh.target = { ...introCam, bearing: 0 }; } });
   state.camera = new CameraPath(shots, introCam, { W, baseK: state.baseK, drift: cfg.camera.drift, pan: cfg.camera.pan ?? 0, mode });
   state.sceneShots = shots;
 

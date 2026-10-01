@@ -152,10 +152,8 @@ save('point_roberts', meta(
           cam=at_(48.99, -123.05, 150, bearing=-4), tr='flash',
           src=[src('Population 1,191 (2020 census).', PRW, 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
         # loop: the last words lead into the first question; the last frame is the first frame
-        S("Which brings us back to the very first question:", [
-            trace(PRB, '#1d4ed8', 'brings', neon='#6aa5ff', fillOpacity=0.5), ping(*PR, 'brings', color='#ffd60a', hold=1),
-            hl('CAN', '#d52b1e', 'brings', fillOpacity=0.35)],
-          cam=at_(49.0, -123.0, 120, bearing=-3), no_claim=True),
+        S("Which brings us back to the very first question:", [],
+          cam=at_(49.0, -123.0, 120, duration=1.6, loopIntro=True), no_claim=True),
     ],
     keywords={'canada': '#ff5a5f', 'usa': '#5ec8ff', 'american': '#5ec8ff', 'blaine': '#ffd60a', 'vancouver': '#ffd60a'},
     imagery=[{'bbox': [-123.35, 48.85, -122.6, 49.35], 'width': 4096}])

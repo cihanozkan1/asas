@@ -485,44 +485,13 @@
     {
       "era": "now",
       "text": "And that is the real story behind one simple question:",
-      "show": [
-        {
-          "type": "highlight",
-          "target": {
-            "admin1": "Hawaii",
-            "country": "USA"
-          },
-          "fill": "flag:us",
-          "at": 0.05,
-          "hold": 1
-        },
-        {
-          "type": "highlight",
-          "target": "USA",
-          "fill": "flag:us",
-          "at": 0.05,
-          "fillOpacity": 0.6
-        },
-        {
-          "type": "arrow",
-          "from": [
-            33,
-            -120
-          ],
-          "to": [
-            23,
-            -152
-          ],
-          "color": "#ffd60a",
-          "at": "story"
-        }
-      ],
+      "show": [],
       "camera": {
         "lat": 28,
         "lon": -140,
         "zoom": 1.2,
-        "bearing": -3,
-        "duration": 1.5
+        "duration": 1.6,
+        "loopIntro": true
       },
       "noClaim": true
     }

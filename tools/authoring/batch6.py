@@ -53,8 +53,8 @@ save('chimborazo', meta(
           cam=at_(0, -78.8, 2.2),
           src=[src('About 2.1 km farther than Everest\'s summit.', 'Chimborazo', 'it is 6,384.4 km (3,967.1 mi) from the Earth\'s center, 2.1 km (1.3 mi) farther than')]),
         # loop: the last words lead into the first question; the last frame is the first frame
-        S("So the next time someone asks:", [ping(*EV, 'asks', color='#ffd60a'), dot('Everest', *EV, 'asks', dy=56)],
-          cam=at_(25, 80, 1.6, duration=1.5), no_claim=True),
+        S("So the next time someone asks:", [],
+          cam=at_(25, 80, 1.6, duration=1.6, loopIntro=True), no_claim=True),
     ],
     keywords={'chimborazo': '#ff5a5f', 'everest': '#ffd60a', 'equator': '#ffd60a', 'space': '#2de2e6'},
     style='globe', captions={'theme': 'impact'})

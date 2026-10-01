@@ -140,7 +140,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         if (!r) throw new Error(`Sahne ${i + 1}: follow "${c.follow}" rotası yok`);
         const p0 = toPt(r.points[0]);
         sc.camera = { lat: p0.lat, lon: p0.lon, zoom: c.zoom ?? 3, follow: c.follow, zoomTo: c.zoomTo, bearing: c.bearing };
-      } else sc.camera = { lat: c.lat, lon: c.lon, zoom: c.zoom, bearing: c.bearing };
+      } else sc.camera = { lat: c.lat, lon: c.lon, zoom: c.zoom, bearing: c.bearing, loopIntro: c.loopIntro };
       sc.cameraThen = [];
       for (const th of c.then || []) {
         const o = { t: timeSpec(sc, th.at, sc.start + 1), duration: th.duration, bearing: th.bearing, pad: th.pad };

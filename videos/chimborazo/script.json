@@ -507,30 +507,13 @@
     {
       "era": "now",
       "text": "So the next time someone asks:",
-      "show": [
-        {
-          "type": "ping",
-          "lat": 27.988,
-          "lon": 86.925,
-          "color": "#ffd60a",
-          "at": "asks"
-        },
-        {
-          "type": "label",
-          "text": "Everest",
-          "lat": 27.988,
-          "lon": 86.925,
-          "at": "asks",
-          "dot": true,
-          "dy": 56,
-          "size": 44
-        }
-      ],
+      "show": [],
       "camera": {
         "lat": 25,
         "lon": 80,
         "zoom": 1.6,
-        "duration": 1.5
+        "duration": 1.6,
+        "loopIntro": true
       },
       "noClaim": true
     }
