@@ -1,3 +1,5 @@
-# Geo Shorts — ilk 5 video (yeni sakin kamera)
+# Geo Shorts — ilk 5 video (2. tur)
 
-Onay sonrası kalan 45 video aynı motorla yapılacak. Eski 50 video silindi.
+Bu turda: ilk saniyede yazı kancası + soru ile açılış, son cümle açılışa bağlanır (döngü, son kare = ilk kare), konfeti/blur yok,
+çevre hafif kararıp konu aydınlık kalır, çok parçalı ülkelerde bayrak her parçada, damga tam yukarıdan iner, ses daha hızlı ve seyrek efektli.
+Onayınızdan sonra kalan 45 video aynı motorla yapılacak.

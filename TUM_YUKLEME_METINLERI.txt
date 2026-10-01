@@ -1,4 +1,4 @@
-===== istanbul =====
+==================== 1. istanbul ====================
 TITLE
 The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia
 
@@ -22,7 +22,7 @@ TAGS
 istanbul, turkey, bosphorus, europe, asia, constantinople, byzantium, ottoman empire, transcontinental, geography, history, maps, learn
 
 
-===== point_roberts =====
+==================== 2. point_roberts ====================
 TITLE
 The US Town You Can Only Drive to Through Canada 🇺🇸🇨🇦🤯 Point Roberts
 
@@ -46,7 +46,7 @@ TAGS
 point roberts, washington, canada, usa, border, 49th parallel, oregon treaty, vancouver, exclave, weird borders, geography, maps, learn
 
 
-===== hawaii =====
+==================== 3. hawaii ====================
 TITLE
 How Hawaii Became Part of the USA 🇺🇸🌺🤯
 
@@ -70,7 +70,7 @@ TAGS
 hawaii, usa, hawaiian kingdom, queen liliuokalani, annexation, honolulu, pacific ocean, history, geography, maps, learn
 
 
-===== darien_gap =====
+==================== 4. darien_gap ====================
 TITLE
 The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱
 
@@ -92,7 +92,7 @@ TAGS
 darien gap, pan-american highway, panama, colombia, jungle, rainforest, migration, dangerous places, geography, maps, learn
 
 
-===== chimborazo =====
+==================== 5. chimborazo ====================
 TITLE
 The Mountain Closest to Space Is NOT Everest 🏔️🚀🤯
 
