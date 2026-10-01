@@ -638,12 +638,6 @@
           "value": "2016",
           "light": true,
           "at": "2016"
-        },
-        {
-          "type": "particles",
-          "kind": "confetti",
-          "at": "operating",
-          "density": 0.35
         }
       ],
       "camera": {

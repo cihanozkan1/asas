@@ -86,8 +86,9 @@ save('point_roberts', meta(
     ["Kids here cross an international border 4 times to go to school 🤯🚌", "Would you live in Point Roberts? 👇", "Which weird border should we explain next? 🗺️"],
     ['point roberts', 'washington', 'canada', 'usa', 'border', '49th parallel', 'oregon treaty', 'vancouver', 'exclave', 'weird borders', 'geography', 'maps', 'learn']),
     [
-        S("This little town is in the USA, but you can only drive there through Canada. Otherwise, you need a boat or a plane.", [
-            trace(PRB, '#1d4ed8', 'town', neon='#6aa5ff', fillOpacity=0.5), ping(*PR, 'town', color='#ffd60a', hold=1), flag('us', 48.972, -123.03, 'USA', pin=True, size=110, wave=True),
+        S("Why can you only drive to this American town by going through Canada?", [
+            hook('AMERICA, *STUCK* INSIDE CANADA?', at=0.05, until='only'),
+            trace(PRB, '#1d4ed8', 'town', neon='#6aa5ff', fillOpacity=0.5), ping(*PR, 'town', color='#ffd60a', hold=1), flag('us', 48.972, -123.03, 'American', pin=True, size=110, wave=True),
             hl('CAN', '#d52b1e', 'Canada', fillOpacity=0.35), flag('ca', 49.06, -122.96, 'Canada', size=100, wave=True)],
           cam=at_(49.0, -123.0, 120, bearing=-3),
           src=[src('Point Roberts is a US pene-exclave reachable by land only through Canada (or by boat/plane).', PRW, 'a pene-exclave of the US state of Washington ... "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
@@ -145,11 +146,16 @@ save('point_roberts', meta(
             cnt('40x', 'Forty', size=190, color='#ff5a5f')],
           cam=at_(48.985, -123.05, 130),
           src=[src('Forty times more Canadians have mailboxes in Point Roberts than there are residents.', PRW, 'Forty times more Canadians have mailboxes in Point Roberts than the number of residents')]),
-        S("Today, about 1,191 people live in this American island on land.", [
+        S("Today, about 1,191 people live in this American town cut off by Canada.", [
             trace(PRB, '#1d4ed8', 0.05, neon='#6aa5ff', fillOpacity=0.5), lab('POINT ROBERTS', 48.99, -123.06, 0.05, style='map', size=54),
             cnt('1,191', '1,191', size=180), pill('people (2020)', '1,191'), ping(*PR, 'American', color='#ffd60a')],
           cam=at_(48.99, -123.05, 150, bearing=-4), tr='flash',
           src=[src('Population 1,191 (2020 census).', PRW, 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
+        # loop: the last words lead into the first question; the last frame is the first frame
+        S("Which brings us back to the very first question:", [
+            trace(PRB, '#1d4ed8', 'brings', neon='#6aa5ff', fillOpacity=0.5), ping(*PR, 'brings', color='#ffd60a', hold=1),
+            hl('CAN', '#d52b1e', 'brings', fillOpacity=0.35)],
+          cam=at_(49.0, -123.0, 120, bearing=-3), no_claim=True),
     ],
     keywords={'canada': '#ff5a5f', 'usa': '#5ec8ff', 'american': '#5ec8ff', 'blaine': '#ffd60a', 'vancouver': '#ffd60a'},
     imagery=[{'bbox': [-123.35, 48.85, -122.6, 49.35], 'width': 4096}])

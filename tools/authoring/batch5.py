@@ -79,10 +79,11 @@ save('darien_gap', meta(
     ["30,000 km of highway… and 106 km of jungle 🌴😱", "Would you ever try to cross the Darién Gap? 👇", "Which dangerous place should we cover next? 🗺️"],
     ['darien gap', 'pan-american highway', 'panama', 'colombia', 'jungle', 'rainforest', 'migration', 'dangerous places', 'geography', 'maps', 'learn']),
     [
-        S("This road runs about 30,000 kilometers, from Alaska all the way to the tip of Argentina.", [
+        S("Why does a highway that runs from Alaska all the way to Argentina suddenly stop?", [
+            hook('THE ROAD THAT *STOPS*', at=0.05, until='Argentina'),
             route(HW_N, 0.05, id='hw1', color='#ffd60a', width=9, drawDur=3.3, hold=1, nodes=True),
             route(HW_S, 'Argentina', color='#ffd60a', width=9, drawDur=1.5, hold=1),
-            cnt('30,000 km', '30,000', size=170)],
+            cnt('30,000 km', 'suddenly', size=170)],
           cam={'follow': 'hw1', 'zoom': 3.4, 'zoomTo': 1.0, 'duration': 0.8, 'then': [{'at': 'Argentina', 'lat': -22, 'lon': -68, 'zoom': 1.15, 'duration': 1.3}]},
           src=[src('The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.', PAH, 'from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina')]),
         S("It's the Pan-American Highway, and it links 14 countries.", [
@@ -91,7 +92,7 @@ save('darien_gap', meta(
           cam=at_(8, -84, 1.5, bearing=-4),
           src=[src('The highway links 14 countries.', PAH, 'The highway connects 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile, and Argentina.')]),
         S("But there is one place where the road simply stops.", [
-            {'type': 'dim', 'except': ['PAN', 'COL'], 'amount': 0.9, 'color': '#000000', 'at': 0.1},
+            {'type': 'dim', 'except': ['PAN', 'COL'], 'amount': 0.5, 'color': '#05070c', 'at': 0.1},
             ping(*YAV, 'stops', color='#ff3b3b'), handstamp('ROAD ENDS', 'stops', size=88, screen=[0.5, 0.33]), shake('stops'),
             photo('road_end_jungle', 'simply', kind='full', pan='in', until=2.6)],
           cam=at_(8.3, -77.4, 6, duration=1.0), no_claim=True, tr='zoom'),
@@ -118,7 +119,7 @@ save('darien_gap', meta(
           cam=at_(7.9, -77.3, 20, duration=1.2),
           src=[src('Rain in the Darién Gap produces flash floods.', DG, 'Rainfall in the Darién Gap produces flash floods that can carry sleepers to their deaths.')]),
         S("A road was planned there in 1971, but it was halted in 1974 after environmentalists raised serious concerns.", [
-            year(1971, 1971, light=True), timebar(1971, 1974, '3 years', '1971', screen=[0.5, 0.36]), handstamp('HALTED', 'halted', size=104, screen=[0.5, 0.5])],
+            year(1971, 1971, light=True), timebar(1971, 1974, '3 years', '1971', screen=[0.5, 0.36]), pill('HALTED', 'halted', bg='#b91c1c', screen=(0.5, 0.5), size=64)],
           style='pastel', tr='film', cam=at_(8.3, -77.4, 6),
           src=[src('Road planning began in 1971 with US funding and was halted in 1974 after environmentalists raised concerns.', DG, 'Planning began in 1971 with the help of US funding, but was halted in 1974 after multiple environmentalists expressed serious concerns.')]),
         S("Then, in 1978, the United States blocked its support, to stop foot-and-mouth disease from spreading north.", [
@@ -140,7 +141,7 @@ save('darien_gap', meta(
           cam=at_(7.9, -77.3, 20, duration=1.2), tr='flash',
           src=[src('Dangers include venomous wildlife and tropical diseases.', DG, 'venomous and deadly wildlife, tropical insects, parasites and diseases, and frequent heavy rains and flash floods')]),
         S("And there's no police and no hospital, so violent crime is everywhere.", [
-            handstamp('NO POLICE', 'police', size=90, screen=[0.5, 0.33]), pin(8.0, -77.3, 'art:no_entry', 'hospital'), shake('violent'), grade('danger', 0.3)],
+            pill('NO POLICE', 'police', bg='#b91c1c', screen=(0.5, 0.33), size=60), pin(8.0, -77.3, 'art:no_entry', 'hospital'), shake('violent'), grade('danger', 0.3)],
           style='dark',
           src=[src('Law enforcement and medical support are nonexistent; violent crime is rampant.', DG, 'law enforcement and medical support are nonexistent, resulting in rampant violent crime')]),
         S("Still, in 2021, more than 130,000 people crossed it on foot. In 2022, about 250,000. And in 2023, more than 520,000.", [
@@ -152,6 +153,9 @@ save('darien_gap', meta(
         S("The shortest gap on the road, and the most dangerous.", [
             pin(7.95, -77.4, 'art:skull', 'shortest', size=120), react('art:emote_shock', (0.72, 0.3), 'dangerous', size=170)],
           cam=at_(10, -80, 1.3, duration=1.6), style='dark', no_claim=True),
+        # loop: the last words lead into the first question; the last frame is the first frame
+        S("And that is the answer to the biggest question about this road:", [ping(*HW_N[0], 'answer', color='#ffd60a')],
+          cam=at_(HW_N[0][0], HW_N[0][1], 3.4, duration=1.8), no_claim=True),
     ],
     keywords={'darién': '#4ade80', 'gap': '#4ade80', 'panama': '#5ec8ff', 'colombia': '#ffd60a', '520,000': '#ff5a5f'},
     captions={'theme': 'box'})

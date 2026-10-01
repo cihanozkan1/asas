@@ -16,10 +16,10 @@
     "provider": "kokoro",
     "name": "en-US-AndrewNeural",
     "kokoroName": "am_michael",
-    "rate": "+12%",
+    "rate": "+18%",
     "pitch": "+0Hz",
     "leadIn": 0.12,
-    "sceneGap": 0.14,
+    "sceneGap": 0.08,
     "estWordsPerMin": 165
   },
   "audio": {

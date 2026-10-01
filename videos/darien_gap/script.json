@@ -26,8 +26,23 @@
   "scenes": [
     {
       "era": "now",
-      "text": "This road runs about 30,000 kilometers, from Alaska all the way to the tip of Argentina.",
+      "text": "Why does a highway that runs from Alaska all the way to Argentina suddenly stop?",
       "show": [
+        {
+          "type": "title",
+          "text": "THE ROAD THAT *STOPS*",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "Argentina",
+          "at": 0.05
+        },
         {
           "type": "route",
           "points": [
@@ -106,7 +121,7 @@
           "type": "counter",
           "steps": [
             {
-              "at": "30,000",
+              "at": "suddenly",
               "value": "30,000 km"
             }
           ],
@@ -254,8 +269,8 @@
             "PAN",
             "COL"
           ],
-          "amount": 0.9,
-          "color": "#000000",
+          "amount": 0.5,
+          "color": "#05070c",
           "at": 0.1
         },
         {
@@ -607,14 +622,16 @@
           ]
         },
         {
-          "type": "handstamp",
+          "type": "label",
           "text": "HALTED",
           "at": "halted",
-          "size": 104,
+          "style": "pill",
+          "bg": "#b91c1c",
           "screen": [
             0.5,
             0.5
-          ]
+          ],
+          "size": 64
         }
       ],
       "camera": {
@@ -813,14 +830,16 @@
       "text": "And there's no police and no hospital, so violent crime is everywhere.",
       "show": [
         {
-          "type": "handstamp",
+          "type": "label",
           "text": "NO POLICE",
           "at": "police",
-          "size": 90,
+          "style": "pill",
+          "bg": "#b91c1c",
           "screen": [
             0.5,
             0.33
-          ]
+          ],
+          "size": 60
         },
         {
           "type": "pin",
@@ -940,6 +959,26 @@
         "duration": 1.6
       },
       "style": "dark",
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "And that is the answer to the biggest question about this road:",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 70.2,
+          "lon": -148.4,
+          "color": "#ffd60a",
+          "at": "answer"
+        }
+      ],
+      "camera": {
+        "lat": 70.2,
+        "lon": -148.4,
+        "zoom": 3.4,
+        "duration": 1.8
+      },
       "noClaim": true
     }
   ],

@@ -75,11 +75,12 @@ save('istanbul', meta(
     ["One city, two continents 🤯🇹🇷", "Do you live on the European or the Asian side? 👇", "Which city should we explain next? 🗺️"],
     ['istanbul', 'turkey', 'bosphorus', 'europe', 'asia', 'constantinople', 'byzantium', 'ottoman empire', 'transcontinental', 'geography', 'history', 'maps', 'learn']),
     [
-        S("Istanbul is one of the very few cities in the world that sits on two continents at once.", [
-            hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7), ping(*IST, 'Istanbul', color='#ffd60a'), cnt('2', 'two', size=220), react('art:emote_shock', (0.78, 0.3), 'continents', size=170)],
-          cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'bearing': -3, 'then': [{'at': 'Istanbul', 'lat': 41.03, 'lon': 29.0, 'zoom': 40, 'duration': 1.4}]},
+        S("How can one single city sit on two continents at once?", [
+            hook('ONE CITY. *TWO* CONTINENTS?', at=0.05, until='single'),
+            hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7), ping(*IST, 'city', color='#ffd60a'), cnt('2', 'two', size=220)],
+          cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'bearing': -3, 'then': [{'at': 'city', 'lat': 41.03, 'lon': 29.0, 'zoom': 40, 'duration': 1.4}]},
           src=[src('Istanbul straddles the Bosphorus between Europe and Asia.', 'Istanbul', 'straddles the Bosphorus ... between the Sea of Marmara and the Black Sea')]),
-        S("One half is in Europe, the other half is in Asia.", [
+        S("Istanbul is split by a narrow strait: one half is in Europe, the other half is in Asia.", [
             area((40.95, 28.55), (41.35, 28.99), 'Europe', color='#5ec8ff'), giant('EUROPE', 41.14, 28.78, 'Europe', size=80),
             area((40.8, 29.02), (41.25, 29.45), 'Asia', color='#ffd60a'), giant('ASIA', 41.0, 29.24, 'Asia', size=80)],
           cam=at_(41.06, 29.0, 90, bearing=-6), tr='flash',
@@ -124,7 +125,7 @@ save('istanbul', meta(
                src('Mehmed II\'s cannons hurled massive stone balls at the walls.', 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).'),
                src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north')]),
         S("And in 1930, it was officially renamed Istanbul.", [
-            year(1930, '1930'), giant('ISTANBUL', 41.012, 28.968, 'Istanbul', size=90), flare((0.5, 0.35), 'officially')],
+            year(1930, '1930'), giant('ISTANBUL', 41.012, 28.968, 'Istanbul', size=90)],
           cam=at_(41.02, 28.97, 90), era='history',
           src=[src('Officially renamed Istanbul in 1930.', 'Istanbul', 'officially renamed Istanbul in 1930')]),
         S("Today, three bridges and a railway tunnel under the strait connect Europe and Asia.", [
@@ -141,6 +142,9 @@ save('istanbul', meta(
             react('art:emote_cool', (0.78, 0.3), 'underwater', size=170), grade('cold', 'underwater')],
           cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9}, style='dark',
           src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
+        # loop: the last words lead into the first question; the last frame is the first frame
+        S("And that is the answer to one simple question:", [hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7), ping(*IST, 'answer', color='#ffd60a')],
+          cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'bearing': -3, 'duration': 1.5}, no_claim=True),
     ],
     keywords={'istanbul': '#ff5a5f', 'europe': '#5ec8ff', 'asia': '#ffd60a', 'bosphorus': '#5ec8ff', 'constantinople': '#ffd60a'},
     imagery=[{'bbox': [28.55, 40.8, 29.45, 41.35], 'width': 4096}])
@@ -275,8 +279,9 @@ save('hawaii', meta(
     ["A kingdom that became a US state 🤯🌺", "Did you know the US apologized for this in 1993? 👇", "Which island story should we explain next? 🗺️"],
     ['hawaii', 'usa', 'hawaiian kingdom', 'queen liliuokalani', 'annexation', 'honolulu', 'pacific ocean', 'history', 'geography', 'maps', 'learn']),
     [
-        S("Hawaii is part of the United States, even though it sits in the middle of the Pacific Ocean.", [
-            hl(HI, 'flag:us', 'Hawaii', hold=1), hl('USA', 'flag:us', 'United', fillOpacity=0.6), slam('HAWAII', 24, -157, 'Hawaii', size=90),
+        S("Why is Hawaii a US state, when it sits in the middle of the Pacific Ocean?", [
+            hook('WHY IS *HAWAII* AMERICAN?', at=0.05, until='state'),
+            hl(HI, 'flag:us', 'Hawaii', hold=1), hl('USA', 'flag:us', 'state', fillOpacity=0.6),
             arrow((33, -120), (23, -152), 'middle', color='#ffd60a')],
           cam=at_(28, -140, 1.2, bearing=-3),
           src=[src('Hawaii became a US state in 1959.', 'Overthrow_of_the_Hawaiian_Kingdom', 'eventually achieved statehood in 1959')]),
@@ -297,7 +302,7 @@ save('hawaii', meta(
           cam=at_(20.6, -157.4, 15), era='history', tr='film',
           src=[src('Queen Liliʻuokalani was the monarch deposed in 1893.', 'Overthrow_of_the_Hawaiian_Kingdom', 'Queen Liliʻuokalani was deposed during this coup d\'état against the Hawaiian Kingdom.')]),
         S("The kingdom was founded in 1795 by Kamehameha the First. And in 1843, Britain and France recognized it as an independent state.", [
-            year(1795, '1795'), flag('gb', 23.5, -159.5, 'Britain', size=110), flag('fr', 23.5, -155.2, 'France', size=110), stamp('INDEPENDENT', 'independent', size=84)],
+            year(1795, '1795'), flag('gb', 23.5, -159.5, 'Britain', size=110), flag('fr', 23.5, -155.2, 'France', size=110), pill('Independent state', 'independent', bg='#0f766e')],
           era='history',
           src=[src('Kamehameha I established the Hawaiian Kingdom in 1795.', 'Hawaiian_Kingdom', 'He established the Hawaiian Kingdom in 1795 with the help of western weapons and advisors'),
                src('In 1843 Britain and France jointly declared Hawaii an independent state.', 'Hawaiian_Kingdom', 'Britain and France issued the Anglo-Franco Proclamation, jointly declaring the Hawaiian Islands "an Independent State."')]),
@@ -317,5 +322,9 @@ save('hawaii', meta(
         S("And in 1993, the US Congress formally apologized for the overthrow.", [
             year(1993, '1993', light=True), stamp('SORRY', 'apologized', size=110), ping(*HNL, 'overthrow', color='#ffd60a')],
           src=[src('In 1993 Congress passed the Apology Resolution, signed by President Clinton.', 'Overthrow_of_the_Hawaiian_Kingdom', 'In 1993, Congress passed the Apology Resolution, which President Clinton signed, formally apologizing for the U.S. role in the overthrow')]),
+        # loop: the last words lead into the first question; the last frame is the first frame
+        S("And that is the real story behind one simple question:", [
+            hl(HI, 'flag:us', 0.05, hold=1), hl('USA', 'flag:us', 0.05, fillOpacity=0.6), arrow((33, -120), (23, -152), 'story', color='#ffd60a')],
+          cam=at_(28, -140, 1.2, bearing=-3, duration=1.5), no_claim=True),
     ],
     keywords={'hawaii': '#ff5a5f', 'united': '#5ec8ff', 'queen': '#ffd60a', 'marines': '#5ec8ff'})

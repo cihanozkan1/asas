@@ -28,8 +28,23 @@
   "scenes": [
     {
       "era": "now",
-      "text": "This little town is in the USA, but you can only drive there through Canada. Otherwise, you need a boat or a plane.",
+      "text": "Why can you only drive to this American town by going through Canada?",
       "show": [
+        {
+          "type": "title",
+          "text": "AMERICA, *STUCK* INSIDE CANADA?",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "only",
+          "at": 0.05
+        },
         {
           "type": "highlight",
           "target": {
@@ -61,7 +76,7 @@
           "lat": 48.972,
           "lon": -123.03,
           "size": 110,
-          "at": "USA",
+          "at": "American",
           "pin": true,
           "wave": true
         },
@@ -795,12 +810,6 @@
           "size": 110,
           "at": "Canadians",
           "wave": true
-        },
-        {
-          "type": "particles",
-          "kind": "confetti",
-          "at": "cheaper",
-          "density": 0.4
         }
       ],
       "camera": {
@@ -864,7 +873,7 @@
     },
     {
       "era": "now",
-      "text": "Today, about 1,191 people live in this American island on land.",
+      "text": "Today, about 1,191 people live in this American town cut off by Canada.",
       "show": [
         {
           "type": "highlight",
@@ -936,6 +945,51 @@
           "quote": "The 2020 census recorded 1,191 residents across 4.884 square miles of territory."
         }
       ]
+    },
+    {
+      "era": "now",
+      "text": "Which brings us back to the very first question:",
+      "show": [
+        {
+          "type": "highlight",
+          "target": {
+            "box": [
+              -123.1,
+              48.955,
+              -123.0,
+              49.0
+            ]
+          },
+          "fill": "#1d4ed8",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#6aa5ff",
+          "at": "brings",
+          "fillOpacity": 0.5
+        },
+        {
+          "type": "ping",
+          "lat": 48.975,
+          "lon": -123.06,
+          "color": "#ffd60a",
+          "at": "brings",
+          "hold": 1
+        },
+        {
+          "type": "highlight",
+          "target": "CAN",
+          "fill": "#d52b1e",
+          "at": "brings",
+          "fillOpacity": 0.35
+        }
+      ],
+      "camera": {
+        "lat": 49.0,
+        "lon": -123.0,
+        "zoom": 120,
+        "bearing": -3
+      },
+      "noClaim": true
     }
   ],
   "config": {

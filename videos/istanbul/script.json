@@ -28,8 +28,23 @@
   "scenes": [
     {
       "era": "now",
-      "text": "Istanbul is one of the very few cities in the world that sits on two continents at once.",
+      "text": "How can one single city sit on two continents at once?",
       "show": [
+        {
+          "type": "title",
+          "text": "ONE CITY. *TWO* CONTINENTS?",
+          "hook": true,
+          "size": 110,
+          "anim": "slam",
+          "screen": [
+            0.5,
+            0.2
+          ],
+          "accent": "#ffd60a",
+          "width": 960,
+          "until": "single",
+          "at": 0.05
+        },
         {
           "type": "highlight",
           "target": "TUR",
@@ -42,7 +57,7 @@
           "lat": 41.03,
           "lon": 29.0,
           "color": "#ffd60a",
-          "at": "Istanbul"
+          "at": "city"
         },
         {
           "type": "counter",
@@ -62,7 +77,7 @@
         "bearing": -3,
         "then": [
           {
-            "at": "Istanbul",
+            "at": "city",
             "lat": 41.03,
             "lon": 29.0,
             "zoom": 40,
@@ -80,7 +95,7 @@
     },
     {
       "era": "now",
-      "text": "One half is in Europe, the other half is in Asia.",
+      "text": "Istanbul is split by a narrow strait: one half is in Europe, the other half is in Asia.",
       "show": [
         {
           "type": "box",
@@ -747,20 +762,6 @@
           "style": "extrude",
           "anim": "giant",
           "size": 90
-        },
-        {
-          "type": "particles",
-          "kind": "confetti",
-          "at": "renamed",
-          "density": 0.4
-        },
-        {
-          "type": "flare",
-          "screen": [
-            0.5,
-            0.35
-          ],
-          "at": "officially"
         }
       ],
       "camera": {
@@ -1000,6 +1001,34 @@
           "quote": "The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water"
         }
       ]
+    },
+    {
+      "era": "now",
+      "text": "And that is the answer to one simple question:",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "TUR",
+          "fill": "flag:tr",
+          "at": 0.05,
+          "fillOpacity": 0.7
+        },
+        {
+          "type": "ping",
+          "lat": 41.03,
+          "lon": 29.0,
+          "color": "#ffd60a",
+          "at": "answer"
+        }
+      ],
+      "camera": {
+        "lat": 39.5,
+        "lon": 32,
+        "zoom": 2.2,
+        "bearing": -3,
+        "duration": 1.5
+      },
+      "noClaim": true
     }
   ],
   "config": {

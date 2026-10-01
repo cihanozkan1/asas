@@ -9,8 +9,8 @@ save('chimborazo', meta(
     ["The closest point to space is in Ecuador, not Nepal 🤯🇪🇨", "Did you know Earth is fatter at the equator? 👇", "Which record should we explain next? 🗺️"],
     ['chimborazo', 'everest', 'ecuador', 'highest mountain', 'closest to space', 'equatorial bulge', 'earth', 'andes', 'geography', 'maps', 'learn']),
     [
-        S("Everest is the highest mountain on Earth. But it's not the point closest to space.", [
-            hook('CLOSEST POINT TO *SPACE*?', at=0.05, until='Earth'), ping(*EV, 'Everest', color='#ffd60a'), dot('Everest', *EV, 'Everest', dy=56), stamp('NOT #1?', 'closest', size=90)],
+        S("Is Everest really the closest point on Earth to space?", [
+            hook('CLOSEST POINT TO *SPACE*?', at=0.05, until='Earth'), ping(*EV, 'Everest', color='#ffd60a'), dot('Everest', *EV, 'Everest', dy=56)],
           cam=at_(25, 80, 1.6), no_claim=True),
         S("That title goes to Chimborazo, a volcano in Ecuador, only 6,263 meters high.", [
             ping(*CH, 'Chimborazo', color='#ff5a5f'), dot('Chimborazo', *CH, 'Chimborazo', dy=-56), hl('ECU', 'flag:ec', 'Ecuador', fillOpacity=0.85), cnt('6,263 m', '6,263', size=170)],
@@ -43,7 +43,7 @@ save('chimborazo', meta(
           cam=at_(-1.5, -78.8, 6),
           src=[src('Its summit is 6,384.4 km from Earth\'s center.', 'Chimborazo', 'it is 6,384.4 km (3,967.1 mi) from the Earth\'s center')]),
         S("In fact, its summit is widely reported to be the farthest point on Earth's surface from the center of the planet.", [
-            cnt('#1', 'farthest', size=220), stamp('FARTHEST FROM THE CENTER', 'farthest', size=64, screen=[0.5, 0.45]), ping(*CH, 'summit', color='#ff5a5f')],
+            cnt('#1', 'farthest', size=220), pill('FARTHEST FROM THE CENTER', 'farthest', bg='#b91c1c', screen=(0.5, 0.45), size=44), ping(*CH, 'summit', color='#ff5a5f')],
           cam=at_(-1.5, -78.8, 3.0),
           src=[src('Chimborazo\'s summit is widely reported to be the farthest point on the surface from Earth\'s center.', 'Chimborazo',
                    'the summit of Chimborazo is widely reported to be the farthest point on the surface from Earth\'s center')]),
@@ -52,6 +52,9 @@ save('chimborazo', meta(
             stamp('CLOSEST TO SPACE', 'farther', size=78)],
           cam=at_(0, -78.8, 2.2),
           src=[src('About 2.1 km farther than Everest\'s summit.', 'Chimborazo', 'it is 6,384.4 km (3,967.1 mi) from the Earth\'s center, 2.1 km (1.3 mi) farther than')]),
+        # loop: the last words lead into the first question; the last frame is the first frame
+        S("So the next time someone asks:", [ping(*EV, 'asks', color='#ffd60a'), dot('Everest', *EV, 'asks', dy=56)],
+          cam=at_(25, 80, 1.6, duration=1.5), no_claim=True),
     ],
     keywords={'chimborazo': '#ff5a5f', 'everest': '#ffd60a', 'equator': '#ffd60a', 'space': '#2de2e6'},
     style='globe', captions={'theme': 'impact'})
