@@ -1,5 +1,5 @@
-# Geo Shorts — ilk 5 video (2. tur)
+# Geo Shorts — ilk 5 video (3. tur)
 
-Bu turda: ilk saniyede yazı kancası + soru ile açılış, son cümle açılışa bağlanır (döngü, son kare = ilk kare), konfeti/blur yok,
-çevre hafif kararıp konu aydınlık kalır, çok parçalı ülkelerde bayrak her parçada, damga tam yukarıdan iner, ses daha hızlı ve seyrek efektli.
-Onayınızdan sonra kalan 45 video aynı motorla yapılacak.
+Bu turda: yazı kutuları/çerçeveleri kaldırıldı, etiketler konuyu kapatmıyor, tarihe geçince eski rota/damga kalmıyor,
+Istanbul'da gerçek kuşatma (toplar ateşler, surlar yıkılır), Chimborazo'da yanardağ patlaması, bayrak yakın zoomda kaybolur ve
+parçalara kırpılır, uydu görüntüsü boşlukları ve bulanıklık giderildi, efekt sesleri kısıldı.
