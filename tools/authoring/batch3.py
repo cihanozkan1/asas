@@ -124,7 +124,7 @@ save('istanbul', meta(
                src('Mehmed II\'s cannons hurled massive stone balls at the walls.', 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).'),
                src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north')]),
         S("And in 1930, it was officially renamed Istanbul.", [
-            year(1930, '1930'), giant('ISTANBUL', 41.012, 28.968, 'Istanbul', size=90), particles('confetti', 'renamed', density=0.4), flare((0.5, 0.35), 'officially')],
+            year(1930, '1930'), giant('ISTANBUL', 41.012, 28.968, 'Istanbul', size=90), flare((0.5, 0.35), 'officially')],
           cam=at_(41.02, 28.97, 90), era='history',
           src=[src('Officially renamed Istanbul in 1930.', 'Istanbul', 'officially renamed Istanbul in 1930')]),
         S("Today, three bridges and a railway tunnel under the strait connect Europe and Asia.", [

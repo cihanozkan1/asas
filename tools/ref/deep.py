@@ -79,7 +79,7 @@ def classify(r):
 
 
 def speech(path):
-    wav = '/tmp/_deep.wav'
+    wav = f'/tmp/_deep_{os.getpid()}.wav'
     subprocess.run([FF, '-v', 'error', '-y', '-i', path, '-ac', '1', '-ar', '16000', wav], check=True)
     from faster_whisper import WhisperModel
     m = WhisperModel('base.en', device='cpu', compute_type='int8')

@@ -114,6 +114,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
 
   const elements = [];
   let lastZoom = 0;
+  let spotCount = 0;
   for (let i = 0; i < scenes.length; i++) {
     const sc = scenes[i];
     const src = script.scenes[i];
@@ -297,6 +298,16 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
       // dark serif years are only readable on parchment
       if (el.type === 'year' && raw.light == null && sc.style !== 'vintage') el.light = true;
       elements.push(el);
+    }
+    // spotlight: when one area is the subject of a modern scene, the rest of the map dims a little
+    // and the subject stays bright. Every other eligible scene only, so it stays a signal.
+    const mine = elements.filter((e) => e.scene === i);
+    const hls = mine.filter((e) => e.type === 'highlight');
+    if (sc.era !== 'history' && hls.length === 1 && !mine.some((e) => e.type === 'dim') && cfg.spotlight?.auto !== false && sceneDur >= 2.2) {
+      spotCount++;
+      if (spotCount % (cfg.spotlight?.every ?? 2) === 1) {
+        elements.push({ type: 'dim', targets: [hls[0].target], amount: cfg.spotlight?.amount ?? 0.42, start: hls[0].start, end: Math.min(sc.end, hls[0].end), scene: i });
+      }
     }
   }
 

@@ -171,11 +171,16 @@ export function sfxEvents(tl) {
     }
   }
   ev.sort((a, b) => a.t - b.t);
-  // thin out: the same role never repeats within 0.11 s, and never more than 3 sounds in 0.4 s
+  // sparse on purpose: a sound is a signal, not wallpaper. Each role has its own minimum gap,
+  // soft events (vol < 0.6) are dropped about every third time (per-video pattern), and at most
+  // one sound per 0.7 s (ticks and page turns excepted).
+  const GAP = { pop: 0.9, whoosh: 2.4, thud: 3.0, bell: 2.6, rise: 3.2, tick: 0.12, page: 0.5, rewind: 4 };
   const out = [];
   for (const e of ev) {
-    if (out.some((o) => o.role === e.role && e.t - o.t < 0.11)) continue;
-    if (out.filter((o) => e.t - o.t < 0.4).length >= 3 && e.role !== 'page') continue;
+    if (e.vol < 0.6 && hash(e.t * 31 + tune * 97) < 0.34) continue;
+    const last = [...out].reverse().find((o) => o.role === e.role);
+    if (last && e.t - last.t < (GAP[e.role] ?? 1)) continue;
+    if (e.role !== 'tick' && e.role !== 'page' && out.some((o) => o.role !== 'tick' && e.t - o.t < 0.7)) continue;
     out.push(e);
   }
   return out.map((e, i) => ({ ...e, tune, var: hash(e.t * 97 + i) }));

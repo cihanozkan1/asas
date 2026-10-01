@@ -137,7 +137,7 @@ save('point_roberts', meta(
           src=[src('A temporary passenger ferry ran from Point Roberts to Blaine.', PRW, 'A temporary passenger ferry service from Point Roberts to Blaine operated by the Port of Bellingham')]),
         S("Today, Canadians drive in for cheaper American gas, alcohol and food.", [
             scatter(PRB, 'art:beer_glass', 'alcohol', count=3, size=120, stagger=0.25), scatter(PRB, 'art:oil_barrel', 'gas', count=3, size=110, stagger=0.25),
-            flag('ca', 49.02, -123.0, 'Canadians', size=110, wave=True), particles('confetti', 'cheaper', density=0.4)],
+            flag('ca', 49.02, -123.0, 'Canadians', size=110, wave=True)],
           cam=at_(48.98, -123.05, 110),
           src=[src('Canadians visit Point Roberts for cheaper American gasoline, alcohol and food.', PRW, 'Canadians visit for cheaper American gasoline, alcohol, and food when the Canadian dollar is strong')]),
         S("Forty times more Canadians have mailboxes in Point Roberts than the number of residents.", [
@@ -304,7 +304,7 @@ save('panama_canal', meta(
           cam=at_(9.1, -79.7, 16),
           src=[src('About 14,702 transits a year; over 815,000 by 2012.', 'Panama_Canal', 'The canal handles approximately 14,702 vessel transits yearly, with over 815,000 ships having passed through by 2012')]),
         S("And in 2016, a third, wider lane of locks began operating.", [
-            art('canal_lock', 9.272, -79.921, 'third', size=170), art('canal_lock', 9.017, -79.593, 'wider', size=170), year(2016, '2016', light=True), particles('confetti', 'operating', density=0.35)],
+            art('canal_lock', 9.272, -79.921, 'third', size=170), art('canal_lock', 9.017, -79.593, 'wider', size=170), year(2016, '2016', light=True)],
           cam=at_(9.13, -79.75, 45),
           src=[src('A third, wider lane of locks was built 2007–2016 and began commercial operation on 26 June 2016.', 'Panama_Canal',
                    'A third, wider lane of locks was constructed between September 2007 and May 2016. The expanded waterway began commercial operation on 26 June 2016.')]),

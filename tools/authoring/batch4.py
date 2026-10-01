@@ -59,7 +59,7 @@ save('indonesia_capital', meta(
           src=[src('Nusantara is designed for sustainability, targeting 80% of mobility by public transport, cycling or walking.', 'Nusantara_(city)',
                    'designed for sustainability targeting 80% of mobility to be supported by public transport, cycling, or walking')]),
         S("On August 17, 2024, Indonesia celebrated its Independence Day in Nusantara for the first time.", [
-            year(2024, '2024', light=True), flag('id', -0.95, 116.7, 'Indonesia', size=130, wave=True), art('fireworks', -0.9, 116.55, 'celebrated', size=170), particles('confetti', 'celebrated', density=0.5)],
+            year(2024, '2024', light=True), flag('id', -0.95, 116.7, 'Indonesia', size=130, wave=True), art('fireworks', -0.9, 116.55, 'celebrated', size=170)],
           cam=at_(-1.0, 116.6, 40, bearing=-3), tr='flash',
           src=[src('On 17 August 2024 Indonesia celebrated Independence Day in Nusantara for the first time.', 'Nusantara_(city)', 'On 17 August 2024, Indonesia officially celebrated its Independence Day for the first time in Nusantara.')]),
     ],

@@ -180,5 +180,10 @@
   },
   "timing": {
     "lead": 0.12
+  },
+  "spotlight": {
+    "auto": true,
+    "every": 2,
+    "amount": 0.42
   }
 }
