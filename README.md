@@ -1,5 +1,5 @@
-# Geo Shorts — ilk 5 video (3. tur)
+# Geo Shorts — ilk 5 video (4. tur)
 
-Bu turda: yazı kutuları/çerçeveleri kaldırıldı, etiketler konuyu kapatmıyor, tarihe geçince eski rota/damga kalmıyor,
-Istanbul'da gerçek kuşatma (toplar ateşler, surlar yıkılır), Chimborazo'da yanardağ patlaması, bayrak yakın zoomda kaybolur ve
-parçalara kırpılır, uydu görüntüsü boşlukları ve bulanıklık giderildi, efekt sesleri kısıldı.
+Bu turda: yol ve gemi rotaları gerçek geometriden (Darién'de Pan-Amerikan yolu karadan, gemi denizden; render öncesi otomatik kara/deniz denetimi geçti),
+kutusuz yazılar, etiketler konuyu kapatmıyor, tarihe geçince eski öğe kalmıyor, daha keskin uydu görüntüsü, kısık efekt sesleri.
+Zayıf kuşatma ve yanardağ efektleri bu turda çıkarıldı (gerçek VFX klibi gelince eklenecek).
