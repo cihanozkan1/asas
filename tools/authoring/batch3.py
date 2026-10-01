@@ -119,7 +119,7 @@ save('istanbul', meta(
           src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
         S("In 1453, the Ottomans hit its walls with giant cannons, and after a 55 day siege they conquered it.", [
             year(1453, '1453', screen=[0.25, 0.07]), wall(WALLS, 0.1, buildDur=1.0, side=-1, width=26, siege={'cannons': 4, 'shots': 9, 'delay': 1.0, 'dist': 300, 'size': 180}), lab('Theodosian Walls', 41.03, 28.915, 'siege', style='serif', size=40),
-            char('sultan', 'conquered', name='Mehmed II', screen=(0.74, 0.6)), handstamp('CONQUERED', 'conquered', size=84, screen=[0.5, 0.34])],
+            char('sultan', 'conquered', name='Mehmed II', screen=(0.74, 0.6))],
           cam=at_(41.02, 28.955, 1500), era='history',
           src=[src('Conquered on 29 May 1453 after a 55-day siege.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege."'),
                src('Mehmed II\'s cannons hurled massive stone balls at the walls.', 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).'),

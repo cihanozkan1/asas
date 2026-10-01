@@ -109,8 +109,7 @@ save('darien_gap', meta(
         S("In between is the Darién Gap: swamps, mountains and thick rainforest.", [
             trace(GAP_PAN, '#16a34a', 'Darién', neon='#4ade80', fillOpacity=0.5), trace(GAP_COL, '#16a34a', 'Darién', neon='#4ade80', fillOpacity=0.5),
             giant('DARIÉN GAP', 8.75, -77.3, 'Darién', size=84),
-            photo('swamp_canopy', 'swamps', kind='full', pan='out', until=2.2),
-            icon('🌴', 7.7, -77.6, 'rainforest', size=110), icon('⛰️', 8.0, -77.9, 'mountains', size=100)],
+            photo('swamp_canopy', 'swamps', kind='full', pan='out', until=2.2)],
           cam=at_(7.9, -77.3, 14, duration=1.2), tr='flash',
           src=[src('Colombian side: Atrato delta marshland; Panamanian side: mountainous rainforest.', DG, "the Colombian side dominated primarily by the river delta of the Atrato River, which creates a flat marshland at least 80 km (50 mi) wide")]),
         S("Heavy rain sends flash floods roaring through the jungle.", [

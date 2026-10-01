@@ -612,7 +612,7 @@ export function makeExtras(S) {
     const cannons = Array.from({ length: nC }, (_, i) => {
       const f = 0.2 + 0.6 * ((i + 0.5) / nC), base = g.at(f * g.L);
       const d = D * (0.85 + 0.3 * hash01(i + 5));
-      return { x: Math.min(W - 90, Math.max(90, base.x + base.nx * d)), y: Math.min(H * 0.74, Math.max(340, base.y + base.ny * d)), f };
+      return { x: Math.min(W - 90, Math.max(90, base.x + base.nx * d)), y: Math.min(H * 0.74, Math.max(480, base.y + base.ny * d)), f };
     });
     const shots = siegeShots(el);
     ctx.save();

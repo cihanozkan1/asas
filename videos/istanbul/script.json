@@ -707,16 +707,6 @@
           ],
           "at": "conquered",
           "name": "Mehmed II"
-        },
-        {
-          "type": "handstamp",
-          "text": "CONQUERED",
-          "at": "conquered",
-          "size": 84,
-          "screen": [
-            0.5,
-            0.34
-          ]
         }
       ],
       "camera": {
