@@ -63,17 +63,6 @@
           ],
           "label": "177 km",
           "at": "177"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -215,17 +204,6 @@
           "lon": -64.5,
           "size": 130,
           "at": "wall"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "highest"
         }
       ],
       "camera": {
@@ -439,17 +417,6 @@
           "typewriter": true,
           "size": 64,
           "rotate": -7
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cry",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "lost"
         }
       ],
       "sources": [

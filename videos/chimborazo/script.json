@@ -69,17 +69,6 @@
             0.33
           ],
           "at": "closest"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "highest"
         }
       ],
       "camera": {
@@ -260,17 +249,6 @@
           "at": "lower",
           "shape": "mountain",
           "height": 380
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "more"
         }
       ],
       "style": "neon",
@@ -384,17 +362,6 @@
           "label": "1°",
           "at": "degree",
           "countUp": false
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "just"
         }
       ],
       "camera": {

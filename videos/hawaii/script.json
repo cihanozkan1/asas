@@ -120,17 +120,6 @@
           "at": "archipelago",
           "fillOpacity": 0.85,
           "neon": "#ffd60a"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -184,17 +173,6 @@
           "dot": true,
           "dy": -70,
           "size": 36
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "at": "taller",
-          "size": 160
         }
       ],
       "camera": {

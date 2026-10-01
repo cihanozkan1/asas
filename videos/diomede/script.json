@@ -68,17 +68,6 @@
             }
           ],
           "size": 190
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -436,17 +425,6 @@
           "lon": -169.05,
           "size": 100,
           "at": "military"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "transition": "film",

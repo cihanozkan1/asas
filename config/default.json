@@ -43,9 +43,10 @@
     "duration": 1.3,
     "introDuration": 2.0,
     "lead": 0.15,
-    "drift": 0.14,
-    "sway": 1.6,
-    "pan": 110
+    "drift": 0.03,
+    "sway": 0.8,
+    "pan": 0,
+    "autoPush": false
   },
   "captions": {
     "y": 0.655,

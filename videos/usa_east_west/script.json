@@ -717,17 +717,6 @@
             0.25
           ],
           "width": 700
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cool",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "still"
         }
       ],
       "camera": {

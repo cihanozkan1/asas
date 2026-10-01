@@ -281,17 +281,6 @@
           ],
           "label": "2,500 km",
           "at": "wide"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "largest"
         }
       ],
       "camera": {
@@ -789,17 +778,6 @@
             0.33
           ],
           "at": "safe"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "just"
         }
       ],
       "camera": {

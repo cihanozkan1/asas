@@ -146,17 +146,6 @@
           "lon": 1.975,
           "color": "#ff3b3b",
           "at": "Llívia"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -343,17 +332,6 @@
             0.5,
             0.3
           ]
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cry",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "closed"
         }
       ],
       "camera": {
@@ -623,17 +601,6 @@
             }
           ],
           "size": 180
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "whole"
         }
       ],
       "camera": {

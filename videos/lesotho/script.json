@@ -59,17 +59,6 @@
           "lon": 28.2,
           "color": "#ffd60a",
           "at": "whole"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "whole"
         }
       ],
       "camera": {
@@ -222,17 +211,6 @@
           "dot": true,
           "dy": -52,
           "size": 36
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "highest"
         }
       ],
       "camera": {
@@ -556,17 +534,6 @@
           "size": 110,
           "plain": true,
           "at": "water"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cool",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "today"
         }
       ],
       "camera": {

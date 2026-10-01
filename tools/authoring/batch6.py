@@ -269,7 +269,7 @@ save('oklahoma_panhandle', meta(
                src('Black Mesa, Oklahoma\'s highest point, is in Cimarron County.', PH, 'Black mesa, the highest point in Oklahoma at 4,973 feet (1,516 m), is located in Cimarron County.')]),
         S("Today, about 28,700 people live in the Panhandle, and the town of Beaver hosts the World Cow Chip Throwing Championship.", [
             cnt('28,729', '28,700', size=170), ping(36.81, -100.52, 'Beaver', color='#ffd60a'), dot('Beaver', 36.81, -100.52, 'Beaver', dy=-52, size=40), art('cow', 36.6, -100.9, 'Cow', size=130)],
-          cam=at_(36.75, -101.5, 11),
+          cam=at_(36.75, -101.5, 7),
           src=[src('28,729 residents in 2020.', PH, 'As of the 2020 United States census, the region has a population of 28,729'),
                src('Beaver hosts the annual World Cow Chip Throwing Championship.', PH, 'Host to the annual World Cow Chip Throwing Championship')]),
         S("The answer is slavery. The Missouri Compromise banned slavery north of a line: 36 degrees 30 minutes.", [
@@ -290,7 +290,7 @@ save('oklahoma_panhandle', meta(
           src=[src('The strip had no state or territorial ownership and was called No Man\'s Land.', PH, "was left with no state or territorial ownership from 1850 until 1890. It was officially called the 'Public Land Strip' and was commonly referred to as 'No Man's Land.'")]),
         S("Settlers there even organized their own government in 1886, and called it the Cimarron Territory.", [
             year(1886, '1886'), lab('CIMARRON TERRITORY', 36.75, -101.5, 'Cimarron', style='map', anim='slam', size=50), hl(box(-103, 36.5, -100, 37), '#f5d76e', 'own', fillOpacity=0.85, neon='#ffd60a')],
-          cam=at_(36.7, -101.5, 9), era='history',
+          cam=at_(36.7, -101.5, 7), era='history',
           src=[src('By September 1886 they had organized a self-governing jurisdiction called the Cimarron Territory.', PH,
                    'by September 1886 had organized a self-governing and self-policing jurisdiction, which they named the Cimarron Territory')]),
         S("It stayed that way for 40 years, until 1890, when it finally became part of Oklahoma Territory.", [

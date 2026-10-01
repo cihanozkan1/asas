@@ -373,17 +373,6 @@
             0.23
           ],
           "size": 46
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "every"
         }
       ],
       "camera": {
@@ -724,17 +713,6 @@
           "lon": 32.58,
           "color": "#4ade80",
           "at": "freed"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cool",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "finally"
         }
       ],
       "camera": {

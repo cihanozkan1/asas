@@ -129,17 +129,6 @@
             0.5,
             0.22
           ]
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "largest"
         }
       ],
       "camera": {
@@ -194,17 +183,6 @@
           "size": 140,
           "plain": true,
           "at": "oceans"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "at": "melted",
-          "size": 160
         }
       ],
       "camera": {
@@ -562,17 +540,6 @@
           "size": 130,
           "plain": true,
           "at": "ice"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "million"
         }
       ],
       "camera": {

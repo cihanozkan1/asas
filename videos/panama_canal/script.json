@@ -266,17 +266,6 @@
           "width": 9,
           "at": "long",
           "drawDur": 1.2
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -517,17 +506,6 @@
             }
           ],
           "size": 160
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -717,17 +695,6 @@
           "target": "PAN",
           "fill": "flag:pa",
           "at": "Panama"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cool",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "finally"
         }
       ],
       "camera": {

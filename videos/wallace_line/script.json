@@ -126,17 +126,6 @@
           ],
           "label": "35 km",
           "at": "kilometers"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -592,17 +581,6 @@
           "style": "pill",
           "bg": "#1d4ed8",
           "size": 40
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_think",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "Why"
         }
       ],
       "camera": {

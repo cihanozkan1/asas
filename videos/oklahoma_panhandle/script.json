@@ -58,17 +58,6 @@
           "lat": 36.8,
           "lon": -101.5,
           "at": "handle"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_think",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "Why"
         }
       ],
       "camera": {
@@ -354,23 +343,12 @@
           "size": 130,
           "plain": true,
           "at": "Cow"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cool",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "Today"
         }
       ],
       "camera": {
         "lat": 36.75,
         "lon": -101.5,
-        "zoom": 11
+        "zoom": 7
       },
       "sources": [
         {
@@ -639,7 +617,7 @@
       "camera": {
         "lat": 36.7,
         "lon": -101.5,
-        "zoom": 9
+        "zoom": 7
       },
       "sources": [
         {
@@ -683,17 +661,6 @@
           "fill": "flag:us",
           "at": "Oklahoma",
           "fillOpacity": 0.8
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cool",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "finally"
         }
       ],
       "camera": {

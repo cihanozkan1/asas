@@ -304,7 +304,8 @@ def enrich(scenes):
 
 
 def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None, styles=None, earth=None, captions=None, config=None):
-    enrich(scenes)
+    for sc in scenes:
+        sc['show'] = [e for e in sc.get('show', []) if not (e.get('type') == 'react' and 'emote_shock' in str(e.get('icon')))]
     d = {'id': vid, 'style': style, 'meta': m, 'scenes': scenes}
     cfg = {}
     if keywords or captions:

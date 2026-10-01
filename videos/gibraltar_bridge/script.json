@@ -69,17 +69,6 @@
           "fill": "flag:ma",
           "at": "Africa",
           "fillOpacity": 0.7
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -260,17 +249,6 @@
           "dot": true,
           "dy": 50,
           "size": 36
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "every"
         }
       ],
       "camera": {
@@ -481,17 +459,6 @@
           "style": "pill",
           "bg": "#1d4ed8",
           "size": 40
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "million"
         }
       ],
       "camera": {
@@ -704,17 +671,6 @@
             }
           ],
           "size": 150
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "More"
         }
       ],
       "camera": {

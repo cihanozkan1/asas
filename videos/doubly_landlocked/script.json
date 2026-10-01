@@ -120,17 +120,6 @@
             0.23
           ],
           "size": 46
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "biggest"
         }
       ],
       "camera": {
@@ -236,17 +225,6 @@
           "style": "map",
           "anim": "slam",
           "size": 70
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "Every"
         }
       ],
       "camera": {
@@ -433,17 +411,6 @@
           "size": 100,
           "at": "Swiss",
           "wave": true
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "smallest"
         }
       ],
       "camera": {
@@ -628,17 +595,6 @@
         {
           "type": "shake",
           "at": "broke"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cry",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "lost"
         }
       ],
       "sources": [

@@ -181,17 +181,6 @@
             10
           ],
           "hold": 2
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "Every"
         }
       ],
       "camera": {
@@ -512,17 +501,6 @@
             0.45
           ],
           "size": 200
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "every"
         }
       ],
       "sources": [

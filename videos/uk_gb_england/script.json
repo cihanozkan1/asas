@@ -255,17 +255,6 @@
           "style": "map",
           "anim": "slam",
           "size": 60
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "biggest"
         }
       ],
       "camera": {
@@ -428,17 +417,6 @@
           ],
           "color": "#16a34a",
           "at": "left"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {

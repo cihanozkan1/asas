@@ -509,7 +509,38 @@ async function init(tl) {
 
   // camera
   const mode = state.mode;
-  const shots = tl.scenes.map((s) => {
+  // The narrated place must sit in the middle of the frame: centre the camera on the scene's geo-anchored
+  // points (pings, labels, icons, routes...) and, if they would not fit, ease the zoom out just enough.
+  const frameOn = (i, base) => {
+    const pts = [];
+    const add = (p) => { if (p && Number.isFinite(p.lat) && Number.isFinite(p.lon)) pts.push([p.lon, p.lat]); };
+    for (const el of tl.elements) {
+      if (el.scene !== i || el.screen) continue;
+      if (['ping', 'label', 'icon', 'art', 'flag', 'ring', 'pin', 'callout', 'ellipse', 'glow', 'disc', 'bridge', 'wall'].includes(el.type) || el.dot) add(el);
+      if (['route', 'wall', 'bridge', 'pathtext'].includes(el.type)) for (const q of el.points || []) add(q);
+      if (['measure', 'arrow', 'line', 'link', 'bridge', 'box'].includes(el.type)) { add(el.from); add(el.to); }
+    }
+    if (!pts.length) return base;
+    let w = 180, e = -180, so = 90, n = -90;
+    for (const [lo, la] of pts) { w = Math.min(w, lo); e = Math.max(e, lo); so = Math.min(so, la); n = Math.max(n, la); }
+    if (e - w > 180) return base;            // wraps the antimeridian: leave it to the script
+    const c = { lat: (so + n) / 2, lon: (w + e) / 2, zoom: base.zoom, bearing: base.bearing };
+    // already framed well by the script (content near the middle and inside the safe window)? keep its context
+    {
+      const vb = viewFor({ ...base, bearing: 0 }, mode), pb = makeProjection({ ...vb, angle: 0 });
+      const qc = pb([c.lon, c.lat]);
+      let ok = !!qc && Math.abs(qc[0] - vb.cx) < W * 0.12 && Math.abs(qc[1] - vb.cy) < H * 0.08;
+      for (const [lo, la] of pts) { const q = pb([lo, la]); if (!q || Math.abs(q[0] - vb.cx) > W * 0.38 || Math.abs(q[1] - vb.cy) > H * 0.21) ok = false; }
+      if (ok) return base;
+    }
+    const v = viewFor({ ...c, bearing: 0 }, mode);
+    const pr = makeProjection({ ...v, angle: 0 });
+    let dx = 0, dy = 0;
+    for (const [lo, la] of pts) { const q = pr([lo, la]); if (q) { dx = Math.max(dx, Math.abs(q[0] - v.cx)); dy = Math.max(dy, Math.abs(q[1] - v.cy)); } }
+    const f = Math.min(1, (W * 0.36) / Math.max(dx, 1), (H * 0.2) / Math.max(dy, 1));
+    return { ...c, zoom: base.zoom * f };
+  };
+  const shots = tl.scenes.map((s, si) => {
     let target = null;
     if (s.camera) {
       if (s.camera.fit) {
@@ -517,6 +548,7 @@ async function init(tl) {
         target = fitCamera(feats, mode, s.camera.pad ?? 0.85, s.camera);
       } else {
         target = { lat: s.camera.lat, lon: s.camera.lon, zoom: s.camera.zoom };
+        if (!s.camera.follow && s.camera.autoCenter !== false) target = frameOn(si, target);
       }
       target.bearing = s.camera.bearing ?? 0;
     }

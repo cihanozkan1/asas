@@ -123,8 +123,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     if (!src.style && lastZoom >= 60 && cfg.palettes?.[sc.style]) sc.style = 'satellite';
     // scenes without an explicit transition get the kit's own one every other cut
     const KIT_TR = { classic: 'zoom', block: 'zoom', neon: 'zoom', paper: 'zoom', news: 'zoom', outline: 'zoom' };
-    const CYCLE = ['zoom', 'slide', 'wipe', 'zoom', 'slide'];
-    sc.transition = src.transition || (i > 0 ? (i % 2 === 0 ? KIT_TR[kit.kit] || 'zoom' : CYCLE[(i >> 1) % CYCLE.length]) : null);
+    sc.transition = src.transition || (i > 0 && i % 2 === 0 ? KIT_TR[kit.kit] || null : null);
     const sceneDur = sc.end - sc.start;
     // camera
     if (src.camera) {

@@ -133,17 +133,6 @@
           "dot": true,
           "dy": -52,
           "size": 44
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "largest"
         }
       ],
       "camera": {
@@ -261,17 +250,6 @@
           "count": 4,
           "size": 64,
           "at": "people"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -501,17 +479,6 @@
           "size": 120,
           "plain": true,
           "at": "school"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {

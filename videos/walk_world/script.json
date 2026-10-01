@@ -49,17 +49,6 @@
           "lat": 0,
           "lon": 20,
           "at": "plane"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_think",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "What"
         }
       ],
       "camera": {
@@ -271,17 +260,6 @@
             0.5,
             0.3
           ]
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "whole"
         }
       ],
       "camera": {
@@ -707,17 +685,6 @@
             0.33
           ],
           "at": "year"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "style": "neon",

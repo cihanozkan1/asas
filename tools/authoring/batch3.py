@@ -108,8 +108,7 @@ save('istanbul', meta(
           cam={'follow': 'pass', 'zoom': 5, 'zoomTo': 3.2, 'duration': 1.0},
           src=[src('The Bosporus is the only passage between the Black Sea and the Mediterranean and has always been of great commercial and military importance.', 'Bosporus', 'As part of the only passage between the Black Sea and the Mediterranean, the Bosporus has always been of great importance from a commercial and military point of view.')]),
         S("It was founded by Greek colonists as Byzantium, and in 330 it became Constantinople.", [
-            year(330, '330'), lab('Byzantium', 41.1, 28.75, 'Byzantium', style='serif', size=60), lab('Constantinople', 40.95, 29.15, 'Constantinople', style='serif', size=56),
-            timebar(660, 330, 'BC → AD', 'founded')],
+            year(330, '330'), lab('Byzantium', 41.1, 28.75, 'Byzantium', style='serif', size=60), lab('Constantinople', 40.95, 29.15, 'Constantinople', style='serif', size=56)],
           cam=at_(41.05, 29.0, 30), era='history', tr='film',
           src=[src('Founded as Byzantium (~660 BC); renamed Constantinople in 330 AD.', 'Istanbul', 'originally called Byzantium when Greek colonists established it around 660 BC. It became Constantinople in 330 AD under Constantine the Great')]),
         S("It was the capital of the Roman, Byzantine and Ottoman empires.", [

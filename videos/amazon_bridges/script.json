@@ -97,17 +97,6 @@
           ],
           "size": 220,
           "color": "#ff5a5f"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "more"
         }
       ],
       "camera": {
@@ -478,17 +467,6 @@
           "type": "year",
           "value": "1990",
           "at": "1990s"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "more"
         }
       ],
       "transition": "flash",
@@ -767,17 +745,6 @@
             }
           ],
           "size": 160
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {

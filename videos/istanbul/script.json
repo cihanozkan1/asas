@@ -53,17 +53,6 @@
             }
           ],
           "size": 220
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.78,
-            0.3
-          ],
-          "burst": true,
-          "at": "continents",
-          "size": 170
         }
       ],
       "camera": {
@@ -321,17 +310,6 @@
           ],
           "r": 300,
           "at": "700"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -555,13 +533,6 @@
           "at": "Constantinople",
           "style": "serif",
           "size": 56
-        },
-        {
-          "type": "timebar",
-          "from": "660",
-          "to": "330",
-          "label": "BC → AD",
-          "at": "founded"
         }
       ],
       "camera": {

@@ -57,17 +57,6 @@
             }
           ],
           "size": 170
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "smallest"
         }
       ],
       "camera": {
@@ -182,17 +171,6 @@
           "target": "SEN",
           "fill": "#3a3b40",
           "at": 0.05
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_think",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "why"
         }
       ],
       "camera": {
@@ -465,17 +443,6 @@
           "cols": 10,
           "size": 26,
           "color": "#ffffff"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "million"
         }
       ],
       "camera": {

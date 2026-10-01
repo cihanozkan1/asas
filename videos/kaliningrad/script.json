@@ -60,17 +60,6 @@
             }
           ],
           "size": 200
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "biggest"
         }
       ],
       "camera": {
@@ -233,17 +222,6 @@
           "type": "question",
           "lat": 54.71,
           "lon": 20.51,
-          "at": "how"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_think",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
           "at": "how"
         }
       ],
@@ -486,17 +464,6 @@
           "at": "Poland",
           "style": "serif",
           "size": 58
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_angry",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "war"
         }
       ],
       "camera": {
@@ -666,17 +633,6 @@
           ],
           "label": "65 km",
           "at": "Suwalki"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "million"
         }
       ],
       "camera": {

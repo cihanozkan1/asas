@@ -59,17 +59,6 @@
             }
           ],
           "size": 240
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "whole"
         }
       ],
       "camera": {
@@ -254,17 +243,6 @@
           "lat": 43.5,
           "lon": 12.3,
           "at": "how"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_think",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "how"
         }
       ],
       "camera": {
@@ -429,17 +407,6 @@
           "dot": true,
           "dy": 52,
           "size": 38
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "just"
         }
       ],
       "camera": {
@@ -679,17 +646,6 @@
           "dot": true,
           "dy": -50,
           "size": 44
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "Only"
         }
       ],
       "camera": {

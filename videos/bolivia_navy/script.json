@@ -136,17 +136,6 @@
             "icon": "art:speedboat",
             "size": 75
           }
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "highest"
         }
       ],
       "camera": {
@@ -261,17 +250,6 @@
         },
         {
           "type": "shake",
-          "at": "War"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_angry",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
           "at": "War"
         }
       ],
@@ -509,17 +487,6 @@
           "target": "BOL",
           "fill": "flag:bo",
           "at": 0.05
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "every"
         }
       ],
       "camera": {

@@ -88,17 +88,6 @@
             }
           ],
           "size": 220
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "whole"
         }
       ],
       "camera": {
@@ -244,17 +233,6 @@
           "style": "pill",
           "bg": "#f97316",
           "size": 40
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -485,17 +463,6 @@
           "size": 90,
           "plain": true,
           "at": "capital"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {
@@ -643,17 +610,6 @@
             0.33
           ],
           "at": "stop"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "whole"
         }
       ],
       "camera": {

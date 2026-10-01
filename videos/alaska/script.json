@@ -61,17 +61,6 @@
             }
           ],
           "size": 180
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "biggest"
         }
       ],
       "camera": {
@@ -259,17 +248,6 @@
           "type": "question",
           "lat": 63,
           "lon": -150,
-          "at": "why"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_think",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
           "at": "why"
         }
       ],
@@ -589,17 +567,6 @@
           "size": 130,
           "plain": true,
           "at": "coastline"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "more"
         }
       ],
       "camera": {

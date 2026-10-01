@@ -83,17 +83,6 @@
           "lat": -10,
           "lon": 70,
           "at": "land"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_think",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "What"
         }
       ],
       "camera": {
@@ -412,17 +401,6 @@
           "lon": 60,
           "size": 110,
           "at": "Reddit"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "just"
         }
       ],
       "camera": {
@@ -664,17 +642,6 @@
           "fill": "flag:ru",
           "at": "Russia",
           "fillOpacity": 0.6
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "whole"
         }
       ],
       "camera": {

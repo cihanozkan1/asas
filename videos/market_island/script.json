@@ -148,17 +148,6 @@
             0.23
           ],
           "size": 46
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "smallest"
         }
       ],
       "camera": {
@@ -541,17 +530,6 @@
             0.5,
             0.38
           ]
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_cry",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "lost"
         }
       ],
       "camera": {

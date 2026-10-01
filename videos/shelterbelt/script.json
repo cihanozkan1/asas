@@ -218,17 +218,6 @@
           "cols": 6,
           "size": 28,
           "color": "#ffffff"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "million"
         }
       ],
       "camera": {
@@ -506,17 +495,6 @@
             0.26
           ],
           "width": 700
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "million"
         }
       ],
       "camera": {
@@ -777,17 +755,6 @@
               -99.5
             ]
           ]
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "largest"
         }
       ],
       "camera": {
