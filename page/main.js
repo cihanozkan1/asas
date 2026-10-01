@@ -1186,25 +1186,39 @@ function drawHighlight(ctx, path, el, life, mix, t) {
   } else if (st.fill && st.fill.startsWith('flag:')) {
     ctx.clip();
     const img = state.flagCanvas[flagUrl(el.fill.slice(5))];
-    // place the flag over the main landmass so big archipelagos don't wash it out
-    const b = geoPath(state.proj).bounds(el.flagFit === 'all' || !state.targetMain[el.target] ? fc : state.targetMain[el.target]);
-    const bw = b[1][0] - b[0][0], bh = b[1][1] - b[0][1];
-    const s = Math.max(bw / img.width, bh / img.height);
-    const dw = img.width * s, dh = img.height * s;
-    if (el.wave) {
-      // waving cloth: the flag is cut into vertical strips that ride a travelling sine
-      const N = 56, x0 = b[0][0] + (bw - dw) / 2, y0 = b[0][1] + (bh - dh) / 2;
-      const amp = Math.min(dh, dw) * 0.028;
-      for (let i = 0; i < N; i++) {
-        const ph = i * 0.42 - t * 4.2, off = Math.sin(ph) * amp;
-        ctx.drawImage(img, (i * img.width) / N, 0, img.width / N + 1, img.height, x0 + (i * dw) / N, y0 + off, dw / N + 1.5, dh);
-        ctx.fillStyle = `rgba(${Math.cos(ph) > 0 ? '255,255,255' : '0,0,0'},${0.13 * Math.abs(Math.cos(ph))})`;
-        ctx.fillRect(x0 + (i * dw) / N, y0 + off, dw / N + 1.5, dh);
-      }
-    } else ctx.drawImage(img, b[0][0] + (bw - dw) / 2, b[0][1] + (bh - dh) / 2, dw, dh);
-    // subtle shading so the flag reads as "on the map"
-    ctx.fillStyle = 'rgba(0,0,0,0.08)';
-    ctx.fillRect(b[0][0], b[0][1], bw, bh);
+    // every separate part (islands, exclaves, far territories) carries its own flag, sized to that part
+    const gp = geoPath(state.proj);
+    const parts = [];
+    for (const f of fc.features || []) {
+      const g = f.geometry;
+      if (!g) continue;
+      const polys = g.type === 'MultiPolygon' ? g.coordinates.map((c) => ({ type: 'Polygon', coordinates: c })) : g.type === 'Polygon' ? [g] : [];
+      for (const pg of polys) { const bb = gp.bounds(pg); const ar = (bb[1][0] - bb[0][0]) * (bb[1][1] - bb[0][1]); if (Number.isFinite(ar) && ar > 6) parts.push({ bb, ar }); }
+    }
+    parts.sort((a, b) => b.ar - a.ar);
+    const whole = gp.bounds(fc);
+    const rects = el.flagFit === 'all' || !parts.length ? [whole] : parts.slice(0, 80).map((q) => q.bb);
+    for (const b of rects) {
+      let bw = b[1][0] - b[0][0], bh = b[1][1] - b[0][1];
+      let bx = b[0][0], by = b[0][1];
+      // tiny parts get a flag-shaped patch big enough to read
+      if (bw < 44) { bx -= (44 - bw) / 2; bw = 44; }
+      if (bh < 30) { by -= (30 - bh) / 2; bh = 30; }
+      const s = Math.max(bw / img.width, bh / img.height);
+      const dw = img.width * s, dh = img.height * s;
+      if (el.wave) {
+        const N = 56, x0 = bx + (bw - dw) / 2, y0 = by + (bh - dh) / 2;
+        const amp = Math.min(dh, dw) * 0.028;
+        for (let i = 0; i < N; i++) {
+          const ph = i * 0.42 - t * 4.2, off = Math.sin(ph) * amp;
+          ctx.drawImage(img, (i * img.width) / N, 0, img.width / N + 1, img.height, x0 + (i * dw) / N, y0 + off, dw / N + 1.5, dh);
+          ctx.fillStyle = `rgba(${Math.cos(ph) > 0 ? '255,255,255' : '0,0,0'},${0.13 * Math.abs(Math.cos(ph))})`;
+          ctx.fillRect(x0 + (i * dw) / N, y0 + off, dw / N + 1.5, dh);
+        }
+      } else ctx.drawImage(img, bx + (bw - dw) / 2, by + (bh - dh) / 2, dw, dh);
+      ctx.fillStyle = 'rgba(0,0,0,0.08)';
+      ctx.fillRect(bx, by, bw, bh);
+    }
   } else if (el.fillPct) {
     // filled to a share of its height: a level rising inside the shape (21% -> 48% ...)
     const fp = el.fillPct;
@@ -2013,7 +2027,7 @@ function kitEntrance(a) {
     r.clip = u < 1 ? `inset(-20% ${(1 - u) * 100}% -20% -20%)` : null; r.dx = (1 - u) * -24;
   } else if (kit === 'outline') {
     const u = ease.outCubic(clamp01(a / 0.5));
-    r.sc = 1.35 - 0.35 * u; r.blur = (1 - u) * 10; r.op = clamp01(u * 1.4);
+    r.sc = 1.35 - 0.35 * u; r.blur = 0; r.op = clamp01(u * 1.4);
   }
   return r;
 }
@@ -2339,7 +2353,7 @@ function updateUi(t) {
           const u = ease.outCubic(clamp01(life.age / 0.6));
           scale = 1 + 3.4 * (1 - u);
           opacity *= clamp01(life.age / 0.1);
-          inner.style.filter = u < 1 ? `blur(${(1 - u) * 9}px)` : '';
+          inner.style.filter = '';
         } else if (el.anim === 'wobble') {
           scale = 0.9 * ease.outBack(life.in) + 0.1 * life.in;
           inner.querySelectorAll('.lw').forEach((n, i) => { n.style.transform = `translateY(${Math.sin(t * 7 + i * 0.7) * 7}px) rotate(${Math.sin(t * 5 + i) * 6}deg)`; });
@@ -2532,7 +2546,7 @@ function updateFx(t) {
       const a = Math.sin(Math.PI * u);
       const off = (t * 900) % 90;
       html += `<div class="film" style="opacity:${a}"><div class="strip" style="left:0;background-position:center ${off}px"></div><div class="strip" style="right:0;background-position:center ${off}px"></div></div>`;
-      blur = Math.max(blur, 10 * a);
+      blur = Math.max(blur, 0 * a);
     } else if (tr === 'flash' && d > -0.05 && d < 0.3) {
       html += `<div class="flash" style="opacity:${0.45 * (1 - clamp01((d + 0.05) / 0.35))}"></div>`;
     } else if (tr === 'wipe' && d > -0.25 && d < 0.35) {
@@ -2544,7 +2558,7 @@ function updateFx(t) {
     } else if (tr === 'zoom' && d > -0.18 && d < 0.3) {
       const a = Math.sin(Math.PI * clamp01((d + 0.18) / 0.48));
       zoom = Math.max(zoom, a);
-      blur = Math.max(blur, 7 * a);
+      blur = Math.max(blur, 0 * a);
     } else if (tr === 'glitch' && d > -0.12 && d < 0.26) {
       const u = clamp01((d + 0.12) / 0.38), a = Math.sin(Math.PI * u);
       const f = Math.floor(t * 30);
@@ -2683,7 +2697,7 @@ function frame(t) {
     const c0 = state.camera.at(Math.max(0, t - 0.05));
     const q = state.proj([c0.lon, c0.lat]);
     const sp = (q ? Math.hypot(q[0] - view.cx, q[1] - view.cy) : 0) / 0.05 + (Math.abs(Math.log(cam.zoom / c0.zoom)) / 0.05) * 500;
-    state.camBlur = Math.max(0, Math.min(1, (sp - 1600) / 2400)) * 3.5;
+    state.camBlur = 0;
   }
   const mix = styleAt(t);
   const texelsPerPx = state.raster.base.w / (2 * Math.PI) / view.k;

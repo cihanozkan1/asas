@@ -483,9 +483,12 @@ html, body {
 .orbit .it { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 8px; }
 .orbit .it i { width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,.5); flex: none; }
 .orbit .it b { color: #fff; font: 800 34px Montserrat; text-shadow: 0 2px 8px rgba(0,0,0,.85), 0 0 3px #000; white-space: nowrap; background: rgba(220,38,80,.9); padding: 2px 12px; border-radius: 10px; }
-.handstamp { position: relative; width: 760px; height: 420px; }
-.handstamp .hs-text { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%) rotate(-8deg); color: #e11d2e; border: 10px solid #e11d2e; border-radius: 14px; padding: 6px 30px; font: 400 96px Anton; letter-spacing: .04em; text-transform: uppercase; opacity: 0; white-space: nowrap; background: rgba(255,255,255,.12); }
-.handstamp .hs-hand { position: absolute; left: 50%; top: -60px; width: 360px; margin-left: -180px; filter: drop-shadow(0 16px 18px rgba(0,0,0,.5)); }
+.handstamp { position: relative; width: 900px; height: 420px; }
+.handstamp .hs-text { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%) rotate(-3deg); color: #e11d2e; z-index: 0; border: 10px solid #e11d2e; border-radius: 14px; padding: 6px 30px; font: 400 96px Anton; letter-spacing: .04em; text-transform: uppercase; opacity: 0; white-space: nowrap; background: rgba(255,255,255,.12); }
+.handstamp .hs-tool { position: absolute; top: auto; bottom: 50%; z-index: 2; display: flex; flex-direction: column; align-items: center; transform-origin: 50% 100%; filter: drop-shadow(0 14px 14px rgba(0,0,0,.5)); }
+.handstamp .hs-tool .knob { width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #c98a52, #7a4a22); }
+.handstamp .hs-tool .neck { width: 34px; height: 130px; background: linear-gradient(90deg,#7a4a22,#b87a45,#7a4a22); margin-top: -6px; }
+.handstamp .hs-tool .base { width: 100%; background: linear-gradient(#2a2a2e,#111); border-radius: 10px; margin-top: -4px; }
 .lens { position: relative; }
 .lens canvas { position: absolute; inset: 0; border-radius: 50%; }
 .lens .rim { position: absolute; inset: -14px; border-radius: 50%; border: 18px solid #6b4f2a; box-shadow: inset 0 0 40px rgba(255,255,255,.25), 0 16px 36px rgba(0,0,0,.55); background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.28), rgba(255,255,255,0) 45%); }

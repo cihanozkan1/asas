@@ -614,7 +614,7 @@ export function makeExtras(S) {
       case 'tally':
         return `<div class="inner tally">${(el.items || []).map((it) => `<div class="tr"><img src="/assets/art/${String(it.icon || '').replace('art:', '')}.png"><b data-v="${it.value}" data-p="${esc(it.prefix || '')}" data-s="${esc(it.suffix || '')}">0</b><span>${esc(it.label || '')}</span></div>`).join('')}</div>`;
       case 'handstamp':
-        return `<div class="inner handstamp"><div class="hs-text" style="font-size:${el.size || 96}px">${esc(el.text)}</div><img class="hs-hand" src="/assets/art/hand_stamp.png"></div>`;
+        return `<div class="inner handstamp"><div class="hs-text" style="font-size:${el.size || 96}px">${esc(el.text)}</div><div class="hs-tool"><i class="knob"></i><i class="neck"></i><i class="base"></i></div></div>`;
       case 'lens': {
         const D = (el.r || 300) * 2;
         return `<div class="inner lens" style="width:${D}px;height:${D}px"><canvas width="${D}" height="${D}"></canvas><div class="rim"></div><div class="handle"></div></div>`;
@@ -692,14 +692,20 @@ export function makeExtras(S) {
         break;
       }
       case 'handstamp': {
+        // a rubber stamp drops straight down onto the text, exactly as wide as the text, presses, lifts away
         const a = life.age;
-        const hand = inner.querySelector('.hs-hand'), tx = inner.querySelector('.hs-text');
-        const down = ease.inCubic(clamp01(a / 0.4));
-        const up = ease.outCubic(clamp01((a - 0.7) / 0.5));
-        hand.style.transform = `translate(0, ${(-1 + down) * 420 - up * 520}px) rotate(${-8 + 8 * down}deg)`;
-        const hit = clamp01((a - 0.4) / 0.12);
+        const tool = inner.querySelector('.hs-tool'), tx = inner.querySelector('.hs-text');
+        const w = tx.offsetWidth + 24, h = tx.offsetHeight + 16;
+        tool.style.width = w + 'px'; tool.style.left = '50%'; tool.style.marginLeft = -(w / 2) + 'px';
+        const base = tool.querySelector('.base'); base.style.height = h + 'px'; tool.style.bottom = `calc(50% - ${h / 2}px)`;
+        const down = ease.inCubic(clamp01(a / 0.38));
+        const up = ease.outCubic(clamp01((a - 0.62) / 0.4));
+        const press = clamp01((a - 0.38) / 0.1) * (1 - clamp01((a - 0.5) / 0.12));
+        tool.style.transform = `translateY(${(-1 + down) * 900 - up * 900 + press * 6}px) scaleY(${1 - press * 0.04})`;
+        tool.style.opacity = String(1 - clamp01((a - 1.0) / 0.15));
+        const hit = clamp01((a - 0.38) / 0.06);
         tx.style.opacity = String(hit);
-        tx.style.transform = `scale(${1 + (1 - hit) * 1.4}) rotate(-8deg)`;
+        tx.style.transform = `translate(-50%,-50%) rotate(-3deg) scale(${1 + (1 - hit) * 0.25})`;
         break;
       }
       case 'lens': {
