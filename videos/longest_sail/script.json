@@ -886,6 +886,208 @@
     },
     {
       "era": "now",
+      "text": "A straight line on a globe is called a great circle, and it's the shortest path between two points on a sphere.",
+      "show": [
+        {
+          "type": "route",
+          "points": [
+            [
+              25.3,
+              66.6
+            ],
+            [
+              4.39,
+              54.3
+            ],
+            [
+              -16.71,
+              42.7
+            ],
+            [
+              -37.01,
+              28.16
+            ],
+            [
+              -54.29,
+              3.84
+            ],
+            [
+              -61.83,
+              -40.34
+            ],
+            [
+              -52.99,
+              -82.84
+            ],
+            [
+              -35.25,
+              -105.83
+            ],
+            [
+              -14.83,
+              -119.91
+            ],
+            [
+              6.29,
+              -131.43
+            ],
+            [
+              27.14,
+              -143.97
+            ],
+            [
+              46.36,
+              -162.19
+            ],
+            [
+              60.0,
+              164.0
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 10,
+          "at": "great",
+          "flow": true,
+          "arrowHead": true,
+          "drawDur": 1.6
+        },
+        {
+          "type": "label",
+          "text": "GREAT CIRCLE",
+          "at": "circle",
+          "style": "pill",
+          "bg": "#0e7490",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        },
+        {
+          "type": "icon",
+          "icon": "art:anchor",
+          "lat": -50,
+          "lon": -40,
+          "size": 110,
+          "plain": true,
+          "at": "shortest"
+        }
+      ],
+      "camera": {
+        "lat": -30,
+        "lon": -60,
+        "zoom": 1.05,
+        "bearing": -4
+      },
+      "sources": [
+        {
+          "claim": "A great-circle arc is the shortest path between two points on the surface of a sphere.",
+          "url": "https://en.wikipedia.org/wiki/Great-circle_distance",
+          "quote": "This arc is the shortest path between the two points on the surface of the sphere."
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "The route was first mapped years earlier by a Reddit user named Patrick Anderson.",
+      "show": [
+        {
+          "type": "year",
+          "value": "Reddit",
+          "light": true,
+          "at": "Reddit"
+        },
+        {
+          "type": "icon",
+          "icon": "art:laptop",
+          "lat": -10,
+          "lon": 70,
+          "size": 140,
+          "plain": true,
+          "at": "Reddit"
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              25.3,
+              66.6
+            ],
+            [
+              4.39,
+              54.3
+            ],
+            [
+              -16.71,
+              42.7
+            ],
+            [
+              -37.01,
+              28.16
+            ],
+            [
+              -54.29,
+              3.84
+            ],
+            [
+              -61.83,
+              -40.34
+            ],
+            [
+              -52.99,
+              -82.84
+            ],
+            [
+              -35.25,
+              -105.83
+            ],
+            [
+              -14.83,
+              -119.91
+            ],
+            [
+              6.29,
+              -131.43
+            ],
+            [
+              27.14,
+              -143.97
+            ],
+            [
+              46.36,
+              -162.19
+            ],
+            [
+              60.0,
+              164.0
+            ]
+          ],
+          "color": "#2de2e6",
+          "width": 4,
+          "at": 0.05,
+          "dashed": true,
+          "dash": [
+            10,
+            12
+          ],
+          "drawDur": 0.6
+        }
+      ],
+      "camera": {
+        "lat": -10,
+        "lon": 70,
+        "zoom": 1.3
+      },
+      "sources": [
+        {
+          "claim": "It was first mapped five years earlier by Reddit user Patrick Anderson.",
+          "url": "https://www.smithsonianmag.com/smart-news/longest-straight-line-ocean-journey-earth-180968930/",
+          "quote": "first mapped five years ago by Reddit user Patrick Anderson, who goes by the screenname kepleronlyknows"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "It looks curved on a map, but on a globe, it's perfectly straight.",
       "show": [
         {

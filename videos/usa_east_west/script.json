@@ -592,6 +592,64 @@
       ]
     },
     {
+      "era": "history",
+      "text": "During the 19th century alone, it moved roughly 600 miles west.",
+      "show": [
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "600",
+              "value": "600 mi"
+            }
+          ],
+          "size": 180
+        },
+        {
+          "type": "route",
+          "points": [
+            [
+              39.28,
+              -76.2
+            ],
+            [
+              39.0,
+              -80.6
+            ],
+            [
+              38.9,
+              -84.5
+            ],
+            [
+              39.2,
+              -87.6
+            ],
+            [
+              38.6,
+              -90.5
+            ]
+          ],
+          "color": "#ff5a5f",
+          "width": 8,
+          "at": "west",
+          "drawDur": 1.6,
+          "arrowHead": true
+        }
+      ],
+      "camera": {
+        "lat": 38.5,
+        "lon": -86,
+        "zoom": 3.6
+      },
+      "sources": [
+        {
+          "claim": "The center moved roughly 600 miles west by south during the 19th century.",
+          "url": "https://en.wikipedia.org/wiki/Mean_center_of_the_United_States_population",
+          "quote": "moving roughly 600 miles (966 km) west by south during the 19th century"
+        }
+      ]
+    },
+    {
       "era": "now",
       "text": "It has been moving west for 230 years, and it still hasn't even reached Kansas.",
       "show": [

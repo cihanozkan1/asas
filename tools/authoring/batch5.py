@@ -275,6 +275,10 @@ save('usa_east_west', meta(
             ping(37.4, -92.2, 'Missouri', color='#ff3b3b'), dot('Center of population', 37.4, -92.2, 'center', dy=-56), hl({'admin1': 'Missouri', 'country': 'USA'}, '#ff5a5f', 'Missouri', fillOpacity=0.45)],
           cam=at_(38, -96, 3.4), tr='flash',
           src=[src('The 2020 mean center of population is near Hartville, Wright County, Missouri.', 'Mean_center_of_the_United_States_population', '15 miles northeast of Hartville')]),
+        S("During the 19th century alone, it moved roughly 600 miles west.", [
+            cnt('600 mi', '600', size=180), route([(39.28, -76.2), (39.0, -80.6), (38.9, -84.5), (39.2, -87.6), (38.6, -90.5)], 'west', color='#ff5a5f', width=8, drawDur=1.6, arrowHead=True)],
+          cam=at_(38.5, -86, 3.6), era='history',
+          src=[src('The center moved roughly 600 miles west by south during the 19th century.', 'Mean_center_of_the_United_States_population', 'moving roughly 600 miles (966 km) west by south during the 19th century')]),
         S("It has been moving west for 230 years, and it still hasn't even reached Kansas.", [
             route([(39.28, -76.2), (39.0, -80.6), (38.9, -84.5), (39.2, -87.6), (38.6, -90.5), (37.4, -92.2)], 'moving', color='#ff5a5f', width=7, drawDur=2.2, arrowHead=True),
             dot('1790', 39.28, -76.2, 'moving', dy=-50), timeline([('moving', '1790', 'Maryland'), ('Kansas', '2020', 'Missouri')], screen=(0.5, 0.25), width=700)],
@@ -362,6 +366,10 @@ save('time_zones', meta(
             cnt_steps([('minus', '−12'), ('plus', '+14')], size=200), pill('26 hours apart', 'gap', bg='#7c3aed'), clock([('minus', '00:00'), ('plus', '02:00')], screen=(0.5, 0.45), size=190, label='UTC−12 → UTC+14')],
           cam=at_(10, 180, 1.0),
           src=[src('UTC offsets range from UTC−12:00 to UTC+14:00.', 'Time_zone', 'The offsets range from UTC−12:00 to UTC+14:00')]),
+        S("The earliest clocks, at UTC plus 14, are in Kiribati, the first place on Earth to see a new day.", [
+            ping(1.87, -157.4, 'Kiribati', color='#ffd60a'), dot('Kiribati', 1.87, -157.4, 'Kiribati', dy=-56, size=40), cnt('UTC+14', '14', size=170, color='#ffd60a')],
+          cam=at_(1.87, -157.4, 1.6),
+          src=[src('UTC+14 is the earliest time zone on Earth; areas in it are first to see a new day.', 'UTC+14:00', 'the earliest time zone on Earth, meaning that areas in this zone are the first to see a new day')]),
         S("But look at China. It's huge, and it uses only one time zone.", [
             hl('CHN', 'flag:cn', 'China', fillOpacity=0.85), clock([('one', '12:00')], screen=(0.5, 0.3), size=200, label='Beijing Time')],
           cam=at_(35, 100, 1.8),

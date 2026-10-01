@@ -534,6 +534,62 @@
     },
     {
       "era": "now",
+      "text": "The oldest ice from its summit is about one million years old.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "GRL",
+          "fill": "#38bdf8",
+          "at": "oldest",
+          "fillOpacity": 0.6,
+          "neon": "#9ee7ff"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "million",
+              "value": "1,000,000 yrs"
+            }
+          ],
+          "size": 140
+        },
+        {
+          "type": "icon",
+          "icon": "art:snowflake",
+          "lat": 72,
+          "lon": -40,
+          "size": 130,
+          "plain": true,
+          "at": "ice"
+        },
+        {
+          "type": "react",
+          "icon": "art:emote_shock",
+          "screen": [
+            0.21,
+            0.3
+          ],
+          "burst": true,
+          "size": 160,
+          "at": "million"
+        }
+      ],
+      "camera": {
+        "lat": 72,
+        "lon": -40,
+        "zoom": 2.4
+      },
+      "sources": [
+        {
+          "claim": "An ice core from the summit revealed ice about 1,000,000 years old.",
+          "url": "https://en.wikipedia.org/wiki/Greenland_ice_sheet",
+          "quote": "another 3 kilometres (1.9 mi) deep ice core from the summit has revealed ice that is ~1,000,000 years old"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "Today, lakes and glaciers cover only 14.3 percent of Iceland.",
       "show": [
         {
@@ -571,17 +627,6 @@
             0.3
           ],
           "labelWidth": 280
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_shock",
-          "screen": [
-            0.21,
-            0.3
-          ],
-          "burst": true,
-          "size": 160,
-          "at": "only"
         }
       ],
       "camera": {

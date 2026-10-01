@@ -216,6 +216,52 @@
     },
     {
       "era": "now",
+      "text": "The earliest clocks, at UTC plus 14, are in Kiribati, the first place on Earth to see a new day.",
+      "show": [
+        {
+          "type": "ping",
+          "lat": 1.87,
+          "lon": -157.4,
+          "color": "#ffd60a",
+          "at": "Kiribati"
+        },
+        {
+          "type": "label",
+          "text": "Kiribati",
+          "lat": 1.87,
+          "lon": -157.4,
+          "at": "Kiribati",
+          "dot": true,
+          "dy": -56,
+          "size": 40
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "14",
+              "value": "UTC+14"
+            }
+          ],
+          "size": 170,
+          "color": "#ffd60a"
+        }
+      ],
+      "camera": {
+        "lat": 1.87,
+        "lon": -157.4,
+        "zoom": 1.6
+      },
+      "sources": [
+        {
+          "claim": "UTC+14 is the earliest time zone on Earth; areas in it are first to see a new day.",
+          "url": "https://en.wikipedia.org/wiki/UTC+14:00",
+          "quote": "the earliest time zone on Earth, meaning that areas in this zone are the first to see a new day"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "But look at China. It's huge, and it uses only one time zone.",
       "show": [
         {

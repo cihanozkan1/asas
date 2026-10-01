@@ -498,6 +498,58 @@
     },
     {
       "era": "now",
+      "text": "The whole United Kingdom covers about 244,000 square kilometers, and more than 69 million people live in it.",
+      "show": [
+        {
+          "type": "highlight",
+          "target": "GBR",
+          "fill": "flag:gb",
+          "at": "whole",
+          "fillOpacity": 0.85
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "244,000",
+              "value": "244,376 km²"
+            }
+          ],
+          "size": 140
+        },
+        {
+          "type": "label",
+          "text": "69M+ people",
+          "at": "million",
+          "style": "pill",
+          "bg": "#1d4ed8",
+          "screen": [
+            0.5,
+            0.23
+          ],
+          "size": 46
+        }
+      ],
+      "camera": {
+        "lat": 54.5,
+        "lon": -4,
+        "zoom": 4.4
+      },
+      "sources": [
+        {
+          "claim": "The UK covers 94,354 sq mi (244,376 km²).",
+          "url": "https://en.wikipedia.org/wiki/United_Kingdom",
+          "quote": "94,354 square miles (244,376 km2)"
+        },
+        {
+          "claim": "Population over 69 million in 2024.",
+          "url": "https://en.wikipedia.org/wiki/United_Kingdom",
+          "quote": "population of over 69 million in 2024"
+        }
+      ]
+    },
+    {
+      "era": "now",
       "text": "But careful. The government of Ireland does not use that term at all.",
       "show": [
         {

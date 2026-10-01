@@ -25,7 +25,7 @@ def main(ids):
         d = os.path.join(ROOT, 'videos', i)
         s = json.load(open(os.path.join(d, 'script.json')))
         t0 = {}
-        tp = os.path.join(ROOT, 'output', i, 'timeline.geo.json')
+        tp = next((p for p in (os.path.join(ROOT, 'output', i, f'timeline.{st}.json') for st in ('geo', 'globe')) if os.path.exists(p)), '')
         if os.path.exists(tp):
             tl = json.load(open(tp))
             for k, sc in enumerate(tl.get('scenes', [])):

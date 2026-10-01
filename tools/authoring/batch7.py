@@ -44,6 +44,10 @@ save('greenland_iceland', meta(
           cam=at_(64.9, -19, 7),
           src=[src('Geothermal power and hydroelectricity give most residents inexpensive hot water, heating and electricity.', 'Iceland',
                    'With the widespread availability of geothermal power and the harnessing of many rivers and waterfalls for hydroelectricity, most residents have access to inexpensive hot water, heating, and electricity.')]),
+        S("The oldest ice from its summit is about one million years old.", [
+            hl('GRL', '#38bdf8', 'oldest', fillOpacity=0.6, neon='#9ee7ff'), cnt('1,000,000 yrs', 'million', size=140), art('snowflake', 72, -40, 'ice', size=130)],
+          cam=at_(72, -40, 2.4),
+          src=[src('An ice core from the summit revealed ice about 1,000,000 years old.', 'Greenland_ice_sheet', 'another 3 kilometres (1.9 mi) deep ice core from the summit has revealed ice that is ~1,000,000 years old')]),
         S("Today, lakes and glaciers cover only 14.3 percent of Iceland.", [
             lab('ICELAND', 66.3, -18, 0.05, style='pill', bg='#15803d', size=46), bars([('Greenland', 81, '81% ice', '#9ee7ff', 'gl'), ('Iceland', 14.3, '14.3%', '#4ade80', 'is')], 'cover', screen=[0.5, 0.3], labelWidth=280)],
           cam=at_(66, -30, 2.2), tr='flash',
@@ -286,6 +290,10 @@ save('uk_gb_england', meta(
             hl('IRL', '#16a34a', 'Ireland', fillOpacity=0.7), hl('GBR', '#9ca3af', 'Great', fillOpacity=0.5), lab('+ 6,000 smaller islands', 58.5, -9.5, 'smaller', style='pill', bg='#0f766e', size=38)],
           cam=at_(54.5, -5, 3.6),
           src=[src('British Isles = Great Britain + Ireland + smaller islands.', BT, 'the island of Great Britain plus the island of Ireland and many smaller surrounding islands')]),
+        S("The whole United Kingdom covers about 244,000 square kilometers, and more than 69 million people live in it.", [
+            hl('GBR', 'flag:gb', 'whole', fillOpacity=0.85), cnt('244,376 km²', '244,000', size=140), pill('69M+ people', 'million', bg='#1d4ed8')],
+          cam=at_(54.5, -4, 4.4),
+          src=[src('The UK covers 94,354 sq mi (244,376 km²).', 'United_Kingdom', '94,354 square miles (244,376 km2)'), src('Population over 69 million in 2024.', 'United_Kingdom', 'population of over 69 million in 2024')]),
         S("But careful. The government of Ireland does not use that term at all.", [hl('IRL', 'flag:ie', 'Ireland', fillOpacity=0.9), stamp('NOT USED', 'term', size=90), shake('term')],
           cam=at_(53.4, -8, 6),
           src=[src('The Irish government\'s policy is not to use the term.', BT, 'The policy of the government of Ireland is that no branch of government should use the term')]),

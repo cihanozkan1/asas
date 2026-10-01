@@ -350,6 +350,14 @@ save('longest_sail', meta(
           cam=at_(-25, 20, 1.05),
           src=[src('The researchers warn that the analysis does not ensure safe conditions along the tracks, and that it was a purely mathematical exercise.', SMS,
                    'the algorithm analysis does not ensure safe conditions along these tracks ... The problem was approached as a purely mathematical exercise')]),
+        S("A straight line on a globe is called a great circle, and it's the shortest path between two points on a sphere.", [
+            flow(SAIL, 'great', color='#2de2e6', width=10, drawDur=1.6), pill('GREAT CIRCLE', 'circle', bg='#0e7490'), art('anchor', -50, -40, 'shortest', size=110)],
+          cam=at_(-30, -60, 1.05, bearing=-4),
+          src=[src('A great-circle arc is the shortest path between two points on the surface of a sphere.', 'Great-circle_distance', 'This arc is the shortest path between the two points on the surface of the sphere.')]),
+        S("The route was first mapped years earlier by a Reddit user named Patrick Anderson.", [
+            year('Reddit', 'Reddit', light=True), art('laptop', -10, 70, 'Reddit', size=140), route(SAIL, 0.05, color='#2de2e6', width=4, dashed=True, dash=[10, 12], drawDur=0.6)],
+          cam=at_(-10, 70, 1.3),
+          src=[src('It was first mapped five years earlier by Reddit user Patrick Anderson.', SMS, 'first mapped five years ago by Reddit user Patrick Anderson, who goes by the screenname kepleronlyknows')]),
         S("It looks curved on a map, but on a globe, it's perfectly straight.", [flow(SAIL, 'looks', color='#2de2e6', width=10, drawDur=1.4), stamp('STRAIGHT!', 'straight', size=100)],
           cam=at_(-30, -60, 1.05, bearing=5),
           src=[src('It is the longest straight-line sailable path on Earth.', SMS, 'the longest straight-line sailable path on Earth')]),
