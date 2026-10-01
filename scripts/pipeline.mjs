@@ -62,6 +62,11 @@ async function main() {
     process.exit(2);
   }
   log(`senaryo OK: ${script.scenes.length} sahne, ${v.words} kelime, ~${v.estSec.toFixed(0)} sn`);
+  // logic gate: a ship must sail on water, a car/bus/train/walker must stay on land (real coastline check)
+  if (!args['skip-route-check']) {
+    const rc = spawnSync('node', [path.join(ROOT, 'tools/validate_routes.mjs'), 'videos/' + script.id], { encoding: 'utf8' });
+    if (rc.status !== 0) { console.error(rc.stdout + rc.stderr); console.error('Rota mantık hatası: gemi karadan / araç denizden geçiyor. Düzelt (road()/sea_lane() kullan) ya da --skip-route-check.'); process.exit(3); }
+  }
   if (args['check-only']) return;
 
   const styleArg = args.style || script.style || 'geo';

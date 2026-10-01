@@ -22,6 +22,10 @@ Sonra senaryoyu (`tools/authoring/`) bu plana göre yaz. Her gerçek iddia kayna
 - **Çeşitlilik**: aynı efekt/yazı/ses her videoda tekrarlanmaz; videoda aynı efekt ≤2 kez.
 Araştırma: `docs/SHORTS_TAKTIKLERI.md`.
 
+## Mantık ve araç kuralı
+- Yol/gemi rotası: `road()`, `sea_points()`, `sea_lane()` (gerçek geometri); `validate_routes.mjs` render kapısıdır.
+- Gerçek patlama/ateş/yanardağ: `clip()` + `tools/vfx_ingest.py` (bkz. `docs/ARAC_KUTUSU.md`). Kutulu yazı yok, etiket konuyu kapatmaz.
+
 ## Kurallar (referans kanaldan ölçüldü, `docs/REFERANS_FARKLAR.md`)
 1. **0–1 sn**: hareket başlamış, konu görünüyor. Başlık şeridi yok.
 2. **Her ~1–1,5 sn'de yeni bir şey**: öğe girişi, kamera hamlesi, sayaç, renk değişimi. Donuk an ≤ 1,2 sn.

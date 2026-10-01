@@ -486,3 +486,69 @@ def tally(items, at, **kw):
 def eruption(lat, lon, at, size=190, **kw):
     """Volcano erupts: lava fountain, lava streams down the slopes, ash plume, crater glow. size = height of the volcano art."""
     return _put({'type': 'eruption', 'lat': lat, 'lon': lon, 'size': size}, at, kw)
+
+
+# ------------------------------------------------------------------ real-geometry routes (no hand-typed coordinates)
+import hashlib, subprocess, sys as _sys
+_RC = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'route_cache.json')
+
+
+def _cached(key, fn):
+    cache = json.load(open(_RC)) if os.path.exists(_RC) else {}
+    k = hashlib.sha1(key.encode()).hexdigest()[:16]
+    if k not in cache:
+        cache[k] = {'key': key, 'pts': fn()}
+        json.dump(cache, open(_RC, 'w'), indent=0)
+    return [tuple(p) for p in cache[k]['pts']]
+
+
+def road_points(*places, ferry=False, max_pts=70):
+    """Real road geometry between waypoints (Natural Earth roads, public domain). places are (lat, lon)."""
+    def run():
+        args = [f'{a},{b}' for a, b in places]
+        out = subprocess.run([_sys.executable, os.path.join(ROOT, 'tools/roadroute.py'), *args, '--max', str(max_pts), *(['--ferry'] if ferry else [])],
+                             capture_output=True, text=True)
+        if out.returncode:
+            raise SystemExit('road(): ' + (out.stderr.strip().splitlines() or ['failed'])[-1])
+        return json.loads(out.stdout)
+    return _cached(f'road|{places}|{ferry}|{max_pts}', run)
+
+
+def sea_points(a, b):
+    """Shipping-lane geometry between two (lat, lon) points that never crosses land (searoute, Apache-2.0)."""
+    def run():
+        import searoute as sr
+        r = sr.searoute([a[1], a[0]], [b[1], b[0]])
+        return [[la, lo] for lo, la in r['geometry']['coordinates']]
+    return _cached(f'sea|{a}|{b}', run)
+
+
+def road(places, at, **kw):
+    """Highway/road drawn along the real road network between the (lat, lon) waypoints; medium='land' is checked by tools/validate_routes.mjs."""
+    ferry = kw.pop('ferry', False)
+    pts = road_points(*places, ferry=ferry, max_pts=kw.pop('max_pts', 70))
+    d = {'type': 'route', 'points': [list(p) for p in pts], 'medium': 'land', 'smooth': False}
+    d.update({k: v for k, v in kw.items()})
+    d.setdefault('color', '#ffd60a'); d.setdefault('width', 9)
+    return _put(d, at, {})
+
+
+def sea_lane(a, b, at, **kw):
+    """A shipping lane between two points along real sea routes; add mover for a ship."""
+    pts = sea_points(a, b)
+    d = {'type': 'route', 'points': [list(p) for p in pts], 'medium': 'water'}
+    d.update(kw)
+    return _put(d, at, {})
+
+
+def clip(name, at, lat=None, lon=None, size=540, blend=None, screen=None, loop=False, speed=1.0, **kw):
+    """A clip from the VFX library (assets/vfx/<name>, made by tools/vfx_ingest.py / vfx_fetch.py): frame sequence with
+    optional alpha. blend='screen' for fire/smoke footage shot on black. Place on the map (lat, lon) or on screen (screen=[x, y])."""
+    d = {'type': 'clip', 'name': name, 'size': size, 'loop': loop, 'speed': speed}
+    if blend:
+        d['blend'] = blend
+    if lat is not None:
+        d['lat'], d['lon'] = lat, lon
+    if screen is not None:
+        d['screen'] = list(screen)
+    return _put(d, at, kw)

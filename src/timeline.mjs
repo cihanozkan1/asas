@@ -235,6 +235,13 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           el.src = String(raw.icon).startsWith('flag:') ? `/node_modules/flag-icons/flags/4x3/${String(raw.icon).slice(5).toLowerCase()}.svg` : iconUrl(raw.icon);
           if (el.src.startsWith('/assets/art/') && !String(raw.icon).startsWith('art:')) el.size = Math.round((raw.size || 64) * 1.25);
           break;
+        case 'clip': {
+          const man = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets/vfx/MANIFEST.json'), 'utf8'))[raw.name];
+          if (!man) throw new Error(`Sahne ${i + 1}: VFX klibi yok: ${raw.name} (assets/vfx/MANIFEST.json)`);
+          el.n = man.frames; el.fps = man.fps; el.ext = man.ext || 'webp'; el.ratio = raw.ratio ?? man.ratio ?? 0.5625;
+          if (!raw.loop) el.end = Math.max(el.end, el.start + man.frames / (man.fps * (raw.speed || 1)));
+          break;
+        }
         case 'dim':
           el.targets = [];
           for (const t of raw.except || []) el.targets.push(shortKey(await targetKey(t)));

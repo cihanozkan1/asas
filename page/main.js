@@ -550,6 +550,7 @@ async function init(tl) {
     if (el.type === 'avatar') wanted.add(`/assets/characters/${el.image}.png`);
     if (el.type === 'handstamp') wanted.add('/assets/art/hand_stamp.png');
     if (el.type === 'wall' && el.siege) wanted.add('/assets/art/cannon.png');
+    if (el.type === 'clip') for (let k = 1; k <= Math.min(el.n || 1, 240); k++) wanted.add(`/assets/vfx/${el.name}/f${String(k).padStart(4, '0')}.${el.ext || 'webp'}`);
     if (el.mover?.image) wanted.add(`/assets/characters/${el.mover.image}.png`);
     if (el.rider?.image) wanted.add(`/assets/characters/${el.rider.image}.png`);
   }
@@ -2301,7 +2302,7 @@ function updateUi(t) {
         }
         break;
       }
-      case 'photo': case 'avatar': case 'react': case 'timebar': case 'orbit': case 'handstamp': case 'lens': case 'tally': {
+      case 'photo': case 'avatar': case 'react': case 'timebar': case 'orbit': case 'handstamp': case 'lens': case 'tally': case 'clip': {
         const tw = state.X.anim(el, inner, life, t);
         scale *= tw.scale; rot += tw.rot; opacity *= tw.opacity; x += tw.dx; y += tw.dy;
         break;

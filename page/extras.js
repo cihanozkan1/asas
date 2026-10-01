@@ -826,6 +826,10 @@ export function makeExtras(S) {
         return `<div class="inner tally">${(el.items || []).map((it) => `<div class="tr"><img src="/assets/art/${String(it.icon || '').replace('art:', '')}.png"><b data-v="${it.value}" data-p="${esc(it.prefix || '')}" data-s="${esc(it.suffix || '')}">0</b><span>${esc(it.label || '')}</span></div>`).join('')}</div>`;
       case 'handstamp':
         return `<div class="inner handstamp"><div class="hs-text" style="font-size:${el.size || 96}px">${esc(el.text)}</div><div class="hs-tool"><i class="knob"></i><i class="neck"></i><i class="base"></i></div></div>`;
+      case 'clip': {
+        const w = el.size || 540, h = Math.round(w * (el.ratio ?? 0.5625));
+        return `<div class="inner clip ${el.blend === 'screen' ? 'screen' : ''}" style="width:${w}px;height:${h}px;${el.round ? 'border-radius:24px;overflow:hidden;' : ''}${el.blend === 'screen' ? 'mix-blend-mode:screen;' : ''}"><canvas width="${w}" height="${h}"></canvas></div>`;
+      }
       case 'lens': {
         const D = (el.r || 300) * 2;
         return `<div class="inner lens" style="width:${D}px;height:${D}px"><canvas width="${D}" height="${D}"></canvas><div class="rim"></div><div class="handle"></div></div>`;
@@ -917,6 +921,23 @@ export function makeExtras(S) {
         const hit = clamp01((a - 0.38) / 0.06);
         tx.style.opacity = String(hit);
         tx.style.transform = `translate(-50%,-50%) rotate(-3deg) scale(${1 + (1 - hit) * 0.25})`;
+        break;
+      }
+      case 'clip': {
+        // frame sequence from assets/vfx/<name>/: shows the frame for the element's own time (looping optional)
+        const cv = inner.querySelector('canvas'), cx = cv.getContext('2d');
+        const n = el.n || 1, fps = el.fps || 24, sp = el.speed || 1;
+        let k = Math.floor(life.age * fps * sp);
+        k = el.loop ? k % n : Math.min(n - 1, k);
+        const im = img(`/assets/vfx/${el.name}/f${String(k + 1).padStart(4, '0')}.${el.ext || 'webp'}`);
+        cx.clearRect(0, 0, cv.width, cv.height);
+        if (im) {
+          // cover-fit
+          const sc = Math.max(cv.width / im.width, cv.height / im.height);
+          cx.drawImage(im, (cv.width - im.width * sc) / 2, (cv.height - im.height * sc) / 2, im.width * sc, im.height * sc);
+        }
+        tw.opacity = ease.outCubic(clamp01(life.age / 0.25)) * life.out;
+        tw.scale = 0.96 + 0.04 * ease.outCubic(clamp01(life.age / 0.4));
         break;
       }
       case 'lens': {

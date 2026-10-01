@@ -71,8 +71,8 @@ DG = 'Darién_Gap'
 PAH = 'Pan-American_Highway'
 GAP_PAN = {'admin1s': ['Darién', 'Emberá', 'Kuna Yala'], 'country': 'PAN'}
 GAP_COL = {'admin1': 'Chocó', 'country': 'COL'}
-HW_N = [(70.2, -148.4), (61.2, -149.9), (49.3, -123.1), (34, -118), (19.4, -99.1), (9.9, -84.1), (8.18, -77.69)]
-HW_S = [(8.09, -76.73), (4.6, -74.1), (-0.2, -78.5), (-12, -77), (-33.4, -70.6), (-54.8, -68.3)]
+HW_N = road_points((70.3, -148.7), (64.84, -147.72), (60.72, -135.05), (55.76, -120.24), (49.28, -123.12), (34.05, -118.24), (32.5, -117.0), (19.43, -99.13), (14.63, -90.51), (9.93, -84.08), (8.98, -79.52), (8.15, -77.69), max_pts=110)
+HW_S = road_points((8.1, -76.73), (6.25, -75.57), (4.71, -74.07), (-0.18, -78.47), (-12.05, -77.04), (-33.45, -70.67), (-34.6, -58.38), (-54.8, -68.3), max_pts=90)
 save('darien_gap', meta(
     'The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱',
     "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 A road was planned in 1971 and halted in 1974, and swamps, mountains, rainforest, deadly wildlife and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
@@ -81,8 +81,8 @@ save('darien_gap', meta(
     [
         S("Why does a highway that runs from Alaska all the way to Argentina suddenly stop?", [
             hook('THE ROAD THAT *STOPS*', at=0.05, until='Argentina'),
-            route(HW_N, 0.05, id='hw1', color='#ffd60a', width=9, drawDur=3.3, hold=1, nodes=True),
-            route(HW_S, 'Argentina', color='#ffd60a', width=9, drawDur=1.5, hold=1),
+            route(HW_N, 0.05, id='hw1', color='#ffd60a', width=9, drawDur=3.3, hold=1, nodes=True, medium='land', smooth=False),
+            route(HW_S, 'Argentina', color='#ffd60a', width=9, drawDur=1.5, hold=1, medium='land', smooth=False),
             cnt('30,000 km', 'suddenly', size=170)],
           cam={'follow': 'hw1', 'zoom': 3.4, 'zoomTo': 1.0, 'duration': 0.8, 'then': [{'at': 'Argentina', 'lat': -22, 'lon': -68, 'zoom': 1.15, 'duration': 1.3}]},
           src=[src('The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.', PAH, 'from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina')]),
@@ -102,7 +102,7 @@ save('darien_gap', meta(
           cam=at_(8.2, -77.2, 18, bearing=-3, duration=1.5),
           src=[src('The highway breaks at Yaviza, Panama and resumes at Turbo, Colombia, roughly 106 km away.', DG, "The 'Gap' interrupts the Pan-American Highway, which breaks at Yaviza, Panama, and resumes at Turbo, Colombia, roughly 106 km (66 mi) away.")]),
         S("Drivers can't get through. Cars have to be shipped around it by boat.", [
-            ship([(8.95, -79.5), (9.6, -78.5), (9.7, -77.2), (8.7, -76.9), (8.09, -76.73)], 'shipped', 'car', style='cargo', emblem='#ffd60a', drawDur=2.4),
+            ship(sea_points((9.37, -79.9), (8.09, -76.73)), 'shipped', 'car', style='cargo', emblem='#ffd60a', drawDur=2.4),
             react('art:emote_sweat', (0.74, 0.3), 'through', size=170)],
           cam=at_(8.8, -78.0, 8, duration=1.2),
           src=[src('Vehicles must be shipped by cargo vessel to get around the gap.', PAH, 'vehicles must be shipped by cargo vessel to bridge this section')]),

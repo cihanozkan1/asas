@@ -65,3 +65,8 @@ Money matters: these videos must earn, so retention beats novelty. Research note
 - Effects must match the story and be reusable in any video: `eruption` (lava, ash, glow), siege (`wall` with `siege`: cannons fire,
   balls hit, walls crumble). Add more such effects when a video's story calls for one (earthquake, flood, fire...).
 - Close zoom needs matching imagery: keep follow-camera zooms high enough for the fine Sentinel box; no blurry base showing.
+
+## Toolbox rules (5th round: build tools so we do not fix errors video by video)
+- Routes: never hand-type road/ship coordinates. Use `road()` / `sea_points()` / `sea_lane()` (helpers.py); `tools/validate_routes.mjs` is a render gate.
+- Real VFX (explosion, fire, volcano, dust, debris): use `clip()` with footage ingested by `tools/vfx_ingest.py` (see `docs/ARAC_KUTUSU.md`); only free/PD/CC0 or licence-checked free packs, licence logged in `docs/LISANSLAR.md`; no logos/watermarks.
+- The user does not want to check every video by hand: run the automatic gates (routes, labels, overlaps) and fix before showing.
