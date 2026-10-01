@@ -303,11 +303,18 @@ def enrich(scenes):
     return scenes
 
 
-def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None, styles=None, earth=None, captions=None, config=None):
+def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None, styles=None, earth=None, captions=None, config=None, v2=False):
+    # scripts rewritten from scratch with the full toolbox carry "v2": true; the old batch files must not overwrite them
+    _p = os.path.join(ROOT, 'videos', vid, 'script.json')
+    if not v2 and os.path.exists(_p) and json.load(open(_p)).get('v2'):
+        print('skip (v2)', vid)
+        return
     for sc in scenes:
         # no emoji-face reactions except the thinking face (user: they look silly); no tilt (flat map look)
         sc['show'] = [e for e in sc.get('show', []) if not (e.get('type') == 'react' and 'emote_think' not in str(e.get('icon'))) and e.get('type') != 'tilt']
     d = {'id': vid, 'style': style, 'meta': m, 'scenes': scenes}
+    if v2:
+        d['v2'] = True
     cfg = {}
     if keywords or captions:
         cfg['captions'] = dict(captions or {})

@@ -70,7 +70,7 @@
     },
     {
       "era": "now",
-      "text": "That title goes to Chimborazo, a volcano in Ecuador, only 6,263 meters high.",
+      "text": "No! That title belongs to Chimborazo, a volcano in Ecuador, which is only 6,263 meters high.",
       "show": [
         {
           "type": "ping",
@@ -78,16 +78,6 @@
           "lon": -78.817,
           "color": "#ff5a5f",
           "at": "Chimborazo"
-        },
-        {
-          "type": "label",
-          "text": "Chimborazo",
-          "lat": -1.469,
-          "lon": -78.817,
-          "at": "Chimborazo",
-          "dot": true,
-          "dy": -56,
-          "size": 44
         },
         {
           "type": "highlight",
@@ -110,7 +100,7 @@
       "camera": {
         "lat": -1.5,
         "lon": -78.8,
-        "zoom": 3.4
+        "zoom": 6.5
       },
       "sources": [
         {
@@ -122,11 +112,11 @@
     },
     {
       "era": "now",
-      "text": "It's a volcano covered by glaciers, and it last erupted around the year 550.",
+      "text": "It's a glacier-covered volcano, and it last erupted around the year 550 AD.",
       "show": [
         {
           "type": "icon",
-          "icon": "art:volcano",
+          "icon": "art:mountain",
           "lat": -1.469,
           "lon": -78.817,
           "size": 260,
@@ -136,8 +126,28 @@
         {
           "type": "particles",
           "kind": "snow",
-          "at": "glaciers",
+          "at": "glacier",
           "density": 0.5
+        },
+        {
+          "type": "clip",
+          "name": "emoji_volcano",
+          "size": 520,
+          "loop": false,
+          "speed": 1.0,
+          "lat": -1.469,
+          "lon": -78.817,
+          "at": "erupted"
+        },
+        {
+          "type": "clip",
+          "name": "emoji_fire",
+          "size": 360,
+          "loop": false,
+          "speed": 1.0,
+          "lat": -1.469,
+          "lon": -78.817,
+          "at": "550"
         },
         {
           "type": "counter",
@@ -165,7 +175,7 @@
     },
     {
       "era": "now",
-      "text": "In 1802, the explorer Alexander von Humboldt climbed it to 5,875 meters, higher than any European in recorded history had gone.",
+      "text": "In 1802, Alexander von Humboldt climbed it to 5,875 meters, higher than any European ever had.",
       "show": [
         {
           "type": "year",
@@ -215,7 +225,7 @@
     },
     {
       "era": "now",
-      "text": "Compared to Everest, it's more than two and a half kilometers lower.",
+      "text": "Everest is more than two and a half kilometers taller, so how can Chimborazo be closer to space?",
       "show": [
         {
           "type": "bars",
@@ -236,24 +246,10 @@
             }
           ],
           "orient": "v",
-          "at": "lower",
+          "at": "taller",
           "shape": "mountain",
           "height": 380
-        }
-      ],
-      "style": "neon",
-      "sources": [
-        {
-          "claim": "Chimborazo is 2,585 m lower than Everest above sea level.",
-          "url": "https://en.wikipedia.org/wiki/Chimborazo",
-          "quote": "Despite being 2,585 m (8,481 ft) lower in elevation above sea level, it is 6,384.4 km"
-        }
-      ]
-    },
-    {
-      "era": "now",
-      "text": "So how can it be closer to space? Because Earth is not a perfect ball.",
-      "show": [
+        },
         {
           "type": "question",
           "lat": 0,
@@ -267,11 +263,17 @@
         "zoom": 1.0
       },
       "style": "neon",
-      "noClaim": true
+      "sources": [
+        {
+          "claim": "Chimborazo is 2,585 m lower than Everest above sea level.",
+          "url": "https://en.wikipedia.org/wiki/Chimborazo",
+          "quote": "Despite being 2,585 m (8,481 ft) lower in elevation above sea level, it is 6,384.4 km"
+        }
+      ]
     },
     {
       "era": "now",
-      "text": "Earth is thicker at the equator than from pole to pole, like it's wearing a belt.",
+      "text": "Because Earth isn't a perfect ball. It's thicker at the equator, like it's wearing a belt.",
       "show": [
         {
           "type": "route",
@@ -380,6 +382,16 @@
             }
           ],
           "size": 150
+        },
+        {
+          "type": "clip",
+          "name": "emoji_globe-showing-americas",
+          "size": 300,
+          "loop": false,
+          "speed": 1.0,
+          "lat": -1.5,
+          "lon": -78.8,
+          "at": "center"
         }
       ],
       "camera": {
@@ -412,13 +424,10 @@
         {
           "type": "label",
           "text": "FARTHEST FROM THE CENTER",
+          "lat": 0.6,
+          "lon": -78.8,
           "at": "farthest",
-          "style": "pill",
-          "bg": "#b91c1c",
-          "screen": [
-            0.5,
-            0.45
-          ],
+          "style": "map",
           "size": 44
         },
         {
@@ -444,7 +453,7 @@
     },
     {
       "era": "now",
-      "text": "That's about 2.1 kilometers farther out than the top of Everest.",
+      "text": "That's about 2.1 kilometers farther out than the top of Everest, so Chimborazo wins.",
       "show": [
         {
           "type": "ping",
@@ -473,6 +482,16 @@
           ],
           "size": 170,
           "color": "#ff5a5f"
+        },
+        {
+          "type": "clip",
+          "name": "emoji_rocket",
+          "size": 300,
+          "loop": false,
+          "speed": 1.0,
+          "lat": -1.5,
+          "lon": -78.8,
+          "at": "farther"
         },
         {
           "type": "stamp",
@@ -512,6 +531,7 @@
       "noClaim": true
     }
   ],
+  "v2": true,
   "config": {
     "captions": {
       "theme": "impact",

@@ -3,7 +3,7 @@
   "style": "geo",
   "meta": {
     "title": "The US Town You Can Only Drive to Through Canada 🇺🇸🇨🇦🤯 Point Roberts",
-    "description": "Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, older kids cross the border four times on every school trip, and when the border closed in 2020 the town lost about 80% of its business 🤯",
+    "description": "Point Roberts 🇺🇸 is a piece of Washington State on the tip of a Canadian peninsula south of Vancouver 🇨🇦 To reach the rest of the USA by land you have to drive about 40 km through Canada 🚗 Why? The 1846 Oregon Treaty set the US–Canada border at the 49th parallel, and the line cut straight across the tip of the Tsawwassen peninsula 📏 About 1,191 people live there, older kids cross the border four times on every school trip, and when the border closed in 2020 the town lost about 80% of its business 🚨🤯",
     "pinnedComment": [
       "Kids here cross an international border 4 times to go to school 🤯🚌",
       "Would you live in Point Roberts? 👇",
@@ -191,7 +191,7 @@
     },
     {
       "era": "history",
-      "text": "It was named in 1792 by the explorer George Vancouver, after his friend Henry Roberts.",
+      "text": "George Vancouver named it in 1792, after his friend Henry Roberts.",
       "show": [
         {
           "type": "year",
@@ -200,42 +200,13 @@
           "at": "1792"
         },
         {
-          "type": "route",
-          "points": [
-            [
-              49.42,
-              -124.0
-            ],
-            [
-              49.2,
-              -123.62
-            ],
-            [
-              49.05,
-              -123.28
-            ],
-            [
-              48.985,
-              -123.09
-            ]
-          ],
-          "color": "#ffffff",
-          "width": 5,
-          "at": "explorer",
-          "id": "sea",
-          "dashed": true,
-          "dash": [
-            14,
-            12
-          ],
-          "glow": false,
-          "mover": {
-            "kind": "ship",
-            "size": 170,
-            "emblem": "#c1121f",
-            "style": "caravel"
-          },
-          "drawDur": 2.6
+          "type": "label",
+          "text": "Henry Roberts",
+          "lat": 49.2,
+          "lon": -123.55,
+          "at": "friend",
+          "style": "serif",
+          "size": 44
         }
       ],
       "camera": {
@@ -442,50 +413,66 @@
     },
     {
       "era": "now",
-      "text": "To reach the rest of the USA by land, you drive about 40 kilometers through Canada.",
+      "text": "So to reach the rest of the USA by land, you drive about 40 kilometers through Canada.",
       "show": [
         {
           "type": "route",
           "points": [
             [
-              48.975,
-              -123.06
+              48.9765,
+              -123.0585
             ],
             [
-              49.002,
-              -123.068
+              49.001,
+              -123.075
             ],
             [
-              49.04,
-              -123.07
+              49.0299,
+              -123.0954
             ],
             [
-              49.085,
-              -123.04
+              49.0449,
+              -123.067
             ],
             [
-              49.115,
-              -122.97
+              49.0554,
+              -123.0566
             ],
             [
-              49.11,
-              -122.88
+              49.1092,
+              -123.0551
             ],
             [
-              49.06,
-              -122.8
+              49.1112,
+              -123.0481
             ],
             [
-              49.03,
-              -122.775
+              49.1027,
+              -123.0273
             ],
             [
-              49.002,
-              -122.757
+              49.1009,
+              -123.0047
             ],
             [
-              48.993,
-              -122.75
+              49.1062,
+              -122.9891
+            ],
+            [
+              49.1027,
+              -122.9266
+            ],
+            [
+              49.0888,
+              -122.8519
+            ],
+            [
+              49.0766,
+              -122.8276
+            ],
+            [
+              48.995,
+              -122.7234
             ]
           ],
           "color": "#ffffff",
@@ -504,7 +491,9 @@
             "size": 90
           },
           "nodes": true,
-          "drawDur": 3.6
+          "drawDur": 3.6,
+          "medium": "land",
+          "smooth": false
         },
         {
           "type": "label",
@@ -550,44 +539,60 @@
           "type": "route",
           "points": [
             [
-              48.975,
-              -123.06
+              48.9765,
+              -123.0585
             ],
             [
-              49.002,
-              -123.068
+              49.001,
+              -123.075
             ],
             [
-              49.04,
-              -123.07
+              49.0299,
+              -123.0954
             ],
             [
-              49.085,
-              -123.04
+              49.0449,
+              -123.067
             ],
             [
-              49.115,
-              -122.97
+              49.0554,
+              -123.0566
             ],
             [
-              49.11,
-              -122.88
+              49.1092,
+              -123.0551
             ],
             [
-              49.06,
-              -122.8
+              49.1112,
+              -123.0481
             ],
             [
-              49.03,
-              -122.775
+              49.1027,
+              -123.0273
             ],
             [
-              49.002,
-              -122.757
+              49.1009,
+              -123.0047
             ],
             [
-              48.993,
-              -122.75
+              49.1062,
+              -122.9891
+            ],
+            [
+              49.1027,
+              -122.9266
+            ],
+            [
+              49.0888,
+              -122.8519
+            ],
+            [
+              49.0766,
+              -122.8276
+            ],
+            [
+              48.995,
+              -122.7234
             ]
           ],
           "color": "#ffffff",
@@ -606,7 +611,9 @@
             "size": 100
           },
           "nodes": true,
-          "drawDur": 2.6
+          "drawDur": 2.6,
+          "medium": "land",
+          "smooth": false
         },
         {
           "type": "counter",
@@ -643,7 +650,7 @@
     },
     {
       "era": "now",
-      "text": "In March 2020, the border closed to non-essential travel, and the town lost about eighty percent of its business.",
+      "text": "In March 2020, the border closed, and the town lost about eighty percent of its business.",
       "show": [
         {
           "type": "year",
@@ -660,6 +667,16 @@
             0.5,
             0.36
           ]
+        },
+        {
+          "type": "clip",
+          "name": "emoji_police-car-light",
+          "size": 200,
+          "loop": true,
+          "speed": 1.0,
+          "lat": 49.0,
+          "lon": -122.99,
+          "at": "closed"
         },
         {
           "type": "grade",
@@ -696,7 +713,7 @@
     },
     {
       "era": "now",
-      "text": "So a temporary passenger ferry carried people from Point Roberts to Blaine, over the water.",
+      "text": "So a temporary passenger ferry carried people to Blaine, over the water.",
       "show": [
         {
           "type": "route",
@@ -866,7 +883,7 @@
     },
     {
       "era": "now",
-      "text": "Forty times more Canadians have mailboxes in Point Roberts than the number of residents.",
+      "text": "Forty times more Canadians have mailboxes here than there are residents.",
       "show": [
         {
           "type": "crowd",
@@ -912,7 +929,7 @@
     },
     {
       "era": "now",
-      "text": "Today, about 1,191 people live in this American town cut off by Canada.",
+      "text": "Only 1,191 people live in this American town, cut off by Canada.",
       "show": [
         {
           "type": "highlight",
@@ -971,18 +988,6 @@
           "size": 180
         },
         {
-          "type": "label",
-          "text": "people (2020)",
-          "at": "1,191",
-          "style": "pill",
-          "bg": "#e63946",
-          "screen": [
-            0.5,
-            0.23
-          ],
-          "size": 46
-        },
-        {
           "type": "ping",
           "lat": 48.975,
           "lon": -123.06,
@@ -1019,6 +1024,7 @@
       "noClaim": true
     }
   ],
+  "v2": true,
   "config": {
     "captions": {
       "keywords": {

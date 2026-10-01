@@ -3,7 +3,7 @@
   "style": "geo",
   "meta": {
     "title": "The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia",
-    "description": "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 The Bosphorus is the only passage between the Black Sea and the Mediterranean, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
+    "description": "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 after a 55-day siege 💥 and officially renamed Istanbul in 1930 🕌 The Bosphorus is the only passage between the Black Sea and the Mediterranean, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
     "pinnedComment": [
       "One city, two continents 🤯🇹🇷",
       "Do you live on the European or the Asian side? 👇",
@@ -18,6 +18,7 @@
       "constantinople",
       "byzantium",
       "ottoman empire",
+      "siege of constantinople",
       "transcontinental",
       "geography",
       "history",
@@ -95,74 +96,26 @@
     },
     {
       "era": "now",
-      "text": "Istanbul is split by a narrow strait: one half is in Europe, the other half is in Asia.",
+      "text": "Because a narrow strait cuts straight through it: the Bosphorus.",
       "show": [
-        {
-          "type": "box",
-          "from": [
-            40.95,
-            28.55
-          ],
-          "to": [
-            41.35,
-            28.99
-          ],
-          "at": "Europe",
-          "color": "#5ec8ff"
-        },
         {
           "type": "label",
           "text": "EUROPE",
           "lat": 41.14,
-          "lon": 28.78,
-          "at": "Europe",
-          "style": "extrude",
-          "anim": "giant",
-          "size": 80
-        },
-        {
-          "type": "box",
-          "from": [
-            40.8,
-            29.02
-          ],
-          "to": [
-            41.25,
-            29.45
-          ],
-          "at": "Asia",
-          "color": "#ffd60a"
+          "lon": 28.82,
+          "at": "Because",
+          "style": "map",
+          "size": 64
         },
         {
           "type": "label",
           "text": "ASIA",
           "lat": 41.0,
-          "lon": 29.24,
-          "at": "Asia",
-          "style": "extrude",
-          "anim": "giant",
-          "size": 80
-        }
-      ],
-      "camera": {
-        "lat": 41.06,
-        "lon": 29.0,
-        "zoom": 90,
-        "bearing": -6
-      },
-      "transition": "flash",
-      "sources": [
-        {
-          "claim": "The Bosporus forms a continental boundary between Asia and Europe.",
-          "url": "https://en.wikipedia.org/wiki/Bosporus",
-          "quote": "forms one of the continental boundaries between Asia and Europe"
-        }
-      ]
-    },
-    {
-      "era": "now",
-      "text": "Between them flows the Bosphorus Strait. Ferries cross it all day long.",
-      "show": [
+          "lon": 29.22,
+          "at": "Because",
+          "style": "map",
+          "size": 64
+        },
         {
           "type": "route",
           "points": [
@@ -197,11 +150,31 @@
           ],
           "color": "#5ec8ff",
           "width": 10,
-          "at": "Bosphorus",
-          "drawDur": 1.6,
+          "at": "strait",
+          "drawDur": 1.4,
           "laser": true,
-          "hold": 3
-        },
+          "hold": 2
+        }
+      ],
+      "camera": {
+        "lat": 41.06,
+        "lon": 29.0,
+        "zoom": 90,
+        "bearing": -6
+      },
+      "transition": "flash",
+      "sources": [
+        {
+          "claim": "The Bosporus forms a continental boundary between Asia and Europe.",
+          "url": "https://en.wikipedia.org/wiki/Bosporus",
+          "quote": "forms one of the continental boundaries between Asia and Europe"
+        }
+      ]
+    },
+    {
+      "era": "now",
+      "text": "It's 31 kilometers long, and at its narrowest point it's only 700 meters wide.",
+      "show": [
         {
           "type": "route",
           "points": [
@@ -224,7 +197,7 @@
           ],
           "color": "#ffffff",
           "width": 4,
-          "at": "Ferries",
+          "at": "long",
           "dashed": true,
           "dash": [
             14,
@@ -237,56 +210,9 @@
             "size": 170,
             "style": "ferry"
           },
-          "drawDur": 2.8,
+          "drawDur": 2.6,
           "check": false
         },
-        {
-          "type": "pathtext",
-          "text": "Bosphorus Strait",
-          "points": [
-            [
-              41.03,
-              29.01
-            ],
-            [
-              41.07,
-              29.05
-            ],
-            [
-              41.11,
-              29.06
-            ],
-            [
-              41.16,
-              29.08
-            ],
-            [
-              41.2,
-              29.12
-            ]
-          ],
-          "size": 44,
-          "at": "Strait"
-        }
-      ],
-      "camera": {
-        "follow": "fer",
-        "zoom": 200,
-        "zoomTo": 110,
-        "duration": 1.0
-      },
-      "sources": [
-        {
-          "claim": "The Bosporus forms a continental boundary between Asia and Europe.",
-          "url": "https://en.wikipedia.org/wiki/Bosporus",
-          "quote": "forms one of the continental boundaries between Asia and Europe"
-        }
-      ]
-    },
-    {
-      "era": "now",
-      "text": "It's 31 kilometers long, and at its narrowest point it's only about 700 meters wide.",
-      "show": [
         {
           "type": "counter",
           "steps": [
@@ -352,7 +278,7 @@
     },
     {
       "era": "now",
-      "text": "More than 15 million people live here, and about two thirds of them are on the European side.",
+      "text": "More than 15 million people live here, and two thirds of them are on the European side.",
       "show": [
         {
           "type": "counter",
@@ -363,18 +289,6 @@
             }
           ],
           "size": 190
-        },
-        {
-          "type": "label",
-          "text": "⅔ live in Europe",
-          "at": "thirds",
-          "style": "pill",
-          "bg": "#1d4ed8",
-          "screen": [
-            0.5,
-            0.23
-          ],
-          "size": 46
         },
         {
           "type": "crowd",
@@ -526,7 +440,7 @@
     },
     {
       "era": "history",
-      "text": "It was founded by Greek colonists as Byzantium, and in 330 it became Constantinople.",
+      "text": "Greek colonists founded Byzantium here, and in the year 330 it became Constantinople.",
       "show": [
         {
           "type": "year",
@@ -606,15 +520,6 @@
           "dot": true,
           "dy": 70,
           "size": 34
-        },
-        {
-          "type": "icon",
-          "icon": "art:crown",
-          "lat": 41.05,
-          "lon": 28.92,
-          "size": 110,
-          "plain": true,
-          "at": "Byzantine"
         }
       ],
       "camera": {
@@ -632,7 +537,7 @@
     },
     {
       "era": "history",
-      "text": "In 1453, the Ottomans hit its walls with giant cannons, and after a 55 day siege they conquered it.",
+      "text": "In 1453, Ottoman cannons pounded the five kilometer long Theodosian walls for fifty five days.",
       "show": [
         {
           "type": "year",
@@ -679,47 +584,140 @@
               28.944
             ]
           ],
-          "at": "walls",
-          "buildDur": 1.4,
+          "at": 0.15,
+          "buildDur": 1.2,
           "side": -1,
           "width": 22
         },
         {
           "type": "icon",
           "icon": "art:cannon",
-          "lat": 41.0,
-          "lon": 28.87,
-          "size": 170,
+          "lat": 41.003,
+          "lon": 28.903,
+          "size": 150,
           "plain": true,
           "at": "cannons"
+        },
+        {
+          "type": "icon",
+          "icon": "art:cannon",
+          "lat": 41.018,
+          "lon": 28.906,
+          "size": 150,
+          "plain": true,
+          "at": "pounded"
+        },
+        {
+          "type": "icon",
+          "icon": "art:cannon",
+          "lat": 41.034,
+          "lon": 28.913,
+          "size": 150,
+          "plain": true,
+          "at": "Theodosian"
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 230,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.02,
+          "lon": 28.9265,
+          "at": 0.9
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 230,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.034,
+          "lon": 28.9355,
+          "at": 1.32
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 230,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.012,
+          "lon": 28.923,
+          "at": 1.74
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 230,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.0405,
+          "lon": 28.94,
+          "at": 2.16
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 230,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.028,
+          "lon": 28.931,
+          "at": 2.58
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 230,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.0045,
+          "lon": 28.9215,
+          "at": 3.0
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 230,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.0435,
+          "lon": 28.944,
+          "at": 3.42
+        },
+        {
+          "type": "clip",
+          "name": "emoji_fire",
+          "size": 220,
+          "loop": true,
+          "speed": 1.0,
+          "lat": 41.028,
+          "lon": 28.931,
+          "at": 3.2
+        },
+        {
+          "type": "clip",
+          "name": "emoji_fire",
+          "size": 200,
+          "loop": true,
+          "speed": 1.0,
+          "lat": 41.012,
+          "lon": 28.923,
+          "at": 3.5
         },
         {
           "type": "shake",
           "at": "cannons"
         },
         {
-          "type": "label",
-          "text": "Theodosian Walls",
-          "lat": 41.012,
-          "lon": 28.893,
-          "at": "siege",
-          "style": "serif",
-          "size": 40
-        },
-        {
-          "type": "character",
-          "image": "sultan",
-          "screen": [
-            0.74,
-            0.6
-          ],
-          "at": "conquered",
-          "name": "Mehmed II"
+          "type": "shake",
+          "at": "pounded"
         }
       ],
       "camera": {
         "lat": 41.02,
-        "lon": 28.945,
+        "lon": 28.93,
         "zoom": 900
       },
       "sources": [
@@ -727,11 +725,6 @@
           "claim": "Conquered on 29 May 1453 after a 55-day siege.",
           "url": "https://en.wikipedia.org/wiki/Istanbul",
           "quote": "The Ottomans conquered the city \"on 29 May 1453, after a 55-day siege.\""
-        },
-        {
-          "claim": "Mehmed II's cannons hurled massive stone balls at the walls.",
-          "url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople",
-          "quote": "His 27-foot-long (8.2 m) cannon was named \"Basilica\" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km)."
         },
         {
           "claim": "The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.",
@@ -742,7 +735,136 @@
     },
     {
       "era": "history",
-      "text": "And in 1930, it was officially renamed Istanbul.",
+      "text": "One giant cannon fired stone balls weighing 270 kilograms, and the city finally fell.",
+      "show": [
+        {
+          "type": "year",
+          "value": "1453",
+          "at": "giant",
+          "screen": [
+            0.25,
+            0.07
+          ]
+        },
+        {
+          "type": "wall",
+          "points": [
+            [
+              41.012,
+              28.923
+            ],
+            [
+              41.02,
+              28.9265
+            ],
+            [
+              41.028,
+              28.931
+            ],
+            [
+              41.034,
+              28.9355
+            ]
+          ],
+          "at": 0.05,
+          "buildDur": 0.4,
+          "side": -1,
+          "width": 26
+        },
+        {
+          "type": "icon",
+          "icon": "art:cannon",
+          "lat": 41.0235,
+          "lon": 28.9075,
+          "size": 210,
+          "plain": true,
+          "at": "giant"
+        },
+        {
+          "type": "counter",
+          "steps": [
+            {
+              "at": "270",
+              "value": "270 kg"
+            }
+          ],
+          "size": 170
+        },
+        {
+          "type": "clip",
+          "name": "emoji_comet",
+          "size": 200,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.02,
+          "lon": 28.9265,
+          "at": "balls"
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 240,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.028,
+          "lon": 28.931,
+          "at": "weighing"
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 300,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.02,
+          "lon": 28.9265,
+          "at": "finally"
+        },
+        {
+          "type": "clip",
+          "name": "emoji_fire",
+          "size": 260,
+          "loop": true,
+          "speed": 1.0,
+          "lat": 41.02,
+          "lon": 28.9265,
+          "at": "fell"
+        },
+        {
+          "type": "clip",
+          "name": "emoji_fire",
+          "size": 220,
+          "loop": true,
+          "speed": 1.0,
+          "lat": 41.028,
+          "lon": 28.931,
+          "at": "fell"
+        },
+        {
+          "type": "shake",
+          "at": "weighing"
+        },
+        {
+          "type": "shake",
+          "at": "finally"
+        }
+      ],
+      "camera": {
+        "lat": 41.024,
+        "lon": 28.929,
+        "zoom": 1500
+      },
+      "sources": [
+        {
+          "claim": "Mehmed II's cannon Basilica hurled a stone ball weighing 270 kg over 1.6 km.",
+          "url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople",
+          "quote": "His 27-foot-long (8.2 m) cannon was named \"Basilica\" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km)."
+        }
+      ]
+    },
+    {
+      "era": "history",
+      "text": "In 1930, it was officially renamed Istanbul.",
       "show": [
         {
           "type": "year",
@@ -775,7 +897,7 @@
     },
     {
       "era": "now",
-      "text": "Today, three bridges and a railway tunnel under the strait connect Europe and Asia.",
+      "text": "Today, three bridges and a railway tunnel link the two continents.",
       "show": [
         {
           "type": "counter",
@@ -968,6 +1090,16 @@
           "check": false
         },
         {
+          "type": "clip",
+          "name": "emoji_bubbles",
+          "size": 260,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.0195,
+          "lon": 28.996,
+          "at": "underwater"
+        },
+        {
           "type": "grade",
           "mode": "cold",
           "at": "underwater"
@@ -1001,6 +1133,7 @@
       "noClaim": true
     }
   ],
+  "v2": true,
   "config": {
     "captions": {
       "keywords": {
@@ -1008,7 +1141,8 @@
         "europe": "#5ec8ff",
         "asia": "#ffd60a",
         "bosphorus": "#5ec8ff",
-        "constantinople": "#ffd60a"
+        "constantinople": "#ffd60a",
+        "cannons": "#ff5a5f"
       }
     }
   },
@@ -1021,6 +1155,15 @@
         41.35
       ],
       "width": 4096
+    },
+    {
+      "bbox": [
+        28.885,
+        40.985,
+        28.975,
+        41.06
+      ],
+      "width": 2048
     }
   ]
 }

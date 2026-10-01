@@ -3,7 +3,7 @@
   "style": "geo",
   "meta": {
     "title": "How Hawaii Became Part of the USA 🇺🇸🌺🤯",
-    "description": "Hawaii 🌺 is a US state in the middle of the Pacific, but it used to be an independent kingdom 👑 In 1893 a group of mostly American businessmen, backed by US sailors and Marines, overthrew Queen Liliʻuokalani, who surrendered to avoid bloodshed. The United States annexed Hawaii in 1898, it became a territory in 1900 and a state in 1959 🇺🇸 And in 1993, Congress formally apologized for the US role in the overthrow 🤯",
+    "description": "Hawaii 🌺 is a US state in the middle of the Pacific, but it used to be an independent kingdom 👑 In 1893 a group of mostly American businessmen, backed by US sailors and Marines, overthrew Queen Liliʻuokalani, who surrendered to avoid bloodshed 🏳️ The United States annexed Hawaii in 1898, it became a territory in 1900 and a state in 1959 🇺🇸 And in 1993, Congress formally apologized for the US role in the overthrow 🤯",
     "pinnedComment": [
       "A kingdom that became a US state 🤯🌺",
       "Did you know the US apologized for this in 1993? 👇",
@@ -26,7 +26,7 @@
   "scenes": [
     {
       "era": "now",
-      "text": "Why is Hawaii a US state, when it sits in the middle of the Pacific Ocean?",
+      "text": "Why is Hawaii a US state, when it sits all alone in the middle of the Pacific Ocean?",
       "show": [
         {
           "type": "title",
@@ -51,27 +51,15 @@
           },
           "fill": "flag:us",
           "at": "Hawaii",
-          "hold": 1
+          "hold": 1,
+          "neon": "#ffd60a"
         },
         {
-          "type": "highlight",
-          "target": "USA",
-          "fill": "flag:us",
-          "at": "state",
-          "fillOpacity": 0.6
-        },
-        {
-          "type": "arrow",
-          "from": [
-            33,
-            -120
-          ],
-          "to": [
-            23,
-            -152
-          ],
+          "type": "ping",
+          "lat": 21.0,
+          "lon": -157.0,
           "color": "#ffd60a",
-          "at": "middle"
+          "at": "Pacific"
         }
       ],
       "camera": {
@@ -90,20 +78,20 @@
     },
     {
       "era": "now",
-      "text": "It lies about 3,200 kilometers southwest of the US mainland, and it's the only state that is an archipelago.",
+      "text": "It lies 3,200 kilometers from the US mainland, and it's the only state that is an archipelago.",
       "show": [
         {
           "type": "arrow",
           "from": [
             34,
-            -120
+            -122
           ],
           "to": [
-            22,
-            -156
+            22.5,
+            -153
           ],
           "color": "#ffd60a",
-          "at": "southwest"
+          "at": "lies"
         },
         {
           "type": "counter",
@@ -148,15 +136,16 @@
     },
     {
       "era": "now",
-      "text": "Its volcano Mauna Kea is even taller than Mount Everest, when you measure from its base on the ocean floor.",
+      "text": "Its volcano Mauna Kea is taller than Mount Everest, when you measure it from the ocean floor.",
       "show": [
         {
-          "type": "icon",
-          "icon": "art:volcano",
+          "type": "clip",
+          "name": "emoji_volcano",
+          "size": 420,
+          "loop": false,
+          "speed": 1.0,
           "lat": 19.82,
           "lon": -155.47,
-          "size": 190,
-          "plain": true,
           "at": "Mauna"
         },
         {
@@ -176,7 +165,7 @@
           "lon": -155.47,
           "at": "Mauna",
           "dot": true,
-          "dy": -70,
+          "dy": -110,
           "size": 36
         }
       ],
@@ -262,7 +251,7 @@
     },
     {
       "era": "history",
-      "text": "The kingdom was founded in 1795 by Kamehameha the First. And in 1843, Britain and France recognized it as an independent state.",
+      "text": "It was founded in 1795 by Kamehameha the First, and in 1843 Britain and France recognized it as an independent state.",
       "show": [
         {
           "type": "year",
@@ -288,14 +277,11 @@
         {
           "type": "label",
           "text": "Independent state",
+          "lat": 18.6,
+          "lon": -157.4,
           "at": "independent",
-          "style": "pill",
-          "bg": "#0f766e",
-          "screen": [
-            0.5,
-            0.23
-          ],
-          "size": 46
+          "style": "serif",
+          "size": 48
         }
       ],
       "sources": [
@@ -313,7 +299,7 @@
     },
     {
       "era": "history",
-      "text": "But in 1893, a group of mostly foreign businessmen overthrew her, backed by US sailors and Marines.",
+      "text": "But in 1893, mostly foreign businessmen overthrew the Queen, backed by US sailors and Marines.",
       "show": [
         {
           "type": "year",
@@ -367,7 +353,7 @@
     },
     {
       "era": "history",
-      "text": "The Queen surrendered, to avoid bloodshed.",
+      "text": "She surrendered, to avoid bloodshed.",
       "show": [
         {
           "type": "character",
@@ -376,18 +362,25 @@
             0.25,
             0.6
           ],
-          "at": "Queen",
+          "at": "surrendered",
           "name": "Queen Liliʻuokalani"
         },
         {
-          "type": "icon",
-          "icon": "🕊️",
-          "lat": 21.6,
-          "lon": -157.5,
-          "size": 110,
-          "at": "bloodshed"
+          "type": "clip",
+          "name": "emoji_white-flag",
+          "size": 420,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 21.31,
+          "lon": -157.86,
+          "at": "surrendered"
         }
       ],
+      "camera": {
+        "lat": 21.35,
+        "lon": -157.85,
+        "zoom": 60
+      },
       "sources": [
         {
           "claim": "The Queen surrendered to avoid bloodshed.",
@@ -398,7 +391,7 @@
     },
     {
       "era": "now",
-      "text": "In 1898, the United States annexed Hawaii. It became a territory in 1900, and a state in 1959.",
+      "text": "In 1898, the United States annexed Hawaii. In 1900 it became a territory, and in 1959, it finally became a state.",
       "show": [
         {
           "type": "counter",
@@ -496,6 +489,7 @@
       "noClaim": true
     }
   ],
+  "v2": true,
   "config": {
     "captions": {
       "keywords": {

@@ -76,3 +76,7 @@ Money matters: these videos must earn, so retention beats novelty. Research note
 - Python stack (MoviePy, FFmpeg overlay, Matplotlib/GeoPandas/Cartopy/Plotly/Datashader/Manim/leafmap) is in `tools/py/`; Natural Earth data via `npm run geodata`; BlenderGIS via `npm run blender:setup`.
 - For explosions, fire, volcano, storm, etc. prefer `clip('emoji_collision' | 'emoji_fire' | 'emoji_volcano' | ...)` (Noto, CC BY 4.0: the pipeline adds the credit to the upload text) over the old hand-drawn `eruption`/`siege`.
 - Do not skip an item "because we already have something similar": the user wants all of them available.
+
+## Round 7: the five videos rebuilt from scratch (7th round)
+- `tools/authoring/v2_five.py` authors istanbul, point_roberts, hawaii, darien_gap, chimborazo anew with the toolbox (Noto emoji clips, real routes, question hook, loop). Scripts carry `"v2": true`; old `batch*.py` skip them (`helpers.save(v2=True)`).
+- Non-looping `clip` elements now end when their frames end (no frozen last frame). Close-up scenes get their own fine Sentinel box (Istanbul walls).
