@@ -127,15 +127,6 @@ save('darien_gap', meta(
             arrow((6.5, -76.6), (9.2, -77.9), 'spreading', color='#e11d2e', width=14)],
           style='pastel', cam=at_(7.9, -77.3, 8),
           src=[src('In 1978 the US Department of Agriculture blocked US support to prevent the spread of foot-and-mouth disease.', DG, 'US support was further blocked by the US Department of Agriculture in 1978, with the intention of preventing the spread of foot-and-mouth disease.')]),
-        S("In 1994, a United Nations agency warned that a road would cause extensive environmental damage.", [
-            year(1994, '1994', light=True), pill('UN WARNING', 'agency', bg='#1d4ed8', screen=(0.5, 0.36)),
-            icon('art:palm', 8.2, -77.4, 'damage', size=150, hex='#16a34a')],
-          style='pastel', cam=at_(8.0, -77.3, 10),
-          src=[src('In 1994 a UN agency reported that the road would cause extensive environmental damage.', DG, 'but by 1994, a United Nations agency reported that the road and the subsequent development would cause extensive environmental damage.')]),
-        S("Five Indigenous groups, about eight thousand people, fear a road would erode their cultures.", [
-            crowd(8.1, -77.6, 'Five', count=8, cols=4, size=60, color='#ffe0b0'), cnt('8,000', 'eight', size=170, color='#ffe0b0')],
-          style='pastel', cam=at_(8.0, -77.5, 12),
-          src=[src('Five tribes comprising 8,000 people have said a road could erode their cultures.', DG, 'The Embera-Wounaan and Guna are among five tribes, comprising 8,000 people, who have expressed concern that the road would potentially result in erosion of their cultures.')]),
         S("Today the jungle is full of venomous wildlife and tropical diseases.", [
             pin(7.6, -77.1, 'art:snake', 'venomous'), pin(8.1, -77.5, 'art:mosquito', 'diseases'), grade('danger', 0.3)],
           cam=at_(7.9, -77.3, 20, duration=1.2), tr='flash',
