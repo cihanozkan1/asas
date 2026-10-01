@@ -38,3 +38,19 @@ Work in this role on every video: pace, cut points, SFX and VFX are planned for 
 `npm run check -- videos/<id>`, `npm run stills -- videos/<id> --style both`,
 `npm run make -- videos/<id> --style geo|globe|both`. In the cloud container set
 `FFMPEG_PATH` (imageio-ffmpeg) — the SessionStart hook does this.
+
+## Retention rules from the user (saved verbatim, 2nd round)
+"Bir video üreticisi/içerik stratejisti gibi düşünmeni istiyorum. Hazırlayacağın dikey videoların (Shorts/Reels/TikTok) izleyiciye en etkili, sürükleyici ve profesyonel şekilde aktarılması için şu kurallara kesinlikle uyman gerekiyor:
+1. İlk 3 Saniye Kuralı (The Hook): Video başlar başlamaz (ilk 1 saniyede) merak, şok veya yüksek değer algısı yaratan bir cümleyle başla. Asla 'Merhaba', 'Kanalıma hoş geldiniz' gibi zaman kaybettiren girişler yapma. Ekranda ilk saniyede büyük, okunması kolay ve merak uyandırıcı bir başlık (Text Hook) bulunmalı.
+2. Yüksek Tempo ve Dinamik Kurgu: Konuşmalar arasındaki tüm nefes boşluklarını sil. Görsel, açı veya odak her 2-3 saniyede bir değişmeli; sabit görüntü yok, aralara konuyla ilgili destekleyici görüntüler (B-Roll) ekle.
+3. Altyazı ve Görsel Destek: Söylenen her kelime dinamik, renkli, hareketli altyazı olarak gelsin. Önemli kelimeleri sarı, kırmızı veya yeşil gibi renklerle vurgula. Altyazılarla eş zamanlı hafif ses efektleri (pop, woosh, dın) ve uygun emojiler kullan.
+4. Bilgi Yoğunluğu ve Netlik: En kısa, en vurucu haliyle anlat; gereksiz detayı kırp; video 'hap bilgi' kıvamında olsun.
+5. Kusursuz Döngü: Son cümleyi öyle ayarla ki video başa döndüğünde anlamlı bir cümle tamamlansın; izleyici bittiğini anlamadan ikinci kez izlemeye başlasın."
+Money matters: these videos must earn, so retention beats novelty. Research notes: `docs/SHORTS_TAKTIKLERI.md`.
+
+## Quality rules from the user (3rd round)
+- No confetti/sparkle text effects; effects must suit the calm map style.
+- No blur on zoom-out. To emphasise something: dim the surroundings slightly and keep the subject bright (spotlight).
+- A country made of several parts: put the flag/fill on EVERY part, never only the largest.
+- Stamp scene: the stamp comes straight down from above, same size as the text, presses, lifts.
+- Do not repeat the same texts/effects/sounds in every video: per-video variety, fewer effects.

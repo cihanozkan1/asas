@@ -12,6 +12,16 @@ Rol (kullanıcının cümlesi, birebir):
 Sahne sahne tablo: `süre | anlatım | kamera | harita stili | ana görsel | ikincil görseller | karakter/espri | geçiş | SFX`.
 Sonra senaryoyu (`tools/authoring/`) bu plana göre yaz. Her gerçek iddia kaynak + alıntı ister (CLAUDE.md).
 
+## Retention komutu (kullanıcı, CLAUDE.md'de birebir) — her videoda zorunlu
+- **Kanca**: ilk 1 sn'de büyük yazı (2–5 kelime) + hareket; selam yok. `hook` sahne yazısı, ilk karede.
+- **Tempo**: cümle arası boşluk yok; her 2–3 sn'de yeni görsel/odak; sabit görüntü yok.
+- **Altyazı**: kelime bazlı, anahtar kelime renkli (sarı/kırmızı/yeşil), hafif SFX, uygun emoji (ağzı açık yüz yok).
+- **Bilgi yoğunluğu**: her cümle yeni gerçek; dolgu yok.
+- **Döngü**: son cümle açılış cümlesini tamamlar; son kare = ilk kare; CTA yok.
+- Konfeti/blur yok; vurgu = çevre hafif kararır (spot). Çok parçalı ülkede bayrak her parçaya. Damga tam yukarıdan iner.
+- **Çeşitlilik**: aynı efekt/yazı/ses her videoda tekrarlanmaz; videoda aynı efekt ≤2 kez.
+Araştırma: `docs/SHORTS_TAKTIKLERI.md`.
+
 ## Kurallar (referans kanaldan ölçüldü, `docs/REFERANS_FARKLAR.md`)
 1. **0–1 sn**: hareket başlamış, konu görünüyor. Başlık şeridi yok.
 2. **Her ~1–1,5 sn'de yeni bir şey**: öğe girişi, kamera hamlesi, sayaç, renk değişimi. Donuk an ≤ 1,2 sn.
