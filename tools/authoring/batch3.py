@@ -118,9 +118,9 @@ save('istanbul', meta(
           era='history', cam=at_(41.01, 28.98, 60),
           src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
         S("In 1453, the Ottomans hit its walls with giant cannons, and after a 55 day siege they conquered it.", [
-            year(1453, '1453'), wall(WALLS, 'walls', buildDur=1.6, side=-1, width=16), lab('Theodosian Walls', 41.03, 28.915, 'siege', style='serif', size=40),
-            art('cannon', 41.0, 28.87, 'cannons', size=150), shake('cannons'), char('sultan', 'conquered', name='Mehmed II', screen=(0.74, 0.6)), handstamp('CONQUERED', 'conquered', size=84, screen=[0.5, 0.34])],
-          cam=at_(41.02, 28.955, 780), era='history',
+            year(1453, '1453', screen=[0.25, 0.07]), wall(WALLS, 0.1, buildDur=1.0, side=-1, width=26, siege={'cannons': 4, 'shots': 9, 'delay': 1.0, 'dist': 300, 'size': 180}), lab('Theodosian Walls', 41.03, 28.915, 'siege', style='serif', size=40),
+            char('sultan', 'conquered', name='Mehmed II', screen=(0.74, 0.6)), handstamp('CONQUERED', 'conquered', size=84, screen=[0.5, 0.34])],
+          cam=at_(41.02, 28.955, 1500), era='history',
           src=[src('Conquered on 29 May 1453 after a 55-day siege.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege."'),
                src('Mehmed II\'s cannons hurled massive stone balls at the walls.', 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).'),
                src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north')]),
@@ -140,7 +140,7 @@ save('istanbul', meta(
         S("That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.", [
             cnt('60 m', 'sixty', size=190, color='#4ade80'), route([(41.0150, 28.9770), (41.0195, 28.9960), (41.0255, 29.0150)], 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 100}, drawDur=2.4),
             react('art:emote_cool', (0.78, 0.3), 'underwater', size=170), grade('cold', 'underwater')],
-          cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9}, style='dark',
+          cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9},
           src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
         # loop: the last words lead into the first question; the last frame is the first frame
         S("And that is the answer to one simple question:", [],
@@ -283,11 +283,11 @@ save('hawaii', meta(
             hook('WHY IS *HAWAII* AMERICAN?', at=0.05, until='state'),
             hl(HI, 'flag:us', 'Hawaii', hold=1), hl('USA', 'flag:us', 'state', fillOpacity=0.6),
             arrow((33, -120), (23, -152), 'middle', color='#ffd60a')],
-          cam=at_(28, -140, 1.2, bearing=-3),
+          cam=at_(23, -150, 1.3, bearing=-3),
           src=[src('Hawaii became a US state in 1959.', 'Overthrow_of_the_Hawaiian_Kingdom', 'eventually achieved statehood in 1959')]),
         S("It lies about 3,200 kilometers southwest of the US mainland, and it's the only state that is an archipelago.", [
             arrow((34, -120), (22, -156), 'southwest', color='#ffd60a'), cnt('3,200 km', '3,200', size=160), hl(HI, 'flag:us', 'archipelago', fillOpacity=0.85, neon='#ffd60a')],
-          cam=at_(27, -138, 1.3, bearing=-3),
+          cam=at_(23, -148, 1.4, bearing=-3),
           src=[src('About 2,000 miles (3,200 km) southwest of the US mainland.', 'Hawaii', 'in the Pacific Ocean about 2,000 miles (3,200 km) southwest of the U.S. mainland'),
                src('Hawaii is the only state that is an archipelago.', 'Hawaii', 'the only state not on the North American mainland, the only state that is an archipelago, the only state south of the Tropic of Cancer')]),
         S("Its volcano Mauna Kea is even taller than Mount Everest, when you measure from its base on the ocean floor.", [
@@ -324,6 +324,6 @@ save('hawaii', meta(
           src=[src('In 1993 Congress passed the Apology Resolution, signed by President Clinton.', 'Overthrow_of_the_Hawaiian_Kingdom', 'In 1993, Congress passed the Apology Resolution, which President Clinton signed, formally apologizing for the U.S. role in the overthrow')]),
         # loop: the last words lead into the first question; the last frame is the first frame
         S("And that is the real story behind one simple question:", [],
-          cam=at_(28, -140, 1.2, duration=1.6, loopIntro=True), no_claim=True),
+          cam=at_(23, -150, 1.3, duration=1.6, loopIntro=True), no_claim=True),
     ],
     keywords={'hawaii': '#ff5a5f', 'united': '#5ec8ff', 'queen': '#ffd60a', 'marines': '#5ec8ff'})

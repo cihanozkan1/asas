@@ -635,7 +635,11 @@
         {
           "type": "year",
           "value": "1453",
-          "at": "1453"
+          "at": "1453",
+          "screen": [
+            0.25,
+            0.07
+          ]
         },
         {
           "type": "wall",
@@ -673,10 +677,17 @@
               28.944
             ]
           ],
-          "at": "walls",
-          "buildDur": 1.6,
+          "at": 0.1,
+          "buildDur": 1.0,
           "side": -1,
-          "width": 16
+          "width": 26,
+          "siege": {
+            "cannons": 4,
+            "shots": 9,
+            "delay": 1.0,
+            "dist": 300,
+            "size": 180
+          }
         },
         {
           "type": "label",
@@ -686,19 +697,6 @@
           "at": "siege",
           "style": "serif",
           "size": 40
-        },
-        {
-          "type": "icon",
-          "icon": "art:cannon",
-          "lat": 41.0,
-          "lon": 28.87,
-          "size": 150,
-          "plain": true,
-          "at": "cannons"
-        },
-        {
-          "type": "shake",
-          "at": "cannons"
         },
         {
           "type": "character",
@@ -724,7 +722,7 @@
       "camera": {
         "lat": 41.02,
         "lon": 28.955,
-        "zoom": 780
+        "zoom": 1500
       },
       "sources": [
         {
@@ -971,17 +969,6 @@
           "drawDur": 2.4
         },
         {
-          "type": "react",
-          "icon": "art:emote_cool",
-          "screen": [
-            0.78,
-            0.3
-          ],
-          "burst": true,
-          "at": "underwater",
-          "size": 170
-        },
-        {
           "type": "grade",
           "mode": "cold",
           "at": "underwater"
@@ -993,7 +980,6 @@
         "zoomTo": 140,
         "duration": 0.9
       },
-      "style": "dark",
       "sources": [
         {
           "claim": "The Marmaray tube was placed 60 metres below sea level.",

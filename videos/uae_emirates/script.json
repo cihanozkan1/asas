@@ -514,12 +514,6 @@
           "lon": 55.27,
           "size": 120,
           "at": "city"
-        },
-        {
-          "type": "tilt",
-          "deg": 36,
-          "at": "people",
-          "until": 3.5
         }
       ],
       "camera": {

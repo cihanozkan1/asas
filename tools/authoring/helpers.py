@@ -305,7 +305,8 @@ def enrich(scenes):
 
 def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None, styles=None, earth=None, captions=None, config=None):
     for sc in scenes:
-        sc['show'] = [e for e in sc.get('show', []) if not (e.get('type') == 'react' and 'emote_shock' in str(e.get('icon')))]
+        # no emoji-face reactions except the thinking face (user: they look silly); no tilt (flat map look)
+        sc['show'] = [e for e in sc.get('show', []) if not (e.get('type') == 'react' and 'emote_think' not in str(e.get('icon'))) and e.get('type') != 'tilt']
     d = {'id': vid, 'style': style, 'meta': m, 'scenes': scenes}
     cfg = {}
     if keywords or captions:
@@ -480,3 +481,8 @@ def tally(items, at, **kw):
         if len(it) > 4: d['suffix'] = it[4]
         rows.append(d)
     return _put({'type': 'tally', 'items': rows}, at, kw)
+
+
+def eruption(lat, lon, at, size=190, **kw):
+    """Volcano erupts: lava fountain, lava streams down the slopes, ash plume, crater glow. size = height of the volcano art."""
+    return _put({'type': 'eruption', 'lat': lat, 'lon': lon, 'size': size}, at, kw)

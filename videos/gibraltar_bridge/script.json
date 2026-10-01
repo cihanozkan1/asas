@@ -270,12 +270,6 @@
       "text": "So why is there no bridge? First, the water is deep. Between 300 and 900 meters.",
       "show": [
         {
-          "type": "tilt",
-          "deg": 40,
-          "at": "deep",
-          "until": 5
-        },
-        {
           "type": "bars",
           "items": [
             {

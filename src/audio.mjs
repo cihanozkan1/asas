@@ -55,7 +55,7 @@ export async function mux({ video, narration, sfx, music, musicVolume, duration,
   if (sfx) {
     args.push('-i', sfx);
     // effects duck under the narration so they never cover a word
-    voice = `[1:a]aresample=48000,apad,asplit=2[n0][nsc];[${next}:a]aresample=48000[fx0];[fx0][nsc]sidechaincompress=threshold=0.02:ratio=4:attack=5:release=220[fx];[n0][fx]amix=inputs=2:duration=first:normalize=0[voice];`;
+    voice = `[1:a]aresample=48000,apad,asplit=2[n0][nsc];[${next}:a]aresample=48000,lowpass=f=6000[fx0];[fx0][nsc]sidechaincompress=threshold=0.015:ratio=8:attack=5:release=260[fx];[n0][fx]amix=inputs=2:duration=first:normalize=0[voice];`;
     next++;
   }
   if (music) {

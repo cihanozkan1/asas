@@ -90,6 +90,31 @@ function thud(f0 = 70) {
   }
   return out;
 }
+function boom(dur = 0.55) {
+  // distant cannon / impact: falling sine + a burst of low noise, quick decay
+  const n = Math.round(dur * SR), out = new Float32Array(n);
+  let ph = 0, lp = 0, sd = 7;
+  const rnd = () => ((sd = (sd * 9301 + 49297) % 233280) / 233280) * 2 - 1;
+  for (let i = 0; i < n; i++) {
+    const t = i / SR, f = 48 + 90 * Math.exp(-t / 0.07);
+    ph += (2 * Math.PI * f) / SR;
+    lp += 0.06 * (rnd() - lp);
+    out[i] = (Math.sin(ph) * 0.8 + lp * 2.2 * Math.exp(-t / 0.08)) * Math.exp(-t / 0.16) * Math.min(1, t / 0.004);
+  }
+  return out;
+}
+function rumble(dur = 1.4) {
+  // low volcanic rumble: filtered noise swelling in and out
+  const n = Math.round(dur * SR), out = new Float32Array(n);
+  let lp = 0, lp2 = 0, sd = 11;
+  const rnd = () => ((sd = (sd * 9301 + 49297) % 233280) / 233280) * 2 - 1;
+  for (let i = 0; i < n; i++) {
+    const u = i / n;
+    lp += 0.02 * (rnd() - lp); lp2 += 0.08 * (lp - lp2);
+    out[i] = lp2 * 14 * Math.sin(Math.PI * u) ** 1.5;
+  }
+  return out;
+}
 function rise(dur = 0.35, f0 = 500) {
   // tiny upward "ping" for question marks / emphasis
   const n = Math.round(dur * SR), out = new Float32Array(n);
@@ -111,7 +136,7 @@ function rewind(dur = 0.8, bright = 1) {
 }
 
 // relative loudness of each role (the whole track is scaled again at mix time)
-const GAIN = { pop: 0.32, tick: 0.18, bell: 0.2, whoosh: 0.28, thud: 0.38, rise: 0.16, page: 0.35, rewind: 0.3 };
+const GAIN = { pop: 0.28, tick: 0.14, bell: 0.16, whoosh: 0.2, thud: 0.26, rise: 0.12, page: 0.28, rewind: 0.22, boom: 0.3, rumble: 0.3 };
 
 export function sfxEvents(tl) {
   const tune = strHash(JSON.stringify(tl.kit || '') + tl.duration.toFixed(2));
@@ -141,7 +166,16 @@ export function sfxEvents(tl) {
       case 'stamp': add(t, 'thud', 1); break;
       case 'arrow': case 'line': case 'measure': case 'route': add(t, 'whoosh', 0.4); break;
       case 'bridge': add(t, 'whoosh', 0.35); add(t + (el.buildDur ?? 1.0) * 0.9, 'pop', 0.7); break;
-      case 'wall': add(t, 'whoosh', 0.35); add(t + (el.buildDur ?? 1.4), 'thud', 0.5); break;
+      case 'wall':
+        add(t, 'whoosh', 0.35);
+        if (el.siege) {
+          // same schedule as the renderer: shot i fires at start + delay + i*T, the ball lands 0.45 s later
+          const n = el.siege.shots ?? 11, delay = el.siege.delay ?? 1.4, dur = Math.max(2.5, el.end - el.start);
+          const T = Math.max(0.28, (dur * 0.8 - delay) / Math.max(1, n - 1));
+          for (let i = 0; i < n; i++) add(el.start + delay + i * T + 0.45, 'boom', i >= n - 2 ? 0.95 : 0.62);
+        } else add(t + (el.buildDur ?? 1.4), 'thud', 0.5);
+        break;
+      case 'eruption': add(t, 'rumble', 0.9); add(t + 0.05, 'boom', 0.7); break;
       case 'ghost': add(t + (el.delay ?? 0.3), 'whoosh', 0.5); break;
       case 'react': add(t, 'pop', 0.9); add(t + 0.05, 'rise', 0.7); break;
       case 'avatar': case 'pin': case 'face': case 'box': add(t, 'pop', 0.7); break;
@@ -174,13 +208,13 @@ export function sfxEvents(tl) {
   // sparse on purpose: a sound is a signal, not wallpaper. Each role has its own minimum gap,
   // soft events (vol < 0.6) are dropped about every third time (per-video pattern), and at most
   // one sound per 0.7 s (ticks and page turns excepted).
-  const GAP = { pop: 0.9, whoosh: 2.4, thud: 3.0, bell: 2.6, rise: 3.2, tick: 0.12, page: 0.5, rewind: 4 };
+  const GAP = { pop: 0.9, whoosh: 2.4, thud: 3.0, bell: 2.6, rise: 3.2, tick: 0.12, page: 0.5, rewind: 4, boom: 0.3, rumble: 4 };
   const out = [];
   for (const e of ev) {
     if (e.vol < 0.6 && hash(e.t * 31 + tune * 97) < 0.34) continue;
     const last = [...out].reverse().find((o) => o.role === e.role);
     if (last && e.t - last.t < (GAP[e.role] ?? 1)) continue;
-    if (e.role !== 'tick' && e.role !== 'page' && out.some((o) => o.role !== 'tick' && e.t - o.t < 0.7)) continue;
+    if (e.role !== 'tick' && e.role !== 'page' && e.role !== 'boom' && out.some((o) => o.role !== 'tick' && e.t - o.t < 0.7)) continue;
     out.push(e);
   }
   return out.map((e, i) => ({ ...e, tune, var: hash(e.t * 97 + i) }));
@@ -197,6 +231,8 @@ async function voiceFor(e) {
     case 'thud': return thud(68 * k);
     case 'rise': return rise(0.32, 520 * k);
     case 'rewind': return rewind(0.8, b);
+    case 'boom': return boom();
+    case 'rumble': return rumble();
     case 'page': return loadFile(`k/bookFlip${1 + Math.floor(e.var * 3)}.ogg`);
     default: return new Float32Array(1);
   }

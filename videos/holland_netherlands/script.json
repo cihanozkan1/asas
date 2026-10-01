@@ -169,12 +169,6 @@
           "size": 120,
           "plain": true,
           "at": "below"
-        },
-        {
-          "type": "tilt",
-          "deg": 34,
-          "at": "below",
-          "until": 3.0
         }
       ],
       "camera": {
@@ -296,12 +290,6 @@
             0.3
           ],
           "labelWidth": 200
-        },
-        {
-          "type": "tilt",
-          "deg": 34,
-          "at": "home",
-          "until": 3.5
         }
       ],
       "camera": {

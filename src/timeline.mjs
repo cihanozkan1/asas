@@ -313,6 +313,8 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
 
   // Minimum screen time: nothing should flash by. Start up to 1 s earlier (never before its
   // scene), then run on; map-anchored things stop shortly after their scene ends.
+  // the view stays the same from one scene to the next (map things may then run on into it)
+  const same = (a, b) => !b || (a && b && !a.fit && !b.fit && Math.abs((a.lat ?? 0) - (b.lat ?? 0)) < 0.5 && Math.abs((a.lon ?? 0) - (b.lon ?? 0)) < 0.5 && Math.abs(Math.log((a.zoom || 1) / (b.zoom || 1))) < 0.35);
   const MIN_ON = cfg.video.minOnScreen ?? 2.8;
   const INSTANT = new Set(['shake', 'punch', 'tilt', 'dim']);
   for (const el of elements) {
@@ -331,11 +333,13 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     // map things may run into the next scene only while the view stays the same (no new camera,
     // or the same camera); otherwise they'd float over an unrelated map
     const nx = scenes[el.scene + 1];
-    const same = (a, b) => !b || (a && b && !a.fit && !b.fit && Math.abs((a.lat ?? 0) - (b.lat ?? 0)) < 0.5 && Math.abs((a.lon ?? 0) - (b.lon ?? 0)) < 0.5 && Math.abs(Math.log((a.zoom || 1) / (b.zoom || 1))) < 0.35);
     // points, names and icons belong to what is being said: they leave when the narration moves on
     const POINTY = new Set(['ping', 'label', 'icon', 'flag', 'question', 'scatter', 'badge', 'measure']);
-    const cap = POINTY.has(el.type) ? sc.end + 0.15 : nx && same(sc.camera, nx.camera) && nx.era === sc.era ? nx.end : sc.end + 0.8;
-    const end = el.type === 'react' ? Math.min(el.end + deficit, sc.end + 0.25) : el.screen ? el.end + deficit : Math.min(el.end + deficit, cap);
+    // a map thing never carries into a scene with another era, style or view (a ship route
+    // must not sail on into the history scene)
+    const carry = nx && same(sc.camera, nx.camera) && nx.era === sc.era && nx.style === sc.style;
+    const cap = POINTY.has(el.type) ? sc.end + 0.15 : carry ? nx.end : sc.end + 0.05;
+    const end = el.type === 'react' ? Math.min(el.end + deficit, sc.end + 0.25) : el.screen ? Math.min(el.end + deficit, sc.end + 0.6) : Math.min(el.end + deficit, cap);
     el.end = Math.min(Math.max(el.end, end), narration.duration);
   }
 
@@ -354,7 +358,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
       if (gapEnd == null) gapEnd = sc.end;
       if (gapEnd - gapStart < 1.2) break;
       const prev = elements
-        .filter((e) => !INSTANT.has(e.type) && e.type !== 'title' && e.type !== 'character' && !e.screen && !e._until && e.end <= gapStart + 0.05 && e.scene >= si - 1 && e.scene <= si)
+        .filter((e) => !INSTANT.has(e.type) && e.type !== 'title' && e.type !== 'character' && !e.screen && !e._until && e.end <= gapStart + 0.05 && (e.scene === si || (e.scene === si - 1 && same(scenes[si - 1].camera, sc.camera) && scenes[si - 1].era === sc.era && scenes[si - 1].style === sc.style)))
         .sort((a, b) => b.end - a.end);
       if (!prev.length) break;
       const lastEnd = prev[0].end;

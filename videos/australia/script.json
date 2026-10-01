@@ -367,17 +367,6 @@
           "size": 150,
           "plain": true,
           "at": "driest"
-        },
-        {
-          "type": "react",
-          "icon": "art:emote_sweat",
-          "screen": [
-            0.79,
-            0.3
-          ],
-          "burst": true,
-          "at": "driest",
-          "size": 160
         }
       ],
       "camera": {

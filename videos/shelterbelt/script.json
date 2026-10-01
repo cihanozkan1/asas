@@ -375,12 +375,6 @@
       "text": "The idea: rows of trees slow down the wind, and keep moisture in the soil.",
       "show": [
         {
-          "type": "tilt",
-          "deg": 40,
-          "at": "rows",
-          "until": 4
-        },
-        {
           "type": "scatter",
           "target": {
             "box": [

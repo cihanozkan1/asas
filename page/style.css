@@ -510,3 +510,31 @@ html, body {
 .tally .tr img { width: 70px; height: 70px; object-fit: contain; }
 .tally .tr b { font-weight: 900; font-size: 62px; min-width: 330px; text-align: right; color: #ffd60a; text-shadow: 0 3px 8px rgba(0,0,0,.8); }
 .tally .tr span { font-weight: 800; font-size: 40px; opacity: .92; }
+
+/* ---------- no boxed text (user rule): text sits directly on the map with outline + soft shadow ---------- */
+#captions.theme-box .cap span.line { background: none !important; box-shadow: none !important; border: 0 !important; padding: 0 !important; }
+#captions.theme-box .cap { -webkit-text-stroke: 5px rgba(0,0,0,.7) !important; paint-order: stroke fill; text-shadow: 0 3px 12px rgba(0,0,0,.6) !important; }
+.label.pill, .label.map, .label.place, .counter, .stat .v, .title.hook, .dim, .character .nametag,
+.kit-block .counter, .kit-block .stat .v, .kit-block .label.pill, .kit-block .label.map, .kit-block .label.place, .kit-block .title.hook, .kit-block .dim, .kit-block .character .nametag,
+.kit-neon .counter, .kit-neon .stat .v, .kit-neon .label.pill,
+.kit-paper .counter, .kit-paper .stat .v, .kit-paper .label.pill, .kit-paper .label.map, .kit-paper .label.place, .kit-paper .title.hook, .kit-paper .dim, .kit-paper .character .nametag,
+.kit-news .counter, .kit-news .stat .v, .kit-news .label.pill, .kit-news .label.map, .kit-news .label.place, .kit-news .title.hook, .kit-news .character .nametag,
+.kit-outline .counter, .kit-outline .stat .v, .kit-outline .label.pill, .kit-outline .dim {
+  background: none !important; border: 0 !important; border-left: 0 !important; border-bottom: 0 !important; border-radius: 0 !important;
+  box-shadow: none !important; outline: none !important;
+  -webkit-text-stroke: 5px rgba(0,0,0,.62) !important; paint-order: stroke fill;
+  text-shadow: 0 4px 14px rgba(0,0,0,.55) !important;
+}
+.label.pill, .label.map, .label.place, .kit-block .label.pill, .kit-block .label.map, .kit-block .label.place,
+.kit-paper .label.pill, .kit-paper .label.map, .kit-paper .label.place, .kit-news .label.pill, .kit-news .label.map, .kit-news .label.place,
+.kit-neon .label.pill, .kit-outline .label.pill, .dim, .kit-block .dim, .kit-paper .dim, .kit-outline .dim { color: #fff !important; }
+.kit-block .counter, .kit-paper .counter, .kit-news .counter, .kit-neon .counter, .kit-outline .counter, .counter { color: var(--cnt, #ffd60a) !important; }
+.kit-block .stat .v, .kit-paper .stat .v, .kit-news .stat .v, .kit-neon .stat .v, .kit-outline .stat .v { color: #ffd60a !important; }
+.title.hook, .kit-block .title.hook, .kit-paper .title.hook, .kit-news .title.hook { color: #fff !important; text-align: center !important; padding: 0 !important; }
+.kit-block .title.hook em, .kit-paper .title.hook em, .kit-news .title.hook em { color: var(--accent, #ffd60a) !important; -webkit-text-stroke: 5px rgba(0,0,0,.62) !important; }
+.bars, .vbars, .kit-block .bars, .kit-block .vbars, .kit-neon .bars, .kit-neon .vbars, .kit-paper .bars, .kit-paper .vbars, .kit-news .bars, .kit-news .vbars, .kit-outline .bars, .kit-outline .vbars {
+  background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+}
+.kit-paper .bars .lab, .kit-paper .vbars .lab, .kit-paper .vbars .val, .kit-paper .bars .val { color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.8) !important; }
+/* stamps stay stamps (outline only, no filled plate) */
+.kit-block .stamp, .kit-neon .stamp, .kit-paper .stamp, .kit-news .stamp, .kit-outline .stamp { background: none !important; box-shadow: none !important; outline: none !important; color: #e11d2e; border-color: #e11d2e; }

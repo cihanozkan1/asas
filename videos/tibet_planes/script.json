@@ -502,12 +502,6 @@
           "fillOpacity": 0.2
         },
         {
-          "type": "tilt",
-          "deg": 40,
-          "at": "ground",
-          "until": 4
-        },
-        {
           "type": "stamp",
           "text": "NO WAY DOWN",
           "size": 84,

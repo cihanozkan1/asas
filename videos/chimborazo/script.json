@@ -110,7 +110,7 @@
       "camera": {
         "lat": -1.5,
         "lon": -78.8,
-        "zoom": 2.2
+        "zoom": 3.4
       },
       "sources": [
         {
@@ -129,7 +129,7 @@
           "icon": "art:volcano",
           "lat": -1.469,
           "lon": -78.817,
-          "size": 190,
+          "size": 260,
           "plain": true,
           "at": "volcano"
         },
@@ -138,6 +138,13 @@
           "kind": "snow",
           "at": "glaciers",
           "density": 0.5
+        },
+        {
+          "type": "eruption",
+          "lat": -1.469,
+          "lon": -78.817,
+          "size": 260,
+          "at": "erupted"
         },
         {
           "type": "counter",
@@ -380,12 +387,6 @@
             }
           ],
           "size": 150
-        },
-        {
-          "type": "tilt",
-          "deg": 36,
-          "at": "summit",
-          "until": 3.5
         }
       ],
       "camera": {

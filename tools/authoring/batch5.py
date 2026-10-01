@@ -102,7 +102,7 @@ save('darien_gap', meta(
           cam=at_(8.2, -77.2, 18, bearing=-3, duration=1.5),
           src=[src('The highway breaks at Yaviza, Panama and resumes at Turbo, Colombia, roughly 106 km away.', DG, "The 'Gap' interrupts the Pan-American Highway, which breaks at Yaviza, Panama, and resumes at Turbo, Colombia, roughly 106 km (66 mi) away.")]),
         S("Drivers can't get through. Cars have to be shipped around it by boat.", [
-            rider_ship([(8.95, -79.5), (9.6, -78.5), (9.7, -77.2), (8.7, -76.9), (8.09, -76.73)], 'shipped', 'car', 'jungle_explorer', (8.05, -76.68), style='cargo', emblem='#ffd60a', drawDur=2.4, rider_size=105),
+            ship([(8.95, -79.5), (9.6, -78.5), (9.7, -77.2), (8.7, -76.9), (8.09, -76.73)], 'shipped', 'car', style='cargo', emblem='#ffd60a', drawDur=2.4),
             react('art:emote_sweat', (0.74, 0.3), 'through', size=170)],
           cam=at_(8.8, -78.0, 8, duration=1.2),
           src=[src('Vehicles must be shipped by cargo vessel to get around the gap.', PAH, 'vehicles must be shipped by cargo vessel to bridge this section')]),
@@ -132,7 +132,7 @@ save('darien_gap', meta(
           cam=at_(7.9, -77.3, 20, duration=1.2), tr='flash',
           src=[src('Dangers include venomous wildlife and tropical diseases.', DG, 'venomous and deadly wildlife, tropical insects, parasites and diseases, and frequent heavy rains and flash floods')]),
         S("And there's no police and no hospital, so violent crime is everywhere.", [
-            pill('NO POLICE', 'police', bg='#b91c1c', screen=(0.5, 0.33), size=60), pin(8.0, -77.3, 'art:no_entry', 'hospital'), shake('violent'), grade('danger', 0.3)],
+            pill('NO POLICE', 'police', bg='#b91c1c', screen=(0.5, 0.2), size=60), pin(8.0, -77.3, 'art:no_entry', 'hospital'), shake('violent'), grade('danger', 0.3)],
           style='dark',
           src=[src('Law enforcement and medical support are nonexistent; violent crime is rampant.', DG, 'law enforcement and medical support are nonexistent, resulting in rampant violent crime')]),
         S("Still, in 2021, more than 130,000 people crossed it on foot. In 2022, about 250,000. And in 2023, more than 520,000.", [

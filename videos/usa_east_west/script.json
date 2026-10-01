@@ -524,12 +524,6 @@
           "lon": -104,
           "size": 100,
           "at": "irrigation"
-        },
-        {
-          "type": "tilt",
-          "deg": 34,
-          "at": "cattle",
-          "until": 3.5
         }
       ],
       "camera": {

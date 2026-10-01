@@ -534,12 +534,6 @@
       "text": "Why? Deep water. Even in the Ice Age, when seas dropped 120 meters, the two sides never joined.",
       "show": [
         {
-          "type": "tilt",
-          "deg": 38,
-          "at": "water",
-          "until": 4.5
-        },
-        {
           "type": "counter",
           "steps": [
             {

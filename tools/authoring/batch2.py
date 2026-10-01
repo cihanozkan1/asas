@@ -77,7 +77,7 @@ PR = (48.975, -123.06)
 # (Hwy 17 / Hwy 99 through Delta and Surrey) and south to the Peace Arch crossing into Blaine
 PR_ROAD = [(48.975, -123.06), (49.002, -123.068), (49.04, -123.07), (49.085, -123.04), (49.115, -122.97),
            (49.11, -122.88), (49.06, -122.80), (49.03, -122.775), (49.002, -122.757), (48.993, -122.75)]
-PRB = {'box': [-123.1, 48.955, -123.0, 49.0]}
+PRB = {'poly': [(49.0023, -123.0805), (49.0023, -122.9650), (48.9780, -122.9660), (48.9748, -123.0300), (48.9745, -123.0650), (48.9800, -123.0780)]}
 PRW = 'Point_Roberts,_Washington'
 BLAINE = (48.993, -122.75)
 save('point_roberts', meta(
@@ -98,7 +98,7 @@ save('point_roberts', meta(
           src=[src('On the southern tip of the Tsawwassen peninsula, south of Vancouver.', PRW, 'on the southernmost tip of the Tsawwassen peninsula, south of Vancouver, British Columbia, Canada')]),
         S("It was named in 1792 by the explorer George Vancouver, after his friend Henry Roberts.", [
             year(1792, '1792', light=True),
-            rider_ship([(49.3, -124.1), (49.12, -123.5), (49.0, -123.16), (48.985, -123.09)], 'explorer', 'sea', 'british_officer', (48.984, -123.055), style='caravel', emblem='#c1121f', drawDur=2.6, rider_size=115),
+            ship([(49.42, -124.0), (49.2, -123.62), (49.05, -123.28), (48.985, -123.09)], 'explorer', 'sea', style='caravel', emblem='#c1121f', drawDur=2.6),
             react('art:emote_cool', (0.76, 0.3), 'Henry', size=170)],
           era='history', tr='film', cam=at_(49.06, -123.3, 26),
           src=[src('Point Roberts was named by George Vancouver after his friend Henry Roberts (1792 expedition).', PRW, 'Point Roberts acquired its present name from George Vancouver, who named it after his friend Henry Roberts')]),
@@ -117,12 +117,12 @@ save('point_roberts', meta(
         S("To reach the rest of the USA by land, you drive about 40 kilometers through Canada.", [
             route(PR_ROAD, 'drive', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='road', mover={'kind': 'icon', 'icon': 'art:car', 'size': 90}, nodes=True, drawDur=3.6),
             dot('Blaine, USA', *BLAINE, 'Canada', dy=50, dx=-110), cnt('40 km', '40', size=160)],
-          cam={'follow': 'road', 'zoom': 60, 'zoomTo': 24, 'duration': 1.0},
+          cam={'follow': 'road', 'zoom': 130, 'zoomTo': 100, 'duration': 1.0},
           src=[src('Residents travel about 25 mi (40 km) through Canada.', PRW, 'traveling "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
         S("Older kids go to school in Blaine, so they cross the border four times on every round trip.", [
             route(PR_ROAD, 'school', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='bus', mover={'kind': 'icon', 'icon': 'art:bus', 'size': 100}, nodes=True, drawDur=2.6),
             cnt_steps([('school', '1'), ('cross', '2'), ('four', '4')], size=200), react('art:emote_sweat', (0.76, 0.28), 'four', size=160)],
-          cam={'follow': 'bus', 'zoom': 40, 'zoomTo': 24, 'duration': 0.9},
+          cam={'follow': 'bus', 'zoom': 130, 'zoomTo': 100, 'duration': 0.9},
           src=[src('Students in grade 4 and above commute to Blaine, crossing the border four times.', PRW,
                    'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
         S("In March 2020, the border closed to non-essential travel, and the town lost about eighty percent of its business.", [
@@ -134,7 +134,7 @@ save('point_roberts', meta(
         S("So a temporary passenger ferry carried people from Point Roberts to Blaine, over the water.", [
             route([(48.985, -123.06), (48.965, -123.0), (48.945, -122.92), (48.96, -122.84), (48.985, -122.775)], 'ferry', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='ferry', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=3.0),
             dot('Blaine', 48.99, -122.77, 'Blaine', dy=50, dx=-50)],
-          cam={'follow': 'ferry', 'zoom': 50, 'zoomTo': 28, 'duration': 1.0},
+          cam={'follow': 'ferry', 'zoom': 130, 'zoomTo': 100, 'duration': 1.0},
           src=[src('A temporary passenger ferry ran from Point Roberts to Blaine.', PRW, 'A temporary passenger ferry service from Point Roberts to Blaine operated by the Port of Bellingham')]),
         S("Today, Canadians drive in for cheaper American gas, alcohol and food.", [
             scatter(PRB, 'art:beer_glass', 'alcohol', count=3, size=120, stagger=0.25), scatter(PRB, 'art:oil_barrel', 'gas', count=3, size=110, stagger=0.25),
@@ -156,7 +156,7 @@ save('point_roberts', meta(
           cam=at_(49.0, -123.0, 120, duration=1.6, loopIntro=True), no_claim=True),
     ],
     keywords={'canada': '#ff5a5f', 'usa': '#5ec8ff', 'american': '#5ec8ff', 'blaine': '#ffd60a', 'vancouver': '#ffd60a'},
-    imagery=[{'bbox': [-123.35, 48.85, -122.6, 49.35], 'width': 4096}])
+    imagery=[{'bbox': [-124.3, 48.5, -122.1, 49.6], 'width': 4096}, {'bbox': [-123.35, 48.85, -122.6, 49.35], 'width': 4096, 'landExtra': [[[48.95, -123.12], [49.003, -123.12], [49.003, -122.955], [48.95, -122.955]]]}])
 
 # ------------------------------------------------------------------ AUSTRALIA
 AUS = 'AUS'

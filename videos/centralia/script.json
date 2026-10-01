@@ -210,12 +210,6 @@
           ],
           "size": 180,
           "color": "#ff5a2a"
-        },
-        {
-          "type": "tilt",
-          "deg": 40,
-          "at": "burning",
-          "until": 3.5
         }
       ],
       "camera": {

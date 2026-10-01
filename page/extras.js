@@ -546,11 +546,220 @@ export function makeExtras(S) {
     ctx.restore();
   }
 
+
+  // ------------------------------------------------------------------ siege (walls under cannon fire)
+  // wall element with `siege: {cannons, shots, delay, dist}`: cannons line up outside the wall, take turns
+  // firing; every ball flies in an arc, hits the stone, throws debris and dust, and the hit sections
+  // crumble away. Everything is a pure function of time (shot i fires at a fixed moment).
+  const stoneCol = ['#d6c7a1', '#c2b184', '#a89868', '#8e7f58'];
+  function wallGeom(el) {
+    if (el._sg && el._sgT === state.t) return el._sg;
+    const pts = S.screenPolyline(el._pts || []);
+    const cum = [0];
+    for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+    const L = cum[cum.length - 1] || 1;
+    const side = el.side ?? 1;
+    const at = (d) => {
+      d = Math.max(0, Math.min(L, d));
+      let i = 1;
+      while (i < pts.length - 1 && cum[i] < d) i++;
+      const a = pts[i - 1], b = pts[i], seg = cum[i] - cum[i - 1] || 1, f = (d - cum[i - 1]) / seg;
+      const dx = (b[0] - a[0]) / seg, dy = (b[1] - a[1]) / seg;
+      return { x: a[0] + (b[0] - a[0]) * f, y: a[1] + (b[1] - a[1]) * f, nx: -dy * side, ny: dx * side };
+    };
+    el._sgT = state.t;
+    return (el._sg = { pts, cum, L, at });
+  }
+  function siegeShots(el) {
+    if (el._shots) return el._shots;
+    const sg = el.siege, n = sg.shots ?? 11, nC = sg.cannons ?? 4, delay = sg.delay ?? 1.4;
+    const dur = Math.max(2.5, el.end - el.start);
+    const T = Math.max(0.28, (dur * 0.8 - delay) / Math.max(1, n - 1));
+    const cs = sg.targets || [0.36, 0.62];
+    el._shots = Array.from({ length: n }, (_, i) => ({
+      i, t: el.start + delay + i * T, cannon: i % nC, c: cs[i % cs.length] + (hash01(i * 3.7 + 1) - 0.5) * 0.03, fly: 0.45, last: i >= n - 2,
+    }));
+    return el._shots;
+  }
+  // stretches of wall (px along it) that have crumbled by time t
+  function wallBreaches(el, t) {
+    if (!el.siege) return [];
+    const g = wallGeom(el), cs = el.siege.targets || [0.36, 0.62];
+    const cap = g.L * 0.1;
+    return cs.map((c, j) => {
+      let w = 0;
+      for (const sh of siegeShots(el)) {
+        if (Math.abs(sh.c - c) > 0.05) continue;
+        const a = (t - (sh.t + sh.fly)) / 0.3;
+        if (a > 0) w += g.L * (sh.last ? 0.045 : 0.02) * ease.outCubic(clamp01(a));
+      }
+      w = Math.min(cap, w);
+      return w > 2 ? [c * g.L - w, c * g.L + w] : null;
+    }).filter(Boolean);
+  }
+  function puff(ctx, x, y, r, a, col) {
+    if (a <= 0.01) return;
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, rgba(col, a)); g.addColorStop(0.6, rgba(col, a * 0.55)); g.addColorStop(1, rgba(col, 0));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+  }
+  function drawSiege(ctx, el, life, t) {
+    const g = wallGeom(el);
+    if (g.pts.length < 2) return;
+    const sg = el.siege, nC = sg.cannons ?? 4, D = sg.dist ?? 300, size = sg.size ?? 170;
+    const cimg = img('/assets/art/cannon.png');
+    // cannon positions: spread along the wall, outside it
+    const cannons = Array.from({ length: nC }, (_, i) => {
+      const f = 0.2 + 0.6 * ((i + 0.5) / nC), base = g.at(f * g.L);
+      const d = D * (0.85 + 0.3 * hash01(i + 5));
+      return { x: Math.min(W - 90, Math.max(90, base.x + base.nx * d)), y: Math.min(H * 0.74, Math.max(340, base.y + base.ny * d)), f };
+    });
+    const shots = siegeShots(el);
+    ctx.save();
+    ctx.globalAlpha = life.out;
+    // cannons (appear one after another, recoil when they fire)
+    cannons.forEach((c, i) => {
+      const appear = ease.outBack(clamp01((t - el.start - 0.15 * i) / 0.4));
+      if (appear <= 0) return;
+      const mine = shots.filter((s) => s.cannon === i && t >= s.t);
+      const last = mine.length ? mine[mine.length - 1] : null;
+      const tgt = g.at(shots.find((s) => s.cannon === i)?.c * g.L || g.L / 2);
+      const ang = Math.atan2(tgt.y - c.y, tgt.x - c.x);
+      const rc = last ? Math.exp(-(t - last.t) / 0.12) : 0;
+      ctx.save();
+      ctx.translate(c.x - Math.cos(ang) * 16 * rc, c.y - Math.sin(ang) * 16 * rc);
+      ctx.rotate(ang);
+      if (Math.cos(ang) < 0) { ctx.rotate(Math.PI); ctx.scale(-1, 1); }
+      ctx.scale(appear, appear);
+      if (cimg) ctx.drawImage(cimg, -size / 2, -size * 0.34, size, size * (cimg.height / cimg.width));
+      ctx.restore();
+    });
+    // flights, muzzle smoke, impacts
+    for (const sh of shots) {
+      const c = cannons[sh.cannon], tg = g.at(sh.c * g.L);
+      const dt = t - sh.t;
+      if (dt < -0.05 || dt > 3.2) continue;
+      const ang = Math.atan2(tg.y - c.y, tg.x - c.x);
+      const mx = c.x + Math.cos(ang) * size * 0.45, my = c.y + Math.sin(ang) * size * 0.45;
+      // muzzle flash + smoke
+      if (dt >= 0) {
+        if (dt < 0.14) { ctx.save(); ctx.globalCompositeOperation = 'screen'; puff(ctx, mx, my, 70 * (1 - dt / 0.2), 1 - dt / 0.14, '#ffc24a'); ctx.restore(); }
+        for (let k = 0; k < 4; k++) puff(ctx, mx - Math.cos(ang) * 10 * k + (hash01(sh.i * 9 + k) - 0.5) * 30, my - dt * (30 + 20 * k) - 6, 24 + 70 * dt + 8 * k, Math.max(0, 0.45 * (1 - dt / 1.6)), '#cfcfcf');
+      }
+      // ball in the air
+      if (dt >= 0 && dt <= sh.fly) {
+        const u = dt / sh.fly, bx = mx + (tg.x - mx) * u, by = my + (tg.y - my) * u - 130 * Math.sin(Math.PI * u);
+        ctx.fillStyle = 'rgba(0,0,0,.28)'; ctx.beginPath(); ctx.ellipse(bx, by + 130 * Math.sin(Math.PI * u) * 0.9, 10, 5, 0, 0, TAU); ctx.fill();
+        ctx.fillStyle = '#17120d'; ctx.beginPath(); ctx.arc(bx, by, 9, 0, TAU); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.arc(bx - 3, by - 3, 3, 0, TAU); ctx.fill();
+      }
+      // impact: flash, debris, dust (the last hits are bigger)
+      const ia = dt - sh.fly;
+      if (ia >= 0) {
+        const K = sh.last ? 1.9 : 1;
+        if (ia < 0.2) { ctx.save(); ctx.globalCompositeOperation = 'screen'; puff(ctx, tg.x, tg.y, 90 * K * (0.5 + ia * 3), 1 - ia / 0.2, '#ffb347'); ctx.restore(); }
+        for (let k = 0; k < 9; k++) {
+          const ang2 = hash01(sh.i * 13 + k) * TAU, sp = (140 + 220 * hash01(sh.i * 7 + k * 3)) * K;
+          const px = tg.x + Math.cos(ang2) * sp * ia, py = tg.y + Math.sin(ang2) * sp * ia * 0.6 - 260 * ia + 900 * ia * ia * 0.5;
+          const al = Math.max(0, 1 - ia / 1.1);
+          if (al <= 0) continue;
+          ctx.save(); ctx.translate(px, py); ctx.rotate(ia * 8 * (k % 2 ? 1 : -1) + k);
+          ctx.fillStyle = rgba(stoneCol[k % 4], al); ctx.fillRect(-6 * K, -5 * K, 12 * K, 9 * K); ctx.restore();
+        }
+        for (let k = 0; k < 4; k++) puff(ctx, tg.x + (hash01(sh.i + k) - 0.5) * 70 * K, tg.y - ia * 40 - k * 6, (26 + 90 * ia) * K * (0.7 + 0.15 * k), Math.max(0, 0.55 * (1 - ia / (sh.last ? 2.4 : 1.3))), '#b9a98a');
+      }
+    }
+    // rubble where the wall has fallen
+    for (const [d0, d1] of wallBreaches(el, t)) {
+      for (let k = 0; k < 9; k++) {
+        const d = d0 + (d1 - d0) * hash01(d0 * 0.13 + k), p = g.at(d);
+        ctx.fillStyle = stoneCol[k % 4];
+        ctx.save(); ctx.translate(p.x + p.nx * (hash01(k * 5 + d0) * 14), p.y + p.ny * (hash01(k * 5 + d0) * 14 + 4)); ctx.rotate(k * 1.7);
+        ctx.fillRect(-7, -5, 14, 10); ctx.strokeStyle = '#3f3524'; ctx.lineWidth = 1.5; ctx.strokeRect(-7, -5, 14, 10); ctx.restore();
+      }
+    }
+    ctx.restore();
+  }
+  // camera kick on every hit
+  function shakeAt(t) {
+    let dx = 0, dy = 0;
+    for (const el of state.tl.elements) {
+      if (el.type !== 'wall' || !el.siege || t < el.start || t > el.end + 0.5) continue;
+      for (const sh of siegeShots(el)) {
+        const a = t - (sh.t + sh.fly);
+        if (a < 0 || a > 0.35) continue;
+        const k = 1 - a / 0.35, amp = (sh.last ? 22 : 9) * k * k;
+        dx += amp * Math.sin(a * 91 + sh.i); dy += amp * Math.cos(a * 77 + sh.i);
+      }
+    }
+    for (const el of state.tl.elements) {
+      if (el.type !== 'eruption' || t < el.start || t > el.end) continue;
+      const a = t - el.start;
+      const amp = (el.shake ?? 6) * clamp01(a / 0.3) * clamp01((el.end - t) / 0.6);
+      dx += amp * Math.sin(t * 61); dy += amp * Math.cos(t * 53);
+    }
+    return [dx, dy];
+  }
+
+  // ------------------------------------------------------------------ volcano eruption
+  // lava fountain (ballistic glowing particles), lava streams creeping down the slopes, an ash plume
+  // and a pulsing glow at the crater. `size` = on-screen height of the volcano art (the crater is near its top).
+  function drawEruption(ctx, el, life, t) {
+    const p = S.project({ lon: el.lon, lat: el.lat });
+    if (!p) return;
+    const size = el.size || 190, age = t - el.start;
+    const cx = p[0] + (el.craterDx ?? 0), cy = p[1] - size * (el.craterDy ?? 0.3);
+    const ramp = ease.outCubic(clamp01(age / 0.7)) * life.out;
+    ctx.save();
+    // opening flash
+    if (age < 0.35) { ctx.globalCompositeOperation = 'screen'; puff(ctx, cx, cy, size * 1.6 * (0.4 + age * 2), 0.9 * (1 - age / 0.35), '#fff1b0'); ctx.globalCompositeOperation = 'source-over'; }
+    // ash plume rising from the crater
+    for (let i = 0; i < 12; i++) {
+      const per = 2.6 + hash01(i) * 1.2, a = ((age + hash01(i + 9) * per) % per) / per;
+      const x = cx + Math.sin(i * 2.1 + a * 3) * size * 0.25 + a * size * 0.5 * (el.wind ?? 1), y = cy - a * size * 2.2 - 10;
+      puff(ctx, x, y, size * (0.18 + 0.5 * a), 0.5 * (1 - a) * ramp, i % 3 ? '#3c3835' : '#6b645d');
+    }
+    // lava streams creeping down the flanks
+    ctx.globalCompositeOperation = 'screen';
+    for (let i = 0; i < 4; i++) {
+      const dir = i % 2 ? 1 : -1, len = size * (0.55 + 0.25 * hash01(i + 3)), u = ease.outCubic(clamp01((age - 0.4 - i * 0.15) / 2.0));
+      if (u <= 0) continue;
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      for (const [w, col] of [[14, 'rgba(255,90,20,.35)'], [7, 'rgba(255,150,40,.9)'], [3, 'rgba(255,230,140,.95)']]) {
+        ctx.strokeStyle = col; ctx.lineWidth = w * (0.8 + 0.2 * Math.sin(t * 5 + i)); ctx.globalAlpha = ramp;
+        ctx.beginPath(); ctx.moveTo(cx, cy + 6);
+        const steps = 14;
+        for (let k = 1; k <= steps * u; k++) {
+          const f = k / steps;
+          ctx.lineTo(cx + dir * (f * len * 0.8 + Math.sin(f * 7 + i * 2) * 10), cy + 6 + f * len * (0.9 + 0.15 * hash01(i + 1)));
+        }
+        ctx.stroke();
+      }
+    }
+    // fountain of glowing lava bombs
+    ctx.globalAlpha = 1;
+    for (let i = 0; i < 90; i++) {
+      const per = 1.1 + hash01(i * 1.7) * 0.9, a = ((age + hash01(i + 40) * per) % per) / per;
+      if (age < 0.05) break;
+      const ang = -Math.PI / 2 + (hash01(i * 3.1) - 0.5) * 1.5, v = size * (1.3 + 1.1 * hash01(i * 5.3));
+      const x = cx + Math.cos(ang) * v * a * per * 0.9, y = cy + Math.sin(ang) * v * a * per * 0.9 + size * 1.6 * (a * per) * (a * per) * 0.9;
+      const r = 3 + 6 * hash01(i * 9.1) * (1 - a * 0.5);
+      const col = a < 0.35 ? '#ffe28a' : a < 0.7 ? '#ff7a1f' : '#7a1d0d';
+      ctx.globalAlpha = ramp * (1 - a * a);
+      ctx.shadowColor = '#ff6a00'; ctx.shadowBlur = 14;
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+    }
+    ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+    // glow at the crater
+    puff(ctx, cx, cy + 4, size * 0.7, (0.55 + 0.2 * Math.sin(t * 9)) * ramp, '#ff6a1f');
+    ctx.restore();
+  }
+
   // ------------------------------------------------------------------ hooks called by main.js
   function drawGeo(ctx, t) {
     for (const el of state.tl.elements) {
       const t0 = el.type;
-      if (!['pathtext', 'crowd', 'face', 'pin', 'box', 'beam', 'cloud', 'callout', 'ellipse', 'glow', 'crack', 'disc'].includes(t0)) continue;
+      if (!['pathtext', 'crowd', 'face', 'pin', 'box', 'beam', 'cloud', 'callout', 'ellipse', 'glow', 'crack', 'disc', 'eruption'].includes(t0) && !(t0 === 'wall' && el.siege)) continue;
       const life = lifeOf(el, t, 0.3, 0.3);
       if (!life) continue;
       if (t0 === 'pathtext') drawPathText(ctx, el, life);
@@ -565,6 +774,8 @@ export function makeExtras(S) {
       else if (t0 === 'glow') drawGlow(ctx, el, life, t);
       else if (t0 === 'crack') drawCrack(ctx, el, life);
       else if (t0 === 'disc') drawDisc(ctx, el, life, t);
+      else if (t0 === 'eruption') drawEruption(ctx, el, life, t);
+      else if (t0 === 'wall') drawSiege(ctx, el, life, t);
     }
   }
   function drawUnder(ctx, t) {
@@ -809,5 +1020,5 @@ export function makeExtras(S) {
     return parts.join(' ');
   }
 
-  return { prepare, drawGeo, drawUnder, drawOver, html, anim, fxHtml, grade };
+  return { prepare, drawGeo, drawUnder, drawOver, html, anim, fxHtml, grade, wallBreaches, shakeAt };
 }

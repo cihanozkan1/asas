@@ -75,9 +75,9 @@
         }
       ],
       "camera": {
-        "lat": 28,
-        "lon": -140,
-        "zoom": 1.2,
+        "lat": 23,
+        "lon": -150,
+        "zoom": 1.3,
         "bearing": -3
       },
       "sources": [
@@ -128,9 +128,9 @@
         }
       ],
       "camera": {
-        "lat": 27,
-        "lon": -138,
-        "zoom": 1.3,
+        "lat": 23,
+        "lon": -148,
+        "zoom": 1.4,
         "bearing": -3
       },
       "sources": [
@@ -487,9 +487,9 @@
       "text": "And that is the real story behind one simple question:",
       "show": [],
       "camera": {
-        "lat": 28,
-        "lon": -140,
-        "zoom": 1.2,
+        "lat": 23,
+        "lon": -150,
+        "zoom": 1.3,
         "duration": 1.6,
         "loopIntro": true
       },

@@ -100,7 +100,22 @@ function meanRgb(ctx, w, h) {
   return out;
 }
 
-function landMasked(img, bbox, land, base) {
+// Mosaic gaps (no Sentinel data) come out pure black: make them transparent so the base map shows
+// through there, instead of the shader mistaking them for deep water.
+function punchHoles(img) {
+  const c = document.createElement('canvas');
+  c.width = img.width;
+  c.height = img.height;
+  const x = c.getContext('2d');
+  x.drawImage(img, 0, 0);
+  const id = x.getImageData(0, 0, c.width, c.height), d = id.data;
+  for (let i = 0; i < d.length; i += 4) if (d[i] + d[i + 1] + d[i + 2] <= 9) d[i + 3] = 0;
+  x.putImageData(id, 0, 0);
+  return c;
+}
+
+function landMasked(img0, bbox, land, base, extra) {
+  const img = punchHoles(img0);
   const c = document.createElement('canvas');
   c.width = img.width;
   c.height = img.height;
@@ -139,6 +154,25 @@ function landMasked(img, bbox, land, base) {
     }
   }
   mc.fill('evenodd');
+  // land the coastline data lacks (a town on a tiny peninsula): inside the given rings, every pixel
+  // that does not look like water counts as land
+  if (extra?.length) {
+    const pc = document.createElement('canvas');
+    pc.width = c.width; pc.height = c.height;
+    const px = pc.getContext('2d');
+    px.fillStyle = '#fff';
+    px.beginPath();
+    for (const ring of extra) ring.forEach(([la, lo], i) => { const x = (lo - w) * sx, y = (n - la) * sy; if (i) px.lineTo(x, y); else px.moveTo(x, y); });
+    px.fill();
+    const pd = px.getImageData(0, 0, c.width, c.height), id = ctx.getImageData(0, 0, c.width, c.height);
+    for (let i = 0; i < pd.data.length; i += 4) {
+      if (!pd.data[i + 3]) continue;
+      const r = id.data[i], g = id.data[i + 1], bl = id.data[i + 2], lum = 0.299 * r + 0.587 * g + 0.114 * bl;
+      pd.data[i + 3] = bl > g * 0.92 && bl > r && lum < 120 ? 0 : 255;
+    }
+    px.putImageData(pd, 0, 0);
+    mc.drawImage(pc, 0, 0);
+  }
   ctx.globalCompositeOperation = 'destination-in';
   ctx.drawImage(m, 0, 0);
   // Match the detail's colours to the base texture over the same land, so the
@@ -172,7 +206,7 @@ function landMasked(img, bbox, land, base) {
   // Close-up boxes: the 8k base has a smeared coastline at this scale, so fill the water with
   // the base's mean sea colour instead (sharp coast from the land polygons). Wide boxes keep
   // the base's own ocean shading.
-  if (closeUp) {
+  if (closeUp && e - w < 0.6) {
     const wc = document.createElement('canvas');
     wc.width = c.width;
     wc.height = c.height;
@@ -450,7 +484,7 @@ async function init(tl) {
     if (ata) { lx.beginPath(); geoPath(eq, lx)(ata); lx.fill(); }
     state.raster.setLand(lc);
   }
-  for (const d of tl.assets.detail || []) state.raster.addDetail(d.mask === false ? await loadImg(d.url) : landMasked(await loadImg(d.url), d.bbox, state.geo.land10, earth), d.bbox);
+  for (const d of tl.assets.detail || []) state.raster.addDetail(d.mask === false ? punchHoles(await loadImg(d.url)) : landMasked(await loadImg(d.url), d.bbox, state.geo.land10, earth, d.landExtra), d.bbox);
 
   // targets
   state.targets = {};
@@ -515,6 +549,7 @@ async function init(tl) {
     if (el.type === 'photo') wanted.add(`/assets/broll/${el.image}.jpg`);
     if (el.type === 'avatar') wanted.add(`/assets/characters/${el.image}.png`);
     if (el.type === 'handstamp') wanted.add('/assets/art/hand_stamp.png');
+    if (el.type === 'wall' && el.siege) wanted.add('/assets/art/cannon.png');
     if (el.mover?.image) wanted.add(`/assets/characters/${el.mover.image}.png`);
     if (el.rider?.image) wanted.add(`/assets/characters/${el.rider.image}.png`);
   }
@@ -531,7 +566,7 @@ async function init(tl) {
     const add = (p) => { if (p && Number.isFinite(p.lat) && Number.isFinite(p.lon)) pts.push([p.lon, p.lat]); };
     for (const el of tl.elements) {
       if (el.scene !== i || el.screen) continue;
-      if (['ping', 'label', 'icon', 'art', 'flag', 'ring', 'pin', 'callout', 'ellipse', 'glow', 'disc', 'bridge', 'wall'].includes(el.type) || el.dot) add(el);
+      if (['ping', 'label', 'icon', 'art', 'flag', 'ring', 'pin', 'callout', 'ellipse', 'glow', 'disc', 'bridge', 'wall', 'eruption'].includes(el.type) || el.dot) add(el);
       if (['route', 'wall', 'bridge', 'pathtext'].includes(el.type)) for (const q of el.points || []) add(q);
       if (['measure', 'arrow', 'line', 'link', 'bridge', 'box'].includes(el.type)) { add(el.from); add(el.to); }
     }
@@ -1210,12 +1245,20 @@ function drawHighlight(ctx, path, el, life, mix, t) {
       const g = f.geometry;
       if (!g) continue;
       const polys = g.type === 'MultiPolygon' ? g.coordinates.map((c) => ({ type: 'Polygon', coordinates: c })) : g.type === 'Polygon' ? [g] : [];
-      for (const pg of polys) { const bb = gp.bounds(pg); const ar = (bb[1][0] - bb[0][0]) * (bb[1][1] - bb[0][1]); if (Number.isFinite(ar) && ar > 6) parts.push({ bb, ar }); }
+      for (const pg of polys) { const bb = gp.bounds(pg); const ar = (bb[1][0] - bb[0][0]) * (bb[1][1] - bb[0][1]); if (Number.isFinite(ar) && ar > 6) parts.push({ bb, ar, pg }); }
     }
     parts.sort((a, b) => b.ar - a.ar);
     const whole = gp.bounds(fc);
-    const rects = el.flagFit === 'all' || !parts.length ? [whole] : parts.slice(0, 80).map((q) => q.bb);
-    for (const b of rects) {
+    // zoomed in so far that the country is much bigger than the screen: the flag fades out
+    // (a flag cropped to a few red pixels is just noise)
+    const ratio = Math.max((whole[1][0] - whole[0][0]) / W, (whole[1][1] - whole[0][1]) / H);
+    ctx.globalAlpha *= clamp01((2.4 - ratio) / 1.0);
+    const rects = el.flagFit === 'all' || !parts.length ? [{ bb: whole }] : parts.slice(0, 80);
+    for (const rc of rects) {
+      const b = rc.bb;
+      ctx.save();
+      // each part's flag is clipped to that part, so neighbouring flags never overlap
+      if (rc.pg) { ctx.beginPath(); path(rc.pg); ctx.clip(); }
       let bw = b[1][0] - b[0][0], bh = b[1][1] - b[0][1];
       let bx = b[0][0], by = b[0][1];
       // tiny parts get a flag-shaped patch big enough to read
@@ -1235,6 +1278,7 @@ function drawHighlight(ctx, path, el, life, mix, t) {
       } else ctx.drawImage(img, bx + (bw - dw) / 2, by + (bh - dh) / 2, dw, dh);
       ctx.fillStyle = 'rgba(0,0,0,0.08)';
       ctx.fillRect(bx, by, bw, bh);
+      ctx.restore();
     }
   } else if (el.fillPct) {
     // filled to a share of its height: a level rising inside the shape (21% -> 48% ...)
@@ -1366,6 +1410,13 @@ function markerPoints(t) {
     if (t < el.start - 0.05 || t > el.end) continue;
     const p = project(el);
     if (p) out.push([p[0], p[1], isDot ? 40 : 90]);
+  }
+  // small highlighted areas (a town, an island) are as untouchable as a marked point
+  for (const el of state.tl.elements) {
+    if (el.type !== 'highlight' || t < el.start || t > el.end || !state.targets[el.target]) continue;
+    const bb = geoPath(state.proj).bounds({ type: 'FeatureCollection', features: state.targets[el.target] });
+    const bw = bb[1][0] - bb[0][0], bh = bb[1][1] - bb[0][1];
+    if (Number.isFinite(bw) && bw > 2 && bw < 260 && bh < 260 && bb[1][0] > 0 && bb[0][0] < W) out.push([(bb[0][0] + bb[1][0]) / 2, (bb[0][1] + bb[1][1]) / 2, bw + 16, bh + 16]);
   }
   return out;
 }
@@ -1560,8 +1611,26 @@ function drawWall(ctx, el, life) {
   const all = screenPolyline(el._pts);
   if (all.length < 2) return;
   const u = ease.inOutCubic(clamp01(life.age / (el.buildDur ?? 1.4)));
-  const pts = partial(all, u).pts;
-  if (pts.length < 2) return;
+  const full = partial(all, u).pts;
+  if (full.length < 2) return;
+  // sections knocked down by cannon fire are cut out of the wall
+  const cuts = el.siege ? state.X.wallBreaches(el, state.t) : [];
+  if (cuts.length) {
+    const cum = [0];
+    for (let i = 1; i < full.length; i++) cum.push(cum[i - 1] + Math.hypot(full[i][0] - full[i - 1][0], full[i][1] - full[i - 1][1]));
+    const pieces = [];
+    let cur = [];
+    const inCut = (d) => cuts.some(([a, b]) => d > a && d < b);
+    for (let i = 0; i < full.length; i++) {
+      if (inCut(cum[i])) { if (cur.length > 1) pieces.push(cur); cur = []; } else cur.push(full[i]);
+    }
+    if (cur.length > 1) pieces.push(cur);
+    for (const piece of pieces) drawWallPiece(ctx, el, life, piece);
+    return;
+  }
+  drawWallPiece(ctx, el, life, full);
+}
+function drawWallPiece(ctx, el, life, pts) {
   const w = el.width ?? 10, stone = el.color || '#d6c7a1', edge = '#3f3524';
   ctx.save();
   ctx.globalAlpha = life.out;
@@ -1847,7 +1916,7 @@ function buildUi() {
     let html = null;
     switch (el.type) {
       case 'label':
-        html = `<div class="inner label ${el.style || ''} ${el.dot ? 'place' : ''} ${state.tl.scenes[el.scene]?.style === 'vintage' ? 'era-history' : ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `background:${el.bg};` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${el.anim === 'wobble' ? [...String(el.text)].map((c) => `<span class="lw">${c === ' ' ? '&nbsp;' : esc(c)}</span>`).join('') : esc(el.text)}</div>`;
+        html = `<div class="inner label ${el.style || ''} ${el.dot ? 'place' : ''} ${state.tl.scenes[el.scene]?.style === 'vintage' ? 'era-history' : ''}" style="font-size:${el.size || 44}px;${el.color ? `color:${el.color};` : ''}${el.bg ? `-webkit-text-stroke:7px ${el.bg} !important;text-shadow:0 3px 12px rgba(0,0,0,.6);` : ''}${el.glow ? `text-shadow:0 0 18px ${el.glow},0 0 36px ${el.glow},0 3px 8px rgba(0,0,0,.8);` : ''}">${el.anim === 'wobble' ? [...String(el.text)].map((c) => `<span class="lw">${c === ' ' ? '&nbsp;' : esc(c)}</span>`).join('') : esc(el.text)}</div>`;
         break;
       case 'flag': {
         const w = el.size || 150;
@@ -1960,7 +2029,7 @@ function buildUi() {
         break;
       }
       case 'counter':
-        html = `<div class="inner counter" style="font-size:${el.size || 170}px;color:${el.color || '#ffd60a'}"></div>`;
+        html = `<div class="inner counter" style="font-size:${el.size || 170}px;--cnt:${el.color || '#ffd60a'};color:${el.color || '#ffd60a'}"></div>`;
         break;
       case 'measure':
         html = `<div class="inner dim" style="font-size:${el.size || 44}px;--dc:${el.color || '#ffffff'}">${esc(el.label || '')}</div>`;
@@ -2468,7 +2537,7 @@ function resolveOverlaps(items, canMove = isMovable) {
   const cap = { p: { x: W / 2, y: H * C.y + C.size * 0.6 }, movable: false, w: W * 0.8, h: C.size * 1.5 };
   boxes.push(cap);
   // marked points (pings, city dots) are never covered by an icon or a label
-  for (const m of markerPoints(state.time ?? 0)) boxes.push({ p: { x: m[0], y: m[1] }, movable: false, w: m[2], h: m[2], marker: true });
+  for (const m of markerPoints(state.time ?? 0)) boxes.push({ p: { x: m[0], y: m[1] }, movable: false, w: m[2], h: m[3] ?? m[2], marker: true });
   // a character's speech bubble sits above its box: add it as an extra obstacle
   for (const p of items) {
     if (p.el.type !== 'character' || !p.el.say || p.opacity <= 0.02) continue;
@@ -2704,6 +2773,7 @@ function frame(t) {
       dy += amp * Math.cos(a * 71);
     } else cam.zoom *= 1 + (el.amount ?? 0.07) * Math.sin(Math.PI * (a / dur));
   }
+  { const [sx, sy] = state.X.shakeAt(t); dx += sx; dy += sy; }
   const view = viewFor(cam, state.mode);
   view.cx += dx;
   view.cy += dy;

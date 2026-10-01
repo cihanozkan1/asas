@@ -14,10 +14,10 @@ save('chimborazo', meta(
           cam=at_(25, 80, 1.6), no_claim=True),
         S("That title goes to Chimborazo, a volcano in Ecuador, only 6,263 meters high.", [
             ping(*CH, 'Chimborazo', color='#ff5a5f'), dot('Chimborazo', *CH, 'Chimborazo', dy=-56), hl('ECU', 'flag:ec', 'Ecuador', fillOpacity=0.85), cnt('6,263 m', '6,263', size=170)],
-          cam=at_(-1.5, -78.8, 2.2),
+          cam=at_(-1.5, -78.8, 3.4),
           src=[src('Chimborazo is 6,263 m high.', 'Chimborazo', 'With an elevation of 6,263 m (20,548 ft), Chimborazo is the highest mountain in Ecuador')]),
         S("It's a volcano covered by glaciers, and it last erupted around the year 550.", [
-            art('volcano', *CH, 'volcano', size=190), particles('snow', 'glaciers', density=0.5), cnt('~550 AD', '550', size=150)],
+            art('volcano', *CH, 'volcano', size=260), particles('snow', 'glaciers', density=0.5), eruption(*CH, 'erupted', size=260), cnt('~550 AD', '550', size=150)],
           cam=at_(-1.5, -78.8, 7),
           src=[src('Chimborazo is a stratovolcano; the summit is covered by glaciers; last eruption around 550 AD.', 'Chimborazo',
                    'a dominantly andesitic-dacitic stratovolcano ... the last time around 550 AD ± 150 years')]),

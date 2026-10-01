@@ -54,3 +54,14 @@ Money matters: these videos must earn, so retention beats novelty. Research note
 - A country made of several parts: put the flag/fill on EVERY part, never only the largest.
 - Stamp scene: the stamp comes straight down from above, same size as the text, presses, lifts.
 - Do not repeat the same texts/effects/sounds in every video: per-video variety, fewer effects.
+
+## Quality rules from the user (4th round, after reviewing the five videos)
+- The reference channel was given to judge variety and success, NOT to copy it: make our own, varied, successful videos.
+- No filled/framed text (no pills, boxes, plates behind text): plain text with outline + soft shadow only.
+- A label must never cover the subject (marked point, highlighted town/area): small highlighted areas count as obstacles.
+- No logic leftovers: a ship route/stamp/character from one scene must not stay into a scene of another era/view;
+  ships sail on water; no person standing on top of a ship; flags must not overlap or reappear when zoomed in.
+- Sound effects quiet and soft (not disturbing). Every video must be reviewed frame by frame by me before delivery.
+- Effects must match the story and be reusable in any video: `eruption` (lava, ash, glow), siege (`wall` with `siege`: cannons fire,
+  balls hit, walls crumble). Add more such effects when a video's story calls for one (earthquake, flood, fire...).
+- Close zoom needs matching imagery: keep follow-camera zooms high enough for the fine Sentinel box; no blurry base showing.

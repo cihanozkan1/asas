@@ -88,6 +88,20 @@ export async function resolveTargetSpec(t, videoDir) {
   }
   if (t.hist) return { type: 'feature', feature: await histFeature(t) };
   if (t.circle) return { type: 'circle', lat: t.circle.lat, lon: t.circle.lon, km: t.circle.km };
+  if (t.poly) {
+    // free polygon as [lat, lon] pairs (a town, a peninsula); edges densified, wound clockwise for d3-geo
+    let ring = t.poly.map(([la, lo]) => [lo, la]);
+    let area = 0;
+    for (let i = 0; i < ring.length; i++) { const [x0, y0] = ring[i], [x1, y1] = ring[(i + 1) % ring.length]; area += x0 * y1 - x1 * y0; }
+    if (area > 0) ring = ring.reverse();
+    const out = [];
+    for (let i = 0; i < ring.length; i++) {
+      const a0 = ring[i], b0 = ring[(i + 1) % ring.length];
+      for (let k = 0; k < 8; k++) out.push([a0[0] + ((b0[0] - a0[0]) * k) / 8, a0[1] + ((b0[1] - a0[1]) * k) / 8]);
+    }
+    out.push(out[0]);
+    return { type: 'feature', feature: { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [out] } } };
+  }
   if (t.box) {
     // lon/lat rectangle [west, south, east, north], edges densified so parallels stay parallels;
     // clockwise ring (d3-geo's exterior winding)
