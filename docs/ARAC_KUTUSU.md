@@ -24,7 +24,7 @@ ve `clip()` elemanıyla videoya girer (`assets/vfx/<ad>/`, WebP kare dizisi + al
 Ücretsiz profesyonel paketler (hesap açıp elle indirilir → `vfx_ingest.py`): [ActionVFX ücretsiz](https://www.actionvfx.com/blog/450-free-vfx-stock-footage-assets-ready-for-download), [FX Elements](https://www.fxelements.com/free), [MyCreativeFX](https://mycreativefx.com/), [PremiumBeat Detonate](https://www.premiumbeat.com/blog/free-explosion-sfx-vfx-elements/). Lisans metni okunur, `--license` ile kayda geçer.
 
 ## C. Remotion çalışma alanı (`remotion/`)
-Kurulum: `npm run remotion:setup` (+ `tools/chrome` sarmalayıcı `remotion/chrome-wrapper.sh`: tam Chromium + yazılımsal WebGL2 bayrakları; GPU'suz sunucuda MapLibre/deck.gl/three bununla çalışır). Stüdyo: `npm run remotion:studio`.
+Kurulum: `npm run remotion:setup` (`remotion/chrome-wrapper.sh` sarmalayıcısı: tam Chromium + yazılımsal WebGL2 bayrakları; GPU'suz sunucuda MapLibre/deck.gl/three bununla çalışır). Stüdyo: `npm run remotion:studio`.
 | Paket (hepsi `remotion/package.json`'da) | Kullanım |
 |---|---|
 | `remotion`, `@remotion/cli`, `@remotion/bundler`, `@remotion/renderer` 4.0.532 | render motoru |
