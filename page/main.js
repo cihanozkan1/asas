@@ -182,9 +182,24 @@ function landMasked(img, bbox, land, base) {
     wx.drawImage(m, 0, 0);
     const sea = meanRgb(wx, c.width, c.height);
     if (sea) {
+      // flat sea colour only in a soft band around the coast; further out the base's own ocean
+      // shows through, so the box edge never appears as a visible rectangle
+      const fc = document.createElement('canvas');
+      fc.width = c.width;
+      fc.height = c.height;
+      const fx = fc.getContext('2d');
+      fx.fillStyle = `rgb(${sea.map((v) => Math.round(v)).join(',')})`;
+      fx.fillRect(0, 0, c.width, c.height);
+      const nm = document.createElement('canvas');
+      nm.width = c.width;
+      nm.height = c.height;
+      const nx = nm.getContext('2d');
+      nx.filter = `blur(${Math.round(Math.min(c.width, c.height) * 0.035)}px)`;
+      for (let k = 0; k < 4; k++) nx.drawImage(m, 0, 0);
+      fx.globalCompositeOperation = 'destination-in';
+      fx.drawImage(nm, 0, 0);
       ctx.globalCompositeOperation = 'destination-over';
-      ctx.fillStyle = `rgb(${sea.map((v) => Math.round(v)).join(',')})`;
-      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.drawImage(fc, 0, 0);
       ctx.globalCompositeOperation = 'source-over';
     }
   }
