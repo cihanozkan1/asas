@@ -237,7 +237,8 @@
             "size": 170,
             "style": "ferry"
           },
-          "drawDur": 2.8
+          "drawDur": 2.8,
+          "check": false
         },
         {
           "type": "pathtext",
@@ -487,7 +488,8 @@
             "kind": "ship",
             "size": 150,
             "style": "cargo"
-          }
+          },
+          "check": false
         },
         {
           "type": "label",
@@ -677,23 +679,29 @@
               28.944
             ]
           ],
-          "at": 0.1,
-          "buildDur": 1.0,
+          "at": "walls",
+          "buildDur": 1.4,
           "side": -1,
-          "width": 26,
-          "siege": {
-            "cannons": 4,
-            "shots": 9,
-            "delay": 1.0,
-            "dist": 300,
-            "size": 180
-          }
+          "width": 22
+        },
+        {
+          "type": "icon",
+          "icon": "art:cannon",
+          "lat": 41.0,
+          "lon": 28.87,
+          "size": 170,
+          "plain": true,
+          "at": "cannons"
+        },
+        {
+          "type": "shake",
+          "at": "cannons"
         },
         {
           "type": "label",
           "text": "Theodosian Walls",
-          "lat": 41.03,
-          "lon": 28.915,
+          "lat": 41.012,
+          "lon": 28.893,
           "at": "siege",
           "style": "serif",
           "size": 40
@@ -711,8 +719,8 @@
       ],
       "camera": {
         "lat": 41.02,
-        "lon": 28.955,
-        "zoom": 1500
+        "lon": 28.945,
+        "zoom": 900
       },
       "sources": [
         {
@@ -956,7 +964,8 @@
             "icon": "art:train",
             "size": 100
           },
-          "drawDur": 2.4
+          "drawDur": 2.4,
+          "check": false
         },
         {
           "type": "grade",

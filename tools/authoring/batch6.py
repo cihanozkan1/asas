@@ -17,7 +17,7 @@ save('chimborazo', meta(
           cam=at_(-1.5, -78.8, 3.4),
           src=[src('Chimborazo is 6,263 m high.', 'Chimborazo', 'With an elevation of 6,263 m (20,548 ft), Chimborazo is the highest mountain in Ecuador')]),
         S("It's a volcano covered by glaciers, and it last erupted around the year 550.", [
-            art('volcano', *CH, 'volcano', size=260), particles('snow', 'glaciers', density=0.5), eruption(*CH, 'erupted', size=260), cnt('~550 AD', '550', size=150)],
+            art('volcano', *CH, 'volcano', size=260), particles('snow', 'glaciers', density=0.5), cnt('~550 AD', '550', size=150)],
           cam=at_(-1.5, -78.8, 7),
           src=[src('Chimborazo is a stratovolcano; the summit is covered by glaciers; last eruption around 550 AD.', 'Chimborazo',
                    'a dominantly andesitic-dacitic stratovolcano ... the last time around 550 AD ± 150 years')]),

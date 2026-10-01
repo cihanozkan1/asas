@@ -132,7 +132,7 @@ save('point_roberts', meta(
           src=[src('The border closed to non-essential travel in March 2020; Point Roberts lost 80 percent of its business.', PRW,
                    'In 2020, a study found that Point Roberts had lost 80 percent of its business and hundreds of seasonal residents as a result of the pandemic and border shutdown.')]),
         S("So a temporary passenger ferry carried people from Point Roberts to Blaine, over the water.", [
-            route([(48.985, -123.06), (48.965, -123.0), (48.945, -122.92), (48.96, -122.84), (48.985, -122.775)], 'ferry', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='ferry', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=3.0),
+            route([(48.968, -123.045), (48.955, -123.0), (48.945, -122.92), (48.96, -122.84), (48.985, -122.775)], 'ferry', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='ferry', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=3.0),
             dot('Blaine', 48.99, -122.77, 'Blaine', dy=50, dx=-50)],
           cam={'follow': 'ferry', 'zoom': 130, 'zoomTo': 100, 'duration': 1.0},
           src=[src('A temporary passenger ferry ran from Point Roberts to Blaine.', PRW, 'A temporary passenger ferry service from Point Roberts to Blaine operated by the Port of Bellingham')]),

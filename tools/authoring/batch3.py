@@ -87,7 +87,7 @@ save('istanbul', meta(
           src=[src('The Bosporus forms a continental boundary between Asia and Europe.', 'Bosporus', 'forms one of the continental boundaries between Asia and Europe')]),
         S("Between them flows the Bosphorus Strait. Ferries cross it all day long.", [
             route(BOS, 'Bosphorus', color='#5ec8ff', width=10, drawDur=1.6, laser=True, hold=3),
-            route(FERRY, 'Ferries', color='#ffffff', width=4, dashed=True, dash=[14, 12], glow=False, id='fer', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=2.8),
+            route(FERRY, 'Ferries', color='#ffffff', width=4, dashed=True, dash=[14, 12], glow=False, id='fer', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=2.8, check=False),
             pathtext('Bosphorus Strait', BOS[1:6], 'Strait', size=44)],
           cam={'follow': 'fer', 'zoom': 200, 'zoomTo': 110, 'duration': 1.0},
           src=[src('The Bosporus forms a continental boundary between Asia and Europe.', 'Bosporus', 'forms one of the continental boundaries between Asia and Europe')]),
@@ -104,7 +104,7 @@ save('istanbul', meta(
         S("So why did such a huge city grow right here?", [q(41.03, 29.0, 'why'), react('art:emote_think', (0.28, 0.3), 'why', size=170)],
           cam=at_(41.03, 29.0, 40), style='dark', no_claim=True, tr='flash'),
         S("Because the Bosphorus is the only passage between the Black Sea and the Mediterranean.", [
-            route([(43.0, 34.0), (41.6, 29.6), (41.2, 29.1), (41.0, 28.98), (40.6, 27.4), (39.6, 26.2), (37.5, 25.0), (35.5, 20.0)], 'passage', color='#ffd60a', width=8, drawDur=2.6, laser=True, id='pass', mover={'kind': 'ship', 'size': 150, 'style': 'cargo'}),
+            route([(43.0, 34.0), (41.6, 29.6), (41.2, 29.1), (41.0, 28.98), (40.6, 27.4), (39.6, 26.2), (37.5, 25.0), (35.5, 20.0)], 'passage', color='#ffd60a', width=8, drawDur=2.6, laser=True, id='pass', mover={'kind': 'ship', 'size': 150, 'style': 'cargo'}, check=False),
             lab('BLACK SEA', 43.2, 34.5, 'Black', style='map', size=44), lab('MEDITERRANEAN', 35.5, 22.5, 'Mediterranean', style='map', size=44)],
           cam={'follow': 'pass', 'zoom': 5, 'zoomTo': 3.2, 'duration': 1.0},
           src=[src('The Bosporus is the only passage between the Black Sea and the Mediterranean and has always been of great commercial and military importance.', 'Bosporus', 'As part of the only passage between the Black Sea and the Mediterranean, the Bosporus has always been of great importance from a commercial and military point of view.')]),
@@ -118,9 +118,9 @@ save('istanbul', meta(
           era='history', cam=at_(41.01, 28.98, 60),
           src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
         S("In 1453, the Ottomans hit its walls with giant cannons, and after a 55 day siege they conquered it.", [
-            year(1453, '1453', screen=[0.25, 0.07]), wall(WALLS, 0.1, buildDur=1.0, side=-1, width=26, siege={'cannons': 4, 'shots': 9, 'delay': 1.0, 'dist': 300, 'size': 180}), lab('Theodosian Walls', 41.03, 28.915, 'siege', style='serif', size=40),
+            year(1453, '1453', screen=[0.25, 0.07]), wall(WALLS, 'walls', buildDur=1.4, side=-1, width=22), art('cannon', 41.0, 28.87, 'cannons', size=170), shake('cannons'), lab('Theodosian Walls', 41.012, 28.893, 'siege', style='serif', size=40),
             char('sultan', 'conquered', name='Mehmed II', screen=(0.74, 0.6))],
-          cam=at_(41.02, 28.955, 1500), era='history',
+          cam=at_(41.02, 28.945, 900), era='history',
           src=[src('Conquered on 29 May 1453 after a 55-day siege.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege."'),
                src('Mehmed II\'s cannons hurled massive stone balls at the walls.', 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).'),
                src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north')]),
@@ -138,7 +138,7 @@ save('istanbul', meta(
           src=[src('Bridges: 15 July Martyrs (1973), Fatih Sultan Mehmet (1988), Yavuz Sultan Selim (2016); Marmaray undersea rail tunnel opened 2013.', 'Bosphorus',
                    'the 1,074 m (3,524 ft) long 15th July Martyrs Bridge was completed in 1973 ... Fatih Sultan Mehmet (Bosporus II) Bridge ... was completed in 1988 ... the Yavuz Sultan Selim Bridge ... was completed in 2016 ... The Marmaray project, featuring a 13.7 km (8.5 mi) long undersea railway tunnel, opened on 29 October 2013')]),
         S("That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.", [
-            cnt('60 m', 'sixty', size=190, color='#4ade80'), route([(41.0150, 28.9770), (41.0195, 28.9960), (41.0255, 29.0150)], 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 100}, drawDur=2.4),
+            cnt('60 m', 'sixty', size=190, color='#4ade80'), route([(41.0150, 28.9770), (41.0195, 28.9960), (41.0255, 29.0150)], 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 100}, drawDur=2.4, check=False),
             react('art:emote_cool', (0.78, 0.3), 'underwater', size=170), grade('cold', 'underwater')],
           cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9},
           src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),

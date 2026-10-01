@@ -140,13 +140,6 @@
           "density": 0.5
         },
         {
-          "type": "eruption",
-          "lat": -1.469,
-          "lon": -78.817,
-          "size": 260,
-          "at": "erupted"
-        },
-        {
           "type": "counter",
           "steps": [
             {
