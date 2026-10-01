@@ -9,7 +9,16 @@
     "check": "node scripts/pipeline.mjs --check-only",
     "make": "node scripts/pipeline.mjs",
     "stills": "node scripts/pipeline.mjs --stills",
-    "voices": "node tools/voices.mjs"
+    "voices": "node tools/voices.mjs",
+    "routes:check": "node tools/validate_routes.mjs",
+    "geodata": "bash tools/fetch_geodata.sh",
+    "vfx:emoji": "python3 tools/ingest_emoji.py",
+    "vfx:remotion": "node tools/remotion_clip.mjs",
+    "vfx:ingest": "python3 tools/vfx_ingest.py",
+    "remotion:setup": "cd remotion && npm install && npx remotion browser ensure",
+    "remotion:studio": "cd remotion && npx remotion studio src/index.ts --browser-executable=$PWD/chrome-wrapper.sh",
+    "emoji:fetch": "bash tools/fetch_emoji.sh",
+    "blender:setup": "bash tools/blender/setup.sh"
   },
   "engines": {
     "node": ">=20"
@@ -21,6 +30,7 @@
     "@fontsource/oswald": "^5.3.0",
     "@fontsource/permanent-marker": "^5.3.0",
     "@fontsource/playfair-display": "^5.3.0",
+    "@turf/turf": "^7.4.0",
     "@twemoji/svg": "^15.0.0",
     "d3-geo": "^3.1.1",
     "esbuild": "^0.28.2",

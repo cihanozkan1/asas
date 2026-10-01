@@ -70,3 +70,9 @@ Money matters: these videos must earn, so retention beats novelty. Research note
 - Routes: never hand-type road/ship coordinates. Use `road()` / `sea_points()` / `sea_lane()` (helpers.py); `tools/validate_routes.mjs` is a render gate.
 - Real VFX (explosion, fire, volcano, dust, debris): use `clip()` with footage ingested by `tools/vfx_ingest.py` (see `docs/ARAC_KUTUSU.md`); only free/PD/CC0 or licence-checked free packs, licence logged in `docs/LISANSLAR.md`; no logos/watermarks.
 - The user does not want to check every video by hand: run the automatic gates (routes, labels, overlaps) and fix before showing.
+
+## Video-as-code toolbox (6th round: everything from the user's research file was added)
+- Catalogue and usage: `docs/ARAC_KUTUSU.md`. Remotion workspace in `remotion/` (MapLibre 5, Turf, deck.gl, globe.gl, Lottie, Noto animated emoji, three, gif); its transparent renders go into `assets/vfx/` via `tools/remotion_clip.mjs` and are used in scripts with `clip()`.
+- Python stack (MoviePy, FFmpeg overlay, Matplotlib/GeoPandas/Cartopy/Plotly/Datashader/Manim/leafmap) is in `tools/py/`; Natural Earth data via `npm run geodata`; BlenderGIS via `npm run blender:setup`.
+- For explosions, fire, volcano, storm, etc. prefer `clip('emoji_collision' | 'emoji_fire' | 'emoji_volcano' | ...)` (Noto, CC BY 4.0: the pipeline adds the credit to the upload text) over the old hand-drawn `eruption`/`siege`.
+- Do not skip an item "because we already have something similar": the user wants all of them available.

@@ -27,3 +27,5 @@ Son denetim: 2026-09-30.
 - Yeni bir varlık eklemeden önce bu tabloya lisansıyla ekle.
 - Yeni B-roll yalnız kendi ürettiğimiz görsellerden.
 - Gerçek kişi, marka, logo, ünlü yüz çizimi yok (üretimde adları kullanma, genel tarif).
+- VFX klibi `emoji_collision`: https://googlefonts.github.io/noto-emoji-animation/; lisans: CC BY 4.0 (Google Noto Animated Emoji); kaynak: https://googlefonts.github.io/noto-emoji-animation/
+- VFX klibi `emoji_*`: Google Noto Animated Emoji (animasyonlu emoji kütüphanesi, remotion-dev/animated-emoji üzerinden); lisans: CC BY 4.0 — videoda/açıklamada atıf: "Animated emoji: Google Noto Emoji, CC BY 4.0"; kaynak: https://googlefonts.github.io/noto-emoji-animation/

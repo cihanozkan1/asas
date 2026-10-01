@@ -1,5 +1,7 @@
 # `ARASTIRMA_VIDEO_AS_CODE.md` analizi: bizde ne var, ne yok, ne kadar önemli (Ekim 2026)
 
+> **Güncelleme:** bu analizdeki "Yok / Kısmen" olan her şey sonradan eklendi; ayrıntı ve kullanım `docs/ARAC_KUTUSU.md`'de. Aşağıdaki tablolar ekleme öncesi durumu gösterir.
+
 Ölçüt: "Var" = repoda çalışıyor, "Kısmen" = benzeri var ama araştırmadaki kadar iyi değil, "Yok" = hiç yok. Önem: bizim hat için (Node + Chromium sayfası + d3-geo + kendi WebGL uydu katmanı, kare = zamanın saf fonksiyonu).
 
 ## 1. JavaScript / Remotion ekosistemi

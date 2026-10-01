@@ -1,0 +1,47 @@
+{
+  "name": "geo-shorts-remotion",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Efekt fabrikası: Remotion + MapLibre + Turf + deck.gl + globe.gl + Lottie/Noto emoji. Saydam klip render eder, ../tools/vfx_ingest.py ile assets/vfx kütüphanesine girer.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "node ../tools/remotion_clip.mjs"
+  },
+  "dependencies": {
+    "@deck.gl/core": "^9.1.0",
+    "@deck.gl/geo-layers": "^9.1.0",
+    "@deck.gl/layers": "^9.1.0",
+    "@deck.gl/mapbox": "^9.1.0",
+    "@react-three/fiber": "^9.0.0",
+    "@remotion/animated-emoji": "4.0.532",
+    "@remotion/bundler": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "@remotion/gif": "4.0.532",
+    "@remotion/lottie": "4.0.532",
+    "@remotion/media-utils": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "@remotion/three": "4.0.532",
+    "@turf/turf": "^7.2.0",
+    "@types/mapbox-gl": "^3.4.1",
+    "deck.gl": "^9.1.0",
+    "globe.gl": "^2.41.0",
+    "lottie-web": "^5.12.2",
+    "mapbox-gl": "^3.32.0",
+    "maplibre-gl": "^5.24.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-globe.gl": "^2.35.0",
+    "react-map-gl": "^8.0.0",
+    "remotion": "4.0.532",
+    "three": "^0.186.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.186.0",
+    "typescript": "^5.6.0"
+  }
+}

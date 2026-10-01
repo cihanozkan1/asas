@@ -91,7 +91,7 @@ async function main() {
   const hasChars = script.scenes.some((sc) => (sc.show || []).some((e) => e.type === 'character' && e.image));
   const hasArt = JSON.stringify(script.scenes).includes('art:');
   const hasHist = script.scenes.some((sc) => sc.era === 'history');
-  const credits = [night ? 'Earth at night: NASA Black Marble (NASA Earth Observatory)' : BLUE_MARBLE_CREDIT, NE_CREDIT, ...(assets.detail.length ? [S2_CREDIT] : []), ...(hasChars || hasArt ? ['Illustrations: AI-generated artwork'] : []), ...(hasHist ? ['Historical borders: aourednik/historical-basemaps (GPL-3.0)'] : [])];
+  const credits = [night ? 'Earth at night: NASA Black Marble (NASA Earth Observatory)' : BLUE_MARBLE_CREDIT, NE_CREDIT, ...(assets.detail.length ? [S2_CREDIT] : []), ...(hasChars || hasArt ? ['Illustrations: AI-generated artwork'] : []), ...(hasHist ? ['Historical borders: aourednik/historical-basemaps (GPL-3.0)'] : []), ...(JSON.stringify(script.scenes).includes('"name":"emoji_') ? ['Animated emoji: Google Noto Emoji (CC BY 4.0)'] : [])];
   writeUploadText(script, path.join(outDir, `${script.id}.txt`), credits);
   writeSources(script, path.join(outDir, 'sources.md'));
 

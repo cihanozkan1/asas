@@ -23,18 +23,26 @@ def arg(name, default):
     return type(default)(sys.argv[sys.argv.index(name) + 1]) if name in sys.argv else default
 
 
-def ingest(src, name, key='none', start=0.0, dur=6.0, fps=24, width=540, lic='', source='', note=''):
+def ingest(src, name, key='none', start=0.0, dur=6.0, fps=24, width=540, lic='', source='', note='', decoder=''):
     out = os.path.join(ROOT, 'assets/vfx', name)
     os.makedirs(out, exist_ok=True)
     for f in os.listdir(out):
         if f.startswith('f') and f.endswith(('.webp', '.jpg')):
             os.remove(os.path.join(out, f))
     tmp = tempfile.mkdtemp()
+    if os.path.isdir(src):                       # a PNG sequence (e.g. rendered by remotion/): copy, then scale below
+        for k, f in enumerate(sorted(x for x in os.listdir(src) if x.lower().endswith('.png')), 1):
+            im0 = Image.open(os.path.join(src, f)).convert('RGBA')
+            r = width / im0.width
+            im0.resize((width, max(1, round(im0.height * r))), Image.LANCZOS).save(os.path.join(tmp, f'f{k:04d}.png'))
+        key = key if key != 'none' else 'alpha'
     vf = f'fps={fps},scale={width}:-2'
     pix = ['-pix_fmt', 'rgba'] if key in ('alpha', 'green') else []
     if key == 'green':
         vf = 'chromakey=0x00ff00:0.28:0.12,' + vf
-    subprocess.run([FF, '-v', 'error', '-y', '-ss', str(start), '-t', str(dur), '-i', src, '-vf', vf, *pix, os.path.join(tmp, 'f%04d.png')], check=True)
+    dec = ['-c:v', decoder] if decoder else (['-c:v', 'libvpx'] if key == 'alpha' and src.endswith('.webm') else [])   # VP8/VP9 alpha needs libvpx
+    if not os.path.isdir(src):
+      subprocess.run([FF, '-v', 'error', '-y', *dec, '-ss', str(start), '-t', str(dur), '-i', src, '-vf', vf, *pix, os.path.join(tmp, 'f%04d.png')], check=True)
     frames = sorted(f for f in os.listdir(tmp) if f.endswith('.png'))
     for i, f in enumerate(frames, 1):
         im = Image.open(os.path.join(tmp, f))

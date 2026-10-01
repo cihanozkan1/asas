@@ -9,3 +9,11 @@ data/cache/
 pilot/
 reference/
 ornek/
+reference-code/
+remotion/node_modules/
+remotion/public/animated-emoji/
+remotion/out/
+tools/py/out/
+media/
+tools/vendor/blender/
+tools/blender/blender.sh
