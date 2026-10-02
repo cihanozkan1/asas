@@ -139,14 +139,21 @@
       "text": "Its volcano Mauna Kea is taller than Mount Everest, when you measure it from the ocean floor.",
       "show": [
         {
-          "type": "clip",
-          "name": "emoji_volcano",
-          "size": 420,
-          "loop": true,
-          "speed": 1.0,
+          "type": "ping",
           "lat": 19.82,
           "lon": -155.47,
+          "color": "#ff5a5f",
           "at": "Mauna"
+        },
+        {
+          "type": "label",
+          "text": "Mauna Kea",
+          "lat": 19.82,
+          "lon": -155.47,
+          "at": "Mauna",
+          "dot": true,
+          "dy": -90,
+          "size": 40
         },
         {
           "type": "counter",
@@ -157,18 +164,6 @@
             }
           ],
           "size": 150
-        },
-        {
-          "type": "label",
-          "text": "Mauna Kea",
-          "lat": "Mauna",
-          "lon": null,
-          "screen": [
-            0.5,
-            0.24
-          ],
-          "style": "map",
-          "size": 40
         }
       ],
       "camera": {
@@ -227,14 +222,6 @@
           "fill": "#b3202a",
           "at": "kingdom",
           "fillOpacity": 0.85
-        },
-        {
-          "type": "icon",
-          "icon": "👑",
-          "lat": 20.3,
-          "lon": -156.5,
-          "size": 110,
-          "at": "kingdom"
         }
       ],
       "camera": {
@@ -261,6 +248,11 @@
           "at": "1795"
         },
         {
+          "type": "year",
+          "value": "1843",
+          "at": "1843"
+        },
+        {
           "type": "ping",
           "lat": 19.6,
           "lon": -155.5,
@@ -270,14 +262,12 @@
         {
           "type": "label",
           "text": "Kamehameha I",
-          "lat": "First",
-          "lon": null,
-          "screen": [
-            0.5,
-            0.33
-          ],
-          "style": "serif",
-          "size": 46
+          "lat": 19.6,
+          "lon": -155.5,
+          "at": "Kamehameha",
+          "dot": true,
+          "dy": -96,
+          "size": 40
         },
         {
           "type": "flag",
@@ -389,12 +379,12 @@
         {
           "type": "clip",
           "name": "emoji_white-flag",
-          "size": 380,
+          "size": 300,
           "loop": true,
           "speed": 1.0,
           "screen": [
             0.72,
-            0.42
+            0.3
           ],
           "at": 0.05
         }
@@ -475,10 +465,10 @@
         {
           "type": "stamp",
           "text": "SORRY",
-          "size": 110,
+          "size": 100,
           "screen": [
             0.5,
-            0.5
+            0.56
           ],
           "at": "apologized"
         },

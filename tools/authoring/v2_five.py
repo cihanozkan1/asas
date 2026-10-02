@@ -41,7 +41,7 @@ if want('istanbul'):
               src=[src('The Bosporus forms a continental boundary between Asia and Europe.', 'Bosporus', 'forms one of the continental boundaries between Asia and Europe')]),
             S("It's 31 kilometers long, and at its narrowest point it's only 700 meters wide.", [
                 route(FERRY, 'long', color='#ffffff', width=4, dashed=True, dash=[14, 12], glow=False, id='fer', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=2.6, check=False),
-                cnt_steps([('31', '31 km'), ('700', '700 m')], size=180), ping(41.075, 29.057, 'narrowest', color='#ffd60a'), dot('Kandilli', 41.075, 29.06, 'narrowest', dy=78),
+                cnt_steps([('31', '31 km'), ('700', '700 m')], size=180), ping(41.075, 29.057, 'narrowest', color='#ffd60a'), dot('Kandilli', 41.075, 29.06, 'narrowest', dy=104),
                 lens('700', screen=(0.5, 0.4), r=300)],
               cam={'lat': 41.12, 'lon': 29.06, 'zoom': 60, 'then': [{'at': 'narrowest', 'lat': 41.075, 'lon': 29.05, 'zoom': 300, 'duration': 1.1}]},
               src=[src('31 km long; minimum width 700 m near Kandilli.', 'Bosporus', 'measures "31 km (17 nmi) long" with a minimum width of "700 m (0.38 nmi)" at its narrowest point near Kandilli')]),
@@ -53,16 +53,16 @@ if want('istanbul'):
             S("So why did such a huge city grow right here?", [q(41.03, 29.0, 'why'), react('art:emote_think', (0.28, 0.3), 'why', size=170)],
               cam=at_(41.03, 29.0, 40), style='dark', no_claim=True, tr='flash'),
             S("Because the Bosphorus is the only passage between the Black Sea and the Mediterranean.", [
-                route([(43.0, 34.0), (41.6, 29.6), (41.2, 29.1), (41.0, 28.98), (40.6, 27.4), (39.6, 26.2), (37.5, 25.0), (35.5, 20.0)], 'passage', color='#ffd60a', width=8, drawDur=2.6, laser=True, id='pass', mover={'kind': 'ship', 'size': 150, 'style': 'cargo'}, check=False),
-                lab('BLACK SEA', 43.2, 34.5, 'Black', style='map', size=44), lab('MEDITERRANEAN', 35.5, 22.5, 'Mediterranean', style='map', size=44)],
+                route(sea_points((43.2, 34.0), (35.8, 24.0)), 'passage', color='#ffd60a', width=8, drawDur=2.6, laser=True, id='pass', mover={'kind': 'ship', 'size': 150, 'style': 'cargo'}, check=False),
+                lab('BLACK SEA', 43.9, 35.2, 'Black', style='map', size=44), lab('MEDITERRANEAN', 34.5, 22.6, 'Mediterranean', style='map', size=44)],
               cam={'follow': 'pass', 'zoom': 5, 'zoomTo': 3.2, 'duration': 1.0},
               src=[src('The Bosporus is the only passage between the Black Sea and the Mediterranean and has always been of great commercial and military importance.', 'Bosporus', 'As part of the only passage between the Black Sea and the Mediterranean, the Bosporus has always been of great importance from a commercial and military point of view.')]),
             S("Greek colonists founded Byzantium here, and in the year 330 it became Constantinople.", [
                 year(330, '330'), lab('Byzantium', 41.1, 28.75, 'Byzantium', style='serif', size=60), lab('Constantinople', 40.95, 29.15, 'Constantinople', style='serif', size=56)],
-              cam=at_(41.05, 29.0, 30), era='history', tr='film',
+              cam=at_(41.05, 29.0, 60), era='history', tr='film',
               src=[src('Founded as Byzantium (~660 BC); renamed Constantinople in 330 AD.', 'Istanbul', 'originally called Byzantium when Greek colonists established it around 660 BC. It became Constantinople in 330 AD under Constantine the Great')]),
             S("It was the capital of the Roman, Byzantine and Ottoman empires.", [
-                cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), art('hagia_sophia', 41.0086, 28.9802, 'capital', size=190), dot('Hagia Sophia', 41.0086, 28.9802, 'capital', dy=70, size=34)],
+                cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), art('hagia_sophia', 41.0086, 28.9802, 'Ottoman', size=190), dot('Hagia Sophia', 41.0086, 28.9802, 'Ottoman', dy=100, size=34)],
               era='history', cam=at_(41.01, 28.98, 60),
               src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
             S("In 1453, Ottoman cannons, including a giant one that fired 270 kilogram stone balls, pounded the Theodosian walls for fifty five days, until the city fell.", [
@@ -82,7 +82,7 @@ if want('istanbul'):
               cam=at_(41.02, 28.97, 90), era='history',
               src=[src('Officially renamed Istanbul in 1930.', 'Istanbul', 'officially renamed Istanbul in 1930')]),
             S("Today, three bridges and a railway tunnel link the two continents.", [
-                cnt('3 + 1', 'three', size=180, screen=[0.2, 0.1]),
+                cnt('3 + 1', 'three', size=170, screen=[0.33, 0.07]),
                 bridge((41.0479, 29.0262), (41.0426, 29.0424), 'three', buildDur=0.9), dot('15 July Martyrs Bridge · 1973', 41.0452, 29.0343, 'three', dy=-46, size=30),
                 bridge((41.0906, 29.0540), (41.0923, 29.0690), 'bridges', buildDur=0.9), dot('Fatih Sultan Mehmet Bridge · 1988', 41.0915, 29.0615, 'bridges', dy=-46, size=30),
                 bridge((41.2050, 29.0985), (41.2004, 29.1240), 'railway', buildDur=0.9, towers=(0.3, 0.7)), dot('Yavuz Sultan Selim Bridge · 2016', 41.2027, 29.1112, 'railway', dy=-46, size=30),
@@ -92,15 +92,15 @@ if want('istanbul'):
                        'the 1,074 m (3,524 ft) long 15th July Martyrs Bridge was completed in 1973 ... Fatih Sultan Mehmet (Bosporus II) Bridge ... was completed in 1988 ... the Yavuz Sultan Selim Bridge ... was completed in 2016 ... The Marmaray project, featuring a 13.7 km (8.5 mi) long undersea railway tunnel, opened on 29 October 2013')]),
             S("That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.", [
                 cnt('60 m', 'sixty', size=190, color='#4ade80'),
-                route(TUN, 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 100}, drawDur=2.4, check=False),
+                route(TUN, 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 64}, drawDur=2.4, check=False),
                 grade('cold', 'underwater')],
               cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9},
               src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
-            S("And that is the answer to one simple question:", [],
+            S("And that is the answer to one simple question:", [hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7)],
               cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'duration': 1.6, 'loopIntro': True}, no_claim=True),
         ],
         keywords={'istanbul': '#ff5a5f', 'europe': '#5ec8ff', 'asia': '#ffd60a', 'bosphorus': '#5ec8ff', 'constantinople': '#ffd60a', 'cannons': '#ff5a5f'},
-        imagery=[{'bbox': [28.55, 40.8, 29.45, 41.35], 'width': 4096}, {'bbox': [28.885, 40.985, 28.975, 41.06], 'width': 2048}], v2=True)
+        imagery=[{'bbox': [28.55, 40.8, 29.45, 41.35], 'width': 4096, 'mask': False}, {'bbox': [28.885, 40.985, 28.975, 41.06], 'width': 2048, 'mask': False}], v2=True)
 
 # =========================================================================================== POINT ROBERTS
 if want('point_roberts'):
@@ -125,17 +125,17 @@ if want('point_roberts'):
               cam={'lat': 49.0, 'lon': -123.0, 'zoom': 120, 'bearing': -3, 'then': [{'at': 'town', 'lat': 48.99, 'lon': -123.055, 'zoom': 700, 'duration': 1.4}]},
               src=[src('Point Roberts is a US pene-exclave reachable by land only through Canada (or by boat/plane).', PRW, 'a pene-exclave of the US state of Washington ... "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
             S("It's Point Roberts, on the tip of a Canadian peninsula just south of Vancouver.", [
-                giant('POINT ROBERTS', 48.88, -123.05, 'Point', size=70), ping(*PR, 'Point', color='#ffd60a'), dot('Vancouver', 49.25, -123.1, 'Vancouver', dy=-46), pathtext('Tsawwassen peninsula', [(49.02, -123.13), (49.05, -123.07), (49.09, -123.03)], 'peninsula', size=40)],
+                giant('POINT ROBERTS', 48.88, -123.05, 'Point', size=70), ping(*PR, 'Point', color='#ffd60a'), dot('Vancouver', 49.25, -123.1, 'Vancouver', dy=-46)],
               cam=at_(49.08, -123.05, 60),
               src=[src('On the southern tip of the Tsawwassen peninsula, south of Vancouver.', PRW, 'on the southernmost tip of the Tsawwassen peninsula, south of Vancouver, British Columbia, Canada')]),
             S("George Vancouver named it in 1792, after his friend Henry Roberts.", [
-                year(1792, '1792', light=True), lab('Henry Roberts', 49.2, -123.55, 'friend', style='serif', size=44)],
+                year(1792, '1792', light=True), ping(*PR, 'named', color='#ffd60a'), lab('Henry Roberts', 48.9, -123.2, 'Henry', style='serif', size=44)],
               era='history', tr='film', cam=at_(49.06, -123.3, 26),
               src=[src('Point Roberts was named by George Vancouver after his friend Henry Roberts (1792 expedition).', PRW, 'Point Roberts acquired its present name from George Vancouver, who named it after his friend Henry Roberts')]),
             S("So why is it American?", [q(PR[0], PR[1], 'why'), react('art:emote_think', (0.3, 0.32), 'why', size=170)], cam=at_(49.0, -123.0, 90), style='dark', no_claim=True, tr='flash'),
             S("In 1846, the Oregon Treaty set the border between the US and British Canada along the 49th parallel.", [
                 year(1846, '1846'), route([(49, -125), (49, -120)], '49th', rhumb=True, color='#ffd60a', width=7, drawDur=1.3, laser=True),
-                lab('BRITISH', 49.5, -122.0, 'British', style='serif', size=56), lab('UNITED STATES', 48.5, -122.0, 'US', style='serif', size=52)],
+                lab('BRITISH CANADA', 49.5, -122.0, 'British', style='serif', size=50), lab('UNITED STATES', 48.5, -122.0, 'US', style='serif', size=52)],
               cam=at_(49.0, -122.5, 12), era='history', tr='film',
               src=[src('The 1846 Oregon Treaty fixed the boundary at the 49th parallel.', PRW, 'the 1846 Oregon Treaty, which established "the 49th parallel would define the boundary between their respective territories"')]),
             S("But this perfectly straight line cut right across the peninsula, leaving its tip on the American side.", [
@@ -146,36 +146,34 @@ if want('point_roberts'):
               src=[src('The 49th parallel left the southern peninsula tip on the US side.', PRW, 'leaving this southern peninsula on the American side')]),
             S("So to reach the rest of the USA by land, you drive about 40 kilometers through Canada.", [
                 route(PR_ROAD, 'drive', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='road', mover={'kind': 'icon', 'icon': 'art:car', 'size': 90}, drawDur=3.6, medium='land', smooth=False),
-                dot('Blaine, USA', *BLAINE, 'Canada', dy=50, dx=-110), cnt('40 km', '40', size=160)],
+                dot('Blaine, USA', *BLAINE, 'Canada', dy=60, dx=-150), cnt('40 km', '40', size=160)],
               cam={'follow': 'road', 'zoom': 130, 'zoomTo': 100, 'duration': 1.0},
               src=[src('Residents travel about 25 mi (40 km) through Canada.', PRW, 'traveling "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
             S("Older kids go to school in Blaine, so they cross the border four times on every round trip.", [
-                route(PR_ROAD, 'school', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='bus', mover={'kind': 'icon', 'icon': 'art:bus', 'size': 100}, drawDur=2.6, medium='land', smooth=False),
+                route(PR_ROAD, 'school', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='bus', mover={'kind': 'icon', 'icon': 'art:bus', 'size': 100}, drawDur=4.0, medium='land', smooth=False), dot('Blaine, USA', *BLAINE, 'cross', dy=60, dx=-70),
                 cnt_steps([('school', '1'), ('cross', '2'), ('four', '4')], size=200)],
               cam={'follow': 'bus', 'zoom': 130, 'zoomTo': 100, 'duration': 0.9},
               src=[src('Students in grade 4 and above commute to Blaine, crossing the border four times.', PRW,
                        'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
             S("In March 2020, the border closed, and the town lost about eighty percent of its business.", [
-                year('2020', 'March', light=True), handstamp('BORDER CLOSED', 'closed', size=92, screen=[0.5, 0.36]),
-                clip('emoji_police-car-light', 'closed', screen=[0.5, 0.54], size=230, loop=True), grade('cold', 'March', until=5.5),
+                year('2020', 'March', light=True), handstamp('BORDER CLOSED', 'closed', size=92, screen=[0.5, 0.27]),
+                clip('emoji_police-car-light', 'closed', 49.0, -123.07, size=170, loop=True, dx=200, dy=90), grade('cold', 'March', until=5.5),
                 cnt('-80%', 'eighty', size=200, color='#ff5a5f')],
               cam=at_(48.99, -123.05, 100, bearing=3), tr='flash',
               src=[src('The border closed to non-essential travel in March 2020; Point Roberts lost 80 percent of its business.', PRW,
                        'In 2020, a study found that Point Roberts had lost 80 percent of its business and hundreds of seasonal residents as a result of the pandemic and border shutdown.')]),
             S("So a temporary passenger ferry carried people to Blaine, over the water.", [
                 route(FERRY, 'ferry', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='ferry', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=3.0),
-                dot('Blaine', 48.99, -122.77, 'Blaine', dy=50, dx=-50)],
+                dot('Blaine', 48.99, -122.77, 'Blaine', dy=90, dx=-20)],
               cam={'follow': 'ferry', 'zoom': 130, 'zoomTo': 100, 'duration': 1.0},
               src=[src('A temporary passenger ferry ran from Point Roberts to Blaine.', PRW, 'A temporary passenger ferry service from Point Roberts to Blaine operated by the Port of Bellingham')]),
             S("Today, Canadians drive in for cheaper American gas, alcohol and food.", [
-                scatter(PRB, 'art:beer_glass', 'alcohol', count=3, size=120, stagger=0.25), scatter(PRB, 'art:oil_barrel', 'gas', count=3, size=110, stagger=0.25),
-                flag('ca', 49.02, -123.0, 'Canadians', size=110, wave=True)],
-              cam=at_(48.98, -123.05, 110),
+                scatter(PRB, 'art:beer_glass', 'alcohol', count=3, size=80, stagger=0.25), scatter(PRB, 'art:oil_barrel', 'gas', count=3, size=76, stagger=0.25)],
+              cam=at_(48.985, -123.055, 600),
               src=[src('Canadians visit Point Roberts for cheaper American gasoline, alcohol and food.', PRW, 'Canadians visit for cheaper American gasoline, alcohol, and food when the Canadian dollar is strong')]),
             S("Forty times more Canadians have mailboxes here than there are residents.", [
-                {'type': 'crowd', 'lat': 48.985, 'lon': -123.065, 'count': 40, 'cols': 10, 'size': 30, 'color': '#ffffff', 'red': [{'at': 'Canadians', 'n': 40}], 'redColor': '#e11d2e', 'at': 'Forty'},
-                cnt('40x', 'Forty', size=190, color='#ff5a5f')],
-              cam=at_(48.985, -123.05, 130),
+                lab('MAILBOXES', 48.945, -123.055, 'mailboxes', style='map', size=54), cnt('40x', 'Forty', size=190, color='#ff5a5f')],
+              cam=at_(48.985, -123.055, 600),
               src=[src('Forty times more Canadians have mailboxes in Point Roberts than there are residents.', PRW, 'Forty times more Canadians have mailboxes in Point Roberts than the number of residents')]),
             S("Only 1,191 people live in this American town, cut off by Canada.", [
                 hl(PRB, 'flag:us', 0.05, fillOpacity=0.95), lab('POINT ROBERTS', 48.945, -123.055, 0.05, style='map', size=54),
@@ -210,17 +208,17 @@ if want('hawaii'):
               src=[src('About 2,000 miles (3,200 km) southwest of the US mainland.', 'Hawaii', 'in the Pacific Ocean about 2,000 miles (3,200 km) southwest of the U.S. mainland'),
                    src('Hawaii is the only state that is an archipelago.', 'Hawaii', 'the only state not on the North American mainland, the only state that is an archipelago, the only state south of the Tropic of Cancer')]),
             S("Its volcano Mauna Kea is taller than Mount Everest, when you measure it from the ocean floor.", [
-                clip('emoji_volcano', 'Mauna', *MK, size=420, loop=True), cnt('10,200 m', 'taller', size=150), lab('Mauna Kea', 'Mauna', screen=[0.5, 0.24], style='map', size=40)],
+                ping(*MK, 'Mauna', color='#ff5a5f'), dot('Mauna Kea', *MK, 'Mauna', dy=-90, size=40), cnt('10,200 m', 'taller', size=150)],
               cam=at_(19.8, -155.5, 70, bearing=-3),
               src=[src('Mauna Kea is taller than Everest measured from its base on the Pacific floor (about 10,200 m).', 'Hawaii',
                        'it is taller than Mount Everest when measured from the base of the mountain, which is on the floor of the Pacific Ocean, rising about 33,500 feet (10,200 m)')]),
             S("So how did an island kingdom become an American state?", [q(21, -157, 'how')], cam=at_(20.6, -157.4, 15), style='dark', no_claim=True),
             S("In the 1890s, Hawaii was an independent kingdom, ruled by Queen Liliʻuokalani.", [
-                char('queen_liliuokalani', 'Queen', name='Queen Liliʻuokalani'), hl(HI, '#b3202a', 'kingdom', fillOpacity=0.85), icon('👑', 20.3, -156.5, 'kingdom', size=110)],
+                char('queen_liliuokalani', 'Queen', name='Queen Liliʻuokalani'), hl(HI, '#b3202a', 'kingdom', fillOpacity=0.85)],
               cam=at_(20.6, -157.4, 15), era='history', tr='film',
               src=[src('Queen Liliʻuokalani was the monarch deposed in 1893.', 'Overthrow_of_the_Hawaiian_Kingdom', "Queen Liliʻuokalani was deposed during this coup d'état against the Hawaiian Kingdom.")]),
             S("It was founded in 1795 by Kamehameha the First, and in 1843 Britain and France recognized it as an independent state.", [
-                year(1795, '1795'), ping(19.6, -155.5, 'Kamehameha', color='#ffd60a'), lab('Kamehameha I', 'First', screen=[0.5, 0.33], style='serif', size=46), flag('gb', 23.5, -159.5, 'Britain', size=110), flag('fr', 23.5, -155.2, 'France', size=110), lab('Independent state', 18.6, -157.4, 'independent', style='serif', size=48)],
+                year(1795, '1795'), year(1843, '1843'), ping(19.6, -155.5, 'Kamehameha', color='#ffd60a'), dot('Kamehameha I', 19.6, -155.5, 'Kamehameha', dy=-96, size=40), flag('gb', 23.5, -159.5, 'Britain', size=110), flag('fr', 23.5, -155.2, 'France', size=110), lab('Independent state', 18.6, -157.4, 'independent', style='serif', size=48)],
               era='history',
               src=[src('Kamehameha I established the Hawaiian Kingdom in 1795.', 'Hawaiian_Kingdom', 'He established the Hawaiian Kingdom in 1795 with the help of western weapons and advisors'),
                    src('In 1843 Britain and France jointly declared Hawaii an independent state.', 'Hawaiian_Kingdom', 'Britain and France issued the Anglo-Franco Proclamation, jointly declaring the Hawaiian Islands "an Independent State."')]),
@@ -230,7 +228,7 @@ if want('hawaii'):
               cam=at_(21.4, -157.9, 30), era='history',
               src=[src('On 17 January 1893 the Committee of Safety, backed by 162 sailors and Marines from the USS Boston, overthrew the Queen.', 'Overthrow_of_the_Hawaiian_Kingdom',
                        'The "Committee of Safety," composed of foreign-born residents and Hawaiian-born individuals, led the overthrow ... deployed 162 sailors and Marines from the USS Boston')]),
-            S("She surrendered, to avoid bloodshed.", [char('queen_liliuokalani', 'surrendered', name='Queen Liliʻuokalani'), clip('emoji_white-flag', 0.05, screen=[0.72, 0.42], size=380, loop=True)],
+            S("She surrendered, to avoid bloodshed.", [char('queen_liliuokalani', 'surrendered', name='Queen Liliʻuokalani'), clip('emoji_white-flag', 0.05, screen=[0.72, 0.3], size=300, loop=True)],
               era='history', cam=at_(21.35, -157.85, 60),
               src=[src('The Queen surrendered to avoid bloodshed.', 'Overthrow_of_the_Hawaiian_Kingdom', 'The Queen surrendered to avoid bloodshed.')]),
             S("In 1898, the United States annexed Hawaii. In 1900 it became a territory, and in 1959, it finally became a state.", [
@@ -238,7 +236,7 @@ if want('hawaii'):
               cam=at_(20.6, -157.4, 15), tr='flash',
               src=[src('Annexed via the Newlands Resolution (1898); territory 1900; statehood 1959.', 'Overthrow_of_the_Hawaiian_Kingdom', 'The United States annexed Hawaii through the Newlands Resolution in 1898. Hawaii became a territory in 1900 and eventually achieved statehood in 1959.')]),
             S("And in 1993, the US Congress formally apologized for the overthrow.", [
-                year(1993, '1993', light=True), stamp('SORRY', 'apologized', size=110, screen=[0.5, 0.5]), ping(*HNL, 'overthrow', color='#ffd60a')],
+                year(1993, '1993', light=True), stamp('SORRY', 'apologized', size=100, screen=[0.5, 0.56]), ping(*HNL, 'overthrow', color='#ffd60a')],
               src=[src('In 1993 Congress passed the Apology Resolution, signed by President Clinton.', 'Overthrow_of_the_Hawaiian_Kingdom', 'In 1993, Congress passed the Apology Resolution, which President Clinton signed, formally apologizing for the U.S. role in the overthrow')]),
             S("And that is the real story behind one simple question:", [],
               cam=at_(23, -150, 1.3, duration=1.6, loopIntro=True), no_claim=True),
@@ -254,7 +252,7 @@ if want('darien_gap'):
     GAP_COL = {'admin1': 'Chocó', 'country': 'COL'}
     HW_N = road_points((70.3, -148.7), (64.84, -147.72), (60.72, -135.05), (55.76, -120.24), (49.28, -123.12), (34.05, -118.24), (32.5, -117.0), (19.43, -99.13), (14.63, -90.51), (9.93, -84.08), (8.98, -79.52), (8.15, -77.69), max_pts=110)
     HW_S = road_points((8.1, -76.73), (6.25, -75.57), (4.71, -74.07), (-0.18, -78.47), (-12.05, -77.04), (-33.45, -70.67), (-34.6, -58.38), (-54.8, -68.3), max_pts=90)
-    SHIP = sea_points((9.37, -79.9), (8.09, -76.73))
+    SHIP = sea_points((9.8, -79.9), (8.4, -76.95))
     save('darien_gap', meta(
         'The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱',
         "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 A road was planned in 1971 and halted in 1974, and swamps, mountains, rainforest, deadly wildlife 🐍 and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
@@ -269,8 +267,7 @@ if want('darien_gap'):
               cam={'follow': 'hw1', 'zoom': 3.4, 'zoomTo': 1.0, 'duration': 0.8, 'then': [{'at': 'Argentina', 'lat': -22, 'lon': -68, 'zoom': 1.15, 'duration': 1.3}]},
               src=[src('The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.', PAH, 'from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina')]),
             S("It's the Pan-American Highway, and it links 14 countries.", [
-                pathtext('Pan-American Highway', [(41, -101), (28, -101), (19, -99), (10, -84)], 'Pan-American', size=54, glow='#ffd60a'),
-                cnt('14', '14', size=200, screen=[0.5, 0.3]), *[flag(c, la, lo, 'links', size=90, stagger=0) for c, la, lo in [('us', 40, -100), ('mx', 23, -102), ('pe', -9, -75), ('cl', -30, -71), ('ar', -38, -65)]]],
+                cnt('14', '14', size=200, screen=[0.5, 0.3]), *[flag(c, la, lo, 'links', size=90, stagger=0) for c, la, lo in [('us', 40, -100), ('mx', 23, -102)  , ('pe', -9, -75), ('ar', -38, -65)]]],
               cam=at_(8, -84, 1.5, bearing=-4),
               src=[src('The highway links 14 countries.', PAH, 'The highway connects 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile, and Argentina.')]),
             S("But in Panama, the road simply ends, in the town of Yaviza.", [
@@ -279,13 +276,13 @@ if want('darien_gap'):
               cam=at_(8.3, -77.4, 6, duration=1.0), tr='zoom',
               src=[src('The highway breaks at Yaviza, Panama and resumes at Turbo, Colombia, roughly 106 km away.', DG, "The 'Gap' interrupts the Pan-American Highway, which breaks at Yaviza, Panama, and resumes at Turbo, Colombia, roughly 106 km (66 mi) away.")]),
             S("It only starts again in Turbo, Colombia, 106 kilometers away.", [
-                dot('Turbo', *TUR, 'Turbo', dy=-56), dot('Yaviza', *YAV, 'again', dy=-90), flag('pa', 8.9, -78.4, 'Turbo', size=100), flag('co', 7.4, -76.2, 'Colombia', size=100),
+                dot('Turbo', *TUR, 'Turbo', dy=86), dot('Yaviza', *YAV, 'again', dy=-90),
                 meas(YAV, TUR, '106 km', 'kilometers')],
               cam=at_(8.2, -77.2, 18, bearing=-3, duration=1.5),
               src=[src('The highway breaks at Yaviza, Panama and resumes at Turbo, Colombia, roughly 106 km away.', DG, "The 'Gap' interrupts the Pan-American Highway, which breaks at Yaviza, Panama, and resumes at Turbo, Colombia, roughly 106 km (66 mi) away.")]),
             S("Between them lies the Darién Gap: swamps, mountains and thick rainforest.", [
                 trace(GAP_PAN, '#16a34a', 'Darién', neon='#4ade80', fillOpacity=0.5), trace(GAP_COL, '#16a34a', 'Darién', neon='#4ade80', fillOpacity=0.5),
-                giant('DARIÉN GAP', 8.75, -77.3, 'Darién', size=84)],
+                giant('DARIÉN GAP', 9.9, -77.3, 'Darién', size=84)],
               cam=at_(7.9, -77.3, 14, duration=1.2), tr='flash',
               src=[src('Colombian side: Atrato delta marshland; Panamanian side: mountainous rainforest.', DG, "the Colombian side dominated primarily by the river delta of the Atrato River, which creates a flat marshland at least 80 km (50 mi) wide")]),
             S("Cars have to be shipped around it, by boat.", [
@@ -293,34 +290,33 @@ if want('darien_gap'):
               cam=at_(8.8, -78.0, 8, duration=1.2),
               src=[src('Vehicles must be shipped by cargo vessel to get around the gap.', PAH, 'vehicles must be shipped by cargo vessel to bridge this section')]),
             S("Heavy rain sends flash floods roaring through the jungle.", [
-                clip('emoji_rain-cloud', 'rain', 8.1, -77.7, size=420, loop=True), clip('emoji_droplet', 'floods', screen=[0.3, 0.45], size=260, loop=True), particles('rain', 0.3, density=0.7)],
+                clip('emoji_rain-cloud', 'rain', 8.1, -77.7, size=260, loop=True), particles('rain', 0.3, density=0.7)],
               cam=at_(7.9, -77.3, 20, duration=1.2),
               src=[src('Rain in the Darién Gap produces flash floods.', DG, 'Rainfall in the Darién Gap produces flash floods that can carry sleepers to their deaths.')]),
             S("A road was planned there in 1971, but halted in 1974, after environmentalists raised serious concerns.", [
-                year(1971, '1971', light=True), timebar(1971, 1974, '3 years', '1971', screen=[0.5, 0.36]), stamp('HALTED', 'halted', size=100)],
+                year(1971, '1971', light=True), year(1974, '1974', light=True), stamp('HALTED', 'halted', size=100, screen=[0.5, 0.52])],
               style='pastel', tr='film', cam=at_(8.3, -77.4, 6),
               src=[src('Road planning began in 1971 with US funding and was halted in 1974 after environmentalists raised concerns.', DG, 'Planning began in 1971 with the help of US funding, but was halted in 1974 after multiple environmentalists expressed serious concerns.')]),
             S("Then in 1978, the United States blocked its support, to stop foot-and-mouth disease from spreading north.", [
-                year(1978, '1978', light=True), scatter(GAP_COL, 'art:cow', 'foot-and-mouth', count=3, size=110, stagger=0.2),
+                year(1978, '1978', light=True), scatter(GAP_COL, 'art:cow', 'foot-and-mouth', count=2, size=90, stagger=0.2),
                 arrow((6.5, -76.6), (9.2, -77.9), 'spreading', color='#e11d2e', width=14)],
               style='pastel', cam=at_(7.9, -77.3, 8),
               src=[src('In 1978 the US Department of Agriculture blocked US support to prevent the spread of foot-and-mouth disease.', DG, 'US support was further blocked by the US Department of Agriculture in 1978, with the intention of preventing the spread of foot-and-mouth disease.')]),
             S("Today the jungle is full of venomous wildlife and tropical diseases.", [
-                clip('emoji_snake', 'venomous', screen=[0.66, 0.5], size=340, loop=True), clip('emoji_mosquito', 'diseases', screen=[0.76, 0.28], size=280, loop=True), grade('danger', 0.3)],
+                clip('emoji_snake', 'venomous', screen=[0.66, 0.5], size=240, loop=True), clip('emoji_mosquito', 'tropical', screen=[0.76, 0.3], size=220, loop=True), grade('danger', 0.3)],
               cam=at_(7.9, -77.3, 20, duration=1.2), tr='flash',
               src=[src('Dangers include venomous wildlife and tropical diseases.', DG, 'venomous and deadly wildlife, tropical insects, parasites and diseases, and frequent heavy rains and flash floods')]),
             S("There is no police and no hospital, so violent crime is everywhere.", [
-                clip('emoji_sos', 'police', 7.9, -77.3, size=380, loop=True), lab('NO POLICE', 8.3, -77.3, 'police', style='map', size=60), shake('violent'), grade('danger', 0.3)],
-              style='dark',
+                clip('emoji_sos', 'police', 7.9, -77.3, size=240, loop=True), lab('NO POLICE', 8.55, -77.3, 'police', style='map', size=60), shake('violent'), grade('danger', 0.3)],
               src=[src('Law enforcement and medical support are nonexistent; violent crime is rampant.', DG, 'law enforcement and medical support are nonexistent, resulting in rampant violent crime')]),
             S("Still, in 2021, more than 130,000 people crossed it on foot. In 2022, about 250,000. And in 2023, more than 520,000.", [
                 cnt_steps([('2021', '130,000+'), ('2022', '250,000'), ('2023', '520,000+')], size=170, color='#ff5a5f'),
-                {'type': 'crowd', 'lat': 7.9, 'lon': -77.4, 'count': 52, 'cols': 13, 'size': 30, 'at': '2021', 'counts': [{'at': '2021', 'n': 13}, {'at': '2022', 'n': 25}, {'at': '2023', 'n': 52}], 'red': [{'at': '2023', 'n': 52}]}],
+                {'type': 'crowd', 'lat': 7.5, 'lon': -77.2, 'count': 52, 'cols': 13, 'size': 30, 'at': '2021', 'counts': [{'at': '2021', 'n': 13}, {'at': '2022', 'n': 25}, {'at': '2023', 'n': 52}], 'red': [{'at': '2023', 'n': 52}]}],
               cam=at_(7.9, -77.4, 12, duration=1.0),
               src=[src('Crossings: more than 130,000 in 2021, about 250,000 in 2022, more than 520,000 in 2023.', DG, 'In 2023, more than 520,000 individuals passed through the gap'),
                    src('The 2021 and 2022 crossings.', DG, 'more than 130,000')]),
             S("The shortest gap on the road, and the most dangerous.", [
-                clip('emoji_skull', 'dangerous', 7.95, -77.4, size=380)],
+                clip('emoji_skull', 'dangerous', 7.95, -77.4, size=240)],
               cam=at_(10, -80, 1.3, duration=1.6), style='dark', no_claim=True),
             S("And that is the answer to the biggest question about this road:", [],
               cam=at_(HW_N[0][0], HW_N[0][1], 3.4, duration=1.8, loopIntro=True), no_claim=True),
@@ -346,13 +342,13 @@ if want('chimborazo'):
               cam=at_(-1.5, -78.8, 6.5),
               src=[src('Chimborazo is 6,263 m high.', 'Chimborazo', 'With an elevation of 6,263 m (20,548 ft), Chimborazo is the highest mountain in Ecuador')]),
             S("It's a glacier-covered volcano, and it last erupted around the year 550 AD.", [
-                art('mountain', *CH, 'volcano', size=260), particles('snow', 'glacier', density=0.5),
-                clip('emoji_volcano', 'erupted', *CH, size=520, loop=True), cnt('~550 AD', '550', size=150)],
+                ping(*CH, 'volcano', color='#ff5a5f'),
+                clip('emoji_volcano', 'erupted', *CH, size=240, loop=True, dy=-175), cnt('~550 AD', '550', size=150)],
               cam=at_(-1.5, -78.8, 7),
               src=[src('Chimborazo is a stratovolcano; the summit is covered by glaciers; last eruption around 550 AD.', 'Chimborazo',
                        'a dominantly andesitic-dacitic stratovolcano ... the last time around 550 AD ± 150 years')]),
             S("In 1802, Alexander von Humboldt climbed it to 5,875 meters, higher than any European ever had.", [
-                year(1802, '1802'), cnt('5,875 m', '5,875', size=150), art('mountain', *CH, 'climbed', size=180), ping(*CH, 'Humboldt', color='#ffd60a')],
+                year(1802, '1802'), cnt('5,875 m', '5,875', size=150), ping(*CH, 'Humboldt', color='#ff5a5f')],
               cam=at_(-1.5, -78.8, 7), tr='film',
               src=[src('In 1802 Humboldt reached 5,875 m, higher than any European in recorded history.', 'Chimborazo', 'they reached a point at 5,875 m, higher than previously attained by any European in recorded history')]),
             S("Everest is more than two and a half kilometers taller, so how can Chimborazo be closer to space?", [
@@ -360,11 +356,11 @@ if want('chimborazo'):
               style='neon', cam=at_(0, -60, 1.0),
               src=[src('Chimborazo is 2,585 m lower than Everest above sea level.', 'Chimborazo', 'Despite being 2,585 m (8,481 ft) lower in elevation above sea level, it is 6,384.4 km')]),
             S("Because Earth isn't a perfect ball. It's thicker at the equator, like it's wearing a belt.", [
-                route([(0, -180), (0, -90), (0, 0), (0, 90), (0, 180)], 'equator', rhumb=True, color='#ffd60a', width=10, drawDur=1.4, hold=2), slam('EQUATOR', 6, -40, 'equator', size=70)],
+                route([(0, -180), (0, -90), (0, 0), (0, 90), (0, 180)], 'equator', rhumb=True, color='#ffd60a', width=10, drawDur=1.4), slam('EQUATOR', 6, -40, 'equator', size=70)],
               cam=at_(10, -60, 1.0),
               src=[src('Earth is thicker at the equator than pole to pole.', 'Chimborazo', 'the Earth is thicker at the Equator than it is from pole to pole')]),
             S("And Chimborazo sits just one degree south of the equator, right on top of that bulge.", [
-                ping(*CH, 'Chimborazo', color='#ff5a5f'), meas((0, -78.8), CH, '1°', 'degree', countUp=False)],
+                route([(0, -90), (0, -68)], 'equator', rhumb=True, color='#ffd60a', width=8, drawDur=0.6), meas((0, -78.8), CH, '1°', 'degree', countUp=False)],
               cam=at_(-0.5, -78.8, 5),
               src=[src('It lies one degree south of the equator.', 'Chimborazo', 'Chimborazo is one degree south of the Equator')]),
             S("Its summit is 6,384.4 kilometers from the center of the Earth.", [
@@ -372,7 +368,7 @@ if want('chimborazo'):
               cam=at_(-1.5, -78.8, 6),
               src=[src("Its summit is 6,384.4 km from Earth's center.", 'Chimborazo', "it is 6,384.4 km (3,967.1 mi) from the Earth's center")]),
             S("In fact, its summit is widely reported to be the farthest point on Earth's surface from the center of the planet.", [
-                cnt('#1', 'farthest', size=220), lab('FARTHEST FROM THE CENTER', 2.6, -78.8, 'farthest', style='map', size=44), ping(*CH, 'summit', color='#ff5a5f')],
+                lab('FARTHEST FROM THE CENTER', 2.6, -78.8, 'farthest', style='map', size=44), ping(*CH, 'summit', color='#ff5a5f')],
               cam=at_(-1.5, -78.8, 3.0),
               src=[src("Chimborazo's summit is widely reported to be the farthest point on the surface from Earth's center.", 'Chimborazo',
                        "the summit of Chimborazo is widely reported to be the farthest point on the surface from Earth's center")]),

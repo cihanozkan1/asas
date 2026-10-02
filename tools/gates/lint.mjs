@@ -71,6 +71,21 @@ export function lintScript(script) {
       else if (!(new RegExp(rx, 'i').test(text) || (why && text.includes(why)))) out.push({ sev: 'error', kind: 'no-reason', t: 0, msg: `scene ${i + 1}: ${e.name} is not justified by the narration "${s.text.slice(0, 60)}…" (needs one of: ${rx})` });
       if (typeof e.at === 'number' && e.at > 0.2 && !e.screen) out.push({ sev: 'warn', kind: 'unbound', t: 0, msg: `scene ${i + 1}: ${e.name} placed at ${e.at}s instead of a narration word` });
     }
+    // every year the narrator says must be on screen in that scene (a year frozen on 1971 while he says 1974 is wrong)
+    const years = [...new Set((s.text || '').match(/\b(1\d{3}|20\d{2})\b/g) || [])];
+    if (years.length >= 2) {
+      const shown = JSON.stringify((s.show || []).map((e) => [e.value, e.text, e.label, e.steps, e.items, e.events, e.from, e.to])).replace(/[^0-9a-z ]/gi, ' ');
+      const missing = years.filter((y) => !new RegExp(`\\b${y}\\b`).test(shown));
+      if (missing.length) out.push({ sev: 'error', kind: 'year-mismatch', t: 0, msg: `scene ${i + 1}: the narration says ${years.join(' and ')} but ${missing.join(', ')} never appears on screen` });
+    }
+    // curved text must follow a route drawn in the same scene (hand-typed curves drift off the road)
+    for (const e of s.show || []) {
+      if (e.type !== 'pathtext') continue;
+      const routes = (s.show || []).filter((r) => r.type === 'route' && r.points);
+      const near = (p, r) => r.points.some((q) => Math.hypot(q[0] - p[0], (q[1] - p[1]) * Math.cos((p[0] * Math.PI) / 180)) < 1.2);
+      if (!routes.length) out.push({ sev: 'error', kind: 'pathtext-off-route', t: 0, msg: `scene ${i + 1}: pathtext "${e.text}" has no route in the scene to follow` });
+      else if (!(e.points || []).every((p) => routes.some((r) => near(p, r)))) out.push({ sev: 'error', kind: 'pathtext-off-route', t: 0, msg: `scene ${i + 1}: pathtext "${e.text}" does not follow the drawn route (use points taken from it)` });
+    }
     if (new Set(flags).size > 1) out.push({ sev: 'error', kind: 'flag-style', t: 0, msg: `scene ${i + 1}: flag markers mix looks (pin/wave): ${[...new Set(flags)].join(', ')}` });
   });
   return out;

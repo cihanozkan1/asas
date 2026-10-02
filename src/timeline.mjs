@@ -169,6 +169,7 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
       el.scene = i;
       delete el.at;
       delete el.until;
+      if (raw.hold != null) el._hold = true;
       delete el.hold;
 
       if (raw.morph) el.morph = raw.morph.map((m) => ({ ...m, t: timeSpec(sc, m.at, sc.start) }));
@@ -447,10 +448,19 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
     const prev = el.key && open.get(el.key);
     if (prev && el.start <= prev.end + 0.15) {
       prev.end = Math.max(prev.end, el.end);
+      prev._merged = true;
       continue;
     }
     merged.push(el);
     if (el.key) open.set(el.key, el);
+  }
+
+  // nothing from a scene lingers in the next one: ghosts of stamps, counters and characters were the most common complaint
+  const PERSIST = new Set(['highlight', 'route', 'wall', 'dim', 'grade', 'bridge', 'pathtext', 'crowd', 'scatter', 'tilt', 'title']);
+  for (const el of merged) {
+    const sc = scenes[el.scene];
+    if (!sc || PERSIST.has(el.type) || el._merged || el._hold) continue;
+    el.end = Math.max(el.start + 0.3, Math.min(el.end, sc.end + 0.12));
   }
 
   const outTargets = {};

@@ -538,3 +538,10 @@ html, body {
 .kit-paper .bars .lab, .kit-paper .vbars .lab, .kit-paper .vbars .val, .kit-paper .bars .val { color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.8) !important; }
 /* stamps stay stamps (outline only, no filled plate) */
 .kit-block .stamp, .kit-neon .stamp, .kit-paper .stamp, .kit-news .stamp, .kit-outline .stamp { background: none !important; box-shadow: none !important; outline: none !important; color: #e11d2e; border-color: #e11d2e; }
+
+/* character name tags: plain text with outline, never a plate (user rule: no filled/framed text) */
+.character .nametag, .character.figure .nametag, .character.era-history .nametag,
+.kit-classic .character .nametag, .kit-block .character .nametag, .kit-neon .character .nametag, .kit-paper .character .nametag, .kit-news .character .nametag, .kit-outline .character .nametag {
+  background: none !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; clip-path: none !important; padding: 0 !important;
+  color: #fff !important; -webkit-text-stroke: 6px rgba(0,0,0,.7) !important; paint-order: stroke fill; text-shadow: 0 3px 10px rgba(0,0,0,.6) !important;
+}

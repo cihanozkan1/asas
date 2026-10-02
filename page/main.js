@@ -1461,6 +1461,7 @@ function drawMarks(t) {
     const life = lifeOf(el, t, 0.3, 0.4);
     const p = life && project(el);
     if (!p) continue;
+    if (state.tl.elements.some((o) => o.type === 'ping' && t >= o.start - 0.05 && t <= o.end && Math.abs(o.lat - el.lat) < 0.004 && Math.abs(o.lon - el.lon) < 0.004)) continue; // the ping already marks it
     drawMarker(ctx, p, markerColor(el.dotColor || el.color), life, 0.62, 40);
   }
   for (const el of state.tl.elements) {
@@ -2801,6 +2802,7 @@ function frame(t) {
   // close-up history shots: the vector coastlines are too coarse for a tiny island or town, so the
   // real imagery shows through in old-map colours instead of a blobby polygon
   // only where sharp detail imagery covers the view: the 8k base is just a blur this close
+  state.res = { tpp: texelsPerPx, box: Math.max(0, ...boxMix), zoomRel: view.k / state.baseK };
   const sharp = state.tl.flatClose ? 0 : Math.min(1, Math.max(0, ...boxMix) * 1.5);
   const zoomNow = view.k / state.baseK;
   const z = clamp01((zoomNow - 20) / 25) * sharp;      // old map: coastlines get blobby early
@@ -2815,6 +2817,7 @@ function frame(t) {
   const close = tints.reduce((acc, t) => acc + t[0], 0);
   const avg = (k) => [0, 1, 2].map((c) => tints.reduce((acc, t) => acc + t[0] * t[k][c], 0) / (close || 1));
   const rAlpha = Math.min(1, mix.sat + close);
+  state.res.ra = rAlpha;
   if (!state.layoutOnly) state.raster.draw(view, { alpha: rAlpha, atmo: state.mode === 'globe' ? 1 : 0, detailMix: boxMix, sepia: rAlpha > 0 ? close / rAlpha : 0, tintLand: avg(1), tintSea: avg(2) });
   $('space').style.display = state.mode === 'globe' ? 'block' : 'none';
   $('paper').style.display = mix.vin > 0.001 ? 'block' : 'none';
@@ -2830,15 +2833,15 @@ function frame(t) {
 }
 
 // QA: rects of every UI element that is (mostly) visible right now, plus the caption box
-function probe() {
+function probe(minOp = 0.5) {
   const out = [];
   state.tl.elements.forEach((el, i) => {
     if (!el._node || el.type === 'scatter') return;
     const op = parseFloat(el._node.style.opacity || '1');
-    if (!(op > 0.5)) return;
+    if (!(op > minOp)) return;
     const r = (el._inner || el._node).getBoundingClientRect();
     if (r.width < 2 || r.height < 2) return;
-    out.push({ i, type: el.type, name: el.name ?? el.code ?? el.icon ?? '', anchored: el.lat != null || el.points != null, text: String(el.text ?? el.value ?? el.label ?? el.steps?.[0]?.value ?? el.id ?? ''), scene: el.scene, start: el.start, end: el.end,
+    out.push({ i, type: el.type, name: el.name ?? el.code ?? el.icon ?? '', anchored: el.lat != null || el.points != null, keep: !!(el._merged || el._hold), onLand: el.lat != null && ['clip', 'icon', 'art', 'character', 'flag'].includes(el.type) && state.geo?.land10 ? geoContains(state.geo.land10, [el.lon, el.lat]) : null, text: String(el.text ?? el.value ?? el.label ?? el.steps?.[0]?.value ?? el.id ?? ''), scene: el.scene, start: el.start, end: el.end,
       x: r.left, y: r.top, w: r.width, h: r.height, op });
   });
   const caps = [...$('captions').querySelectorAll('*')].filter((n) => n.children.length === 0 && parseFloat(getComputedStyle(n).opacity) > 0.5)
@@ -2856,6 +2859,7 @@ function probe() {
     if (el.type !== 'ping' && !isDot) return;
     if (t < el.start - 0.05 || t > el.end) return;
     const p = project(el);
+    if (isDot && state.tl.elements.some((o) => o.type === 'ping' && t >= o.start - 0.05 && t <= o.end && Math.abs(o.lat - el.lat) < 0.004 && Math.abs(o.lon - el.lon) < 0.004)) return;
     if (p) { const sz = isDot ? 40 : 90; markers.push({ owner: i, x: p[0] - sz / 2, y: p[1] - sz / 2, w: sz, h: sz, kind: el.type }); }
   });
   // highlights drawn on the canvas: exact shape masks (1/8 scale) so flag fills can be tested for real overlap
@@ -2891,7 +2895,8 @@ function probe() {
       if (tot && inside / tot > 0.05) hlBoxes.push({ hl: h.i, el: e.i, frac: inside / tot, hlFill: h.fill, hlFlag: h.flag });
     }
   }
-  return { els: out, cap, scenes: state.tl.scenes.map((s) => [s.start, s.end]), markers, hlPairs, hlBoxes, hlInfo: hl.map((h) => ({ i: h.i, fill: h.fill, flag: h.flag, x: h.x, y: h.y, w: h.bw, h: h.bh })) };
+  const focus = state.view ? { x: state.view.cx - 70, y: state.view.cy - 70, w: 140, h: 140 } : null;
+  return { res: state.res, focus, els: out, cap, scenes: state.tl.scenes.map((s) => [s.start, s.end]), markers, hlPairs, hlBoxes, hlInfo: hl.map((h) => ({ i: h.i, fill: h.fill, flag: h.flag, x: h.x, y: h.y, w: h.bw, h: h.bh })) };
 }
 
 window.GG = { init, frame, probe, fast: (on) => { state.layoutOnly = !!on; } };

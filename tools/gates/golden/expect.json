@@ -1,8 +1,50 @@
 {
   "_doc": "Known-bad versions of the five videos (git ea47980) with the defects a human found. Each listed kind must be reported by the gates; the current videos must report no error at all. Defects: istanbul comet/bubbles emoji with no story reason; point_roberts hand-typed polygon in the sea, pin flag + plain flag, siren covering the stamp; hawaii characters/stamp covering the marked point, volcano covering the label; darien_gap year(1971,1971) never visible, mixed flag looks, stamp covering the marked town, rain stacked on lightning; chimborazo rocket/stamp/label clutter on the marked summit.",
-  "g_istanbul": { "lint": ["no-reason"], "frames": ["covers-subject"] },
-  "g_point_roberts": { "lint": ["flag-style"], "poly": true, "frames": ["text-on-visual"] },
-  "g_hawaii": { "frames": ["covers-subject"] },
-  "g_darien_gap": { "lint": ["never-visible", "flag-style", "no-reason"], "frames": ["covers-subject", "text-on-visual", "stacked-effects"] },
-  "g_chimborazo": { "lint": ["no-reason"], "frames": ["covers-subject", "text-on-visual"] }
+  "g_istanbul": {
+    "lint": [
+      "no-reason"
+    ],
+    "frames": [
+      "covers-subject"
+    ]
+  },
+  "g_point_roberts": {
+    "lint": [
+      "flag-style"
+    ],
+    "poly": true,
+    "frames": [
+      "text-on-visual"
+    ]
+  },
+  "g_hawaii": {
+    "frames": [
+      "covers-subject"
+    ],
+    "lint": [
+      "year-mismatch"
+    ]
+  },
+  "g_darien_gap": {
+    "lint": [
+      "never-visible",
+      "flag-style",
+      "no-reason",
+      "pathtext-off-route"
+    ],
+    "frames": [
+      "covers-subject",
+      "text-on-visual",
+      "stacked-effects"
+    ]
+  },
+  "g_chimborazo": {
+    "lint": [
+      "no-reason"
+    ],
+    "frames": [
+      "covers-subject",
+      "text-on-visual"
+    ]
+  }
 }

@@ -18,7 +18,13 @@ export async function runGates(id, { pre = false, file = null, fps = 5 } = {}) {
   take('poly', [...pl.stdout.matchAll(/(ERROR|warn ) \[poly-land\] (.*)/g)].map((m) => ({ sev: m[1] === 'ERROR' ? 'error' : 'warn', kind: 'poly-land', t: 0, msg: m[2] })));
   take('frames', (await frameGate(id, { fps })).issues);
   try { take('variety', variety(id)); } catch { /* video not in videos/ (golden) */ }
-  if (!pre && file) take('video', videoGate(file).issues);
+  if (!pre && file) {
+    const issues = videoGate(file).issues;
+    const tlf = fs.readdirSync(path.join(ROOT, 'output', id)).filter((f) => /^timeline\..+\.json$/.test(f)).sort((a, b) => fs.statSync(path.join(ROOT, 'output', id, b)).mtimeMs - fs.statSync(path.join(ROOT, 'output', id, a)).mtimeMs)[0];
+    const bl = spawnSync('python3', [path.join(ROOT, 'tools/gates/blotch.py'), file, path.join(ROOT, 'output', id, tlf)], { encoding: 'utf8', maxBuffer: 1 << 26 });
+    try { for (const b of JSON.parse(bl.stdout || '[]')) issues.push({ sev: 'error', kind: 'black-hole', t: b.t, msg: `black hole in the map (${b.area_pct}% of the frame at ${b.x},${b.y})` }); } catch { /* ignore */ }
+    take('video', issues);
+  }
   res.pass = Object.values(res.gates).every((g) => !g.errors.length);
   fs.writeFileSync(path.join(ROOT, 'output', id, 'gates.json'), JSON.stringify(res, null, 1));
   return res;

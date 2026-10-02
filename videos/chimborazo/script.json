@@ -115,29 +115,22 @@
       "text": "It's a glacier-covered volcano, and it last erupted around the year 550 AD.",
       "show": [
         {
-          "type": "icon",
-          "icon": "art:mountain",
+          "type": "ping",
           "lat": -1.469,
           "lon": -78.817,
-          "size": 260,
-          "plain": true,
+          "color": "#ff5a5f",
           "at": "volcano"
-        },
-        {
-          "type": "particles",
-          "kind": "snow",
-          "at": "glacier",
-          "density": 0.5
         },
         {
           "type": "clip",
           "name": "emoji_volcano",
-          "size": 520,
+          "size": 240,
           "loop": true,
           "speed": 1.0,
           "lat": -1.469,
           "lon": -78.817,
-          "at": "erupted"
+          "at": "erupted",
+          "dy": -175
         },
         {
           "type": "counter",
@@ -183,19 +176,10 @@
           "size": 150
         },
         {
-          "type": "icon",
-          "icon": "art:mountain",
-          "lat": -1.469,
-          "lon": -78.817,
-          "size": 180,
-          "plain": true,
-          "at": "climbed"
-        },
-        {
           "type": "ping",
           "lat": -1.469,
           "lon": -78.817,
-          "color": "#ffd60a",
+          "color": "#ff5a5f",
           "at": "Humboldt"
         }
       ],
@@ -293,8 +277,7 @@
           "width": 10,
           "at": "equator",
           "rhumb": true,
-          "drawDur": 1.4,
-          "hold": 2
+          "drawDur": 1.4
         },
         {
           "type": "label",
@@ -325,11 +308,22 @@
       "text": "And Chimborazo sits just one degree south of the equator, right on top of that bulge.",
       "show": [
         {
-          "type": "ping",
-          "lat": -1.469,
-          "lon": -78.817,
-          "color": "#ff5a5f",
-          "at": "Chimborazo"
+          "type": "route",
+          "points": [
+            [
+              0,
+              -90
+            ],
+            [
+              0,
+              -68
+            ]
+          ],
+          "color": "#ffd60a",
+          "width": 8,
+          "at": "equator",
+          "rhumb": true,
+          "drawDur": 0.6
         },
         {
           "type": "measure",
@@ -391,16 +385,6 @@
       "era": "now",
       "text": "In fact, its summit is widely reported to be the farthest point on Earth's surface from the center of the planet.",
       "show": [
-        {
-          "type": "counter",
-          "steps": [
-            {
-              "at": "farthest",
-              "value": "#1"
-            }
-          ],
-          "size": 220
-        },
         {
           "type": "label",
           "text": "FARTHEST FROM THE CENTER",

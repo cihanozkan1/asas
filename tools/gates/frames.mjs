@@ -11,6 +11,7 @@ import { ROOT } from '../../src/util.mjs';
 export const TEXT = new Set(['label', 'counter', 'year', 'title', 'stamp', 'handstamp', 'pathtext', 'measure', 'timebar', 'bars', 'callout', 'tally', 'timeline', 'clock', 'stat', 'nametag', 'vs']);
 export const VISUAL = new Set(['flag', 'icon', 'art', 'character', 'react', 'question', 'clip', 'photo', 'avatar', 'pin', 'ellipse', 'disc', 'face', 'badge']);
 const COMBOS = [['emoji_collision', 'emoji_fire'], ['emoji_collision', 'emoji_direct-hit'], ['emoji_fire', 'emoji_direct-hit'], ['emoji_rain-cloud', 'emoji_droplet'], ['emoji_snake', 'emoji_mosquito']];
+const LAND_FX = /snake|mosquito|skull|volcano|collision|fire|sos|t-rex|crocodile|ox\b/;
 const area = (r) => r.w * r.h;
 function inter(a, b) {
   const w = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x);
@@ -40,7 +41,13 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
   try {
     for (let t = 0; t < tl.duration; t += 1 / fps) {
       await page.evaluate((tt) => window.GG.frame(tt), t);
-      const p = await page.evaluate(() => window.GG.probe());
+      const pAll = await page.evaluate(() => window.GG.probe(0.12));
+      const p = { ...pAll, els: pAll.els.filter((e) => e.op > 0.5) };
+      // ghosts: an element still visible after its scene ended
+      for (const e of pAll.els) {
+        const end = pAll.scenes[e.scene]?.[1];
+        if (end != null && !e.keep && t > end + 0.3 && e.op > 0.15 && e.type !== 'route' && e.type !== 'title') hit('ghost', 'error', e.i, `${label(e)} is still visible ${(t - end).toFixed(1)}s after its scene ended`, t);
+      }
       const els = p.els.filter((e) => e.type !== 'route' && e.type !== 'wall' && e.type !== 'bridge' && e.type !== 'crowd');
       const byIdx = new Map(p.els.map((e) => [e.i, e]));
       for (let a = 0; a < els.length; a++) {
@@ -88,6 +95,19 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
           if (f > 0.12) hit('visual-overlap', hasFlag || !hasClip ? 'error' : 'warn', key, `${label(A)} overlaps ${label(B)}`, t, cross);
         }
       }
+      // two markers on one spot (a ping plus a pin) look like a glitch
+      for (let a = 0; a < p.markers.length; a++) for (let b = a + 1; b < p.markers.length; b++) {
+        const A = p.markers[a], B = p.markers[b];
+        if (A.owner !== B.owner && Math.hypot(A.x + A.w / 2 - B.x - B.w / 2, A.y + A.h / 2 - B.y - B.h / 2) < 60) hit('double-marker', 'error', `${A.owner}|${B.owner}`, `two markers on the same spot (${A.kind} + ${B.kind})`, t);
+      }
+      // close-up: the thing the camera is looking at must not be hidden by a stamp / crowd / effect
+      if (p.res && p.res.zoomRel > 8 && p.focus) {
+        for (const A of els) if (['stamp', 'handstamp', 'crowd', 'clip'].includes(A.type) && !(A.type === 'clip' && A.anchored && A.w <= 300) && frac(A, p.focus) > 0.35 && !p.markers.some((m) => m.owner === A.i)) hit('covers-focus', 'error', A.i, `${label(A)} covers what the camera is focused on`, t);
+      }
+      // land-bound effects (snake, skull, fire...) belong on land
+      for (const A of els) if (A.type === 'clip' && A.onLand === false && LAND_FX.test(A.name || '')) hit('effect-on-water', 'error', A.i, `${label(A)} is anchored on water`, t);
+      // blurry base: the 8k texture upscaled with no sharp detail box under the camera
+      if (t > 4.5 && p.res && p.res.ra > 0.5 && p.res.box < 0.3 && p.res.tpp < 0.7) hit('soft-base', p.res.tpp < 0.4 ? 'error' : 'warn', 'base', `soft base imagery (base texture upscaled ${(1 / p.res.tpp).toFixed(1)}x, no sharp detail box)`, t);
       // flag fills painted on the map: the real shapes may not overlap each other, nor sit under a flag marker
       for (const q of p.hlPairs) {
         if (!(q.frac > 0.02 && /^flag:/.test(q.fa) && /^flag:/.test(q.fb))) continue;
@@ -108,7 +128,7 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
   }
   const dt = 1 / fps;
   const issues = [];
-  const MIN = { 'off-screen': 0.5, unsafe: 0.6 };
+  const MIN = { 'off-screen': 0.5, unsafe: 0.6, ghost: 0.2, 'soft-base': 0.7 };
   for (const h of hits.values()) {
     const dur = h.times.length * dt;
     if (dur < (MIN[h.kind] ?? 0.3) || (h.cross && dur < 0.7)) continue;
