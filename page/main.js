@@ -2209,7 +2209,7 @@ function updateUi(t) {
       // small counts ("2", "#1", "3 + 1", "12") and years just appear; bigger numbers roll up
       const small = (String(v).match(/\d/g) || []).length <= 2 || /\d\s?\+\s?\d/.test(String(v));
       const rolls = k === 0 && !small && !/^(1[0-9]|20)\d\d(\b|:)/.test(String(v)) && /\d/.test(String(v));
-      inner.textContent = rolls ? countUp(v, clamp01((t - el.start) / 0.9)) : String(v);
+      inner.textContent = rolls ? countUp(v, clamp01((t - el.start) / 0.55)) : String(v);
       el._since = since;
     } else if (el.type === 'label' && el.typewriter) {
       const words = String(el.text).split(' ');
@@ -2221,7 +2221,7 @@ function updateUi(t) {
       const n = Math.max(1, Math.round(txt.length * clamp01(life.age / 0.45)));
       inner.textContent = el.typewriter === false ? txt : txt.slice(0, n);
     } else if (el.type === 'stat') {
-      inner.querySelector('.v').textContent = countUp(el.value, clamp01(life.age / 0.9));
+      inner.querySelector('.v').textContent = countUp(el.value, clamp01(life.age / 0.55));
     }
     // big cards shrink to fit the width instead of running off screen
     if (['counter', 'stamp', 'year'].includes(el.type)) {

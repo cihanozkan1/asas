@@ -166,44 +166,6 @@
       "text": "It's 31 kilometers long, and at its narrowest point it's only 700 meters wide.",
       "show": [
         {
-          "type": "route",
-          "points": [
-            [
-              41.014,
-              28.975
-            ],
-            [
-              41.017,
-              28.99
-            ],
-            [
-              41.02,
-              29.008
-            ],
-            [
-              41.023,
-              29.02
-            ]
-          ],
-          "color": "#ffffff",
-          "width": 4,
-          "at": "long",
-          "dashed": true,
-          "dash": [
-            14,
-            12
-          ],
-          "glow": false,
-          "id": "fer",
-          "mover": {
-            "kind": "ship",
-            "size": 170,
-            "style": "ferry"
-          },
-          "drawDur": 2.6,
-          "check": false
-        },
-        {
           "type": "counter",
           "steps": [
             {
@@ -511,7 +473,7 @@
         {
           "type": "label",
           "text": "MEDITERRANEAN",
-          "lat": 34.5,
+          "lat": 33.9,
           "lon": 22.6,
           "at": "Mediterranean",
           "style": "map",
@@ -561,9 +523,9 @@
         }
       ],
       "camera": {
-        "lat": 41.05,
-        "lon": 29.0,
-        "zoom": 60
+        "lat": 41.03,
+        "lon": 28.99,
+        "zoom": 150
       },
       "transition": "film",
       "sources": [
@@ -617,9 +579,9 @@
         }
       ],
       "camera": {
-        "lat": 41.01,
-        "lon": 28.98,
-        "zoom": 60
+        "lat": 41.03,
+        "lon": 28.99,
+        "zoom": 150
       },
       "sources": [
         {
@@ -761,35 +723,38 @@
         {
           "type": "clip",
           "name": "emoji_fire",
-          "size": 210,
+          "size": 130,
           "loop": true,
           "speed": 1.0,
           "lat": 41.0045,
           "lon": 28.9215,
           "at": "pounded",
-          "until": "fell"
+          "until": "fell",
+          "dy": -60
         },
         {
           "type": "clip",
           "name": "emoji_fire",
-          "size": 210,
+          "size": 130,
           "loop": true,
           "speed": 1.0,
           "lat": 41.02,
           "lon": 28.9265,
           "at": "pounded",
-          "until": "fell"
+          "until": "fell",
+          "dy": -60
         },
         {
           "type": "clip",
           "name": "emoji_fire",
-          "size": 210,
+          "size": 130,
           "loop": true,
           "speed": 1.0,
           "lat": 41.034,
           "lon": 28.9355,
           "at": "pounded",
-          "until": "fell"
+          "until": "fell",
+          "dy": -60
         },
         {
           "type": "shake",

@@ -731,42 +731,6 @@
             0.5,
             0.3
           ]
-        },
-        {
-          "type": "flag",
-          "code": "us",
-          "lat": 40,
-          "lon": -100,
-          "size": 90,
-          "at": "links",
-          "stagger": 0
-        },
-        {
-          "type": "flag",
-          "code": "mx",
-          "lat": 23,
-          "lon": -102,
-          "size": 90,
-          "at": "links",
-          "stagger": 0
-        },
-        {
-          "type": "flag",
-          "code": "pe",
-          "lat": -9,
-          "lon": -75,
-          "size": 90,
-          "at": "links",
-          "stagger": 0
-        },
-        {
-          "type": "flag",
-          "code": "ar",
-          "lat": -38,
-          "lon": -65,
-          "size": 90,
-          "at": "links",
-          "stagger": 0
         }
       ],
       "camera": {
@@ -969,16 +933,8 @@
               -80
             ],
             [
-              9.5375,
-              -78.0323
-            ],
-            [
-              8.6153,
-              -77.0765
-            ],
-            [
-              8.267214,
-              -76.831512
+              10.250306,
+              -76.110589
             ]
           ],
           "color": "#ffffff",
@@ -1257,8 +1213,8 @@
         },
         {
           "type": "crowd",
-          "lat": 7.5,
-          "lon": -77.2,
+          "lat": 7.0,
+          "lon": -77.0,
           "count": 52,
           "cols": 13,
           "size": 30,
@@ -1314,8 +1270,10 @@
           "size": 240,
           "loop": false,
           "speed": 1.0,
-          "lat": 7.95,
-          "lon": -77.4,
+          "screen": [
+            0.5,
+            0.3
+          ],
           "at": "dangerous"
         }
       ],

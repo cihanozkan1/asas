@@ -125,7 +125,7 @@
           "type": "clip",
           "name": "emoji_volcano",
           "size": 240,
-          "loop": true,
+          "loop": false,
           "speed": 1.0,
           "lat": -1.469,
           "lon": -78.817,
@@ -186,7 +186,8 @@
       "camera": {
         "lat": -1.5,
         "lon": -78.8,
-        "zoom": 7
+        "zoom": 11,
+        "bearing": -3
       },
       "transition": "film",
       "sources": [
@@ -358,6 +359,13 @@
       "text": "Its summit is 6,384.4 kilometers from the center of the Earth.",
       "show": [
         {
+          "type": "ping",
+          "lat": -1.469,
+          "lon": -78.817,
+          "color": "#ff5a5f",
+          "at": "summit"
+        },
+        {
           "type": "counter",
           "steps": [
             {
@@ -371,7 +379,16 @@
       "camera": {
         "lat": -1.5,
         "lon": -78.8,
-        "zoom": 6
+        "zoom": 6,
+        "then": [
+          {
+            "at": "center",
+            "lat": -1.5,
+            "lon": -78.8,
+            "zoom": 9,
+            "duration": 1.5
+          }
+        ]
       },
       "sources": [
         {

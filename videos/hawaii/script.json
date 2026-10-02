@@ -266,7 +266,7 @@
           "lon": -155.5,
           "at": "Kamehameha",
           "dot": true,
-          "dy": -96,
+          "dy": -150,
           "size": 40
         },
         {
@@ -377,22 +377,18 @@
           "name": "Queen Liliʻuokalani"
         },
         {
-          "type": "clip",
-          "name": "emoji_white-flag",
-          "size": 300,
-          "loop": true,
-          "speed": 1.0,
-          "screen": [
-            0.72,
-            0.3
-          ],
-          "at": 0.05
+          "type": "icon",
+          "icon": "art:dove",
+          "lat": 21.6,
+          "lon": -157.4,
+          "size": 130,
+          "at": "bloodshed"
         }
       ],
       "camera": {
-        "lat": 21.35,
-        "lon": -157.85,
-        "zoom": 60
+        "lat": 21.4,
+        "lon": -157.9,
+        "zoom": 25
       },
       "sources": [
         {

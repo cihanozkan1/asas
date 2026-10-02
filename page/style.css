@@ -545,3 +545,6 @@ html, body {
   background: none !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; clip-path: none !important; padding: 0 !important;
   color: #fff !important; -webkit-text-stroke: 6px rgba(0,0,0,.7) !important; paint-order: stroke fill; text-shadow: 0 3px 10px rgba(0,0,0,.6) !important;
 }
+
+/* no plate behind charts either (reviewer found a faint panel behind the bar chart) */
+.chart-h::before, .chart-v::before { display: none !important; }

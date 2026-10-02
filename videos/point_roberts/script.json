@@ -563,9 +563,9 @@
           "lon": -122.75,
           "at": "Canada",
           "dot": true,
-          "dy": 60,
+          "dy": -90,
           "size": 44,
-          "dx": -150
+          "dx": 0
         },
         {
           "type": "counter",
@@ -669,7 +669,7 @@
           "mover": {
             "kind": "icon",
             "icon": "art:bus",
-            "size": 100
+            "size": 72
           },
           "drawDur": 4.0,
           "medium": "land",
@@ -682,9 +682,9 @@
           "lon": -122.75,
           "at": "cross",
           "dot": true,
-          "dy": 60,
+          "dy": -90,
           "size": 44,
-          "dx": -70
+          "dx": 0
         },
         {
           "type": "counter",
@@ -749,7 +749,8 @@
           "lon": -123.07,
           "at": "closed",
           "dx": 200,
-          "dy": 90
+          "dy": 90,
+          "until": "lost"
         },
         {
           "type": "grade",
@@ -808,8 +809,8 @@
               -122.84
             ],
             [
-              48.985,
-              -122.775
+              48.975,
+              -122.805
             ]
           ],
           "color": "#ffffff",
@@ -1015,7 +1016,7 @@
           },
           "icon": "art:oil_barrel",
           "count": 3,
-          "size": 76,
+          "size": 100,
           "at": "gas",
           "stagger": 0.25
         }
@@ -1054,7 +1055,7 @@
               "value": "40x"
             }
           ],
-          "size": 190,
+          "size": 140,
           "color": "#ff5a5f"
         }
       ],
