@@ -104,10 +104,11 @@ if want('istanbul'):
 
 # =========================================================================================== POINT ROBERTS
 if want('point_roberts'):
-    PR = (48.975, -123.06)
+    PR = (48.985, -123.055)
     BLAINE = (48.993, -122.75)
     PRW = 'Point_Roberts,_Washington'
-    PRB = {'poly': [(49.0023, -123.0805), (49.0023, -122.9650), (48.9780, -122.9660), (48.9748, -123.0300), (48.9745, -123.0650), (48.9800, -123.0780)]}
+    # Point Roberts' real outline, traced on the Sentinel-2 mosaic (north edge = the 49th parallel)
+    PRB = {'poly': [[49.0, -123.0907], [48.9908, -123.0889], [48.9822, -123.0867], [48.9752, -123.0849], [48.9719, -123.0843], [48.9734, -123.0788], [48.9745, -123.0724], [48.9749, -123.0669], [48.9749, -123.0596], [48.9745, -123.0486], [48.9749, -123.0376], [48.9752, -123.0285], [48.9774, -123.0215], [48.9835, -123.0233], [48.989, -123.0263], [48.9945, -123.0296], [49.0, -123.0336]]}
     # real road geometry (Natural Earth) from Tsawwassen around Boundary Bay to the Blaine crossing; the first hop is the 3 km to the border
     PR_ROAD = [(48.9765, -123.0585), (49.001, -123.075)] + [tuple(p) for p in road_points((49.0299, -123.0954), (48.993, -122.757), max_pts=40)][0:]
     FERRY = [(48.968, -123.045), (48.955, -123.0), (48.945, -122.92), (48.96, -122.84), (48.985, -122.775)]
@@ -120,12 +121,12 @@ if want('point_roberts'):
         [
             S("Why can you only drive to this American town by going through Canada?", [
                 hook('AMERICA, *STUCK* INSIDE CANADA?', at=0.05, until='only'),
-                trace(PRB, '#1d4ed8', 'town', neon='#6aa5ff', fillOpacity=0.5), ping(*PR, 'town', color='#ffd60a', hold=1), flag('us', 48.972, -123.03, 'American', pin=True, size=110, wave=True),
-                hl('CAN', '#d52b1e', 'Canada', fillOpacity=0.35), flag('ca', 49.06, -122.96, 'Canada', size=100, wave=True)],
-              cam=at_(49.0, -123.0, 120, bearing=-3),
+                hl(PRB, 'flag:us', 'town', fillOpacity=0.95, hold=1), ping(*PR, 'town', color='#ffd60a', hold=1),
+                hl('CAN', 'flag:ca', 'Canada', fillOpacity=0.5)],
+              cam={'lat': 49.0, 'lon': -123.0, 'zoom': 120, 'bearing': -3, 'then': [{'at': 'town', 'lat': 48.99, 'lon': -123.055, 'zoom': 700, 'duration': 1.4}]},
               src=[src('Point Roberts is a US pene-exclave reachable by land only through Canada (or by boat/plane).', PRW, 'a pene-exclave of the US state of Washington ... "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
             S("It's Point Roberts, on the tip of a Canadian peninsula just south of Vancouver.", [
-                giant('POINT ROBERTS', 48.945, -123.06, 'Point', size=70), dot('Vancouver', 49.25, -123.1, 'Vancouver', dy=-46), pathtext('Tsawwassen peninsula', [(49.02, -123.13), (49.05, -123.07), (49.09, -123.03)], 'peninsula', size=40)],
+                giant('POINT ROBERTS', 48.93, -123.05, 'Point', size=70), dot('Vancouver', 49.25, -123.1, 'Vancouver', dy=-46), pathtext('Tsawwassen peninsula', [(49.02, -123.13), (49.05, -123.07), (49.09, -123.03)], 'peninsula', size=40)],
               cam=at_(49.08, -123.05, 60),
               src=[src('On the southern tip of the Tsawwassen peninsula, south of Vancouver.', PRW, 'on the southernmost tip of the Tsawwassen peninsula, south of Vancouver, British Columbia, Canada')]),
             S("George Vancouver named it in 1792, after his friend Henry Roberts.", [
@@ -140,17 +141,17 @@ if want('point_roberts'):
               src=[src('The 1846 Oregon Treaty fixed the boundary at the 49th parallel.', PRW, 'the 1846 Oregon Treaty, which established "the 49th parallel would define the boundary between their respective territories"')]),
             S("But this perfectly straight line cut right across the peninsula, leaving its tip on the American side.", [
                 route([(49.0, -123.3), (49.0, -122.8)], 'line', rhumb=True, color='#ffd60a', width=7, drawDur=0.8, laser=True),
-                lab('CANADA', 49.03, -123.07, 'perfectly', style='pill', bg='#d52b1e', size=46), lab('USA', 48.975, -123.06, 'tip', style='pill', bg='#1d4ed8', size=46),
-                trace(PRB, '#1d4ed8', 'tip', neon='#6aa5ff', fillOpacity=0.5)],
-              cam=at_(49.0, -123.05, 140), tr='flash',
+                lab('CANADA', 49.045, -123.07, 'perfectly', style='map', size=46), lab('USA', 48.945, -123.06, 'tip', style='map', size=46),
+                hl(PRB, 'flag:us', 'tip', fillOpacity=0.95)],
+              cam=at_(48.995, -123.055, 450), tr='flash',
               src=[src('The 49th parallel left the southern peninsula tip on the US side.', PRW, 'leaving this southern peninsula on the American side')]),
             S("So to reach the rest of the USA by land, you drive about 40 kilometers through Canada.", [
-                route(PR_ROAD, 'drive', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='road', mover={'kind': 'icon', 'icon': 'art:car', 'size': 90}, nodes=True, drawDur=3.6, medium='land', smooth=False),
+                route(PR_ROAD, 'drive', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='road', mover={'kind': 'icon', 'icon': 'art:car', 'size': 90}, drawDur=3.6, medium='land', smooth=False),
                 dot('Blaine, USA', *BLAINE, 'Canada', dy=50, dx=-110), cnt('40 km', '40', size=160)],
               cam={'follow': 'road', 'zoom': 130, 'zoomTo': 100, 'duration': 1.0},
               src=[src('Residents travel about 25 mi (40 km) through Canada.', PRW, 'traveling "25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane."')]),
             S("Older kids go to school in Blaine, so they cross the border four times on every round trip.", [
-                route(PR_ROAD, 'school', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='bus', mover={'kind': 'icon', 'icon': 'art:bus', 'size': 100}, nodes=True, drawDur=2.6, medium='land', smooth=False),
+                route(PR_ROAD, 'school', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='bus', mover={'kind': 'icon', 'icon': 'art:bus', 'size': 100}, drawDur=2.6, medium='land', smooth=False),
                 cnt_steps([('school', '1'), ('cross', '2'), ('four', '4')], size=200)],
               cam={'follow': 'bus', 'zoom': 130, 'zoomTo': 100, 'duration': 0.9},
               src=[src('Students in grade 4 and above commute to Blaine, crossing the border four times.', PRW,
@@ -178,15 +179,15 @@ if want('point_roberts'):
               cam=at_(48.985, -123.05, 130),
               src=[src('Forty times more Canadians have mailboxes in Point Roberts than there are residents.', PRW, 'Forty times more Canadians have mailboxes in Point Roberts than the number of residents')]),
             S("Only 1,191 people live in this American town, cut off by Canada.", [
-                trace(PRB, '#1d4ed8', 0.05, neon='#6aa5ff', fillOpacity=0.5), lab('POINT ROBERTS', 48.99, -123.06, 0.05, style='map', size=54),
+                hl(PRB, 'flag:us', 0.05, fillOpacity=0.95), lab('POINT ROBERTS', 48.945, -123.055, 0.05, style='map', size=54),
                 cnt('1,191', '1,191', size=180), ping(*PR, 'American', color='#ffd60a')],
-              cam=at_(48.99, -123.05, 150, bearing=-4), tr='flash',
+              cam=at_(48.99, -123.055, 650, bearing=-4), tr='flash',
               src=[src('Population 1,191 (2020 census).', PRW, 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
             S("Which brings us back to the very first question:", [],
               cam=at_(49.0, -123.0, 120, duration=1.6, loopIntro=True), no_claim=True),
         ],
         keywords={'canada': '#ff5a5f', 'usa': '#5ec8ff', 'american': '#5ec8ff', 'blaine': '#ffd60a', 'vancouver': '#ffd60a'},
-        imagery=[{'bbox': [-124.3, 48.5, -122.1, 49.6], 'width': 4096}, {'bbox': [-123.35, 48.85, -122.6, 49.35], 'width': 4096, 'landExtra': [[[48.95, -123.12], [49.003, -123.12], [49.003, -122.955], [48.95, -122.955]]]}], v2=True)
+        imagery=[{'bbox': [-124.3, 48.5, -122.1, 49.6], 'width': 4096}, {'bbox': [-123.35, 48.85, -122.6, 49.35], 'width': 4096, 'landExtra': [[[49.0042, -123.0948], [48.9919, -123.0928], [48.9823, -123.0903], [48.9744, -123.0883], [48.9707, -123.0876], [48.9724, -123.0815], [48.9737, -123.0743], [48.9741, -123.0681], [48.9741, -123.06], [48.9737, -123.0476], [48.9741, -123.0353], [48.9744, -123.0251], [48.9769, -123.0173], [48.9837, -123.0193], [48.9899, -123.0227], [48.9961, -123.0264], [49.0042, -123.0308]]]}], v2=True)
 
 # =========================================================================================== HAWAII
 if want('hawaii'):
@@ -263,7 +264,7 @@ if want('darien_gap'):
         [
             S("Why does a highway that runs from Alaska all the way to Argentina suddenly stop?", [
                 hook('THE ROAD THAT *STOPS*', at=0.05, until='Argentina'),
-                route(HW_N, 0.05, id='hw1', color='#ffd60a', width=9, drawDur=3.3, hold=1, nodes=True, medium='land', smooth=False),
+                route(HW_N, 0.05, id='hw1', color='#ffd60a', width=9, drawDur=3.3, hold=1, medium='land', smooth=False),
                 route(HW_S, 'Argentina', color='#ffd60a', width=9, drawDur=1.5, hold=1, medium='land', smooth=False),
                 cnt('30,000 km', 'suddenly', size=170)],
               cam={'follow': 'hw1', 'zoom': 3.4, 'zoomTo': 1.0, 'duration': 0.8, 'then': [{'at': 'Argentina', 'lat': -22, 'lon': -68, 'zoom': 1.15, 'duration': 1.3}]},
@@ -347,7 +348,7 @@ if want('chimborazo'):
               src=[src('Chimborazo is 6,263 m high.', 'Chimborazo', 'With an elevation of 6,263 m (20,548 ft), Chimborazo is the highest mountain in Ecuador')]),
             S("It's a glacier-covered volcano, and it last erupted around the year 550 AD.", [
                 art('mountain', *CH, 'volcano', size=260), particles('snow', 'glacier', density=0.5),
-                clip('emoji_volcano', 'erupted', *CH, size=520, loop=True), clip('emoji_fire', '550', *CH, size=360, loop=True), cnt('~550 AD', '550', size=150)],
+                clip('emoji_volcano', 'erupted', *CH, size=520, loop=True), cnt('~550 AD', '550', size=150)],
               cam=at_(-1.5, -78.8, 7),
               src=[src('Chimborazo is a stratovolcano; the summit is covered by glaciers; last eruption around 550 AD.', 'Chimborazo',
                        'a dominantly andesitic-dacitic stratovolcano ... the last time around 550 AD ± 150 years')]),
@@ -368,7 +369,7 @@ if want('chimborazo'):
               cam=at_(-0.5, -78.8, 5),
               src=[src('It lies one degree south of the equator.', 'Chimborazo', 'Chimborazo is one degree south of the Equator')]),
             S("Its summit is 6,384.4 kilometers from the center of the Earth.", [
-                cnt('6,384.4 km', '6,384.4', size=150), clip('emoji_globe-showing-americas', 'center', -1.5, -78.8, size=300, loop=True)],
+                cnt('6,384.4 km', '6,384.4', size=150)],
               cam=at_(-1.5, -78.8, 6),
               src=[src("Its summit is 6,384.4 km from Earth's center.", 'Chimborazo', "it is 6,384.4 km (3,967.1 mi) from the Earth's center")]),
             S("In fact, its summit is widely reported to be the farthest point on Earth's surface from the center of the planet.", [
@@ -378,7 +379,7 @@ if want('chimborazo'):
                        "the summit of Chimborazo is widely reported to be the farthest point on the surface from Earth's center")]),
             S("That's about 2.1 kilometers farther out than the top of Everest, so Chimborazo wins.", [
                 ping(*CH, "That's", color='#ff5a5f'), dot('Chimborazo', *CH, "That's", dy=60), cnt('+2.1 km', '2.1', size=170, color='#ff5a5f'),
-                clip('emoji_rocket', 'farther', -1.5, -78.8, size=300, loop=True)],
+                ],
               cam=at_(0, -78.8, 2.2),
               src=[src("About 2.1 km farther than Everest's summit.", 'Chimborazo', "it is 6,384.4 km (3,967.1 mi) from the Earth's center, 2.1 km (1.3 mi) farther than")]),
             S("So the next time someone asks:", [],

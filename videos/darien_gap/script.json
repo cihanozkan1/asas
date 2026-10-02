@@ -397,7 +397,6 @@
           "id": "hw1",
           "drawDur": 3.3,
           "hold": 1,
-          "nodes": true,
           "medium": "land",
           "smooth": false
         },

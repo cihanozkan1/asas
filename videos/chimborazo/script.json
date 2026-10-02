@@ -140,16 +140,6 @@
           "at": "erupted"
         },
         {
-          "type": "clip",
-          "name": "emoji_fire",
-          "size": 360,
-          "loop": true,
-          "speed": 1.0,
-          "lat": -1.469,
-          "lon": -78.817,
-          "at": "550"
-        },
-        {
           "type": "counter",
           "steps": [
             {
@@ -382,16 +372,6 @@
             }
           ],
           "size": 150
-        },
-        {
-          "type": "clip",
-          "name": "emoji_globe-showing-americas",
-          "size": 300,
-          "loop": true,
-          "speed": 1.0,
-          "lat": -1.5,
-          "lon": -78.8,
-          "at": "center"
         }
       ],
       "camera": {
@@ -482,16 +462,6 @@
           ],
           "size": 170,
           "color": "#ff5a5f"
-        },
-        {
-          "type": "clip",
-          "name": "emoji_rocket",
-          "size": 300,
-          "loop": true,
-          "speed": 1.0,
-          "lat": -1.5,
-          "lon": -78.8,
-          "at": "farther"
         }
       ],
       "camera": {
