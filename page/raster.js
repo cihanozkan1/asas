@@ -77,14 +77,21 @@ vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   water = max(water, flatSea * smoothstep(0.16, 0.08, l) * smoothstep(-0.015, 0.01, cw.b - cw.g * 0.95));
   // dark bluish pixels of sharp imagery (shaded sea, mosaic seams) are sea as well, never black patches
   water = max(water, flatSea * smoothstep(0.34, 0.22, l) * smoothstep(0.0, 0.02, cw.b - max(cw.r, cw.g * 0.97)));
+  water = max(water, smoothstep(0.075, 0.04, l));   // black inland lakes in the base texture are water too
   water = max(water, openSea);
-  vec3 sea = mix(vec3(0.15, 0.38, 0.49), vec3(0.34, 0.64, 0.72), smoothstep(0.03, 0.3, ls * 1.5));
+  // depth ramp: deep water dark teal, continental shelves bright turquoise (the bathymetry carries the map's character)
+  vec3 sea = mix(vec3(0.06, 0.28, 0.38), vec3(0.30, 0.68, 0.74), pow(smoothstep(0.035, 0.3, ls), 1.3));
   vec3 land = pow(max(c, vec3(0.0)), vec3(0.8)) * 1.06;
   float ll = dot(land, vec3(0.299, 0.587, 0.114));
-  land = mix(vec3(ll), land, 0.88);
+  // relief: local contrast from the difference to a blurred sample, a touch more saturation, gentle s-curve
+  float coast = smoothstep(0.0, 0.05, cs.b - max(cs.r, cs.g * 0.92));   // no relief halo where the blur sees water
+  land = max(land + (c - cs) * 1.1 * (1.0 - coast), vec3(0.0));
+  ll = dot(land, vec3(0.299, 0.587, 0.114));
+  land = mix(vec3(ll), land, 1.08);
+  land = mix(land, land * land * (3.0 - 2.0 * min(land, vec3(1.0))), 0.35);
   // magnified far beyond the base image: bathymetry turns into JPEG blocks, so the sea goes flat
   // (the same for sharp close-up imagery, whose dark river water is full of JPEG blocks)
-  sea = mix(sea, vec3(0.2, 0.47, 0.57), max(smoothstep(0.7, 0.2, gMag), flatSea));
+  sea = mix(sea, vec3(0.2, 0.47, 0.57), max(0.25 * smoothstep(0.7, 0.2, gMag), flatSea));
   return mix(land, sea, water);
 }
 
@@ -103,7 +110,7 @@ vec3 sampleSoft(sampler2D tex, float lon, float lat) {
   dx.x -= round(dx.x); dy.x -= round(dy.x);
   uv.x = fract(uv.x);
   float m = max(length(dx), length(dy));
-  vec2 k = vec2(max(m * 16.0, 10.0 / 8192.0));
+  vec2 k = vec2(max(m * 16.0, 24.0 / 12288.0));
   gMag = m * uBaseSize.x;   // base texels per screen pixel (< 1: magnified)
   return textureGrad(tex, uv, vec2(k.x, 0.0), vec2(0.0, k.y)).rgb;
 }

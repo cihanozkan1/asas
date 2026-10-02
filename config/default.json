@@ -13,10 +13,10 @@
     ]
   },
   "voice": {
-    "provider": "kokoro",
-    "name": "en-US-AndrewNeural",
+    "provider": "edge",
+    "name": "en-US-AndrewMultilingualNeural",
     "kokoroName": "am_michael",
-    "rate": "+18%",
+    "rate": "+8%",
     "pitch": "+0Hz",
     "leadIn": 0.12,
     "sceneGap": 0.08,

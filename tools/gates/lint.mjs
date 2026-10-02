@@ -53,6 +53,18 @@ export function lintTimeline(tl) {
     if (a0 - cover > 3.6 && cover > 0.5) out.push({ sev: a0 - cover > 5.5 ? 'error' : 'warn', kind: 'static-gap', t: cover, msg: `nothing changes on screen for ${(a0 - cover).toFixed(1)}s (add an element/camera move at a spoken word)` });
     cover = Math.max(cover, a1);
   }
+  // sparse scenes feel empty: every scene of 2.5 s or more should carry about three visual layers (map drawing, picture, label)
+  const DRAW = new Set(['highlight', 'route', 'measure', 'arrow', 'wall', 'bridge', 'scatter', 'crowd', 'ring', 'ping', 'line', 'pathtext', 'eruption', 'glow', 'ellipse', 'disc', 'box', 'beam', 'cloud', 'crack']);
+  const PIC = new Set(['icon', 'art', 'flag', 'character', 'clip', 'react', 'question', 'photo', 'avatar', 'pin', 'face', 'badge']);
+  const TXT = new Set(['label', 'stamp', 'handstamp', 'callout', 'stat', 'nametag', 'bars', 'tally', 'counter', 'year']);
+  tl.scenes.forEach((sc, i) => {
+    const len = sc.end - sc.start;
+    if (len < 2.5 || i === tl.scenes.length - 1) return;   // the last scene is the loop line
+    const els = tl.elements.filter((e) => e.scene === i);
+    if (els.some((e) => e.type === 'question')) return;   // the "so why?" beat is a pause on purpose
+    const score = els.reduce((a, e) => a + (DRAW.has(e.type) ? 1 : PIC.has(e.type) ? 1 : TXT.has(e.type) ? 0.5 : 0), 0);
+    if (score < 3) out.push({ sev: 'warn', kind: 'sparse-scene', t: sc.start, msg: `scene ${i + 1} (${len.toFixed(1)}s) has only ${score} visual layers; add map drawing / pictures so it does not feel empty` });
+  });
   if (tl.duration - cover > 3.8) out.push({ sev: 'warn', kind: 'static-gap', t: cover, msg: `nothing changes on screen for the last ${(tl.duration - cover).toFixed(1)}s` });
   return out;
 }

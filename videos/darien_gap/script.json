@@ -689,6 +689,20 @@
             }
           ],
           "size": 170
+        },
+        {
+          "type": "ping",
+          "lat": 70.3,
+          "lon": -148.7,
+          "color": "#ffd60a",
+          "at": "Alaska"
+        },
+        {
+          "type": "ping",
+          "lat": -54.8,
+          "lon": -68.3,
+          "color": "#ffd60a",
+          "at": "Argentina"
         }
       ],
       "camera": {
@@ -1548,13 +1562,32 @@
         {
           "type": "shake",
           "at": "ends"
+        },
+        {
+          "type": "icon",
+          "icon": "art:car",
+          "lat": 8.18,
+          "lon": -77.69,
+          "size": 100,
+          "plain": true,
+          "at": "road",
+          "dx": -190,
+          "dy": -40
+        },
+        {
+          "type": "highlight",
+          "target": "PAN",
+          "fill": "flag:pa",
+          "at": "Panama",
+          "fillOpacity": 0.4
         }
       ],
       "camera": {
         "lat": 8.3,
         "lon": -77.4,
         "zoom": 6,
-        "duration": 1.0
+        "duration": 1.0,
+        "autoCenter": false
       },
       "transition": "zoom",
       "sources": [
@@ -1601,6 +1634,22 @@
           ],
           "label": "106 km",
           "at": "kilometers"
+        },
+        {
+          "type": "icon",
+          "icon": "art:car",
+          "lat": 8.02,
+          "lon": -76.6,
+          "size": 100,
+          "plain": true,
+          "at": "again"
+        },
+        {
+          "type": "ring",
+          "lat": 8.09,
+          "lon": -76.73,
+          "r": 60,
+          "at": "Turbo"
         }
       ],
       "camera": {
@@ -1608,7 +1657,8 @@
         "lon": -77.2,
         "zoom": 18,
         "bearing": -3,
-        "duration": 1.5
+        "duration": 1.5,
+        "autoCenter": false
       },
       "sources": [
         {
@@ -1661,6 +1711,50 @@
           "style": "extrude",
           "anim": "giant",
           "size": 84
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1": "Chocó",
+            "country": "COL"
+          },
+          "icon": "art:water_drop",
+          "count": 5,
+          "size": 70,
+          "at": "swamps",
+          "stagger": 0.15
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1s": [
+              "Darién",
+              "Emberá",
+              "Kuna Yala"
+            ],
+            "country": "PAN"
+          },
+          "icon": "art:mountain",
+          "count": 4,
+          "size": 90,
+          "at": "mountains",
+          "stagger": 0.15
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1s": [
+              "Darién",
+              "Emberá",
+              "Kuna Yala"
+            ],
+            "country": "PAN"
+          },
+          "icon": "art:tree",
+          "count": 7,
+          "size": 80,
+          "at": "rainforest",
+          "stagger": 0.1
         }
       ],
       "camera": {
@@ -1746,6 +1840,22 @@
           "kind": "rain",
           "at": 0.3,
           "density": 0.7
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1s": [
+              "Darién",
+              "Emberá",
+              "Kuna Yala"
+            ],
+            "country": "PAN"
+          },
+          "icon": "art:water_drop",
+          "count": 7,
+          "size": 70,
+          "at": "floods",
+          "stagger": 0.12
         }
       ],
       "camera": {
@@ -1787,12 +1897,40 @@
             0.52
           ],
           "at": "halted"
+        },
+        {
+          "type": "icon",
+          "icon": "art:excavator",
+          "lat": 8.95,
+          "lon": -77.95,
+          "size": 130,
+          "plain": true,
+          "at": "planned"
+        },
+        {
+          "type": "icon",
+          "icon": "art:tree",
+          "lat": 7.6,
+          "lon": -76.9,
+          "size": 100,
+          "plain": true,
+          "at": "environmentalists"
+        },
+        {
+          "type": "icon",
+          "icon": "art:people",
+          "lat": 7.7,
+          "lon": -77.3,
+          "size": 100,
+          "plain": true,
+          "at": "environmentalists"
         }
       ],
       "camera": {
         "lat": 8.3,
         "lon": -77.4,
-        "zoom": 6
+        "zoom": 6,
+        "autoCenter": false
       },
       "style": "pastel",
       "transition": "film",
@@ -1893,6 +2031,22 @@
           "type": "grade",
           "mode": "danger",
           "at": 0.3
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1s": [
+              "Darién",
+              "Emberá",
+              "Kuna Yala"
+            ],
+            "country": "PAN"
+          },
+          "icon": "art:tree",
+          "count": 8,
+          "size": 80,
+          "at": "jungle",
+          "stagger": 0.1
         }
       ],
       "camera": {
@@ -1941,6 +2095,29 @@
           "type": "grade",
           "mode": "danger",
           "at": 0.3
+        },
+        {
+          "type": "icon",
+          "icon": "art:warning",
+          "lat": 7.3,
+          "lon": -77.6,
+          "size": 130,
+          "plain": true,
+          "at": "violent"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Darién",
+              "Emberá",
+              "Kuna Yala"
+            ],
+            "country": "PAN"
+          },
+          "fill": "#ff3b3b",
+          "at": "crime",
+          "fillOpacity": 0.28
         }
       ],
       "sources": [
@@ -2002,6 +2179,29 @@
               "n": 52
             }
           ]
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1s": [
+              "Darién",
+              "Emberá",
+              "Kuna Yala"
+            ],
+            "country": "PAN"
+          },
+          "fill": "#ff5a5f",
+          "at": "2021",
+          "fillOpacity": 0.3
+        },
+        {
+          "type": "icon",
+          "icon": "art:people",
+          "lat": 8.3,
+          "lon": -77.5,
+          "size": 110,
+          "plain": true,
+          "at": "2022"
         }
       ],
       "camera": {

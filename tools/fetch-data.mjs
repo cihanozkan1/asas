@@ -1,5 +1,5 @@
 // Downloads the one-time data the pipeline needs:
-//  - NASA Blue Marble (public domain) resized to 8192x4096 -> assets/earth/earth-8k.jpg
+//  - NASA Blue Marble (public domain) resized to 12288x6144 -> assets/earth/earth-8k.jpg
 //  - Natural Earth admin-1 (states/provinces) GeoJSON -> data/cache/ne_10m_admin_1.geojson
 // Usage: npm run setup
 import fs from 'node:fs';
@@ -32,7 +32,7 @@ export async function ensureEarth() {
     try {
       log('Blue Marble indiriliyor:', url);
       const raw = await download(url, path.join(ROOT, 'data/cache/earth-source.jpg'));
-      await runFfmpeg(['-y', '-i', raw, '-vf', 'scale=8192:4096:flags=lanczos', '-q:v', '2', out]);
+      await runFfmpeg(['-y', '-i', raw, '-vf', 'scale=12288:6144:flags=lanczos', '-q:v', '2', out]);
       fs.rmSync(raw);
       return out;
     } catch (e) {
@@ -49,7 +49,7 @@ export async function ensureNight() {
   if (fs.existsSync(out)) return out;
   log('Black Marble (gece) indiriliyor:', NIGHT_URL);
   const raw = await download(NIGHT_URL, path.join(ROOT, 'data/cache/night-source.jpg'));
-  await runFfmpeg(['-y', '-i', raw, '-vf', 'scale=8192:4096:flags=lanczos', '-q:v', '2', out]);
+  await runFfmpeg(['-y', '-i', raw, '-vf', 'scale=12288:6144:flags=lanczos', '-q:v', '2', out]);
   fs.rmSync(raw);
   return out;
 }
