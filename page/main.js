@@ -2838,7 +2838,7 @@ function probe() {
     if (!(op > 0.5)) return;
     const r = (el._inner || el._node).getBoundingClientRect();
     if (r.width < 2 || r.height < 2) return;
-    out.push({ i, type: el.type, text: String(el.text ?? el.value ?? el.label ?? el.steps?.[0]?.value ?? el.id ?? ''), scene: el.scene, start: el.start, end: el.end,
+    out.push({ i, type: el.type, name: el.name ?? el.code ?? el.icon ?? '', anchored: el.lat != null || el.points != null, text: String(el.text ?? el.value ?? el.label ?? el.steps?.[0]?.value ?? el.id ?? ''), scene: el.scene, start: el.start, end: el.end,
       x: r.left, y: r.top, w: r.width, h: r.height, op });
   });
   const caps = [...$('captions').querySelectorAll('*')].filter((n) => n.children.length === 0 && parseFloat(getComputedStyle(n).opacity) > 0.5)
@@ -2848,7 +2848,50 @@ function probe() {
     const x0 = Math.min(...caps.map((r) => r.left)), y0 = Math.min(...caps.map((r) => r.top));
     cap = { x: x0, y: y0, w: Math.max(...caps.map((r) => r.right)) - x0, h: Math.max(...caps.map((r) => r.bottom)) - y0 };
   }
-  return { els: out, cap, scenes: state.tl.scenes.map((s) => [s.start, s.end]) };
+  const t = state.time ?? 0;
+  // marked points / small highlighted areas (the subject of the scene), with the element that owns them
+  const markers = [];
+  state.tl.elements.forEach((el, i) => {
+    const isDot = el.type === 'label' && el.dot && el.lat != null;
+    if (el.type !== 'ping' && !isDot) return;
+    if (t < el.start - 0.05 || t > el.end) return;
+    const p = project(el);
+    if (p) { const sz = isDot ? 40 : 90; markers.push({ owner: i, x: p[0] - sz / 2, y: p[1] - sz / 2, w: sz, h: sz, kind: el.type }); }
+  });
+  // highlights drawn on the canvas: exact shape masks (1/8 scale) so flag fills can be tested for real overlap
+  const S = 8, hl = [];
+  state.tl.elements.forEach((el, i) => {
+    if (el.type !== 'highlight' || t < el.start || t > el.end || !state.targets[el.target]) return;
+    const life = lifeOf(el, t);
+    if (!life || ease.outCubic(life.in) * life.out < 0.5) return;
+    const fc = { type: 'FeatureCollection', features: state.targets[el.target] };
+    const cv = document.createElement('canvas'); cv.width = Math.ceil(W / S); cv.height = Math.ceil(H / S);
+    const cx = cv.getContext('2d', { willReadFrequently: true }); cx.scale(1 / S, 1 / S);
+    cx.beginPath(); geoPath(state.proj, cx)(fc); cx.fillStyle = '#000'; cx.fill();
+    const data = cx.getImageData(0, 0, cv.width, cv.height).data;
+    const mask = new Uint8Array(cv.width * cv.height); let n = 0, x0 = 1e9, y0 = 1e9, x1 = -1, y1 = -1;
+    for (let k = 0; k < mask.length; k++) if (data[k * 4 + 3] > 40) { mask[k] = 1; n++; const x = k % cv.width, y = (k / cv.width) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    if (!n) return;
+    hl.push({ i, fill: String(el.fill ?? ''), flag: String(el.fill ?? '').startsWith('flag:'), n, mask, w: cv.width, x: x0 * S, y: y0 * S, bw: (x1 - x0 + 1) * S, bh: (y1 - y0 + 1) * S });
+  });
+  const hlPairs = [], hlBoxes = [];
+  for (let a = 0; a < hl.length; a++) {
+    for (let b = a + 1; b < hl.length; b++) {
+      let ov = 0; const A = hl[a].mask, B = hl[b].mask;
+      for (let k = 0; k < A.length; k++) if (A[k] && B[k]) ov++;
+      if (ov) hlPairs.push({ a: hl[a].i, b: hl[b].i, fa: hl[a].fill, fb: hl[b].fill, na: hl[a].n, nb: hl[b].n, frac: ov / Math.min(hl[a].n, hl[b].n) });
+    }
+  }
+  for (const h of hl) {
+    for (const e of out) {
+      const x0 = Math.max(0, Math.floor(e.x / S)), x1 = Math.min(h.w - 1, Math.floor((e.x + e.w) / S));
+      const y0 = Math.max(0, Math.floor(e.y / S)), y1 = Math.floor((e.y + e.h) / S);
+      let inside = 0, tot = 0;
+      for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) { tot++; if (h.mask[y * h.w + x]) inside++; }
+      if (tot && inside / tot > 0.05) hlBoxes.push({ hl: h.i, el: e.i, frac: inside / tot, hlFill: h.fill, hlFlag: h.flag });
+    }
+  }
+  return { els: out, cap, scenes: state.tl.scenes.map((s) => [s.start, s.end]), markers, hlPairs, hlBoxes, hlInfo: hl.map((h) => ({ i: h.i, fill: h.fill, flag: h.flag, x: h.x, y: h.y, w: h.bw, h: h.bh })) };
 }
 
 window.GG = { init, frame, probe, fast: (on) => { state.layoutOnly = !!on; } };

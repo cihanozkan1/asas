@@ -57,7 +57,7 @@
           "lon": 86.925,
           "at": "Everest",
           "dot": true,
-          "dy": 56,
+          "dy": 84,
           "size": 44
         }
       ],
@@ -404,7 +404,7 @@
         {
           "type": "label",
           "text": "FARTHEST FROM THE CENTER",
-          "lat": 0.6,
+          "lat": 2.6,
           "lon": -78.8,
           "at": "farthest",
           "style": "map",

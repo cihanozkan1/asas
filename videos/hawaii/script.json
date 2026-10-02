@@ -161,12 +161,14 @@
         {
           "type": "label",
           "text": "Mauna Kea",
-          "lat": 19.82,
-          "lon": -155.47,
-          "at": "Mauna",
-          "dot": true,
-          "dy": -110,
-          "size": 36
+          "lat": "Mauna",
+          "lon": null,
+          "screen": [
+            0.5,
+            0.24
+          ],
+          "style": "map",
+          "size": 40
         }
       ],
       "camera": {
@@ -259,6 +261,25 @@
           "at": "1795"
         },
         {
+          "type": "ping",
+          "lat": 19.6,
+          "lon": -155.5,
+          "color": "#ffd60a",
+          "at": "Kamehameha"
+        },
+        {
+          "type": "label",
+          "text": "Kamehameha I",
+          "lat": "First",
+          "lon": null,
+          "screen": [
+            0.5,
+            0.33
+          ],
+          "style": "serif",
+          "size": 46
+        },
+        {
           "type": "flag",
           "code": "gb",
           "lat": 23.5,
@@ -310,8 +331,8 @@
           "type": "character",
           "image": "businessman",
           "screen": [
-            0.74,
-            0.6
+            0.78,
+            0.62
           ],
           "at": "businessmen",
           "name": "Committee of Safety",
@@ -321,8 +342,8 @@
           "type": "character",
           "image": "us_marine",
           "screen": [
-            0.5,
-            0.6
+            0.22,
+            0.62
           ],
           "at": "Marines"
         },
@@ -368,11 +389,13 @@
         {
           "type": "clip",
           "name": "emoji_white-flag",
-          "size": 420,
+          "size": 380,
           "loop": true,
           "speed": 1.0,
-          "lat": 21.31,
-          "lon": -157.86,
+          "screen": [
+            0.72,
+            0.42
+          ],
           "at": 0.05
         }
       ],
@@ -455,7 +478,7 @@
           "size": 110,
           "screen": [
             0.5,
-            0.33
+            0.5
           ],
           "at": "apologized"
         },

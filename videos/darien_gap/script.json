@@ -751,16 +751,11 @@
               "value": "14"
             }
           ],
-          "size": 200
-        },
-        {
-          "type": "flag",
-          "code": "ca",
-          "lat": 52,
-          "lon": -108,
-          "size": 90,
-          "at": "links",
-          "stagger": 0
+          "size": 200,
+          "screen": [
+            0.5,
+            0.3
+          ]
         },
         {
           "type": "flag",
@@ -850,7 +845,7 @@
           "lon": -77.69,
           "at": "Yaviza",
           "dot": true,
-          "dy": -56,
+          "dy": -90,
           "size": 44
         },
         {
@@ -860,7 +855,7 @@
           "size": 88,
           "screen": [
             0.5,
-            0.33
+            0.2
           ]
         },
         {
@@ -904,7 +899,7 @@
           "lon": -77.69,
           "at": "again",
           "dot": true,
-          "dy": -56,
+          "dy": -90,
           "size": 44
         },
         {
@@ -913,8 +908,7 @@
           "lat": 8.9,
           "lon": -78.4,
           "size": 100,
-          "at": "Turbo",
-          "wave": true
+          "at": "Turbo"
         },
         {
           "type": "flag",
@@ -1094,12 +1088,14 @@
         },
         {
           "type": "clip",
-          "name": "emoji_cloud-with-lightning",
-          "size": 420,
-          "loop": false,
+          "name": "emoji_droplet",
+          "size": 260,
+          "loop": true,
           "speed": 1.0,
-          "lat": 7.8,
-          "lon": -77.2,
+          "screen": [
+            0.3,
+            0.45
+          ],
           "at": "floods"
         },
         {
@@ -1131,7 +1127,7 @@
           "type": "year",
           "value": "1971",
           "light": true,
-          "at": 1971
+          "at": "1971"
         },
         {
           "type": "timebar",

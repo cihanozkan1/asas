@@ -1,0 +1,546 @@
+{
+ "id": "g_chimborazo",
+ "style": "globe",
+ "meta": {
+  "title": "The Mountain Closest to Space Is NOT Everest 🏔️🚀🤯",
+  "description": "Everest 🇳🇵 is the highest mountain above sea level at 8,849 m, but it's not the point closest to space! 🚀 Earth isn't a perfect ball: it's thicker at the equator. Chimborazo in Ecuador 🇪🇨 is only 6,263 m high, but it sits just one degree south of the equator, on top of that bulge. Its summit is 6,384.4 km from Earth's center, about 2.1 km farther out than Everest's 🤯",
+  "pinnedComment": [
+   "The closest point to space is in Ecuador, not Nepal 🤯🇪🇨",
+   "Did you know Earth is fatter at the equator? 👇",
+   "Which record should we explain next? 🗺️"
+  ],
+  "tags": [
+   "chimborazo",
+   "everest",
+   "ecuador",
+   "highest mountain",
+   "closest to space",
+   "equatorial bulge",
+   "earth",
+   "andes",
+   "geography",
+   "maps",
+   "learn"
+  ]
+ },
+ "scenes": [
+  {
+   "era": "now",
+   "text": "Is Everest really the closest point on Earth to space?",
+   "show": [
+    {
+     "type": "title",
+     "text": "CLOSEST POINT TO *SPACE*?",
+     "hook": true,
+     "size": 110,
+     "anim": "slam",
+     "screen": [
+      0.5,
+      0.2
+     ],
+     "accent": "#ffd60a",
+     "width": 960,
+     "until": "Earth",
+     "at": 0.05
+    },
+    {
+     "type": "ping",
+     "lat": 27.988,
+     "lon": 86.925,
+     "color": "#ffd60a",
+     "at": "Everest"
+    },
+    {
+     "type": "label",
+     "text": "Everest",
+     "lat": 27.988,
+     "lon": 86.925,
+     "at": "Everest",
+     "dot": true,
+     "dy": 56,
+     "size": 44
+    }
+   ],
+   "camera": {
+    "lat": 25,
+    "lon": 80,
+    "zoom": 1.6
+   },
+   "noClaim": true
+  },
+  {
+   "era": "now",
+   "text": "No! That title belongs to Chimborazo, a volcano in Ecuador, which is only 6,263 meters high.",
+   "show": [
+    {
+     "type": "ping",
+     "lat": -1.469,
+     "lon": -78.817,
+     "color": "#ff5a5f",
+     "at": "Chimborazo"
+    },
+    {
+     "type": "highlight",
+     "target": "ECU",
+     "fill": "flag:ec",
+     "at": "Ecuador",
+     "fillOpacity": 0.85
+    },
+    {
+     "type": "counter",
+     "steps": [
+      {
+       "at": "6,263",
+       "value": "6,263 m"
+      }
+     ],
+     "size": 170
+    }
+   ],
+   "camera": {
+    "lat": -1.5,
+    "lon": -78.8,
+    "zoom": 6.5
+   },
+   "sources": [
+    {
+     "claim": "Chimborazo is 6,263 m high.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "With an elevation of 6,263 m (20,548 ft), Chimborazo is the highest mountain in Ecuador"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "It's a glacier-covered volcano, and it last erupted around the year 550 AD.",
+   "show": [
+    {
+     "type": "icon",
+     "icon": "art:mountain",
+     "lat": -1.469,
+     "lon": -78.817,
+     "size": 260,
+     "plain": true,
+     "at": "volcano"
+    },
+    {
+     "type": "particles",
+     "kind": "snow",
+     "at": "glacier",
+     "density": 0.5
+    },
+    {
+     "type": "clip",
+     "name": "emoji_volcano",
+     "size": 520,
+     "loop": false,
+     "speed": 1.0,
+     "lat": -1.469,
+     "lon": -78.817,
+     "at": "erupted"
+    },
+    {
+     "type": "clip",
+     "name": "emoji_fire",
+     "size": 360,
+     "loop": false,
+     "speed": 1.0,
+     "lat": -1.469,
+     "lon": -78.817,
+     "at": "550"
+    },
+    {
+     "type": "counter",
+     "steps": [
+      {
+       "at": "550",
+       "value": "~550 AD"
+      }
+     ],
+     "size": 150
+    }
+   ],
+   "camera": {
+    "lat": -1.5,
+    "lon": -78.8,
+    "zoom": 7
+   },
+   "sources": [
+    {
+     "claim": "Chimborazo is a stratovolcano; the summit is covered by glaciers; last eruption around 550 AD.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "a dominantly andesitic-dacitic stratovolcano ... the last time around 550 AD ± 150 years"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "In 1802, Alexander von Humboldt climbed it to 5,875 meters, higher than any European ever had.",
+   "show": [
+    {
+     "type": "year",
+     "value": "1802",
+     "at": "1802"
+    },
+    {
+     "type": "counter",
+     "steps": [
+      {
+       "at": "5,875",
+       "value": "5,875 m"
+      }
+     ],
+     "size": 150
+    },
+    {
+     "type": "icon",
+     "icon": "art:mountain",
+     "lat": -1.469,
+     "lon": -78.817,
+     "size": 180,
+     "plain": true,
+     "at": "climbed"
+    },
+    {
+     "type": "ping",
+     "lat": -1.469,
+     "lon": -78.817,
+     "color": "#ffd60a",
+     "at": "Humboldt"
+    }
+   ],
+   "camera": {
+    "lat": -1.5,
+    "lon": -78.8,
+    "zoom": 7
+   },
+   "transition": "film",
+   "sources": [
+    {
+     "claim": "In 1802 Humboldt reached 5,875 m, higher than any European in recorded history.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "they reached a point at 5,875 m, higher than previously attained by any European in recorded history"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "Everest is more than two and a half kilometers taller, so how can Chimborazo be closer to space?",
+   "show": [
+    {
+     "type": "bars",
+     "items": [
+      {
+       "label": "Everest",
+       "value": 8849,
+       "display": "8,849 m",
+       "color": "#ffd60a",
+       "flag": "np"
+      },
+      {
+       "label": "Chimborazo",
+       "value": 6263,
+       "display": "6,263 m",
+       "color": "#ff5a5f",
+       "flag": "ec"
+      }
+     ],
+     "orient": "v",
+     "at": "taller",
+     "shape": "mountain",
+     "height": 380
+    },
+    {
+     "type": "question",
+     "lat": 0,
+     "lon": -60,
+     "at": "how"
+    }
+   ],
+   "camera": {
+    "lat": 0,
+    "lon": -60,
+    "zoom": 1.0
+   },
+   "style": "neon",
+   "sources": [
+    {
+     "claim": "Chimborazo is 2,585 m lower than Everest above sea level.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "Despite being 2,585 m (8,481 ft) lower in elevation above sea level, it is 6,384.4 km"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "Because Earth isn't a perfect ball. It's thicker at the equator, like it's wearing a belt.",
+   "show": [
+    {
+     "type": "route",
+     "points": [
+      [
+       0,
+       -180
+      ],
+      [
+       0,
+       -90
+      ],
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       90
+      ],
+      [
+       0,
+       180
+      ]
+     ],
+     "color": "#ffd60a",
+     "width": 10,
+     "at": "equator",
+     "rhumb": true,
+     "drawDur": 1.4,
+     "hold": 2
+    },
+    {
+     "type": "label",
+     "text": "EQUATOR",
+     "lat": 6,
+     "lon": -40,
+     "at": "equator",
+     "style": "map",
+     "anim": "slam",
+     "size": 70
+    }
+   ],
+   "camera": {
+    "lat": 10,
+    "lon": -60,
+    "zoom": 1.0
+   },
+   "sources": [
+    {
+     "claim": "Earth is thicker at the equator than pole to pole.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "the Earth is thicker at the Equator than it is from pole to pole"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "And Chimborazo sits just one degree south of the equator, right on top of that bulge.",
+   "show": [
+    {
+     "type": "ping",
+     "lat": -1.469,
+     "lon": -78.817,
+     "color": "#ff5a5f",
+     "at": "Chimborazo"
+    },
+    {
+     "type": "measure",
+     "from": [
+      0,
+      -78.8
+     ],
+     "to": [
+      -1.469,
+      -78.817
+     ],
+     "label": "1°",
+     "at": "degree",
+     "countUp": false
+    }
+   ],
+   "camera": {
+    "lat": -0.5,
+    "lon": -78.8,
+    "zoom": 5
+   },
+   "sources": [
+    {
+     "claim": "It lies one degree south of the equator.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "Chimborazo is one degree south of the Equator"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "Its summit is 6,384.4 kilometers from the center of the Earth.",
+   "show": [
+    {
+     "type": "counter",
+     "steps": [
+      {
+       "at": "6,384.4",
+       "value": "6,384.4 km"
+      }
+     ],
+     "size": 150
+    },
+    {
+     "type": "clip",
+     "name": "emoji_globe-showing-americas",
+     "size": 300,
+     "loop": false,
+     "speed": 1.0,
+     "lat": -1.5,
+     "lon": -78.8,
+     "at": "center"
+    }
+   ],
+   "camera": {
+    "lat": -1.5,
+    "lon": -78.8,
+    "zoom": 6
+   },
+   "sources": [
+    {
+     "claim": "Its summit is 6,384.4 km from Earth's center.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "it is 6,384.4 km (3,967.1 mi) from the Earth's center"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "In fact, its summit is widely reported to be the farthest point on Earth's surface from the center of the planet.",
+   "show": [
+    {
+     "type": "counter",
+     "steps": [
+      {
+       "at": "farthest",
+       "value": "#1"
+      }
+     ],
+     "size": 220
+    },
+    {
+     "type": "label",
+     "text": "FARTHEST FROM THE CENTER",
+     "lat": 0.6,
+     "lon": -78.8,
+     "at": "farthest",
+     "style": "map",
+     "size": 44
+    },
+    {
+     "type": "ping",
+     "lat": -1.469,
+     "lon": -78.817,
+     "color": "#ff5a5f",
+     "at": "summit"
+    }
+   ],
+   "camera": {
+    "lat": -1.5,
+    "lon": -78.8,
+    "zoom": 3.0
+   },
+   "sources": [
+    {
+     "claim": "Chimborazo's summit is widely reported to be the farthest point on the surface from Earth's center.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "the summit of Chimborazo is widely reported to be the farthest point on the surface from Earth's center"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "That's about 2.1 kilometers farther out than the top of Everest, so Chimborazo wins.",
+   "show": [
+    {
+     "type": "ping",
+     "lat": -1.469,
+     "lon": -78.817,
+     "color": "#ff5a5f",
+     "at": "That's"
+    },
+    {
+     "type": "label",
+     "text": "Chimborazo",
+     "lat": -1.469,
+     "lon": -78.817,
+     "at": "That's",
+     "dot": true,
+     "dy": 60,
+     "size": 44
+    },
+    {
+     "type": "counter",
+     "steps": [
+      {
+       "at": "2.1",
+       "value": "+2.1 km"
+      }
+     ],
+     "size": 170,
+     "color": "#ff5a5f"
+    },
+    {
+     "type": "clip",
+     "name": "emoji_rocket",
+     "size": 300,
+     "loop": false,
+     "speed": 1.0,
+     "lat": -1.5,
+     "lon": -78.8,
+     "at": "farther"
+    },
+    {
+     "type": "stamp",
+     "text": "CLOSEST TO SPACE",
+     "size": 78,
+     "screen": [
+      0.5,
+      0.33
+     ],
+     "at": "farther"
+    }
+   ],
+   "camera": {
+    "lat": 0,
+    "lon": -78.8,
+    "zoom": 2.2
+   },
+   "sources": [
+    {
+     "claim": "About 2.1 km farther than Everest's summit.",
+     "url": "https://en.wikipedia.org/wiki/Chimborazo",
+     "quote": "it is 6,384.4 km (3,967.1 mi) from the Earth's center, 2.1 km (1.3 mi) farther than"
+    }
+   ]
+  },
+  {
+   "era": "now",
+   "text": "So the next time someone asks:",
+   "show": [],
+   "camera": {
+    "lat": 25,
+    "lon": 80,
+    "zoom": 1.6,
+    "duration": 1.6,
+    "loopIntro": true
+   },
+   "noClaim": true
+  }
+ ],
+ "v2": true,
+ "config": {
+  "captions": {
+   "theme": "impact",
+   "keywords": {
+    "chimborazo": "#ff5a5f",
+    "everest": "#ffd60a",
+    "equator": "#ffd60a",
+    "space": "#2de2e6"
+   }
+  }
+ }
+}

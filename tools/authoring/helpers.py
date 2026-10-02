@@ -36,6 +36,9 @@ def S(text, show=(), cam=None, era='now', src=(), style=None, tr=None, no_claim=
 
 
 def _put(d, at, kw):
+    if isinstance(at, (int, float)) and not isinstance(at, bool) and at > 300:
+        # year(1971, 1971) passes the year as the TIME (1971 s); the second argument is the narration word or a second offset
+        raise SystemExit(f"helpers: at={at} looks like a year, not a time; pass it as a string, e.g. '{int(at)}'")
     if at is not None:
         d['at'] = at
     d.update(kw)
@@ -548,10 +551,13 @@ def sea_lane(a, b, at, **kw):
     return _put(d, at, {})
 
 
-def clip(name, at, lat=None, lon=None, size=540, blend=None, screen=None, loop=False, speed=1.0, **kw):
+def clip(name, at, lat=None, lon=None, size=540, blend=None, screen=None, loop=False, speed=1.0, why=None, **kw):
     """A clip from the VFX library (assets/vfx/<name>, made by tools/vfx_ingest.py / vfx_fetch.py): frame sequence with
     optional alpha. blend='screen' for fire/smoke footage shot on black. Place on the map (lat, lon) or on screen (screen=[x, y])."""
+    # why: a word from the scene narration that justifies the effect (checked by tools/gates/lint.mjs against assets/vfx/MEANING.json)
     d = {'type': 'clip', 'name': name, 'size': size, 'loop': loop, 'speed': speed}
+    if why:
+        d['why'] = why
     if blend:
         d['blend'] = blend
     if lat is not None:

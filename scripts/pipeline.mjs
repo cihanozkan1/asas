@@ -101,6 +101,14 @@ async function main() {
     const tl = await buildTimeline({ script, cfg, preset, narration, videoDir, assets, guides: !!args.guides });
     writeJson(path.join(outDir, `timeline.${style}.json`), tl);
     if (args['timeline-only']) continue;
+    // quality gates before the (slow) render: lifetime lint, polygon-on-land, frame-by-frame geometry (tools/gates)
+    if (!args['skip-gates'] && !args.stills && !(Number(args.from || 0) > 0)) {
+      const { runGates, printGates } = await import('../tools/gates/run.mjs');
+      const g = await runGates(script.id, { pre: true });
+      log(g.pass ? 'kapılar (render öncesi): GEÇTİ' : 'kapılar (render öncesi): HATA');
+      printGates(g);
+      if (!g.pass) { console.error('Kalite kapısı hata verdi: senaryoyu düzelt (--skip-gates yalnız bilinçli).'); process.exit(4); }
+    }
 
     if (args.stills) {
       const n = Number(args.stills) > 1 ? Number(args.stills) : 15;
@@ -147,6 +155,13 @@ async function main() {
     });
     fs.rmSync(silent);
     log('HAZIR:', path.relative(ROOT, final));
+    if (!args['skip-gates']) {
+      const { runGates, printGates } = await import('../tools/gates/run.mjs');
+      const g = await runGates(script.id, { file: final });
+      log(g.pass ? 'kapılar (video): GEÇTİ' : 'kapılar (video): HATA');
+      printGates(g);
+      if (!g.pass) { console.error('Video kalite kapısı hata verdi: yayınlama, düzelt ve yeniden üret.'); process.exitCode = 5; }
+    }
     if (!args['no-quality']) {
       // quality gate: measured against the reference channel (tools/ref/quality.py)
       const q = spawnSync('python3', [path.join(ROOT, 'tools/ref/quality.py'), final, '--json', path.join(outDir, `quality.${style}.json`)], { encoding: 'utf8' });
