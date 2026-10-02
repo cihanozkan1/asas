@@ -1168,7 +1168,7 @@
         {
           "type": "label",
           "text": "POINT ROBERTS",
-          "lat": 48.945,
+          "lat": 48.972,
           "lon": -123.055,
           "at": 0.05,
           "style": "map",

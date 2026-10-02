@@ -179,7 +179,7 @@ if want('point_roberts'):
               cam=at_(48.985, -123.055, 600),
               src=[src('Forty times more Canadians have mailboxes in Point Roberts than there are residents.', PRW, 'Forty times more Canadians have mailboxes in Point Roberts than the number of residents')]),
             S("Only 1,191 people live in this American town, cut off by Canada.", [
-                hl(PRB, 'flag:us', 0.05, fillOpacity=0.95), lab('POINT ROBERTS', 48.945, -123.055, 0.05, style='map', size=54),
+                hl(PRB, 'flag:us', 0.05, fillOpacity=0.95), lab('POINT ROBERTS', 48.972, -123.055, 0.05, style='map', size=54),
                 cnt('1,191', '1,191', size=180), scatter(PRB, 'art:person_white', 'people', count=8, size=44, stagger=0.15)],
               cam=at_(48.985, -123.055, 1000, bearing=-4, autoCenter=False), tr='flash',
               src=[src('Population 1,191 (2020 census).', PRW, 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
