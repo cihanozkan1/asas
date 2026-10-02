@@ -11,7 +11,6 @@ Map data: Natural Earth
 Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
 Illustrations: AI-generated artwork
 Historical borders: aourednik/historical-basemaps (GPL-3.0)
-Animated emoji: Google Noto Emoji (CC BY 4.0)
 
 PINNED COMMENT
 A kingdom that became a US state 🤯🌺
