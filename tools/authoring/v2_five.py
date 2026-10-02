@@ -16,11 +16,6 @@ def want(v):
     return not WANT or v in WANT
 
 
-def volley(pts, t0, step, size=330, name='emoji_collision', **kw):
-    """Cannon-ball hits one after another along a wall: one clip per point."""
-    return [clip(name, round(t0 + i * step, 2), la, lo, size=size, **kw) for i, (la, lo) in enumerate(pts)]
-
-
 # =========================================================================================== ISTANBUL
 if want('istanbul'):
     IST = (41.03, 29.0)
@@ -28,7 +23,6 @@ if want('istanbul'):
     WALLS = [(40.9937, 28.9227), (41.0045, 28.9215), (41.0120, 28.9230), (41.0200, 28.9265), (41.0280, 28.9310), (41.0340, 28.9355), (41.0405, 28.9400), (41.0435, 28.9440)]
     FERRY = [(41.014, 28.975), (41.017, 28.99), (41.02, 29.008), (41.023, 29.02)]
     TUN = [(41.0150, 28.9770), (41.0195, 28.9960), (41.0255, 29.0150)]
-    HIT = [WALLS[3], WALLS[5], WALLS[2], WALLS[6], WALLS[4], WALLS[1], WALLS[7]]
     save('istanbul', meta(
         'The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia',
         "Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 after a 55-day siege 💥 and officially renamed Istanbul in 1930 🕌 The Bosphorus is the only passage between the Black Sea and the Mediterranean, and today three bridges and a railway tunnel under the strait connect the two continents 🤯",
@@ -71,20 +65,18 @@ if want('istanbul'):
                 cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), art('hagia_sophia', 41.0086, 28.9802, 'capital', size=190), dot('Hagia Sophia', 41.0086, 28.9802, 'capital', dy=70, size=34)],
               era='history', cam=at_(41.01, 28.98, 60),
               src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
-            S("In 1453, Ottoman cannons pounded the five kilometer long Theodosian walls for fifty five days.", [
-                year(1453, '1453', screen=[0.25, 0.07]), wall(WALLS, 0.15, buildDur=1.2, side=-1, width=22),
-                art('cannon', 41.003, 28.903, 'cannons', size=150), art('cannon', 41.018, 28.906, 'pounded', size=150), art('cannon', 41.034, 28.913, 'Theodosian', size=150),
-                *volley(HIT, 0.5, 0.45, size=230), clip('emoji_fire', 3.2, *WALLS[4], size=220, loop=True), clip('emoji_fire', 3.5, *WALLS[2], size=200, loop=True),
-                shake('cannons'), shake('pounded')],
+            S("In 1453, Ottoman cannons, including a giant one that fired 270 kilogram stone balls, pounded the Theodosian walls for fifty five days, until the city fell.", [
+                year(1453, '1453', screen=[0.25, 0.07]), wall(WALLS, 0.2, buildDur=1.2, side=-1, width=22),
+                art('cannon', 41.003, 28.903, 'cannons', size=150), art('cannon', 41.018, 28.906, 'cannons', size=150), art('cannon', 41.034, 28.913, 'cannons', size=150),
+                cnt_steps([('270', '270 kg'), ('fifty', '55 days')], size=130, screen=[0.5, 0.045]),
+                # one volley: the three cannons fire at the same moment, the walls burn until the scene ends
+                *[clip('emoji_collision', 'pounded', *w, size=230) for w in (WALLS[1], WALLS[3], WALLS[5])],
+                *[clip('emoji_fire', 'pounded', *w, size=210, loop=True, until='fell') for w in (WALLS[1], WALLS[3], WALLS[5])],
+                shake('pounded')],
               cam=at_(41.02, 28.93, 900), era='history',
               src=[src('Conquered on 29 May 1453 after a 55-day siege.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege."'),
-                   src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north')]),
-            S("One giant cannon fired stone balls weighing 270 kilograms, and the city finally fell.", [
-                year(1453, 'giant', screen=[0.25, 0.07]), wall(WALLS[2:6], 0.05, buildDur=0.4, side=-1, width=26), art('cannon', 41.0235, 28.9075, 'giant', size=210), cnt('270 kg', '270', size=170),
-                clip('emoji_comet', 'balls', *WALLS[3], size=200), clip('emoji_collision', 'weighing', *WALLS[4], size=240), clip('emoji_collision', 'finally', *WALLS[3], size=300), clip('emoji_fire', 'fell', *WALLS[3], size=260, loop=True), clip('emoji_fire', 'fell', *WALLS[4], size=220, loop=True),
-                shake('weighing'), shake('finally')],
-              cam=at_(41.024, 28.929, 1500), era='history',
-              src=[src("Mehmed II's cannon Basilica hurled a stone ball weighing 270 kg over 1.6 km.", 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).')]),
+                   src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north'),
+                   src("Mehmed II's cannon Basilica hurled a stone ball weighing 270 kg over 1.6 km.", 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).')]),
             S("In 1930, it was officially renamed Istanbul.", [
                 year(1930, '1930'), giant('ISTANBUL', 41.012, 28.968, 'Istanbul', size=90)],
               cam=at_(41.02, 28.97, 90), era='history',
@@ -101,7 +93,7 @@ if want('istanbul'):
             S("That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.", [
                 cnt('60 m', 'sixty', size=190, color='#4ade80'),
                 route(TUN, 'train', color='#f97316', width=8, id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 100}, drawDur=2.4, check=False),
-                clip('emoji_bubbles', 'cross', 41.0195, 28.996, size=260, loop=True), grade('cold', 'underwater')],
+                grade('cold', 'underwater')],
               cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9},
               src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
             S("And that is the answer to one simple question:", [],

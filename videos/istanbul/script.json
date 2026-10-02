@@ -537,7 +537,7 @@
     },
     {
       "era": "history",
-      "text": "In 1453, Ottoman cannons pounded the five kilometer long Theodosian walls for fifty five days.",
+      "text": "In 1453, Ottoman cannons, including a giant one that fired 270 kilogram stone balls, pounded the Theodosian walls for fifty five days, until the city fell.",
       "show": [
         {
           "type": "year",
@@ -584,7 +584,7 @@
               28.944
             ]
           ],
-          "at": 0.15,
+          "at": 0.2,
           "buildDur": 1.2,
           "side": -1,
           "width": 22
@@ -605,7 +605,7 @@
           "lon": 28.906,
           "size": 150,
           "plain": true,
-          "at": "pounded"
+          "at": "cannons"
         },
         {
           "type": "icon",
@@ -614,57 +614,25 @@
           "lon": 28.913,
           "size": 150,
           "plain": true,
-          "at": "Theodosian"
+          "at": "cannons"
         },
         {
-          "type": "clip",
-          "name": "emoji_collision",
-          "size": 230,
-          "loop": false,
-          "speed": 1.0,
-          "lat": 41.02,
-          "lon": 28.9265,
-          "at": 0.5
-        },
-        {
-          "type": "clip",
-          "name": "emoji_collision",
-          "size": 230,
-          "loop": false,
-          "speed": 1.0,
-          "lat": 41.034,
-          "lon": 28.9355,
-          "at": 0.95
-        },
-        {
-          "type": "clip",
-          "name": "emoji_collision",
-          "size": 230,
-          "loop": false,
-          "speed": 1.0,
-          "lat": 41.012,
-          "lon": 28.923,
-          "at": 1.4
-        },
-        {
-          "type": "clip",
-          "name": "emoji_collision",
-          "size": 230,
-          "loop": false,
-          "speed": 1.0,
-          "lat": 41.0405,
-          "lon": 28.94,
-          "at": 1.85
-        },
-        {
-          "type": "clip",
-          "name": "emoji_collision",
-          "size": 230,
-          "loop": false,
-          "speed": 1.0,
-          "lat": 41.028,
-          "lon": 28.931,
-          "at": 2.3
+          "type": "counter",
+          "steps": [
+            {
+              "at": "270",
+              "value": "270 kg"
+            },
+            {
+              "at": "fifty",
+              "value": "55 days"
+            }
+          ],
+          "size": 130,
+          "screen": [
+            0.5,
+            0.045
+          ]
         },
         {
           "type": "clip",
@@ -674,7 +642,7 @@
           "speed": 1.0,
           "lat": 41.0045,
           "lon": 28.9215,
-          "at": 2.75
+          "at": "pounded"
         },
         {
           "type": "clip",
@@ -682,33 +650,52 @@
           "size": 230,
           "loop": false,
           "speed": 1.0,
-          "lat": 41.0435,
-          "lon": 28.944,
-          "at": 3.2
+          "lat": 41.02,
+          "lon": 28.9265,
+          "at": "pounded"
+        },
+        {
+          "type": "clip",
+          "name": "emoji_collision",
+          "size": 230,
+          "loop": false,
+          "speed": 1.0,
+          "lat": 41.034,
+          "lon": 28.9355,
+          "at": "pounded"
         },
         {
           "type": "clip",
           "name": "emoji_fire",
-          "size": 220,
+          "size": 210,
           "loop": true,
           "speed": 1.0,
-          "lat": 41.028,
-          "lon": 28.931,
-          "at": 3.2
+          "lat": 41.0045,
+          "lon": 28.9215,
+          "at": "pounded",
+          "until": "fell"
         },
         {
           "type": "clip",
           "name": "emoji_fire",
-          "size": 200,
+          "size": 210,
           "loop": true,
           "speed": 1.0,
-          "lat": 41.012,
-          "lon": 28.923,
-          "at": 3.5
+          "lat": 41.02,
+          "lon": 28.9265,
+          "at": "pounded",
+          "until": "fell"
         },
         {
-          "type": "shake",
-          "at": "cannons"
+          "type": "clip",
+          "name": "emoji_fire",
+          "size": 210,
+          "loop": true,
+          "speed": 1.0,
+          "lat": 41.034,
+          "lon": 28.9355,
+          "at": "pounded",
+          "until": "fell"
         },
         {
           "type": "shake",
@@ -730,131 +717,7 @@
           "claim": "The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.",
           "url": "https://en.wikipedia.org/wiki/Walls_of_Constantinople",
           "quote": "the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north"
-        }
-      ]
-    },
-    {
-      "era": "history",
-      "text": "One giant cannon fired stone balls weighing 270 kilograms, and the city finally fell.",
-      "show": [
-        {
-          "type": "year",
-          "value": "1453",
-          "at": "giant",
-          "screen": [
-            0.25,
-            0.07
-          ]
         },
-        {
-          "type": "wall",
-          "points": [
-            [
-              41.012,
-              28.923
-            ],
-            [
-              41.02,
-              28.9265
-            ],
-            [
-              41.028,
-              28.931
-            ],
-            [
-              41.034,
-              28.9355
-            ]
-          ],
-          "at": 0.05,
-          "buildDur": 0.4,
-          "side": -1,
-          "width": 26
-        },
-        {
-          "type": "icon",
-          "icon": "art:cannon",
-          "lat": 41.0235,
-          "lon": 28.9075,
-          "size": 210,
-          "plain": true,
-          "at": "giant"
-        },
-        {
-          "type": "counter",
-          "steps": [
-            {
-              "at": "270",
-              "value": "270 kg"
-            }
-          ],
-          "size": 170
-        },
-        {
-          "type": "clip",
-          "name": "emoji_comet",
-          "size": 200,
-          "loop": false,
-          "speed": 1.0,
-          "lat": 41.02,
-          "lon": 28.9265,
-          "at": "balls"
-        },
-        {
-          "type": "clip",
-          "name": "emoji_collision",
-          "size": 240,
-          "loop": false,
-          "speed": 1.0,
-          "lat": 41.028,
-          "lon": 28.931,
-          "at": "weighing"
-        },
-        {
-          "type": "clip",
-          "name": "emoji_collision",
-          "size": 300,
-          "loop": false,
-          "speed": 1.0,
-          "lat": 41.02,
-          "lon": 28.9265,
-          "at": "finally"
-        },
-        {
-          "type": "clip",
-          "name": "emoji_fire",
-          "size": 260,
-          "loop": true,
-          "speed": 1.0,
-          "lat": 41.02,
-          "lon": 28.9265,
-          "at": "fell"
-        },
-        {
-          "type": "clip",
-          "name": "emoji_fire",
-          "size": 220,
-          "loop": true,
-          "speed": 1.0,
-          "lat": 41.028,
-          "lon": 28.931,
-          "at": "fell"
-        },
-        {
-          "type": "shake",
-          "at": "weighing"
-        },
-        {
-          "type": "shake",
-          "at": "finally"
-        }
-      ],
-      "camera": {
-        "lat": 41.024,
-        "lon": 28.929,
-        "zoom": 1500
-      },
-      "sources": [
         {
           "claim": "Mehmed II's cannon Basilica hurled a stone ball weighing 270 kg over 1.6 km.",
           "url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople",
@@ -1088,16 +951,6 @@
           },
           "drawDur": 2.4,
           "check": false
-        },
-        {
-          "type": "clip",
-          "name": "emoji_bubbles",
-          "size": 260,
-          "loop": true,
-          "speed": 1.0,
-          "lat": 41.0195,
-          "lon": 28.996,
-          "at": "cross"
         },
         {
           "type": "grade",
