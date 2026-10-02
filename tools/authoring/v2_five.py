@@ -21,6 +21,8 @@ if want('istanbul'):
     IST = (41.03, 29.0)
     BOS = [(40.99, 28.99), (41.03, 29.01), (41.07, 29.05), (41.11, 29.06), (41.16, 29.08), (41.2, 29.12), (41.23, 29.14)]
     WALLS = [(40.9937, 28.9227), (41.0045, 28.9215), (41.0120, 28.9230), (41.0200, 28.9265), (41.0280, 28.9310), (41.0340, 28.9355), (41.0405, 28.9400), (41.0435, 28.9440)]
+    IST_PROV = {'admin1': 'Istanbul', 'country': 'TUR'}
+    BOS_LINE = [(40.9, 28.97)] + BOS + [(41.4, 29.2)]   # the strait, extended into both seas: the line that splits Istanbul into Europe and Asia
     FERRY = [(41.014, 28.975), (41.017, 28.99), (41.02, 29.008), (41.023, 29.02)]
     TUN = [(41.0150, 28.9770), (41.0195, 28.9960), (41.0255, 29.0150)]
     save('istanbul', meta(
@@ -31,8 +33,8 @@ if want('istanbul'):
         [
             S("How can one single city sit on two continents at once?", [
                 hook('ONE CITY. *TWO* CONTINENTS?', at=0.05, until='single'),
-                hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7), ping(*IST, 'city', color='#ffd60a')],
-              cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'bearing': -3, 'then': [{'at': 'city', 'lat': 41.03, 'lon': 29.0, 'zoom': 40, 'duration': 1.4}]},
+                hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7), ping(*IST, 'city', color='#ffd60a'), trace(IST_PROV, '#ffd60a', 'city', neon='#ffd60a', fillOpacity=0.2)],
+              cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'bearing': -3, 'then': [{'at': 'city', 'lat': 41.1, 'lon': 28.95, 'zoom': 22, 'duration': 1.4}]},
               src=[src('Istanbul straddles the Bosphorus between Europe and Asia.', 'Istanbul', 'straddles the Bosphorus ... between the Sea of Marmara and the Black Sea')]),
             S("Because a narrow strait cuts straight through it: the Bosphorus.", [
                 lab('EUROPE', 41.14, 28.82, 'Because', style='map', size=64), lab('ASIA', 41.0, 29.22, 'Because', style='map', size=64),
@@ -46,8 +48,10 @@ if want('istanbul'):
               src=[src('31 km long; minimum width 700 m near Kandilli.', 'Bosporus', 'measures "31 km (17 nmi) long" with a minimum width of "700 m (0.38 nmi)" at its narrowest point near Kandilli')]),
             S("More than 15 million people live here, and two thirds of them are on the European side.", [
                 cnt('15M+', '15', size=190),
-                {'type': 'crowd', 'lat': 41.06, 'lon': 28.86, 'count': 15, 'cols': 5, 'size': 34, 'color': '#5ec8ff', 'red': [{'at': 'European', 'n': 10}], 'redColor': '#ffd60a', 'at': 'million'}],
-              cam=at_(41.06, 28.97, 250),
+                trace(IST_PROV, '#ffd60a', 0.05, neon='#ffd60a', fillOpacity=0.16),
+                scatter(IST_PROV, 'art:person_white', 'million', count=14, size=60, stagger=0.1, sideOf={'line': BOS_LINE, 'keep': -1}),
+                scatter(IST_PROV, 'art:person_white', 'thirds', count=28, size=60, stagger=0.07, sideOf={'line': BOS_LINE, 'keep': 1})],
+              cam=at_(41.08, 28.95, 48, still=True, autoCenter=False),
               src=[src('Over 15 million inhabitants; about two-thirds live in Europe.', 'Istanbul', 'Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants')]),
             S("So why did such a huge city grow right here?", [q(41.03, 29.0, 'why'), react('art:emote_think', (0.28, 0.3), 'why', size=170)],
               cam=at_(41.03, 29.0, 40), style='dark', no_claim=True, tr='flash'),
@@ -61,18 +65,18 @@ if want('istanbul'):
               cam=at_(41.03, 28.99, 150), era='history', tr='film',
               src=[src('Founded as Byzantium (~660 BC); renamed Constantinople in 330 AD.', 'Istanbul', 'originally called Byzantium when Greek colonists established it around 660 BC. It became Constantinople in 330 AD under Constantine the Great')]),
             S("It was the capital of the Roman, Byzantine and Ottoman empires.", [
-                cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), art('hagia_sophia', 41.0086, 28.9802, 'Ottoman', size=190), dot('Hagia Sophia', 41.0086, 28.9802, 'Ottoman', dy=100, size=34)],
+                cnt_steps([('Roman', 'ROME'), ('Byzantine', 'BYZANTIUM'), ('Ottoman', 'OTTOMANS')], size=110), art('hagia_sophia', 41.0086, 28.9802, 'Ottoman', size=190), dot('Hagia Sophia', 41.0086, 28.9802, 'Ottoman', dy=100, size=34), art('crown', 41.0086, 28.9802, 'capital', size=120, dy=-230)],
               era='history', cam=at_(41.03, 28.99, 150),
               src=[src('Capital of the Roman, Byzantine, Latin and Ottoman empires.', 'Istanbul', 'Istanbul served as capital for four major empires: the Roman Empire (330–395), the Byzantine Empire ... and the Ottoman Empire (1453–1922)')]),
             S("In 1453, Ottoman cannons, including a giant one that fired 270 kilogram stone balls, pounded the Theodosian walls for fifty five days, until the city fell.", [
                 year(1453, '1453', screen=[0.25, 0.07]), wall(WALLS, 0.2, buildDur=1.2, side=-1, width=22),
-                art('cannon', 41.003, 28.903, 'cannons', size=150), art('cannon', 41.018, 28.906, 'cannons', size=150), art('cannon', 41.034, 28.913, 'cannons', size=150),
+                art('cannon', 41.003, 28.889, 'cannons', size=150, pinned=True), art('cannon', 41.018, 28.892, 'cannons', size=150, pinned=True), art('cannon', 41.034, 28.899, 'cannons', size=150, pinned=True),
                 cnt_steps([('270', '270 kg'), ('fifty', '55 days')], size=130, screen=[0.5, 0.045]),
                 # one volley: the three cannons fire at the same moment, the walls burn until the scene ends
                 *[clip('emoji_collision', 'pounded', *w, size=230) for w in (WALLS[1], WALLS[3], WALLS[5])],
                 *[clip('emoji_fire', 'pounded', *w, size=130, loop=True, until='fell', dy=-60) for w in (WALLS[1], WALLS[3], WALLS[5])],
-                shake('pounded')],
-              cam=at_(41.02, 28.93, 900), era='history',
+                ],
+              cam=at_(41.02, 28.93, 900, still=True), era='history',
               src=[src('Conquered on 29 May 1453 after a 55-day siege.', 'Istanbul', 'The Ottomans conquered the city "on 29 May 1453, after a 55-day siege."'),
                    src('The Theodosian land walls run about 5.7 km from the Sea of Marmara to Blachernae.', 'Walls_of_Constantinople', 'the Theodosian walls stretch for about 5.7 km (3.5 mi) from south to north'),
                    src("Mehmed II's cannon Basilica hurled a stone ball weighing 270 kg over 1.6 km.", 'Fall_of_Constantinople', 'His 27-foot-long (8.2 m) cannon was named "Basilica" and was able to hurl a 600-pound (270 kg) stone ball over a mile (1.6 km).')]),
@@ -176,8 +180,8 @@ if want('point_roberts'):
               src=[src('Forty times more Canadians have mailboxes in Point Roberts than there are residents.', PRW, 'Forty times more Canadians have mailboxes in Point Roberts than the number of residents')]),
             S("Only 1,191 people live in this American town, cut off by Canada.", [
                 hl(PRB, 'flag:us', 0.05, fillOpacity=0.95), lab('POINT ROBERTS', 48.945, -123.055, 0.05, style='map', size=54),
-                cnt('1,191', '1,191', size=180), ping(*PR, 'American', color='#ffd60a')],
-              cam=at_(48.99, -123.055, 650, bearing=-4), tr='flash',
+                cnt('1,191', '1,191', size=180), scatter(PRB, 'art:person_white', 'people', count=8, size=44, stagger=0.15)],
+              cam=at_(48.985, -123.055, 1000, bearing=-4, autoCenter=False), tr='flash',
               src=[src('Population 1,191 (2020 census).', PRW, 'The 2020 census recorded 1,191 residents across 4.884 square miles of territory.')]),
             S("Which brings us back to the very first question:", [],
               cam=at_(49.0, -123.0, 120, duration=1.6, loopIntro=True), no_claim=True),
@@ -252,6 +256,10 @@ if want('darien_gap'):
     HW_N = road_points((70.3, -148.7), (64.84, -147.72), (60.72, -135.05), (55.76, -120.24), (49.28, -123.12), (34.05, -118.24), (32.5, -117.0), (19.43, -99.13), (14.63, -90.51), (9.93, -84.08), (8.98, -79.52), (8.15, -77.69), max_pts=110)
     HW_S = road_points((8.1, -76.73), (6.25, -75.57), (4.71, -74.07), (-0.18, -78.47), (-12.05, -77.04), (-33.45, -70.67), (-34.6, -58.38), (-54.8, -68.3), max_pts=90)
     SHIP = sea_points((10.6, -80.0), (9.6, -76.6))
+    COUNTRIES = [('CAN', 'ca', 'Canada,'), ('USA', 'us', 'United'), ('MEX', 'mx', 'Mexico,'), ('GTM', 'gt', 'Guatemala,'), ('SLV', 'sv', 'Salvador,'), ('HND', 'hn', 'Honduras,'),
+                 ('NIC', 'ni', 'Nicaragua,'), ('CRI', 'cr', 'Costa'), ('PAN', 'pa', 'Panama,'), ('COL', 'co', 'Colombia,'), ('ECU', 'ec', 'Ecuador,'), ('PER', 'pe', 'Peru,'),
+                 ('CHL', 'cl', 'Chile'), ('ARG', 'ar', 'Argentina.')]
+    DUR_N, DUR_S = 5.6, 2.7
     save('darien_gap', meta(
         'The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱',
         "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 A road was planned in 1971 and halted in 1974, and swamps, mountains, rainforest, deadly wildlife 🐍 and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
@@ -265,9 +273,12 @@ if want('darien_gap'):
                 cnt('30,000 km', 'suddenly', size=170)],
               cam={'follow': 'hw1', 'zoom': 3.4, 'zoomTo': 1.0, 'duration': 0.8, 'then': [{'at': 'Argentina', 'lat': -22, 'lon': -68, 'zoom': 1.15, 'duration': 1.3}]},
               src=[src('The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.', PAH, 'from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina')]),
-            S("It's the Pan-American Highway, and it links 14 countries.", [
-                cnt('14', '14', size=200, screen=[0.5, 0.3])],
-              cam=at_(8, -84, 1.5, bearing=-4),
+            S("It's the Pan-American Highway, and it links 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile and Argentina.", [
+                cnt('14', '14', size=170, screen=[0.5, 0.22]),
+                route(HW_N, 'Canada', id='hw2', color='#ffd60a', width=8, drawDur=DUR_N, medium='land', smooth=False),
+                route(HW_S, 'Colombia', id='hw3', color='#ffd60a', width=8, drawDur=DUR_S, medium='land', smooth=False),
+                *[hl(iso, 'flag:' + fl, word, fillOpacity=0.8, flagKeep=True) for iso, fl, word in COUNTRIES]],
+              cam={'follow': 'hw2', 'zoom': 3.6, 'zoomTo': 3.0, 'duration': 0.9, 'then': [{'at': 'Colombia', 'lat': -2, 'lon': -72, 'zoom': 2.2, 'duration': 1.4}]},
               src=[src('The highway links 14 countries.', PAH, 'The highway connects 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile, and Argentina.')]),
             S("But in Panama, the road simply ends, in the town of Yaviza.", [
                 {'type': 'dim', 'except': ['PAN', 'COL'], 'amount': 0.5, 'color': '#05070c', 'at': 0.1},

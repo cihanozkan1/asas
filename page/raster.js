@@ -75,6 +75,8 @@ vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   // sharp close-up imagery: deep river / lake water is almost black, not blue; count it as water
   // unless it is green (forest), so it doesn't break up into dark squares
   water = max(water, flatSea * smoothstep(0.16, 0.08, l) * smoothstep(-0.015, 0.01, cw.b - cw.g * 0.95));
+  // dark bluish pixels of sharp imagery (shaded sea, mosaic seams) are sea as well, never black patches
+  water = max(water, flatSea * smoothstep(0.34, 0.22, l) * smoothstep(0.0, 0.02, cw.b - max(cw.r, cw.g * 0.97)));
   water = max(water, openSea);
   vec3 sea = mix(vec3(0.15, 0.38, 0.49), vec3(0.34, 0.64, 0.72), smoothstep(0.03, 0.3, ls * 1.5));
   vec3 land = pow(max(c, vec3(0.0)), vec3(0.8)) * 1.06;
@@ -150,6 +152,7 @@ vec3 imagery(float lon, float lat) {
   if (uSepia > 0.0) {
     float l = dot(c, vec3(0.299, 0.587, 0.114));
     float water = smoothstep(0.015, 0.08, c.b - max(c.r, c.g * 0.92)) * (1.0 - smoothstep(0.3, 0.5, l));
+    water = max(water, dW * smoothstep(0.34, 0.22, l) * smoothstep(0.0, 0.02, c.b - max(c.r, c.g * 0.97)));
     vec3 land = uTintLand * (0.62 + 0.6 * pow(l, 0.8));
     vec3 sea = uTintSea * (0.9 + 0.2 * l);
     g = mix(g, mix(land, sea, water), uSepia);

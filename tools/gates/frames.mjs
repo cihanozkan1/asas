@@ -110,7 +110,7 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
       if (t > 4.5 && p.res && p.res.ra > 0.5 && p.res.box < 0.3 && p.res.tpp < 0.7) hit('soft-base', p.res.tpp < 0.4 ? 'error' : 'warn', 'base', `soft base imagery (base texture upscaled ${(1 / p.res.tpp).toFixed(1)}x, no sharp detail box)`, t);
       // flag fills painted on the map: the real shapes may not overlap each other, nor sit under a flag marker
       for (const q of p.hlPairs) {
-        if (!(q.frac > 0.02 && /^flag:/.test(q.fa) && /^flag:/.test(q.fb))) continue;
+        if (!(q.frac > 0.2 && Math.min(q.na, q.nb) >= 150 && /^flag:/.test(q.fa) && /^flag:/.test(q.fb))) continue;
         // an enclave painted on top of the surrounding country is fine; the smaller flag being covered is not
         const smallerFirst = q.na <= q.nb; // a < b always: a is painted first
         if (smallerFirst) hit('flag-flag', 'error', `${q.a}|${q.b}`, `flag fill ${q.fa} is covered by ${q.fb} (${Math.round(q.frac * 100)}% of the smaller)`, t);

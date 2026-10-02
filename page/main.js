@@ -279,7 +279,7 @@ function culled(index, box, type) {
 // Evenly spread points inside the target: a regular grid of candidates, then farthest-point
 // sampling so icons form a tidy, balanced pattern instead of random clumps.
 // `along` ([[lat,lon],...]) instead places them at equal steps along a path (a row / a wall).
-function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, along = null, landOnly = false) {
+function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, along = null, landOnly = false, sideOf = null) {
   if (along && along.length > 1) {
     const P = along.map(([la, lo]) => [lo, la]);
     const seg = [0];
@@ -307,6 +307,20 @@ function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, alon
     const lf = { type: 'Feature', geometry: { type: 'MultiPolygon', coordinates: parts.map((x) => x.part) } };
     onLand = (p) => parts.length > 0 && geoContains(lf, p);
   }
+  // keep only points on one side of a real line (the Bosphorus splits Istanbul's people into Europe and Asia):
+  // sign of the cross product against the nearest segment, left of the direction of travel = +1
+  const onSide = (p) => {
+    if (!sideOf?.line || sideOf.line.length < 2) return true;
+    let best = 1e9, sg = 1;
+    for (let i = 1; i < sideOf.line.length; i++) {
+      const [la0, lo0] = sideOf.line[i - 1], [la1, lo1] = sideOf.line[i];
+      const vx = lo1 - lo0, vy = la1 - la0, wx = p[0] - lo0, wy = p[1] - la0;
+      const f = Math.max(0, Math.min(1, (vx * wx + vy * wy) / (vx * vx + vy * vy || 1)));
+      const d = Math.hypot(wx - f * vx, wy - f * vy);
+      if (d < best) { best = d; sg = vx * wy - vy * wx >= 0 ? 1 : -1; }
+    }
+    return sg === (sideOf.keep ?? 1);
+  };
   const cands = [];
   for (let g = 24; g <= 96 && cands.length < n * 6; g += 12) {
     cands.length = 0;
@@ -314,7 +328,7 @@ function scatterPoints(feats, n, seed, _minDist, minLat = -90, maxLat = 90, alon
     for (let row = 0, lat = s + step / 2; lat < nn; lat += step * 0.866, row++) {
       for (let lon = w + (row % 2 ? step : step / 2); lon < w + span; lon += step) {
         const p = [lon > 180 ? lon - 360 : lon, lat];
-        if (feats.some((f) => geoContains(f, p)) && onLand(p)) cands.push(p);
+        if (feats.some((f) => geoContains(f, p)) && onLand(p) && onSide(p)) cands.push(p);
       }
     }
   }
@@ -407,7 +421,7 @@ function viewFor(cam, mode) {
     k: cam.zoom * state.baseK,
     cx: W / 2,
     cy: H * L.mapCenterY,
-    angle: (cam.bearing || 0) + (state.tl.config.camera.sway || 0) * Math.sin((state.t || 0) * 0.35),
+    angle: (cam.bearing || 0) + (cam.still ? 0 : state.tl.config.camera.sway || 0) * Math.sin((state.t || 0) * 0.35),
   };
 }
 
@@ -509,7 +523,7 @@ async function init(tl) {
 
   // per-element geometry
   for (const el of tl.elements) {
-    if (el.type === 'scatter') el._pts = scatterPoints(state.targets[el.target] || [], el.count || 12, el.seed || 7, el.minDist ?? 0.25, el.minLat ?? -90, el.maxLat ?? 90, el.along, el.water ? false : !WATER_ICONS.test(el.icon || ''));
+    if (el.type === 'scatter') el._pts = scatterPoints(state.targets[el.target] || [], el.count || 12, el.seed || 7, el.minDist ?? 0.25, el.minLat ?? -90, el.maxLat ?? 90, el.along, el.water ? false : !WATER_ICONS.test(el.icon || ''), el.sideOf);
     if (el.type === 'ghost') {
       el._fc = { type: 'FeatureCollection', features: state.targets[el.target] };
       el._c = geoCentroid(el._fc);
@@ -602,6 +616,7 @@ async function init(tl) {
         if (!s.camera.follow && s.camera.autoCenter !== false) target = frameOn(si, target);
       }
       target.bearing = s.camera.bearing ?? 0;
+      if (s.camera.still) target.still = true;
     }
     return { start: s.start, end: s.end, target, duration: s.cameraDuration, lead: s.cameraLead };
   }).flatMap((shot, i) => {
@@ -720,7 +735,7 @@ async function init(tl) {
       a.width = a.right - a.left; a.height = a.bottom - a.top;
     }
     for (const m of tl.elements) {
-      if (m === ob || !m._node || !(isMovable(m) || (m.screen && ob.screen && m.type !== 'character' && m.type !== 'counter')) || m.start > ob.start - 0.1 || m.end < ob.start + 0.3) continue;
+      if (m === ob || !m._node || !(isMovable(m) || (m.screen && ob.screen && m.type !== 'character' && m.type !== 'counter')) || m.pinned || m.start > ob.start - 0.1 || m.end < ob.start + 0.3) continue;
       const b = rectOf(m);
       if (b && inter(a, b) > 0.12 * Math.min(area(a), area(b))) m.end = Math.max(m.start + 1.5, ob.start + 0.1);
     }
@@ -1253,7 +1268,7 @@ function drawHighlight(ctx, path, el, life, mix, t) {
     // zoomed in so far that the country is much bigger than the screen: the flag fades out
     // (a flag cropped to a few red pixels is just noise)
     const ratio = Math.max((whole[1][0] - whole[0][0]) / W, (whole[1][1] - whole[0][1]) / H);
-    ctx.globalAlpha *= clamp01((2.4 - ratio) / 1.0);
+    ctx.globalAlpha *= clamp01(((el.flagKeep ? 40 : 2.4) - ratio) / 1.0);   // flagKeep: big countries seen close (a route crossing them) keep their flag
     const rects = el.flagFit === 'all' || !parts.length ? [{ bb: whole }] : parts.slice(0, 80);
     for (const rc of rects) {
       const b = rc.bb;

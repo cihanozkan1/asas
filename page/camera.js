@@ -77,7 +77,7 @@ export class CameraPath {
     if (u >= 1) {
       const dt = t - (seg.t0 + seg.dur);
       // slow push-in plus a gentle slide, so the map never sits still (direction is fixed per shot)
-      const z = seg.to.zoom * Math.exp(drift * dt);
+      const z = seg.to.zoom * Math.exp((seg.to.still ? 0 : drift) * dt);
       let lat = seg.to.lat, lon = seg.to.lon;
       const pan = this.opts.pan || 0;
       if (pan) {
@@ -87,7 +87,7 @@ export class CameraPath {
         if (this.opts.mode === 'globe') { lon += ((px / k) * 180) / Math.PI / cl; lat += ((py / k) * 180) / Math.PI; }
         else { lon += ((px / k) * 180) / Math.PI; lat += ((py / k) * 180 * cl) / Math.PI; }
       }
-      return { lat, lon, zoom: z, bearing: seg.to.bearing ?? 0 };
+      return { lat, lon, zoom: z, bearing: seg.to.bearing ?? 0, still: !!seg.to.still };
     }
     const e = ease.inOutCubic(u);
     const interp = geoInterpolate([seg.from.lon, seg.from.lat], [seg.to.lon, seg.to.lat]);

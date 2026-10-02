@@ -59,6 +59,19 @@
           "lon": 29.0,
           "color": "#ffd60a",
           "at": "city"
+        },
+        {
+          "type": "highlight",
+          "target": {
+            "admin1": "Istanbul",
+            "country": "TUR"
+          },
+          "fill": "#ffd60a",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#ffd60a",
+          "at": "city",
+          "fillOpacity": 0.2
         }
       ],
       "camera": {
@@ -69,9 +82,9 @@
         "then": [
           {
             "at": "city",
-            "lat": 41.03,
-            "lon": 29.0,
-            "zoom": 40,
+            "lat": 41.1,
+            "lon": 28.95,
+            "zoom": 22,
             "duration": 1.4
           }
         ]
@@ -243,27 +256,131 @@
           "size": 190
         },
         {
-          "type": "crowd",
-          "lat": 41.06,
-          "lon": 28.86,
-          "count": 15,
-          "cols": 5,
-          "size": 34,
-          "color": "#5ec8ff",
-          "red": [
-            {
-              "at": "European",
-              "n": 10
-            }
-          ],
-          "redColor": "#ffd60a",
-          "at": "million"
+          "type": "highlight",
+          "target": {
+            "admin1": "Istanbul",
+            "country": "TUR"
+          },
+          "fill": "#ffd60a",
+          "trace": true,
+          "traceDur": 1.4,
+          "neon": "#ffd60a",
+          "at": 0.05,
+          "fillOpacity": 0.16
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1": "Istanbul",
+            "country": "TUR"
+          },
+          "icon": "art:person_white",
+          "count": 14,
+          "size": 60,
+          "at": "million",
+          "stagger": 0.1,
+          "sideOf": {
+            "line": [
+              [
+                40.9,
+                28.97
+              ],
+              [
+                40.99,
+                28.99
+              ],
+              [
+                41.03,
+                29.01
+              ],
+              [
+                41.07,
+                29.05
+              ],
+              [
+                41.11,
+                29.06
+              ],
+              [
+                41.16,
+                29.08
+              ],
+              [
+                41.2,
+                29.12
+              ],
+              [
+                41.23,
+                29.14
+              ],
+              [
+                41.4,
+                29.2
+              ]
+            ],
+            "keep": -1
+          }
+        },
+        {
+          "type": "scatter",
+          "target": {
+            "admin1": "Istanbul",
+            "country": "TUR"
+          },
+          "icon": "art:person_white",
+          "count": 28,
+          "size": 60,
+          "at": "thirds",
+          "stagger": 0.07,
+          "sideOf": {
+            "line": [
+              [
+                40.9,
+                28.97
+              ],
+              [
+                40.99,
+                28.99
+              ],
+              [
+                41.03,
+                29.01
+              ],
+              [
+                41.07,
+                29.05
+              ],
+              [
+                41.11,
+                29.06
+              ],
+              [
+                41.16,
+                29.08
+              ],
+              [
+                41.2,
+                29.12
+              ],
+              [
+                41.23,
+                29.14
+              ],
+              [
+                41.4,
+                29.2
+              ]
+            ],
+            "keep": 1
+          }
         }
       ],
       "camera": {
-        "lat": 41.06,
-        "lon": 28.97,
-        "zoom": 250
+        "lat": 41.08,
+        "lon": 28.95,
+        "zoom": 48,
+        "still": true,
+        "autoCenter": false
       },
       "sources": [
         {
@@ -576,6 +693,16 @@
           "dot": true,
           "dy": 100,
           "size": 34
+        },
+        {
+          "type": "icon",
+          "icon": "art:crown",
+          "lat": 41.0086,
+          "lon": 28.9802,
+          "size": 120,
+          "plain": true,
+          "at": "capital",
+          "dy": -230
         }
       ],
       "camera": {
@@ -649,28 +776,31 @@
           "type": "icon",
           "icon": "art:cannon",
           "lat": 41.003,
-          "lon": 28.903,
+          "lon": 28.889,
           "size": 150,
           "plain": true,
-          "at": "cannons"
+          "at": "cannons",
+          "pinned": true
         },
         {
           "type": "icon",
           "icon": "art:cannon",
           "lat": 41.018,
-          "lon": 28.906,
+          "lon": 28.892,
           "size": 150,
           "plain": true,
-          "at": "cannons"
+          "at": "cannons",
+          "pinned": true
         },
         {
           "type": "icon",
           "icon": "art:cannon",
           "lat": 41.034,
-          "lon": 28.913,
+          "lon": 28.899,
           "size": 150,
           "plain": true,
-          "at": "cannons"
+          "at": "cannons",
+          "pinned": true
         },
         {
           "type": "counter",
@@ -755,16 +885,13 @@
           "at": "pounded",
           "until": "fell",
           "dy": -60
-        },
-        {
-          "type": "shake",
-          "at": "pounded"
         }
       ],
       "camera": {
         "lat": 41.02,
         "lon": 28.93,
-        "zoom": 900
+        "zoom": 900,
+        "still": true
       },
       "sources": [
         {
