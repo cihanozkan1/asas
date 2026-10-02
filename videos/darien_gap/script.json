@@ -949,18 +949,18 @@
           "glow": false,
           "mover": {
             "kind": "ship",
-            "size": 170,
+            "size": 110,
             "emblem": "#ffd60a",
             "style": "cargo"
           },
-          "drawDur": 2.4
+          "drawDur": 1.5
         }
       ],
       "camera": {
-        "lat": 8.8,
+        "lat": 9.2,
         "lon": -78.0,
         "zoom": 8,
-        "duration": 1.2
+        "duration": 0.5
       },
       "sources": [
         {
@@ -1058,16 +1058,22 @@
           "at": "1978"
         },
         {
-          "type": "scatter",
-          "target": {
-            "admin1": "Chocó",
-            "country": "COL"
-          },
+          "type": "icon",
           "icon": "art:cow",
-          "count": 2,
+          "lat": 7.1,
+          "lon": -75.95,
           "size": 90,
-          "at": "foot-and-mouth",
-          "stagger": 0.2
+          "plain": true,
+          "at": "foot-and-mouth"
+        },
+        {
+          "type": "icon",
+          "icon": "art:cow",
+          "lat": 8.0,
+          "lon": -75.9,
+          "size": 90,
+          "plain": true,
+          "at": "disease"
         },
         {
           "type": "arrow",
@@ -1267,13 +1273,11 @@
         {
           "type": "clip",
           "name": "emoji_skull",
-          "size": 240,
+          "size": 200,
           "loop": false,
           "speed": 1.0,
-          "screen": [
-            0.5,
-            0.3
-          ],
+          "lat": 8.4,
+          "lon": -77.3,
           "at": "dangerous"
         }
       ],

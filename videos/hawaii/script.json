@@ -321,10 +321,11 @@
           "type": "character",
           "image": "businessman",
           "screen": [
-            0.78,
-            0.62
+            0.52,
+            0.625
           ],
           "at": "businessmen",
+          "size": 290,
           "name": "Committee of Safety",
           "flip": true
         },
@@ -333,9 +334,10 @@
           "image": "us_marine",
           "screen": [
             0.22,
-            0.62
+            0.625
           ],
-          "at": "Marines"
+          "at": "Marines",
+          "size": 290
         },
         {
           "type": "ping",
@@ -379,8 +381,8 @@
         {
           "type": "icon",
           "icon": "art:dove",
-          "lat": 21.6,
-          "lon": -157.4,
+          "lat": 22.0,
+          "lon": -157.8,
           "size": 130,
           "at": "bloodshed"
         }

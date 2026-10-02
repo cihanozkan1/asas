@@ -86,6 +86,15 @@ vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   return mix(land, sea, water);
 }
 
+// water the masked detail imagery knows about: inside the box, where the land mask left the pixel empty
+float boxSea(sampler2D tex, vec4 box, float lon, float lat) {
+  float u = (lon - box.x) / (box.z - box.x);
+  float v = (box.w - lat) / (box.w - box.y);
+  if (u < 0.0 || u > 1.0 || v < 0.0 || v > 1.0) return 0.0;
+  float edge = min(min(u, 1.0 - u), min(v, 1.0 - v));
+  return smoothstep(0.0, 0.18, edge) * (1.0 - texture(tex, vec2(u, v)).a);
+}
+
 vec3 sampleSoft(sampler2D tex, float lon, float lat) {
   vec2 uv = vec2((lon + PI) / (2.0 * PI), (PI * 0.5 - lat) / PI);
   vec2 dx = dFdx(uv), dy = dFdy(uv);
@@ -129,6 +138,12 @@ vec3 imagery(float lon, float lat) {
     c = mix(c, d.rgb, d.a * uDetailMix[3]);
     dW = max(dW, d.a * uDetailMix[3]);
   }
+  float kSea = 0.0;   // the land mask of a close-up box says where its water is: no dark coastal patches from the base
+  if (uDetailCount > 0) kSea = max(kSea, boxSea(uDetail0, uDetailBox0, lon, lat) * uDetailMix[0]);
+  if (uDetailCount > 1) kSea = max(kSea, boxSea(uDetail1, uDetailBox1, lon, lat) * uDetailMix[1]);
+  if (uDetailCount > 2) kSea = max(kSea, boxSea(uDetail2, uDetailBox2, lon, lat) * uDetailMix[2]);
+  if (uDetailCount > 3) kSea = max(kSea, boxSea(uDetail3, uDetailBox3, lon, lat) * uDetailMix[3]);
+  openSea = max(openSea, kSea);
   openSea *= 1.0 - dW;
   vec3 cw = mix(c, cs, smoothstep(0.7, 0.2, gMag) * (1.0 - dW));
   vec3 g = uNoGrade > 0.5 ? c : grade(c, cs, openSea, cw, dW);

@@ -456,7 +456,7 @@
           "id": "pass",
           "mover": {
             "kind": "ship",
-            "size": 150,
+            "size": 100,
             "style": "cargo"
           },
           "check": false
@@ -506,8 +506,8 @@
         {
           "type": "label",
           "text": "Byzantium",
-          "lat": 41.1,
-          "lon": 28.75,
+          "lat": 41.06,
+          "lon": 28.915,
           "at": "Byzantium",
           "style": "serif",
           "size": 60
@@ -515,8 +515,8 @@
         {
           "type": "label",
           "text": "Constantinople",
-          "lat": 40.95,
-          "lon": 29.15,
+          "lat": 40.975,
+          "lon": 28.99,
           "at": "Constantinople",
           "style": "serif",
           "size": 56
@@ -807,7 +807,8 @@
       "camera": {
         "lat": 41.02,
         "lon": 28.97,
-        "zoom": 90
+        "zoom": 90,
+        "duration": 0.5
       },
       "sources": [
         {
@@ -1002,6 +1003,11 @@
           "color": "#f97316",
           "width": 8,
           "at": "train",
+          "dashed": true,
+          "dash": [
+            14,
+            10
+          ],
           "id": "tun",
           "mover": {
             "kind": "icon",
