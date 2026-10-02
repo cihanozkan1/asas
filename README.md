@@ -1,5 +1,5 @@
-# Geo Shorts — ilk 5 video (4. tur)
+# Geo Shorts — 5 video (5. tur: sıfırdan yeniden yapıldı)
 
-Bu turda: yol ve gemi rotaları gerçek geometriden (Darién'de Pan-Amerikan yolu karadan, gemi denizden; render öncesi otomatik kara/deniz denetimi geçti),
-kutusuz yazılar, etiketler konuyu kapatmıyor, tarihe geçince eski öğe kalmıyor, daha keskin uydu görüntüsü, kısık efekt sesleri.
-Zayıf kuşatma ve yanardağ efektleri bu turda çıkarıldı (gerçek VFX klibi gelince eklenecek).
+Yeni araç kutusuyla baştan yazıldı: soru kancası + ilk saniye yazı kancası, döngülü bitiş, gerçek yol/gemi rotaları (kara/deniz denetimi geçti),
+gerçek VFX klipleri (Noto animasyonlu emoji, CC BY 4.0 — kredi yükleme metinlerinde): İstanbul kuşatması (top atışı, patlama, yangın), Hawaii/Chimborazo yanardağı,
+beyaz bayrak, yağmur, yılan/sivrisinek, SOS, kuru kafa, roket, polis lambası. Kutusuz yazı, kısık ses efektleri.

@@ -2,7 +2,7 @@ TITLE
 The City on TWO Continents 🇹🇷🤯 Why Istanbul Is in Europe AND Asia
 
 DESCRIPTION
-Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 and officially renamed Istanbul in 1930 🕌 The Bosphorus is the only passage between the Black Sea and the Mediterranean, and today three bridges and a railway tunnel under the strait connect the two continents 🤯
+Istanbul 🇹🇷 sits on two continents at once, split by the Bosphorus, a 31 km strait between Europe and Asia 🌊 At its narrowest it's only about 700 meters wide! About two-thirds of its 15+ million people live on the European side. Founded as Byzantium, it became Constantinople in 330 AD, was conquered by the Ottomans in 1453 after a 55-day siege 💥 and officially renamed Istanbul in 1930 🕌 The Bosphorus is the only passage between the Black Sea and the Mediterranean, and today three bridges and a railway tunnel under the strait connect the two continents 🤯
 
 #shorts #istanbul #turkey #bosphorus #europe
 
@@ -11,6 +11,7 @@ Map data: Natural Earth
 Satellite imagery: contains modified Copernicus Sentinel data (2023-2026), ESA
 Illustrations: AI-generated artwork
 Historical borders: aourednik/historical-basemaps (GPL-3.0)
+Animated emoji: Google Noto Emoji (CC BY 4.0)
 
 PINNED COMMENT
 One city, two continents 🤯🇹🇷
@@ -18,4 +19,4 @@ Do you live on the European or the Asian side? 👇
 Which city should we explain next? 🗺️
 
 TAGS
-istanbul, turkey, bosphorus, europe, asia, constantinople, byzantium, ottoman empire, transcontinental, geography, history, maps, learn
+istanbul, turkey, bosphorus, europe, asia, constantinople, byzantium, ottoman empire, siege of constantinople, transcontinental, geography, history, maps, learn
