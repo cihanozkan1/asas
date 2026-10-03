@@ -11,6 +11,8 @@ import { ROOT } from '../../src/util.mjs';
 export const TEXT = new Set(['label', 'counter', 'year', 'title', 'stamp', 'handstamp', 'pathtext', 'measure', 'timebar', 'bars', 'callout', 'tally', 'timeline', 'clock', 'stat', 'nametag', 'vs']);
 export const VISUAL = new Set(['flag', 'icon', 'art', 'character', 'react', 'question', 'clip', 'photo', 'avatar', 'pin', 'ellipse', 'disc', 'face', 'badge']);
 const COMBOS = [['emoji_collision', 'emoji_fire'], ['emoji_collision', 'emoji_direct-hit'], ['emoji_fire', 'emoji_direct-hit'], ['emoji_rain-cloud', 'emoji_droplet'], ['emoji_snake', 'emoji_mosquito']];
+const LAND_ART = /car\b|bus\b|people|person|tree|mountain|excavator|house|mailbox|wheat|barrel|cow|snowflake|tractor|village|castle|cannon/;
+const SEA_ART = /ship_|ferry|boat|tanker|wave\b/;
 const LAND_FX = /snake|mosquito|skull|volcano|collision|fire|sos|t-rex|crocodile|ox\b/;
 const area = (r) => r.w * r.h;
 function inter(a, b) {
@@ -103,6 +105,13 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
       // close-up: the thing the camera is looking at must not be hidden by a stamp / crowd / effect
       if (p.res && p.res.zoomRel > 8 && p.focus) {
         for (const A of els) if (['stamp', 'handstamp', 'crowd', 'clip'].includes(A.type) && !(A.type === 'clip' && A.anchored && A.w <= 300) && frac(A, p.focus) > 0.35 && !p.markers.some((m) => m.owner === A.i)) hit('covers-focus', 'error', A.i, `${label(A)} covers what the camera is focused on`, t);
+      }
+      // pictures that stand on the ground (car, people, trees, mailboxes...) must have their centre on land, ships on water
+      for (const A of els) {
+        if (!['icon', 'art'].includes(A.type) || A.cLand == null || !(p.res && p.res.zoomRel > 4)) continue;   // camera flights are skipped
+        const nm = A.name || '';
+        if (LAND_ART.test(nm) && A.cLand === false) hit('object-on-water', 'error', A.i, `${label(A)} stands in the water`, t);
+        if (SEA_ART.test(nm) && A.cLand === true) hit('object-on-land', 'error', A.i, `${label(A)} sits on land`, t);
       }
       // land-bound effects (snake, skull, fire...) belong on land
       for (const A of els) if (A.type === 'clip' && A.onLand === false && LAND_FX.test(A.name || '')) hit('effect-on-water', 'error', A.i, `${label(A)} is anchored on water`, t);

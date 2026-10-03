@@ -104,8 +104,8 @@
         {
           "type": "label",
           "text": "EUROPE",
-          "lat": 41.14,
-          "lon": 28.82,
+          "lat": 41.16,
+          "lon": 28.72,
           "at": "Because",
           "style": "map",
           "size": 64
@@ -113,8 +113,8 @@
         {
           "type": "label",
           "text": "ASIA",
-          "lat": 41.0,
-          "lon": 29.22,
+          "lat": 40.96,
+          "lon": 29.32,
           "at": "Because",
           "style": "map",
           "size": 64
@@ -721,8 +721,8 @@
         {
           "type": "label",
           "text": "BLACK SEA",
-          "lat": 43.9,
-          "lon": 35.2,
+          "lat": 42.3,
+          "lon": 36.6,
           "at": "Black",
           "style": "map",
           "size": 44
@@ -730,8 +730,8 @@
         {
           "type": "label",
           "text": "MEDITERRANEAN",
-          "lat": 33.9,
-          "lon": 22.6,
+          "lat": 34.0,
+          "lon": 27.5,
           "at": "Mediterranean",
           "style": "map",
           "size": 44
@@ -924,20 +924,14 @@
       "show": [
         {
           "type": "year",
-          "value": "660 BC",
-          "light": true,
-          "at": "Greek"
-        },
-        {
-          "type": "year",
           "value": "330",
           "at": "330"
         },
         {
           "type": "label",
           "text": "Byzantium",
-          "lat": 41.06,
-          "lon": 28.915,
+          "lat": 41.035,
+          "lon": 28.925,
           "at": "Byzantium",
           "style": "serif",
           "size": 60
@@ -1012,10 +1006,11 @@
           "icon": "art:crown",
           "lat": 41.0086,
           "lon": 28.9802,
-          "size": 120,
+          "size": 110,
           "plain": true,
           "at": "capital",
-          "dy": -230
+          "dx": -150,
+          "dy": -110
         }
       ],
       "camera": {
@@ -1246,10 +1241,11 @@
         {
           "type": "flag",
           "code": "tr",
-          "lat": 41.17,
-          "lon": 28.83,
+          "lat": 41.012,
+          "lon": 28.968,
           "size": 110,
-          "at": "renamed"
+          "at": "renamed",
+          "dy": -210
         }
       ],
       "camera": {
@@ -1450,7 +1446,7 @@
           ],
           "color": "#f97316",
           "width": 8,
-          "at": "train",
+          "at": "tunnel",
           "dashed": true,
           "dash": [
             14,
@@ -1469,49 +1465,6 @@
           "type": "grade",
           "mode": "cold",
           "at": "underwater"
-        },
-        {
-          "type": "route",
-          "points": [
-            [
-              41.014,
-              28.975
-            ],
-            [
-              41.017,
-              28.99
-            ],
-            [
-              41.02,
-              29.008
-            ],
-            [
-              41.023,
-              29.02
-            ]
-          ],
-          "color": "#ffffff",
-          "width": 1,
-          "at": "below",
-          "glow": false,
-          "id": "fy",
-          "mover": {
-            "kind": "ship",
-            "size": 90,
-            "style": "ferry"
-          },
-          "drawDur": 3.4,
-          "check": false
-        },
-        {
-          "type": "label",
-          "text": "60 m DEEP",
-          "lat": 41.0195,
-          "lon": 28.996,
-          "at": "underwater",
-          "style": "map",
-          "size": 44,
-          "dy": -96
         }
       ],
       "camera": {

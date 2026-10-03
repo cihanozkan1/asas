@@ -1564,17 +1564,6 @@
           "at": "ends"
         },
         {
-          "type": "icon",
-          "icon": "art:car",
-          "lat": 8.18,
-          "lon": -77.69,
-          "size": 100,
-          "plain": true,
-          "at": "road",
-          "dx": -190,
-          "dy": -40
-        },
-        {
           "type": "highlight",
           "target": "PAN",
           "fill": "flag:pa",
@@ -1634,22 +1623,6 @@
           ],
           "label": "106 km",
           "at": "kilometers"
-        },
-        {
-          "type": "icon",
-          "icon": "art:car",
-          "lat": 8.02,
-          "lon": -76.6,
-          "size": 100,
-          "plain": true,
-          "at": "again"
-        },
-        {
-          "type": "ring",
-          "lat": 8.09,
-          "lon": -76.73,
-          "r": 60,
-          "at": "Turbo"
         }
       ],
       "camera": {
@@ -2074,15 +2047,15 @@
           "size": 240,
           "loop": true,
           "speed": 1.0,
-          "lat": 7.9,
-          "lon": -77.3,
+          "lat": 8.3,
+          "lon": -76.35,
           "at": "police"
         },
         {
           "type": "label",
           "text": "NO POLICE",
-          "lat": 8.55,
-          "lon": -77.3,
+          "lat": 8.95,
+          "lon": -76.35,
           "at": "police",
           "style": "map",
           "size": 60
@@ -2100,10 +2073,19 @@
           "type": "icon",
           "icon": "art:warning",
           "lat": 7.3,
-          "lon": -77.6,
+          "lon": -76.5,
           "size": 130,
           "plain": true,
           "at": "violent"
+        },
+        {
+          "type": "icon",
+          "icon": "art:cross_mark",
+          "lat": 6.6,
+          "lon": -76.4,
+          "size": 120,
+          "plain": true,
+          "at": "hospital"
         },
         {
           "type": "highlight",
@@ -2153,8 +2135,8 @@
         },
         {
           "type": "crowd",
-          "lat": 7.0,
-          "lon": -77.0,
+          "lat": 6.2,
+          "lon": -76.2,
           "count": 52,
           "cols": 13,
           "size": 30,
@@ -2193,15 +2175,6 @@
           "fill": "#ff5a5f",
           "at": "2021",
           "fillOpacity": 0.3
-        },
-        {
-          "type": "icon",
-          "icon": "art:people",
-          "lat": 8.3,
-          "lon": -77.5,
-          "size": 110,
-          "plain": true,
-          "at": "2022"
         }
       ],
       "camera": {

@@ -65,12 +65,12 @@ vec4 sampleBox(sampler2D tex, vec4 box, float lon, float lat) {
 // water becomes a clear teal that keeps its bathymetry, land is lifted and slightly softened.
 float gMag = 1.0;
 
-vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
+vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea, vec3 cwide) {
   // cs: a blurrier sample, used for the sea tone so JPEG blocks in the ocean don't show
   // cw: the colour water is detected on (the soft sample when the base is magnified, so rivers
   // and coasts don't turn into blue JPEG squares)
   float l = dot(cw, vec3(0.299, 0.587, 0.114));
-  float ls = dot(cs, vec3(0.299, 0.587, 0.114));
+  float ls = dot(cwide, vec3(0.299, 0.587, 0.114));   // the sea tone comes from a much blurrier sample: smooth depth, no JPEG clouds
   float water = smoothstep(0.015, 0.08, cw.b - max(cw.r, cw.g * 0.92)) * (1.0 - smoothstep(0.3, 0.5, l));
   // sharp close-up imagery: deep river / lake water is almost black, not blue; count it as water
   // unless it is green (forest), so it doesn't break up into dark squares
@@ -98,7 +98,7 @@ vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   { float lf = dot(land, vec3(0.299, 0.587, 0.114)); land += max(0.0, 0.075 - lf) * vec3(0.85, 1.0, 0.9); }   // no pure-black patches: shadows and lakes stay dark but readable
   // magnified far beyond the base image: bathymetry turns into JPEG blocks, so the sea goes flat
   // (the same for sharp close-up imagery, whose dark river water is full of JPEG blocks)
-  sea = mix(sea, vec3(0.2, 0.47, 0.57), max(0.25 * smoothstep(0.7, 0.2, gMag), flatSea));
+  sea = mix(sea, vec3(0.2, 0.47, 0.57), 0.25 * smoothstep(0.7, 0.2, gMag));
   return mix(land, sea, water);
 }
 
@@ -109,6 +109,16 @@ float boxSea(sampler2D tex, vec4 box, float lon, float lat) {
   if (u < 0.0 || u > 1.0 || v < 0.0 || v > 1.0) return 0.0;
   float edge = min(min(u, 1.0 - u), min(v, 1.0 - v));
   return smoothstep(0.0, 0.18, edge) * (1.0 - texture(tex, vec2(u, v)).a);
+}
+
+vec3 sampleSoftWide(sampler2D tex, float lon, float lat) {
+  vec2 uv = vec2((lon + PI) / (2.0 * PI), (PI * 0.5 - lat) / PI);
+  vec2 dx = dFdx(uv), dy = dFdy(uv);
+  dx.x -= round(dx.x); dy.x -= round(dy.x);
+  uv.x = fract(uv.x);
+  float m = max(length(dx), length(dy));
+  vec2 k = vec2(max(m * 40.0, 90.0 / 12288.0));
+  return textureGrad(tex, uv, vec2(k.x, 0.0), vec2(0.0, k.y)).rgb;
 }
 
 vec3 sampleSoft(sampler2D tex, float lon, float lat) {
@@ -162,7 +172,7 @@ vec3 imagery(float lon, float lat) {
   openSea = max(openSea, kSea);
   openSea *= 1.0 - dW;
   vec3 cw = mix(c, cs, smoothstep(0.7, 0.2, gMag) * (1.0 - dW));
-  vec3 g = uNoGrade > 0.5 ? c : grade(c, cs, openSea, cw, dW);
+  vec3 g = uNoGrade > 0.5 ? c : grade(c, cs, openSea, cw, dW, sampleSoftWide(uBase, lon, lat));
   if (uSepia > 0.0) {
     float l = dot(c, vec3(0.299, 0.587, 0.114));
     float water = smoothstep(0.015, 0.08, c.b - max(c.r, c.g * 0.92)) * (1.0 - smoothstep(0.3, 0.5, l));

@@ -254,8 +254,8 @@
         {
           "type": "label",
           "text": "Henry Roberts",
-          "lat": 48.9,
-          "lon": -123.2,
+          "lat": 48.8,
+          "lon": -123.45,
           "at": "Henry",
           "style": "serif",
           "size": 44
@@ -843,23 +843,19 @@
           "size": 170,
           "loop": true,
           "speed": 1.0,
-          "lat": 49.0,
-          "lon": -123.07,
+          "lat": 49.014,
+          "lon": -123.035,
           "at": "closed",
-          "dx": 200,
-          "dy": 90,
           "until": "lost"
         },
         {
           "type": "icon",
           "icon": "art:no_entry",
-          "lat": 49.0,
-          "lon": -123.066,
+          "lat": 49.014,
+          "lon": -123.095,
           "size": 120,
           "plain": true,
-          "at": "closed",
-          "dx": -190,
-          "dy": 60
+          "at": "closed"
         },
         {
           "type": "grade",
@@ -1254,7 +1250,7 @@
           "at": "mailboxes",
           "screen": [
             0.5,
-            0.36
+            0.29
           ],
           "style": "map",
           "size": 54
@@ -1271,7 +1267,7 @@
           "color": "#ff5a5f",
           "screen": [
             0.5,
-            0.25
+            0.18
           ]
         },
         {
@@ -1349,8 +1345,8 @@
             ]
           },
           "icon": "art:mailbox",
-          "count": 7,
-          "size": 46,
+          "count": 6,
+          "size": 70,
           "at": "mailboxes",
           "stagger": 0.1
         },

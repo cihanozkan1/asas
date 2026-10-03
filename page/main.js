@@ -2912,7 +2912,8 @@ function probe(minOp = 0.5) {
     if (!(op > minOp)) return;
     const r = (el._inner || el._node).getBoundingClientRect();
     if (r.width < 2 || r.height < 2) return;
-    out.push({ i, type: el.type, name: el.name ?? el.code ?? el.icon ?? '', anchored: el.lat != null || el.points != null, keep: !!(el._merged || el._hold), onLand: el.lat != null && ['clip', 'icon', 'art', 'character', 'flag'].includes(el.type) && state.geo?.land10 ? geoContains(state.geo.land10, [el.lon, el.lat]) : null, text: String(el.text ?? el.value ?? el.label ?? el.steps?.[0]?.value ?? el.id ?? ''), scene: el.scene, start: el.start, end: el.end,
+    out.push({ i, type: el.type, name: el.name ?? el.code ?? el.icon ?? '', anchored: el.lat != null || el.points != null, keep: !!(el._merged || el._hold), cLand: ['icon', 'art', 'clip'].includes(el.type) && el.lat != null && state.geo?.land10 && state.proj?.invert ? (() => { const q = state.proj.invert([r.left + r.width / 2, r.top + r.height / 2]); return q ? geoContains(state.geo.land10, q) : null; })() : null,
+      onLand: el.lat != null && ['clip', 'icon', 'art', 'character', 'flag'].includes(el.type) && state.geo?.land10 ? geoContains(state.geo.land10, [el.lon, el.lat]) : null, text: String(el.text ?? el.value ?? el.label ?? el.steps?.[0]?.value ?? el.id ?? ''), scene: el.scene, start: el.start, end: el.end,
       x: r.left, y: r.top, w: r.width, h: r.height, op });
   });
   const caps = [...$('captions').querySelectorAll('*')].filter((n) => n.children.length === 0 && parseFloat(getComputedStyle(n).opacity) > 0.5)

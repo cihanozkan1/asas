@@ -172,28 +172,6 @@
             }
           ],
           "size": 150
-        },
-        {
-          "type": "icon",
-          "icon": "art:snowflake",
-          "lat": -1.469,
-          "lon": -78.817,
-          "size": 110,
-          "plain": true,
-          "at": "glacier",
-          "dx": -170,
-          "dy": -50
-        },
-        {
-          "type": "icon",
-          "icon": "art:snowflake",
-          "lat": -1.469,
-          "lon": -78.817,
-          "size": 90,
-          "plain": true,
-          "at": "glacier",
-          "dx": 170,
-          "dy": 80
         }
       ],
       "camera": {
@@ -239,7 +217,7 @@
           "type": "character",
           "image": "scientist",
           "screen": [
-            0.2,
+            0.78,
             0.6
           ],
           "at": "Humboldt",
@@ -362,24 +340,6 @@
           "style": "map",
           "anim": "slam",
           "size": 70
-        },
-        {
-          "type": "callout",
-          "text": "Thicker here",
-          "lat": 0,
-          "lon": -110,
-          "dx": -40,
-          "dy": -170,
-          "at": "thicker"
-        },
-        {
-          "type": "icon",
-          "icon": "art:sun",
-          "lat": 5,
-          "lon": 20,
-          "size": 110,
-          "plain": true,
-          "at": "belt"
         }
       ],
       "camera": {
@@ -531,8 +491,8 @@
         {
           "type": "label",
           "text": "FARTHEST FROM THE CENTER",
-          "lat": 2.6,
-          "lon": -78.8,
+          "lat": 3.4,
+          "lon": -74.2,
           "at": "farthest",
           "style": "map",
           "size": 44
