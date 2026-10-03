@@ -85,7 +85,7 @@ vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   water = max(water, smoothstep(0.16, 0.1, l) * smoothstep(-0.012, 0.008, cw.b - cw.g * 0.95));   // dark blue-green lakes (Iznik, Titicaca...) read as water, not as black holes
   water = max(water, openSea);
   // depth ramp: deep water dark teal, continental shelves bright turquoise (the bathymetry carries the map's character)
-  vec3 sea = mix(vec3(0.06, 0.28, 0.38), vec3(0.30, 0.68, 0.74), pow(smoothstep(0.035, 0.3, ls), 1.3));
+  vec3 sea = mix(vec3(0.09, 0.35, 0.45), vec3(0.32, 0.70, 0.76), pow(smoothstep(0.035, 0.3, ls), 1.3));
   vec3 land = pow(max(c, vec3(0.0)), vec3(0.8)) * 1.06;
   float ll = dot(land, vec3(0.299, 0.587, 0.114));
   // relief: local contrast from the difference to a blurred sample, a touch more saturation, gentle s-curve
@@ -95,6 +95,7 @@ vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   ll = dot(land, vec3(0.299, 0.587, 0.114));
   land = mix(vec3(ll), land, 1.08);
   land = mix(land, land * land * (3.0 - 2.0 * min(land, vec3(1.0))), 0.35);
+  { float lf = dot(land, vec3(0.299, 0.587, 0.114)); land += max(0.0, 0.075 - lf) * vec3(0.85, 1.0, 0.9); }   // no pure-black patches: shadows and lakes stay dark but readable
   // magnified far beyond the base image: bathymetry turns into JPEG blocks, so the sea goes flat
   // (the same for sharp close-up imagery, whose dark river water is full of JPEG blocks)
   sea = mix(sea, vec3(0.2, 0.47, 0.57), max(0.25 * smoothstep(0.7, 0.2, gMag), flatSea));

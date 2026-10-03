@@ -253,7 +253,7 @@ if want('hawaii'):
               src=[src('The Queen surrendered to avoid bloodshed.', 'Overthrow_of_the_Hawaiian_Kingdom', 'The Queen surrendered to avoid bloodshed.')]),
             S("In 1898, the United States annexed Hawaii. In 1900 it became a territory, and in 1959, it finally became a state.", [
                 cnt_steps([('1898', '1898'), ('1900', '1900'), ('1959', '1959')], size=180), hl(HI, 'flag:us', 'annexed', reveal={'lat': 21.3, 'lon': -157.8}),
-                flag('us', 22.6, -157.4, 'annexed', size=120), stamp('STATE', 'state', size=90, screen=[0.5, 0.48])],
+                flag('us', 22.6, -157.4, 'annexed', size=120), stamp('STATE', 'finally', size=90, screen=[0.5, 0.48])],
               cam=at_(20.6, -157.4, 15), tr='flash',
               src=[src('Annexed via the Newlands Resolution (1898); territory 1900; statehood 1959.', 'Overthrow_of_the_Hawaiian_Kingdom', 'The United States annexed Hawaii through the Newlands Resolution in 1898. Hawaii became a territory in 1900 and eventually achieved statehood in 1959.')]),
             S("And in 1993, the US Congress formally apologized for the overthrow.", [
