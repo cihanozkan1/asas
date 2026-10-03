@@ -513,10 +513,17 @@
             ],
             "keep": 1
           }
+        },
+        {
+          "type": "tilt",
+          "deg": 36,
+          "keep": true,
+          "at": 0.1,
+          "until": "side"
         }
       ],
       "camera": {
-        "lat": 41.08,
+        "lat": 41.2,
         "lon": 28.95,
         "zoom": 48,
         "still": true,

@@ -604,6 +604,31 @@ async function init(tl) {
     }
   }
 
+  // a highlight with `onRoute` appears the moment the head of that route first enters the area (a flag at the border the road crosses)
+  for (const el of tl.elements) {
+    if (el.type !== 'highlight' || !el.onRoute) continue;
+    const r = tl.elements.find((e) => e.id === el.onRoute && e.type === 'route');
+    const feats = state.targets[el.target] || [];
+    if (!r || !r._pts || !feats.length) continue;
+    const tot = r._cum[r._cum.length - 1] || 1;
+    let hit = -1;
+    for (let i = 0; i < r._pts.length; i++) if (feats.some((f) => geoContains(f, r._pts[i]))) { hit = r._cum[i] / tot; break; }
+    if (hit < 0) {
+      // the road only skirts it: use the point of the route closest to the area's centre
+      const c = geoCentroid({ type: 'FeatureCollection', features: feats });
+      let bd = Infinity;
+      r._pts.forEach((q, i) => { const d = geoDistance(q, c); if (d < bd) { bd = d; hit = r._cum[i] / tot; } });
+      if (bd > 0.12) { el.end = el.start; continue; }
+    }
+    // invert the route's easing: when has the drawn fraction reached `hit`?
+    const dur = r.drawDur ?? Math.max(0.6, (r.end - r.start) * 0.85);
+    let lo = 0, hi = 1;
+    for (let k = 0; k < 24; k++) { const m = (lo + hi) / 2; ((r.ease === 'linear' ? m : ease.inOutSine(m)) < hit ? (lo = m) : (hi = m)); }
+    const keepEnd = el.end;
+    el.start = r.start + hi * dur - (el.lead ?? 0.05);
+    el.end = Math.max(keepEnd, el.start + 1);
+  }
+
   // new-feature toolbox (page/extras.js)
   state.X = makeExtras({ state, W, H, ease, clamp01, lifeOf, project, screenPolyline, densify, catmullRom, esc });
   for (const el of tl.elements) state.X.prepare(el);
@@ -2232,7 +2257,12 @@ function updateUi(t) {
           img.style.cssText = `left:${q[0]}px;top:${q[1]}px;opacity:${life.out};transform:translate(-50%,-50%) scale(${sc}) rotate(${(hash01(i * 3.1) - 0.5) * 26}deg)`;
           return;
         }
-        img.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;left:${q[0] - sz / 2}px;top:${q[1] - sz / 2}px;opacity:${life.out};transform:scale(${sc});filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))`;
+        // on a tilted map the figures stand on it: feet on the spot, size follows the perspective, and each one drops in from above
+        const f3 = state.tilt && q[2] ? q[2] : 1;
+        const stand = state.tilt && /person|people|walker/.test(el.icon || '');
+        const dz = state.tilt ? (1 - clamp01(u)) * -46 : 0;
+        const w3 = sz * f3;
+        img.style.cssText = `position:absolute;width:${w3}px;height:${w3}px;left:${q[0] - w3 / 2}px;top:${(stand ? q[1] - w3 * 0.92 : q[1] - w3 / 2) + dz}px;opacity:${life.out};transform:scale(${state.tilt ? Math.min(sc, 1.08) : sc});transform-origin:50% 100%;filter:drop-shadow(0 ${state.tilt ? 7 : 4}px ${state.tilt ? 5 : 6}px rgba(0,0,0,.55))`;
       });
       continue;
     }
@@ -2757,9 +2787,10 @@ function updateFx(t) {
   const T0 = state.tilt;
   if (T0) {
     const y0 = tiltPoint(W / 2, 0)[1];
-    if (y0 > 0) html += `<div style="position:absolute;left:0;right:0;top:${y0 - 30}px;height:520px;background:linear-gradient(180deg, rgba(226,238,255,1) 0%, rgba(226,238,255,.75) 22%, rgba(226,238,255,.32) 55%, rgba(226,238,255,0) 100%)"></div>`;
+    if (y0 > 0) html += `<div style="position:absolute;left:0;right:0;top:${y0 - 6}px;height:520px;background:linear-gradient(180deg, rgba(226,238,255,1) 0%, rgba(226,238,255,.75) 22%, rgba(226,238,255,.32) 55%, rgba(226,238,255,0) 100%)"></div>`;
   }
-  $('stage').style.background = T0 ? 'linear-gradient(180deg,#2557c4 0%,#5f97ea 40%,#b4d2fa 70%,#e6f1ff 100%)' : '';
+  // the sky is anchored to the horizon (the far edge of the tilted map) so the map melts into it instead of ending in a hard line
+  $('stage').style.background = T0 ? (() => { const hy = Math.max(60, tiltPoint(W / 2, 0)[1]); return `linear-gradient(180deg,#2a5fcf 0px,#6a9cec ${hy * 0.55}px,#cfe1fb ${hy * 0.9}px,#e2eeff ${hy}px,#e2eeff 100%)`; })() : '';
   blur = Math.max(blur, state.camBlur || 0);
   const xf = state.X.fxHtml(t);
   html += xf.html;
@@ -2808,7 +2839,7 @@ function tiltPoint(x, y) {
   const dx = (x - ox) * T.s, dy = (y - oy) * T.s;
   const yy = dy * Math.cos(a), z = dy * Math.sin(a);
   const f = TILT_P / (TILT_P - z);
-  return [ox + dx * f, oy + yy * f];
+  return [ox + dx * f, oy + yy * f, f];
 }
 
 // ---------------------------------------------------------------- frame
@@ -2821,17 +2852,29 @@ function frame(t) {
   for (const s of state.tl.scenes) {
     const f = s.camera?.follow;
     if (!f || t < s.start - 0.3 || t > s.end + 0.3) continue;
-    const el = state.tl.elements.find((e) => e.id === f && e.type === 'route');
-    if (!el || t < el.start) continue;
-    const head = routeHeadGeo(el, t);
-    const w = ease.inOutCubic(clamp01((t - el.start) / 0.8)) * (t > s.end ? clamp01(1 - (t - s.end) / 0.3) : 1);
-    if (s.camera.zoomTo) {
-      // e.g. start close on the route and pull back while it is drawn
-      const u = routeProgress(el, t);
-      cam.zoom = Math.exp(Math.log(s.camera.zoom) + (Math.log(s.camera.zoomTo) - Math.log(s.camera.zoom)) * u);
-    }
-    cam.lon += (((head[0] - cam.lon + 540) % 360) - 180) * w;
-    cam.lat += (head[1] - cam.lat) * w;
+    // `follow` may be a list of routes (the camera hands over from one to the next); `zoomAlong` gives the zoom
+    // at fractions of each route [[u, zoom], ...] so tiny countries get a closer view than huge ones
+    const ids = Array.isArray(f) ? f : [f];
+    ids.forEach((id, k) => {
+      const el = state.tl.elements.find((e) => e.id === id && e.type === 'route');
+      if (!el || t < el.start) return;
+      const head = routeHeadGeo(el, t);
+      const w = ease.inOutCubic(clamp01((t - el.start) / (k ? 1.1 : 0.8))) * (t > s.end ? clamp01(1 - (t - s.end) / 0.3) : 1);
+      const keys = Array.isArray(f) ? s.camera.zoomAlong?.[k] : s.camera.zoomAlong;
+      if (keys && keys.length) {
+        const u = routeProgress(el, t);
+        let z = keys[keys.length - 1][1];
+        for (let i = 1; i < keys.length; i++) if (u <= keys[i][0]) { const a0 = keys[i - 1], a1 = keys[i]; const m = clamp01((u - a0[0]) / ((a1[0] - a0[0]) || 1)); z = Math.exp(Math.log(a0[1]) + (Math.log(a1[1]) - Math.log(a0[1])) * ease.inOutSine(m)); break; }
+        if (u <= keys[0][0]) z = keys[0][1];
+        cam.zoom = Math.exp(Math.log(cam.zoom) + (Math.log(z) - Math.log(cam.zoom)) * w);
+      } else if (s.camera.zoomTo && !k) {
+        // e.g. start close on the route and pull back while it is drawn
+        const u = routeProgress(el, t);
+        cam.zoom = Math.exp(Math.log(s.camera.zoom) + (Math.log(s.camera.zoomTo) - Math.log(s.camera.zoom)) * u);
+      }
+      cam.lon += (((head[0] - cam.lon + 540) % 360) - 180) * w;
+      cam.lat += (head[1] - cam.lat) * w;
+    });
   }
   let dx = 0, dy = 0;
   for (const el of state.tl.elements) {

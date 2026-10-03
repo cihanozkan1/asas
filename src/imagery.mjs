@@ -51,9 +51,12 @@ export function autoDetailBoxes(script, cfg, { minZoom = 8, max = 4 } = {}) {
     const c = s.camera;
     // a camera that follows a route sees every place along it: cover the route's points
     if (c?.follow && s.era !== 'history' && !s.style) {
-      const r = script.scenes.slice(0, i + 1).flatMap((x) => x.show || []).find((e) => e.id === c.follow);
-      const z = Math.min(c.zoom ?? 3, c.zoomTo ?? c.zoom ?? 3);
-      if (r?.points && z >= minZoom) for (const q of r.points) { const la = Array.isArray(q) ? q[0] : q.lat, lo = Array.isArray(q) ? q[1] : q.lon; addView(la, lo, z); }
+      const zs = (c.zoomAlong || []).flat().filter((v, k) => k % 2 === 1);
+      const z = Math.min(c.zoom ?? 3, c.zoomTo ?? c.zoom ?? 3, ...zs);
+      for (const fid of Array.isArray(c.follow) ? c.follow : [c.follow]) {
+        const r = script.scenes.slice(0, i + 1).flatMap((x) => x.show || []).find((e) => e.id === fid);
+        if (r?.points && z >= minZoom) for (const q of r.points) { const la = Array.isArray(q) ? q[0] : q.lat, lo = Array.isArray(q) ? q[1] : q.lon; addView(la, lo, z); }
+      }
     }
     if (!c || c.fit || c.follow || c.lat == null || !(c.zoom >= minZoom)) return;
     // parchment / palette scenes never show satellite pixels

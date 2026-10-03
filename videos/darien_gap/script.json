@@ -730,7 +730,7 @@
     },
     {
       "era": "now",
-      "text": "It's the Pan-American Highway, and it links 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile and Argentina.",
+      "text": "It's the Pan-American Highway, and it crosses 14 countries, one border after another, from the top of Alaska all the way down to the tip of Argentina.",
       "show": [
         {
           "type": "counter",
@@ -743,7 +743,7 @@
           "size": 170,
           "screen": [
             0.5,
-            0.22
+            0.2
           ]
         },
         {
@@ -1096,11 +1096,12 @@
           ],
           "color": "#ffd60a",
           "width": 8,
-          "at": "Canada",
+          "at": 0.3,
           "id": "hw2",
           "drawDur": 5.6,
           "medium": "land",
-          "smooth": false
+          "smooth": false,
+          "ease": "linear"
         },
         {
           "type": "route",
@@ -1376,139 +1377,189 @@
           ],
           "color": "#ffd60a",
           "width": 8,
-          "at": "Colombia",
+          "at": 6.05,
           "id": "hw3",
-          "drawDur": 2.7,
+          "drawDur": 2.6,
           "medium": "land",
-          "smooth": false
+          "smooth": false,
+          "ease": "linear"
         },
         {
           "type": "highlight",
           "target": "CAN",
           "fill": "flag:ca",
-          "at": "Canada,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "USA",
           "fill": "flag:us",
-          "at": "United",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "MEX",
           "fill": "flag:mx",
-          "at": "Mexico,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "GTM",
           "fill": "flag:gt",
-          "at": "Guatemala,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "SLV",
           "fill": "flag:sv",
-          "at": "Salvador,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "HND",
           "fill": "flag:hn",
-          "at": "Honduras,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "NIC",
           "fill": "flag:ni",
-          "at": "Nicaragua,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "CRI",
           "fill": "flag:cr",
-          "at": "Costa",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "PAN",
           "fill": "flag:pa",
-          "at": "Panama,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw2"
         },
         {
           "type": "highlight",
           "target": "COL",
           "fill": "flag:co",
-          "at": "Colombia,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw3"
         },
         {
           "type": "highlight",
           "target": "ECU",
           "fill": "flag:ec",
-          "at": "Ecuador,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw3"
         },
         {
           "type": "highlight",
           "target": "PER",
           "fill": "flag:pe",
-          "at": "Peru,",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw3"
         },
         {
           "type": "highlight",
           "target": "CHL",
           "fill": "flag:cl",
-          "at": "Chile",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw3"
         },
         {
           "type": "highlight",
           "target": "ARG",
           "fill": "flag:ar",
-          "at": "Argentina.",
+          "at": 0.3,
           "fillOpacity": 0.8,
-          "flagKeep": true
+          "flagKeep": true,
+          "onRoute": "hw3"
         }
       ],
       "camera": {
-        "follow": "hw2",
-        "zoom": 3.6,
-        "zoomTo": 3.0,
-        "duration": 0.9,
-        "then": [
-          {
-            "at": "Colombia",
-            "lat": -2,
-            "lon": -72,
-            "zoom": 2.2,
-            "duration": 1.4
-          }
-        ]
+        "follow": [
+          "hw2",
+          "hw3"
+        ],
+        "zoom": 3.0,
+        "zoomAlong": [
+          [
+            [
+              0,
+              3.0
+            ],
+            [
+              0.45,
+              3.2
+            ],
+            [
+              0.7,
+              4.4
+            ],
+            [
+              0.8,
+              7.0
+            ],
+            [
+              1,
+              9.0
+            ]
+          ],
+          [
+            [
+              0,
+              7.0
+            ],
+            [
+              0.2,
+              4.6
+            ],
+            [
+              0.6,
+              3.4
+            ],
+            [
+              1,
+              3.0
+            ]
+          ]
+        ],
+        "duration": 0.9
       },
       "sources": [
         {

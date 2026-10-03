@@ -252,7 +252,8 @@ def clock(steps, at=None, **kw):
 
 
 def tilt(at, deg=38, **kw):
-    return _put({'type': 'tilt', 'deg': deg}, at, kw)
+    # the camera leans back only when 3D things stand on the map (figures, pillars); keep=True survives the flat-map filter in save()
+    return _put({'type': 'tilt', 'deg': deg, 'keep': True}, at, kw)
 
 
 def flow(points, at, color='#5ec8ff', width=12, **kw):
@@ -314,7 +315,7 @@ def save(vid, m, scenes, keywords=None, imagery=None, style='geo', intro=None, s
         return
     for sc in scenes:
         # no emoji-face reactions except the thinking face (user: they look silly); no tilt (flat map look)
-        sc['show'] = [e for e in sc.get('show', []) if not (e.get('type') == 'react' and 'emote_think' not in str(e.get('icon'))) and e.get('type') != 'tilt']
+        sc['show'] = [e for e in sc.get('show', []) if not (e.get('type') == 'react' and 'emote_think' not in str(e.get('icon'))) and not (e.get('type') == 'tilt' and not e.get('keep'))]
     d = {'id': vid, 'style': style, 'meta': m, 'scenes': scenes}
     if v2:
         d['v2'] = True

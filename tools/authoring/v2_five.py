@@ -53,8 +53,10 @@ if want('istanbul'):
                 cnt('15M+', '15', size=190),
                 trace(IST_PROV, '#ffd60a', 0.05, neon='#ffd60a', fillOpacity=0.16),
                 scatter(IST_PROV, 'art:person_white', 'million', count=14, size=60, stagger=0.1, sideOf={'line': BOS_LINE, 'keep': -1}),
-                scatter(IST_PROV, 'art:person_white', 'thirds', count=28, size=60, stagger=0.07, sideOf={'line': BOS_LINE, 'keep': 1})],
-              cam=at_(41.08, 28.95, 48, still=True, autoCenter=False),
+                scatter(IST_PROV, 'art:person_white', 'thirds', count=28, size=60, stagger=0.07, sideOf={'line': BOS_LINE, 'keep': 1}),
+                # the figures stand on the map like 3D pieces: lean the camera back just before they pop up, level it again when the sentence ends
+                tilt(0.1, deg=36, until='side')],
+              cam=at_(41.2, 28.95, 48, still=True, autoCenter=False),
               src=[src('Over 15 million inhabitants; about two-thirds live in Europe.', 'Istanbul', 'Approximately two-thirds of its population resides in Europe ... With over 15 million inhabitants')]),
             S("So why did such a huge city grow right here?", [q(41.03, 29.0, 'why'), react('art:emote_think', (0.28, 0.3), 'why', size=170)],
               cam=at_(41.03, 29.0, 40), style='dark', no_claim=True, tr='flash'),
@@ -278,7 +280,7 @@ if want('darien_gap'):
     COUNTRIES = [('CAN', 'ca', 'Canada,'), ('USA', 'us', 'United'), ('MEX', 'mx', 'Mexico,'), ('GTM', 'gt', 'Guatemala,'), ('SLV', 'sv', 'Salvador,'), ('HND', 'hn', 'Honduras,'),
                  ('NIC', 'ni', 'Nicaragua,'), ('CRI', 'cr', 'Costa'), ('PAN', 'pa', 'Panama,'), ('COL', 'co', 'Colombia,'), ('ECU', 'ec', 'Ecuador,'), ('PER', 'pe', 'Peru,'),
                  ('CHL', 'cl', 'Chile'), ('ARG', 'ar', 'Argentina.')]
-    DUR_N, DUR_S = 5.6, 2.7
+    DUR_N, DUR_S = 5.6, 2.6
     save('darien_gap', meta(
         'The Darién Gap: The Road That Stops in the Jungle 🌴🇵🇦🇨🇴😱',
         "The Pan-American Highway runs about 30,000 km from Alaska 🇺🇸 to the tip of Argentina 🇦🇷 but it has one gap 🛑 Between Yaviza in Panama 🇵🇦 and Turbo in Colombia 🇨🇴 there's no road for about 106 km: the Darién Gap 🌴 A road was planned in 1971 and halted in 1974, and swamps, mountains, rainforest, deadly wildlife 🐍 and violent crime make it one of the most dangerous places on Earth. Still, in 2023 more than 520,000 people crossed it on foot 😱",
@@ -292,12 +294,13 @@ if want('darien_gap'):
                 cnt('30,000 km', 'suddenly', size=170), ping(70.3, -148.7, 'Alaska', color='#ffd60a'), ping(-54.8, -68.3, 'Argentina', color='#ffd60a')],
               cam={'follow': 'hw1', 'zoom': 3.4, 'zoomTo': 1.0, 'duration': 0.8, 'then': [{'at': 'Argentina', 'lat': -22, 'lon': -68, 'zoom': 1.15, 'duration': 1.3}]},
               src=[src('The Pan-American Highway is about 30,000 km, from Prudhoe Bay, Alaska, to Ushuaia, Argentina.', PAH, 'from Prudhoe Bay, Alaska, United States, in the northernmost part of North America, to Ushuaia, Argentina')]),
-            S("It's the Pan-American Highway, and it links 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile and Argentina.", [
-                cnt('14', '14', size=170, screen=[0.5, 0.22]),
-                route(HW_N, 'Canada', id='hw2', color='#ffd60a', width=8, drawDur=DUR_N, medium='land', smooth=False),
-                route(HW_S, 'Colombia', id='hw3', color='#ffd60a', width=8, drawDur=DUR_S, medium='land', smooth=False),
-                *[hl(iso, 'flag:' + fl, word, fillOpacity=0.8, flagKeep=True) for iso, fl, word in COUNTRIES]],
-              cam={'follow': 'hw2', 'zoom': 3.6, 'zoomTo': 3.0, 'duration': 0.9, 'then': [{'at': 'Colombia', 'lat': -2, 'lon': -72, 'zoom': 2.2, 'duration': 1.4}]},
+            S("It's the Pan-American Highway, and it crosses 14 countries, one border after another, from the top of Alaska all the way down to the tip of Argentina.", [
+                cnt('14', '14', size=170, screen=[0.5, 0.2]),
+                # slow, steady drawing; each country's flag fills its shape the moment the road head crosses its border (no names needed)
+                route(HW_N, 0.3, id='hw2', color='#ffd60a', width=8, drawDur=DUR_N, medium='land', smooth=False, ease='linear'),
+                route(HW_S, DUR_N + 0.45, id='hw3', color='#ffd60a', width=8, drawDur=DUR_S, medium='land', smooth=False, ease='linear'),
+                *[hl(iso, 'flag:' + fl, 0.3, fillOpacity=0.8, flagKeep=True, onRoute=('hw3' if iso in ('COL', 'ECU', 'PER', 'CHL', 'ARG') else 'hw2')) for iso, fl, word in COUNTRIES]],
+              cam={'follow': ['hw2', 'hw3'], 'zoom': 3.0, 'zoomAlong': [[[0, 3.0], [0.45, 3.2], [0.7, 4.4], [0.8, 7.0], [1, 9.0]], [[0, 7.0], [0.2, 4.6], [0.6, 3.4], [1, 3.0]]], 'duration': 0.9},
               src=[src('The highway links 14 countries.', PAH, 'The highway connects 14 countries: Canada, the United States, Mexico, Guatemala, El Salvador, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Ecuador, Peru, Chile, and Argentina.')]),
             S("But in Panama, the road simply ends, in the town of Yaviza.", [
                 {'type': 'dim', 'except': ['PAN', 'COL'], 'amount': 0.5, 'color': '#05070c', 'at': 0.1},

@@ -136,10 +136,11 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
         for (const t of list) keys.push(shortKey(await targetKey(t)));
         sc.camera = { fit: keys, pad: c.pad, zoomMul: c.zoomMul, lat: c.lat, lon: c.lon, dy: c.dy, bearing: c.bearing };
       } else if (c.follow) {
-        const r = script.scenes.slice(0, i + 1).flatMap((x) => x.show || []).find((e) => e.id === c.follow);
-        if (!r) throw new Error(`Sahne ${i + 1}: follow "${c.follow}" rotası yok`);
+        const fid = Array.isArray(c.follow) ? c.follow[0] : c.follow;
+        const r = script.scenes.slice(0, i + 1).flatMap((x) => x.show || []).find((e) => e.id === fid);
+        if (!r) throw new Error(`Sahne ${i + 1}: follow "${fid}" rotası yok`);
         const p0 = toPt(r.points[0]);
-        sc.camera = { lat: p0.lat, lon: p0.lon, zoom: c.zoom ?? 3, follow: c.follow, zoomTo: c.zoomTo, bearing: c.bearing };
+        sc.camera = { lat: p0.lat, lon: p0.lon, zoom: c.zoom ?? 3, follow: c.follow, zoomTo: c.zoomTo, zoomAlong: c.zoomAlong, bearing: c.bearing };
       } else sc.camera = { lat: c.lat, lon: c.lon, zoom: c.zoom, bearing: c.bearing, loopIntro: c.loopIntro, still: c.still, autoCenter: c.autoCenter };
       sc.cameraThen = [];
       for (const th of c.then || []) {
