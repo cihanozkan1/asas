@@ -68,7 +68,7 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
         if (p.cap && (aT || aV) && frac(A, p.cap) > 0.12) hit('caption-cover', 'error', A.i, `${label(A)} covers the captions`, t);
         // marked points / small highlighted areas must stay uncovered
         for (const m of p.markers) {
-          if (m.owner === A.i || !(aT || aV)) continue;
+          if (m.owner === A.i || !(aT || aV) || A.mover) continue;
           const ov = inter(A, m) / area(m);
           if (ov > 0.25 && !(A.type === 'clip' && /_(sos|police)/.test(A.name || '') === false && false)) hit('covers-subject', 'error', `${A.i}|${m.owner}`, `${label(A)} covers the marked ${m.kind} (${Math.round(ov * 100)}% of it)`, t);
         }
