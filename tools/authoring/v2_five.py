@@ -37,10 +37,9 @@ if want('istanbul'):
               cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'bearing': -3, 'then': [{'at': 'city', 'lat': 41.1, 'lon': 28.95, 'zoom': 22, 'duration': 1.4}]},
               src=[src('Istanbul straddles the Bosphorus between Europe and Asia.', 'Istanbul', 'straddles the Bosphorus ... between the Sea of Marmara and the Black Sea')]),
             S("Because a narrow strait cuts straight through it: the Bosphorus.", [
-                lab('EUROPE', 41.16, 28.72, 'Because', style='map', size=64), lab('ASIA', 40.96, 29.32, 'Because', style='map', size=64),
+                lab('EUROPE', 41.16, 28.0, 'Because', style='map', size=64), lab('ASIA', 40.96, 29.75, 'Because', style='map', size=64),
                 route(BOS, 'strait', color='#5ec8ff', width=10, drawDur=1.4, laser=True, hold=2),
-                route(BOS[::-1], 'Because', color='#ffffff', width=1, glow=False, id='bs1', mover={'kind': 'ship', 'size': 64, 'style': 'cargo'}, drawDur=2.6, check=False),
-                route(BOS, 'narrow', color='#ffffff', width=1, glow=False, id='bs2', mover={'kind': 'ship', 'size': 64, 'style': 'tanker'}, drawDur=2.4, check=False)],
+                route(BOS[::-1], 'Because', color='#ffffff', width=1, glow=False, id='bs1', mover={'kind': 'ship', 'size': 64, 'style': 'cargo'}, drawDur=2.6, check=False)],
               cam=at_(41.06, 29.0, 90, bearing=-6), tr='flash',
               src=[src('The Bosporus forms a continental boundary between Asia and Europe.', 'Bosporus', 'forms one of the continental boundaries between Asia and Europe')]),
             S("It's 31 kilometers long, and at its narrowest point it's only 700 meters wide.", [
@@ -62,8 +61,7 @@ if want('istanbul'):
               cam=at_(41.03, 29.0, 40), style='dark', no_claim=True, tr='flash'),
             S("Because the Bosphorus is the only passage between the Black Sea and the Mediterranean.", [
                 route(sea_points((43.2, 34.0), (35.8, 24.0)), 'passage', color='#ffd60a', width=8, drawDur=2.6, laser=True, id='pass', mover={'kind': 'ship', 'size': 100, 'style': 'cargo'}, check=False),
-                lab('BLACK SEA', 42.3, 36.6, 'Black', style='map', size=44), lab('MEDITERRANEAN', 34.0, 27.5, 'Mediterranean', style='map', size=44),
-                route(sea_points((35.8, 24.0), (43.2, 34.0)), 'Black', color='#ffffff', width=1, glow=False, id='pass2', mover={'kind': 'ship', 'size': 90, 'style': 'tanker'}, drawDur=3.0, check=False),
+                lab('BLACK SEA', 42.3, 36.6, 'Black', style='map', size=44), lab('MEDITERRANEAN', 33.4, 30.5, 'Mediterranean', style='map', size=44),
                 ping(41.1, 29.07, 'Bosphorus', color='#ffd60a'), ping(40.2, 26.4, 'Mediterranean', color='#ffd60a')],
               cam={'follow': 'pass', 'zoom': 3.8, 'zoomTo': 2.8, 'duration': 1.0},
               src=[src('The Bosporus is the only passage between the Black Sea and the Mediterranean and has always been of great commercial and military importance.', 'Bosporus', 'As part of the only passage between the Black Sea and the Mediterranean, the Bosporus has always been of great importance from a commercial and military point of view.')]),
@@ -141,7 +139,7 @@ if want('point_roberts'):
               cam=at_(49.08, -123.05, 60, autoCenter=False),
               src=[src('On the southern tip of the Tsawwassen peninsula, south of Vancouver.', PRW, 'on the southernmost tip of the Tsawwassen peninsula, south of Vancouver, British Columbia, Canada')]),
             S("George Vancouver named it in 1792, after his friend Henry Roberts.", [
-                year(1792, '1792', light=True), ping(*PR, 'named', color='#ffd60a'), lab('Henry Roberts', 48.8, -123.45, 'Henry', style='serif', size=44),
+                year(1792, '1792', light=True), ping(*PR, 'named', color='#ffd60a'), lab('Henry Roberts', 49.22, -122.95, 'Henry', style='serif', size=44),
                 ship(sea_points((49.2, -123.7), (48.96, -123.12)), 'Vancouver', 'hms', style='caravel', drawDur=2.6, size=120, check=False)],
               era='history', tr='film', cam=at_(49.06, -123.3, 26),
               src=[src('Point Roberts was named by George Vancouver after his friend Henry Roberts (1792 expedition).', PRW, 'Point Roberts acquired its present name from George Vancouver, who named it after his friend Henry Roberts')]),
@@ -171,14 +169,14 @@ if want('point_roberts'):
                        'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
             S("In March 2020, the border closed, and the town lost about eighty percent of its business.", [
                 year('2020', 'March', light=True), handstamp('BORDER CLOSED', 'closed', size=92, screen=[0.5, 0.2]),
-                clip('emoji_police-car-light', 'closed', 49.014, -123.035, size=170, loop=True, until='lost'), ban('art:car', 'closed', lat=49.014, lon=-123.095, size=130), grade('cold', 'March', until=5.5),
+                clip('emoji_police-car-light', 'closed', 49.014, -123.035, size=170, loop=True, until='lost'), ban('art:car', 'closed', screen=[0.22, 0.47], size=130), grade('cold', 'March', until=5.5),
                 cnt('-80%', 'eighty', size=200, color='#ff5a5f', screen=[0.5, 0.31])],
               cam=at_(48.99, -123.05, 100, bearing=3), tr='flash',
               src=[src('The border closed to non-essential travel in March 2020; Point Roberts lost 80 percent of its business.', PRW,
                        'In 2020, a study found that Point Roberts had lost 80 percent of its business and hundreds of seasonal residents as a result of the pandemic and border shutdown.')]),
             S("So a temporary passenger ferry carried people to Blaine, over the water.", [
                 route(FERRY, 'ferry', color='#ffffff', width=5, dashed=True, dash=[14, 12], glow=False, id='ferry', mover={'kind': 'ship', 'size': 170, 'style': 'ferry'}, drawDur=3.0),
-                dot('Blaine', 48.99, -122.77, 'Blaine', dy=90, dx=-20), ping(*FERRY[0], 'ferry', color='#ffd60a')],
+                dot('Blaine', 48.99, -122.77, 'Blaine', dy=-120, dx=30), ping(*FERRY[0], 'ferry', color='#ffd60a')],
               cam={'follow': 'ferry', 'zoom': 130, 'zoomTo': 100, 'duration': 1.0},
               src=[src('A temporary passenger ferry ran from Point Roberts to Blaine.', PRW, 'A temporary passenger ferry service from Point Roberts to Blaine operated by the Port of Bellingham')]),
             S("Today, Canadians drive in for cheaper American gas, alcohol and food.", [

@@ -254,8 +254,8 @@
         {
           "type": "label",
           "text": "Henry Roberts",
-          "lat": 48.8,
-          "lon": -123.45,
+          "lat": 49.22,
+          "lon": -122.95,
           "at": "Henry",
           "style": "serif",
           "size": 44
@@ -852,8 +852,10 @@
           "type": "ban",
           "icon": "art:car",
           "size": 130,
-          "lat": 49.014,
-          "lon": -123.095,
+          "screen": [
+            0.22,
+            0.47
+          ],
           "at": "closed"
         },
         {
@@ -945,9 +947,9 @@
           "lon": -122.77,
           "at": "Blaine",
           "dot": true,
-          "dy": 90,
+          "dy": -120,
           "size": 44,
-          "dx": -20
+          "dx": 30
         },
         {
           "type": "ping",
