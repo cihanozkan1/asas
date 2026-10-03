@@ -30,5 +30,11 @@ for i, fr in enumerate(frames):
     for k in range(1, nlab):
         a = st[k, cv2.CC_STAT_AREA] / (W * H) * 100
         if a > 0.35:
+            # a real hole is black inside a lit map; a vignette corner or a graded (danger) scene darkens gradually
+            comp = (lab == k).astype(np.uint8)
+            ring = cv2.dilate(comp, np.ones((13, 13), np.uint8)) - comp
+            ring_lum = lum[ring > 0].mean() if (ring > 0).any() else 0
+            if ring_lum < 58:
+                continue
             out.append({'t': round(t, 1), 'area_pct': round(a, 2), 'x': int(st[k, 0]), 'y': int(st[k, 1])})
 print(json.dumps(out))
