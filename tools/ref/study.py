@@ -307,7 +307,8 @@ def main():
     sheets = []
     for sidx in range(0, len(cells), per):
         chunk = cells[sidx:sidx + per]
-        canvas = np.full((CH * 3, CW * 5, 3), 255, np.uint8)
+        rows_used = (len(chunk) + 4) // 5
+        canvas = np.full((CH * rows_used, CW * 5, 3), 255, np.uint8)
         for j, (img, _) in enumerate(chunk):
             r, c = divmod(j, 5)
             canvas[r * CH:(r + 1) * CH, c * CW:(c + 1) * CW] = img

@@ -1,0 +1,56 @@
+# Referans kanal envanteri (155 video, tek tek incelendi)
+
+Yöntem: `tools/ref/study.py` (vuruş + olay + ses + anlatım bilinçli; bkz. dosya başı açıklaması). Her video için: vuruş kareleri (giriş + oturmuş),
+tipli yer paylaşımı olayları, kamera sınıfı, taban stil, anlatım metni, ses olayları. Hiçbir kare/ses/metin projeye girmez; yalnız teknik not.
+Notlar kısa ve bu dosyaya video sırasıyla eklenir. Etiket anahtarı: [TAB] taban harita, [KAM] kamera, [SIN] sınır/bölge, [ROT] rota/çizgi,
+[SPR] sprite/ikon, [YAZ] yazı, [EFK] efekt, [GEÇ] geçiş, [KRK] karşılaştırma/ölçek, [SES] ses, [KUR] kurgu/anlatı.
+
+## Videolar
+- **7324128828576615722 Yemen/Kızıldeniz (31 s)** — [TAB] eğimli perspektifli uydu, kabartma, derin turkuaz okyanus; ülke sınırı + il (admin‑1) sınırları beyaz çizgi.
+  [SPR] direkli ABD bayrağı hedefe dikilir; küçük gemi spriteları ve duman/patlama bulutları; yağlı boya gibi füze/İHA harita iğneleri (iğne balonu içinde ikon).
+  [EFK] kırmızı halka + parıltı + patlama dumanı; kırmızı çapraz tarama deseni deniz bölgesini doldurur ("abluka") + iki ucuna yasak işareti.
+  [ROT] çok şeritli, parlak beyaz, eğri ticaret yolları (birkaç ince çizgi birlikte); yol üstünde varil ikonları. [YAZ] ülke üstüne yatık, perspektifli kalın 3B yazı ("YEMEN").
+  [SIN] ülke düz açık mavi dolgu; ABD/İngiltere bayrak + sarı parıltı dolgusu. [KAM] kamera hiç durmaz, dünya→bölge→dünya. [KUR] altyazı küçük beyaz, son soru ile biter.
+- **7324497269737213227 Çin Seddi (61 s)** — [SIN] ülke tam bayrak renginde (kırmızı + yıldızlar) dolar, kıyıda 3B kalınlık/gölge (kabartma gibi), beyaz ince kenar.
+  [YAZ] "HUGE" gibi büyük, yarı saydam, perspektifte yatık yazı. [ROT] noktalı beyaz çizgi seddi çizer; hanedanlara göre renkli çizgiler + renkli etiket + ince ibre.
+  [TAB→GEÇ] uydu→eski kâğıt harita (parşömen) + beyaz şerit "flaş" geçişi; parşömende ülke soluk mavi dolgu, göçebe saldırısı kırmızı kalın oklar + yuvarlak portre ikonları.
+  [KRK] seddin şekli Avrupa'ya taşınır (Londra→Bükreş) ölçek karşılaştırması; ölçüm oku + sayan sayı (7.684→8.851 KM); düzleştirilmiş sedd küre üstünde ekvator çizgisi olarak
+  sarılır, sayaç 791→21.200 KM. [TAB] son sahne koyu uzay + parlak küre. [KAM] sürekli, eğimli.
+- **7324870056628735278 80 günde devriâlem (71 s)** — [TAB] dünya Mercator + buz kapakları beyaz, okyanus tabanı kabartmalı (sırtlar/hendekler ışıklı), ülke sınırları ince.
+  [ROT] kalın kırmızı parlak rota çizilirken ucunda kesme‑çıkartma spriteları (tren, gemi, fil; beyaz kenarlı) yön değiştirir; uçak kırmızı büyük yay (great‑circle) üzerinde.
+  [SIN] rotanın geçtiği ülkeler (Fransa, İtalya, Hindistan, Japonya) parlak beyaz kenar+iç ışıkla belirir; Mısır için yarı saydam dikdörtgen vurgu.
+  [YAZ] şehir adı sarı fosforlu etiket; gün sayacı sarı fırça lekesi içinde sayarak artar (7→64 DAYS). [SPR] tarihi gravür kesme karakterler + kurdele isim bandı.
+  [GEÇ] uzaya/dünyaya çıkış: küre + 3B başlık; sonra bölgeye dalış. [KAM] hareketli sprite'ı sürekli takip eder, zoom nefes alır. [KUR] 20+ ekran/vuruş, her cümlede yeni hareket.
+- **7325609658083839275 Tristan da Cunha, en uzak yerleşik ada (39 s)** — [SPR] kanca: haritaya dağılmış mavi yuvarlak içinde soru işaretleri (merak).
+  [YAZ] okyanus adı suyun üstüne yatık, kabartmalı, yarı saydam dev yazı ("South Atlantic Ocean"); dev beyaz oklar + mil/km ölçüsü (iki birim), ok ucunda sayı.
+  [SIN] ülke (Arjantin) düz sarı dolgu; ada silüeti dev boyuta zoom + bayrak dokusu (Union Jack) adanın şekline gerilir; koyu lacivert zemin + parlak başlık.
+  [KRK] "1500 mil yarıçap" = yarı saydam daire/pasta dilimi; Avrupa'nın gerçek şekli turuncu doldurulup daireye yerleştirilir (ölçek karşılaştırması).
+  [SPR] nüfus: adanın içine mavi-sarı kenarlı insan piktogramları dolar, üstte kutuda sayı (238). [SPR] beyaz piktogramlar: bavullu kişi, gemi siluet. [ROT] kesikli beyaz çizgi + gemi.
+  [TAB] okyanus taban kabartması (sırtlar) belirgin; dikdörtgen yok, buz kapağı beyaz. [KAM] bölgeye dalış sonra geri.
+- **7325979581410839851 Bermuda Üçgeni (68 s)** — [SIN] üç noktadan (etiketli) parlak neon mavi çizgilerle üçgen çizilir, içi hareketli sisli/bulutlu doku ile dolar (3B ışıklı bölge).
+  [SPR] 5 uçaklık dizi uçar ve sisin içinde kaybolur ("vanish"), farklı gemi türleri (kargo, yelkenli, savaş gemisi), uçak üstünde "32" etiketi.
+  [EFK] girdap/kasırga spirali, UFO, kabarcık parçacıkları (metan) + batan gemi koyu zeminde; "FAKE" kırmızı mürekkep lekesi + damga. [YAZ] başlık glitch (kromatik) ile girer; okyanus adı yatık 3B yazı.
+  [GEÇ] koyu lacivert b-roll sahneler (su altı); [TAB] hendekler/sırtlar belirgin okyanus; [KAM] sürekli, bölgeye sıkı kadrajlı üçgen. [SES] müzik var, 31 SFX onseti.
+- **7326731252847971627 Pheasant Adası, Fransa/İspanya (31 s)** — [SIN] ülke sınırı parlak beyaz çizgi olarak noktadan başlayıp çizilir; ülkeler dalgalanan (kumaş) bayrak dokusuyla şekle kırpılır.
+  [KAM] uzaydan sokak uydusuna ÇOK HIZLI dalış + radyal zoom bulanıklığı (hız çizgileri); sonra çok keskin hava fotoğrafı (yüksek çözünürlük). [YAZ] zemine yatık 3B kalın yazılar ("France"/"Spain") perspektifte gölgeli.
+  [KRK] ölçü okları (ft + m), sarı kesikli sınır çizgisi, mavi‑kırmızı sınır şeridi; ada parlak beyaz kenar + ince iğne çizgisiyle etiket. [SPR] yasak işaretli insan piktogramı, iki bayrak + "???" . [GEÇ] renk (pembe) flaş + bulanık geçiş.
+- **7328576637308554526 Kanada rekorları (64 s)** — [SIN] ülkeler dalgalanan 3B kumaş bayrak dolgusuyla belirir (Kanada+ABD birlikte, sınırda beyaz kenar), üstünde 3B "CANADA"/"USA" yazısı.
+  [SIN] ülke soluk sarı yarı saydam dolgu, kenarlara doğru uyduya soluyor (degrade maske); kıyı şeridi parlak sarı neon çizgi; yürüyüşçü piktogramı kıyı boyunca yürür + "30 YEARS".
+  [TAB→GEÇ] düz açık mavi/gri "veri haritası" stili: göller mavi noktalar + parlak büyük göller (yoğunluk haritası), yüzde sayaçları. [SPR] kutup ayısı iğne balonları dağılır + büyük ayı piktogramı + dev yüzde (27 %, 60 %).
+  [KRK] başka ülkenin gerçek şekli kırmızı parlak (İsveç) + "267,570 islands" etiketi → sıralama; altıgen "#4" rozet; elle çizilmiş sarı daireler + kırmızı "?" daireleri; sayı etiketleri düz koyu yarı saydam kutuda yatık beyaz yazı.
+  [KUR] soru ile açılış, veri saydıkça yeni görsel; son sahnede "???,??? islands".
+- **7329313752585620766 Alaska/Liechtenstein (~60 s)** — [SIN] ülke silüeti dünya zoomunda bayrak dokulu, dalgalanan, kenarında beyaz parlama; tarihi bayrak (Rus İmp. üç renk) siluete gerilir; "ALASKA" yatık etiket + ince turuncu ibre.
+  [SIN] savaş haritası: ülke düz kırmızı, komşu turuncu, cephe çapraz çizgili kırmızı tarama + kıvrımlı beyaz oklar + 3B "Crimean War (1853–1856)". [SPR] "FOR SALE" tabelası Alaska'ya dikilir; antlaşma belgesi + kalem; yeşil onay halkası.
+  [KRK] küçük ülke parlak sarı/yeşil siluet, Brooklyn çokgeni yanına yerleştirilir (alan karşılaştırma); beyaz çapraz ışık süpürmesi geçişi; kraft kâğıt + ızgara zemin üstünde silüet ("11,000 times smaller").
+  [SPR] bozuk para/banknot/altın külçe ikonları + sayaç (7.2 MILLION $ ↔ 125 MILLION $, 900 TONS); altın külçeler ülke şeklinin içine saçılır (scatter). [YAZ] yıl harf aralıklı büyük yarı saydam ("1 8 6 7"); ülke beyazlaşıp kenarda solar.
+- **7330805971826068766 50 ABD eyaleti (~60 s)** — [SIN] ABD açık camgöbeği düz yıkama; eyaletler alfabetik adı söylenirken KENDİ BAYRAĞIYLA şekle dolar + sarı‑turuncu eyalet adı; küçük eyalet için kamera hızla yaklaşır, Alaska/Hawaii ayrı kadrajda. (= "isim söylendikçe bayrakla dolan bölge")
+- **7331451342289915166 Tristan da Cunha 2 (67 s)** — [YAZ] TikTok yorum kartları (beyaz yatık kartlar, beğeni sayısı) ekrana uçar (sosyal kanıt). [SPR] beyaz yelkenli kesikli rotada gider; kırmızı daire içinde ıstakoz/tekne iğneleri;
+  kutu (karton) 3B spriteler düşer; wifi parlama ikonu; gerçek fotoğraf kartları + camgöbeği bağlantı çizgisi (biz kendi çizimimizle). [SIN] yerleşim sarı kesikli sınır + adı + ev sayısı turuncu rozet (150).
+  [ROT] sarı kalın yaylar ihracat (çoklu hedef, ok uçları); yay üstünde yürüyen mavi insan piktogramları İngiltere'ye gider. [EFK] yanardağ: turuncu parçacık patlaması (lav) kabartmalı dağın üstünde. [TAB] dalış: dünya→ada→yerleşim (hava fotoğrafı), koyu vinyetli, yıl "1961" parlak.
+- **7332661737214299423 Texas ayrılırsa (64 s)** — [TAB] kraft/karton kâğıt zemin, ülke/eyalet silüeti KESME KÂĞIT gibi (gölge + kabartma) — Texas ve Fransa yan yana kesme şekil (boyut kıyası, sıralama #12/#47);
+  [TAB] "duoton" siyasi kodlama: ABD soğuk mavi yıkama + sınırları, Meksika sıcak sarı‑zeytin kabartma (sınırda karşıtlık); düz mavi dolgu ile çevre dim edilip Texas izole.
+  [SIN] kırmızı parlak sınır şeridi (bariyer), kırmızı-beyaz kesikli parlak kontur ("ayrılma"); Texas içine altyapı grafiği: çubuk grafik + büyüme oku + $ işaretleri; halka (donut) yüzde grafikleri haritada.
+  [SPR] mavi göç eden insan iğneleri, sınırda yeşil asker/polis damgası, vali portre dairesi (avatar) + kapitol kubbe rozeti + pembe parlak şimşek çizgileri (çatışma); kalkmış yumruk çıkartması + yasak işareti. [YAZ] ülke adı 3B yatık dev yazı.
+- **7333426468506144031 Super Bowl taraftar haritası (62 s)** — [TAB] sönük kabartmalı zemin, açık gri eyaletler + kısaltmalar; [SIN] eyaletler takım desteğine göre lacivert/kızıl dolar, öndeki grup parlama (glow) ile öne çıkar.
+  [SPR] takım logoları sprite; kupa ikonları şehirlere yıl etiketiyle dizilir, kupa sayısı üst üste artar. [YAZ] "VS" 3B logotip + ışık süpürmesi; "22 states vs. 28" sayaçları. [SPR] eyalet başına yemek piktogramları (kanat/patates/köfte/nachos) turuncu/yeşil/mor dolgularla.
+  [KRK] Japonya silueti turuncu parlama + kırmızı halkalı portre dairesi. UYARI: gerçek kişi fotoğrafı kesitleri kullanıyor — bizde YASAK (telif kuralı), yerine kendi çizimimiz.
