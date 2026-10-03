@@ -114,6 +114,42 @@ function punchHoles(img) {
   return c;
 }
 
+
+// Inland lakes the vector data does not know (Iznik, Sapanca...): large, very dark, uniform and bluish regions of the imagery itself.
+// Forest is dark too, but textured and green; the test runs on a 1/8 downsample so only real water bodies survive.
+function lakeMask(img) {
+  const sc = Math.max(2, Math.min(8, Math.round(img.width / 420))), w = Math.max(8, Math.floor(img.width / sc)), h = Math.max(8, Math.floor(img.height / sc));
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(img, 0, 0, w, h);
+  const d = x.getImageData(0, 0, w, h).data, n = w * h;
+  const lum = new Float32Array(n), ok = new Uint8Array(n);
+  for (let i = 0; i < n; i++) { lum[i] = 0.299 * d[i * 4] + 0.587 * d[i * 4 + 1] + 0.114 * d[i * 4 + 2]; }
+  const R = 2;
+  for (let y = R; y < h - R; y++) for (let xx = R; xx < w - R; xx++) {
+    let s1 = 0, s2 = 0, k = 0;
+    for (let dy = -R; dy <= R; dy++) for (let dx = -R; dx <= R; dx++) { const v = lum[(y + dy) * w + xx + dx]; s1 += v; s2 += v * v; k++; }
+    const m = s1 / k, sd = Math.sqrt(Math.max(s2 / k - m * m, 0)), i = y * w + xx;
+    ok[i] = lum[i] < 42 && sd < 5 && d[i * 4 + 2] > d[i * 4] * 1.5 && d[i * 4 + 3] > 0 ? 1 : 0;
+  }
+  const erode = (a) => { const o = new Uint8Array(n); for (let y = 1; y < h - 1; y++) for (let xx = 1; xx < w - 1; xx++) { const i = y * w + xx; o[i] = a[i] && a[i - 1] && a[i + 1] && a[i - w] && a[i + w] ? 1 : 0; } return o; };
+  const dilate = (a) => { const o = new Uint8Array(n); for (let y = 1; y < h - 1; y++) for (let xx = 1; xx < w - 1; xx++) { const i = y * w + xx; o[i] = a[i] || a[i - 1] || a[i + 1] || a[i - w] || a[i + w] ? 1 : 0; } return o; };
+  let m = erode(erode(ok));
+  for (let k = 0; k < 6; k++) m = dilate(m);
+  // keep components of at least 50 cells (a lake, not a shadow)
+  const lab = new Int32Array(n), keep = new Uint8Array(n);
+  for (let i = 0; i < n; i++) {
+    if (!m[i] || lab[i]) continue;
+    const q = [i]; lab[i] = 1; const comp = [];
+    while (q.length) { const j = q.pop(); comp.push(j); for (const t of [j - 1, j + 1, j - w, j + w]) if (t >= 0 && t < n && m[t] && !lab[t] && Math.abs((t % w) - (j % w)) <= 1) { lab[t] = 1; q.push(t); } }
+    if (comp.length >= 50) for (const j of comp) keep[j] = 1;
+  }
+  const out = x.createImageData(w, h);
+  for (let i = 0; i < n; i++) { out.data[i * 4] = out.data[i * 4 + 1] = out.data[i * 4 + 2] = 255; out.data[i * 4 + 3] = keep[i] ? 255 : 0; }
+  x.putImageData(out, 0, 0);
+  
+  return c;
+}
+
 function landMasked(img0, bbox, land, base, extra) {
   const img = punchHoles(img0);
   const c = document.createElement('canvas');
@@ -154,6 +190,22 @@ function landMasked(img0, bbox, land, base, extra) {
     }
   }
   mc.fill('evenodd');
+  // lakes are water: cut them out of the land (close-up imagery of a lake is dark green, not sea-coloured)
+  mc.globalCompositeOperation = 'destination-out';
+  mc.fillStyle = '#fff';
+  for (const f of state.lakes || []) {
+    const gc = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
+    for (const poly of gc) {
+      const [lo0, la0] = poly[0][0];
+      if (poly[0].every(([lo, la]) => lo < w - 0.5 || lo > e + 0.5 || la < s - 0.5 || la > n + 0.5)) continue;
+      mc.beginPath();
+      for (const ring of poly) ring.forEach(([lon, lat], i) => { const x = (lon - w) * sx, y = (n - lat) * sy; if (i === 0) mc.moveTo(x, y); else mc.lineTo(x, y); });
+      mc.fill('evenodd');
+    }
+  }
+  mc.globalCompositeOperation = 'destination-out';
+  { const lm = lakeMask(img); mc.filter = 'blur(6px)'; mc.drawImage(lm, 0, 0, c.width, c.height); mc.filter = 'blur(3px)'; }
+  mc.globalCompositeOperation = 'source-over';
   // land the coastline data lacks (a town on a tiny peninsula): inside the given rings, every pixel
   // that does not look like water counts as land
   if (extra?.length) {
@@ -476,6 +528,8 @@ async function init(tl) {
     loadImg(tl.assets.earth),
   ]);
   state.geo = prepareGeo(c50, c10, l50, l10);
+  // inland lakes (Natural Earth, public domain): water inside the land polygons, so close-up imagery and the sea colour treat them as water
+  state.lakes = await loadJson('/data/cache/ne/ne_10m_lakes.geojson').then((g) => g.features.filter((f) => (f.properties.scalerank ?? 9) <= 8 && f.geometry)).catch(() => []);
   // borders of the past, one set per year used by the history scenes
   state.hist = {};
   for (const [y, url] of Object.entries(tl.assets.hist || {})) state.hist[y] = await loadJson(url);
@@ -496,6 +550,8 @@ async function init(tl) {
     lx.beginPath(); geoPath(eq, lx)(state.geo.land50); lx.fill();
     const ata = state.geo.byId.get('010');
     if (ata) { lx.beginPath(); geoPath(eq, lx)(ata); lx.fill(); }
+    lx.fillStyle = '#000';
+    for (const f of state.lakes) { lx.beginPath(); geoPath(eq, lx)(f); lx.fill(); }
     state.raster.setLand(lc);
   }
   for (const d of tl.assets.detail || []) state.raster.addDetail(d.mask === false ? punchHoles(await loadImg(d.url)) : landMasked(await loadImg(d.url), d.bbox, state.geo.land10, earth, d.landExtra), d.bbox);

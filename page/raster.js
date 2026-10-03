@@ -75,9 +75,14 @@ vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   // sharp close-up imagery: deep river / lake water is almost black, not blue; count it as water
   // unless it is green (forest), so it doesn't break up into dark squares
   water = max(water, flatSea * smoothstep(0.16, 0.08, l) * smoothstep(-0.015, 0.01, cw.b - cw.g * 0.95));
+  // the base texture paints lakes as pure dark green (red and blue ~ 0): never the colour of a forest
+  water = max(water, smoothstep(0.075, 0.04, max(cw.r, cw.b)) * smoothstep(0.19, 0.11, cw.g) * smoothstep(0.02, 0.06, cw.g));
+  // sharp imagery: very dark water that is blue-green rather than leaf-green (lakes seen from Sentinel) is sea-coloured
+  water = max(water, flatSea * smoothstep(0.13, 0.07, l) * smoothstep(0.6, 0.82, cw.b / max(cw.g, 0.004)));
   // dark bluish pixels of sharp imagery (shaded sea, mosaic seams) are sea as well, never black patches
   water = max(water, flatSea * smoothstep(0.34, 0.22, l) * smoothstep(0.0, 0.02, cw.b - max(cw.r, cw.g * 0.97)));
-  water = max(water, smoothstep(0.075, 0.04, l));   // black inland lakes in the base texture are water too
+  water = max(water, smoothstep(0.1, 0.06, l));   // black inland lakes in the base texture are water too
+  water = max(water, smoothstep(0.16, 0.1, l) * smoothstep(-0.012, 0.008, cw.b - cw.g * 0.95));   // dark blue-green lakes (Iznik, Titicaca...) read as water, not as black holes
   water = max(water, openSea);
   // depth ramp: deep water dark teal, continental shelves bright turquoise (the bathymetry carries the map's character)
   vec3 sea = mix(vec3(0.06, 0.28, 0.38), vec3(0.30, 0.68, 0.74), pow(smoothstep(0.035, 0.3, ls), 1.3));
@@ -85,7 +90,8 @@ vec3 grade(vec3 c, vec3 cs, float openSea, vec3 cw, float flatSea) {
   float ll = dot(land, vec3(0.299, 0.587, 0.114));
   // relief: local contrast from the difference to a blurred sample, a touch more saturation, gentle s-curve
   float coast = smoothstep(0.0, 0.05, cs.b - max(cs.r, cs.g * 0.92));   // no relief halo where the blur sees water
-  land = max(land + (c - cs) * 1.1 * (1.0 - coast), vec3(0.0));
+  float dark = smoothstep(0.05, 0.16, dot(cs, vec3(0.299, 0.587, 0.114)));   // no relief boost inside dark patches (lakes, deep shadow)
+  land = max(land + (c - cs) * 1.1 * (1.0 - coast) * dark, vec3(0.0));
   ll = dot(land, vec3(0.299, 0.587, 0.114));
   land = mix(vec3(ll), land, 1.08);
   land = mix(land, land * land * (3.0 - 2.0 * min(land, vec3(1.0))), 0.35);
