@@ -849,12 +849,11 @@
           "until": "lost"
         },
         {
-          "type": "icon",
-          "icon": "art:no_entry",
+          "type": "ban",
+          "icon": "art:car",
+          "size": 130,
           "lat": 49.014,
           "lon": -123.095,
-          "size": 120,
-          "plain": true,
           "at": "closed"
         },
         {

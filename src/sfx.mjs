@@ -188,6 +188,11 @@ export function sfxEvents(tl) {
       case 'link': add(t, 'tick', 0.8); break;
       case 'beam': add(t, 'rise', 0.6); break;
       case 'ping': add(t, 'pop', 0.5); break;
+      case 'ban': add(t + 0.3, 'tick', 0.8); add(t + 0.55, 'thud', 0.45); break;
+      case 'reason': case 'banner': add(t, 'pop', 0.6); break;
+      case 'retext': add(t + (el.strikeAt ?? 0.7), 'tick', 0.8); add(t + (el.strikeAt ?? 0.7) + 0.35, 'pop', 0.6); break;
+      case 'clone': case 'section': case 'radii': case 'protest': add(t, 'whoosh', 0.45); break;
+      case 'wave': add(t, 'rise', 0.5); break;
       case 'counter': {
         const st = el.steps[0];
         const rolls = /\d/.test(String(st.value)) && !/^(1[0-9]|20)\d\d(\b|:)/.test(String(st.value));

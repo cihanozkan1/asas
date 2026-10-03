@@ -8,8 +8,8 @@ import path from 'node:path';
 import { openPage } from '../../src/render.mjs';
 import { ROOT } from '../../src/util.mjs';
 
-export const TEXT = new Set(['label', 'counter', 'year', 'title', 'stamp', 'handstamp', 'pathtext', 'measure', 'timebar', 'bars', 'callout', 'tally', 'timeline', 'clock', 'stat', 'nametag', 'vs']);
-export const VISUAL = new Set(['flag', 'icon', 'art', 'character', 'react', 'question', 'clip', 'photo', 'avatar', 'pin', 'ellipse', 'disc', 'face', 'badge']);
+export const TEXT = new Set(['label', 'counter', 'year', 'title', 'stamp', 'handstamp', 'pathtext', 'measure', 'timebar', 'bars', 'callout', 'tally', 'timeline', 'clock', 'stat', 'nametag', 'vs', 'reason', 'retext']);
+export const VISUAL = new Set(['flag', 'icon', 'art', 'character', 'react', 'question', 'clip', 'photo', 'avatar', 'pin', 'ellipse', 'disc', 'face', 'badge', 'ban', 'banner']);
 const COMBOS = [['emoji_collision', 'emoji_fire'], ['emoji_collision', 'emoji_direct-hit'], ['emoji_fire', 'emoji_direct-hit'], ['emoji_rain-cloud', 'emoji_droplet'], ['emoji_snake', 'emoji_mosquito']];
 const LAND_ART = /car\b|bus\b|people|person|tree|mountain|excavator|house|mailbox|wheat|barrel|cow|snowflake|tractor|village|castle|cannon/;
 const SEA_ART = /ship_|ferry|boat|tanker|wave\b/;
@@ -50,11 +50,11 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
         const end = pAll.scenes[e.scene]?.[1];
         if (end != null && !e.keep && t > end + 0.3 && e.op > 0.15 && e.type !== 'route' && e.type !== 'title') hit('ghost', 'error', e.i, `${label(e)} is still visible ${(t - end).toFixed(1)}s after its scene ended`, t);
       }
-      const els = p.els.filter((e) => e.type !== 'route' && e.type !== 'wall' && e.type !== 'bridge' && e.type !== 'crowd');
+      const els = p.els.filter((e) => (e.type !== 'route' || e.mover) && e.type !== 'wall' && e.type !== 'bridge' && e.type !== 'crowd');
       const byIdx = new Map(p.els.map((e) => [e.i, e]));
       for (let a = 0; a < els.length; a++) {
         const A = els[a];
-        const aT = TEXT.has(A.type), aV = VISUAL.has(A.type);
+        const aT = TEXT.has(A.type), aV = VISUAL.has(A.type) || A.mover;
         // off-screen: the thing being talked about is not in the frame
         if (aV || (aT && A.anchored)) {
           const vis = inter(A, { x: 0, y: 0, w: W, h: H }) / Math.max(1, area(A));
@@ -74,7 +74,7 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
         }
         for (let b = a + 1; b < els.length; b++) {
           const B = els[b];
-          const bT = TEXT.has(B.type), bV = VISUAL.has(B.type);
+          const bT = TEXT.has(B.type), bV = VISUAL.has(B.type) || B.mover;
           if (!((aT || aV) && (bT || bV))) continue;
           const f = frac(A, B);
           if (f <= 0) continue;
@@ -95,6 +95,21 @@ export async function frameGate(id, { fps = 5, tl: tlIn = null, dir = null } = {
           const hasFlag = A.type === 'flag' || B.type === 'flag';
           const hasClip = A.type === 'clip' || B.type === 'clip';
           if (f > 0.12) hit('visual-overlap', hasFlag || !hasClip ? 'error' : 'warn', key, `${label(A)} overlaps ${label(B)}`, t, cross);
+        }
+      }
+      // a ship / plane sitting on an arrow, a distance line or another vehicle's track reads as a mistake
+      for (const A of els) {
+        if (!A.mover) continue;
+        const box = { x: A.x - 6, y: A.y - 6, w: A.w + 12, h: A.h + 12 };
+        for (const L of p.lines || []) {
+          if (L.i === A.i) continue;
+          if (L.type === 'route' && !L.mover) continue;
+          let on = false;
+          for (let k = 1; k < L.pts.length && !on; k++) {
+            const [x0, y0] = L.pts[k - 1], [x1, y1] = L.pts[k];
+            for (let q = 0; q <= 8; q++) { const x = x0 + ((x1 - x0) * q) / 8, y = y0 + ((y1 - y0) * q) / 8; if (x > box.x && x < box.x + box.w && y > box.y && y < box.y + box.h) { on = true; break; } }
+          }
+          if (on) hit('mover-on-line', 'error', `${A.i}|${L.i}`, `${label(A)} sits on a ${L.type} line`, t);
         }
       }
       // two markers on one spot (a ping plus a pin) look like a glitch

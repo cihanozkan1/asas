@@ -1394,8 +1394,10 @@ function drawHighlight(ctx, path, el, life, mix, t) {
     else ctx.fillRect(b[0][0], b[1][1] - (b[1][1] - b[0][1]) * frac, b[1][0] - b[0][0], (b[1][1] - b[0][1]) * frac);
     ctx.restore();
   } else {
+    if (el.cut) { ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 12; }   // paper cut-out: the shape lifts off the map
     ctx.fillStyle = st.fill || '#f07a1a';
     ctx.fill();
+    if (el.cut) { ctx.shadowColor = 'transparent'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#fff8ea'; ctx.lineWidth = 5; ctx.stroke(); }
     if (el.pattern === 'hatch') {
       ctx.clip();
       ctx.strokeStyle = 'rgba(255,255,255,0.25)';
@@ -2404,7 +2406,7 @@ function updateUi(t) {
         }
         break;
       }
-      case 'photo': case 'avatar': case 'react': case 'timebar': case 'orbit': case 'handstamp': case 'lens': case 'tally': case 'clip': {
+      case 'photo': case 'avatar': case 'react': case 'timebar': case 'orbit': case 'handstamp': case 'lens': case 'tally': case 'clip': case 'ban': case 'reason': case 'retext': case 'banner': {
         const tw = state.X.anim(el, inner, life, t);
         scale *= tw.scale; rot += tw.rot; opacity *= tw.opacity; x += tw.dx; y += tw.dy;
         break;
@@ -2955,7 +2957,7 @@ function probe(minOp = 0.5) {
     if (!(op > minOp)) return;
     const r = (el._inner || el._node).getBoundingClientRect();
     if (r.width < 2 || r.height < 2) return;
-    out.push({ i, type: el.type, name: el.name ?? el.code ?? el.icon ?? '', anchored: el.lat != null || el.points != null, keep: !!(el._merged || el._hold), cLand: ['icon', 'art', 'clip'].includes(el.type) && el.lat != null && state.geo?.land10 && state.proj?.invert ? (() => { const q = state.proj.invert([r.left + r.width / 2, r.top + r.height / 2]); return q ? geoContains(state.geo.land10, q) : null; })() : null,
+    out.push({ i, type: el.type, mover: !!(el.type === 'route' && el.mover), name: el.name ?? el.code ?? el.icon ?? '', anchored: el.lat != null || el.points != null, keep: !!(el._merged || el._hold), cLand: ['icon', 'art', 'clip'].includes(el.type) && el.lat != null && state.geo?.land10 && state.proj?.invert ? (() => { const q = state.proj.invert([r.left + r.width / 2, r.top + r.height / 2]); return q ? geoContains(state.geo.land10, q) : null; })() : null,
       onLand: el.lat != null && ['clip', 'icon', 'art', 'character', 'flag'].includes(el.type) && state.geo?.land10 ? geoContains(state.geo.land10, [el.lon, el.lat]) : null, text: String(el.text ?? el.value ?? el.label ?? el.steps?.[0]?.value ?? el.id ?? ''), scene: el.scene, start: el.start, end: el.end,
       x: r.left, y: r.top, w: r.width, h: r.height, op });
   });
@@ -3010,8 +3012,19 @@ function probe(minOp = 0.5) {
       if (tot && inside / tot > 0.05) hlBoxes.push({ hl: h.i, el: e.i, frac: inside / tot, hlFill: h.fill, hlFlag: h.flag });
     }
   }
+  // thin lines (arrows, distance lines, mover routes) as screen polylines, so the gate can see a ship or plane sitting on one
+  const lines = [];
+  state.tl.elements.forEach((el, i) => {
+    if (t < el.start || t > el.end) return;
+    let geo = null;
+    if ((el.type === 'arrow' || el.type === 'line' || el.type === 'measure') && el.from && el.to) geo = [el.from, el.to].map((p) => [p.lon, p.lat]);
+    else if (el.type === 'route' && el.mover && el._pts) geo = geoSlice(el, 0, Math.max(0.001, routeProgress(el, t)));
+    if (!geo) return;
+    const pts = geo.map((p) => project({ lon: p[0], lat: p[1] })).filter(Boolean);
+    if (pts.length >= 2) lines.push({ i, type: el.type, mover: !!el.mover, pts: pts.filter((_, k) => k % Math.max(1, Math.floor(pts.length / 40)) === 0 || k === pts.length - 1) });
+  });
   const focus = state.view ? { x: state.view.cx - 70, y: state.view.cy - 70, w: 140, h: 140 } : null;
-  return { res: state.res, focus, els: out, cap, scenes: state.tl.scenes.map((s) => [s.start, s.end]), markers, hlPairs, hlBoxes, hlInfo: hl.map((h) => ({ i: h.i, fill: h.fill, flag: h.flag, x: h.x, y: h.y, w: h.bw, h: h.bh })) };
+  return { res: state.res, focus, lines, els: out, cap, scenes: state.tl.scenes.map((s) => [s.start, s.end]), markers, hlPairs, hlBoxes, hlInfo: hl.map((h) => ({ i: h.i, fill: h.fill, flag: h.flag, x: h.x, y: h.y, w: h.bw, h: h.bh })) };
 }
 
 window.GG = { init, frame, probe, fast: (on) => { state.layoutOnly = !!on; } };

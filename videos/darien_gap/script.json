@@ -1801,6 +1801,14 @@
       "text": "Cars have to be shipped around it, by boat.",
       "show": [
         {
+          "type": "ban",
+          "icon": "art:car",
+          "size": 150,
+          "lat": 8.0,
+          "lon": -77.55,
+          "at": "Cars"
+        },
+        {
           "type": "route",
           "points": [
             [

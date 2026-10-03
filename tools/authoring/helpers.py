@@ -566,3 +566,132 @@ def clip(name, at, lat=None, lon=None, size=540, blend=None, screen=None, loop=F
     if screen is not None:
         d['screen'] = list(screen)
     return _put(d, at, kw)
+
+
+# ============================================================================ round 9: the reference-study toolbox
+# One helper per technique of docs/REFERANS_TABLO.md. Use two or three per video, only where the story needs them.
+
+def clone(target, to, at, label=None, color='#ffd60a', **kw):
+    """The same shape at its true size placed somewhere else (size comparison: 'x23 Texas fit in the Pacific'). `to` = (lat, lon)."""
+    d = {'type': 'clone', 'target': target, 'to': list(to), 'color': color}
+    if label:
+        d['label'] = label
+    return _put(d, at, kw)
+
+
+def wave(lat, lon, km, at, color='#5ec8ff', **kw):
+    """Rings that spread to a REAL distance (sound, radar, shock wave) with a dashed edge at the full reach."""
+    return _put({'type': 'wave', 'lat': lat, 'lon': lon, 'km': km, 'color': color}, at, kw)
+
+
+def flood(target, km, lat, lon, at, **kw):
+    """Schematic coastal rise: a water band `km` wide inside the shore of the target (not an elevation model)."""
+    return _put({'type': 'flood', 'target': target, 'km': km, 'lat': lat, 'lon': lon}, at, kw)
+
+
+def section(at, **kw):
+    """Full-screen vector cross-section: sky, water, sea floor, strata, a structure ('tunnel'|'bridge'), a size reference
+    (ref={'kind': 'tower'|'person', 'label': ..}) and dimension lines dims=[{'x','y0','y1','label'}]."""
+    return _put({'type': 'section'}, at, kw)
+
+
+def radii(at, **kw):
+    """Full-screen planet: radius lines from the centre (radii=[{'angle','label','color'}]), marks on the rim, poles flatten."""
+    return _put({'type': 'radii'}, at, kw)
+
+
+def protest(at, **kw):
+    """Silhouette crowd with signs rising from the bottom edge."""
+    return _put({'type': 'protest'}, at, kw)
+
+
+def ban(icon, at, lat=None, lon=None, screen=None, size=160, **kw):
+    """An icon with a red ring and slash drawn over it (no entry / not allowed)."""
+    d = {'type': 'ban', 'icon': icon, 'size': size}
+    if lat is not None:
+        d.update(lat=lat, lon=lon)
+    if screen is not None:
+        d['screen'] = list(screen)
+    return _put(d, at, kw)
+
+
+def reason(n, text, at, **kw):
+    """Numbered reason heading: yellow '1.' + white title (the explainer skeleton)."""
+    return _put({'type': 'reason', 'n': n, 'text': text}, at, kw)
+
+
+def retext(frm, to, at, **kw):
+    """Text that is struck through in red and replaced by the right one."""
+    return _put({'type': 'retext', 'from': frm, 'to': to}, at, kw)
+
+
+def banner(flag, lat, lon, at, size=200, **kw):
+    """A flag hanging from a pole, planted on the map."""
+    return _put({'type': 'banner', 'flag': flag, 'lat': lat, 'lon': lon, 'size': size}, at, kw)
+
+
+def swarm(at, screen=(0.5, 0.45), density=1.0, **kw):
+    return particles('swarm', at, density=density, screen=list(screen), **kw)
+
+
+def ash(at, density=1.0, **kw):
+    return particles('ash', at, density=density, **kw)
+
+
+def choropleth(values, at, ramp=('#fde68a', '#f97316', '#7f1d1d'), **kw):
+    """Colour countries by value. values = {'USA': 330, 'CAN': 40, ...}; returns a list of highlights."""
+    vs = list(values.values())
+    lo, hi = min(vs), max(vs)
+
+    def mix(a, b, f):
+        pa = [int(a[i:i + 2], 16) for i in (1, 3, 5)]
+        pb = [int(b[i:i + 2], 16) for i in (1, 3, 5)]
+        return '#%02x%02x%02x' % tuple(round(x + (y - x) * f) for x, y in zip(pa, pb))
+    out = []
+    for iso, v in values.items():
+        f = (v - lo) / ((hi - lo) or 1) * (len(ramp) - 1)
+        i = min(int(f), len(ramp) - 2)
+        out.append(hl(iso, mix(ramp[i], ramp[i + 1], f - i), at, fillOpacity=kw.get('fillOpacity', 0.78)))
+    return out
+
+
+def regions(colors, at, **kw):
+    """Several regions in their own colours at once. colors = {target: '#hex'}."""
+    extra = {'pattern': kw['pattern']} if kw.get('pattern') else {}
+    return [hl(t, c, at, fillOpacity=kw.get('fillOpacity', 0.7), **extra) for t, c in colors.items()]
+
+
+def takeover(target, frm, to, at, at2, **kw):
+    """The area changes hands: first coloured `frm`, then `to` takes over (a second fill fading in on top)."""
+    return [hl(target, frm, at, fillOpacity=0.7), hl(target, to, at2, fillOpacity=0.8)]
+
+
+def routetext(points, text, at, **kw):
+    """Text that runs along a real route (a distance, a year count)."""
+    return pathtext(text, points, at, **kw)
+
+
+def route_colors(points, stops, at, drawDur=4.0, width=9, **kw):
+    """One road drawn in several colours by section. stops=[(fraction_end, '#hex'), ...]; sections are drawn one after another."""
+    n = len(points) - 1
+    out, a, t0 = [], 0, 0.0
+    for frac, col in stops:
+        b = max(a + 1, round(n * frac))
+        seg = points[a:b + 1]
+        if len(seg) >= 2:
+            d = drawDur * (b - a) / n
+            out_at = at if isinstance(at, str) else (at or 0) + t0
+            out.append(route(seg, out_at, color=col, width=width, drawDur=d, **kw))
+            t0 += d
+        a = b
+    return out
+
+
+def network(lines, at, color='#ffd60a', width=4, drawDur=3.0, **kw):
+    """Many thin routes drawn together (a road or rail network)."""
+    return [route(l, at, color=color, width=width, drawDur=drawDur, **kw) for l in lines]
+
+
+def dialog(lines, lat, lon, at, **kw):
+    """A short chain of speech callouts: lines = [(text, word), ...]."""
+    return [callout(t, lat, lon, w, dx=-150 + 300 * (i % 2), dy=-170 - 120 * (i // 2), **kw) for i, (t, w) in enumerate(lines)]

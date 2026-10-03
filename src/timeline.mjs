@@ -6,7 +6,7 @@ import { normWord } from './util.mjs';
 import { histYearFor, histBorders } from './historical.mjs';
 import { ROOT } from './util.mjs';
 
-const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12], bars: [0.5, 0.3], vs: [0.5, 0.27], timeline: [0.5, 0.24], clock: [0.5, 0.3], timebar: [0.5, 0.26], orbit: [0.5, 0.4], handstamp: [0.5, 0.33], tally: [0.5, 0.26] };
+const SCREEN_DEFAULTS = { year: [0.5, 0.19], stamp: [0.5, 0.33], stat: [0.5, 0.17], title: [0.5, 0.12], bars: [0.5, 0.3], vs: [0.5, 0.27], timeline: [0.5, 0.24], clock: [0.5, 0.3], timebar: [0.5, 0.26], orbit: [0.5, 0.4], handstamp: [0.5, 0.33], tally: [0.5, 0.26], reason: [0.5, 0.2], retext: [0.5, 0.27] };
 let LEAD = 0.08;   // seconds a word-timed element appears before its word (set from config.timing.lead)
 
 function toPt(p) {
@@ -285,6 +285,19 @@ export async function buildTimeline({ script, cfg, preset, narration, videoDir, 
           break;
         case 'react':
           el.src = iconUrl(raw.icon);
+          break;
+        case 'ban':
+          el.src = iconUrl(raw.icon);
+          break;
+        case 'banner':
+          el.src = `/node_modules/flag-icons/flags/4x3/${String(raw.flag).toLowerCase()}.svg`;
+          break;
+        case 'clone':
+          el.target = shortKey(await targetKey(raw.target));
+          el.to = toPt(raw.to);
+          break;
+        case 'flood':
+          el.target = shortKey(await targetKey(raw.target));
           break;
         case 'photo':
           if (!fs.existsSync(path.join(ROOT, 'assets/broll', el.image + '.jpg'))) throw new Error(`Sahne ${i + 1}: assets/broll/${el.image}.jpg yok`);

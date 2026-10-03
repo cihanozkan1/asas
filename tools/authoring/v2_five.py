@@ -101,11 +101,10 @@ if want('istanbul'):
               src=[src('Bridges: 15 July Martyrs (1973), Fatih Sultan Mehmet (1988), Yavuz Sultan Selim (2016); Marmaray undersea rail tunnel opened 2013.', 'Bosphorus',
                        'the 1,074 m (3,524 ft) long 15th July Martyrs Bridge was completed in 1973 ... Fatih Sultan Mehmet (Bosporus II) Bridge ... was completed in 1988 ... the Yavuz Sultan Selim Bridge ... was completed in 2016 ... The Marmaray project, featuring a 13.7 km (8.5 mi) long undersea railway tunnel, opened on 29 October 2013')]),
             S("That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.", [
-                cnt('60 m', 'sixty', size=190, color='#4ade80'),
-                route(TUN, 'tunnel', color='#f97316', width=8, dashed=True, dash=[14, 10], id='tun', mover={'kind': 'icon', 'icon': 'art:train', 'size': 64}, drawDur=2.4, check=False),
-                grade('cold', 'underwater'),
-                ],
-              cam={'follow': 'tun', 'zoom': 200, 'zoomTo': 140, 'duration': 0.9},
+                # vector cross-section: the strait, the tube under the sea floor, its depth
+                section(0.05, structure={'kind': 'tunnel', 'y': 0.77}, coastLabels=['EUROPE', 'ASIA'], waterY=0.4,
+                        dims=[{'x': 0.5, 'y0': 0.4, 'y1': 0.77, 'label': '60 m', 'at': 0.9}], floor=[[0, 0.66], [0.3, 0.7], [0.5, 0.78], [0.7, 0.7], [1, 0.66]])],
+              cam=at_(41.02, 28.99, 140), no_claim=False,
               src=[src('The Marmaray tube was placed 60 metres below sea level.', 'Marmaray', 'The tube was placed 60 metres (197 ft) below sea level, beneath 55 metres (180 ft) of water')]),
             S("And that is the answer to one simple question:", [hl('TUR', 'flag:tr', 0.05, fillOpacity=0.7)],
               cam={'lat': 39.5, 'lon': 32, 'zoom': 2.2, 'duration': 1.6, 'loopIntro': True}, no_claim=True),
@@ -172,7 +171,7 @@ if want('point_roberts'):
                        'Students attending grades 4 and above must commute to Blaine, Washington. This journey requires them to "cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."')]),
             S("In March 2020, the border closed, and the town lost about eighty percent of its business.", [
                 year('2020', 'March', light=True), handstamp('BORDER CLOSED', 'closed', size=92, screen=[0.5, 0.2]),
-                clip('emoji_police-car-light', 'closed', 49.014, -123.035, size=170, loop=True, until='lost'), art('no_entry', 49.014, -123.095, 'closed', size=120), grade('cold', 'March', until=5.5),
+                clip('emoji_police-car-light', 'closed', 49.014, -123.035, size=170, loop=True, until='lost'), ban('art:car', 'closed', lat=49.014, lon=-123.095, size=130), grade('cold', 'March', until=5.5),
                 cnt('-80%', 'eighty', size=200, color='#ff5a5f', screen=[0.5, 0.31])],
               cam=at_(48.99, -123.05, 100, bearing=3), tr='flash',
               src=[src('The border closed to non-essential travel in March 2020; Point Roberts lost 80 percent of its business.', PRW,
@@ -222,7 +221,7 @@ if want('hawaii'):
               src=[src('Hawaii became a US state in 1959.', 'Overthrow_of_the_Hawaiian_Kingdom', 'eventually achieved statehood in 1959')]),
             S("It lies 3,200 kilometers from the US mainland, and it's the only state that is an archipelago.", [
                 arrow((34, -122), (22.5, -153), 'lies', color='#ffd60a'),
-                ship(sea_points((37.8, -122.5), (22.4, -158.8)), 'kilometers', 'cargo', style='cargo', drawDur=2.6, size=110, check=False), cnt('3,200 km', '3,200', size=160), hl(HI, 'flag:us', 'archipelago', fillOpacity=0.85, neon='#ffd60a')],
+                cnt('3,200 km', '3,200', size=160), hl(HI, 'flag:us', 'archipelago', fillOpacity=0.85, neon='#ffd60a')],
               cam=at_(23, -148, 1.4, bearing=-3),
               src=[src('About 2,000 miles (3,200 km) southwest of the US mainland.', 'Hawaii', 'in the Pacific Ocean about 2,000 miles (3,200 km) southwest of the U.S. mainland'),
                    src('Hawaii is the only state that is an archipelago.', 'Hawaii', 'the only state not on the North American mainland, the only state that is an archipelago, the only state south of the Tropic of Cancer')]),
@@ -320,6 +319,7 @@ if want('darien_gap'):
               cam=at_(7.9, -77.3, 14, duration=1.2), tr='flash',
               src=[src('Colombian side: Atrato delta marshland; Panamanian side: mountainous rainforest.', DG, "the Colombian side dominated primarily by the river delta of the Atrato River, which creates a flat marshland at least 80 km (50 mi) wide")]),
             S("Cars have to be shipped around it, by boat.", [
+                ban('art:car', 'Cars', lat=8.0, lon=-77.55, size=150),
                 ship(SHIP, 'shipped', 'car', style='cargo', emblem='#ffd60a', drawDur=1.5, size=110)],
               cam=at_(9.2, -78.0, 8, duration=0.5),
               src=[src('Vehicles must be shipped by cargo vessel to get around the gap.', PAH, 'vehicles must be shipped by cargo vessel to bridge this section')]),

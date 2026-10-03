@@ -1425,60 +1425,54 @@
       "text": "That tunnel runs sixty meters below sea level, so a train can cross between continents underwater.",
       "show": [
         {
-          "type": "counter",
-          "steps": [
+          "type": "section",
+          "at": 0.05,
+          "structure": {
+            "kind": "tunnel",
+            "y": 0.77
+          },
+          "coastLabels": [
+            "EUROPE",
+            "ASIA"
+          ],
+          "waterY": 0.4,
+          "dims": [
             {
-              "at": "sixty",
-              "value": "60 m"
+              "x": 0.5,
+              "y0": 0.4,
+              "y1": 0.77,
+              "label": "60 m",
+              "at": 0.9
             }
           ],
-          "size": 190,
-          "color": "#4ade80"
-        },
-        {
-          "type": "route",
-          "points": [
+          "floor": [
             [
-              41.015,
-              28.977
+              0,
+              0.66
             ],
             [
-              41.0195,
-              28.996
+              0.3,
+              0.7
             ],
             [
-              41.0255,
-              29.015
+              0.5,
+              0.78
+            ],
+            [
+              0.7,
+              0.7
+            ],
+            [
+              1,
+              0.66
             ]
-          ],
-          "color": "#f97316",
-          "width": 8,
-          "at": "tunnel",
-          "dashed": true,
-          "dash": [
-            14,
-            10
-          ],
-          "id": "tun",
-          "mover": {
-            "kind": "icon",
-            "icon": "art:train",
-            "size": 64
-          },
-          "drawDur": 2.4,
-          "check": false
-        },
-        {
-          "type": "grade",
-          "mode": "cold",
-          "at": "underwater"
+          ]
         }
       ],
       "camera": {
-        "follow": "tun",
-        "zoom": 200,
-        "zoomTo": 140,
-        "duration": 0.9
+        "lat": 41.02,
+        "lon": 28.99,
+        "zoom": 140
       },
       "sources": [
         {

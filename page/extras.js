@@ -9,6 +9,7 @@
 //   fxHtml(t)              full-screen transition overlays for the new transitions
 //   grade(t)               CSS filter string of active `grade` elements
 import { geoPath, geoInterpolate, geoDistance } from 'd3-geo';
+import { makeExtras2, TYPES as TYPES2 } from './extras2.js';
 
 const TAU = Math.PI * 2;
 
@@ -394,6 +395,24 @@ export function makeExtras(S) {
         const g = ctx.createLinearGradient(x, y, x + len, y);
         g.addColorStop(0, 'rgba(196,150,90,0)'); g.addColorStop(1, `rgba(196,150,90,${0.22 + 0.2 * h2})`);
         ctx.fillStyle = g; ctx.fillRect(x, y, len, 2 + h * 4);
+      }
+    } else if (kind === 'swarm') {
+      // a buzzing cloud (flies, locusts, mosquitoes) drifting over the spot
+      const n = Math.round(90 * dens), cx = (el.screen?.[0] ?? 0.5) * W, cy = (el.screen?.[1] ?? 0.45) * H;
+      for (let i = 0; i < n; i++) {
+        const h = hash01(i * 3.7 + 1), h2 = hash01(i * 5.1 + 2), a = t * (1.2 + h * 2.2) + i;
+        const x = cx + Math.cos(a) * (60 + 380 * h2) + Math.sin(t * 0.7 + i) * 60, y = cy + Math.sin(a * 1.3) * (40 + 260 * h);
+        ctx.fillStyle = 'rgba(25,25,25,.9)'; ctx.beginPath(); ctx.arc(x, y, 3 + h2 * 2.5, 0, TAU); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.fillRect(x - 5, y - 4, 4, 2); ctx.fillRect(x + 1, y - 4, 4, 2);
+      }
+    } else if (kind === 'ash') {
+      // fallout: grey flakes sinking slowly
+      const n = Math.round(110 * dens);
+      for (let i = 0; i < n; i++) {
+        const h = hash01(i * 3.7 + 1), h2 = hash01(i * 5.1 + 2), h3 = hash01(i * 9.3 + 3);
+        const x = ((h * W + Math.sin(t * 0.8 + i) * 26) % W + W) % W, y = ((h2 * H + t * (30 + h3 * 50)) % (H + 20)) - 10;
+        ctx.fillStyle = `rgba(${150 + 60 * h3 | 0},${150 + 60 * h3 | 0},${150 + 60 * h3 | 0},${0.45 + 0.4 * h})`;
+        ctx.beginPath(); ctx.ellipse(x, y, 2 + h2 * 4, 1.5 + h * 2.5, h * 3, 0, TAU); ctx.fill();
       }
     } else if (kind === 'embers') {
       const n = Math.round(80 * dens);
@@ -1041,5 +1060,13 @@ export function makeExtras(S) {
     return parts.join(' ');
   }
 
-  return { prepare, drawGeo, drawUnder, drawOver, html, anim, fxHtml, grade, wallBreaches, shakeAt };
+  // round-9 toolbox (extras2.js): merged in front of the originals
+  const X2 = makeExtras2(S);
+  const w = (a, b) => (...args) => { a(...args); b(...args); };
+  return {
+    prepare: w(prepare, X2.prepare), drawGeo: w(drawGeo, X2.drawGeo), drawUnder, drawOver: w(drawOver, X2.drawOver),
+    html: (el) => html(el) ?? X2.html(el),
+    anim: (el, inner, life, t) => (TYPES2.includes(el.type) ? X2.anim(el, inner, life, t) : anim(el, inner, life, t)),
+    fxHtml: (t) => { const a = fxHtml(t), b = X2.fxHtml(t); return { html: a.html + b, blur: a.blur }; },
+    grade, wallBreaches, shakeAt };
 }

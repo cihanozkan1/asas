@@ -1,0 +1,250 @@
+{
+  "id": "_lab9",
+  "style": "geo",
+  "meta": {
+    "title": "lab",
+    "description": "lab",
+    "pinnedComment": [
+      "a",
+      "b",
+      "c"
+    ],
+    "tags": [
+      "lab"
+    ]
+  },
+  "scenes": [
+    {
+      "era": "now",
+      "text": "Texas is big, and about twenty three of them would fit here.",
+      "show": [
+        {
+          "type": "clone",
+          "target": "USA",
+          "to": [
+            0,
+            -150
+          ],
+          "color": "#ffd60a",
+          "label": "x23",
+          "at": "twenty"
+        }
+      ],
+      "camera": {
+        "lat": 10,
+        "lon": -120,
+        "zoom": 1.4
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Sound reaches four hundred kilometers from the coast.",
+      "show": [
+        {
+          "type": "wave",
+          "lat": 25,
+          "lon": -90,
+          "km": 400,
+          "color": "#5ec8ff",
+          "at": 0.3
+        }
+      ],
+      "camera": {
+        "lat": 25,
+        "lon": -90,
+        "zoom": 6
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "The water creeps twenty kilometers inland along the coast.",
+      "show": [
+        {
+          "type": "flood",
+          "target": "NLD",
+          "km": 25,
+          "lat": 52.3,
+          "lon": 5.0,
+          "at": 0.3
+        }
+      ],
+      "camera": {
+        "lat": 52.3,
+        "lon": 5.0,
+        "zoom": 40
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Sixty meters below the sea, a tunnel carries a train.",
+      "show": [
+        {
+          "type": "section",
+          "at": 0.1,
+          "structure": {
+            "kind": "tunnel",
+            "y": 0.76
+          },
+          "ref": {
+            "kind": "tower",
+            "x": 0.5,
+            "base": 0.58,
+            "h": 0.16,
+            "label": "Eiffel"
+          },
+          "dims": [
+            {
+              "x": 0.12,
+              "y0": 0.42,
+              "y1": 0.76,
+              "label": "60 m"
+            }
+          ],
+          "coastLabels": [
+            "EUROPE",
+            "ASIA"
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 41,
+        "lon": 29,
+        "zoom": 20
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "The poles are flatter than the equator.",
+      "show": [
+        {
+          "type": "radii",
+          "at": 0.1,
+          "radii": [
+            {
+              "angle": 90,
+              "label": "6,357 km",
+              "color": "#4ea1ff"
+            },
+            {
+              "angle": 0,
+              "label": "6,378 km",
+              "color": "#ff5a5f"
+            }
+          ],
+          "marks": [
+            {
+              "angle": 25,
+              "label": "Chimborazo"
+            }
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 0,
+        "lon": -78,
+        "zoom": 3
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "The crowd took to the streets in protest.",
+      "show": [
+        {
+          "type": "protest",
+          "at": 0.1,
+          "count": 14
+        },
+        {
+          "type": "reason",
+          "n": 1,
+          "text": "Geography",
+          "at": 0.2,
+          "screen": [
+            0.5,
+            0.18
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 40.7,
+        "lon": -74,
+        "zoom": 40
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "Cars cannot cross, so it is no entry for vehicles.",
+      "show": [
+        {
+          "type": "ban",
+          "icon": "art:car",
+          "size": 200,
+          "lat": 8.2,
+          "lon": -77.5,
+          "at": 0.3
+        },
+        {
+          "type": "banner",
+          "flag": "us",
+          "lat": 8.4,
+          "lon": -77.0,
+          "size": 200,
+          "at": 0.5
+        },
+        {
+          "type": "retext",
+          "from": "Holland",
+          "to": "Netherlands",
+          "at": 0.4,
+          "screen": [
+            0.5,
+            0.3
+          ]
+        }
+      ],
+      "camera": {
+        "lat": 8.2,
+        "lon": -77.4,
+        "zoom": 10
+      },
+      "noClaim": true
+    },
+    {
+      "era": "now",
+      "text": "A swarm of flies, cut out of paper.",
+      "show": [
+        {
+          "type": "particles",
+          "kind": "swarm",
+          "at": 0.1,
+          "density": 1.0,
+          "screen": [
+            0.5,
+            0.45
+          ]
+        },
+        {
+          "type": "highlight",
+          "target": "PAN",
+          "fill": "#f97316",
+          "at": 0.1,
+          "cut": true
+        }
+      ],
+      "camera": {
+        "lat": 8.5,
+        "lon": -80,
+        "zoom": 8
+      },
+      "transition": "curl",
+      "noClaim": true
+    }
+  ],
+  "v2": true
+}
